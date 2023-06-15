@@ -1,0 +1,1 @@
+Feature/&MartialChampionSuperiorCriticalDescription=당신의 무기 공격은 18, 19 또는 20의 굴림에서 치명타를 기록합니다.

@@ -246,8 +246,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 return false;
             }
 
-            return helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                ActionDefinitions.ActionStatus.Available && action.RolledSaveThrow;
+            return helper.CanReact() && action.RolledSaveThrow;
         }
 
         internal override bool TryModifyRoll(

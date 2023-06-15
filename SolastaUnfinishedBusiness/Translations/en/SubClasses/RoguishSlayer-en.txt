@@ -1,8 +1,8 @@
-﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Chain of Execution
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=You are marked by the Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Slayer's Mark
-Feature/&FeatureRoguishSlayerChainOfExecutionDescription=Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by half your total sneak dice (rounded up), until the end of your next turn.
 Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Chain of Execution
 Feature/&FeatureRoguishSlayerEliminationDescription=Starting at 3rd level, you are at your deadliest when you get the drop on your enemies. You have advantage on attack rolls against any creature that hasn't taken a turn in the combat yet. In addition, any hit you score against a creature that is surprised is a critical hit.
 Feature/&FeatureRoguishSlayerEliminationTitle=Elimination

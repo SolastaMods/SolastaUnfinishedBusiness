@@ -1,0 +1,233 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "a944fe7bb7ff48f478b874b9530818ea",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC3_ElvenSettlement_DragonsLair",
+      "id": 2933960512,
+      "guid": "DF632F6B-3026-4013-AEDA-7D09D7ACA5FB",
+      "name": "DF632F6B-3026-4013-AEDA-7D09D7ACA5FB"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.4716981,
+      "g": 0.4716981,
+      "b": 0.4716981,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.5,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC3_ElvenSettlementDragonLair_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.831393,
+        "b": 0.6226415,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.6537648,
+        "b": 0.2735849,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.482352972,
+        "b": 0.10980393,
+        "a": 1.0
+      },
+      "globalSunIntensity": 2.5,
+      "sunDirection": -542.5,
+      "sunTilt": 8.8,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.237184078,
+        "g": 0.42333433,
+        "b": 0.6132076,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 0.9,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 1.79,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.536311865,
+        "g": 0.702118158,
+        "b": 0.8679245,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.764151,
+        "g": 0.7277584,
+        "b": 0.616367042,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7264151,
+        "g": 0.546778262,
+        "b": 0.489987552,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.407573849,
+        "g": 0.4525288,
+        "b": 0.6698113,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.35,
+      "nightAtmosphereThickness": 0.5,
+      "name": "DLC3_ElvenSettlementDragonLair_DayCycleProfile"
+    },
+    "name": "DLC3_ElvenSettlementDragonLair_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_UnchartedTitle",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_UnchartedDescription",
+    "knownTitle": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_KnownTitle",
+    "knownDescription": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_KnownDescription",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_ExploredTitle",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_ExploredDescription"
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": true,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": true,
+  "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_UnchartedTitle",
+    "description": "Map/&Location_Presentation_DLC3_ElvenSettlementsDeepForest_UnchartedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9b18bb3dae76a9b479e76a075062e96f",
+      "m_SubObjectName": "DLC3_ElvenSettlementDragonLair",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "11a4bf821dfa82847a69465bc5d52f15",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_ElvenSettlementDragonLair_LocationDB"
+}

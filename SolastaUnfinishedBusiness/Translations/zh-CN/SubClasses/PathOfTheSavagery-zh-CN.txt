@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=你在所有攻击中都处于劣势。
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=痛苦创伤
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=你的重击威胁范围增加1点
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=肆虐暴行
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=从3级开始，你可以双持非轻型近战武器，并将你的攻击调整值添加到副手攻击中。

@@ -1,0 +1,223 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Construct",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
+  "alignment": "Neutral",
+  "armorClass": 17,
+  "armor": "",
+  "hitDice": 17,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 58,
+  "standardHitPoints": 178,
+  "abilityScores": [
+    22,
+    9,
+    20,
+    3,
+    11,
+    1
+  ],
+  "savingThrowScores": [],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:StoneGolemDecisions:0e238f38976b8b849ad28cc2cd420bd9",
+  "threatEvaluatorDefinition": null,
+  "languages": [],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 62.0,
+  "challengeRating": 10.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Golem_Stone_loot_drop:1d8bbae67e1d32448bee8a6a232b8679",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
+    "Definition:DamageAffinityBludgeoningImmunity_except_magical:78ea11738d3e10345a5d3bc71e1899e2",
+    "Definition:DamageAffinitySlashingImmunity_except_magical:188cb95c327e56e4093239b4d4fc2a8c",
+    "Definition:DamageAffinityPiercingImmunity_except_magical:a4fa74652b5aee6448c5c4226cc4556a",
+    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
+    "Definition:ConditionAffinityCharmImmunityHypnoticPattern:566f797ed2499ed46afb4754192b65f1",
+    "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
+    "Definition:ConditionAffinityProtectedFromEvilCharmImmunity:bf41fdbba71ead741a2031129b024627",
+    "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
+    "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:PowerStoneGolemSlow:ff783d4226814134ebd7897f26fe36a8"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_Golem_Stone_Slam:e34082f8aa63f13429b1210fd96ab69c"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 100,
+  "height": 10,
+  "weight": 1000,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "Full",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -55.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "cc9c0203ede95b7468ddc615a31d2bb7",
+    "m_SubObjectName": "Golem_Stone",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "950f2d4a8bd6ff04aa1056cbddc9f63a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "f20165a4798e69a4fa8e9ae043b93ba1",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 1.0,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 1.0,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&StoneGolem_Title",
+    "description": "Monster/&Golem_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7be75b0256dd52d4b966690473eb8424",
+      "m_SubObjectName": "CustomPortrait_Golem_Stone",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "aeae806c5a749124d9c91df49bef7941",
+  "contentPack": "PalaceOfIce",
+  "name": "Golem_Stone_POI_ONLY"
+}

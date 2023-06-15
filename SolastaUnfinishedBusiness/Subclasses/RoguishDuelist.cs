@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -18,7 +17,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishDuelist : AbstractSubclass
 {
-    private const string Name = "RoguishDuelist";
+    internal const string Name = "RoguishDuelist";
+    internal const string ConditionReflexiveParry = $"Condition{Name}ReflexiveParry";
     private const string SureFooted = "SureFooted";
     private const string MasterDuelist = "MasterDuelist";
 
@@ -27,12 +27,13 @@ internal sealed class RoguishDuelist : AbstractSubclass
         var additionalDamageDaringDuel = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageRogueSneakAttack, $"AdditionalDamage{Name}DaringDuel")
             .SetGuiPresentation(Category.Feature)
-            // need to set next 3 even with a template as builder clears them out
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn) // yes Once Per Turn off sneak attack pattern
+            .SetCustomSubFeatures(new RogueHolder())
             .AddToDB();
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
@@ -58,10 +59,11 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         var conditionReflexiveParry = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ReflexiveParry")
+            .Create(ConditionReflexiveParry)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityReflexiveParry = FeatureDefinitionBuilder
@@ -70,15 +72,13 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         actionAffinityReflexiveParry.SetCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedReflexiveParty(actionAffinityReflexiveParry, conditionReflexiveParry));
-
-        FeatureDefinitionActionAffinitys.ActionAffinityUncannyDodge.SetCustomSubFeatures(
-            new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAnyOfConditions(conditionReflexiveParry.Name)));
+            new PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty(actionAffinityReflexiveParry,
+                conditionReflexiveParry));
 
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")
             .SetGuiPresentation($"FeatureSet{Name}MasterDuelist", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 2)
             .AddToDB();
 
         var featureMasterDuelist = FeatureDefinitionBuilder
@@ -112,17 +112,22 @@ internal sealed class RoguishDuelist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    private sealed class RogueHolder : IClassHoldingFeature
+    {
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+    }
+
     //
     // Reflexive Party
     //
 
-    private sealed class PhysicalAttackBeforeHitConfirmedReflexiveParty : IPhysicalAttackBeforeHitConfirmed,
+    private sealed class PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty : IPhysicalAttackBeforeHitConfirmedOnMe,
         IReactToAttackOnMeFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackBeforeHitConfirmedReflexiveParty(
+        public PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty(
             FeatureDefinition featureDefinition,
             ConditionDefinition conditionDefinition)
         {
@@ -145,7 +150,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasAnyConditionOfType(
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDyingOrUnconscious ||
+                rulesetDefender.HasAnyConditionOfType(
                     _conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
@@ -167,6 +174,11 @@ internal sealed class RoguishDuelist : AbstractSubclass
             ActionModifier modifier)
         {
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            if (!me.CanAct())
             {
                 yield break;
             }
@@ -202,13 +214,17 @@ internal sealed class RoguishDuelist : AbstractSubclass
             _power = power;
         }
 
-        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var character = me.RulesetCharacter;
+            var rulesetAttacker = me.RulesetCharacter;
 
-            if (character == null || character.GetRemainingPowerCharges(_power) <= 0)
+            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0)
             {
                 yield break;
             }
@@ -236,24 +252,43 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            character.RollAttack(
+            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+
+            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+            var rollCaption = action.AttackRoll == 1
+                ? "Feedback/&RollCheckCriticalFailureTitle"
+                : "Feedback/&CriticalAttackFailureOutcome";
+
+            GameConsoleHelper.LogCharacterUsedPower(
+                rulesetAttacker,
+                _power,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+
+            var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                attackModifier.ignoreAdvantage,
+                false,
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
                 attackMode.ranged,
-                false, // check this
+                false,
                 attackModifier.attackRollModifier,
                 out var outcome,
-                out _,
+                out var successDelta,
                 -1,
-                false);
+                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                true);
 
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.attackAdvantageTrends =
+                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
             action.AttackRollOutcome = outcome;
-
-            GameConsoleHelper.LogCharacterUsedPower(character, _power);
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
         }
     }
 }

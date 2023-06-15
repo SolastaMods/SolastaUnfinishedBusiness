@@ -1,12 +1,320 @@
 ﻿CHANGES:
 
+1.5.52.5 (re-release):
+
+ATTENTION: 
+
+- TA will release a new patch this week. This version should work there
+- in transit this week so next release won't happen until at least Friday [wish I had a SteamDeck ;-(]
+
+CHANGES:
+
+- added hidden setting to enable experimental flanking rules [by @andargor]
+- fixed Paladin ranged attack soft locking the combat
+
+1.5.52.4:
+
+ATTENTION: 
+
+- TA will release a new patch this week. This version should work there
+- in transit this week so next release won't happen until at least Friday [wish I had a SteamDeck ;-(]
+
+CHANGES:
+
+- added hidden setting to enable experimental flanking rules [by @andargor]
+- fixed Paladin ranged attack soft locking the combat
+
+1.5.52.3:
+
+- added Oligath race [by Otearaisu]
+- changed Oath of Hammers to Oath of Thunders [still beta and incomplete]
+- fixed Circle of the Ancient Forest missing the regrowth power
+- fixed Flanking rules miscalculating against larger targets
+- fixed Ready feat skipping next contender turn
+- fixed War Dancer momentum extra attacks interactions
+- fixed Widen Spell increasing AoE size inconsistently
+
+1.5.52.2:
+
+- added Oath of Hammer subclass [beta, only level 3 implemented so far]
+- added Oath of Hatred auto prepared spells at level 17th
+- added optional flanking rules setting for reach attacks
+- fixed damage roll modifier applying damage twice when from an attribute modifier [Way of Survival]
+- fixed formation settings templates to always have a hero at pos (1,3) to avoid odd looting behavior
+- refactored reduce damage feature to work in all damage scenarios [Bladedancer]
+- removed fix on Aura of Righteousness after TA changed power description
+ 
+1.5.52.1:
+
+- added Innovation Vivisectionist subclass [looking for feedback]
+- changed flanking rules to be as tabletop, and added a separate higher ground house rule
+- changed Soulblade's summon pact weapon to use a bonus action instead of a free one
+- fixed custom weapons not getting the proper bonuses to hit and to damage
+- fixed Haste spell not allowing the sequence attack / cast spell
+- fixed Path of the Savagery not using strength on ability checks from level 14th
+- fixed Path of the Savagery triggering critical threshold increase on misses
+- fixed Piercer feat trying to reroll D1s
+- fixed target selection panel not closing after casting some targeted spells through invocations
+- fixed Shadow Blade spell granting advantage to any attack if blade in hands
+- improved flanking rules to highlight advantage on hovering cursor tooltip
+- improved integration between Potent Spellcaster and Spell Sniper feats
+- improved Soulblade's soul hex to allow retargeting after target dies
+- removed grievous wound from Path of the Savagery wrath and fury feature
+- removed "Make all wildshape medium in size" setting now that TA coded it officially
+
+1.5.52.0:
+
+- fixed Soul Hex applying bonus damage and critical threshold against any target instead of cursed creature only
+- fixed Spell Sniper feats to grant 2 cantrips as stated in description
+- improved enchant weapon type powers to consider two handed ranged or polearm expert bonus attacks
+- improved flanking rules to check for a line that crosses the front and back of the target for triggering
+- improved how Poisoner feat adds bonus action to use poisons
+
+1.5.49.7:
+
+- added Gauntlet support to Dual Flurry triggering logic
+- added "Add all dice from base weapon damage" setting for weapons with 2+ dice
+- fixed minor issues on Fairy's flight, and campaigns' translator
+
+1.5.49.6:
+
+- added a hidden setting, on by default, to allow a full level up process on POI as current one skips unlearn
+- fixed custom weapons not getting scale applied and also improved their models for something more magical
+- fixed patch to allow upcasting summons from spells on war lists as previous wasn't consuming slots
+- fixed Sentinel reaction not processing correctly after adding desync protection changes
+- improved Chain Master abilities to also work off combat [by HIEROT]
+- improved Fairy's flight power which was still visible when active
+- improved Path of the Yeoman to validate long bow on the attack mode instead of the wielded weapon
+- improved Potent Spell caster feat group to require level 4
+- improved the short rest UI to correctly mark the consumed dice under multiclass
+- removed damage dice progression from major and minor elemental infusions
+- removed "remove identification requirements" setting in favor of the vanilla one
+- updated Arcanist Mark's detonation text to include target and damage value
+- updated campaigns' translator to consider new collections added to DM on POI DLC [by MagicSkySword]
+
+1.5.49.5:
+
+- added setting "Fix Asian languages' game UI text wrap" by @magicSword
+- changed major and minor elemental infusions to scale with character level
+- fixed war lists not upcasting summons [College of Life / Dead Master build]
+- fixed War Magic not hiding power on hero action panel
+
+1.5.49.4:
+
+- fixed additional sources of null exceptions all over the code base [aksha fight, attacks of opportunity, etc.]
+- fixed remove on fire light source logic not considering extinguish action [didn't even know that was a thing]
+- fixed shallow copy issues not triggering the break free action [in other words, web spell is fine again]
+
+1.5.49.3:
+
+- added setting "Enable logging invalid references in user campaigns"
+- added unofficial fix to Oath of Jugement's aura of righteousness context
+- added unofficial fix to Swiftblade's battle focus context
+- changed Blade Mastery to grant +1 AC when wielding any of the weapons
+- fixed additional sources of desyncs in multiplayer session
+- fixed Bounded Ice and Web conditions not setting parent as restrained
+- fixed Dual Flurry not checking for attack outcome
+- fixed Widen Spell not allowing spells with area effects
+
+1.5.49.2:
+
+ATTENTION: RESPEC any Gnome or Tiefling created before May, 25th
+
+- added setting "Don't Display Helmets"
+- added setting "Enable Flanking Rules"
+- fixed Blade Ward to work with Share Spells
+- fixed Dual Flurry to work with Shield Expert
+- removed mod Gnome race in favor of vanilla ones
+- removed mod Tiefling race in favor of vanilla ones
+
+1.5.49.1:
+
+ATTENTION: RESPEC required for Way of the Tempest on or above 11th
+
+- fixed Dual Flurry to only grant the extra attack once per turn
+- fixed game saves not displaying under certain scenarios
+- fixed the distracted condition not granting advantage on attacks
+- fixed the selection of items on mod UI using non EN languages
+- fixed Wizard Dead Master's stack harvest not triggering
+- improved Arcane Fighter and Forceblade empowered weapon
+- improved Dual Flurry interaction with Flurry of Blows
+- improved Way of the Tempest overall damage output
+
+1.5.49.0:
+
+ATTENTION: manually re-install if you're using unofficial Chinese or Japanese translations
+
+- added bold and thin HanSans Japanese font variations to cover the ones in Solasta
+- added setting to allow War Caster to trigger only on spells or on spells & cantrips
+- added unofficial Chinese translations with correct nouns translations and other fixes
+- changed Japanese atlas font size to 1024 x 1024 to reduce mod payload size
+- fixed Elemental Adept interaction with summon effect proxy forms attack damage types
+- fixed null exception when casting Greater Restoration and similar effects
+- fixed Thorny Vines to not enforce disadvantage within enemy melee reach
+
+1.5.48.1:
+
+- fixed mod warning
+
+1.5.48.0:
+
+- added Devil's Tongue Tiefling subrace
+- added "Gameplay > Tools > Disable unofficial translations" setting
+- added support to unofficial Japanese translations [need help to improve them]
+- fixed Blessed Souls not validating Clerics and Paladins but Rangers and Rogues [copy and paste god struck again]
+- changed Spell Shield's war caster to also trigger when casting cantrips
+- fixed custom weapons added through crafting context not having proper scale [because size matters]
+- fixed Warlock Mystic Arcanum at level 17th not offering level 9th spells [who cares, you'll blast anyways]
+
+1.5.46.4:
+
+- fixed Apothecary, Awaken the Beast, Blessed Soul, Close Quarters, Hardy, Medium Armor, Primal Rage, and Toxicologist not having family tags
+- fixed Alchemist Breath Bombs, Artillerist Flame Thrower, Bounden Ice, Pulse Wave, and Winter Breath not excluding caster
+- fixed RESPEC not finishing the process correctly which was leading to faceless heroes
+- fixed summoned creatures and items not getting preserved on location changes [might need a RESPEC on hero with summon to reset state]
+
+1.5.46.3:
+
+- added additional Halberd, Hand Crossbow, Long Mace, and Pike recipes
+- added "Gameplay > General > Visuals > Use Elf face models on Tieflings" setting
+- added support to unofficial Korean translations [need help to improve them]
+- casted Dimension Door and sent wife to another hemisphere [meh, she took a plane]
+- fixed Call of Charge wrong condition duration, again [here I go towards another hat trick]
+- fixed custom weapons recipes not grouping same ingredient types
+- fixed Find Familiar not retaining your best buddy on location changes
+- fixed Palace of the Ice campaign not working with itsy bitsy teenie weenie parties
+- fixed Warlock pact slots and known cantrips on levels 17th and above
+
+1.5.46.2:
+
+- added Halberd +3, Hand Crossbow +3, Long Mace +3, and Pike +3 weapons and recipes
+- fixed Call for Charge, Piercer, and Steady Aim feats setting incorrect Attacked interruption
+- fixed custom races and spell sniper spells display on inspection panel and caster action UI
+- fixed Devastating Strikes feat to always roll a dice on critical regardless of advantage
+- fixed Eldritch Smite only triggering on critical hits [for the 3rd time, really? Ronaldo's hat trick]
+- fixed Fighter Weapon Specialization not granting +1s if not taken from a Martial Weapon Master
+- fixed forced level up modal on Palace of the Ice campaign not working with parties greater than 4
+- fixed Martial Weapon Master's perfect strikes not checking for active focused strikes
+- fixed multiclass casters not allowing spells relearn when option is checked on mod UI
+- updated custom weapons costs, and recipes duration and DC to be on par with vanilla changes
+
+1.5.46.1:
+
+- fix broken patch from DEBUG to PRODUCTION release
+
+1.5.46.0:
+
+ATTENTION: only accept this after you update your base game to 1.5.x
+
+SPECIAL THANKS TO @HiddenHax FOR ALL RELENTLESS QA WORK OVER THE LAST MONTHS!
+
+- added "Attackers with Darkvision have ADV over defenders without" setting by @HEIROT
+- added Domain Smith's blessed metal at 17th
+- added improved range aura to all mod and vanilla Oaths at 18th
+- added Innovation Armorer's perfected armor at 15th
+- added Martial Weapon Master's deadly accuracy at 15th
+- added Oath of Altruism's exalted protector at 20th
+- added Oath of Ancients' elder champion at 20th
+- added Oath of Dread's aspect of dread at 20th
+- added Oath of Hatred's ardent hate at 20th
+- changed Arcane Weapon and Soul Empower behaviors to be closer to tabletop
+- changed Element Conduit to grant full class level on damage
+- changed Grievous Wound to apply incapacitated instead of disadvantage
+- changed Weapon Master specialization to grant +2 at 9th and +3 at 17th
+- fixed class level dependent feats using character level on checks
+- fixed Eldritch Smite only triggering on critical hits
+- fixed Element Conduit using strength instead of dexterity on saving DC
+- fixed Wight Lord's retaliate power allowing infinite number of uses
+- updated Flexible Races to support new gnomes and tiefling
+
+PALACE OF ICE FAQ:
+
+1. Do Inventors get a customized chest on POI? Yes.
+2. How can I import a campaign if "saves by location" is enabled? First select the location on the Load Game UI.
+3. How can I import heroes above level 12? Enable bypass min/max levels under Gameplay > Tools
+4. Why I cannot load any save with UB Gnomes or Tieflings? You have to acquire the POI DLC from now on to use them.
+5. Why I cannot find a hero or save file? You missed RESPEC alerts in the changelog... Changelog?!? Yea, I know.
+6. Why this mod sucks, it ruined my life, and you are heartless about it? Please reach out to wecare@shred.dept.hell.
+
+************************************************************************************************************************
+* MARK: GAME MINOR VERSION CHANGE FROM 1.4 to 1.5
+************************************************************************************************************************
+
+1.4.33.91:
+
+LAST VERSION UNTIL POI RELEASE DATE. WHAT YOU SHOULD EXPECT:
+
+1. this version can boot in POI all the way to the game screen
+2. UB will get an update a few hours before the official release
+3. don't accept the update until you have game version 1.5.x
+4. update to mod version 1.5.x is mandatory as patches got broken
+
+- added immunity to condition restrained by web to all spiders
+- added support to import modded campaigns in POI
+- changed Hand-and-a-Half to also grant +1 AC
+- fixed Bounden Ice forcing an ability check on break free action
+- fixed heroes getting DEX or STR choice on break free from web or bounded ice
+
+1.4.33.90:
+
+- added Monsters documentation under Interfaces > Dungeon Maker
+- fixed Close Quarters and Devastating Strikes not ignoring ranged
+- fixed Deadeye and Master Duelist combat log attack retry outcome
+- fixed spells with incorrect assigned sprites and schools of magic
+- changed Duelist's master duelist to allow 2 usages per short rest
+
+1.4.33.89:
+
+- added Close Quarters, Exploiter, and Devastating Strikes feats
+- changed Sorcerer Forceblade to grant mana shield at level 1
+- changed "characters on fire should emit light" to also apply to heroes
+- changed Wizard Graviturgist powers and related condition effects
+- simplified feats and feat groups offering on mod UI [re-selection required]
+
+1.4.33.88:
+
+- added "Characters on fire should emit light" house rules setting
+- added Celerity Boon and Gravity Sinkhole [from beta] spells
+- added Path of the Yeoman and Wizard Graviturgist [from beta] subclasses
+- fixed Binding Ice and Toll the Dead spells to behave like tabletop
+- fixed Inventor's quick wit feature displaying an incorrect combat log
+- fixed Merciless fighting style applying an endless fear condition
+
+1.4.33.87:
+
+- added Binding Ice and Gravity Sinkhole spells [beta]
+- added Infernal Constitution feat [need Palace of Ice DLC]
+- added Magnify Gravity, Pulse Wave, and Toll the Dead spells
+- added Wizard Graviturgist subclass [beta]
+- fixed custom features level up panel registering invocations from other heroes
+- fixed Innovation Artillerist's eldritch cannons not offering respective powers
+
+1.4.33.86:
+
+- fixed Shadow Blade spell not granting advantage when enemy not in bright light
+- fixed Way of the Tempest's gathering storm not applying lightning damage
+- changed Circle of the Eternal Grove's seed of life to a bonus action
+- changed Darkweaver's dark assault to trigger on start of rogue's turn
+- changed Path of the Reaver levels 3rd and 6th with healing and hit points buffs
+- changed Weapon Master's momentum to not use a reaction and be once in my turn
+- changed Path of the Reaver for better multiplayer support [RESPEC is required]
+
 1.4.33.85:
 
-- allowed gambits to use highest of str, dex or int on saving difficult ability
+- RESPEC REQUIRED: Arcane Scoundrel [>=13th]
+
+- fixed Crusader's Mantle spell soft locking the combat
+- fixed Soulblade hex not triggering on magical attacks
+- added campaign assets to DM Pro sorting setting [locations, npcs, quests, etc.]
+- changed gambits to use highest of str, dex or int on saving difficult ability
+- changed Shadow Blade spell to only grant adv if target is not on bright light
+- removed Splint Armor support in Items & Crafting [drop from hero before upgrade]
+- tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
+- ungrouped Ape, Black Bear, Brown Bear, Deep Spider and Giant Eagle WS attacks
 
 1.4.33.84:
 
-- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
+- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Duelist [>=13th]
 
 - added Brain Bulwark 4th level spell by [Demonic Duck]
 - fixed a null exception with touch spells cast off combat

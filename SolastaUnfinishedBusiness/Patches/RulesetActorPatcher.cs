@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
@@ -49,6 +50,32 @@ public static class RulesetActorPatcher
             }
 
             category = feature.GetForcedCategory(__instance, newCondition, category);
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(RulesetActor __instance, RulesetCondition newCondition)
+        {
+            SrdAndHouseRulesContext.AddLightSourceIfNeeded(__instance, newCondition);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class InflictDamage_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            ref int rolledDamage,
+            string damageType,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            RollInfo rollInfo
+        )
+        {
+            //PATCH: support for FeatureDefinitionReduceDamage
+            var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
+            rolledDamage -= reduction;
+            rollInfo.modifier -= reduction;
         }
     }
 
@@ -120,20 +147,14 @@ public static class RulesetActorPatcher
                         AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
                     break;
 
+                //Do nothing for default origins
                 case ConditionDefinition.OriginOfAmount.None:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceDamage:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceGain:
-                    break;
                 case ConditionDefinition.OriginOfAmount.AddDice:
-                    break;
                 case ConditionDefinition.OriginOfAmount.Fixed:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceHalfHitPoints:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceSpellAttack:
                     break;
                 default:
@@ -150,6 +171,9 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
         {
+            //PATCH: 
+            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, rulesetCondition);
+
             //PATCH: INotifyConditionRemoval
             if (rulesetCondition == null || rulesetCondition.ConditionDefinition == null)
             {
@@ -208,7 +232,7 @@ public static class RulesetActorPatcher
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>,
                 ulong
-            >(MyEnumerate).Method;
+            >(EnumerateIDamageAffinityProvider).Method;
 
             return instructions
                 .ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
@@ -217,7 +241,7 @@ public static class RulesetActorPatcher
                     new CodeInstruction(OpCodes.Call, myEnumerate));
         }
 
-        private static void MyEnumerate(
+        private static void EnumerateIDamageAffinityProvider(
             RulesetActor actor,
             List<FeatureDefinition> featuresToBrowse,
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
@@ -228,13 +252,23 @@ public static class RulesetActorPatcher
 
             ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(guid, out var rulesetEntity);
 
-            var caster = rulesetEntity as RulesetCharacter;
-            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
-
-            foreach (var feature in features.ToList())
+            var caster = rulesetEntity switch
             {
-                featuresToBrowse.RemoveAll(x =>
-                    x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+                RulesetCharacterEffectProxy rulesetCharacterEffectProxy =>
+                    EffectHelpers.GetCharacterByGuid(rulesetCharacterEffectProxy.ControllerGuid),
+                RulesetCharacter rulesetCharacter => rulesetCharacter,
+                _ => null
+            };
+
+            if (caster != null)
+            {
+                var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
+
+                foreach (var feature in features)
+                {
+                    featuresToBrowse.RemoveAll(x =>
+                        x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+                }
             }
 
             //PATCH: add `IDamageAffinityProvider` from dynamic item properties
@@ -266,21 +300,48 @@ public static class RulesetActorPatcher
         private static void EnumerateIDieRollModificationProvider(
             RulesetCharacter __instance,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition,
-                RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
-            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse);
+            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse, featuresOrigin);
 
-            var damageType = RulesetCharacterPatcher.RollMagicAttack_Patch
-                .CurrentMagicEffect?.EffectDescription.FindFirstDamageForm()?.damageType;
+            var effectForms =
+                RulesetCharacterPatcher.RollMagicAttack_Patch.CurrentMagicEffect?.EffectDescription.EffectForms;
 
-            if (damageType != null)
+            if (effectForms == null)
             {
-                featuresToBrowse.RemoveAll(x =>
-                    x is FeatureDefinitionDieRollModifierDamageTypeDependent y && !y.damageTypes.Contains(damageType));
+                return;
             }
-        }
 
+            var damageTypes = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType)
+                .ToList();
+
+            var proxies = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Summon &&
+                            x.SummonForm.SummonType == SummonForm.Type.EffectProxy)
+                .Select(x =>
+                    DatabaseHelper.GetDefinition<EffectProxyDefinition>(x.SummonForm.EffectProxyDefinitionName))
+                .ToList();
+
+            var damageTypesFromProxyAttacks = proxies
+                .Where(x => x.canAttack && x.attackMethod == RuleDefinitions.ProxyAttackMethod.CasterSpellAbility)
+                .Select(x => x.DamageType).ToList();
+
+            var damageTypesFromProxyAttackPowers = proxies
+                .Where(x => x.attackPower != null)
+                .Select(x => x.attackPower)
+                .SelectMany(x => x.EffectDescription.EffectForms)
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType).ToList();
+
+            damageTypes.AddRange(damageTypesFromProxyAttacks);
+            damageTypes.AddRange(damageTypesFromProxyAttackPowers);
+
+            featuresToBrowse.RemoveAll(x =>
+                x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
+                !y.damageTypes.Intersect(damageTypes).Any());
+        }
 
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -360,8 +421,7 @@ public static class RulesetActorPatcher
             RuleDefinitions.DieType diceType,
             out int firstRoll,
             out int secondRoll,
-            float rollAlterationScore
-        )
+            float rollAlterationScore)
         {
             var karmic = rollAlterationScore != 0.0;
 
@@ -399,9 +459,18 @@ public static class RulesetActorPatcher
 
         // TODO: make this more generic
         [UsedImplicitly]
-        public static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
-            ref bool enumerateFeatures, ref bool canRerollDice)
+        public static void Prefix(RulesetActor __instance,
+            RuleDefinitions.DieType dieType,
+            RuleDefinitions.RollContext rollContext,
+            ref bool enumerateFeatures,
+            ref bool canRerollDice)
         {
+            if (dieType == RuleDefinitions.DieType.D1)
+            {
+                canRerollDice = false;
+                return;
+            }
+
             //PATCH: support for `RoguishRaven` Rogue subclass
             if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
                 rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
@@ -460,12 +529,21 @@ public static class RulesetActorPatcher
                         modifier.Value = level;
                     }
 
-                    //TODO: make this more generic. it supports Ranger Light Bearer subclass
-                    if (modifier.Operation == AttributeModifierOperation.Additive &&
-                        attribute.Key == AttributeDefinitions.HealingPool)
+                    //TODO: make this more generic. it supports Ancient Forest and Light Bearer subclasses
+                    //this will also not work if both subclasses are present...
+                    if (modifier.Operation != AttributeModifierOperation.Additive ||
+                        attribute.Key != AttributeDefinitions.HealingPool)
                     {
-                        modifier.Value = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger) * 5;
+                        continue;
                     }
+
+                    var levels =
+                        hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid,
+                            CircleOfTheAncientForest.Name) +
+                        hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger,
+                            RangerLightBearer.Name);
+
+                    modifier.Value = levels * 5;
                 }
             }
         }

@@ -1,0 +1,12 @@
+Condition/&AllyOfDarkness_Description=恶魔将军已经获得索莱克力量，包括在黑暗中再生的能力。
+Condition/&AllyOfDarkness_Title=黑暗盟友
+Condition/&ChildOfDarkness0_Description=这种索莱克更为强大，能在黑暗中重生。
+Condition/&ChildOfDarkness2_Description=这种索莱克更为强大，能在微光光照下重生，在黑暗中更是如鱼得水。
+Condition/&ChildOfDarkness2_Title=黑暗使者
+Condition/&ChildOfDarkness3_Description=这种索莱克更为强大，能在微光光照下重生，在黑暗中更是如鱼得水。
+Condition/&ChildOfDarkness3_Title=黑暗先知
+Condition/&ChildOfDarkness_ACGain_Title=索莱克身处微光光照或黑暗环境时，可获得额外的 AC。
+Condition/&ChildOfDarkness_AdditionalDamage2_Title=该生物处于微光光照下获得伤害 +2
+Condition/&ChildOfDarkness_AdditionalDamage3_Title=该生物处于微光光照下获得伤害 +3
+Condition/&ChildOfDarkness_Description=这种索莱克更为强大，能在黑暗中重生。
+Condition/&ChildOfDarkness_Title=黑暗之子

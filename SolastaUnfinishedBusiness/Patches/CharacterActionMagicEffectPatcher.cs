@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -86,11 +87,11 @@ public static class CharacterActionMagicEffectPatcher
             var actionParams = __instance.ActionParams;
 
             //PATCH: allow modify magic attacks from spells or powers cast from non heroes
-            var attackModifiers = definition.GetAllSubFeaturesOfType<IModifyMagicAttack>();
+            var attackModifiers = definition.GetAllSubFeaturesOfType<IModifyMagicEffectOnActionStart>();
 
             foreach (var feature in attackModifiers)
             {
-                feature.ModifyMagicAttack(__instance);
+                feature.OnMagicalEffectActionStarted(__instance);
             }
 
             //PATCH: skip spell animation if this is "attack after cast" spell
@@ -122,13 +123,25 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
-            //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
-            // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
+            foreach (var magicalEffectInitiated in __instance.ActingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicalEffectInitiated>())
+            {
+                yield return magicalEffectInitiated.OnMagicalEffectInitiated(__instance);
+            }
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
+            foreach (var magicalEffectInitiated in __instance.ActingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicalEffectFinished>())
+            {
+                yield return magicalEffectInitiated.OnMagicalEffectFinished(__instance);
+            }
+
+            //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
+            // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
             var definition = __instance.GetBaseDefinition();
 
             //TODO: add possibility to get attack via feature
@@ -270,7 +283,8 @@ public static class CharacterActionMagicEffectPatcher
             // used for Grenadier's force grenades
             // sets position of the formsParams to the first position from ActionParams, when applicable
             var method =
-                typeof(PushesFromEffectPoint).GetMethod(nameof(PushesFromEffectPoint.SetPositionAndApplyForms),
+                typeof(PushesOrDragFromEffectPoint).GetMethod(
+                    nameof(PushesOrDragFromEffectPoint.SetPositionAndApplyForms),
                     BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCall(
@@ -278,6 +292,63 @@ public static class CharacterActionMagicEffectPatcher
                 -1, "CharacterActionMagicEffect.ApplyForms",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionMagicEffect),
+        nameof(CharacterActionMagicEffect.HandlePostApplyMagicEffectOnZoneOrTargets))]
+    [UsedImplicitly]
+    public static class HandlePostApplyMagicEffectOnZoneOrTargets_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            CharacterActionMagicEffect __instance,
+            IGameLocationBattleService battleService,
+            GameLocationCharacter target)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            if (!battleService.IsBattleInProgress)
+            {
+                yield break;
+            }
+
+            var attacker = __instance.ActingCharacter;
+            var rulesetEffect = __instance.ActionParams.RulesetEffect;
+
+            if (rulesetEffect.EffectDescription.RangeType != RuleDefinitions.RangeType.MeleeHit &&
+                rulesetEffect.EffectDescription.RangeType != RuleDefinitions.RangeType.RangeHit)
+            {
+                yield break;
+            }
+
+            foreach (var gameLocationAlly in Gui.Battle.AllContenders
+                         .Where(x =>
+                             (x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                              x.RulesetCharacter.HasAnyConditionOfType(RuleDefinitions
+                                  .ConditionMindControlledByCaster)) ||
+                             x.Side == attacker.Side)
+                         .ToList()) // avoid changing enumerator
+            {
+                var allyFeatures =
+                    gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnEnemyFinished(
+                        attacker,
+                        gameLocationAlly,
+                        target,
+                        __instance.AttackRollOutcome,
+                        __instance.ActionParams,
+                        null,
+                        null); //TODO: need to find a good way to pass the magic attack modifier here
+                }
+            }
         }
     }
 }

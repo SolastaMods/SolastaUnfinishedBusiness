@@ -9,8 +9,11 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -140,8 +143,7 @@ internal static class RaceFeats
         var attributeModifierFeatRevenantGreatSwordArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatRevenantGreatSwordArmorClass")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.ArmorClass, 1)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasGreatswordInHands)
             .AddToDB();
 
@@ -209,6 +211,19 @@ internal static class RaceFeats
             .SetFeatFamily(SquatNimbleness)
             .AddToDB();
 
+        //Infernal Constitution
+        var featInfernalConstitution = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatInfernalConstitution")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Arun,
+                SavingThrowAffinityAntitoxin,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityPoisonResistance)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .AddToDB();
+
         //
         // set feats to be registered in mod settings
         //
@@ -224,7 +239,8 @@ internal static class RaceFeats
             featRevenantGreatSwordDex,
             featRevenantGreatSwordStr,
             featSquatNimblenessDex,
-            featSquatNimblenessStr);
+            featSquatNimblenessStr,
+            featInfernalConstitution);
 
         var featGroupsElvenAccuracy = GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupElvenAccuracy",
@@ -264,6 +280,7 @@ internal static class RaceFeats
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
             featDragonWings,
+            featInfernalConstitution,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupRevenantGreatSword,

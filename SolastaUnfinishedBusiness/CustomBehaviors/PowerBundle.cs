@@ -379,8 +379,11 @@ internal static class PowerBundle
 
         if (!modifiers.Empty())
         {
-            result = modifiers.Aggregate(EffectDescriptionBuilder.Create(result).Build(),
-                (current, f) => f.ModifyEffect(definition, current, caster));
+            result = modifiers.Aggregate(
+                EffectDescriptionBuilder
+                    .Create(result)
+                    .Build(),
+                (current, f) => f.ModifyEffect(definition, current, caster, effect));
         }
 
         CacheEffect(caster, definition, metamagic, result);

@@ -1,0 +1,7 @@
+Tag/&PactTomeCantripSpecialTagTitle=trucos del pacto
+Tag/&PactTomeSpellSpecialTagTitle=Hechizos de pacto
+Tag/&PactTomeRitualSpellSpecialTagTitle=rituales de pacto
+Tag/&MysticArcanumSpellSpecialTagTitle=Arcano místico
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=Cantrip o Hechizo de Secretos Mágicos
+Tag/&BonusCantripsCantripSpecialTagTitle=trucos de bonificación
+Tag/&ArcaneProfessorCantripSpecialTagTitle=Profesor arcano

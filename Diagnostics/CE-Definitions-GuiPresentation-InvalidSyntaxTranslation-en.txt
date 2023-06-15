@@ -28,15 +28,15 @@ AdditionalDamageInfusionMajorElementalDamageLightning	Description='Attacks made 
 AdditionalDamageInfusionMajorElementalDamageThunder	Title='Major Elemental [Thunder]'.
 AdditionalDamageInfusionMajorElementalDamageThunder	Description='Attacks made with this weapon deal an additional 1d4 Thunder damage.'.
 AdditionalDamageInfusionMinorElementalDamageAcid	Title='Minor Elemental [Acid]'.
-AdditionalDamageInfusionMinorElementalDamageAcid	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Acid damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.'.
+AdditionalDamageInfusionMinorElementalDamageAcid	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Acid damage.'.
 AdditionalDamageInfusionMinorElementalDamageCold	Title='Minor Elemental [Cold]'.
-AdditionalDamageInfusionMinorElementalDamageCold	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Cold damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.'.
+AdditionalDamageInfusionMinorElementalDamageCold	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Cold damage.'.
 AdditionalDamageInfusionMinorElementalDamageFire	Title='Minor Elemental [Fire]'.
-AdditionalDamageInfusionMinorElementalDamageFire	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Fire damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.'.
+AdditionalDamageInfusionMinorElementalDamageFire	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Fire damage.'.
 AdditionalDamageInfusionMinorElementalDamageLightning	Title='Minor Elemental [Lightning]'.
-AdditionalDamageInfusionMinorElementalDamageLightning	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Lightning damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.'.
+AdditionalDamageInfusionMinorElementalDamageLightning	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Lightning damage.'.
 AdditionalDamageInfusionMinorElementalDamageThunder	Title='Minor Elemental [Thunder]'.
-AdditionalDamageInfusionMinorElementalDamageThunder	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Thunder damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.'.
+AdditionalDamageInfusionMinorElementalDamageThunder	Description='Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Thunder damage.'.
 AncestryPathOfTheElementsBlizzard	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Cold damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 AncestryPathOfTheElementsStorm	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Lightning damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 AncestryPathOfTheElementsWildfire	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Fire damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
@@ -72,13 +72,13 @@ CastSpellFeatMagicInitiateWarlock	Description='You learn two cantrips of your ch
 CastSpellFeatMagicInitiateWizard	Title='Initiate'.
 CastSpellFeatMagicInitiateWizard	Description='You learn two cantrips of your choice from the Wizard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 CastSpellFeatSpellSniperDruid	Title='Sniper'.
-CastSpellFeatSpellSniperDruid	Description='You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+CastSpellFeatSpellSniperDruid	Description='You learn one cantrip of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 CastSpellFeatSpellSniperSorcerer	Title='Sniper'.
-CastSpellFeatSpellSniperSorcerer	Description='You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+CastSpellFeatSpellSniperSorcerer	Description='You learn one cantrip of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 CastSpellFeatSpellSniperWarlock	Title='Sniper'.
-CastSpellFeatSpellSniperWarlock	Description='You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+CastSpellFeatSpellSniperWarlock	Description='You learn one cantrip of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 CastSpellFeatSpellSniperWizard	Title='Sniper'.
-CastSpellFeatSpellSniperWizard	Description='You learn two cantrips of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+CastSpellFeatSpellSniperWizard	Description='You learn one cantrip of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 ChromaticOrbDamageAcid	Title='Acid Damage'.
 ChromaticOrbDamageAcid	Description='The creature takes 3d8 Acid Damage damage.'.
 ChromaticOrbDamageCold	Title='Cold Damage'.
@@ -107,9 +107,9 @@ ConditionElementalistNormalFire	Title='Channeling Fire Plane'.
 ConditionElementalistNormalFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistNormalIce	Title='Channeling Ice Plane'.
 ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
-ConditionFeatSlayTheEnemies1	Description='You have a bonus to attack and damage rolls equal to 1. If your target is a favored enemy, you have advantage instead.'.
-ConditionFeatSlayTheEnemies2	Description='You have a bonus to attack and damage rolls equal to 2. If your target is a favored enemy, you have advantage instead.'.
-ConditionFeatSlayTheEnemies3	Description='You have a bonus to attack and damage rolls equal to 3. If your target is a favored enemy, you have advantage instead.'.
+ConditionFeatSlayTheEnemies1	Description='You have a bonus to attack and damage rolls equal to 1. If your target is a favored enemy, you have advantage instead of attack roll bonus.'.
+ConditionFeatSlayTheEnemies2	Description='You have a bonus to attack and damage rolls equal to 2. If your target is a favored enemy, you have advantage instead of attack roll bonus.'.
+ConditionFeatSlayTheEnemies3	Description='You have a bonus to attack and damage rolls equal to 3. If your target is a favored enemy, you have advantage instead of attack roll bonus.'.
 ConditionSkinOfRetributionDamageAcid	Description='If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Acid Damage per spell level.'.
 ConditionSkinOfRetributionDamageCold	Description='If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Cold Damage per spell level.'.
 ConditionSkinOfRetributionDamageFire	Description='If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Fire Damage per spell level.'.
@@ -133,17 +133,50 @@ CraftingManualRecipeEnchantBreastplate_FrostWalking	Title='Enchant Breastplate o
 CraftingManualRecipeEnchantBreastplate_Robustness	Title='Enchant Breastplate of Robustness'.
 CraftingManualRecipeEnchantBreastplate_Sturdiness	Title='Enchant Breastplate of Sturdiness'.
 CraftingManualRecipeEnchantBreastplate_Survival	Title='Enchant Breastplate of Survival'.
+CraftingManualRecipeEnchantCEHalberd_Acuteness	Title='Enchant Halberd of Acuteness'.
+CraftingManualRecipeEnchantCEHalberd_Dragonblade	Title='Enchant Dragonblade Halberd'.
+CraftingManualRecipeEnchantCEHalberd_Frostburn	Title='Enchant Frostburn Halberd'.
+CraftingManualRecipeEnchantCEHalberd_Lightbringer	Title='Enchant Lightbringer Halberd'.
+CraftingManualRecipeEnchantCEHalberd_Souldrinker	Title='Enchant Souldrinker Halberd'.
+CraftingManualRecipeEnchantCEHalberd_Stormblade	Title='Enchant Stormblade Halberd'.
+CraftingManualRecipeEnchantCEHalberd_Warden	Title='Enchant Warden Halberd'.
+CraftingManualRecipeEnchantCEHalberd_Whiteburn	Title='Enchant Whiteburn Halberd'.
 CraftingManualRecipeEnchantCEHalberd+1	Title='Enchant Halberd +1'.
 CraftingManualRecipeEnchantCEHalberd+2	Title='Enchant Halberd +2'.
+CraftingManualRecipeEnchantCEHalberd+3	Title='Enchant Halberd +3'.
 CraftingManualRecipeEnchantCEHalberdLightning	Title='Enchant Lightning Halberd'.
+CraftingManualRecipeEnchantCEHandXbow_Accuracy	Title='Enchant Hand Crosbow of Accuracy'.
+CraftingManualRecipeEnchantCEHandXbow_Lightbringer	Title='Enchant Lightbringer Hand Crosbow'.
+CraftingManualRecipeEnchantCEHandXbow_Medusa	Title='Enchant Medusa Hand Crosbow'.
+CraftingManualRecipeEnchantCEHandXbow_Sharpshooting	Title='Enchant Hand Crosbow of Sharpshooting'.
+CraftingManualRecipeEnchantCEHandXbow_Stormbow	Title='Enchant Storm Hand Crossbow'.
 CraftingManualRecipeEnchantCEHandXbow+1	Title='Enchant Hand Crossbow +1'.
 CraftingManualRecipeEnchantCEHandXbow+2	Title='Enchant Hand Crossbow +2'.
+CraftingManualRecipeEnchantCEHandXbow+3	Title='Enchant Hand Crossbow +3'.
 CraftingManualRecipeEnchantCEHandXbowAcid	Title='Enchant Acidic Hand Crossbow'.
+CraftingManualRecipeEnchantCELongMace_Acuteness	Title='Enchant LongMace of Acuteness'.
+CraftingManualRecipeEnchantCELongMace_Dragonblade	Title='Enchant Dragonblade Long Mace'.
+CraftingManualRecipeEnchantCELongMace_Frostburn	Title='Enchant Frostburn Long Mace'.
+CraftingManualRecipeEnchantCELongMace_Lightbringer	Title='Enchant Lightbringer Long Mace'.
+CraftingManualRecipeEnchantCELongMace_Souldrinker	Title='Enchant Souldrinker Long Mace'.
+CraftingManualRecipeEnchantCELongMace_Stormblade	Title='Enchant Stormblade Long Mace'.
+CraftingManualRecipeEnchantCELongMace_Warden	Title='Enchant Warden Long Mace'.
+CraftingManualRecipeEnchantCELongMace_Whiteburn	Title='Enchant Whiteburn Long Mace'.
 CraftingManualRecipeEnchantCELongMace+1	Title='Enchant Long Mace +1'.
 CraftingManualRecipeEnchantCELongMace+2	Title='Enchant Long Mace +2'.
+CraftingManualRecipeEnchantCELongMace+3	Title='Enchant Long Mace +3'.
 CraftingManualRecipeEnchantCELongMaceThunder	Title='Enchant Thundering Long Mace'.
+CraftingManualRecipeEnchantCEPike_Acuteness	Title='Enchant Pike of Acuteness'.
+CraftingManualRecipeEnchantCEPike_Dragonblade	Title='Enchant Dragonblade Pike'.
+CraftingManualRecipeEnchantCEPike_Frostburn	Title='Enchant Frostburn Pike'.
+CraftingManualRecipeEnchantCEPike_Lightbringer	Title='Enchant Lightbringer Pike'.
+CraftingManualRecipeEnchantCEPike_Souldrinker	Title='Enchant Souldrinker Pike'.
+CraftingManualRecipeEnchantCEPike_Stormblade	Title='Enchant Stormblade Pike'.
+CraftingManualRecipeEnchantCEPike_Warden	Title='Enchant Warden Pike'.
+CraftingManualRecipeEnchantCEPike_Whiteburn	Title='Enchant Whiteburn Pike'.
 CraftingManualRecipeEnchantCEPike+1	Title='Enchant Pike +1'.
 CraftingManualRecipeEnchantCEPike+2	Title='Enchant Pike +2'.
+CraftingManualRecipeEnchantCEPike+3	Title='Enchant Pike +3'.
 CraftingManualRecipeEnchantCEPikePsychic	Title='Enchant Psychic Pike'.
 CraftingManualRecipeEnchantChainMail_Deflection	Title='Enchant Chain Mail of Deflection'.
 CraftingManualRecipeEnchantChainMail_FlameDancing	Title='Enchant Chain Mail of Flame Dancing'.
@@ -194,7 +227,7 @@ CraftingManualRecipeEnchantHeavyCrossbow_Accuracy	Title='Enchant Heavy Crossbow 
 CraftingManualRecipeEnchantHeavyCrossbow_Lightbringer	Title='Enchant Lightbringer Heavy Crossbow'.
 CraftingManualRecipeEnchantHeavyCrossbow_Medusa	Title='Enchant Medusa Heavy Crossbow'.
 CraftingManualRecipeEnchantHeavyCrossbow_Sharpshooting	Title='Enchant Heavy Crossbow of Sharpshooting'.
-CraftingManualRecipeEnchantHeavyCrossbow_Stormbow	Title='Enchant Heavy Stormcrossbow'.
+CraftingManualRecipeEnchantHeavyCrossbow_Stormbow	Title='Enchant Heavy Storm Crossbow'.
 CraftingManualRecipeEnchantHideArmor_Deflection	Title='Enchant Hide Armor of Deflection'.
 CraftingManualRecipeEnchantHideArmor_FlameDancing	Title='Enchant Hide Armor of Flame Dancing'.
 CraftingManualRecipeEnchantHideArmor_FrostWalking	Title='Enchant Hide Armor of Frost Walking'.
@@ -221,7 +254,7 @@ CraftingManualRecipeEnchantLightCrossbow_Accuracy	Title='Enchant Light Crossbow 
 CraftingManualRecipeEnchantLightCrossbow_Lightbringer	Title='Enchant Lightbringer Light Crossbow'.
 CraftingManualRecipeEnchantLightCrossbow_Medusa	Title='Enchant Medusa Light Crossbow'.
 CraftingManualRecipeEnchantLightCrossbow_Sharpshooting	Title='Enchant Light Crossbow of Sharpshooting'.
-CraftingManualRecipeEnchantLightCrossbow_Stormbow	Title='Enchant Light Stormcrossbow'.
+CraftingManualRecipeEnchantLightCrossbow_Stormbow	Title='Enchant Light Storm Crossbow'.
 CraftingManualRecipeEnchantMaul_Acuteness	Title='Enchant Maul of Acuteness'.
 CraftingManualRecipeEnchantMaul_Bearclaw	Title='Enchant Bearclaw Maul'.
 CraftingManualRecipeEnchantMaul_Lightbringer	Title='Enchant Lightbringer Maul'.
@@ -304,12 +337,6 @@ CraftingManualRecipeEnchantSpear_Doomblade	Title='Enchant Doom Tipped Spear'.
 CraftingManualRecipeEnchantSpear_Lightbringer	Title='Enchant Lightbringer Spear'.
 CraftingManualRecipeEnchantSpear_Sharpness	Title='Enchant Spear of Sharpness'.
 CraftingManualRecipeEnchantSpear_Whiteburn	Title='Enchant Whiteburn Spear'.
-CraftingManualRecipeEnchantSplintArmor_Deflection	Title='Enchant Splint Armor of Deflection'.
-CraftingManualRecipeEnchantSplintArmor_FlameDancing	Title='Enchant Splint Armor of Flame Dancing'.
-CraftingManualRecipeEnchantSplintArmor_FrostWalking	Title='Enchant Splint Armor of Frost Walking'.
-CraftingManualRecipeEnchantSplintArmor_Robustness	Title='Enchant Splint Armor of Robustness'.
-CraftingManualRecipeEnchantSplintArmor_Sturdiness	Title='Enchant Splint Armor of Sturdiness'.
-CraftingManualRecipeEnchantSplintArmor_Survival	Title='Enchant Splint Armor of Survival'.
 CraftingManualRecipeEnchantStuddedLeather_Deflection	Title='Enchant Studded Leather of Deflection'.
 CraftingManualRecipeEnchantStuddedLeather_FlameDancing	Title='Enchant Studded Leather of Flame Dancing'.
 CraftingManualRecipeEnchantStuddedLeather_FrostWalking	Title='Enchant Studded Leather of Frost Walking'.
@@ -402,7 +429,7 @@ CustomInvocationAncestryWayOfTheDragonDraconicGreen	Description='Your draconic a
 CustomInvocationAncestryWayOfTheDragonDraconicSilver	Description='Your draconic ancestry gives you an affinity to Cold damage type.'.
 CustomInvocationCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 CustomInvocationCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
-This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen.'.
 CustomInvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 CustomInvocationCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
 This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
@@ -411,37 +438,37 @@ CustomInvocationCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create 
 At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
 CustomInvocationCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
 CustomInvocationCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
-After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots!'.
 CustomInvocationCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
 CustomInvocationCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
 Crafted in Colthannin for human allies of the Realm protecting its borders.'.
 CustomInvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
 CustomInvocationCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
-Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds.'.
 CustomInvocationCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
 CustomInvocationCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
 Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
 CustomInvocationCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
 CustomInvocationCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
-A favorite of Colthannin border patrols. '.
+A favorite of Colthannin border patrols.'.
 CustomInvocationCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
 CustomInvocationCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
 Those bracers were the prized possession of a Manacalon shock arcanist.'.
 CustomInvocationCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
 CustomInvocationCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
-Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell.'.
 CustomInvocationCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
 CustomInvocationCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
-Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+Crafted in Colthannin for the human allies of the Realm protecting its borders. Grants advantage to stealth checks, and cancels an enemy's perception check advantage to spot you when you're attacking it in stealth mode.'.
 CustomInvocationCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
 CustomInvocationCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
-An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon.'.
 CustomInvocationCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
 CustomInvocationCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
-Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter.'.
 CustomInvocationCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
 CustomInvocationCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
-Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals.'.
 CustomInvocationCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
 CustomInvocationCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
 Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
@@ -462,10 +489,10 @@ CustomInvocationCreateInfusedReplicaPipesOfHaunting	Description='Create replica 
 These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
 CustomInvocationCreateInfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
 CustomInvocationCreateInfusedReplicaRingDarkvision	Description='Create replica <b>Ring of Darkvision</b>:
-While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. '.
+While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies.'.
 CustomInvocationCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 CustomInvocationCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
-A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum.'.
 CustomInvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
 CustomInvocationCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
 These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
@@ -478,6 +505,46 @@ Casts the spell detect magic by expending one charge. The wand has 3 charges and
 CustomInvocationPathOfTheElementsBlizzard	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Cold damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 CustomInvocationPathOfTheElementsStorm	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Lightning damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 CustomInvocationPathOfTheElementsWildfire	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Fire damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
+CustomInvocationRangerPreferredEnemyAberration	Title='Aberration'.
+CustomInvocationRangerPreferredEnemyAberration	Description='Aberrations are utterly alien beings. Many of them have innate magical abilities drawn from the creature's alien mind rather than the mystical forces of the world.'.
+CustomInvocationRangerPreferredEnemyBeast	Title='Beast'.
+CustomInvocationRangerPreferredEnemyBeast	Description='Beasts are nonhumanoid creatures that are a natural part of the fantasy ecology. Some of them have magical powers, but most are unintelligent and lack any society or language.'.
+CustomInvocationRangerPreferredEnemyCelestial	Title='Celestial'.
+CustomInvocationRangerPreferredEnemyCelestial	Description='Celestials are creatures native to the Upper Planes. Many of them are the servants of deities, employed as messengers or agents in the mortal realm and throughout the planes. Celestials are good by nature, so the exceptional celestial who strays from a good alignment is a horrifying rarity.'.
+CustomInvocationRangerPreferredEnemyConstruct	Title='Construct'.
+CustomInvocationRangerPreferredEnemyConstruct	Description='Constructs are made, not born. Some are programmed by their creators to follow a simple set of instructions, while others are imbued with sentience and capable of independent thought.'.
+CustomInvocationRangerPreferredEnemyDragon	Title='Dragon'.
+CustomInvocationRangerPreferredEnemyDragon	Description='Dragons are large reptilian creatures of ancient origin and tremendous power. True dragons, including the good metallic dragons and the evil chromatic dragons, are highly intelligent and have innate magic.'.
+CustomInvocationRangerPreferredEnemyElemental	Title='Elemental'.
+CustomInvocationRangerPreferredEnemyElemental	Description='Elementals are creatures native to the elemental planes. Some creatures of this type are little more than animate masses of their respective elements, including the creatures simply called elementals. Others have biological forms infused with elemental energy.'.
+CustomInvocationRangerPreferredEnemyFey	Title='Fey'.
+CustomInvocationRangerPreferredEnemyFey	Description='Fey are magical creatures closely tied to the forces of nature. They dwell in twilight groves and misty forests.'.
+CustomInvocationRangerPreferredEnemyFiend	Title='Fiend'.
+CustomInvocationRangerPreferredEnemyFiend	Description='Fiends are creatures of wickedness that are native to the Lower Planes. A few are the servants of deities, but many more labor under the leadership of archdevils and demon princes. Evil priests and mages sometimes summon fiends to the material world to do their bidding. If an evil celestial is a rarity, a good fiend is almost inconceivable.'.
+CustomInvocationRangerPreferredEnemyGiant	Title='Giant'.
+CustomInvocationRangerPreferredEnemyGiant	Description='Giants tower over humans and their kind. They are humanlike in shape, though some have multiple heads or deformities. The six varieties of true giant are hill giants, stone giants, frost giants, fire giants, cloud giants, and storm giants. Besides these, creatures such as ogres and trolls are giants.'.
+CustomInvocationRangerPreferredEnemyMonstrosity	Title='Monstrosity'.
+CustomInvocationRangerPreferredEnemyMonstrosity	Description='Monstrosities are monsters in the strictest sense - frightening creatures that are not ordinary, not truly natural, and almost never benign. Some are the results of magical experimentation gone awry, and others are the product of terrible curses. They defy categorization, and in some sense serve as a catch-all category for creatures that don't fit into any other type.'.
+CustomInvocationRangerPreferredEnemyOoze	Title='Ooze'.
+CustomInvocationRangerPreferredEnemyOoze	Description='Oozes are gelatinous creatures that rarely have a fixed shape. They are mostly subterranean, dwelling in caves and dungeons and feeding on refuse, carrion, or creatures unlucky enough to get in their way.'.
+CustomInvocationRangerPreferredEnemyPlant	Title='Plant'.
+CustomInvocationRangerPreferredEnemyPlant	Description='Plants in this context are vegetable creatures, not ordinary flora. Most of them are ambulatory, and some are carnivorous. The quintessential plants are the shambling mound and the treant. Fungal creatures also fall into this category.'.
+CustomInvocationRangerPreferredEnemyUndead	Title='Undead'.
+CustomInvocationRangerPreferredEnemyUndead	Description='Undead are once-living creatures brought to a horrifying state of undeath through the practice of necromantic magic or some unholy curse.'.
+CustomInvocationRangerTerrainTypeArctic	Title='Arctic'.
+CustomInvocationRangerTerrainTypeArctic	Description='Areas of snow or permafrost are considered arctic terrain. Beware, this Terrain Type is not used in the Crown of the Magister campaign.'.
+CustomInvocationRangerTerrainTypeCoast	Title='Coast'.
+CustomInvocationRangerTerrainTypeCoast	Description='Areas containing a coastline are considered coast terrain. Beware, this Terrain Type is not used in the Crown of the Magister campaign.'.
+CustomInvocationRangerTerrainTypeDesert	Title='Desert'.
+CustomInvocationRangerTerrainTypeDesert	Description='Arid areas with little or no rain and minimal vegetation are considered desert terrain.'.
+CustomInvocationRangerTerrainTypeForest	Title='Forest'.
+CustomInvocationRangerTerrainTypeForest	Description='Areas with lush vegetation and large areas of woods are considered forest terrain.'.
+CustomInvocationRangerTerrainTypeGrassland	Title='Grassland'.
+CustomInvocationRangerTerrainTypeGrassland	Description='Areas with rare forests and vast areas of green plains are considered grassland terrain.'.
+CustomInvocationRangerTerrainTypeMountain	Title='Mountain'.
+CustomInvocationRangerTerrainTypeMountain	Description='Areas with rocky ground, hills, and mountains are considered mountain terrain.'.
+CustomInvocationRangerTerrainTypeSwamp	Title='Swamp'.
+CustomInvocationRangerTerrainTypeSwamp	Description='Areas with marshes and ponds and a humid atmosphere are considered swamp terrain.'.
 DamageAffinityFeatElementalMasterDamageAcid	Title='Elemental Master [Acid]'.
 DamageAffinityFeatElementalMasterDamageAcid	Description='Acid damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
 DamageAffinityFeatElementalMasterDamageCold	Title='Elemental Master [Cold]'.
@@ -500,6 +567,32 @@ DamageAffinityInfusionResistantArmorDamagePoison	Description='Resistance to Pois
 DamageAffinityInfusionResistantArmorDamagePsychic	Description='Resistance to Psychic: damage is halved'.
 DamageAffinityInfusionResistantArmorDamageRadiant	Description='Resistance to Radiant: damage is halved'.
 DamageAffinityInfusionResistantArmorDamageThunder	Description='Resistance to Thunder: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageAcid	Title='Acid'.
+DamageAffinityOathOfDreadAspectOfDreadDamageAcid	Description='Resistance to Acid: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageBludgeoning	Title='Bludgeoning'.
+DamageAffinityOathOfDreadAspectOfDreadDamageBludgeoning	Description='Resistance to Bludgeoning: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageCold	Title='Cold'.
+DamageAffinityOathOfDreadAspectOfDreadDamageCold	Description='Resistance to Cold: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageFire	Title='Fire'.
+DamageAffinityOathOfDreadAspectOfDreadDamageFire	Description='Resistance to Fire: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageForce	Title='Force'.
+DamageAffinityOathOfDreadAspectOfDreadDamageForce	Description='Resistance to Force: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageLightning	Title='Lightning'.
+DamageAffinityOathOfDreadAspectOfDreadDamageLightning	Description='Resistance to Lightning: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageNecrotic	Title='Necrotic'.
+DamageAffinityOathOfDreadAspectOfDreadDamageNecrotic	Description='Resistance to Necrotic: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamagePiercing	Title='Piercing'.
+DamageAffinityOathOfDreadAspectOfDreadDamagePiercing	Description='Resistance to Piercing: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamagePoison	Title='Poison'.
+DamageAffinityOathOfDreadAspectOfDreadDamagePoison	Description='Resistance to Poison: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamagePsychic	Title='Psychic'.
+DamageAffinityOathOfDreadAspectOfDreadDamagePsychic	Description='Resistance to Psychic: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageRadiant	Title='Radiant'.
+DamageAffinityOathOfDreadAspectOfDreadDamageRadiant	Description='Resistance to Radiant: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageSlashing	Title='Slashing'.
+DamageAffinityOathOfDreadAspectOfDreadDamageSlashing	Description='Resistance to Slashing: damage is halved'.
+DamageAffinityOathOfDreadAspectOfDreadDamageThunder	Title='Thunder'.
+DamageAffinityOathOfDreadAspectOfDreadDamageThunder	Description='Resistance to Thunder: damage is halved'.
 DieRollModifierDamageTypeDependentFeatElementalAdeptDamageAcid	Title='Elemental Adept [Acid]'.
 DieRollModifierDamageTypeDependentFeatElementalAdeptDamageAcid	Description='Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
 DieRollModifierDamageTypeDependentFeatElementalAdeptDamageCold	Title='Elemental Adept [Cold]'.
@@ -562,23 +655,25 @@ FeatElementalMasterDamageThunder	Title='Elemental Master [Thunder]'.
 FeatElementalMasterDamageThunder	Description='Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
 FeatGroupAegisTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupAgilityCombat	Description='Cunning Escape, Dragon Wings, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle '.
+FeatGroupAgilityCombat	Description='Cunning Escape, Dragon Wings, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle'.
 FeatGroupAlchemist	Description='Initiate Alchemist, Master Alchemist'.
 FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.'.
+You gain proficiency with herbalism kit and medicine, or expertise if already proficient.'.
 FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor, Might of the Iron Legion, Sturdiness of the Tundra'.
 FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
 FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupClassBound	Description='Awaken the Beast, Blessed Soul, Call for Charge, Cunning Escape, Expand the Hunt, Hardy, Natural Fluidity, Poison Expert, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity'.
-FeatGroupCreed	Description='Increase one of your attributes by 1, to a maximum of 20.
-Proficiency in saves of chosen attribute, if not already proficient; +1 otherwise.'.
-FeatGroupCriticalVirtuoso	Description='You dedicated your time learning how to leverage enemies weak spots to increase your chance to critical damage.'.
+FeatGroupClassBound	Description='Awaken the Beast, Blessed Soul, Call for Charge, Close Quarters, Cunning Escape, Expand the Hunt, Exploiter, Hardy, Natural Fluidity, Poison Expert, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity'.
+FeatGroupCloseQuarters	Description='You are experienced with fighting in close quarters and gain the following benefits:
+• Your Dexterity or Intelligence increases by 1, to a maximum of 20.
+• When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks, and rogue features that scale off of sneak dice.'.
+FeatGroupCreed	Description='Creed of Arun, Creed of Einar, Creed of Maraike, Creed of Misaye, Creed of Pakri, Creed of Solasta'.
+FeatGroupCriticalVirtuoso	Description='Improved Critical, Superior Critical'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
-FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade , Unarmored Expert'.
+FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
@@ -587,7 +682,7 @@ FeatGroupElementalTouch	Description='The first time each turn that you deal dama
 FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
 FeatGroupEnchanter	Description='Initiate Enchanter, Master Enchanter'.
 FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
-FeatGroupFightingStyle	Description='Learn a new Fighting Style.'.
+FeatGroupFightingStyle	Description='Archery, Blind Fighting, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Hand-and-a-Half, Lunger, Merciless, Polearm Expert, Protection, Pugilist, Rope it Up, Sentinel, Shield Expert, Torchbearer, Two Weapon Fighting'.
 FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
 FeatGroupGeneralAdept	Description='Eldritch Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept, Tactician Adept'.
@@ -597,25 +692,24 @@ You gain the ability to cast the color spray, faerie fire and color burst spells
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
-FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Distracting Gambit, Elemental Touch, Fell Handed, Longsword Finesse, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
+FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Longsword Finesse, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
 FeatGroupPeregrinationTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
-FeatGroupPlaneTouchedMagic	Description='You are touched by some other plane and can cast some spells associated with that plane.
-One of your mental attributes is raised by 1 to a maximum of 20.'.
+FeatGroupPlaneTouchedMagic	Description='Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched'.
 FeatGroupPotentSpellcaster	Description='You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
 FeatGroupPrimalRage	Description='Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
-FeatGroupRaceBound	Description='Dragon Wings, Elven Accuracy, Fade Away, Revenant Great Sword, Squat Nimbleness'.
+FeatGroupRaceBound	Description='Dragon Wings, Elven Accuracy, Fade Away, Infernal Constitution, Revenant Great Sword, Squat Nimbleness'.
 FeatGroupRangedCombat	Description='Bow Mastery, Deadeye, Discretion of the Coedymwarth, Piercer, Ranged Expert, Steady Aim, Take Aim, Uncanny Accuracy'.
 FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupRevenantGreatSword	Description='You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity or Strength score by 1, to a maximum of 20.
 • While you are holding a great sword, you gain a +1 bonus to armor class.
-•Great sword has the finesse property when you wield it.'.
+• Great sword has the finesse property when you wield it.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupSkills	Description='Arcane Appraiser, Healer, Manipulator, Pickpocket'.
@@ -634,7 +728,7 @@ FeatGroupTools	Description='Alchemist, Apothecary, Enchanter, Lock Breaker, Scri
 FeatGroupToxicologist	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.'.
 FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Revenant Great Sword'.
-FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade '.
+FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade'.
 FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert'.
 FeatGroupVerdantTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.'.
@@ -663,13 +757,13 @@ FeatPotentSpellcasterSorcerer	Description='You can add your spellcaster attribut
 FeatPotentSpellcasterWizard	Title='Potent Spellcaster [Wizard]'.
 FeatPotentSpellcasterWizard	Description='You can add your spellcaster attribute modifier to the damage you deal with any Wizard cantrip in your repertoire.'.
 FeatSpellSniperDruid	Title='Spell Sniper [Druid]'.
-FeatSpellSniperDruid	Description='You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+FeatSpellSniperDruid	Description='You learn one cantrip of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatSpellSniperSorcerer	Title='Spell Sniper [Sorcerer]'.
-FeatSpellSniperSorcerer	Description='You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+FeatSpellSniperSorcerer	Description='You learn one cantrip of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatSpellSniperWarlock	Title='Spell Sniper [Warlock]'.
-FeatSpellSniperWarlock	Description='You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+FeatSpellSniperWarlock	Description='You learn one cantrip of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatSpellSniperWizard	Title='Spell Sniper [Wizard]'.
-FeatSpellSniperWizard	Description='You learn two cantrips of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+FeatSpellSniperWizard	Description='You learn one cantrip of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatureSetDomainDefilerDefileLife11	Title='Channel Divinity: Defile Life'.
 FeatureSetDomainDefilerDefileLife11	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +5d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
 FeatureSetDomainDefilerDefileLife17	Title='Channel Divinity: Defile Life'.
@@ -687,7 +781,7 @@ FeatureSetPathOfTheElementsElementalBurst	Description='Starting at 10th level, y
 FeatureSetPathOfTheElementsElementalConduit	Description='Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
 • <b>Storm</b>: While you are raging, you gain flying speed equal to your walking speed.
 • <b>Blizzard</b>: While you are raging, any creature damaged by blizzard 3rd level feature must pass a Strength saving throw or have their movement speed be reduced to 0, until the end of their next turn.
-• <b>Wildfire</b>:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to half your barbarian level.'.
+• <b>Wildfire</b>:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to your barbarian level.'.
 InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
@@ -726,7 +820,7 @@ PointPool5BonusFeats	Title='5 Bonus Feats'.
 PointPool5BonusFeats	Description='Select 5 additional feats for your character.'.
 PowerCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 PowerCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
-This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.
+This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen.'.
 PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 PowerCreateInfusedReplicaBackpack_Bag_Of_Holding	Description='Create replica <b>Bag of Holding</b>:
 This item was crafted to the specifications of Emperor Laethar the Gold Soul, who wanted treasures of the conquered province stocked in special bags. It is almost weightless and increases your carrying capacity enormously.'.
@@ -735,37 +829,37 @@ PowerCreateInfusedReplicaBeltOfGiantHillStrength	Description='Create replica <b>
 At the dawn of time, there was a confrontation between the giants and the elves. The elven arcanists didn't waste anything from the giants, harnessing their life essence to create powerful magical items.'.
 PowerCreateInfusedReplicaBootsLevitation	Title='Replica Boots of Levitation'.
 PowerCreateInfusedReplicaBootsLevitation	Description='Create replica <b>Boots of Levitation</b>:
-After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots! '.
+After a couple of close calls in the mountains of the Snow Alliance, the Manacalon shock arcanists began to use these boots!'.
 PowerCreateInfusedReplicaBootsOfElvenKind	Title='Replica Boots of Elvenkind'.
 PowerCreateInfusedReplicaBootsOfElvenKind	Description='Create replica <b>Boots of Elvenkind</b>:
 Crafted in Colthannin for human allies of the Realm protecting its borders.'.
 PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Title='Replica Boots of Striding and Springing'.
 PowerCreateInfusedReplicaBootsOfStridingAndSpringing	Description='Create replica <b>Boots of Striding and Springing</b>:
-Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. '.
+Defineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds.'.
 PowerCreateInfusedReplicaBootsWinged	Title='Replica Winged Boots'.
 PowerCreateInfusedReplicaBootsWinged	Description='Create replica <b>Winged Boots</b>:
 Birdwatching is not easy when you can't fly. Millie Strongbreeze created these boots to pursue her passion for ornithology.'.
 PowerCreateInfusedReplicaBracers_Of_Archery	Title='Replica Bracers of Archery'.
 PowerCreateInfusedReplicaBracers_Of_Archery	Description='Create replica <b>Bracers of Archery</b>:
-A favorite of Colthannin border patrols. '.
+A favorite of Colthannin border patrols.'.
 PowerCreateInfusedReplicaBracers_Of_Defense	Title='Replica Bracers of Defense'.
 PowerCreateInfusedReplicaBracers_Of_Defense	Description='Create replica <b>Bracers of Defense</b>:
 Those bracers were the prized possession of a Manacalon shock arcanist.'.
 PowerCreateInfusedReplicaBroochOfShielding	Title='Replica Brooch of Shielding'.
 PowerCreateInfusedReplicaBroochOfShielding	Description='Create replica <b>Brooch of Shielding</b>:
-Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell. '.
+Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the Imperial shock arcanists' most common spell.'.
 PowerCreateInfusedReplicaCloakOfElvenkind	Title='Replica Cloak of Elvenkind'.
 PowerCreateInfusedReplicaCloakOfElvenkind	Description='Create replica <b>Cloak of Elvenkind</b>:
-Crafted in Colthannin for human allies of the Realm protecting its borders.'.
+Crafted in Colthannin for the human allies of the Realm protecting its borders. Grants advantage to stealth checks, and cancels an enemy's perception check advantage to spot you when you're attacking it in stealth mode.'.
 PowerCreateInfusedReplicaCloakOfProtection	Title='Replica Cloak of Protection'.
 PowerCreateInfusedReplicaCloakOfProtection	Description='Create replica <b>Cloak of Protection</b>:
-An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. '.
+An exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon.'.
 PowerCreateInfusedReplicaGauntletsOfOgrePower	Title='Replica Gauntlets of Ogre Power'.
 PowerCreateInfusedReplicaGauntletsOfOgrePower	Description='Create replica <b>Gauntlets of Ogre Power</b>:
-Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter. '.
+Arasdir Lighthand crafted these gauntlets, showing ogres the superiority of mind over matter.'.
 PowerCreateInfusedReplicaGemOfSeeing	Title='Replica Gem of Seeing'.
 PowerCreateInfusedReplicaGemOfSeeing	Description='Create replica <b>Gem of Seeing</b>:
-Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. '.
+Such gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals.'.
 PowerCreateInfusedReplicaGlovesOfMissileSnaring	Title='Replica Gloves of Missile Snaring'.
 PowerCreateInfusedReplicaGlovesOfMissileSnaring	Description='Create replica <b>Gloves of Missile Snaring</b>:
 Crafted by Ildurial Stronghand for the members of the Euraidd tasked with the protection of the Imperial family.'.
@@ -786,10 +880,10 @@ PowerCreateInfusedReplicaPipesOfHaunting	Description='Create replica <b>Pipes of
 These pipes let out a magically infused cry that can strike fear even in the hearts of the bravest warriors.'.
 PowerCreateInfusedReplicaRingDarkvision	Title='Replica Ring of Darkvision'.
 PowerCreateInfusedReplicaRingDarkvision	Description='Create replica <b>Ring of Darkvision</b>:
-While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies. '.
+While wearing this ring, you have Darkvision just like an elf. Devised by an eccentric Manacalon arcanist specialized in light spells to ensure his famed cook, the island halfling Mildred Sharpnose, could deliver breakfast at all hours, without having to illuminate his studies.'.
 PowerCreateInfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 PowerCreateInfusedReplicaRingProtection+1	Description='Create replica <b>Ring of Protection +1</b>:
-A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. '.
+A ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum.'.
 PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
 PowerCreateInfusedReplicaSlippersOfSpiderClimbing	Description='Create replica <b>Slippers of Spider Climbing</b>:
 These magical slippers have a very shady origin. Probably made by some crazy Manacalon wizard to walk the walls of his manor in a cozy fashion.'.
@@ -809,6 +903,8 @@ PowerCreateSpellStoringWandOfBane	Title='Bane'.
 PowerCreateSpellStoringWandOfBane	Description='Create a wand that can cast <b>Bane (I)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfBarkskin	Title='Barkskin'.
 PowerCreateSpellStoringWandOfBarkskin	Description='Create a wand that can cast <b>Barkskin (II)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfBindingIce	Title='Bounden Ice'.
+PowerCreateSpellStoringWandOfBindingIce	Description='Create a wand that can cast <b>Bounden Ice (II)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfBless	Title='Bless'.
 PowerCreateSpellStoringWandOfBless	Description='Create a wand that can cast <b>Bless (I)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfBlindness	Title='Blindness'.
@@ -897,6 +993,8 @@ PowerCreateSpellStoringWandOfMageArmor	Title='Mage Armor'.
 PowerCreateSpellStoringWandOfMageArmor	Description='Create a wand that can cast <b>Mage Armor (I)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfMagicMissile	Title='Magic Missile'.
 PowerCreateSpellStoringWandOfMagicMissile	Description='Create a wand that can cast <b>Magic Missile (I)</b> spell using your Inventor spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfMagnifyGravity	Title='Magnify Gravity'.
+PowerCreateSpellStoringWandOfMagnifyGravity	Description='Create a wand that can cast <b>Magnify Gravity (I)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfMirrorImage	Title='Mirror Image'.
 PowerCreateSpellStoringWandOfMirrorImage	Description='Create a wand that can cast <b>Mirror Image (II)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfMoonBeam	Title='Moon Beam'.
@@ -963,12 +1061,12 @@ PowerFeatNaturalFluidityGainWildShapeFromSlot7	Title='Gain 2 WildShape'.
 PowerFeatNaturalFluidityGainWildShapeFromSlot7	Description='Gain 2 WildShape forms by spending one slot of level 7.'.
 PowerFeatNaturalFluidityGainWildShapeFromSlot8	Title='Gain 2 WildShape'.
 PowerFeatNaturalFluidityGainWildShapeFromSlot8	Description='Gain 2 WildShape forms by spending one slot of level 8.'.
-PowerFeatSlayTheEnemies1	Title='Slay the Enemies 1'.
-PowerFeatSlayTheEnemies1	Description='You gain +1 to hit and damage rolls against non favored enemies for 3 rounds. You gain advantage against favored ones instead.'.
-PowerFeatSlayTheEnemies2	Title='Slay the Enemies 2'.
-PowerFeatSlayTheEnemies2	Description='You gain +2 to hit and damage rolls against non favored enemies for 4 rounds. You gain advantage against favored ones instead.'.
-PowerFeatSlayTheEnemies3	Title='Slay the Enemies 3'.
-PowerFeatSlayTheEnemies3	Description='You gain +3 to hit and damage rolls against non favored enemies for 5 rounds. You gain advantage against favored ones instead.'.
+PowerFeatSlayTheEnemies1	Title='Slay the Enemies I'.
+PowerFeatSlayTheEnemies1	Description='Consume level 1 spell slot to gain +1 to attack and damage rolls for 3 rounds. Against favored enemies attack roll bonus is replaced with advantage.'.
+PowerFeatSlayTheEnemies2	Title='Slay the Enemies II'.
+PowerFeatSlayTheEnemies2	Description='Consume level 2 spell slot to gain +2 to attack and damage rolls for 4 rounds. Against favored enemies attack roll bonus is replaced with advantage.'.
+PowerFeatSlayTheEnemies3	Title='Slay the Enemies III'.
+PowerFeatSlayTheEnemies3	Description='Consume level 3 spell slot to gain +3 to attack and damage rolls for 5 rounds. Against favored enemies attack roll bonus is replaced with advantage.'.
 PowerFeatSpiritualFluidityGainChannelDivinityFromSlot3	Title='Gain 1 Channel Divinity'.
 PowerFeatSpiritualFluidityGainChannelDivinityFromSlot3	Description='Gain 1 Channel Divinity by spending one slot of level 3.'.
 PowerFeatSpiritualFluidityGainChannelDivinityFromSlot4	Title='Gain 1 Channel Divinity'.
@@ -1105,12 +1203,12 @@ SpellPowerFeatNaturalFluidityGainWildShapeFromSlot7	Title='Gain 2 WildShape'.
 SpellPowerFeatNaturalFluidityGainWildShapeFromSlot7	Description='Gain 2 WildShape forms by spending one slot of level 7.'.
 SpellPowerFeatNaturalFluidityGainWildShapeFromSlot8	Title='Gain 2 WildShape'.
 SpellPowerFeatNaturalFluidityGainWildShapeFromSlot8	Description='Gain 2 WildShape forms by spending one slot of level 8.'.
-SpellPowerFeatSlayTheEnemies1	Title='Slay the Enemies 1'.
-SpellPowerFeatSlayTheEnemies1	Description='You gain +1 to hit and damage rolls against non favored enemies for 3 rounds. You gain advantage against favored ones instead.'.
-SpellPowerFeatSlayTheEnemies2	Title='Slay the Enemies 2'.
-SpellPowerFeatSlayTheEnemies2	Description='You gain +2 to hit and damage rolls against non favored enemies for 4 rounds. You gain advantage against favored ones instead.'.
-SpellPowerFeatSlayTheEnemies3	Title='Slay the Enemies 3'.
-SpellPowerFeatSlayTheEnemies3	Description='You gain +3 to hit and damage rolls against non favored enemies for 5 rounds. You gain advantage against favored ones instead.'.
+SpellPowerFeatSlayTheEnemies1	Title='Slay the Enemies I'.
+SpellPowerFeatSlayTheEnemies1	Description='Consume level 1 spell slot to gain +1 to attack and damage rolls for 3 rounds. Against favored enemies attack roll bonus is replaced with advantage.'.
+SpellPowerFeatSlayTheEnemies2	Title='Slay the Enemies II'.
+SpellPowerFeatSlayTheEnemies2	Description='Consume level 2 spell slot to gain +2 to attack and damage rolls for 4 rounds. Against favored enemies attack roll bonus is replaced with advantage.'.
+SpellPowerFeatSlayTheEnemies3	Title='Slay the Enemies III'.
+SpellPowerFeatSlayTheEnemies3	Description='Consume level 3 spell slot to gain +3 to attack and damage rolls for 5 rounds. Against favored enemies attack roll bonus is replaced with advantage.'.
 SpellPowerFeatSpiritualFluidityGainChannelDivinityFromSlot3	Title='Gain 1 Channel Divinity'.
 SpellPowerFeatSpiritualFluidityGainChannelDivinityFromSlot3	Description='Gain 1 Channel Divinity by spending one slot of level 3.'.
 SpellPowerFeatSpiritualFluidityGainChannelDivinityFromSlot4	Title='Gain 1 Channel Divinity'.
@@ -1191,6 +1289,8 @@ SpellStoringWandOfBane	Title='Wand of Bane'.
 SpellStoringWandOfBane	Description='This wand allows casting the <b>Bane</b> spell using spell casting stats of the Inventor who created it.'.
 SpellStoringWandOfBarkskin	Title='Wand of Barkskin'.
 SpellStoringWandOfBarkskin	Description='This wand allows casting the <b>Barkskin</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfBindingIce	Title='Wand of Bounden Ice'.
+SpellStoringWandOfBindingIce	Description='This wand allows casting the <b>Bounden Ice</b> spell using spell casting stats of the Inventor who created it.'.
 SpellStoringWandOfBless	Title='Wand of Bless'.
 SpellStoringWandOfBless	Description='This wand allows casting the <b>Bless</b> spell using spell casting stats of the Inventor who created it.'.
 SpellStoringWandOfBlindness	Title='Wand of Blindness'.
@@ -1279,6 +1379,8 @@ SpellStoringWandOfMageArmor	Title='Wand of Mage Armor'.
 SpellStoringWandOfMageArmor	Description='This wand allows casting the <b>Mage Armor</b> spell using spell casting stats of the Inventor who created it.'.
 SpellStoringWandOfMagicMissile	Title='Wand of Magic Missile'.
 SpellStoringWandOfMagicMissile	Description='This wand allows casting the <b>Magic Missile</b> spell using spell casting stats of the Inventor who created it.'.
+SpellStoringWandOfMagnifyGravity	Title='Wand of Magnify Gravity'.
+SpellStoringWandOfMagnifyGravity	Description='This wand allows casting the <b>Magnify Gravity</b> spell using spell casting stats of the Inventor who created it.'.
 SpellStoringWandOfMirrorImage	Title='Wand of Mirror Image'.
 SpellStoringWandOfMirrorImage	Description='This wand allows casting the <b>Mirror Image</b> spell using spell casting stats of the Inventor who created it.'.
 SpellStoringWandOfMoonBeam	Title='Wand of Moon Beam'.

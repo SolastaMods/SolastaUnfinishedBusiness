@@ -65,19 +65,16 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
         // Wrath and Fury
 
-        var combatAffinityGrievousWound = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}GrievousWound")
-            .SetGuiPresentation($"Condition{Name}GrievousWound", Category.Condition)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .AddToDB();
-
+#if false
         var conditionGrievousWound = ConditionDefinitionBuilder
             .Create($"Condition{Name}GrievousWound")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionBleeding)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(combatAffinityGrievousWound)
+            .CopyParticleReferences(ConditionDefinitions.ConditionStunned)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
+            .AddFeatures(ConditionDefinitions.ConditionIncapacitated.Features.ToArray())
             .AddToDB();
 
         var powerGrievousWound = FeatureDefinitionPowerBuilder
@@ -101,11 +98,19 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionParticleReference;
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionEndParticleReference;
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionStartParticleReference;
+#endif
+
         var featureWrathAndFury = FeatureDefinitionBuilder
             .Create($"Feature{Name}WrathAndFury")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
+                //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
                 new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand))
             .AddToDB();
@@ -143,10 +148,11 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         var featureFuriousDefense = FeatureDefinitionAttributeModifierBuilder
             .Create($"Feature{Name}FuriousDefense")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ChangeSavingThrowAttributeFuriousDefense())
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
+
+        featureFuriousDefense.SetCustomSubFeatures(new ChangeSavingThrowAttributeFuriousDefense(featureFuriousDefense));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -189,6 +195,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         return (diceNumber, upgradeDiceMap[dieType], upgradeDiceMap[versatileDieType]);
     }
 
+#if false
     private sealed class AttackEffectAfterDamageWrathAndFury : IAttackEffectAfterDamage
     {
         private readonly FeatureDefinitionPower _powerGrievousWound;
@@ -237,6 +244,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
         }
     }
+#endif
 
     private sealed class AttackEffectAfterDamageUnbridledFerocity : IAttackEffectAfterDamage
     {
@@ -262,12 +270,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
                 return;
             }
 
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (outcome == RollOutcome.CriticalSuccess)
             {
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagCombat, _conditionUnbridledFerocity.Name);
             }
-            else if (outcome != RollOutcome.CriticalFailure && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            else if (outcome == RollOutcome.Success && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 rulesetAttacker.InflictCondition(
                     _conditionUnbridledFerocity.Name,
@@ -288,6 +297,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
     private sealed class ChangeSavingThrowAttributeFuriousDefense : IChangeSavingThrowAttribute
     {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ChangeSavingThrowAttributeFuriousDefense(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
         public bool IsValid(RulesetActor rulesetActor, string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Dexterity &&
@@ -296,6 +312,8 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
         public string SavingThrowAttribute(RulesetActor rulesetActor)
         {
+            GameConsoleHelper.LogCharacterUsedFeature((rulesetActor as RulesetCharacter)!, _featureDefinition);
+
             return AttributeDefinitions.Strength;
         }
     }

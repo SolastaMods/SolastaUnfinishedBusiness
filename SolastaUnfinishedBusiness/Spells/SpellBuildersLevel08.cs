@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 08
+    #region Mind Blank
 
     internal static SpellDefinition BuildMindBlank()
     {
@@ -20,7 +20,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Hour, 24)
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(

@@ -124,6 +124,18 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal static EffectForm ConditionForm(
+        ConditionDefinition condition,
+        ConditionForm.ConditionOperation operation = global::ConditionForm.ConditionOperation.Add,
+        bool applyToSelf = false,
+        bool forceOnSelf = false,
+        params ConditionDefinition[] conditionsList)
+    {
+        return Create()
+            .SetConditionForm(condition, operation, applyToSelf, forceOnSelf, conditionsList)
+            .Build();
+    }
+
     internal EffectFormBuilder OverrideSavingThrowInfo(
         string savingThrowAbility,
         int savingThrowDc,
@@ -288,6 +300,17 @@ internal class EffectFormBuilder
         effectForm.itemPropertyForm = itemForm;
         effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
         return this;
+    }
+
+    internal static EffectForm LightSourceForm(LightSourceType lightSourceType,
+        int brightRange,
+        int dimAdditionalRange,
+        Color color,
+        AssetReference graphicsPrefabReference = null)
+    {
+        return Create()
+            .SetLightSourceForm(lightSourceType, brightRange, dimAdditionalRange, color, graphicsPrefabReference)
+            .Build();
     }
 
     internal EffectFormBuilder SetLightSourceForm(

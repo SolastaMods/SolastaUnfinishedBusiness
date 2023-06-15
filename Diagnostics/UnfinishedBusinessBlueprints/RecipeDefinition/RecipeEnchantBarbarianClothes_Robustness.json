@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:BarbarianClothes_Robustness:143d01c5-b48c-51cb-bb36-b692f6a2c35b",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

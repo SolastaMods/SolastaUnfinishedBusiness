@@ -1,12 +1,10 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Spell attack bonus of its creator
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Extra Attack
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Learn and have always prepared:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Weaponsmith Spells
-Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Your experiments with weapons has borne you a Defending Blade companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the blade, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
-Feature/&FeatureSetInnovationWeaponSteelDefenderTitle=Defending Blade
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Your Arcane Jolt and steel defender become more powerful:\n• The extra damage and the healing of your Arcane Jolt both increase to 4d6.\n• Your steel defender gains a +2 bonus to Armor Class.
 Feature/&FeatureSetInnovationWeaponImprovedDefenderTitle=Improved Defender
+Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Your experiments with weapons has borne you a Defending Blade companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the blade, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
+Feature/&FeatureSetInnovationWeaponSteelDefenderTitle=Defending Blade
 Feature/&PowerInnovationWeaponArcaneJoltDescription=When you hit an enemy with your attack you can channel magical energy through the strike to make target take extra 2d6 Force damage. You can uses this power number of times equal to your Intelligence modifier per long rest, but no more than once per turn.
 Feature/&PowerInnovationWeaponArcaneJoltTitle=Force Jolt
 Feature/&PowerInnovationWeaponSteelDefenderRecuperateDescription=Defending Blade has number of d8 hit dice equal to your Inventor level. During short rest you can roll them to restore Defending Blade's HP.

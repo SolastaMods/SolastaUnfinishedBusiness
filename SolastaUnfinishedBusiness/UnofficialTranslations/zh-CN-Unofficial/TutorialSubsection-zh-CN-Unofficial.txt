@@ -1,0 +1,13 @@
+TutorialSubsection/&Basics_CameraTitle=镜头
+TutorialSubsection/&Basics_MovingTitle=移动中
+TutorialSubsection/&Basics_PartyMngtTitle=小队管理
+TutorialSubsection/&Basics_QuestTitle=任务日志
+TutorialSubsection/&CombatMovementTitle=移动
+TutorialSubsection/&CombatShoveTitle=推撞
+TutorialSubsection/&ExplorationJumpingClimbingTitle=跳跃和攀爬
+TutorialSubsection/&Exploration_LocationMapTitle=区域地图
+TutorialSubsection/&Exploration_MagicTitle=魔法
+TutorialSubsection/&Exploration_MiscTitle=其他
+TutorialSubsection/&Exploration_PointsOfInterestTitle=兴趣点
+TutorialSubsection/&Inventory_LootingTitle=战利品搜刮
+TutorialSubsection/&Inventory_SpecialTitle=特殊槽位

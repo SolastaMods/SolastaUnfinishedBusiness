@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Doom_Gem:be248d03cbf6a8b4c9fee004c058e9f6",
   "stackCount": 1,
   "craftingHours": 16,

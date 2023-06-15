@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": true,
   "armorProficiencyCategory": "LightArmorCategory",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "MediumArmor",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",

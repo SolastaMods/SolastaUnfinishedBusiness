@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Quarterstaff_Dragonblade:e370ac47-673b-5ff2-ad01-b84293f18d78",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 14,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

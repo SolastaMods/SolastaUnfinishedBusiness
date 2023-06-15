@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Leather Armor:1c84d3c251d7ff04e901b0450dabaab8",
   "stackCount": 1,
   "craftingHours": 8,

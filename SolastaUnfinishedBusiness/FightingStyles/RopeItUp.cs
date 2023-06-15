@@ -18,9 +18,7 @@ internal class RopeItUp : AbstractFightingStyle
     private static readonly FeatureDefinition FeatureRopeItUp = FeatureDefinitionAttributeModifierBuilder
         .Create($"AttributeModifier{Name}")
         .SetGuiPresentation(Name, Category.FightingStyle)
-        .SetCustomSubFeatures(
-            ReturningWeapon.Instance,
-            new ModifyWeaponAttackModeRopeItUp())
+        .SetCustomSubFeatures(ReturningWeapon.Instance, new ModifyWeaponAttackModeRopeItUp())
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder

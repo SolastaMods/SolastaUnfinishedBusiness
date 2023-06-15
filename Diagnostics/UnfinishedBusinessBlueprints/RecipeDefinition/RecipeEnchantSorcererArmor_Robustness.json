@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:SorcererArmor_Robustness:4512508f-e05c-5f8f-a695-3d21a4301d0c",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

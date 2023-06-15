@@ -477,7 +477,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side != locationCharacter.Side &&
-                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x)))
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
+                         .ToList()) // avoid changing enumerator
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
@@ -597,7 +599,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side != locationCharacter.Side &&
-                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x)))
+                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
+                         .ToList())
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
@@ -660,7 +663,17 @@ internal sealed class PathOfTheElements : AbstractSubclass
             RulesetAttackMode mode,
             ActionModifier modifier)
         {
-            if (!me.CanReact())
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
@@ -672,7 +685,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            if (!me.CanAct() || !rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 yield break;
             }
@@ -717,7 +730,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
-            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Strength, _featureDefinition, modifierTrend,
+            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Dexterity, _featureDefinition, modifierTrend,
                 advantageTrends, defenderDexModifier, 8 + profBonus + attackerConModifier, false,
                 out var savingOutcome,
                 out _);
@@ -728,15 +741,14 @@ internal sealed class PathOfTheElements : AbstractSubclass
             }
 
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
-            var totalDamage = (classLevel + 1) / 2;
             var damageForm = new DamageForm
             {
-                DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
+                DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = classLevel
             };
 
             EffectHelpers.StartVisualEffect(me, attacker, SpellDefinitions.HellishRebuke);
             RulesetActor.InflictDamage(
-                totalDamage,
+                classLevel,
                 damageForm,
                 DamageTypeFire,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
@@ -745,7 +757,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 rulesetAttacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(DieType.D1, new List<int>(), totalDamage),
+                new RollInfo(DieType.D1, new List<int>(), classLevel),
                 true,
                 out _);
         }

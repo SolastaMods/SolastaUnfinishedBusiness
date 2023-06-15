@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -13,24 +13,24 @@ internal static class ThrowingWeaponData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons =
-                new List<ItemDefinition>
+            BaseItems =
+                new List<(ItemDefinition item, ItemDefinition presentation)>
                 {
-                    DatabaseHelper.ItemDefinitions.Javelin, DatabaseHelper.ItemDefinitions.Dart
+                    (ItemDefinitions.Javelin, ItemDefinitions.JavelinPlus2), (ItemDefinitions.Dart, null)
                 },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Primed_Dagger },
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Dagger },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1
-                new("Acuteness", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_of_Acuteness,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerOfAcuteness),
+                new("Acuteness", ItemDefinitions.Enchanted_Dagger_of_Acuteness,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerOfAcuteness),
                 // Same as +2
-                new("Sharpness", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_of_Sharpness,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerOfSharpness),
-                new("Souldrinker", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_Souldrinker,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
-                new("Frostburn", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_Frostburn,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn)
+                new("Sharpness", ItemDefinitions.Enchanted_Dagger_of_Sharpness,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerOfSharpness),
+                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
+                new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn)
             }
             // NumProduced = 3
         };

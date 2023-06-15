@@ -1,0 +1,207 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 15,
+      "itemDefinition": "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 15,
+      "itemDefinition": "Definition:ArtisanToolSmithTools:46c6058109cc8c8419c546419a74281b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:EnchantingTool:2c890151b586b0146a0296be9b1dd5de",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:PoisonersKit:baf065854a7ae414fbb415d7b3d88fec",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:ScrollKit:64fe9d27d3e780844ba98ac656ec98a1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Bongo:f0faa497d25de694abfe70f8828d8903",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Conch:19130550f8db2a74e95cdeb4e4ca6210",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Drum:f6b79ccc298573e4caea720500413ba9",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Dulcimer:ad8eb86975799194484f155efe32b455",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Flute:66eb201b0e459134d8ce4050a53d5393",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Horn:db4461c9e2b5f1a438ed8ab910a9bc83",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Lute:bf3245124743f6340804f14ffb022fa1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Shawm:bf7ed2ca2e6ecc2469547300bacea7f6",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 15,
+      "itemDefinition": "Definition:ArcaneFocusOrb:9ea374b3079d52a4d882e271157e040b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 15,
+      "itemDefinition": "Definition:ArcaneFocusWand:7a4868b5808e0e54b9ad9ce4c5418215",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 15,
+      "itemDefinition": "Definition:DruidicFocus:518483ab9093af04d97387aefd0bad2a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Spellbook:8fba4fb82a318ea4ab1076b0b607c9a9",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 15,
+      "itemDefinition": "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:HolySymbolBelt:e596afb7cb62cf049a9ecc2f171233a8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:HolySymbolCape:cf6a4d4d0f153704ca4168641322da9f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:HolySymbolCrown:81ab33a4033da5b4dbb93991e4a4e555",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:ComponentPouch_ArcaneAmulet:4ad08ea4bfa795f49b90f7cc3f483c4b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:ComponentPouch_Bracers:affcfdfae885bed49a92c35cd09071cc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:ComponentPouch_Circlet:f1b8e2103cb049c4184ed178b2b57a23",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2e8908ca206b5c64982a6048a72c02d6",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableQ_Mundane_Gear"
+}

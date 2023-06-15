@@ -2,13 +2,16 @@
   "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
   "ancestryDefinesDamageType": false,
   "ancestryType": "Sorcerer",
-  "damageType": "DamageBludgeoning",
+  "damageType": "DamagePiercing",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
   "damageAffinityType": "Resistance",
   "flatDamageReduction": 0,
   "flatDamageReductionOnlyAppliesToFirstDamageForm": true,
-  "tagsIgnoringAffinity": [],
+  "tagsIgnoringAffinity": [
+    "MagicalWeapon",
+    "MagicalEffect"
+  ],
   "situationalContext": "None",
   "healsBack": false,
   "healBackCap": 10,
@@ -23,7 +26,6 @@
   "knockOutDCAttribute": "RelentlessRageDC",
   "knockOutAddDC": 5,
   "instantDeathImmunity": false,
-  "activatePowerWhenDamaged": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

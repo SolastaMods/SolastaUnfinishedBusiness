@@ -28,7 +28,6 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static void Postfix(
-            GameLocationBattleManager __instance,
             ref bool __result,
             RulesetCharacter caster,
             RulesetUsablePower usablePower)
@@ -69,6 +68,8 @@ public static class GameLocationBattleManagerPatcher
                         ActionDefinitions.Id, // actionId,
                         bool, // getWithMostAttackNb,
                         bool, // onlyIfRemainingUses,
+                        bool, // onlyIfCanUseAction
+                        ActionDefinitions.ReadyActionType, // readyActionType
                         RulesetAttackMode //result
                     >(FindActionAttackMode)
                     .Method;
@@ -92,12 +93,16 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter character,
             ActionDefinitions.Id actionId,
             bool getWithMostAttackNb,
-            bool onlyIfRemainingUses
+            bool onlyIfRemainingUses,
+            bool onlyIfCanUseAction,
+            ActionDefinitions.ReadyActionType readyActionType
         )
         {
-            var attackMode = character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
+            var attackMode =
+                character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses, onlyIfCanUseAction,
+                    readyActionType);
 
-            if (character.ReadiedAction != ActionDefinitions.ReadyActionType.Ranged)
+            if (readyActionType != ActionDefinitions.ReadyActionType.Ranged)
             {
                 return attackMode;
             }
@@ -165,19 +170,22 @@ public static class GameLocationBattleManagerPatcher
             GameLocationBattleManager __instance,
             GameLocationCharacter mover)
         {
-            //PATCH: support for Polearm Expert AoO
-            //processes saved movement to trigger AoO when appropriate
-
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
-
-            while (extraEvents.MoveNext())
+            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                mover.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield return extraEvents.Current;
+                var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
+
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
             }
         }
     }
@@ -223,17 +231,23 @@ public static class GameLocationBattleManagerPatcher
                 action.AttackSuccessDelta += action.BardicDieRoll;
             }
 
-            foreach (var extraEvents in attacker.RulesetActor
-                         .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
-                         .TakeWhile(_ =>
-                             action.AttackRollOutcome == RuleDefinitions.RollOutcome.Failure &&
-                             action.AttackSuccessDelta < 0)
-                         .Select(feature =>
-                             feature.OnAttackTryAlterOutcome(__instance, action, attacker, target, attackModifier)))
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                while (extraEvents.MoveNext())
+                foreach (var extraEvents in attacker.RulesetCharacter
+                             .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
+                             .TakeWhile(_ =>
+                                 action.AttackRollOutcome == RuleDefinitions.RollOutcome.Failure &&
+                                 action.AttackSuccessDelta < 0)
+                             .Select(feature =>
+                                 feature.OnAttackTryAlterOutcome(__instance, action, attacker, target, attackModifier)))
                 {
-                    yield return extraEvents.Current;
+                    while (extraEvents.MoveNext())
+                    {
+                        yield return extraEvents.Current;
+                    }
                 }
             }
         }
@@ -261,31 +275,55 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            var extraEvents =
-                AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
-
-            while (extraEvents.MoveNext())
+            if (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is
+                    not (RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit))
             {
-                yield return extraEvents.Current;
+                yield break;
             }
 
-            //PATCH: support for Defensive Strike Power - allows adding Charisma modifer and chain reactions
-            var defensiveEvents =
-                DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
-
-            while (defensiveEvents.MoveNext())
+            //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield return defensiveEvents.Current;
+                var extraEvents =
+                    AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
+
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
             }
+
+            //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                var defensiveEvents =
+                    DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
+
+                while (defensiveEvents.MoveNext())
+                {
+                    yield return defensiveEvents.Current;
+                }
+            }
+
 
             //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
-            var guardianEvents =
-                GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(__instance, attacker, defender,
-                    attackerAttackMode, rulesetEffect, damageAmount);
-
-            while (guardianEvents.MoveNext())
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield return guardianEvents.Current;
+                var guardianEvents =
+                    GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(
+                        __instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
+
+                while (guardianEvents.MoveNext())
+                {
+                    yield return guardianEvents.Current;
+                }
             }
         }
     }
@@ -311,13 +349,44 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            //PATCH: support for `IDefenderBeforeAttackHitConfirmed`
-            var character = defender.RulesetCharacter;
-
-            if (character != null)
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnEnemy`
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var extra in character
-                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmed>()
+                var rulesetAttacker = attacker.RulesetCharacter;
+
+                foreach (var extra in rulesetAttacker
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>()
+                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnEnemy(
+                                 __instance,
+                                 attacker,
+                                 defender,
+                                 attackModifier,
+                                 attackMode,
+                                 rangedAttack,
+                                 advantageType,
+                                 actualEffectForms,
+                                 rulesetEffect,
+                                 criticalHit,
+                                 firstTarget)))
+                {
+                    while (extra.MoveNext())
+                    {
+                        yield return extra.Current;
+                    }
+                }
+            }
+
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                var rulesetDefender = defender.RulesetCharacter;
+
+                foreach (var extra in rulesetDefender
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>()
                              .Select(feature => feature.OnAttackBeforeHitConfirmed(
                                  __instance,
                                  attacker,
@@ -368,38 +437,42 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
-            var blockEvents =
-                BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode,
-                    rulesetEffect, attackModifier, attackRoll);
-
-            while (blockEvents.MoveNext())
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield return blockEvents.Current;
-            }
+                //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
+                var blockEvents =
+                    BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode,
+                        rulesetEffect, attackModifier, attackRoll);
 
-            //PATCH: support for 'IAttackHitPossible'
-            var character = defender.RulesetCharacter;
-
-            if (character == null)
-            {
-                yield break;
-            }
-
-            foreach (var extra in character
-                         .GetSubFeaturesByType<IAttackHitPossible>()
-                         .Select(feature => feature.DefenderAttackHitPossible(
-                             __instance,
-                             attacker,
-                             defender,
-                             attackMode,
-                             rulesetEffect,
-                             attackModifier,
-                             attackRoll)))
-            {
-                while (extra.MoveNext())
+                while (blockEvents.MoveNext())
                 {
-                    yield return extra.Current;
+                    yield return blockEvents.Current;
+                }
+            }
+
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                //PATCH: support for 'IAttackHitPossible'
+                foreach (var extra in defender.RulesetCharacter
+                             .GetSubFeaturesByType<IAttackHitPossible>()
+                             .Select(feature => feature.DefenderAttackHitPossible(
+                                 __instance,
+                                 attacker,
+                                 defender,
+                                 attackMode,
+                                 rulesetEffect,
+                                 attackModifier,
+                                 attackRoll)))
+                {
+                    while (extra.MoveNext())
+                    {
+                        yield return extra.Current;
+                    }
                 }
             }
         }
@@ -462,7 +535,7 @@ public static class GameLocationBattleManagerPatcher
 
             var defenderCharacter = defender.RulesetCharacter;
 
-            if (defenderCharacter == null)
+            if (defenderCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -485,9 +558,7 @@ public static class GameLocationBattleManagerPatcher
                     continue;
                 }
 
-                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious &&
-                               defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                               ActionDefinitions.ActionStatus.Available;
+                var canReact = defender.CanReact();
 
                 //TODO: add ability to specify whether this feature can reduce magic damage
                 var damageTypes = feature.DamageTypes;
@@ -533,6 +604,7 @@ public static class GameLocationBattleManagerPatcher
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
+                    {
                         if (!canReact)
                         {
                             continue;
@@ -571,6 +643,8 @@ public static class GameLocationBattleManagerPatcher
 
                         totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
                         break;
+                    }
+
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
@@ -591,6 +665,8 @@ public static class GameLocationBattleManagerPatcher
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
                         break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
+                        break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
@@ -599,19 +675,21 @@ public static class GameLocationBattleManagerPatcher
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
-                        break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
                         break;
                     default:
                         throw new ArgumentException("feature.TriggerCondition");
                 }
 
-                var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage,
-                    RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+                if (totalReducedDamage <= 0)
+                {
+                    continue;
+                }
 
-                damage.bonusDamage -= totalReducedDamage;
-                damage.DamageBonusTrends.Add(trendInfo);
+                var tag = $"{feature.Name}:{defender.Guid}:{totalReducedDamage}";
+                attackMode?.AttackTags.Add(tag);
+                rulesetEffect?.SourceTags.Add(tag);
+
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
             }
         }
@@ -625,13 +703,18 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static void Postfix(
             BattleDefinitions.AttackEvaluationParams attackParams,
-            bool __result)
+            bool __result,
+            GameLocationBattleManager __instance
+        )
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
+
+            //PATCH: add a rule to grant adv to attacks that the target unable to see
+            PatchIlluminationBasedAdvantage(__instance, __result, attackParams);
         }
 
         //TODO: move this somewhere else and maybe split?
@@ -661,6 +744,62 @@ public static class GameLocationBattleManagerPatcher
                     attackParams.attackMode,
                     ref attackParams.attackModifier);
             }
+        }
+
+        private static void PatchIlluminationBasedAdvantage(
+            GameLocationBattleManager __instance,
+            bool __result,
+            BattleDefinitions.AttackEvaluationParams attackParams)
+        {
+            if (!__result || !Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
+            {
+                return;
+            }
+
+            var attackerLoc = attackParams.attacker;
+            var defenderLoc = attackParams.defender;
+            var attackerChr = attackerLoc.RulesetCharacter;
+            var defenderChr = defenderLoc.RulesetCharacter;
+
+            if (attackerChr == null || defenderChr == null)
+            {
+                return;
+            }
+
+            // It seems that we don't need to find the controller of the attacker or the defender
+            //RulesetCharacterEffectProxy rulesetCharacterEffectProxy;
+            //if ((rulesetCharacterEffectProxy = (attackerLoc.RulesetCharacter as RulesetCharacterEffectProxy)) != null)
+            //{
+            //    RulesetActor rulesetActor = null;
+            //    if (RulesetEntity.TryGetEntity<RulesetActor>(rulesetCharacterEffectProxy.ControllerGuid, out rulesetActor))
+            //    {
+            //        attackerLoc = GameLocationCharacter.GetFromActor(rulesetActor);
+            //    }
+            //}
+
+            var attackerGravityCenter =
+                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
+            var defenderGravityCenter =
+                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
+
+            IIlluminable attacker = attackerLoc;
+            var lightingState = attackerLoc.LightingState;
+            var distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
+            var flag = defenderLoc.RulesetCharacter.SenseModes
+                .Where(senseMode => distance <= senseMode.SenseRange)
+                .Any(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState));
+
+            if (flag)
+            {
+                return;
+            }
+
+            attackParams.attackModifier.AttackAdvantageTrends.Add(
+                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                    attacker.TargetSource, (string)null));
+            attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(
+                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                    attacker.TargetSource, (string)null));
         }
     }
 
@@ -728,6 +867,7 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(
             IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode rulesetAttackMode,
@@ -756,6 +896,10 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            if (__instance.battle == null)
+            {
+                yield break;
+            }
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
             foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>()
@@ -767,6 +911,11 @@ public static class GameLocationBattleManagerPatcher
                 {
                     yield return extraEvents.Current;
                 }
+            }
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             //PATCH: Support for `ISourceReducedToZeroHP` feature
@@ -792,6 +941,7 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(
             IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -800,14 +950,16 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget,
             bool criticalHit)
         {
-            //PATCH: set critical strike global variable
-            Global.CriticalHit = criticalHit;
-
-            //call all before handlers
-            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
-                    actualEffectForms, firstTarget, criticalHit);
+                //call all before handlers
+                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
+                {
+                    yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
+                        actualEffectForms, firstTarget, criticalHit);
+                }
             }
 
             while (values.MoveNext())
@@ -815,14 +967,18 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            //call all after handlers
-            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
-                    actualEffectForms, firstTarget, criticalHit);
+                //call all after handlers
+                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
+                {
+                    yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
+                        actualEffectForms, firstTarget, criticalHit);
+                }
             }
-
-            Global.CriticalHit = false;
         }
     }
 
@@ -859,7 +1015,7 @@ public static class GameLocationBattleManagerPatcher
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -945,13 +1101,11 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            // PATCH: Allow attack of opportunity on target that failed saving throw
-            var units = __instance.Battle.AllContenders
-                .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-                .ToArray();
-
+            //PATCH: Allow attack of opportunity on target that failed saving throw
             //Process other participants of the battle
-            foreach (var unit in units)
+            foreach (var unit in __instance.Battle.AllContenders
+                         .Where(x => x is { RulesetCharacter.IsDeadOrDyingOrUnconscious: false })
+                         .ToList())
             {
                 if (unit == defender || unit == attacker)
                 {
@@ -960,8 +1114,8 @@ public static class GameLocationBattleManagerPatcher
 
                 foreach (var feature in unit.RulesetCharacter.GetSubFeaturesByType<IOnDefenderFailedSavingThrow>())
                 {
-                    yield return feature.OnDefenderFailedSavingThrow(__instance, action, unit, defender, saveModifier,
-                        hasHitVisual, hasBorrowedLuck);
+                    yield return feature.OnDefenderFailedSavingThrow(
+                        __instance, action, unit, defender, saveModifier, hasHitVisual, hasBorrowedLuck);
                 }
             }
         }
@@ -988,21 +1142,33 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
+            //PATCH: registers which weapon types were used so far on attacks
+
+            ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
+
+            //PATCH: allow custom behavior when physical attack initiates
 
             if (__instance.battle == null)
             {
                 yield break;
             }
 
-            //PATCH: allow custom behavior when physical attack initiates
             foreach (var attackInitiated in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiated>())
             {
                 yield return attackInitiated.OnAttackInitiated(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates on me
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             foreach (var attackInitiated in
@@ -1010,6 +1176,13 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return attackInitiated.OnAttackInitiatedOnMe(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates on me or ally
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
@@ -1044,12 +1217,27 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            //PATCH: allow custom behavior when physical attack finished
-            foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
+            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
-                yield return feature.OnAttackFinished(
-                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
-                    damageAmount);
+                //PATCH: allow custom behavior when physical attack finished
+                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
+                {
+                    yield return feature.OnAttackFinished(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
+            }
+
+            // ReSharper disable once InvertIf
+            if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
+            {
+                //PATCH: allow custom behavior when physical attack finished on defender
+                foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+                {
+                    yield return feature.OnAttackFinishedOnMe(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
             }
         }
     }

@@ -60,6 +60,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -98,7 +99,7 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": false,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "ProxySpiritualWeapon"
+          "effectProxyDefinitionName": "ProxyFlamingSphere"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -167,6 +168,33 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
           "conditionDefinition": "Definition:ConditionConjuredItemLink:a0489ed5ecfa04d4ba9d8286b8e7e4e8",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionShadowBlade",
+          "conditionDefinition": "Definition:ConditionShadowBlade:7f7a5735-9143-5616-a6d5-659c5da3026d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -396,7 +424,7 @@
     "description": "Spell/&ShadowBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d551ab8a-afc8-5c68-9f0e-69e73c98d04e",
+      "m_AssetGUID": "c75ac936-5e63-5d46-b484-8832b593e4eb",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

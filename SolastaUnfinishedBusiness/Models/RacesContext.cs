@@ -17,29 +17,14 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
-        // BACKWARD COMPATIBILITY
-        var raceGnome = GnomeRaceBuilder.RaceGnome;
-
-        raceGnome.GuiPresentation.hidden = true;
-        Main.Settings.RaceEnabled.Remove(raceGnome.Name);
-
-        var raceTiefling = TieflingRaceBuilder.RaceTiefling;
-
-        raceTiefling.GuiPresentation.hidden = true;
-        Main.Settings.RaceEnabled.Remove(raceTiefling.Name);
-        raceTiefling.SubRaces.ForEach(x =>
-        {
-            x.GuiPresentation.hidden = true;
-            Main.Settings.RaceEnabled.Remove(x.Name);
-        });
-        // END BACKWARD COMPATIBILITY
-
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);
         LoadRace(KoboldRaceBuilder.RaceKobold);
         LoadRace(FairyRaceBuilder.RaceFairy);
+        LoadRace(RaceOligathBuilder.RaceOligath);
+        LoadRace(TieflingRaceBuilder.RaceTiefling);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();

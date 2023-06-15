@@ -7,7 +7,7 @@
   "openingPlacement": true,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": true,
+  "propPlacement": false,
   "lightSources": [],
   "category": "Partitions",
   "dimensions": {
@@ -80,6 +80,26 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "1a914d2bbea19f34ebb342335e141419",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "0690c3c2806dd4447814d7934b427fdc",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "725f73918a8a01e4ba1943fdfdefaa6a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

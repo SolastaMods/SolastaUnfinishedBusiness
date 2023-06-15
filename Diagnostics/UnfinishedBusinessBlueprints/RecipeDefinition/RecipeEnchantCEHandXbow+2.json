@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CEHandXbow+2:0ea27fb9-5823-501f-94c1-b8fdaacc27f4",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

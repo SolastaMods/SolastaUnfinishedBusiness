@@ -121,10 +121,7 @@ def main():
     translate_folder("en", "en", "es")
     translate_folder("en", "en", "fr")
     translate_folder("en", "en", "de")
-
     translate_folder("en", "en", "it")
-    # translate_folder("en", "en", "zh-CN")
-    # translate_folder("en", "en", "ru")
 
 if __name__ == "__main__":
     main()

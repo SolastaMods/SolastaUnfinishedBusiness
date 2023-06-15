@@ -1,0 +1,5 @@
+BodyHairStyle/&Hairstyle_A=Corte Pixie
+BodyHairStyle/&Hairstyle_B=Medio
+BodyHairStyle/&Hairstyle_C=Corto
+BodyHairStyle/&Hairstyle_D=Bun
+BodyHairStyle/&Hairstyle_E=trenza corona

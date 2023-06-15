@@ -29,6 +29,7 @@ internal static class FeatsContext
         // generate feats here and fill the list
         ArmorFeats.CreateFeats(feats);
         CasterFeats.CreateFeats(feats);
+        OtherFeats.CreateFeats(feats); // must come before Class Feats
         ClassFeats.CreateFeats(feats);
         CraftyFeats.CreateFeats(feats);
         CriticalVirtuosoFeats.CreateFeats(feats);
@@ -36,7 +37,6 @@ internal static class FeatsContext
         FightingStyleFeats.CreateFeats(feats);
         MeleeCombatFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
-        OtherFeats.CreateFeats(feats);
         RaceFeats.CreateFeats(feats);
         RangedCombatFeats.CreateFeats(feats);
         TwoWeaponCombatFeats.CreateFeats(feats);
@@ -44,6 +44,17 @@ internal static class FeatsContext
         // load them in mod UI
         feats.ForEach(LoadFeat);
         GroupFeats.Load(LoadFeatGroup);
+
+        // tweak the groups to make display simpler on mod UI
+        Feats.RemoveWhere(x => x.FormatTitle().Contains("["));
+
+        foreach (var featGroup in FeatGroups
+                     .Where(featGroup => !string.IsNullOrEmpty(featGroup.FamilyTag))
+                     .ToList())
+        {
+            FeatGroups.Remove(featGroup);
+            LoadFeat(featGroup);
+        }
 
         // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
@@ -83,7 +94,13 @@ internal static class FeatsContext
 
     private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition)
     {
-        featDefinition.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
+        var hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
+
+        featDefinition.GuiPresentation.hidden = hidden;
+
+        var groupedFeat = featDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
+
+        groupedFeat?.GetSubFeats(true, true).ForEach(x => x.GuiPresentation.hidden = hidden);
     }
 
     private static void UpdateFeatGroupsVisibility([NotNull] BaseDefinition featDefinition)

@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ScaleMail_Robustness:407c4506-b82e-57fd-a157-40fd965d8c65",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

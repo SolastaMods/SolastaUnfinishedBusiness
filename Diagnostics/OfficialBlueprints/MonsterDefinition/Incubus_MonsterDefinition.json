@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [
@@ -85,9 +85,64 @@
     "Language_Common",
     "Language_Abyssal"
   ],
-  "audioSwitches": [],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "NPC_M_Brood",
+        "id": 2069154489,
+        "guid": "2E10337A-A8E1-458D-AFF2-1FE8A243C3E8",
+        "name": "2E10337A-A8E1-458D-AFF2-1FE8A243C3E8"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Armor",
+          "id": 71308029,
+          "guid": "FC976271-2B39-44EB-B359-06F67CBF04CC",
+          "name": "FC976271-2B39-44EB-B359-06F67CBF04CC"
+        },
+        "objectName": "Leather",
+        "id": 3624926856,
+        "guid": "85C1E6F5-4B15-4712-9995-405F14C87F6D",
+        "name": "85C1E6F5-4B15-4712-9995-405F14C87F6D"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 6.0,
+  "audioRaceRTPCValue": 80.0,
   "challengeRating": 4.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Incubus_loot_drop:dcad2341ec6a8774da0e65f532d73b54",
@@ -95,7 +150,7 @@
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
@@ -105,7 +160,10 @@
     "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
     "Definition:PowerPhaseIncubusTeleport:03745cdc8906a63459d41fe8ee07a1f9",
     "Definition:PowerIncubusDemonicInfluence:60f8b289fa22ade4b9d045379baa06fe",
-    "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424"
+    "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -132,7 +190,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -150,9 +208,7 @@
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
-    "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Incubus:7d28be6c433077140bdd2989c19127d9"
-    ],
+    "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
@@ -187,7 +243,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "a94d112c420e66840a2593b6ea6e8e93",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -201,14 +257,14 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "bc4dbcdbbb29c2e46826357b7d7db3c7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.74,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "bc4dbcdbbb29c2e46826357b7d7db3c7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -253,8 +309,8 @@
     "description": "Monster/&Incubus_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
+      "m_AssetGUID": "23cb5f5a1e613f547bad73b24ba405d1",
+      "m_SubObjectName": "NPC_Presentation_Incubus",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

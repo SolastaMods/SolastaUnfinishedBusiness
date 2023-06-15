@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDistantHandDistractDescription=A un désavantage à la prochaine attaque.
+Condition/&ConditionWayOfTheDistantHandDistractDescription=A un désavantage à la prochaine attaque.
 Condition/&ConditionWayOfTheDistantHandDistractTitle=Distraits
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractDescription=A un désavantage sur toutes les attaques.
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractTitle=Distraits
@@ -38,5 +38,5 @@ Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechni
 Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechniqueReactDescription=Appliquer la technique sélectionnée.
 Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechniqueReactTitle=Appliquer
 Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechniqueTitle=Technique de la main à distance
-Subclass/&WayOfTheDistantHandDescription=Les pratiquants de la Voie de la Main Distante s'entraînent à faire des flèches une extension de leurs mains. Ils sont compétents dans l'utilisation des arcs et la livraison d'effets renforcés par le Ki grâce à des flèches.
+Subclass/&WayOfTheDistantHandDescription=Les pratiquants de la Voie de la Main Distante s'entraînent à faire des flèches une extension de leurs mains. Ils sont compétents dans l'utilisation d'arcs et la livraison d'effets renforcés par le Ki grâce à des flèches.
 Subclass/&WayOfTheDistantHandTitle=Voie de la main lointaine

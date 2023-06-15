@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3750,
+    6750,
     0,
     0,
     0
@@ -201,6 +201,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -214,14 +215,15 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

@@ -10,8 +10,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -73,41 +71,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackOn))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class AttackOn_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(
-            [NotNull] GameLocationCharacter __instance,
-            GameLocationCharacter target,
-            RuleDefinitions.RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
-            var character = __instance.RulesetCharacter;
-
-            if (character == null)
-            {
-                return;
-            }
-
-            var features = character.GetSubFeaturesByType<IAttackEffectBeforeDamage>();
-
-            foreach (var effect in features)
-            {
-                effect.OnAttackEffectBeforeDamage(__instance, target, outcome, actionParams, attackMode,
-                    attackModifier);
-            }
-
-            //PATCH: registers which weapon types were used so far on attacks
-            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackImpactOn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -139,7 +102,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CanUseAtLeastOnPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -226,9 +188,6 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for custom invocation action ids
             CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
                 ignoreMovePoints);
-
-            //PATCH: support `Poisoner` feat to only allow poisons to be used on use item bonus
-            ClassFeats.TweakUseItemBonusActionId(__instance, ref __result, actionId);
         }
     }
 
@@ -278,14 +237,17 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            if (__instance?.RulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
+            var rulesetCharacter = __instance?.RulesetCharacter;
+            if (rulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
             {
                 return;
             }
 
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
-            ReplaceAttackWithCantrip.MightRefundOneAttackOfMainAction(__instance, actionParams, scope);
+            //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
+            rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
+                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
         }
     }
 
@@ -306,6 +268,8 @@ public static class GameLocationCharacterPatcher
                 ActionDefinitions.Id,
                 bool,
                 bool,
+                bool,
+                ActionDefinitions.ReadyActionType,
                 RulesetAttackMode,
                 RulesetAttackMode
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromForcedAttack).Method;

@@ -1,2 +1,1 @@
-﻿Feature/&MartialChampionSuperiorCriticalDescription=Seus ataques com armas marcam um acerto crítico em uma rolagem de 18, 19 ou 20.
-Feature/&MartialChampionSuperiorCriticalTitle=Crítico Superior
+Feature/&MartialChampionSuperiorCriticalDescription=Seus ataques com armas marcam um acerto crítico em uma rolagem de 18, 19 ou 20.

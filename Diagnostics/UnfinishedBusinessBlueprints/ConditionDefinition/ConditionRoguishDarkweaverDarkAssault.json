@@ -4,20 +4,23 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierRoguishDarkweaverDarkAssault:5a0850ee-0259-53a2-9db7-790ccf015984",
+    "Definition:AdditionalActionRoguishDarkweaverDarkAssault:1e2433eb-cfff-5a10-9e19-2f6a31eb0610",
     "Definition:MovementAffinityRoguishDarkweaverDarkAssault:9b1f3e31-07be-5851-8668-bc3ccc141b42"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "turnOccurence": "StartOfTurn",
+  "specialInterruptions": [
+    "AnyBattleTurnEnd"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",

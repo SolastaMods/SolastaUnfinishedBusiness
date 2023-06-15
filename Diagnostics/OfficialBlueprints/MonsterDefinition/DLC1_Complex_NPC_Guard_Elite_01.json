@@ -94,7 +94,8 @@
     "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
     "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
     "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
-    "Definition:PowerFighterSecondWind_DLC1_5:762521b6cc2309e4dbf6ffc20ef70b3b"
+    "Definition:PowerFighterSecondWind_DLC1_5:762521b6cc2309e4dbf6ffc20ef70b3b",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [
     {

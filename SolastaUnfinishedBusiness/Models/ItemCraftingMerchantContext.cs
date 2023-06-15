@@ -32,11 +32,10 @@ internal static class ItemCraftingMerchantContext
     internal static void Load()
     {
         // sort of same sequence as Mod UI
-        FixMissingArmorDefinitionOnSplintArmor();
         CraftingContext.Load();
         PickPocketContext.Load();
         LoadCustomIcons();
-        LoadRemoveIdentification();
+        LoadRemoveAttunementRequirements();
         SwitchAttuneArcaneShieldstaff();
         SwitchSetBeltOfDwarvenKindBeardChances();
         LoadClothingGorimStock();
@@ -47,20 +46,34 @@ internal static class ItemCraftingMerchantContext
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
+        LoadDontDisplayHelmets();
     }
 
-    //BUGFIX: vanilla is missing an armor definition on splint armors
-    private static void FixMissingArmorDefinitionOnSplintArmor()
+    private static void LoadDontDisplayHelmets()
     {
-        SplintArmor.armorDefinition = new ArmorDescription
+        if (!Main.Settings.DontDisplayHelmets)
         {
-            armorClassValue = 17,
-            armorType = "SplintArmorType",
-            isBaseArmorClass = true,
-            minimalStrength = 15,
-            requiresMinimalStrength = true
-        };
-        SplintArmor.isArmor = true;
+            return;
+        }
+
+        foreach (var armor in DatabaseRepository.GetDatabase<ItemDefinition>()
+                     .Where(x => x.IsArmor))
+        {
+            if (armor.ItemPresentation.maleBodyPartBehaviours.Length == GraphicsCharacterDefinitions.BodyPartCount)
+            {
+                armor.ItemPresentation.maleBodyPartBehaviours[0] = GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+                armor.ItemPresentation.maleBodyPartBehaviours[1] = GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+            }
+
+            // ReSharper disable once InvertIf
+            if (armor.ItemPresentation.femaleBodyPartBehaviours.Length == GraphicsCharacterDefinitions.BodyPartCount)
+            {
+                armor.ItemPresentation.femaleBodyPartBehaviours[0] =
+                    GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+                armor.ItemPresentation.femaleBodyPartBehaviours[1] =
+                    GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+            }
+        }
     }
 
     private static void LoadCustomIcons()
@@ -276,16 +289,8 @@ internal static class ItemCraftingMerchantContext
         }
     }
 
-    private static void LoadRemoveIdentification()
+    private static void LoadRemoveAttunementRequirements()
     {
-        if (Main.Settings.RemoveIdentificationRequirements)
-        {
-            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
-            {
-                item.requiresIdentification = false;
-            }
-        }
-
         if (!Main.Settings.RemoveAttunementRequirements)
         {
             return;

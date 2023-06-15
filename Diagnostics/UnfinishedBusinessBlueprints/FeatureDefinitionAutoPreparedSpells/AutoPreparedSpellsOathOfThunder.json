@@ -1,0 +1,75 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Oath",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 2,
+      "spellsList": [
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
+        "Definition:ThunderousSmite:f8f3cb7a-41c6-53d2-ae8a-4e5125cee783"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:CallLightning:bbb46df8e1040014ea6bdaf36cc1e82b",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:FarStep:1adf1412-2248-5b36-805b-5076ef23ea04",
+        "Definition:SonicBoom:72b0aa11-cba8-5fcc-9f76-cab443e381ec"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&OathOfThunderTitle",
+    "description": "Feature/&DomainSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b327df77-bb97-5791-9867-465208939daa",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsOathOfThunder"
+}

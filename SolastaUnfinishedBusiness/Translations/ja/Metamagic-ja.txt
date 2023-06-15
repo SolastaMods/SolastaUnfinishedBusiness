@@ -1,0 +1,16 @@
+Failure/&FailureFlagSpellMustBeOfTargetArea=呪文には円錐、立方体、円柱、または球の効果範囲が必要です
+Failure/&FailureFlagSpellMustHaveDamageForm=呪文には少なくとも 1 つのダメージ フォームが必要です
+Failure/&FailureFlagSpellMustRequireConcentration=呪文には集中力が必要です
+Failure/&FailureFlagSpellRangeMustBeSelf=スペル範囲は自分自身である必要があります
+Feature/&MetamagicAltruisticSpellAllyDescription=自分ではなく30フィート以内の味方をターゲットにする呪文を作成します。
+Feature/&MetamagicAltruisticSpellAllyTitle=共有魔法、味方のみ
+Feature/&MetamagicAltruisticSpellDescription=自分自身を対象とした呪文を唱えるとき、代わりに 1 ソーサリー ポイントを消費して 30 フィート以内の味方に影響を与えることができます。または、3 ソーサリー ポイントを消費して自分自身と 30 フィート以内の味方の両方に影響を与えることもできます。
+Feature/&MetamagicAltruisticSpellSelfDescription=自分自身に加えて30フィート以内の味方をターゲットにする呪文を作成します。
+Feature/&MetamagicAltruisticSpellSelfTitle=共有スペル、味方+自分
+Feature/&MetamagicAltruisticSpellTitle=共有スペル
+Feature/&MetamagicFocusedSpellDescription=集中を必要とする呪文を唱えるとき、1 ソーサリー ポイントを消費して、集中を維持するために行うすべての憲法セーヴィング スローでアドバンテージを得ることができます。
+Feature/&MetamagicFocusedSpellTitle=集中呪文
+Feature/&MetamagicPowerfulSpellDescription=呪文レベルごとに 1 ソーサリー ポイントを消費して、ダメージ ダイスの数を 1 つ増やすことができます。
+Feature/&MetamagicPowerfulSpellTitle=強力な呪文
+Feature/&MetamagicWidenedSpellDescription=2 ソーサリー ポイントを消費して、呪文の効果範囲を広げることができます。円錐、立方体、円柱、または球の効果範囲を持つ呪文は、5 フィート単位で寸法が増加します。
+Feature/&MetamagicWidenedSpellTitle=拡張された呪文

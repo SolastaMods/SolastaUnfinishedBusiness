@@ -1,6 +1,7 @@
+ModUi/&AccountForAllDiceOnSavageAttack=Add all dice from base weapon damage to features that add base weapon damage instead of 1 dice only <i><color=#F0DAA0>[Savage Attack, 2H weapons, etc.]</color></i>
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
-ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items  <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 ft of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
@@ -10,13 +11,13 @@ ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggeste
 ModUi/&AddToStore=Add to store
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
-ModUi/&Adventure=<color=#F0DAA0>Adventure:</color>
 ModUi/&AllItemInDm=All items in DM
+ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowAssigningOfficialSpells=Allow official spells to display on these lists
 ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
-ModUi/&AllowClubsToBeThrown=Allow clubs to be thrown like daggers or hand axes
+ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>clubs</color> to be thrown like <color=#D89555>daggers</color> or <color=#D89555>hand axes</color>
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
@@ -25,10 +26,9 @@ ModUi/&AllowMoreRealStateOnRestPanel=Allow more real state on rest panel <i><col
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
-ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
+ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Attackers with <color=#D89555>Darkvision</color> have advantage over defenders without
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
 ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
@@ -40,6 +40,7 @@ ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
 ModUi/&Category=Category
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
+ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
@@ -59,9 +60,12 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on feats
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableUnofficialTranslations=Disable unofficial translations support to speed up mod <i><color=#F0DAA0>[unless I speak Chinese, Italian, Japanese, Korean or Spanish]</color></i>
 ModUi/&DisableUpdateMessage=Disable update messages <i><color=#F0DAA0>[blue pill users, this is your last chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
+ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
@@ -74,8 +78,10 @@ ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 fea
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
+ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack
 ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen > Characters
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
+ModUi/&EnableCharactersOnFireToEmitLight=Characters on fire should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -84,6 +90,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable feats selection at class levels 6 an
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
+ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
 ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
@@ -92,6 +99,7 @@ ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
 ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Magister</color> on game UI
 ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at class levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -99,13 +107,13 @@ ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0D
 ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
 ModUi/&EnableRespec=Enable the RESPEC after rest action
-ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
+ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
 ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Allow features from heroes to work while in <color=#D89555>Wildshape</color> form
@@ -117,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
+ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
@@ -128,15 +137,15 @@ ModUi/&FormationResetAllSets=Reset all
 ModUi/&FormationResetThisSet=Reset this
 ModUi/&FormationSelected=Formation set {0} selected
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
-ModUi/&Gameplay=Gameplay
 ModUi/&GameUi=Game UI
+ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&House=<color=#F0DAA0>House:</color>
-ModUi/&IdentifyAfterRest=Add a power to identify magic items over a short or long rest
-ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use Hand Crossbows
+ModUi/&IdentifyAfterRest=Add a power to <color=#D89555>identify magic items</color> over a short or long rest
+ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color=#D89555>Hand Crossbows</color>
 ModUi/&ImproveLevelUpFeaturesSelection=Improve level up features selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Preferred Enemy and Terrain Affinity, <color=#D89555>Druid</color> Kindred Beast, <color=#D89555>Barbarian</color> Path of the Elements and subclasses Draconic choices]</color></i>
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 10th and 5 at level 18th
@@ -150,11 +159,10 @@ ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavio
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
-ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
+ModUi/&ItemsCraftingMerchants=Crafting, Items & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Make all large wildshape forms medium in size
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
@@ -177,20 +185,20 @@ ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
-ModUi/&RemoveIdentificationRequirements=Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i>
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&Rollback=<b><color=#D89555>Rollback</color></b>
 ModUi/&Rules=Rules
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
-ModUi/&Settings=<color=#F0DAA0>Settings:</color>
 ModUi/&SettingsExport=Export
 ModUi/&SettingsHelp=. As a host you can export your current configuration, open the exports folder and easily share with your peers\n. As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&SettingsLoad=. Load an exported setting
@@ -204,7 +212,6 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed too
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
@@ -225,6 +232,12 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all ma
 ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UnlockSkinColors=Unlock skin colors
+ModUi/&Update=<b><color=#D89555>Update</color></b>
+ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
+ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialFlankingRules=Use official flanking rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks</i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>
+ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

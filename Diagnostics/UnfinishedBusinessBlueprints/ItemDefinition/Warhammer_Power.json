@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2700,
+    9015,
     0,
     0,
     0
@@ -113,6 +113,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -481,12 +482,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Warhammer_plus_two_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Warhammer_plus_two_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "22f73b83a4c44bc4d99c99dc08ac86fa",
+      "m_AssetGUID": "a3f5a0e0558a9ee4591d6de2ce14d47c",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -498,6 +499,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -506,8 +508,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

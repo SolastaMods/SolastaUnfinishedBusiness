@@ -1,8 +1,8 @@
-Feat/&FeatHeavyArmorMasterDescription=Sie können Ihre Rüstung verwenden, um Schläge abzuwehren, die andere töten würden. Erhöhe deinen Stärkewert um 1 bis maximal 20. Während du schwere Rüstung trägst, wird Knüppel-, Stich- und Hiebschaden, den du durch Angriffe erleidest, um 3 verringert.
-Feat/&FeatHeavyArmorMasterTitle=Meister der schweren Rüstung
-Feat/&FeatMediumArmorDexDescription=Erhöhe deine Geschicklichkeit um 1 bis zu einem Maximum von 20.\nDu erlangst Erfahrung im Umgang mit mittlerer Rüstung und Schilden.
-Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung [Ges]
-Feat/&FeatMediumArmorStrDescription=Erhöhe deine Stärke um 1 bis zu einem Maximum von 20.\nDu wirst geübter im Umgang mit mittlerer Rüstung und Schilden.
+Feat/&FeatHeavyArmorMasterDescription=Mit Ihrer Rüstung können Sie Schläge abwehren, die andere töten würden. Erhöhen Sie Ihren Stärkewert um 1 auf maximal 20. Während Sie schwere Rüstung tragen, wird der durch Angriffe erlittene Schlag-, Stich- und Hiebschaden um 3 verringert.
+Feat/&FeatHeavyArmorMasterTitle=Meister schwerer Rüstungen
+Feat/&FeatMediumArmorDexDescription=Erhöhen Sie Ihre Geschicklichkeit um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit mittleren Rüstungen und Schilden.
+Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung [Geschick]
+Feat/&FeatMediumArmorStrDescription=Erhöhen Sie Ihre Stärke um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit mittleren Rüstungen und Schilden.
 Feat/&FeatMediumArmorStrTitle=Mittlere Rüstung [Str]
 Feedback/&HeavyArmorMasterFormat=Meister der schweren Rüstung!
 Feedback/&HeavyArmorMasterLine=Heavy Armor Master reduziert den Schaden des Ziels!

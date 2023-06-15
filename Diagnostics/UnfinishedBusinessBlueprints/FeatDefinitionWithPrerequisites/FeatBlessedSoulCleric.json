@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "BlessedSoul",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierClericChannelDivinityAdd:5f8d0b3220239994ca321752da71c5c5",

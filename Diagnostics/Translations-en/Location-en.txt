@@ -43,3 +43,5 @@ Location/&Map_DLC1_SpiderNest_Title=Spider Nest
 Location/&Map_DLC1_SpiderNest_Description=You've been warned that there is a spider nest here.
 Location/&Map_DLC1_JungleNest_Title=Jungle Nest
 Location/&Map_DLC1_JungleNest_Description=According to Ellaria Anfarel, a huge monster dwells in this area.
+Location/&DLC3_Crossroads_Title=Road to the Einareum
+Location/&DLC3_Crossroads_Description=An old, abandoned village, a few miles away from the Einareum.

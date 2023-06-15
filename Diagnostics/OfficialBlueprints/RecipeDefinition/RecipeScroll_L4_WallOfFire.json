@@ -1,30 +1,26 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ScrollWallOfFire:b5ac49e6f64cb68489acb86ff105e8b5",
   "stackCount": 1,
-  "craftingHours": 42,
-  "craftingDC": 17,
+  "craftingHours": 4,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_BadlandsDryadBark:0cc0947ba966aec469142dbeade6c78f"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_StormHeather:a2365d0b9d4abfd4aba0f048b78c15ff"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_CrimsonSpiderVenomGland:afa4c79a504102f4580a5a64eceb4b32"
     }
   ],
   "spellDefinition": "Definition:WallOfFire:c44e8ec6d1e888e47bbd40981b7a605d",

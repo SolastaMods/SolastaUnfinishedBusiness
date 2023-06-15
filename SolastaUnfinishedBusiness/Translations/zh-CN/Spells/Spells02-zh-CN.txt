@@ -1,3 +1,5 @@
+Condition/&ConditionGrappledRestrainedIceBoundDescription=原地冻结一轮。
+Condition/&ConditionGrappledRestrainedIceBoundTitle=冰封
 Condition/&ConditionGrappledRestrainedSpellWebDescription=你必须进行一次力量豁免，以摆脱蛛网。
 Condition/&ConditionGrappledRestrainedSpellWebTitle=被蛛网捕获
 Condition/&ConditionMirrorImageDescription=敌人可能会意外地瞄准这个副本而不是你。如果重复被击中，它就会消失。
@@ -8,6 +10,8 @@ Feedback/&MirrorImageRetargetResult={0} 将定位到 {1}
 Feedback/&MirrorImageRetargetRoll={0} 掷 {2} 个诱饵骰子 {1}
 Item/&ItemShadowBladeDescription=它在一次击中造成 2d8 精神伤害，并具有灵巧、轻盈和投掷属性。
 Item/&ItemShadowBladeTitle=暗影之刃
+Spell/&BindingIceDescription=在30尺锥形范围内释放一阵寒潮，将敌人冻结在原地。
+Spell/&BindingIceTitle=束缚之冰
 Spell/&ColorBurstDescription=爆破一个发光立方体，使 10 尺内的任何人短暂失明。8d10 是该法术可以影响的生物的生命值。
 Spell/&ColorBurstTitle=炫彩爆
 Spell/&MirrorImageDescription=三个自己的虚幻复制体出现在你的空间中。在法术结束之前，每次有生物以你为目标进行攻击时，掷一次 d20 以确定该攻击是否改为以你的一个复制品为目标。\n如果你有 3 个复制品，则必须掷出 6 或更高的值才能改变攻击的目标以重复为目标。对于 2 个重复，你必须掷出 8 或更高。对于 1 个复制品，你必须掷出 11 或更高的值。\n复制品的护甲等级(AC)等于 10 + 你的敏捷调整值。如果攻击击中复制品，复制品将被摧毁。复制品只能被击中它的攻击摧毁。它忽略所有其他伤害和效果。当所有三个复制品都被摧毁时，法术结束。\n如果一个生物处于失明状态，或者具有盲视、真视或震感（如果你不接触地面则不适用），则该生物不受此法术影响。

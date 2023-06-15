@@ -51,7 +51,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
         var proficiencyDeceptiveHeritage = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}{DeceptiveHeritage}")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Deception, SkillDefinitions.Stealth)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Deception, SkillDefinitions.Stealth)
             .AddToDB();
 
         var featureSetDeceptiveHeritage = FeatureDefinitionFeatureSetBuilder
@@ -220,11 +220,6 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerTouchOfDarknessFixed, powerTouchOfDarknessPoints)
             .AddToDB();
-
-        // BUGFIX
-
-        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
 
         // MAIN
 

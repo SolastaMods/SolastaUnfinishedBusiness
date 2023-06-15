@@ -1,7 +1,8 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:AttackModifierHandAndAHalf:d39a2a64-26af-5ef5-8355-6ec9092b4e41"
+    "Definition:AttackModifierHandAndAHalf:d39a2a64-26af-5ef5-8355-6ec9092b4e41",
+    "Definition:AttributeModifierHandAndAHalf:1d4acff8-789d-5676-bb0d-f19f4fa79368"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

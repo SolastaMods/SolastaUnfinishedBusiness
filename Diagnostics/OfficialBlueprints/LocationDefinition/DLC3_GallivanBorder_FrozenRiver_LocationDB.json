@@ -1,0 +1,233 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "bf5cfc5835cb7ed45b85e5044cf8412b",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC3_GallivanBorder_FrozenRiver",
+      "id": 1231262941,
+      "guid": "253A1AB9-764F-41F7-9798-28010DB16FF7",
+      "name": "253A1AB9-764F-41F7-9798-28010DB16FF7"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.11,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC3_GallivanBorder_FrozenRiver_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.05,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7735849,
+        "g": 0.723992,
+        "b": 0.5582948,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.63456744,
+        "g": 0.7328231,
+        "b": 0.8679245,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7735849,
+        "g": 0.382603824,
+        "b": 0.120416529,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.72,
+      "sunDirection": -45.0,
+      "sunTilt": 22.45,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.181559265,
+        "g": 0.369479865,
+        "b": 0.754717,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 4.79,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 1.3,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.442016721,
+        "g": 0.540833056,
+        "b": 0.7264151,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7244571,
+        "g": 0.7965468,
+        "b": 0.8301887,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.4309808,
+        "g": 0.5048565,
+        "b": 0.6132076,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.3938679,
+        "g": 0.406235754,
+        "b": 0.5,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 0.59,
+      "nightAtmosphereThickness": 0.7,
+      "name": "DLC3_GallivanBorder_DayCycleProfile"
+    },
+    "name": "DLC3_GallivanBorder_FrozenRiver_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_SnowyHillock_Title",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_SnowyHillock_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_SnowyHillock_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_SnowyHillock_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_SnowyHillock_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_SnowyHillock_Description"
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": true,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": true,
+  "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_DLC3_SnowyHillock_Title",
+    "description": "Map/&Location_Presentation_DLC3_SnowyHillock_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5b9bf3a3a1bbe43449b9d4956ebe9ce3",
+      "m_SubObjectName": "DLC3_GallivanBorder",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "b0c9e5683edd852498777aaa10c02352",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_GallivanBorder_FrozenRiver_LocationDB"
+}

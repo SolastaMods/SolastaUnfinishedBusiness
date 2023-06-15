@@ -1,0 +1,53 @@
+{
+  "$type": "MonsterPresentationDefinition, Assembly-CSharp",
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "sex": "Male",
+  "modelScale": 1.0,
+  "useCustomMaterials": true,
+  "customMaterials": [
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "d96b746e48a29db44bfa9bfed01e7310",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "152a7c6cf55f6fd439e1b4b074063113",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "04b5c8719563ea6408fa18a52c75fafc",
+  "contentPack": "BaseGame",
+  "name": "Golem_Ice_Presentation"
+}

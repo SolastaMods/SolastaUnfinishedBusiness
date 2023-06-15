@@ -20,20 +20,41 @@ public static class ContinuePanelPatcher
             // scales down the plates table if required
             var parentRectTransform = __instance.charactersTable.GetComponent<RectTransform>();
 
-            switch (Main.Settings.OverridePartySize)
+            if (__instance.ImportSaveMode)
             {
-                case 6:
-                    parentRectTransform.anchoredPosition = new Vector2(-115f, 390f);
-                    parentRectTransform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-                    break;
-                case 5:
-                    parentRectTransform.anchoredPosition = new Vector2(-65f, 390f);
-                    parentRectTransform.localScale = new Vector3(0.85f, 0.85f, 0.85f);
-                    break;
-                default:
-                    parentRectTransform.anchoredPosition = new Vector2(0, 430f);
-                    parentRectTransform.localScale = new Vector3(1, 1, 1);
-                    break;
+                switch (Main.Settings.OverridePartySize)
+                {
+                    case 6:
+                        parentRectTransform.anchoredPosition = new Vector2(-115f, 440f);
+                        parentRectTransform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                        break;
+                    case 5:
+                        parentRectTransform.anchoredPosition = new Vector2(-65f, 440f);
+                        parentRectTransform.localScale = new Vector3(0.85f, 0.85f, 0.85f);
+                        break;
+                    default:
+                        parentRectTransform.anchoredPosition = new Vector2(0, 580f);
+                        parentRectTransform.localScale = new Vector3(1, 1, 1);
+                        break;
+                }
+            }
+            else
+            {
+                switch (Main.Settings.OverridePartySize)
+                {
+                    case 6:
+                        parentRectTransform.anchoredPosition = new Vector2(-115f, 390f);
+                        parentRectTransform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                        break;
+                    case 5:
+                        parentRectTransform.anchoredPosition = new Vector2(-65f, 390f);
+                        parentRectTransform.localScale = new Vector3(0.85f, 0.85f, 0.85f);
+                        break;
+                    default:
+                        parentRectTransform.anchoredPosition = new Vector2(0, 430f);
+                        parentRectTransform.localScale = new Vector3(1, 1, 1);
+                        break;
+                }
             }
         }
     }

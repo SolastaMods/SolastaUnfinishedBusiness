@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4100,
+    10000,
     0,
     0,
     0
@@ -183,8 +183,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Breastplate_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Breastplate_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -198,8 +198,9 @@
     "armorAddressableName": "BreastPlate",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "FullPlatelvl2",
+    "ignoreCustomArmorMaterialOnCommonClothes": true,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -213,14 +214,15 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

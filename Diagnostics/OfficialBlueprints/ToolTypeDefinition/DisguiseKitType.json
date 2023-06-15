@@ -3,7 +3,10 @@
   "hasParentCategory": false,
   "toolCategory": "ArtisanToolCategory",
   "mainAbilityScore": "Intelligence",
+  "personalityFlag": false,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [],
+  "hideWhenNoTool": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,4 +1,7 @@
-﻿using JetBrains.Annotations;
+﻿//DEPRECATED: use IPhysicalAttackInitiated instead
+
+#if false
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -17,3 +20,4 @@ public interface IAttackEffectBeforeDamage
         RulesetAttackMode attackMode,
         ActionModifier attackModifier);
 }
+#endif

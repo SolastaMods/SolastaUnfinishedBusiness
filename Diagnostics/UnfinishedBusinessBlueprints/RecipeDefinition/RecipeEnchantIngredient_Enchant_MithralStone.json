@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_MithralStone:e0d9029154ac2a14c89ad240597b4ac0",
   "stackCount": 1,
   "craftingHours": 16,

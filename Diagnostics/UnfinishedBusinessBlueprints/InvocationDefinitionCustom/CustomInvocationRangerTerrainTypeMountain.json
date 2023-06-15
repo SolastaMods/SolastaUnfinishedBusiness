@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&MountainTitle",
-    "description": "TerrainType/&MountainDescription",
+    "title": "Mountain",
+    "description": "Areas with rocky ground, hills, and mountains are considered mountain terrain.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "dd7d4a37-c06f-5901-8408-3a9b170f441e",

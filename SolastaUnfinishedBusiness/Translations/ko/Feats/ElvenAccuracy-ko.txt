@@ -1,0 +1,11 @@
+Feat/&FeatElvenAccuracyCharismaDescription=무자비한 힘보다는 정확성에 의존하는 공격으로 묘한 조준을 할 수 있습니다. 카리스마를 1 올려 최대 20까지 올리십시오. 민첩, 지능, 지혜 또는 카리스마를 사용하여 명중 굴림에서 우위를 점할 때마다 주사위 중 하나를 한 번 다시 굴릴 수 있습니다.
+Feat/&FeatElvenAccuracyCharismaTitle=엘븐 정밀 [차]
+Feat/&FeatElvenAccuracyDexterityDescription=무자비한 힘보다는 정확성에 의존하는 공격으로 묘한 조준을 할 수 있습니다. 손재주를 1씩 최대 20까지 늘립니다. 손재주, 지능, 지혜 또는 카리스마를 사용하여 명중 굴림에서 우위를 점할 때마다 주사위 중 하나를 한 번 다시 굴릴 수 있습니다.
+Feat/&FeatElvenAccuracyDexterityTitle=엘븐 프리시전 [Dex]
+Feat/&FeatElvenAccuracyIntelligenceDescription=무자비한 힘보다는 정확성에 의존하는 공격으로 묘한 조준을 할 수 있습니다. 지능을 1 증가시켜 최대 20까지 증가시킵니다. 민첩, 지능, 지혜 또는 카리스마를 사용하여 공격 굴림에서 우위를 점할 때마다 주사위 중 하나를 한 번 다시 굴릴 수 있습니다.
+Feat/&FeatElvenAccuracyIntelligenceTitle=엘프 정밀도 [Int]
+Feat/&FeatElvenAccuracyWisdomDescription=무자비한 힘보다는 정확성에 의존하는 공격으로 묘한 조준을 할 수 있습니다. 지혜를 1 올려 최대 20까지 올리십시오. 민첩, 지능, 지혜 또는 카리스마를 사용하여 명중 굴림에서 우위를 점할 때마다 주사위 중 하나를 한 번 다시 굴릴 수 있습니다.
+Feat/&FeatElvenAccuracyWisdomTitle=엘프 정밀 [Wis]
+Feedback/&ElvenAccuracyTriggered={0}은 {1}을(를) 사용하여 {2}를 유지하고 {3}을(를) {4}로 다시 굴립니다.
+Tooltip/&FeatElvenAccuracyBaseDescription=민첩, 지능, 지혜 또는 카리스마를 사용하여 공격 롤에서 이점을 얻을 때마다 주사위 중 하나를 한 번 다시 굴릴 수 있습니다.
+Tooltip/&FeatElvenAccuracyBaseTitle=엘프 정밀

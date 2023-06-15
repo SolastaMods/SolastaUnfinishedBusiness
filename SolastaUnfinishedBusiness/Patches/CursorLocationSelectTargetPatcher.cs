@@ -24,18 +24,15 @@ public static class CursorLocationSelectTargetPatcher
             GameLocationCharacter target,
             ref bool __result)
         {
-            if (!__result)
+            //PATCH: supports IFilterTargetingMagicEffect
+            foreach (var filterTargetingMagicEffect in __instance.actionParams.actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IFilterTargetingMagicEffect>())
             {
-                //PATCH: supports IFilterTargetingMagicEffect
-                foreach (var filterTargetingMagicEffect in __instance.actionParams.actingCharacter.RulesetCharacter
-                             .GetSubFeaturesByType<IFilterTargetingMagicEffect>())
-                {
-                    __result = filterTargetingMagicEffect.IsValid(__instance, target);
+                __result = filterTargetingMagicEffect.IsValid(__instance, target);
 
-                    if (__result)
-                    {
-                        return;
-                    }
+                if (__result)
+                {
+                    return;
                 }
             }
 
@@ -47,7 +44,8 @@ public static class CursorLocationSelectTargetPatcher
                 var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                if (rulesetCharacter != null && gameLocationBattleService is { IsBattleInProgress: true })
+                if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    gameLocationBattleService is { IsBattleInProgress: true })
                 {
                     var familiar = gameLocationBattleService.Battle.PlayerContenders
                         .FirstOrDefault(x =>

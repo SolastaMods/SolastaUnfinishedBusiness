@@ -21,7 +21,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 {
     private const string Name = "WayOfTheDiscordance";
 
-
     private const string ConditionProfoundTurmoilName = $"Condition{Name}ProfoundTurmoil";
 
     private static readonly ConditionDefinition ConditionProfoundTurmoil = ConditionDefinitionBuilder
@@ -84,15 +83,17 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         var conditionDiscordance = ConditionDefinitionBuilder
             .Create($"Condition{Name}Discordance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite)
-            .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.WhenRemoved)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .AllowMultipleInstances()
             .SetPossessive()
             .AddToDB();
 
         var powerDiscordanceDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DiscordanceDamage")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation("FeatureSetWayOfTheDiscordanceDiscordance", Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -108,9 +109,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
         var powerDiscordance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DiscordanceBase")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetReactionContext((ReactionTriggerContext)ExtraReactionContext.Custom)
+            .SetGuiPresentation("FeatureSetWayOfTheDiscordanceDiscordance", Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
         powerDiscordance.SetCustomSubFeatures(
@@ -186,7 +187,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-
         //
         // MAIN
         //
@@ -209,13 +209,12 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-
     private static void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
     {
         var rulesetAttacker = attacker.RulesetCharacter;
         var rulesetDefender = defender.RulesetCharacter;
 
-        if (rulesetDefender.IsDeadOrDying ||
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
             rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name) ||
             rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk) < 17)
         {
@@ -272,13 +271,13 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                                                        x.RemainingRounds <= 1))
                              .ToList()) // avoid changing enumerator
                 {
-                    ApplyCondition(gameLocationAttacker, gameLocationDefender, _conditionDiscordance);
+                    ApplyCondition(gameLocationAttacker, gameLocationDefender);
                 }
             }
 
             // although it should be one target only, we better keep it compatible for any future feature
             foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                         .Where(x => x.RulesetCharacter != null)
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Select(gameLocationCharacter => new
                          {
                              gameLocationCharacter,
@@ -294,7 +293,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
-                if (rulesetDefender == null)
+                if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
                 {
                     continue;
                 }
@@ -326,10 +325,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
                 EffectHelpers.StartVisualEffect(
-                    gameLocationAttacker, gameLocationDefender, Malediction,
-                    EffectHelpers.EffectType.Effect);
+                    gameLocationAttacker, gameLocationDefender, Malediction, EffectHelpers.EffectType.Effect);
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
-
                 ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
             }
 
@@ -356,27 +353,25 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 return;
             }
 
-            ApplyCondition(attacker, defender, _conditionDiscordance);
+            ApplyCondition(attacker, defender);
         }
 
-        private static void ApplyCondition(
-            IControllableCharacter attacker,
-            IControllableCharacter defender,
-            BaseDefinition conditionDefinition)
+        private void ApplyCondition(IControllableCharacter attacker, IControllableCharacter defender)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetAttacker = attacker?.RulesetCharacter;
+            var rulesetDefender = defender?.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
             rulesetDefender.InflictCondition(
-                conditionDefinition.Name,
-                DurationType.Minute,
-                1,
-                TurnOccurenceType.EndOfTurn,
+                _conditionDiscordance.Name,
+                _conditionDiscordance.DurationType,
+                _conditionDiscordance.DurationParameter,
+                _conditionDiscordance.TurnOccurence,
                 TagCombat,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

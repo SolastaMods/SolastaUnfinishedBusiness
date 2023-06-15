@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed_HeavyCrossbow:388c95a2bb017954a87c2085695a9092",
   "stackCount": 1,
   "craftingHours": 8,

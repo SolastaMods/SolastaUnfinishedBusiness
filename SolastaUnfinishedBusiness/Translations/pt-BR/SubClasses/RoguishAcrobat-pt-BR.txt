@@ -1,6 +1,6 @@
-﻿Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Você adiciona metade do seu bônus de proficiência à sua classe de armadura enquanto empunha um bastão com as duas mãos e não está usando armadura ou armadura leve.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Você adiciona metade do seu bônus de proficiência à sua classe de armadura enquanto empunha um bordão com as duas mãos e não está usando armadura ou armadura leve.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Protetor Acrobat
-Feature/&FeatureRoguishAcrobatTrooperDescription=Você ganha a habilidade de usar um bordão como arma sutil e o alcance do bordão aumenta para 3 metros.\nAo realizar a ação Atacar com um bordão, você pode usar sua ação bônus para fazer um ataque corpo a corpo com o lado oposto do bastão arma. Este ataque usa o mesmo modificador de habilidade do ataque primário e causa 1d4 de dano de concussão.
+Feature/&FeatureRoguishAcrobatTrooperDescription=Você ganha a habilidade de usar um bordão como arma de precisão e o alcance do bordão aumenta para 3 metros.\nAo realizar a ação Atacar com um bordão, você pode usar sua ação bônus para fazer um ataque corpo a corpo com o lado oposto do bastão arma. Este ataque usa o mesmo modificador de habilidade do ataque primário e causa 1d4 de dano de concussão.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldado Acrobata
 Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Seu dado de dano versátil de cajado muda de d8 para d10.\nEscalar não custa mais movimentos extras e você pode pular mais 3 metros.\nVocê tem vantagem em tentativas de queda e empurrão.\nVocê deve ser empunhando um bastão em duas mãos para que estes funcionem.
 Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Rápido como o Vento
@@ -10,7 +10,7 @@ Feature/&PowerRoguishAcrobatHeroicUncannyDodgeDescription=Se uma jogada de ataqu
 Feature/&PowerRoguishAcrobatHeroicUncannyDodgeTitle=Esquiva Sobrenatural Heroica
 Feature/&PowerRoguishAcrobatReflexesDescription=Esquiva como uma ação bônus um número de vezes igual ao seu modificador de Destreza.
 Feature/&PowerRoguishAcrobatReflexesTitle=Reflexos Acrobáticos
-Feature/&ProficiencyRoguishAcrobatMavenDescription=Você ganha proficiência ou perícia na habilidade acrobata.
+Feature/&ProficiencyRoguishAcrobatMavenDescription=Você ganha proficiência na perícia acrobata.
 Feature/&ProficiencyRoguishAcrobatMavenTitle=Acrobat Maven
 Reaction/&SpendPowerHeroicUncannyDodgeDescription=Você pode usar sua reação para evitar totalmente qualquer dano.
 Reaction/&SpendPowerHeroicUncannyDodgeReactDescription=Você pode usar sua reação para evitar totalmente qualquer dano.

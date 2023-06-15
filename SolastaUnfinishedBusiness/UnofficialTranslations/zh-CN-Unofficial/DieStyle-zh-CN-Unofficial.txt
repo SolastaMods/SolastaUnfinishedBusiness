@@ -1,0 +1,10 @@
+DieStyle/&DieStyleBronzeSupporterTitle=青铜
+DieStyle/&DieStyleDiamondSupporterTitle=钻石
+DieStyle/&DieStyleEbonyTitle=乌木
+DieStyle/&DieStyleGoldSupporterTitle=黄金
+DieStyle/&DieStyleGreenTitle=绿色
+DieStyle/&DieStyleIvoryTitle=象牙
+DieStyle/&DieStyleRubyTitle=红宝石
+DieStyle/&DieStyleSilverSupporterTitle=白银
+DieStyle/&DieStyleStandardTitle=标准
+DieStyle/&DieStyleYellowTitle=黄色

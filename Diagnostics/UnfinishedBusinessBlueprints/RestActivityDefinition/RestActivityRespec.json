@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": -1001,
+  "requiresMissingClassSpellSlots": false,
   "functor": "RestActivityRespec",
   "stringParameter": "",
   "checkConsciousness": false,

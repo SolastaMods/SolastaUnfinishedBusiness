@@ -1,0 +1,135 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Race/&TieflingFemaleName7Title",
+  "surName": "Race/&TieflingNickname7Title",
+  "abilityScores": [
+    8,
+    13,
+    14,
+    12,
+    10,
+    15
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Tiefling:5a0f67df27e0274438f46e6eb59448cb",
+  "subRace": null,
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_36",
+  "musculatureMorphotypeValue": 60.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 41.1,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_O",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColor_017",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_10",
+  "scarsMorphotype": "Scars_12",
+  "hornsMorphotype": "Horns_F",
+  "tailMorphotype": "Tail_None",
+  "mainClass": "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
+  "subClass": "Definition:PatronFiend:6f4a40075c00bd04e9d0b8b013caed2d",
+  "deity": "Definition:Maraike:94543509579e75f4c943de3b12f861af",
+  "background": "Definition:Occultist_Background:840f77395893a3940931567b411433e1",
+  "backgroundPersonalityFlag1": "Greed",
+  "backgroundPersonalityFlag2": "Selfishness",
+  "alignment": "Neutral",
+  "alignmentPersonalityFlag1": "Self-Preservation",
+  "alignmentPersonalityFlag2": "Pragmatism",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+    "Definition:Warlock_Armor:899d2c68ed186cc4382856a2ca3ed611",
+    "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df"
+  ],
+  "startingMoney": [
+    0,
+    10,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Arcana",
+    "Investigation"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "invocationsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
+    "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:HellishRebuke:ce1fe7c80c29bfc438c6f8150658083b",
+    "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 28,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "dd49b289dee19d446971f4a218456edd",
+      "m_SubObjectName": "Level1_Warlock_Liera",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "05c86b4a614a7d8478db605c2caeee9b",
+  "contentPack": "InnerStrength",
+  "name": "Level1_Warlock_Tiefling"
+}

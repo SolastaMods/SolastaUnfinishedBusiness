@@ -50,7 +50,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 return;
             }
@@ -68,7 +68,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null)
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

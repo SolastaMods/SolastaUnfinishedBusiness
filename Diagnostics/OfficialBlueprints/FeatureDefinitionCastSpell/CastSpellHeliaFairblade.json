@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListHeliaFairblade:62d2d662025b313408304b1f33181879",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 5,
+  "cantripsOnly": false,
   "knownCantrips": [
     2,
     2,
@@ -278,6 +280,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

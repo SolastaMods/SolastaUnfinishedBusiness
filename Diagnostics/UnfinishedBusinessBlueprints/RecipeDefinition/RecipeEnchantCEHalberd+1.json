@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CEHalberd+1:0d525b3e-3915-5a42-a761-0ec86ca88dc3",
   "stackCount": 1,
-  "craftingHours": 24,
-  "craftingDC": 10,
+  "craftingHours": 12,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

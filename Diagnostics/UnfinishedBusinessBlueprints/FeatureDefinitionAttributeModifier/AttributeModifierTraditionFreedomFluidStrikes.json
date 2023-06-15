@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "AttacksNumber",
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 3,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AttributeModifierTraditionFreedomFluidStrikesTitle",
+    "description": "Feature/&AttributeModifierTraditionFreedomFluidStrikesDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2f4ab8ff-7f89-531d-9e0d-66c4e100e317",
+  "contentPack": 9999,
+  "name": "AttributeModifierTraditionFreedomFluidStrikes"
+}

@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:BONEKEEP_MagicRune:e51912319e2db4f40a5ce413720a8fd1",
   "stackCount": 1,
   "craftingHours": 16,

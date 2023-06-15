@@ -1,0 +1,6 @@
+Race/&RaceHalfElfDarkDescription=ハーフダークエルフは、人を寄せ付けないバッドランズに住むことで時間の経過とともに変化したエルフの子孫です。彼らの人類の伝統により、彼らは明るい光に適応することができました。
+Race/&RaceHalfElfDarkTitle=ハーフダークエルフ
+Race/&RaceHalfElfHighDescription=ハーフハイエルフは早い段階で魔法を使えるように訓練されます。
+Race/&RaceHalfElfHighTitle=ハーフハイエルフ
+Race/&RaceHalfElfSylvanDescription=ハーフ・シルヴァンのエルフは、荒野で生き残るために訓練されており、特に生き残る傾向にあります。森のエルフの血を引く彼らは、子供の頃から剣と弓で戦う訓練を受けてきました。
+Race/&RaceHalfElfSylvanTitle=ハーフ・シルヴァン・エルフ

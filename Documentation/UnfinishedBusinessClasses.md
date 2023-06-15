@@ -1,4 +1,4 @@
-# Inventor
+# 1. - Inventor
 
 Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
@@ -7,19 +7,19 @@ Inventors are tinkerers, alchemists, and more. They bridge the space between mag
 
 * Inventor Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Inventor Skill Proficiencies
 
-Choose 2 of these skills: Arcana, History, Investigation, Medicine, Nature, Perception, Sleight of Hand
+Choose 2 of these skills: Arcana,History,Investigation,Medicine,Nature,Perception,Sleight of Hand
 
 * Inventor Tool Proficiencies
 
-Proficient with these tools: Smith's tools, Thieves' Tools
+Proficient with these tools: Smith's tools,Thieves' Tools
 
 * Inventor Tool Proficiency Choice
 
-Choose one of these tools: Disguise Kit, Manacalon Rosary, Herbalism Kit, Poisoner's Kit, Scroll Kit
+Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
 
 * Inventor Weapon Proficiency
 
@@ -27,11 +27,11 @@ Simple Weapons
 
 * Magical Tinkering
 
-You know how to invest a spark of magic into mundane objects. Learn these cantrips: Dazzle, Light, Shine, Sparkle
+You know how to invest a spark of magic into mundane objects. Learn these cantrips: Dazzle,Light,Shine,Sparkle
 
 * Saving Throw Proficiencies
 
-Constitution, Intelligence
+Constitution,Intelligence
 
 * Inventor Spellcasting
 
@@ -39,10 +39,6 @@ Can cast spells from the Inventor Spells list. You can use item that bears your 
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Infusions
 
@@ -58,7 +54,7 @@ Select Field Of Study to focus on.
 
 * Know Your Tools
 
-Choose one of these tools: Disguise Kit, Manacalon Rosary, Herbalism Kit, Poisoner's Kit, Scroll Kit
+Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
 
 
 ## Level 4
@@ -98,10 +94,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Infusion Limit Increase
 
@@ -158,10 +150,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Infusion Limit Increase
 
 You can have 1 more item infused at a time.
@@ -176,7 +164,6 @@ Select 2 new infusions to learn.
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
-
 
 
 

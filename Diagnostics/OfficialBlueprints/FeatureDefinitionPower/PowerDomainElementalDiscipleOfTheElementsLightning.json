@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -295,8 +296,11 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "None",
-  "reactionName": "",
+  "reactionContext": "DamagedBySpecificElement",
+  "damageTypes": [
+    "DamageLightning"
+  ],
+  "reactionName": "DiscipleOfTheElementsLightning",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
   "hasCastingFailure": false,

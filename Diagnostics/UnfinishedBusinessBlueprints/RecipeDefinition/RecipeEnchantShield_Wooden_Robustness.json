@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Shield_Wooden_Robustness:a47fe35b-9369-5b39-80ea-d4954d11e87c",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

@@ -1,0 +1,5 @@
+BodyHairStyle/&Hairstyle_A=精灵短发
+BodyHairStyle/&Hairstyle_B=中等
+BodyHairStyle/&Hairstyle_C=短发
+BodyHairStyle/&Hairstyle_D=圆发髻
+BodyHairStyle/&Hairstyle_E=皇冠编发

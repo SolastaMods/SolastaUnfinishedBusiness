@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Classes;
@@ -54,11 +55,18 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRangerLevel4 =
         ValidateIsClass(Ranger.FormatTitle(), 4, Ranger);
 
-    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
-        ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel3 =
+        ValidateIsClass(Rogue.FormatTitle(), 3, Rogue);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel5 =
+        ValidateIsClass(Rogue.FormatTitle(), 5, Rogue);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
         IsRangerOrRogueLevel4 = ValidateIsClass($"{Ranger.FormatTitle()} | {Rogue.FormatTitle()}", 4, Ranger, Rogue);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
+        IsClericOrPaladinLevel4 =
+            ValidateIsClass($"{Cleric.FormatTitle()} | {Paladin.FormatTitle()}", 4, Cleric, Paladin);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
         ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
@@ -80,16 +88,18 @@ internal static class ValidatorsFeat
             RaceHalfElfVariantRaceBuilder.RaceHalfElfSylvanVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
-        ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
+        ValidateIsRace(Gnome.FormatTitle(), Gnome);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsTiefling =
+        ValidateIsRace(TieflingRaceBuilder.RaceTiefling.FormatTitle(), Tiefling, TieflingRaceBuilder.RaceTiefling);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
         ValidateIsRace(
-            $"{Dwarf.FormatTitle()}, {GnomeRaceBuilder.RaceGnome.FormatTitle()}, {Halfling.FormatTitle()}",
+            $"{Dwarf.FormatTitle()}, {Gnome.FormatTitle()}, {Halfling.FormatTitle()}, {KoboldRaceBuilder.RaceKobold.FormatTitle()}",
             Dwarf, DwarfHill, DwarfSnow,
             GrayDwarfSubraceBuilder.SubraceGrayDwarf,
-            GnomeRaceBuilder.RaceGnome,
             KoboldRaceBuilder.RaceKobold,
-            Halfling, HalflingIsland, HalflingMarsh);
+            Gnome, Halfling, HalflingIsland, HalflingMarsh);
 
 #if false
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> HasCantrips()
@@ -118,6 +128,7 @@ internal static class ValidatorsFeat
 #endif
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(
         [NotNull] BaseDefinition baseDefinition)
     {
@@ -131,6 +142,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFeature(
         [NotNull] FeatureDefinition featureDefinition)
     {
@@ -144,6 +156,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateHasFeature(
         [NotNull] FeatureDefinition featureDefinition)
     {
@@ -157,6 +170,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
         [NotNull] CharacterClassDefinition characterClassDefinition)
     {
@@ -174,27 +188,41 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
-        string description, int minLevels, params CharacterClassDefinition[] characterClassDefinition)
+        string description, int minLevels, params CharacterClassDefinition[] characterClassDefinitions)
     {
         return (_, hero) =>
         {
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
-            if (characterClassDefinition.Length > 0 && !hero.ClassesHistory.Intersect(characterClassDefinition).Any())
+            if (characterClassDefinitions.Length > 0 && !hero.ClassesHistory.Intersect(characterClassDefinitions).Any())
             {
                 return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
             }
 
             var levels = hero.ClassesHistory.Count;
 
-            return Main.Settings.DisableClassPrerequisitesOnModFeats || levels >= minLevels
+            if (characterClassDefinitions.Length > 0)
+            {
+                levels = characterClassDefinitions
+                    .Select(x =>
+                    {
+                        hero.ClassesAndLevels.TryGetValue(x, out var val);
+
+                        return val;
+                    })
+                    .Max();
+            }
+
+            return Main.Settings.DisableLevelPrerequisitesOnModFeats || levels >= minLevels
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsRace(
         string description, params CharacterRaceDefinition[] characterRaceDefinition)
     {

@@ -1,0 +1,16 @@
+Condition/&ConditionOathOfThunderDivineBoltDescription=Your movement speed is halved.
+Condition/&ConditionOathOfThunderDivineBoltTitle=Divine Bolt
+Feature/&FeatureOathOfThunderAxesBoonDescription=When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than Battle Axes and War Hammers.
+Feature/&FeatureOathOfThunderAxesBoonTitle=Stormbreaker
+Feature/&FeatureOathOfThunderHammersBoonDescription=When wielding a War Hammer, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than War Hammers.
+Feature/&FeatureOathOfThunderHammersBoonTitle=Mjolnir
+Feature/&PowerOathOfThunderDivineBoltDescription=As a bonus action, you can call down a bolt of lightning to smite an enemy creature you can see within 60 feet of you.
+Feature/&PowerOathOfThunderDivineBoltTitle=Channel Divinity: Divine Bolt
+Feature/&PowerOathOfThunderThunderousRebukeDescription=When an enemy creature hits you with a melee attack while being up to 5 feet away from you, you can use your Channel Divinity as a reaction to strike it with roaring thunder.
+Feature/&PowerOathOfThunderThunderousRebukeTitle=Channel Divinity: Thunderous Rebuke
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeDescription=When damaged by a melee attack, you can use your reaction to rebuke the target.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactDescription=Use a reaction to rebuke the target.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactTitle=Thunderous Rebuke
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeTitle=Thunderous Rebuke
+Subclass/&OathOfThunderDescription=Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
+Subclass/&OathOfThunderTitle=Oath of Thunder

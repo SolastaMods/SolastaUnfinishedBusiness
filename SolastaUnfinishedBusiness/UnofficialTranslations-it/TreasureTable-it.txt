@@ -1,8 +1,0 @@
-TreasureTable/&GemsTitle=Gemme
-TreasureTable/&ConsumablesTitle=Materiali di consumo
-TreasureTable/&MagicWeapons_ArmorsTitle=Armi e armature magiche
-TreasureTable/&Wondrous_ItemsTitle=Oggetti meravigliosi
-TreasureTable/&IngredientsTitle=Ingredienti
-TreasureTable/&Mundane_GearTitle=Equipaggiamento mondano
-TreasureTable/&25_GP_Art_ItemsTitle=Oggetti artistici da 25 mo
-TreasureTable/&50_GP_Art_ItemsTitle=Oggetti artistici da 50 mo

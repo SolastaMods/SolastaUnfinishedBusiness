@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -14,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 04
+    #region Staggering Smite
 
     internal static SpellDefinition BuildStaggeringSmite()
     {
@@ -22,7 +23,7 @@ internal static partial class SpellBuilders
 
         var conditionStaggeringSmiteEnemy = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Enemy")
-            .SetGuiPresentation($"AdditionalDamage{NAME}", Category.Feature, ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, ConditionDazzled)
             .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
@@ -50,7 +51,7 @@ internal static partial class SpellBuilders
 
         var additionalDamageStaggeringSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 4)
@@ -97,6 +98,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Brain Bulwark
+
     internal static SpellDefinition BuildBrainBulwark()
     {
         const string NAME = "BrainBulwark";
@@ -110,7 +115,14 @@ internal static partial class SpellBuilders
                 ConditionAffinityFrightenedImmunity,
                 ConditionAffinityFrightenedFearImmunity,
                 ConditionAffinityMindControlledImmunity,
-                ConditionAffinityMindDominatedImmunity)
+                ConditionAffinityMindDominatedImmunity,
+                ConditionAffinityDemonicInfluenceImmunity,
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create("ConditionAffinityInsaneImmunity")
+                    .SetGuiPresentationNoContent(true)
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .SetConditionType(ConditionInsane)
+                    .AddToDB())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -134,6 +146,53 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionBrainBulwark, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Gravity Sinkhole
+
+    internal static SpellDefinition BuildGravitySinkhole()
+    {
+        const string NAME = "GravitySinkhole";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.GravitySinkhole, 128))
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 4)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 5, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(4)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

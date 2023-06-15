@@ -237,9 +237,9 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature,
                 PowerDivineStrikeDescription(1))
             .SetNotificationTag("DivineStrike")
-            .SetSpecificDamageType(DamageTypeNecrotic)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
+            .SetSpecificDamageType(DamageTypeNecrotic)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .AddToDB();
@@ -291,7 +291,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Charisma,
@@ -369,31 +369,31 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter caster)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            if (!effect.EffectForms.Any(x =>
+            if (!effectDescription.EffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic))
             {
-                return effect;
+                return effectDescription;
             }
 
-            var hero = caster as RulesetCharacterHero ??
-                       caster.OriginalFormCharacter as RulesetCharacterHero;
+            var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
 
             if (hero == null)
             {
-                return effect;
+                return effectDescription;
             }
 
 
             var levels = hero.GetClassLevel(CharacterClassDefinitions.Cleric) / 2;
 
-            effect.durationType = DurationType.Round;
-            effect.durationParameter = levels;
-            effect.effectForms.Add(_effectInsidiousDeathMagic);
+            effectDescription.durationType = DurationType.Round;
+            effectDescription.durationParameter = levels;
+            effectDescription.effectForms.Add(_effectInsidiousDeathMagic);
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -432,9 +432,9 @@ internal sealed class DomainDefiler : AbstractSubclass
                 return;
             }
 
-            var target = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (target == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
@@ -452,7 +452,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                              attacker.Guid,
                              attacker.RulesetCharacter.CurrentFaction.Name)))
             {
-                target.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
         }
     }

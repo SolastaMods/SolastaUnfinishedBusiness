@@ -54,10 +54,10 @@ internal static class CharacterDisplay
         UI.Label();
 
 
-        toggle = Main.Settings.DisableClassPrerequisitesOnModFeats;
+        toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.DisableClassPrerequisitesOnModFeats = toggle;
+            Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
         }
 
 
@@ -232,11 +232,21 @@ internal static class CharacterDisplay
             Main.Settings.AllowBeardlessDwarves = toggle;
         }
 
+#if false
         toggle = Main.Settings.AllowHornsOnAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHornsOnAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowHornsOnAllRaces = toggle;
         }
+#endif
+
+        toggle = Main.Settings.UseElfFaceModelsOnTieflings;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseElfFaceModelsOnTieflings"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseElfFaceModelsOnTieflings = toggle;
+        }
+
+        UI.Label();
 
         toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
         if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))

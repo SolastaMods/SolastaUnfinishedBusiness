@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&ArcticTitle",
-    "description": "TerrainType/&ArcticDescription",
+    "title": "Arctic",
+    "description": "Areas of snow or permafrost are considered arctic terrain. Beware, this Terrain Type is not used in the Crown of the Magister campaign.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8a968af6-cdd8-5e78-b12a-8c2ce48a6a9c",

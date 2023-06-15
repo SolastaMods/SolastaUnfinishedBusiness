@@ -1,11 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -16,7 +22,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 01
+    #region Caustic Zap
 
     internal static SpellDefinition BuildCausticZap()
     {
@@ -57,6 +63,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Chromatic Orb
+
     internal static SpellDefinition BuildChromaticOrb()
     {
         const string NAME = "ChromaticOrb";
@@ -89,7 +99,7 @@ internal static partial class SpellBuilders
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetEffectForms(EffectFormBuilder.Create()
                         .SetDamageForm(damageType, 3, DieType.D8)
@@ -117,7 +127,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                     additionalDicePerIncrement: 1)
@@ -127,6 +137,9 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Earth Tremor
 
     internal static SpellDefinition BuildEarthTremor()
     {
@@ -181,6 +194,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Ensnaring Strike
+
     internal static SpellDefinition BuildEnsnaringStrike()
     {
         const string NAME = "EnsnaringStrike";
@@ -195,7 +212,7 @@ internal static partial class SpellBuilders
 
         var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
@@ -248,78 +265,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    internal const string OwlFamiliar = "OwlFamiliar";
+    #endregion
 
-    internal static SpellDefinition BuildFindFamiliar()
-    {
-        var familiarMonster = MonsterDefinitionBuilder
-            .Create(MonsterDefinitions.Eagle_Matriarch, OwlFamiliar)
-            .SetOrUpdateGuiPresentation(Category.Monster)
-            .SetFeatures(
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseDarkvision24,
-                FeatureDefinitionMoveModes.MoveModeMove2,
-                FeatureDefinitionMoveModes.MoveModeFly12,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
-                FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
-            .SetMonsterPresentation(
-                MonsterPresentationBuilder.Create()
-                    .SetAllPrefab(MonsterDefinitions.Eagle_Matriarch.MonsterPresentation)
-                    .SetPhantom()
-                    .SetModelScale(0.5f)
-                    .SetHasMonsterPortraitBackground(true)
-                    .SetCanGeneratePortrait(true)
-                    .Build())
-            .ClearAttackIterations()
-            .SetSkillScores((SkillDefinitions.Perception, 3), (SkillDefinitions.Stealth, 3))
-            .SetArmorClass(11)
-            .SetAbilityScores(3, 13, 8, 2, 12, 7)
-            .SetHitDice(DieType.D4, 1)
-            .SetStandardHitPoints(5)
-            .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
-            .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
-            .SetChallengeRating(0)
-            .SetDroppedLootDefinition(null)
-            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
-            .SetFullyControlledWhenAllied(true)
-            .SetDefaultFaction(FactionDefinitions.Party)
-            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
-            .SetGuiPresentation(Category.Spell, AnimalFriendship)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetSpellLevel(1)
-            .SetUniqueInstance()
-            .SetCastingTime(ActivationTime.Hours1)
-            .SetRitualCasting(ActivationTime.Hours1)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Permanent)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 2, TargetType.Position)
-                    .SetParticleEffectParameters(ConjureAnimalsOneBeast)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonCreatureForm(1, familiarMonster.Name)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
-
-        return spell;
-    }
+    #region Mule
 
     internal static SpellDefinition BuildMule()
     {
@@ -370,6 +318,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Radiant Motes
+
     internal static SpellDefinition BuildRadiantMotes()
     {
         const string NAME = "RadiantMotes";
@@ -400,23 +352,25 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Searing Smite
+
     internal static SpellDefinition BuildSearingSmite()
     {
         const string NAME = "SearingSmite";
 
         var additionalDamageSearingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+            .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
-                // ReSharper disable once RedundantArgumentDefaultValue
-                AttributeDefinitions.Constitution)
+                EffectSavingThrowType.None)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -458,6 +412,130 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Wrathful Smite
+
+    internal static SpellDefinition BuildWrathfulSmite()
+    {
+        const string NAME = "WrathfulSmite";
+
+        var additionalDamageWrathfulSmite = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
+            .SetDamageDice(DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypePsychic)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetSavingThrowData(
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Wisdom)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
+                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
+                        .AddToDB(),
+                    operation = ConditionOperationDescription.ConditionOperation.Add
+                })
+            .AddToDB();
+
+        var conditionWrathfulSmite = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
+            .SetFeatures(additionalDamageWrathfulSmite)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.WrathfulSmite, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(conditionWrathfulSmite, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Magnify Gravity
+
+    internal static SpellDefinition BuildMagnifyGravity()
+    {
+        const string NAME = "MagnifyGravity";
+
+        var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .AddToDB();
+
+        var conditionGravity = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionEncumbered, "ConditionGravity")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(movementAffinityMagnifyGravity)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MagnifyGravity, 128))
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionGravity, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(1)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Skin of Retribution
 
     internal static SpellDefinition BuildSkinOfRetribution()
     {
@@ -563,6 +641,330 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    private sealed class ModifyMagicEffectSkinOfRetribution : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character, RulesetEffect rulesetEffect)
+        {
+            var rulesetCondition =
+                character.AllConditions.FirstOrDefault(x =>
+                    x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
+
+            if (rulesetCondition == null || !effectDescription.HasDamageForm())
+            {
+                return effectDescription;
+            }
+
+            var effectLevel = rulesetCondition.EffectLevel;
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.bonusDamage *= effectLevel;
+
+            MaybeRemoveSkinOfRetribution(character);
+
+            return effectDescription;
+        }
+
+        private static void MaybeRemoveSkinOfRetribution(RulesetCharacter target)
+        {
+            if (target.temporaryHitPoints > 0)
+            {
+                return;
+            }
+
+            foreach (var condition in target.AllConditions
+                         .FindAll(x =>
+                             x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution")))
+            {
+                target.RemoveCondition(condition);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Sanctuary
+
+    internal static SpellDefinition BuildSanctuary()
+    {
+        const string NAME = "Sanctuary";
+
+        var conditionSanctuaryArmorClass = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ArmorClass")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{NAME}ArmorClass")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 30)
+                .AddToDB())
+            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        var conditionSanctuaryDamageResistance = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}DamageResistance")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        //Attack possible is skipped when crit, so I am just going to halve the damage on critical
+        var featureSanctuary = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(
+                new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
+                new PhysicalAttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuaryDamageResistance))
+            .AddToDB();
+
+        var conditionSanctuary = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .AddSpecialInterruptions(ConditionInterruption.Attacks)
+            .SetFeatures(featureSanctuary)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("Sanctuary", Resources.Sanctuary, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+
+    private sealed class SanctuaryBeforeAttackHitPossible : IAttackHitPossible
+    {
+        private readonly ConditionDefinition _conditionSanctuaryBuff;
+
+        internal SanctuaryBeforeAttackHitPossible(ConditionDefinition conditionSanctuaryBuff)
+        {
+            _conditionSanctuaryBuff = conditionSanctuaryBuff;
+        }
+
+        public IEnumerator DefenderAttackHitPossible(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            ActionModifier attackModifier,
+            int attackRoll)
+        {
+            if (battle.Battle == null)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            {
+                yield break;
+            }
+
+            var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
+            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
+            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetDefender
+                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+            var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetDefender
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
+
+            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
+                advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier, false,
+                out var savingOutcome,
+                out _);
+
+            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                _conditionSanctuaryBuff.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class PhysicalAttackBeforeHitConfirmedOnMeSanctuary : IPhysicalAttackBeforeHitConfirmedOnMe
+    {
+        private readonly ConditionDefinition _conditionSanctuaryBuff;
+
+        internal PhysicalAttackBeforeHitConfirmedOnMeSanctuary(ConditionDefinition conditionSanctuaryBuff)
+        {
+            _conditionSanctuaryBuff = conditionSanctuaryBuff;
+        }
+
+
+        public IEnumerator OnAttackBeforeHitConfirmed(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            if (battle.Battle == null)
+            {
+                yield break;
+            }
+
+            if (criticalHit == false)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                _conditionSanctuaryBuff.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    #endregion
+
+    #region Owl Familiar
+
+    internal const string OwlFamiliar = "OwlFamiliar";
+
+    internal static SpellDefinition BuildFindFamiliar()
+    {
+        var familiarMonster = MonsterDefinitionBuilder
+            .Create(MonsterDefinitions.Eagle_Matriarch, OwlFamiliar)
+            .SetOrUpdateGuiPresentation(Category.Monster)
+            .SetFeatures(
+                FeatureDefinitionSenses.SenseNormalVision,
+                FeatureDefinitionSenses.SenseDarkvision24,
+                FeatureDefinitionMoveModes.MoveModeMove2,
+                FeatureDefinitionMoveModes.MoveModeFly12,
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder.Create()
+                    .SetAllPrefab(MonsterDefinitions.Eagle_Matriarch.MonsterPresentation)
+                    .SetPhantom()
+                    .SetModelScale(0.5f)
+                    .SetHasMonsterPortraitBackground(true)
+                    .SetCanGeneratePortrait(true)
+                    .Build())
+            .ClearAttackIterations()
+            .SetSkillScores((SkillDefinitions.Perception, 3), (SkillDefinitions.Stealth, 3))
+            .SetArmorClass(11)
+            .SetAbilityScores(3, 13, 8, 2, 12, 7)
+            .SetHitDice(DieType.D4, 1)
+            .SetStandardHitPoints(5)
+            .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
+            .SetAlignment("Neutral")
+            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+            .SetChallengeRating(0)
+            .SetDroppedLootDefinition(null)
+            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+            .SetFullyControlledWhenAllied(true)
+            .SetDefaultFaction(FactionDefinitions.Party)
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
+            .SetGuiPresentation(Category.Spell, AnimalFriendship)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetSpellLevel(1)
+            .SetUniqueInstance()
+            .SetCastingTime(ActivationTime.Hours1)
+            .SetRitualCasting(ActivationTime.Hours1)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 2, TargetType.Position)
+                    .SetParticleEffectParameters(ConjureAnimalsOneBeast)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, familiarMonster.Name)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .AddToDB();
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Thunderous Smite
+
     internal static SpellDefinition BuildThunderousSmite()
     {
         const string NAME = "ThunderousSmite";
@@ -571,7 +973,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}Push")
             .SetGuiPresentationNoContent(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
@@ -585,12 +987,12 @@ internal static partial class SpellBuilders
 
         var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+            .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Strength)
@@ -638,140 +1040,128 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    internal static SpellDefinition BuildWrathfulSmite()
-    {
-        const string NAME = "WrathfulSmite";
 
-        var additionalDamageWrathfulSmite = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
-            .SetDamageDice(DieType.D6, 1)
-            .SetSpecificDamageType(DamageTypePsychic)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetSavingThrowData(
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
-                AttributeDefinitions.Wisdom)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
-                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                        .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
-                })
+    private sealed class ConditionUsesPowerOnTarget : ICustomConditionFeature
+    {
+        private readonly FeatureDefinitionPower power;
+        private readonly bool removeCondition;
+
+        public ConditionUsesPowerOnTarget(FeatureDefinitionPower power, bool removeCondition = true)
+        {
+            this.power = power;
+            this.removeCondition = removeCondition;
+        }
+
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var defender = GameLocationCharacter.GetFromActor(target);
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetAttacker == null || defender == null)
+            {
+                return;
+            }
+
+            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+
+            effectPower.ApplyEffectOnCharacter(target, true, defender.LocationPosition);
+
+            if (removeCondition)
+            {
+                target.RemoveCondition(rulesetCondition);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+        }
+    }
+
+    #endregion
+
+    #region GiftOfAlacrity
+
+    internal static SpellDefinition BuildGiftOfAlacrity()
+    {
+        const string NAME = "GiftOfAlacrity";
+
+        var featureGiftOfAlacrity = FeatureDefinitionBuilder
+            .Create("FeatureGiftOfAlacrity")
+            .SetGuiPresentation("ConditionGiftOfAlacrity", Category.Condition)
             .AddToDB();
 
-        var conditionWrathfulSmite = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+        featureGiftOfAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(featureGiftOfAlacrity));
+
+        var conditionAlacrity = ConditionDefinitionBuilder
+            .Create(ConditionBlessed, "ConditionGiftOfAlacrity")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetFeatures(additionalDamageWrathfulSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetFeatures(featureGiftOfAlacrity)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
-            .Create(BrandingSmite, NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.WrathfulSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(1)
-            .SetCastingTime(ActivationTime.BonusAction)
-            .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(conditionWrathfulSmite, ConditionForm.ConditionOperation.Add)
-                    .Build())
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, CalmEmotions.GuiPresentation.SpriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Hour, 8)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionAlacrity, ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
+            .SetCastingTime(ActivationTime.Minute1)
+            .SetSpellLevel(1)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
             .AddToDB();
 
         return spell;
     }
 
-    internal static SpellDefinition BuildSanctuary()
+    private sealed class InitiativeEndListenerGiftOfAlacrity : IInitiativeEndListener
     {
-        const string NAME = "Sanctuary";
+        private readonly FeatureDefinition _featureDefinition;
 
-        var conditionSanctuaryArmorClass = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ArmorClass")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}ArmorClass")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
-                    30)
-                .AddToDB())
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
+        public InitiativeEndListenerGiftOfAlacrity(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
 
-        var conditionSanctuaryDamageResistance = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DamageResistance")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityColdResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityForceDamageResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityPoisonResistance,
-                DamageAffinityPsychicResistance,
-                DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        {
+            const string TEXT = "Feedback/&FeatureGiftOfAlacrityLine";
 
-        //Attack possible is skipped when crit, so I am just going to halve the damage on critical
-        var featureSanctuary = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
-                new SanctuaryBeforeHitConfirmed(conditionSanctuaryDamageResistance))
-            .AddToDB();
+            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
-        var conditionSanctuary = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
-            .AddSpecialInterruptions(ConditionInterruption.Attacks)
-            .SetFeatures(featureSanctuary)
-            .AddToDB();
+            if (Gui.Battle == null || gameLocationScreenBattle == null)
+            {
+                yield break;
+            }
 
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("Sanctuary", Resources.Sanctuary, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetSpellLevel(1)
-            .SetCastingTime(ActivationTime.BonusAction)
-            .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .Build())
-            .AddToDB();
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var roll = rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
 
-        return spell;
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Remove, false, false);
+
+            locationCharacter.LastInitiative += roll;
+            Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Add, false, false);
+
+            GameConsoleHelper.LogCharacterUsedFeature(
+                locationCharacter.RulesetCharacter,
+                _featureDefinition,
+                TEXT,
+                false,
+                (ConsoleStyleDuplet.ParameterType.Initiative, roll.ToString()));
+        }
     }
 
     #endregion

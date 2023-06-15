@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Vous et vos alliés êtes à moitié couverts tant que vous vous trouvez à moins de 3 mètres d'un canon créé avec Eldritch Cannon, en raison d'un champ scintillant de protection magique émis par le canon.
+Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Vous et vos alliés êtes à moitié couverts tant que vous vous trouvez à moins de 3 mètres d'un canon créé avec Eldritch Cannon, en raison d'un champ scintillant de protection magique émis par le canon.
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=Position fortifiée
 Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Apprenez et préparez-vous toujours :\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Sorts d'artilleur

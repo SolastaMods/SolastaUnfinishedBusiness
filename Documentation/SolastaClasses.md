@@ -1,4 +1,4 @@
-# Barbarian
+# 1. - Barbarian
 
 Barbarians are fierce warriors from the edge of civilization. Their battle rage makes them dangerous combatants.
 
@@ -7,24 +7,24 @@ Barbarians are fierce warriors from the edge of civilization. Their battle rage 
 
 * Barbarian Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Barbarian Skills
 
-Choose 2 of these skills: Animal Handling, Athletics, Intimidation, Nature, Perception, Survival
+Choose 2 of these skills: Animal Handling,Athletics,Intimidation,Nature,Perception,Survival
 
 * Barbarian Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Rage
 
 In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. This grants you advantage on strength saves and checks, an initial +2 bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor. Lasts for 1 minute or ends if you have not attacked or suffered damage since your last turn.
- You start with 2 rages, renewed after a long rest.
+  You start with 2 rages, renewed after a long rest.
 
 * Saving Throw Proficiencies
 
-Strength, Constitution
+Strength,Constitution
 
 * Unarmored Defense
 
@@ -33,17 +33,9 @@ When you are not wearing armor, your Armor Class equals 10 + your Dexterity modi
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Danger Sense
 
 You have advantage on Dexterity saving throws for effects and spells, as long as you are not blinded or incapacitated.
-
-* Fighting Style
-
-Choose a fighting style as a specialty.
 
 * Reckless Attack
 
@@ -108,21 +100,14 @@ Increase your rage damage by +1
 
 * Brutal Critical
 
-You can roll one additional weapon damage die when determining the extra  damage for a critical hit with a melee attack.
-
-
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
+You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.
 
 
 ## Level 11
 
 * Relentless Rage
 
-If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.  Each time you use this feature after the first, the DC increases by 5. When you  finish a short or long rest, the DC resets to 10.
+If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.
 
 
 ## Level 12
@@ -147,7 +132,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-You have advantage on strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, if you choose to end it or if 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
+You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
 
 
 ## Level 16
@@ -178,10 +163,6 @@ Add another damage die to critical hits.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Indomitable Might
 
 If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
@@ -202,8 +183,7 @@ At 20th level, you embody the power of the wilds. Your Strength and Constitution
 
 
 
-
-# Bard
+# 2. - Bard
 
 While they are capable fighters, the true power of bards lies in their words and music. They can inspire those who hear them, raise their spirits, and affect their minds in other ways. They are well-versed in lore and magic, as well.
 
@@ -220,7 +200,7 @@ Choose 3 skills
 
 * Bard Weapon Proficiencies
 
-Simple Weapons, Shortsword, Longsword, Rapier
+Simple Weapons,Shortsword,Longsword,Rapier
 
 * Bardic Inspiration
 
@@ -232,7 +212,7 @@ You can cast a selected spell as a ritual if the spell has the ritual tag.
 
 * Saving Throw Proficiencies
 
-Dexterity, Charisma
+Dexterity,Charisma
 
 * Bard Spellcasting
 
@@ -240,10 +220,6 @@ Cast bard spells.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Jack of All Trades
 
@@ -299,10 +275,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Bard Expertise
 
 At the 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At the 10th level, you can choose another two skill proficiencies to gain this benefit.
@@ -346,10 +318,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Magical Secrets
 
 Choose two spells from any class and include them in your spell list.
@@ -366,12 +334,11 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Superior Inspiration
 
-when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
+When you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
 
 
 
-
-# Cleric
+# 3. - Cleric
 
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
 
@@ -380,11 +347,11 @@ Clerics are the servants of their chosen deity. In exchange for their faith and 
 
 * Cleric Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Cleric Skills
 
-Choose 2 of these skills: History, Insight, Medicine, Persuasion, Religion
+Choose 2 of these skills: History,Insight,Medicine,Persuasion,Religion
 
 * Cleric Weapon Proficiencies
 
@@ -400,7 +367,7 @@ You can cast a spell as a ritual if that spell has the ritual tag and you have t
 
 * Saving Throw Proficiencies
 
-Wisdom, Charisma
+Wisdom,Charisma
 
 * Scroll Scribing
 
@@ -412,10 +379,6 @@ Can cast spells from the Cleric Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Channel Divinity
 
@@ -438,7 +401,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 0.5 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 0.5 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 6
@@ -457,14 +420,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 1 or lower that fail the saving throw are instead destroyed.
-
-
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
+ Undead creatures with a challenge rating of 1 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 11
@@ -472,7 +428,7 @@ Select 1 additional feats for your character.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 2 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 2 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 12
@@ -487,7 +443,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 3 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 3 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 16
@@ -502,14 +458,10 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 4 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 4 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Channel Divinity (increased)
 
@@ -524,26 +476,25 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-
-# Druid
+# 4. - Druid
 
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
 
 
 ## Level 1
 
-* Druid  Armor Proficiencies
+* Druid Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 You cannot wear any armor made of: Metal
 
-* Druid  Skills
+* Druid Skills
 
-Choose 2 of these skills: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival
+Choose 2 of these skills: Arcana,Animal Handling,Insight,Medicine,Nature,Perception,Religion,Survival
 
-* Druid  Weapon Proficiencies
+* Druid Weapon Proficiencies
 
-Club, Dagger, Dart, Javelin, Mace, Quarterstaff, Scimitar, Spear
+Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Spear
 
 * Druidic
 
@@ -555,7 +506,7 @@ You can cast a spell as a ritual if that spell has the ritual tag and you have t
 
 * Saving Throw Proficiencies
 
-Intelligence, Wisdom
+Intelligence,Wisdom
 
 * Druid Spellcasting
 
@@ -563,10 +514,6 @@ Can cast spells from the Druid Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Druid Circle
 
@@ -591,13 +538,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 12
 
 * Ability Score Choice
@@ -613,10 +553,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Beast Spells
 
@@ -638,8 +574,7 @@ You can use your Wildshape an unlimited number of times. Additionally, you can i
 
 
 
-
-# Fighter
+# 5. - Fighter
 
 Fighters are trained in the arts of combat. They are adept with most weapons, but often choose to specialize. All fighters can use armor, shields, and ranged weapons.
 
@@ -648,15 +583,15 @@ Fighters are trained in the arts of combat. They are adept with most weapons, bu
 
 * Fighter Armor Proficiencies
 
-Light Armor, Medium Armor, Heavy Armor, Shield
+Light Armor,Medium Armor,Heavy Armor,Shield
 
 * Fighter Skills
 
-Choose 2 of these skills: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival
+Choose 2 of these skills: Acrobatics,Animal Handling,Athletics,History,Insight,Intimidation,Perception,Survival
 
 * Fighter Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Fighting Style
 
@@ -664,7 +599,7 @@ Choose a fighting style as a specialty.
 
 * Saving Throw Proficiencies
 
-Strength, Constitution
+Strength,Constitution
 
 * Second Wind
 
@@ -676,10 +611,6 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Action Surge
 
@@ -720,23 +651,12 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
-* Weapon Specialization
-
-You gain +1 to hit and damage rolls with your specialized weapon type. A Martial Weapon Master will have disadvantage to attack with all other weapon types but gets a +2 bonus starting at level 15th.
-
 
 ## Level 9
 
 * Indomitable
 
 You can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.
-
-
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 11
@@ -773,10 +693,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
-* Weapon Specialization
-
-You gain +1 to hit and damage rolls with your specialized weapon type. A Martial Weapon Master will have disadvantage to attack with all other weapon types but gets a +2 bonus starting at level 15th.
-
 
 ## Level 17
 
@@ -787,13 +703,6 @@ Regain a main action immediately. Take a short or long rest to recover this powe
 * Indomitable (advanced)
 
 You can use Indomitable resistance one additional time between long rests.
-
-
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 19
@@ -811,8 +720,7 @@ You can attack twice, rather than once, when you use the attack or shove actions
 
 
 
-
-# Monk
+# 6. - Monk
 
 Despite their name, not all monks live a contemplative, religious life. However, all have devoted themselves to training their minds and bodies to near perfection, enabling them to perform feats that leave others speechless with awe.
 
@@ -829,7 +737,7 @@ When you use the Attack action with an unarmed strike or a monk weapon on your t
 
 * Monk Skills
 
-Choose 2 of these skills: Acrobatics, Athletics, History, Insight, Religion, Stealth
+Choose 2 of these skills: Acrobatics,Athletics,History,Insight,Religion,Stealth
 
 * Monk tools
 
@@ -837,11 +745,11 @@ Smith's tools
 
 * Monk Weapon Proficiencies
 
-Simple Weapons, Shortsword
+Simple Weapons,Shortsword
 
 * Saving Throw Proficiencies
 
-Strength, Dexterity
+Strength,Dexterity
 
 * Unarmored Defense
 
@@ -850,10 +758,6 @@ When you are not wearing armor, your armor class equals 10 + your dexterity modi
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Flurry of Blows
 
 After the Attack action has been used on your turn, you can spend 1 Ki point to make two unarmed strikes as a bonus action.
@@ -861,10 +765,6 @@ After the Attack action has been used on your turn, you can spend 1 Ki point to 
 * Ki Points
 
 Starting at the 2nd level, your training allows you to harness the mystic energy of Ki. Your access to this energy is represented by a number of Ki points. Your monk level determines the number of points you have (2 at level 2, 3 at level 3, etc.)
-
-* Monk Weapon Specialization
-
-Select a new weapon type to become a monk weapon for you.
 
 * Patient Defense
 
@@ -884,7 +784,7 @@ Starting at level 2, your speed increases by 2 cells while you're not wearing ar
 * Deflect Missiles
 
 Starting at the 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your dexterity modifier + your monk level.
- If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 Ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 4 cells and a long range of 12 cells.
+  If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 Ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 4 cells and a long range of 12 cells.
 
 * Monastic Traditions
 
@@ -947,20 +847,9 @@ Starting at the 9th level, climbing becomes second nature to you. Climbing no lo
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Purity of Body
 
 At the 10th level, your mastery of the Ki flowing through you makes you immune to disease and poison.
-
-
-## Level 11
-
-* Monk Weapon Specialization
-
-Select a new weapon type to become a monk weapon for you.
 
 
 ## Level 12
@@ -989,9 +878,9 @@ Starting at level 14, your mastery of Ki grants you proficiency in all saving th
 * Timeless Body
 
 At the 15th level, you gain the following benefits:
- - Resistance to necrotic damage
- - Advantage on saving throws against being Life Drained
- - You don't require a food ration anymore to take a long rest
+  - Resistance to necrotic damage
+  - Advantage on saving throws against being Life Drained
+  - You don't require a food ration anymore to take a long rest
 
 
 ## Level 16
@@ -1002,10 +891,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Empty Body
 
@@ -1027,8 +912,7 @@ When you start battle and have no Ki points remaining, you regain 4 Ki points.
 
 
 
-
-# Paladin
+# 7. - Paladin
 
 Paladins are elite warriors who have sworn unbreakable holy oaths to fight evil. In addition to their weapons and armor, they wield divine powers and clerical spells.
 
@@ -1057,26 +941,22 @@ Spend 5 points from your Lay on Hands healing pool to neutralize one poison.
 
 * Paladin Armor Proficiencies
 
-Light Armor, Medium Armor, Heavy Armor, Shield
+Light Armor,Medium Armor,Heavy Armor,Shield
 
 * Paladin Skills
 
-Choose 2 of these skills: Athletics, Insight, Intimidation, Medicine, Persuasion, Religion
+Choose 2 of these skills: Athletics,Insight,Intimidation,Medicine,Persuasion,Religion
 
 * Paladin Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Saving Throw Proficiencies
 
-Wisdom, Charisma
+Wisdom,Charisma
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Divine Smite
 
@@ -1132,10 +1012,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Aura of Courage
 
 You and allies within 2 cells cannot be frightened while you are conscious. At the 18th level, the range becomes 6 cells.
@@ -1171,10 +1047,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Improved Aura of Courage
 
 Grant a saving throw bonus to allies within 30ft.
@@ -1192,8 +1064,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-
-# Ranger
+# 8. - Ranger
 
 Wanderers of Solasta's wilderness, rangers are trained survivalists, fierce in battle, and stealthy hunters. Excellent trackers and archers, they also have some spellcasting ability.
 
@@ -1210,19 +1081,19 @@ You are adept at living and traveling in a certain type of terrain.
 
 * Ranger Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Ranger Skills
 
-Choose 3 of these skills: Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Survival, Stealth
+Choose 3 of these skills: Animal Handling,Athletics,Insight,Investigation,Nature,Perception,Survival,Stealth
 
 * Ranger Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Saving Throw Proficiencies
 
-Strength, Dexterity
+Strength,Dexterity
 
 * Smithing
 
@@ -1230,10 +1101,6 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Fighting Style
 
@@ -1289,10 +1156,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Hide in Plain Sight
 
 You can spend 1 minute creating camouflage for yourself. Once camouflaged, you gain +10 DEX (Stealth) while you are standing against a wall. You have to restart the camouflage every time you rest or move to another location.
@@ -1329,10 +1192,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Feral Senses
 
 You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you cannot see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
@@ -1353,8 +1212,7 @@ You become an unparalleled hunter of your enemies. All your attacks deal additio
 
 
 
-
-# Rogue
+# 9. - Rogue
 
 Rogues are versatile first and foremost. They use their natural talents to master various skills and find their own way to thrive. Generally resourceful, they are known for their cunning and their ability to launch deadly sneak attacks.
 
@@ -1371,7 +1229,7 @@ Light Armor
 
 * Rogue Skills
 
-Choose 4 of these skills: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth
+Choose 4 of these skills: Acrobatics,Athletics,Deception,Insight,Intimidation,Investigation,Perception,Performance,Persuasion,Sleight of Hand,Stealth
 
 * Rogue Tools
 
@@ -1379,11 +1237,11 @@ Thieves' Tools
 
 * Rogue Weapon Proficiencies
 
-Simple Weapons, Longsword, Rapier, Shortsword, Hand Crossbow
+Simple Weapons,Longsword,Rapier,Shortsword,Hand Crossbow
 
 * Saving Throw Proficiencies
 
-Dexterity, Intelligence
+Dexterity,Intelligence
 
 * Smithing
 
@@ -1395,10 +1253,6 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Cunning Action
 
@@ -1449,10 +1303,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 2 Bonus Feats
-
-Select 2 additional feats for your character.
-
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
@@ -1493,13 +1343,6 @@ You have acquired greater mental strength. You gain proficiency in Wisdom saving
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 19
 
 * Ability Score Choice
@@ -1519,8 +1362,7 @@ You have an uncanny knack for succeeding when you need to. If your attack misses
 
 
 
-
-# Sorcerer
+# 10. - Sorcerer
 
 Sorcerers have an innate ability to channel arcane magic, usually through a supernatural origin. Sorcerers are also able to alter the fabric of magic using sorcery points.
 
@@ -1533,15 +1375,15 @@ You have been trained to brew herbal remedies and use enchanting equipment.
 
 * Saving Throw Proficiencies
 
-Constitution, Charisma
+Constitution,Charisma
 
 * Sorcerer Skills
 
-Choose 2 of these skills: Arcana, Deception, Insight, Intimidation, Persuasion, Religion
+Choose 2 of these skills: Arcana,Deception,Insight,Intimidation,Persuasion,Religion
 
 * Sorcerer Weapon Proficiencies
 
-Dagger, Dart, Quarterstaff, Light Crossbow
+Dagger,Dart,Quarterstaff,Light Crossbow
 
 * Sorcerous Origin
 
@@ -1553,10 +1395,6 @@ Can cast spells from the Sorcerer Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Flexible Casting
 
@@ -1590,10 +1428,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Additional Metamagic
 
 Learn another metamagic option
@@ -1620,13 +1454,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Learn another metamagic option
 
 
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 19
 
 * Ability Score Choice
@@ -1642,8 +1469,7 @@ Regain 4 sorcery points during a short rest.
 
 
 
-
-# Warlock
+# 11. - Warlock
 
 Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
@@ -1656,7 +1482,7 @@ Determines the Patron with whom you have signed a pact.
 
 * Saving Throw Proficiencies
 
-Wisdom, Charisma
+Wisdom,Charisma
 
 * Warlock Armor Proficiencies
 
@@ -1664,7 +1490,7 @@ Light Armor
 
 * Warlock Skills
 
-Choose 2 of these skills: Arcana, Deception, History, Intimidation, Investigation, Nature, Religion
+Choose 2 of these skills: Arcana,Deception,History,Intimidation,Investigation,Nature,Religion
 
 * Warlock Weapon Proficiencies
 
@@ -1676,10 +1502,6 @@ Can cast spells from the Warlock Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Eldritch Invocations
 
@@ -1726,13 +1548,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Eldritch Invocation
 
 Learn an additional Eldritch Invocation
-
-
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 11
@@ -1785,13 +1600,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 19
 
 * Ability Score Choice
@@ -1807,8 +1615,7 @@ You can draw on your inner reserve of mystical power while entreating your patro
 
 
 
-
-# Wizard
+# 12. - Wizard
 
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
 
@@ -1825,15 +1632,15 @@ You can cast a spell as a ritual if the spell has the ritual tag and you have it
 
 * Saving Throw Proficiencies
 
-Intelligence, Wisdom
+Intelligence,Wisdom
 
 * Wizard Skills
 
-Choose 2 of these skills: Arcana, History, Insight, Investigation, Medicine, Religion
+Choose 2 of these skills: Arcana,History,Insight,Investigation,Medicine,Religion
 
 * Wizard Weapon Proficiencies
 
-Dagger, Dart, Quarterstaff, Light Crossbow
+Dagger,Dart,Quarterstaff,Light Crossbow
 
 * Wizard Spellcasting
 
@@ -1841,10 +1648,6 @@ Can cast spells from the Wizard Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Arcane Recovery
 
@@ -1869,13 +1672,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 12
 
 * Ability Score Choice
@@ -1896,10 +1692,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Spell Mastery
 
 You have achieved such mastery over certain spells that you can cast them at will. The first two 1st and 2nd-level wizard spells that you prepare can be cast at their lowest level without expending a spell slot. If you want to cast either spell at a higher level, you must expend a spell slot as normal. 
@@ -1917,7 +1709,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Signature Spells
 
 You gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
-
 
 
 

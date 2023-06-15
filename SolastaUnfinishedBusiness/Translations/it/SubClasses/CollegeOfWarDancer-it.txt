@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCharmedByDanceOfWarDescription=Classe armatura ridotta dal modificatore di Carisma.
+Condition/&ConditionCharmedByDanceOfWarDescription=Classe armatura ridotta dal modificatore di Carisma.
 Condition/&ConditionCharmedByDanceOfWarTittle=Ammaliato
 Condition/&ConditionWarDanceDescription=Muoviti e attacca rapidamente.
 Condition/&ConditionWarDanceLightMomentumDescription=Il tuo attacco ha uno slancio leggero.
@@ -16,9 +16,11 @@ Feature/&PowerCollegeOfWarDancerImprovedWarDanceDescription=I nemici entro 9 met
 Feature/&PowerCollegeOfWarDancerImprovedWarDanceTitle=Ballerino seducente
 Feature/&PowerWarDancerWarDanceDescription=Sei ispirato fino all'inizio del tuo prossimo turno e puoi usare il tuo Carisma per colpire bonus. Sei immune al terreno difficile, anche la tua velocità aumenta di 15' e puoi cambiare arma liberamente.\nDopo aver speso la tua azione principale ottieni un Momentum che può essere utilizzato per attaccare, schivare, disimpegnarsi e scattare. Rende il tuo attacco più forte ma meno preciso e l'effetto varia tra le armi che usi per attaccare. Puoi avere un Momentum massimo pari alla metà del tuo bonus di competenza arrotondato per eccesso.\nLa tua danza termina quando usi un'arma non da mischia o manchi un attacco, a meno che tu non spenda un dado bardico per prolungarla.\nLa durata del Momentum è anche esteso di 1 round se riduci il tuo nemico a 0 HP.
 Feature/&PowerWarDancerWarDanceTitle=Danza di guerra
+Feedback/&ActivateMomentum={1} garantisce {0} attacco extra!
 Feedback/&AdditionalDamageMomentumFormat=Colpo di slancio
 Feedback/&AdditionalDamageMomentumLine={0} infligge un momentum strike su {1} (+{2})
 Reaction/&CustomReactionDanceOfWarOnMissDescription={0} hanno mancato un attacco e possono spendere un dado di ispirazione bardica per mantenere l'effetto di Danza di guerra e tutto lo slancio.
+Reaction/&CustomReactionDanceOfWarOnMissReactDescription=Spendi Die per continuare War Dance e mantenere Momentum
 Reaction/&CustomReactionDanceOfWarOnMissReactTitle=Spendere morire
 Reaction/&CustomReactionDanceOfWarOnMissTitle=Mettiti indietro
 Subclass/&CollegeOfWarDancerDescription=I bardi del College of War Dancer sono maestri nell'arte del combattimento che considerano il campo di battaglia il loro palcoscenico e l'arma nelle loro mani lo strumento migliore. I loro movimenti rapidi e gli attacchi infiniti sono di solito l'ultimo bel ricordo di coloro che li hanno incontrati.

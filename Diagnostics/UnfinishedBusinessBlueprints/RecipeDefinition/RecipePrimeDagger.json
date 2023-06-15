@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Dagger:6b3401851b033f74088e7977f516d55b",
   "stackCount": 1,
   "craftingHours": 8,

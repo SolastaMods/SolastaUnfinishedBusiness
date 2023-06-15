@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Rapier_Dragonblade:c5b6bb3e-77b4-579f-a55c-a432fff1a219",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 14,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

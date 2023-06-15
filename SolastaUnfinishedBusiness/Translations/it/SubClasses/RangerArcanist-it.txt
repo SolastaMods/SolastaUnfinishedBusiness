@@ -11,6 +11,6 @@ Feature/&MagicAffinityRangerArcanistTitle=Addestramento Arcano al Combattimento
 Feature/&PowerArcanistArcanePulseDescription=A partire dal 7° livello, puoi provocare un'esplosione di energia arcana a una distanza di 9 metri. Le creature ostili entro 4,5 metri dal punto di impatto subiscono 4d8 danni e ottengono un Marchio dell'Arcanista. Puoi usare questa capacità un numero di volte pari al tuo modificatore di Saggezza per ogni riposo lungo. Al 15° livello, il danno del tuo Impulso Arcano aumenta a 8d8.
 Feature/&PowerArcanistArcanePulseTitle=Polso Arcano
 Feedback/&AdditionalDamageArcanistMarkFormat=Marchio dell'Arcanista!
-Feedback/&AdditionalDamageArcanistMarkLine=Il Marchio dell'Arcanista esplode e infligge danni extra al bersaglio!
+Feedback/&AdditionalDamageArcanistMarkLine=Il Marchio dell'Arcanista esplode e infligge +{2} danni extra al {1}!
 Subclass/&RangerArcanistDescription=L'Arcanist fonde le sue abilità da Ranger con abilità arcane. Le loro armi possono affliggere i loro avversari con il Marchio dell'Arcanista e hanno imparato a lanciare alcuni incantesimi da Mago come parte del loro repertorio di incantesimi da Ranger.
 Subclass/&RangerArcanistTitle=Arcanista

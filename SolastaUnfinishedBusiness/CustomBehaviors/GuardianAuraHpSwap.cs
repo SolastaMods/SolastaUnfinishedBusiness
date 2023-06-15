@@ -31,34 +31,16 @@ internal static class GuardianAuraHpSwap
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
-        if (defender == null)
-        {
-            yield break;
-        }
-
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
-        var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+        var units = Gui.Battle.AllContenders
+            .Where(unit => unit.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                           attacker != unit &&
+                           defender != unit)
+            .ToList(); // avoid changing enumerator
 
         foreach (var unit in units)
         {
-            if (attacker != unit && defender != unit)
-            {
-                yield return ActiveHealthSwap(
-                    unit, attacker, defender, battleManager, attackerAttackMode, rulesetEffect, damageAmount);
-            }
+            yield return ActiveHealthSwap(
+                unit, attacker, defender, battleManager, attackerAttackMode, rulesetEffect, damageAmount);
         }
     }
 
@@ -143,9 +125,6 @@ internal static class GuardianAuraHpSwap
                 new RollInfo(RuleDefinitions.DieType.D1, new List<int>(), damageAmount),
                 true,
                 out _);
-
-            unit.RulesetCharacter.SustainDamage(
-                damageAmount, damage.DamageType, false, attacker.Guid, null, out _);
         }
 
         GameConsoleHelper.LogCharacterUsedPower(unit.RulesetCharacter, DummyAuraGuardianPower,

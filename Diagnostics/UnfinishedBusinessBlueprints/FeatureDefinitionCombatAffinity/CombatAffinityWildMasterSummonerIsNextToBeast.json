@@ -21,7 +21,7 @@
   "myDamageReductionValueDetermination": "None",
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
-  "situationalContext": 1004,
+  "situationalContext": 1009,
   "requiredCondition": null,
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
@@ -29,6 +29,7 @@
   "multiAttackDefenseValue": 0,
   "readyAttackAdvantage": "None",
   "shoveOnReadyAttackHit": false,
+  "autoFormatDescription": true,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

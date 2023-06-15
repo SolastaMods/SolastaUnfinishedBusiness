@@ -1,0 +1,6 @@
+Background/&BackgroundFarmerDescription=당신은 태어날 때부터 땅과 손으로 키운 가축을 경작하여 많은 사람의 입을 먹였습니다. 농부는 해가 뜨기 전에 일어나 해가 지면 밭일을 마치고 돌아왔습니다. 당신은 스릴이나 명성이나 재산을 위해 모험을 하기 위해 평범한 삶을 뒤로하고 떠났습니다.
+Background/&BackgroundFarmerTitle=농장주
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=동물 취급, 자연 및 인식
+Feature/&ProficiencyBackgroundFarmerSkillsTitle=농부 기술
+Feature/&ProficiencyBackgroundFarmerWeaponsDescription=곤봉과 손도끼의 숙련도. 그들과 맞으려면 +1하십시오.
+Feature/&ProficiencyBackgroundFarmerWeaponsTitle=농부 무기

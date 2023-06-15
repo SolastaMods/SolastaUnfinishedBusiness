@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:LightCrossbow_Lightbringer:c30aa3e1-3e47-5ec9-9e4a-523bd2f6ea79",
   "stackCount": 1,
-  "craftingHours": 24,
-  "craftingDC": 10,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

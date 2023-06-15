@@ -3,6 +3,7 @@
   "weaponCategory": "SimpleWeaponCategory",
   "weaponProximity": "Melee",
   "isBow": false,
+  "isCrossbow": false,
   "isAttachedToBone": "Prop1",
   "animationTag": "NoWeapon",
   "secondaryAnimationTag": "NoWeapon",

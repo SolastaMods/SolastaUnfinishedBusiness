@@ -1,0 +1,14 @@
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterTitle=데드마스터 주문
+Feature/&BypassSpellConcentrationDeadMasterDescription=당신은 강령술의 방법을 배웠습니다. 업캐스트된 경우 데드를 일으키기 위해 집중할 필요가 없습니다.
+Feature/&BypassSpellConcentrationDeadMasterTitle=흩어지게하다
+Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=강령술 주문을 시전할 때 +1 DC 보너스를 얻습니다.
+Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=강령술 전문가
+Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=당신이 만든 언데드의 최대 체력은 마법사 레벨당 2HP씩 증가하고 공격 굴림에 숙련도 보너스를 추가합니다.
+Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=언데드 사슬
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=턴당 한 번 1레벨 이상의 주문으로 생물을 죽일 때 주문 레벨의 두 배에 해당하는 체력을 회복합니다. 해당 주문이 School of Necromancy에 속하는 경우 해당 레벨의 세 배입니다. 건강이 가득 차면 대신 임시 체력을 얻습니다. 구조물이나 언데드를 죽이면 이 혜택을 받을 수 없습니다.
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=스타크 하베스트
+Spell/&SpellRaiseDeadFormatDescription=소환 <b>{0}</b>:\n{1}
+Spell/&SpellRaiseDeadFormatTitle={0} 올리기
+Subclass/&WizardDeadMasterDescription=Deadmasters는 모든 생명체를 움직이는 에너지를 조작하는 방법을 배웁니다. 게임을 진행하면서 마법이 생명체의 몸을 파괴하고 생명체의 생명력을 조종할 수 있는 마법의 힘으로 바꾸는 방법을 배웁니다.
+Subclass/&WizardDeadMasterTitle=데드마스터

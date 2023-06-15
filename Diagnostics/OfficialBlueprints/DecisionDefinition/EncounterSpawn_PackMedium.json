@@ -89,8 +89,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
-    "description": "",
+    "title": "Encounter/&DecisionPackage_PackMedium_Title",
+    "description": "Encounter/&DecisionPackage_PackMedium_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

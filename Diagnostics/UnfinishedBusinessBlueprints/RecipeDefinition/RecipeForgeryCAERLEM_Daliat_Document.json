@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CAERLEM_Daliat_Document:7ed9a654d3268b44b9b3de51f01aad3c",
   "stackCount": 1,
   "craftingHours": 16,

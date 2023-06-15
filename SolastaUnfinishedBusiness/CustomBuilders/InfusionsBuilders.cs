@@ -23,6 +23,7 @@ internal static class InventorInfusions
     private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
     private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
     private const int UpgradeLevel = 10;
+    private static readonly ICustomUnicityTag MagicalDamage = new CustomUnicityTag("MagicalDamage");
 
     public static void Build()
     {
@@ -149,10 +150,11 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(element)
-                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 3)
+                    .SetAdvancement(AdditionalDamageAdvancement.None)
                     .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddToDB());
@@ -178,15 +180,17 @@ internal static class InventorInfusions
 
         sprite = SpellDefinitions.CircleOfDeath.GuiPresentation.SpriteReference;
         name = "InfusionBloody";
-        BuildInfuseItemPowerInvocation(6, name, sprite, IsWeapon, FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{name}")
-            .SetGuiPresentation(name, Category.Feature)
-            .SetNotificationTag(name)
-            .SetDamageDice(DieType.D6, 2)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB());
+        BuildInfuseItemPowerInvocation(6, name, sprite, IsWeapon,
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{name}")
+                .SetGuiPresentation(name, Category.Feature)
+                .SetCustomSubFeatures(MagicalDamage)
+                .SetNotificationTag(name)
+                .SetDamageDice(DieType.D6, 2)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+                .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                .AddToDB());
 
         #endregion
 
@@ -252,6 +256,7 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)
                     .SetSpecificDamageType(element)

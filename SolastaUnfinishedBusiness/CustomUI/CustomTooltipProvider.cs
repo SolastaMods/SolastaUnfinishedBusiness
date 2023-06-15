@@ -119,7 +119,6 @@ internal class CustomItemTooltipProvider : CustomTooltipProvider,
     public override string TooltipClass => ItemWithPreReqsTooltip;
     public string AmmunitionDescription => _guiItem.AmmunitionDescription;
 
-
     //IArmorParametersProvider
     public string ArmorDescription => _guiItem.ArmorDescription;
     public bool IsContainer => _guiItem.IsContainer;
@@ -153,6 +152,7 @@ internal class CustomItemTooltipProvider : CustomTooltipProvider,
     public string SpecialFormsDescription => _guiItem.SpecialFormsDescription;
     public List<EffectForm> EffectForms => _guiItem.EffectForms;
     public ItemDefinition ItemDefinition => _guiItem.ItemDefinition;
+    public string BaseDamageType => _guiItem.BaseDamageType;
 
     public bool IsAttunementValid(RulesetCharacter character)
     {

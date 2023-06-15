@@ -1,0 +1,26 @@
+Condition/&ConditionPathOfTheLightEyesOfTruthDescription=보이지 않는 생물을 인식할 수 있습니다.
+Condition/&ConditionPathOfTheLightEyesOfTruthTitle=투명 시력
+Condition/&ConditionPathOfTheLightIlluminatedDescription=일루미네이팅 스트라이크로 정신이 산만해졌습니다.
+Condition/&ConditionPathOfTheLightIlluminatedTitle=조명
+Feature/&AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminatedDescription=Light Barbarian의 길에 반대하지 않는 모든 공격 굴림에 불리합니다.
+Feature/&AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminatedTitle=조명
+Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementDescription=일루미네이팅 스트라이크의 추가 피해는 2d6으로 증가합니다.
+Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementTitle=일루미네이팅 스트라이크 개선
+Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityDescription=빛의 야만인의 길로 밝혀지면 보이지 않게 될 수 없습니다.
+Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityTitle=조명
+Feature/&FeatureSetPathOfTheLightIlluminatingBurstDescription=분노에 돌입한 차례에 30피트 내에 있는 최대 세 명의 적을 비추도록 선택할 수 있습니다. 그들은 건강 내성 굴림(DC = 8 + 숙련도 보너스 + 건강 수정치)에 성공하거나 4d6 복사 피해를 입고 1분 동안 일루미네이팅 스트라이크의 조명을 받아야 합니다. 이런 식으로 조명을 받은 생물은 각 턴이 끝날 때 또 다른 건강 내성 굴림을 합니다. 저장에 성공하면 효과가 종료됩니다.
+Feature/&FeatureSetPathOfTheLightIlluminatingBurstTitle=일루미네이팅 버스트
+Feature/&FeatureSetPathOfTheLightIlluminatingStrikeDescription=당신이 격노하는 동안, 당신의 차례에 공격으로 맞은 첫 번째 생물은 추가로 1d6의 방사 피해를 받고 다음 차례가 시작될 때까지 마법처럼 빛납니다. 또한 생물은 당신에게 불리하지 않고 보이지 않게 될 수 없는 모든 공격 굴림에 불이익을 받습니다.
+Feature/&FeatureSetPathOfTheLightIlluminatingStrikeTitle=일루미네이팅 스트라이크
+Feature/&FeatureSetPathOfTheLightLightsProtectionDescription=당신의 일루미네이팅 스트라이크에 영향을 받은 적대적인 생명체가 죽을 때 당신은 야만인 레벨의 절반에 해당하는 체력을 회복합니다. 또한 더 이상 일루미네이팅 스트라이크의 영향을 받는 생명체로부터 기회 공격을 유발하지 않습니다.
+Feature/&FeatureSetPathOfTheLightLightsProtectionTitle=빛의 보호
+Feature/&FeatureSetPathOfTheLightPierceTheDarknessDescription=당신은 뛰어난 암흑시력을 얻습니다.
+Feature/&FeatureSetPathOfTheLightPierceTheDarknessTitle=어둠을 뚫다
+Feature/&PowerPathOfTheLightEyesOfTruthDescription=당신은 항상 See Invisibility 주문의 영향을 받습니다.
+Feature/&PowerPathOfTheLightEyesOfTruthTitle=진실의 눈
+Feature/&PowerPathOfTheLightIlluminatingBurstDescription=최대 3명의 적이 건강 내성 굴림을 하거나 4d6의 복사 피해를 입고 일루미네이팅 스트라이크에 빛을 발합니다.
+Feature/&PowerPathOfTheLightIlluminatingBurstTitle=일루미네이팅 버스트
+Feedback/&AdditionalDamageIlluminatingStrikeFormat=일루미네이팅 스트라이크!
+Feedback/&AdditionalDamageIlluminatingStrikeLine=일루미네이팅 스트라이크는 대상에게 추가 피해를 입힙니다!
+Subclass/&PathOfTheLightDescription=빛의 길을 따르는 바바리안은 어둠을 밝히고 그 안에 도사리고 있는 위험으로부터 아군을 보호합니다.
+Subclass/&PathOfTheLightTitle=빛의 길

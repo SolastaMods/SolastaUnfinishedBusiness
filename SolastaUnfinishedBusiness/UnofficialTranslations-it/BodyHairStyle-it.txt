@@ -1,5 +1,0 @@
-BodyHairStyle/&Hairstyle_A=Taglio folletto
-BodyHairStyle/&Hairstyle_B=medio
-BodyHairStyle/&Hairstyle_C=Breve
-BodyHairStyle/&Hairstyle_D=Bun
-BodyHairStyle/&Hairstyle_E=Treccia di corona

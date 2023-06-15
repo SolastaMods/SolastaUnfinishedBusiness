@@ -252,6 +252,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         DeadMasterSpells.SetRange(result.SelectMany(x => x.SpellsList));
+        FeatureDefinitionPowers.PowerWightLordRetaliate.rechargeRate = RechargeRate.ShortRest;
+        FeatureDefinitionPowers.PowerWightLordRetaliate.activationTime = ActivationTime.BonusAction;
+
 
         return result.ToArray();
     }
@@ -317,18 +320,17 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (activeEffect is not RulesetEffectSpell spellEffect)
+            if (activeEffect is not RulesetEffectSpell spellEffect || spellEffect.SpellDefinition.SpellLevel == 0)
+            {
+                yield break;
+            }
+
+            if (downedCreature.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: true })
             {
                 yield break;
             }
 
             var rulesetDowned = downedCreature.RulesetCharacter;
-
-            if (rulesetDowned == null)
-            {
-                yield break;
-            }
-
             var characterFamily = rulesetDowned.CharacterFamily;
 
             if (characterFamily == Construct.Name || characterFamily == Undead.Name)

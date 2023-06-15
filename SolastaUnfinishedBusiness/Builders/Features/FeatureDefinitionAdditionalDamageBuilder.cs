@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -14,6 +15,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     {
         Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.Specific;
         Definition.specificDamageType = damageType;
+        return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder SetFlatDamageBonus(int bonus)
+    {
+        Definition.flatBonus = bonus;
         return this;
     }
 
@@ -37,6 +44,24 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    [UsedImplicitly]
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        RuleDefinitions.AdditionalDamageAdvancement advancement,
+        IEnumerable<DiceByRank> ranks)
+    {
+        Definition.damageAdvancement = advancement;
+        Definition.DiceByRankTable.SetRange(ranks);
+        return this;
+    }
+
+    [UsedImplicitly]
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        ExtraAdditionalDamageAdvancement advancement,
+        IEnumerable<DiceByRank> ranks)
+    {
+        return SetAdvancement((RuleDefinitions.AdditionalDamageAdvancement)advancement, ranks);
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
         int start = 0,
@@ -44,9 +69,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         int step = 1,
         int begin = 1)
     {
-        Definition.damageAdvancement = advancement;
-        Definition.DiceByRankTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
-        return this;
+        return SetAdvancement(advancement, DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
@@ -97,6 +120,16 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return AddConditionOperation(
             new ConditionOperationDescription { operation = operation, conditionDefinition = condition });
     }
+
+#if false
+    internal FeatureDefinitionAdditionalDamageBuilder AddCondition(ConditionDefinition condition)
+    {
+        return AddConditionOperation(new ConditionOperationDescription
+        {
+            operation = ConditionOperationDescription.ConditionOperation.Add, conditionDefinition = condition
+        });
+    }
+#endif
 
     internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(
         ConditionDefinition requiredCondition,
@@ -158,6 +191,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
+        ExtraAdditionalDamageValueDetermination determination)
+    {
+        return SetDamageValueDetermination((RuleDefinitions.AdditionalDamageValueDetermination)determination);
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetAddLightSource(bool addLightSource)
     {
         Definition.addLightSource = addLightSource;
@@ -169,6 +208,15 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.lightSourceForm = form;
         return this;
     }
+
+#if false
+    internal FeatureDefinitionAdditionalDamageBuilder AddLightSourceForm(LightSourceForm form)
+    {
+        Definition.addLightSource = true;
+        Definition.lightSourceForm = form;
+        return this;
+    }
+#endif
 
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredCharacterFamily(CharacterFamilyDefinition value)
     {

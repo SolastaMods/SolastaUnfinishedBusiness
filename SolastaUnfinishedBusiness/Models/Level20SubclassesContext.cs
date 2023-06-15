@@ -19,11 +19,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -244,13 +242,14 @@ internal static class Level20SubclassesContext
         // Freedom
         //
 
-        var attributeModifierTraditionLightPurityOfLight = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierTraditionLightPurityOfLight")
+        var attributeModifierTraditionFreedomFluidStrikes = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierTraditionFreedomFluidStrikes")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 
-        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionLightPurityOfLight, 17));
+        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionFreedomFluidStrikes,
+            17));
 
         //
         // Light
@@ -343,12 +342,12 @@ internal static class Level20SubclassesContext
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3, 3)
             .SetAutoActivationPowerTag("9024") // this is the action ID for Quivering Palm
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetParticleEffectParameters(Bane)
                     .SetEffectForms(
@@ -370,7 +369,8 @@ internal static class Level20SubclassesContext
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
-            .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower)
+            .SetActivatedPower(
+                powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower, false)
             .RequiresAuthorization()
             .AddToDB();
 
@@ -414,30 +414,9 @@ internal static class Level20SubclassesContext
             .SetCustomSubFeatures(new ModifyMagicEffectRecurrentPhysicalPerfection())
             .AddToDB();
 
-        var powerTraditionSurvivalPhysicalPerfectionHeal = FeatureDefinitionPowerBuilder
-            .Create("PowerTraditionSurvivalPhysicalPerfectionHeal")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(
-                                HealingComputation.Dice,
-                                10,
-                                DieType.D1, 0, false,
-                                HealingCap.MaximumHitPoints)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
-            .SetOrUpdateGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerTraditionSurvivalUnbreakableBody) // source is hidden
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerTraditionSurvivalUnbreakableBody)
@@ -449,33 +428,72 @@ internal static class Level20SubclassesContext
                             .Build())
                     .Build())
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
-            .SetCustomSubFeatures(
-                new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfectionHeal))
             .AddToDB();
 
-        var featureSetTraditionSurvivalPhysicalPerfection = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetTraditionSurvivalPhysicalPerfection")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfectionHeal)
-            .AddToDB();
+        powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
+            new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(featureSetTraditionSurvivalPhysicalPerfection, 17));
+            new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
     }
 
     private static void PaladinLoad()
     {
-        AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
+        //
+        // Oath of Devotion
+        //
 
-        AutoPreparedSpellsOathOfJugement.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, Banishment, Blight));
+        var powerOathOfDevotionAuraDevotion18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfDevotionAuraDevotion, "PowerOathOfDevotionAuraDevotion18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfDevotionAuraDevotion)
+            .AddToDB();
 
-        AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, WallOfFire, FireShield));
+        powerOathOfDevotionAuraDevotion18.EffectDescription.targetParameter = 13;
 
-        AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
+        OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
+
+        //
+        // Oath of Judgement
+        //
+
+        var powerOathOfJugementAuraRightenousness18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfJugementAuraRightenousness, "PowerOathOfJugementAuraRightenousness18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfJugementAuraRightenousness)
+            .AddToDB();
+
+        powerOathOfJugementAuraRightenousness18.EffectDescription.targetParameter = 13;
+
+        OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
+
+        //
+        // Oath of Motherland
+        //
+
+        var powerOathOfMotherlandVolcanicAura18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfMotherlandVolcanicAura, "PowerOathOfMotherlandVolcanicAura18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfMotherlandVolcanicAura)
+            .AddToDB();
+
+        powerOathOfMotherlandVolcanicAura18.EffectDescription.targetParameter = 13;
+
+        OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
+
+        //
+        // Oath of Tirmar
+        //
+
+        var powerOathOfTirmarAuraTruth18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfTirmarAuraTruth, "PowerOathOfTirmarAuraTruth18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfTirmarAuraTruth)
+            .AddToDB();
+
+        powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
+
+        OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
     }
 
     private static void RogueLoad()
@@ -484,10 +502,12 @@ internal static class Level20SubclassesContext
         // Darkweaver
         //
 
-        var attributeModifierRoguishDarkweaverDarkAssault = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierRoguishDarkweaverDarkAssault")
-            .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, "Feature/&FighterExtraAttackDescription")
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
+        var additionalActionRoguishDarkweaverDarkAssault = FeatureDefinitionAdditionalActionBuilder
+            .Create("AdditionalActionRoguishDarkweaverDarkAssault")
+            .SetGuiPresentationNoContent(true)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetMaxAttacksNumber(1)
             .AddToDB();
 
         var movementAffinityRoguishDarkweaverDarkAssault = FeatureDefinitionMovementAffinityBuilder
@@ -500,17 +520,18 @@ internal static class Level20SubclassesContext
             .Create("ConditionRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStealthy)
             .SetPossessive()
-            .SetSpecialDuration()
-            .AddFeatures(attributeModifierRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddFeatures(additionalActionRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
             .AddToDB();
 
-        var featureSetRoguishDarkweaverDarkAssault = FeatureDefinitionBuilder
+        var featureRoguishDarkweaverDarkAssault = FeatureDefinitionBuilder
             .Create("FeatureRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CharacterTurnEndListenerDarkAssault(conditionRoguishDarkweaverDarkAssault))
+            .SetCustomSubFeatures(new CustomBehaviorDarkAssault(conditionRoguishDarkweaverDarkAssault))
             .AddToDB();
 
-        RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetRoguishDarkweaverDarkAssault, 17));
+        RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishDarkweaverDarkAssault, 17));
 
         //
         // Hoodlum
@@ -524,7 +545,7 @@ internal static class Level20SubclassesContext
             .SetCustomSubFeatures(
                 new CustomAdditionalDamageBrutalAssault(FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
-                    .SetGuiPresentation("FeatureRoguishHoodlumBrutalAssault", Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetNotificationTag("BrutalAssault")
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
                     .AddToDB()))
@@ -608,6 +629,161 @@ internal static class Level20SubclassesContext
     {
     }
 
+    #region Fighter
+
+    //
+    // Position of Strength
+    //
+
+    private sealed class CustomCodePositionOfStrength : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AttributeModifierMartialMountainerTunnelFighter);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+    }
+
+    //
+    // Survivor
+    //
+
+    private sealed class CharacterTurnStartListenerSurvivor : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter == null || rulesetCharacter.IsDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+
+            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
+            {
+                return;
+            }
+
+            var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
+            var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
+            var totalHealing = 5 + constitutionModifier;
+
+            EffectHelpers.StartVisualEffect(
+                locationCharacter, locationCharacter, Heal, EffectHelpers.EffectType.Effect);
+            rulesetCharacter.ReceiveHealing(totalHealing, true, rulesetCharacter.Guid);
+        }
+    }
+
+    #endregion
+
+    #region Monk
+
+    //
+    // Physical Perfection
+    //
+
+    private sealed class ModifyMagicEffectRecurrentPhysicalPerfection : IModifyMagicEffectRecurrent
+    {
+        public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
+        {
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            if (monkLevel < 17)
+            {
+                return;
+            }
+
+            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
+            {
+                return;
+            }
+
+            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            effectForm.HealingForm.bonusHealing = pb;
+        }
+    }
+
+    private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
+    {
+        private readonly FeatureDefinitionPower _powerPhysicalPerfection;
+
+        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        {
+            _powerPhysicalPerfection = powerPhysicalPerfection;
+        }
+
+        public IEnumerator HandleSourceReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter source,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            var rulesetCharacter = source.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
+            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+
+            rulesetCharacter.ForceKiPointConsumption(1);
+            rulesetCharacter.StabilizeAndGainHitPoints(10);
+            rulesetCharacter.InflictCondition(
+                ConditionDodging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagCombat,
+                attacker.Guid,
+                attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
+                1,
+                null,
+                0,
+                0,
+                0);
+            effectPower.ApplyEffectOnCharacter(rulesetCharacter, true, source.LocationPosition);
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
+        }
+    }
+
     //
     // Purity of Light
     //
@@ -644,7 +820,7 @@ internal static class Level20SubclassesContext
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }
@@ -669,227 +845,11 @@ internal static class Level20SubclassesContext
             foreach (var ally in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.Side == attacker.Side &&
                                      x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(attacker, x, 3)))
+                                     gameLocationBattleService.IsWithinXCells(attacker, x, 4))
+                         .ToList()) // avoid changing enumerator
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
-        }
-    }
-
-    //
-    // Survivor
-    //
-
-    private sealed class CharacterTurnStartListenerSurvivor : ICharacterTurnStartListener
-    {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter == null || rulesetCharacter.IsDeadOrDyingOrUnconscious)
-            {
-                return;
-            }
-
-            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
-            {
-                return;
-            }
-
-            var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
-            var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
-            var totalHealing = 5 + constitutionModifier;
-
-            EffectHelpers.StartVisualEffect(
-                locationCharacter, locationCharacter, Heal, EffectHelpers.EffectType.Effect);
-            rulesetCharacter.ReceiveHealing(totalHealing, true, rulesetCharacter.Guid);
-        }
-    }
-
-    //
-    // Physical Perfection
-    //
-
-    private sealed class ModifyMagicEffectRecurrentPhysicalPerfection : IModifyMagicEffectRecurrent
-    {
-        public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
-        {
-            if (rulesetActor is not RulesetCharacter rulesetCharacter)
-            {
-                return;
-            }
-
-            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
-
-            if (monkLevel < 17)
-            {
-                return;
-            }
-
-            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            effectForm.HealingForm.bonusHealing = pb;
-        }
-    }
-
-    private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
-    {
-        private readonly FeatureDefinitionPower _powerSharedPool;
-
-        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerSharedPool)
-        {
-            _powerSharedPool = powerSharedPool;
-        }
-
-        public IEnumerator HandleSourceReducedToZeroHp(
-            GameLocationCharacter attacker,
-            GameLocationCharacter source,
-            RulesetAttackMode attackMode,
-            RulesetEffect activeEffect)
-        {
-            if (!source.RulesetCharacter.CanUsePower(_powerSharedPool))
-            {
-                yield break;
-            }
-
-            source.RulesetCharacter.StabilizeTo1HitPoint();
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle == null)
-            {
-                yield break;
-            }
-
-            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
-
-            manager.AddInterruptRequest(reactionRequest);
-
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var effectPower = new RulesetEffectPower(source.RulesetCharacter,
-                UsablePowersProvider.Get(_powerSharedPool, source.RulesetCharacter));
-
-            source.RulesetCharacter.ForceKiPointConsumption(1);
-            effectPower.ApplyEffectOnCharacter(source.RulesetCharacter, true, source.LocationPosition);
-        }
-    }
-
-    //
-    // Position of Strength
-    //
-
-    private sealed class CustomCodePositionOfStrength : IFeatureDefinitionCustomCode
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == AttributeModifierMartialMountainerTunnelFighter);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
-    }
-
-    //
-    // Thief's Reflexes
-    //
-
-    private sealed class InitiativeEndListenerThiefReflexes : IInitiativeEndListener, ICharacterTurnEndListener
-    {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle.CurrentRound > 1)
-            {
-                return;
-            }
-
-            var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
-
-            if (battle.activeContenderIndex != index)
-            {
-                return;
-            }
-
-            battle.InitiativeSortedContenders.RemoveAt(index);
-
-            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false);
-        }
-
-        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
-        {
-            var initiative = locationCharacter.LastInitiative - 10;
-            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
-            var positionCharacter = initiativeSortedContenders.FirstOrDefault(x => x.LastInitiative < initiative);
-
-            if (positionCharacter == null)
-            {
-                initiativeSortedContenders.Add(locationCharacter);
-
-                yield break;
-            }
-
-            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
-
-            initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
-        }
-    }
-
-    //
-    // Dark Assault
-    //
-
-    private sealed class CharacterTurnEndListenerDarkAssault : ICharacterTurnEndListener
-    {
-        private readonly ConditionDefinition _conditionDarkAssault;
-
-        public CharacterTurnEndListenerDarkAssault(ConditionDefinition conditionDarkAssault)
-        {
-            _conditionDarkAssault = conditionDarkAssault;
-        }
-
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
-            {
-                return;
-            }
-
-            EffectHelpers.StartVisualEffect(
-                locationCharacter, locationCharacter, PowerShadowcasterShadowDodge, EffectHelpers.EffectType.Caster);
-            rulesetCharacter.InflictCondition(
-                _conditionDarkAssault.Name,
-                _conditionDarkAssault.DurationType,
-                _conditionDarkAssault.DurationParameter,
-                _conditionDarkAssault.TurnOccurence,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
         }
     }
 
@@ -913,6 +873,12 @@ internal static class Level20SubclassesContext
 
         public IEnumerator OnActionFinished(CharacterAction characterAction)
         {
+            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
             if (characterAction.ActionParams.TargetCharacters.Count == 0)
             {
                 yield break;
@@ -1034,10 +1000,10 @@ internal static class Level20SubclassesContext
 
             // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .ToList()
                          .Where(x =>
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             x != gameLocationDefender))
+                             x != gameLocationDefender)
+                         .ToList()) // avoid changing enumerator
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions
@@ -1050,6 +1016,10 @@ internal static class Level20SubclassesContext
             }
         }
     }
+
+    #endregion
+
+    #region Rogue
 
     //
     // Brutal Assault
@@ -1113,7 +1083,7 @@ internal static class Level20SubclassesContext
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             x.RulesetCharacter.HasAnyConditionOfType("ConditionHitByDirtyFighting"))
-                .ToList();
+                .ToList(); // avoid changing enumerator
 
             if (caster == null || targets.Empty())
             {
@@ -1197,6 +1167,7 @@ internal static class Level20SubclassesContext
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,
+                ConditionGrappled,
                 ConditionIncapacitated,
                 ConditionParalyzed,
                 ConditionPoisoned,
@@ -1204,4 +1175,98 @@ internal static class Level20SubclassesContext
                 ConditionStunned);
         }
     }
+
+    //
+    // Dark Assault
+    //
+
+    private sealed class CustomBehaviorDarkAssault : ICharacterTurnStartListener
+    {
+        private readonly ConditionDefinition _conditionDarkAssault;
+
+        public CustomBehaviorDarkAssault(ConditionDefinition conditionDarkAssault)
+        {
+            _conditionDarkAssault = conditionDarkAssault;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            // ReSharper disable once InvertIf
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) &&
+                !rulesetCharacter.HasConditionOfType(_conditionDarkAssault.Name))
+            {
+                EffectHelpers.StartVisualEffect(
+                    locationCharacter, locationCharacter, PowerShadowcasterShadowDodge,
+                    EffectHelpers.EffectType.Caster);
+                rulesetCharacter.InflictCondition(
+                    _conditionDarkAssault.Name,
+                    _conditionDarkAssault.DurationType,
+                    _conditionDarkAssault.DurationParameter,
+                    _conditionDarkAssault.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.Guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+                rulesetCharacter.RefreshAttackModes();
+            }
+        }
+    }
+
+    //
+    // Thief's Reflexes
+    //
+
+    private sealed class InitiativeEndListenerThiefReflexes : IInitiativeEndListener, ICharacterTurnEndListener
+    {
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle.CurrentRound > 1)
+            {
+                return;
+            }
+
+            var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
+
+            if (battle.activeContenderIndex != index)
+            {
+                return;
+            }
+
+            battle.InitiativeSortedContenders.RemoveAt(index);
+
+            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Remove, false, false);
+        }
+
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        {
+            var initiative = locationCharacter.LastInitiative - 10;
+            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
+            var positionCharacter = initiativeSortedContenders.FirstOrDefault(x => x.LastInitiative < initiative);
+
+            if (positionCharacter == null)
+            {
+                initiativeSortedContenders.Add(locationCharacter);
+
+                yield break;
+            }
+
+            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+
+            initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
+        }
+    }
+
+    #endregion
 }

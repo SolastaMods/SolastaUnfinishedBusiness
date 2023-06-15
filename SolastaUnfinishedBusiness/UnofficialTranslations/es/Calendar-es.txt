@@ -1,0 +1,16 @@
+Calendar/&LongTimeFormat=[TEMP]El tiempo de juego es {0} en el día de {1} {2} en el año {3} Post Cataclysm
+Calendar/&SolastanCalendarDescription=El calendario común utilizado en Solasta.
+Calendar/&SolastanCalendarTitle=Calendario de Solastán
+Calendar/&SolastanMonth10Title=Aearun
+Calendar/&SolastanMonth11Title=Aireado
+Calendar/&SolastanMonth12Title=Aire
+Calendar/&SolastanMonth1Title=Aerún
+Calendar/&SolastanMonth2Title=Aerdwy
+Calendar/&SolastanMonth3Title=Aerdair
+Calendar/&SolastanMonth4Title=Lo lamento
+Calendar/&SolastanMonth5Title=Iskedwy
+Calendar/&SolastanMonth6Title=Iskedair
+Calendar/&SolastanMonth7Title=todo
+Calendar/&SolastanMonth8Title=Tanwyn
+Calendar/&SolastanMonth9Title=Marcador
+Calendar/&SolastanYearFormat={0} PC

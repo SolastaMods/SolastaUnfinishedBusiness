@@ -1,0 +1,75 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "InventorVivisectionist",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
+        "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:EnhanceAbility:08840275ddebe7f40abaa4bc145ee9f8",
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:RemoveCurse:ecabaf5104767c04b9a6549866fccfa0",
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:DeathWard:5791cc9bac327d444bd26ece3c2e150e",
+        "Definition:IdentifyCreatures:8cf2f383cc3d0704e860b4fd6fc7659f"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8",
+        "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Inventor:fbc44110-e6c1-5830-86e0-eb6f8efe5ae7",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsInnovationVivisectionistTitle",
+    "description": "Feature/&AutoPreparedSpellsInnovationVivisectionistDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bd66efa6-239e-570e-ac51-e1b020114599",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsInnovationVivisectionist"
+}

@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListTieflingMephistopheles:429e415d-a3d0-5aa6-ac70-7c142850c48a",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "Feature/&CastSpellTieflingFixedTagTitle",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,
@@ -267,8 +269,9 @@
       ]
     }
   ],
-  "focusType": "Arcane",
+  "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

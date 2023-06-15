@@ -1,3 +1,0 @@
-QuestStatus/&HeaderQuestCompletedTitle=Misión completada
-QuestStatus/&HeaderQuestFailedTitle=Misión fallida!
-QuestStatus/&HeaderQuestNewTitle=Nueva misión iniciada

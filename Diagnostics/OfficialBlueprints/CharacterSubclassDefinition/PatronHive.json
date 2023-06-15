@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPatronHiveReactiveCarapace:2d8891b4766fd3f4c9b336df4fc05a1b",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityPatronHiveAntimagicChitin:c4e9dc952b0a73d47a565ea2f59e31c1",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7",
   "stackCount": 1,
   "craftingHours": 8,

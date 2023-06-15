@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": "CanPrepareSpells",
+  "requiresMissingClassSpellSlots": false,
   "functor": "PrepareSpells",
   "stringParameter": "",
   "checkConsciousness": false,

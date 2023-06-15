@@ -1,5 +1,5 @@
 Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 para mover a velocidade.
-Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Golpe incapacitante
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Desabilitando Greve
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 para classe de armadura e velocidade de movimento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Golpe incapacitante aprimorado
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=A primeira vez que você atingir uma criatura com um ataque de arma em cada um de seus turnos, ela deve fazer um teste de resistência de Destreza contra a CD da sua magia ranger ou ficará impedida por um minuto. Uma criatura pode repetir o teste de resistência no final de cada um de seus turnos, terminando o efeito em caso de sucesso.
@@ -10,7 +10,7 @@ Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Você ganha feitiços de
 Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Magias Bônus de Sobrevivência
 Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription=Ganhe vantagem em testes de Sobrevivência para aumentar o conhecimento das criaturas, bem como todos os benefícios do estilo de luta do Carrasco.
 Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle=Mente analítica
-Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Ganhe proficiência em Sobrevivência, ou perícia se já for proficiente.
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Você ganha proficiência na habilidade de sobrevivência.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Proscrito Errante
 Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Ganhe proficiência em testes de resistência de Sabedoria.
 Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Experiência inigualável

@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -35,8 +36,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
-    internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
+    internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
@@ -208,6 +209,7 @@ internal static class SpellsContext
             spellListInventorClass);
         RegisterSpell(BuildSwordStorm(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildTollTheDead(), 0, SpellListCleric, SpellListWizard, SpellListWarlock);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
@@ -218,7 +220,9 @@ internal static class SpellsContext
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
+        RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
+        RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildSanctuary(), 0, SpellListCleric, spellListInventorClass);
@@ -228,10 +232,11 @@ internal static class SpellsContext
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
+        RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
-        RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
@@ -239,19 +244,24 @@ internal static class SpellsContext
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(BuildPulseWave(), 0, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 4th level
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
 
         //5th level
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
-        RegisterSpell(BuildSonicBoom(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
+
+        // 6th level
+        // RegisterSpell(BuildGravityFissure(), 0, SpellListWizard);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
@@ -356,6 +366,42 @@ internal static class SpellsContext
 
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
+
+        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+
+        if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
+        {
+            return;
+        }
+
+        //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
+        if (spellDefinition.SpellLevel == 0)
+        {
+            SpellListAllCantrips.AddSpell(spellDefinition);
+        }
+
+        //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
+        SpellListAllSpells.AddSpell(spellDefinition);
+
+        //Add spells to Snipers lists
+        var spellSniperClasses = new List<CharacterClassDefinition>
+        {
+            Cleric,
+            Druid,
+            Sorcerer,
+            Warlock,
+            Wizard
+        };
+
+        foreach (var spellSniperClass in spellSniperClasses)
+        {
+            if (spellDefinition.SpellLevel == 0 &&
+                DatabaseHelper.TryGetDefinition<SpellListDefinition>(
+                    $"SpellListFeatSpellSniper{spellSniperClass.Name}", out var spellListSniper))
+            {
+                spellListSniper.AddSpell(spellDefinition);
+            }
+        }
     }
 
     internal sealed class SpellListContext
@@ -441,28 +487,6 @@ internal static class SpellsContext
             {
                 SpellList.AddSpell(spellDefinition);
 
-                //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-                if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
-                {
-                    SpellListAllSpells.AddSpell(spellDefinition);
-
-                    //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
-                    if (spellDefinition.SpellLevel == 0)
-                    {
-                        SpellListAllCantrips.AddSpell(spellDefinition);
-                    }
-
-                    //Add to spell sniper lists
-                    var className = spellListName.Replace("SpellList", string.Empty);
-
-                    if (spellDefinition.SpellLevel == 0 &&
-                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
-                            out var spellList))
-                    {
-                        spellList.AddSpell(spellDefinition);
-                    }
-                }
-
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
             }
             else
@@ -470,37 +494,6 @@ internal static class SpellsContext
                 foreach (var spellsByLevel in SpellList.SpellsByLevel)
                 {
                     spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                }
-
-                //Remove spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-                if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
-                {
-                    foreach (var spellsByLevel in SpellListAllSpells.SpellsByLevel)
-                    {
-                        spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                    }
-
-                    //Remove cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
-                    if (spellDefinition.SpellLevel == 0)
-                    {
-                        foreach (var spellsByLevel in SpellListAllCantrips.SpellsByLevel)
-                        {
-                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                        }
-                    }
-
-                    //Remove from spell sniper lists
-                    var className = spellListName.Replace("SpellList", string.Empty);
-
-                    if (spellDefinition.SpellLevel == 0 &&
-                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
-                            out var spellList))
-                    {
-                        foreach (var spellsByLevel in spellList.SpellsByLevel)
-                        {
-                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                        }
-                    }
                 }
 
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(spellName);

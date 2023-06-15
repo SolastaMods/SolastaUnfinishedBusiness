@@ -1,7 +1,10 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -89,7 +92,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -126,7 +129,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Round, 1)
-            .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
             .SetEffectForms(
                 EffectFormBuilder
@@ -210,7 +213,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetParticleEffectParameters(Bane)
@@ -283,7 +286,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetParticleEffectParameters(Bane)
             .SetSavingThrowData(
                 false,
@@ -329,7 +332,7 @@ internal static partial class SpellBuilders
             .SetSpellLevel(0)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
                 .SetDurationData(DurationType.Hour, 1)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
@@ -349,6 +352,8 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #region Resonating Strike
+
     internal static SpellDefinition BuildResonatingStrike()
     {
         var resonanceLeap = SpellDefinitionBuilder
@@ -361,9 +366,9 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(new BonusSlotLevelsByClassLevel())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(Thunderwave)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetParticleEffectParameters(Shatter)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .SetDamageForm(DamageTypeThunder, 0, DieType.D8)
@@ -380,6 +385,7 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
+            .SetImpactParticleReference(Shatter.EffectDescription.EffectParticleParameters.impactParticleReference)
             .SetAttackModeOnly()
             .AddToDB();
 
@@ -394,12 +400,12 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
                 AttackAfterMagicEffect.MeleeAttack,
-                CustomSpellEffectLevel.ByCasterLevel,
+                new SpellEffectLevelFromCasterLevel(),
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(Thunderwave)
+                .SetParticleEffectParameters(Shatter)
                 .SetTargetProximityData(true, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
                 .SetIgnoreCover()
@@ -421,6 +427,107 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
     }
+
+    private sealed class BonusSlotLevelsByClassLevel : IBonusSlotLevels
+    {
+        public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
+        {
+            var level = caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+
+            return SpellAdvancementByCasterLevel[level - 1];
+        }
+    }
+
+    private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
+    {
+        public int GetEffectLevel([NotNull] RulesetActor caster, RulesetEffectSpell rulesetEffectSpell)
+        {
+            return caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+        }
+    }
+
+    private sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
+    {
+        private readonly string _notificationTag;
+        private readonly SpellDefinition _spell;
+
+        internal ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
+        {
+            _spell = spell;
+            _notificationTag = notificationTag;
+        }
+
+        [CanBeNull]
+        public CharacterActionMagicEffect GetNextMagicEffect(
+            [CanBeNull] CharacterActionMagicEffect baseEffect,
+            CharacterActionAttack triggeredAttack,
+            RollOutcome attackOutcome)
+        {
+            if (baseEffect == null)
+            {
+                return null;
+            }
+
+            var spellEffect = baseEffect as CharacterActionCastSpell;
+            var repertoire = spellEffect?.ActiveSpell.SpellRepertoire;
+            var actionParams = baseEffect.actionParams;
+
+            if (actionParams == null)
+            {
+                return null;
+            }
+
+            if (baseEffect.Countered || baseEffect.ExecutionFailed)
+            {
+                return null;
+            }
+
+            if (attackOutcome != RollOutcome.Success && attackOutcome != RollOutcome.CriticalSuccess)
+            {
+                return null;
+            }
+
+            var caster = actionParams.ActingCharacter;
+            var targets = actionParams.TargetCharacters;
+
+            if (caster == null || targets.Count < 2)
+            {
+                return null;
+            }
+
+            var rulesetCaster = caster.RulesetCharacter;
+            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+            var bonusLevelProvider = _spell.GetFirstSubFeatureOfType<IBonusSlotLevels>();
+            var slotLevel = _spell.SpellLevel;
+
+            if (bonusLevelProvider != null)
+            {
+                slotLevel += bonusLevelProvider.GetBonusSlotLevels(rulesetCaster);
+            }
+
+            var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, _spell, slotLevel, false);
+
+            for (var i = 1; i < targets.Count; i++)
+            {
+                var rulesetTarget = targets[i].RulesetCharacter;
+
+                if (!string.IsNullOrEmpty(_notificationTag))
+                {
+                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetCaster, rulesetTarget, _notificationTag, true);
+                }
+
+                effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
+            }
+
+            effectSpell.Terminate(true);
+
+            return null;
+        }
+    }
+
+    #endregion
+
+    #region Sunlit Blade
 
     internal static SpellDefinition BuildSunlightBlade()
     {
@@ -509,6 +616,41 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+
+    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return effectDescription;
+            }
+
+            var weapon = hero.GetMainWeapon();
+
+            if (weapon == null || !weapon.itemDefinition.IsWeapon)
+            {
+                return effectDescription;
+            }
+
+            var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
+
+            if (reach <= 1)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.rangeParameter = reach;
+            return effectDescription;
+        }
+    }
+
+    #endregion
+
     internal static SpellDefinition BuildSwordStorm()
     {
         const string NAME = "SwordStorm";
@@ -560,7 +702,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
@@ -574,7 +716,22 @@ internal static partial class SpellBuilders
                         .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                         .Build())
                 .Build())
+            .SetCustomSubFeatures(new ModifyMagicEffectThornyVines())
             .AddToDB();
+    }
+
+    internal sealed class ModifyMagicEffectThornyVines : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.rangeParameter = 6;
+
+            return effectDescription;
+        }
     }
 
     internal static SpellDefinition BuildThunderStrike()
@@ -649,7 +806,7 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
                 12)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
             .SetEffectForms(
                 EffectFormBuilder
@@ -675,6 +832,61 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    internal static SpellDefinition BuildTollTheDead()
+    {
+        const string NAME = "TollTheDead";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(CircleOfDeath.EffectDescription.EffectParticleParameters)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetCustomSubFeatures(new ModifyMagicAttackOnActionStartTollTheDead())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifyMagicAttackOnActionStartTollTheDead : IModifyMagicEffectOnActionStart
+    {
+        public void OnMagicalEffectActionStarted(CharacterActionMagicEffect characterActionMagicEffect)
+        {
+            var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
+            var rulesetDefender = gameLocationDefender.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            {
+                return;
+            }
+
+            var damageForm =
+                characterActionMagicEffect.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+
+            damageForm.DieType = rulesetDefender.MissingHitPoints == 0 ? DieType.D8 : DieType.D12;
+        }
     }
 
     #endregion

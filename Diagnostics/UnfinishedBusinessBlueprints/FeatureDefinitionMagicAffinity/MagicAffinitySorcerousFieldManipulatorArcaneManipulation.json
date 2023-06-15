@@ -81,7 +81,14 @@
     "GreaterRestoration",
     "HoldMonster",
     "MindTwist",
-    "GlobeOfInvulnerability"
+    "GlobeOfInvulnerability",
+    "Symbol",
+    "DominateMonster",
+    "Feeblemind",
+    "HolyAura",
+    "Maze",
+    "PowerWordStun",
+    "SpellWard"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",

@@ -1,0 +1,100 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 7,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+        "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:Confusion:206eb2e0497fe014595e99aa7d4fae5e",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:BladeBarrierWallRing:d2283110490a1aa489cd31d8683790fe",
+        "Definition:FreezingSphere:981aa235259bf274da28bd3e913902ad"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition:GravitySlam:265ad14a4c626d840bb1fb3be0ec4706"
+      ]
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "7429d9b5f31092045ab3a12f1d078b8b",
+  "contentPack": "PalaceOfIce",
+  "name": "SpellList_DLC3_Kratshar"
+}

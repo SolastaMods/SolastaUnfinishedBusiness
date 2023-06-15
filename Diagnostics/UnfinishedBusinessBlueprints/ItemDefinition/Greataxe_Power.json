@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2700,
+    9015,
     0,
     0,
     0
@@ -112,6 +112,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -480,12 +481,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Greataxe_plus_01_unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Greataxe_plus_01_unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "d554b8ee9f3ab844586c7a74b3208642",
+      "m_AssetGUID": "07ca6728a8030a64c9e01d339dc49d64",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -497,6 +498,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -505,8 +507,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

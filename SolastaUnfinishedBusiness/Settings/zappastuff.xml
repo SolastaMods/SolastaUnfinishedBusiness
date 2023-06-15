@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <enumerateOriginSubFeatures>true</enumerateOriginSubFeatures>
+  <showButtonWithControlledMonsterInfo>true</showButtonWithControlledMonsterInfo>
   <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
-  <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
@@ -14,6 +15,8 @@
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
   <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
+  <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
+  <DisplayItemsToggle>false</DisplayItemsToggle>
   <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
     <item>
@@ -105,19 +108,39 @@
   <EnableSortingSubclasses>true</EnableSortingSubclasses>
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
+  <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
+  <DisableUpdateMessage>false</DisableUpdateMessage>
+  <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
+  <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
+  <EnableBetaContent>true</EnableBetaContent>
+  <EnablePcgRandom>true</EnablePcgRandom>
+  <EnableSaveByLocation>true</EnableSaveByLocation>
+  <EnableRespec>true</EnableRespec>
+  <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
+  <DefaultPartyHeroes />
+  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <EnableCheatMenu>true</EnableCheatMenu>
+  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
+  <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
+  <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
+  <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
+  <OverridePartySize>2</OverridePartySize>
+  <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
+  <FasterTimeModifier>1.5</FasterTimeModifier>
+  <EncounterPercentageChance>5</EncounterPercentageChance>
   <AddHelpActionToAllRaces>true</AddHelpActionToAllRaces>
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <EnableAlternateHuman>true</EnableAlternateHuman>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
+  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-  <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
+  <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
+  <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
@@ -141,22 +164,175 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>true</UnlockSkinColors>
   <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
-  <AllowHornsOnAllRaces>false</AllowHornsOnAllRaces>
+  <UseElfFaceModelsOnTieflings>true</UseElfFaceModelsOnTieflings>
+  <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
+  <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
+  <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
+  <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
+  <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
+  <IdentifyAfterRest>true</IdentifyAfterRest>
+  <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
+  <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
+  <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
+  <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
+  <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
+  <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
+  <FixEldritchBlastRange>true</FixEldritchBlastRange>
+  <EnableUpcastConjureElementalAndFey>true</EnableUpcastConjureElementalAndFey>
+  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
+  <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
+  <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
+  <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
+  <EnableHigherGroundRules>false</EnableHigherGroundRules>
+  <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
+  <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
+  <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
+  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+  <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
+  <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
+  <FullyControlConjurations>true</FullyControlConjurations>
+  <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
+  <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
+  <EnableCharactersOnFireToEmitLight>true</EnableCharactersOnFireToEmitLight>
+  <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
+  <CriticalHitModeAllies>2</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>2</CriticalHitModeEnemies>
+  <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
+  <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
+  <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
+  <AddPickPocketableLoot>true</AddPickPocketableLoot>
+  <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
+  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+  <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
+  <RecipeCost>200</RecipeCost>
+  <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
+  <DontDisplayHelmets>false</DontDisplayHelmets>
+  <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
+  <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
+  <CraftingInStore>
+    <string>PrimedItems</string>
+    <string>EnchantingIngredients</string>
+    <string>RelicForgeries</string>
+    <string>LightCrossbow</string>
+    <string>HeavyCrossbow</string>
+    <string>Handaxe</string>
+    <string>Javelin</string>
+    <string>Dart</string>
+    <string>Club</string>
+    <string>Maul</string>
+    <string>Warhammer</string>
+    <string>Quarterstaff</string>
+    <string>Spear</string>
+    <string>Scimitar</string>
+    <string>Rapier</string>
+    <string>Greataxe</string>
+    <string>Greatsword</string>
+    <string>Shield_Wooden</string>
+    <string>Shield</string>
+    <string>HideArmor</string>
+    <string>LeatherDruid</string>
+    <string>StuddedLeather</string>
+    <string>ChainShirt</string>
+    <string>PaddedLeather</string>
+    <string>Leather</string>
+    <string>ScaleMail</string>
+    <string>Breastplate</string>
+    <string>HalfPlate</string>
+    <string>Ringmail</string>
+    <string>ChainMail</string>
+    <string>Plate</string>
+  </CraftingInStore>
+  <CraftingItemsInDm>
+    <string>PrimedItems</string>
+    <string>EnchantingIngredients</string>
+    <string>RelicForgeries</string>
+    <string>LightCrossbow</string>
+    <string>HeavyCrossbow</string>
+    <string>Handaxe</string>
+    <string>Javelin</string>
+    <string>Dart</string>
+    <string>Club</string>
+    <string>Maul</string>
+    <string>Warhammer</string>
+    <string>Quarterstaff</string>
+    <string>Spear</string>
+    <string>Scimitar</string>
+    <string>Rapier</string>
+    <string>Greataxe</string>
+    <string>Greatsword</string>
+    <string>Shield_Wooden</string>
+    <string>Shield</string>
+    <string>HideArmor</string>
+    <string>LeatherDruid</string>
+    <string>StuddedLeather</string>
+    <string>ChainShirt</string>
+    <string>PaddedLeather</string>
+    <string>Leather</string>
+    <string>ScaleMail</string>
+    <string>Breastplate</string>
+    <string>HalfPlate</string>
+    <string>Ringmail</string>
+    <string>ChainMail</string>
+    <string>Plate</string>
+  </CraftingItemsInDm>
+  <CraftingRecipesInDm>
+    <string>PrimedItems</string>
+    <string>EnchantingIngredients</string>
+    <string>RelicForgeries</string>
+    <string>LightCrossbow</string>
+    <string>HeavyCrossbow</string>
+    <string>Handaxe</string>
+    <string>Javelin</string>
+    <string>Dart</string>
+    <string>Club</string>
+    <string>Maul</string>
+    <string>Warhammer</string>
+    <string>Quarterstaff</string>
+    <string>Spear</string>
+    <string>Scimitar</string>
+    <string>Rapier</string>
+    <string>Greataxe</string>
+    <string>Greatsword</string>
+    <string>Shield_Wooden</string>
+    <string>Shield</string>
+    <string>HideArmor</string>
+    <string>LeatherDruid</string>
+    <string>StuddedLeather</string>
+    <string>ChainShirt</string>
+    <string>PaddedLeather</string>
+    <string>Leather</string>
+    <string>ScaleMail</string>
+    <string>Breastplate</string>
+    <string>HalfPlate</string>
+    <string>Ringmail</string>
+    <string>ChainMail</string>
+    <string>Plate</string>
+  </CraftingRecipesInDm>
+  <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
+  <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
+  <StockHugoStoreWithAdditionalFoci>true</StockHugoStoreWithAdditionalFoci>
+  <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
+  <EnableAdditionalFociInDungeonMaker>true</EnableAdditionalFociInDungeonMaker>
+  <RestockAntiquarians>true</RestockAntiquarians>
+  <RestockArcaneum>true</RestockArcaneum>
+  <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
+  <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
   <RaceSliderPosition>4</RaceSliderPosition>
   <RaceEnabled>
     <string>RaceBolgrif</string>
     <string>RaceDarkelf</string>
+    <string>RaceFairy</string>
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
-    <string>RaceFairy</string>
+    <string>RaceTiefling</string>
+    <string>RaceOligath</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
     <string>BackgroundFarmer</string>
   </BackgroundEnabled>
-  <DeitySliderPosition>4</DeitySliderPosition>
-  <DeityEnabled />
   <ClassSliderPosition>4</ClassSliderPosition>
   <ClassEnabled>
     <string>Inventor</string>
@@ -166,7 +342,9 @@
     <string>PathOfTheElements</string>
     <string>PathOfTheLight</string>
     <string>PathOfTheReaver</string>
+    <string>PathOfTheSavagery</string>
     <string>PathOfTheSpirits</string>
+    <string>PathOfTheYeoman</string>
     <string>CollegeOfGuts</string>
     <string>CollegeOfHarlequin</string>
     <string>CollegeOfLife</string>
@@ -175,6 +353,7 @@
     <string>DomainSmith</string>
     <string>CircleOfTheAncientForest</string>
     <string>CircleOfTheForestGuardian</string>
+    <string>CircleOfTheLife</string>
     <string>CircleOfTheNight</string>
     <string>MartialMarshal</string>
     <string>MartialRoyalKnight</string>
@@ -188,6 +367,7 @@
     <string>RangerArcanist</string>
     <string>RangerLightBearer</string>
     <string>RangerHellWalker</string>
+    <string>RangerSurvivalist</string>
     <string>RangerWildMaster</string>
     <string>RoguishAcrobat</string>
     <string>RoguishArcaneScoundrel</string>
@@ -196,12 +376,14 @@
     <string>RoguishRaven</string>
     <string>RoguishSlayer</string>
     <string>SorcerousDivineHeart</string>
+    <string>SorcerousFieldManipulator</string>
     <string>SorcerousSorrAkkath</string>
     <string>SorcerousSpellBlade</string>
     <string>WayOfTheDiscordance</string>
     <string>WayOfTheDistantHand</string>
     <string>WayOfTheDragon</string>
     <string>WayOfSilhouette</string>
+    <string>WayOfTheTempest</string>
     <string>PatronElementalist</string>
     <string>PatronMoonlit</string>
     <string>PatronRiftWalker</string>
@@ -209,181 +391,119 @@
     <string>WizardArcaneFighter</string>
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
+    <string>WizardGraviturgist</string>
     <string>WizardSpellMaster</string>
-    <string>PathOfTheSavagery</string>
-    <string>CircleOfTheLife</string>
-    <string>WayOfTheTempest</string>
-    <string>RangerSurvivalist</string>
-    <string>SorcerousFieldManipulator</string>
+    <string>OathOfThunder</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
-    <string>FeatApothecaryCha</string>
-    <string>FeatApothecaryInt</string>
-    <string>FeatApothecaryWis</string>
+    <string>FeatGroupAegisTouched</string>
+    <string>FeatAlwaysReady</string>
+    <string>FeatGroupApothecary</string>
     <string>FeatArcaneDefense</string>
     <string>FeatArcanePrecision</string>
     <string>FeatArchery</string>
     <string>FeatAstralArms</string>
-    <string>FeatAwakenTheBeastWithinCharisma</string>
-    <string>FeatAwakenTheBeastWithinConstitution</string>
-    <string>FeatAwakenTheBeastWithinDexterity</string>
-    <string>FeatAwakenTheBeastWithinIntelligence</string>
-    <string>FeatAwakenTheBeastWithinStrength</string>
-    <string>FeatAwakenTheBeastWithinWisdom</string>
+    <string>FeatGroupAwakenTheBeastWithin</string>
     <string>FeatBladeMastery</string>
-    <string>FeatBlessedSoulCleric</string>
-    <string>FeatBlessedSoulPaladin</string>
+    <string>FeatGroupBlessedSoul</string>
     <string>FeatBlindFighting</string>
     <string>FeatBowMastery</string>
     <string>FeatCallForCharge</string>
-    <string>FeatCelestialTouchedCha</string>
-    <string>FeatCelestialTouchedInt</string>
-    <string>FeatCelestialTouchedWis</string>
+    <string>FeatGroupCelestialTouched</string>
     <string>FeatCharismaticDefense</string>
     <string>FeatCharismaticPrecision</string>
     <string>FeatCleavingAttack</string>
+    <string>FeatGroupCloseQuarters</string>
     <string>FeatCrippling</string>
-    <string>FeatCrusherCon</string>
-    <string>FeatCrusherStr</string>
+    <string>FeatGroupCrusher</string>
     <string>FeatCunningEscape</string>
     <string>FeatDeadeye</string>
     <string>FeatDefense</string>
     <string>FeatDefensiveDuelist</string>
+    <string>FeatDevastatingStrikes</string>
     <string>FeatDragonWings</string>
     <string>FeatDualFlurry</string>
     <string>FeatDualWeaponDefense</string>
     <string>FeatDueling</string>
     <string>FeatEldritchAdept</string>
-    <string>FeatElementalAdeptDamageAcid</string>
-    <string>FeatElementalAdeptDamageCold</string>
-    <string>FeatElementalAdeptDamageFire</string>
-    <string>FeatElementalAdeptDamageLightning</string>
-    <string>FeatElementalAdeptDamageThunder</string>
-    <string>FeatElementalMasterDamageAcid</string>
-    <string>FeatElementalMasterDamageCold</string>
-    <string>FeatElementalMasterDamageFire</string>
-    <string>FeatElementalMasterDamageLightning</string>
-    <string>FeatElementalMasterDamageThunder</string>
-    <string>FeatElvenAccuracyCharisma</string>
-    <string>FeatElvenAccuracyDexterity</string>
-    <string>FeatElvenAccuracyIntelligence</string>
-    <string>FeatElvenAccuracyWisdom</string>
+    <string>FeatGroupElementalAdept</string>
+    <string>FeatGroupElementalMaster</string>
+    <string>FeatGroupElementalTouch</string>
+    <string>FeatGroupElvenAccuracy</string>
     <string>FeatExecutioner</string>
     <string>FeatExpandTheHunt</string>
-    <string>FeatFadeAwayDex</string>
-    <string>FeatFadeAwayInt</string>
+    <string>FeatExploiter</string>
+    <string>FeatGroupFadeAway</string>
     <string>FeatFellHanded</string>
-    <string>FeatFeyTeleportationCha</string>
-    <string>FeatFeyTeleportationInt</string>
-    <string>FeatFeyTeleportationWis</string>
-    <string>FeatFlameTouchedCha</string>
-    <string>FeatFlameTouchedInt</string>
-    <string>FeatFlameTouchedWis</string>
+    <string>FeatGroupTeleportation</string>
+    <string>FeatGroupFlameTouched</string>
     <string>FeatGreatWeapon</string>
     <string>FeatHandAndAHalf</string>
-    <string>FeatHardyCon</string>
-    <string>FeatHardyStr</string>
+    <string>FeatGroupHardy</string>
     <string>FeatHealer</string>
     <string>FeatHeavyArmorMaster</string>
     <string>FeatImprovedCritical</string>
+    <string>FeatInfernalConstitution</string>
+    <string>FeatInfusionsAdept</string>
     <string>FeatInspiringLeader</string>
-    <string>FeatIridescentTouchedCha</string>
-    <string>FeatIridescentTouchedInt</string>
-    <string>FeatIridescentTouchedWis</string>
+    <string>FeatGroupIridescentTouched</string>
     <string>FeatLongswordFinesse</string>
-    <string>FeatMagicInitiateBard</string>
-    <string>FeatMagicInitiateCleric</string>
-    <string>FeatMagicInitiateDruid</string>
-    <string>FeatMagicInitiateSorcerer</string>
-    <string>FeatMagicInitiateWarlock</string>
-    <string>FeatMagicInitiateWizard</string>
-    <string>FeatMediumArmorDex</string>
-    <string>FeatMediumArmorStr</string>
+    <string>FeatLunger</string>
+    <string>FeatGroupMagicInitiate</string>
+    <string>FeatGroupMediumArmor</string>
     <string>FeatMerciless</string>
     <string>FeatMetamagicAdept</string>
     <string>FeatMobile</string>
     <string>FeatMonkInitiate</string>
     <string>FeatNaturalFluidity</string>
+    <string>FeatGroupPeregrinationTouched</string>
     <string>FeatPickPocket</string>
-    <string>FeatPiercerDex</string>
-    <string>FeatPiercerStr</string>
+    <string>FeatGroupPiercer</string>
     <string>FeatPoisoner</string>
     <string>FeatPoisonousSkin</string>
     <string>FeatPolearmExpert</string>
-    <string>FeatPotentSpellcasterBard</string>
-    <string>FeatPotentSpellcasterCleric</string>
-    <string>FeatPotentSpellcasterDruid</string>
-    <string>FeatPotentSpellcasterInventor</string>
-    <string>FeatPotentSpellcasterSorcerer</string>
-    <string>FeatPotentSpellcasterWizard</string>
+    <string>FeatGroupPotentSpellcaster</string>
     <string>FeatPowerAttack</string>
-    <string>FeatPrimalRageCon</string>
-    <string>FeatPrimalRageStr</string>
+    <string>FeatGroupPrecisionFocused</string>
+    <string>FeatGroupPrimalRage</string>
     <string>FeatProtection</string>
     <string>FeatPugilist</string>
     <string>FeatRangedExpert</string>
     <string>FeatRecklessAttack</string>
-    <string>FeatRevenantGreatSwordDex</string>
-    <string>FeatRevenantGreatSwordStr</string>
+    <string>FeatGroupRetinueTouched</string>
+    <string>FeatGroupRevenantGreatSword</string>
+    <string>FeatRopeItUp</string>
     <string>FeatSavageAttack</string>
     <string>FeatCraftyScriber</string>
     <string>FeatSentinel</string>
-    <string>FeatShadowTouchedCha</string>
-    <string>FeatShadowTouchedInt</string>
-    <string>FeatShadowTouchedWis</string>
+    <string>FeatGroupShadowTouched</string>
     <string>FeatShieldExpert</string>
-    <string>FeatSlasherDex</string>
-    <string>FeatSlasherStr</string>
+    <string>FeatGroupSlasher</string>
     <string>FeatSlayTheEnemies</string>
     <string>FeatSpearMastery</string>
-    <string>FeatSpellSniperDruid</string>
-    <string>FeatSpellSniperSorcerer</string>
-    <string>FeatSpellSniperWarlock</string>
-    <string>FeatSpellSniperWizard</string>
+    <string>FeatGroupSpellSniper</string>
     <string>FeatSpiritualFluidity</string>
-    <string>FeatSquatNimblenessDex</string>
-    <string>FeatSquatNimblenessStr</string>
+    <string>FeatGroupSquatNimbleness</string>
+    <string>FeatSteadyAim</string>
     <string>FeatSuperiorCritical</string>
     <string>FeatTacticianAdept</string>
-    <string>FeatTelekineticCha</string>
-    <string>FeatTelekineticInt</string>
-    <string>FeatTelekineticWis</string>
+    <string>FeatGroupTelekinetic</string>
     <string>FeatTorchbearer</string>
     <string>FeatTough</string>
-    <string>FeatToxicologistCha</string>
-    <string>FeatToxicologistInt</string>
-    <string>FeatToxicologistWis</string>
+    <string>FeatGroupToxicologist</string>
     <string>FeatTwoWeapon</string>
-    <string>FeatVerdantTouchedCha</string>
-    <string>FeatVerdantTouchedInt</string>
-    <string>FeatVerdantTouchedWis</string>
+    <string>FeatGroupDefenseExpert</string>
+    <string>FeatGroupVerdantTouched</string>
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
-    <string>FeatInfusionsAdept</string>
-    <string>FeatAegisTouchedCha</string>
-    <string>FeatAegisTouchedInt</string>
-    <string>FeatAegisTouchedWis</string>
-    <string>FeatAlwaysReady</string>
-    <string>FeatLunger</string>
-    <string>FeatPeregrinationTouchedCha</string>
-    <string>FeatPeregrinationTouchedInt</string>
-    <string>FeatPeregrinationTouchedWis</string>
-    <string>FeatRopeItUp</string>
-    <string>FeatSteadyAim</string>
-    <string>FeatElementalAdeptDamagePoison</string>
-    <string>FeatElementalMasterDamagePoison</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
     <string>FeatGroupAlchemist</string>
-    <string>FeatGroupApothecary</string>
     <string>FeatGroupArmor</string>
-    <string>FeatGroupAwakenTheBeastWithin</string>
-    <string>FeatGroupBlessedSoul</string>
     <string>FeatGroupBodyResilience</string>
-    <string>FeatGroupCelestialTouched</string>
     <string>FeatGroupClassBound</string>
     <string>FeatGroupAgilityCombat</string>
     <string>FeatGroupDefenseCombat</string>
@@ -396,40 +516,13 @@
     <string>FeatGroupUnarmoredCombat</string>
     <string>FeatGroupCreed</string>
     <string>FeatGroupCriticalVirtuoso</string>
-    <string>FeatGroupCrusher</string>
-    <string>FeatGroupElementalAdept</string>
-    <string>FeatGroupElementalMaster</string>
-    <string>FeatGroupElementalTouch</string>
-    <string>FeatGroupElvenAccuracy</string>
     <string>FeatGroupEnchanter</string>
-    <string>FeatGroupFadeAway</string>
-    <string>FeatGroupTeleportation</string>
     <string>FeatGroupFightingStyle</string>
-    <string>FeatGroupFlameTouched</string>
-    <string>FeatGroupHardy</string>
-    <string>FeatGroupIridescentTouched</string>
-    <string>FeatGroupMagicInitiate</string>
-    <string>FeatGroupMediumArmor</string>
-    <string>FeatGroupPiercer</string>
-    <string>FeatGroupPlaneTouchedMagic</string>
-    <string>FeatGroupPotentSpellcaster</string>
-    <string>FeatGroupPrecisionFocused</string>
-    <string>FeatGroupPrimalRage</string>
-    <string>FeatGroupRaceBound</string>
-    <string>FeatGroupRevenantGreatSword</string>
-    <string>FeatGroupShadowTouched</string>
-    <string>FeatGroupSkills</string>
-    <string>FeatGroupSlasher</string>
-    <string>FeatGroupSpellSniper</string>
-    <string>FeatGroupSquatNimbleness</string>
-    <string>FeatGroupTelekinetic</string>
-    <string>FeatGroupTools</string>
-    <string>FeatGroupToxicologist</string>
-    <string>FeatGroupDefenseExpert</string>
-    <string>FeatGroupVerdantTouched</string>
     <string>FeatGroupGeneralAdept</string>
-    <string>FeatGroupAegisTouched</string>
-    <string>FeatGroupPeregrinationTouched</string>
+    <string>FeatGroupPlaneTouchedMagic</string>
+    <string>FeatGroupRaceBound</string>
+    <string>FeatGroupSkills</string>
+    <string>FeatGroupTools</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -437,20 +530,22 @@
     <string>Crippling</string>
     <string>Executioner</string>
     <string>HandAndAHalf</string>
+    <string>Lunger</string>
     <string>Merciless</string>
     <string>PolearmExpert</string>
     <string>Pugilist</string>
+    <string>RopeItUp</string>
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
-    <string>Lunger</string>
-    <string>RopeItUp</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
     <string>InvocationAbilitiesOfTheChainMaster</string>
     <string>InvocationAspectOfTheMoon</string>
     <string>InvocationBreakerAndBanisher</string>
+    <string>InvocationBreathOfTheNight</string>
+    <string>InvocationCallOfTheBeast</string>
     <string>InvocationChillingBlast</string>
     <string>InvocationCorrosiveBlast</string>
     <string>InvocationDiscerningGaze</string>
@@ -470,18 +565,16 @@
     <string>InvocationSpectralShield</string>
     <string>InvocationStasis</string>
     <string>InvocationSuperiorPactWeapon</string>
+    <string>InvocationTenaciousPlague</string>
     <string>InvocationTrickstersEscape</string>
     <string>InvocationUltimatePactWeapon</string>
     <string>InvocationUndyingServitude</string>
-    <string>InvocationBreathOfTheNight</string>
-    <string>InvocationCallOfTheBeast</string>
-    <string>InvocationTenaciousPlague</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
-    <string>MetamagicAltruisticSpell</string>
     <string>MetamagicFocusedSpell</string>
     <string>MetamagicPowerfulSpell</string>
+    <string>MetamagicAltruisticSpell</string>
     <string>MetamagicWidenedSpell</string>
   </MetamagicEnabled>
   <AllowAssigningOfficialSpells>false</AllowAssigningOfficialSpells>
@@ -582,6 +675,7 @@
           <string>SunlightBlade</string>
           <string>EarthTremor</string>
           <string>MirrorImage</string>
+          <string>BrainBulwark</string>
           <string>MindBlank</string>
           <string>Foresight</string>
           <string>PowerWordHeal</string>
@@ -597,6 +691,7 @@
         <ArrayOfString>
           <string>AirBlast</string>
           <string>BurstOfRadiance</string>
+          <string>TollTheDead</string>
           <string>Wrack</string>
           <string>Sanctuary</string>
           <string>ProtectThreshold</string>
@@ -643,6 +738,7 @@
           <string>Sanctuary</string>
           <string>ColorBurst</string>
           <string>SpellWeb</string>
+          <string>BrainBulwark</string>
         </ArrayOfString>
       </value>
     </item>
@@ -694,11 +790,13 @@
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>BindingIce</string>
           <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
           <string>WinterBreath</string>
+          <string>BrainBulwark</string>
           <string>FarStep</string>
           <string>SonicBoom</string>
           <string>ReverseGravity</string>
@@ -721,10 +819,12 @@
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
+          <string>TollTheDead</string>
           <string>SkinOfRetribution</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpiritShroud</string>
+          <string>BrainBulwark</string>
           <string>FarStep</string>
           <string>PowerWordKill</string>
         </ArrayOfString>
@@ -753,18 +853,26 @@
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
+          <string>TollTheDead</string>
           <string>ThunderStrike</string>
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>FindFamiliar</string>
+          <string>GiftOfAlacrity</string>
+          <string>MagnifyGravity</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
+          <string>BindingIce</string>
           <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
+          <string>PulseWave</string>
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
+          <string>BrainBulwark</string>
+          <string>GravitySinkhole</string>
           <string>FarStep</string>
           <string>SonicBoom</string>
           <string>ReverseGravity</string>
@@ -779,171 +887,6 @@
       </value>
     </item>
   </SpellListSpellEnabled>
-  <ApplySrdWeightToFoodRations>true</ApplySrdWeightToFoodRations>
-  <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
-  <IdentifyAfterRest>true</IdentifyAfterRest>
-  <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
-  <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
-  <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
-  <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
-  <EnableUpcastConjureElementalAndFey>true</EnableUpcastConjureElementalAndFey>
-  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
-  <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
-  <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
-  <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
-  <FixEldritchBlastRange>true</FixEldritchBlastRange>
-  <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
-  <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
-  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
-  <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
-  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-  <FullyControlConjurations>true</FullyControlConjurations>
-  <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
-  <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
-  <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
-  <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
-  <CriticalHitModeAllies>2</CriticalHitModeAllies>
-  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
-  <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
-  <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
-  <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
-  <AddPickPocketableLoot>true</AddPickPocketableLoot>
-  <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
-  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-  <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
-  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-  <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
-  <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
-  <RecipeCost>200</RecipeCost>
-  <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
-  <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
-  <CraftingInStore>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>SplintArmor</string>
-    <string>Plate</string>
-  </CraftingInStore>
-  <CraftingItemsInDm>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>SplintArmor</string>
-    <string>Plate</string>
-  </CraftingItemsInDm>
-  <CraftingRecipesInDm>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>SplintArmor</string>
-    <string>Plate</string>
-  </CraftingRecipesInDm>
-  <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
-  <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
-  <StockHugoStoreWithAdditionalFoci>true</StockHugoStoreWithAdditionalFoci>
-  <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
-  <EnableAdditionalFociInDungeonMaker>true</EnableAdditionalFociInDungeonMaker>
-  <RestockAntiquarians>true</RestockAntiquarians>
-  <RestockArcaneum>true</RestockArcaneum>
-  <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
-  <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
-  <EnableBetaContent>true</EnableBetaContent>
-  <EnableSaveByLocation>true</EnableSaveByLocation>
-  <EnablePcgRandom>true</EnablePcgRandom>
-  <EnableRespec>true</EnableRespec>
-  <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
-  <EnableCheatMenu>true</EnableCheatMenu>
-  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
-  <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
-  <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
-  <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>2</OverridePartySize>
-  <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-  <FasterTimeModifier>1.5</FasterTimeModifier>
-  <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -954,9 +897,7 @@
   <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
   <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
-  <AddMonkKiPointsToggle>true</AddMonkKiPointsToggle>
   <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-  <AddMonsterSwapAttackToggle>true</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>1</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
@@ -1163,6 +1104,7 @@
   <HideMonsterHitPoints>true</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
+  <EnableLoggingInvalidReferencesInUserCampaigns>false</EnableLoggingInvalidReferencesInUserCampaigns>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>

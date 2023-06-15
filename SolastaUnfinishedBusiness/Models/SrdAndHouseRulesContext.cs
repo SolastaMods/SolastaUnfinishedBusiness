@@ -7,16 +7,14 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Properties;
+using TA;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -61,74 +59,140 @@ internal static class SrdAndHouseRulesContext
         FeyDriad // CR 1
     };
 
-    private static readonly string[] LargeWildshapeForms =
-    {
-        "WildShapeAirElemental", "WildShapeFireElemental", "WildShapeEarthElemental", "WildShapeWaterElemental",
-        "WildShapeApe", "WildShapeTundraTiger"
-    };
-
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
+
+    private static readonly List<MonsterDefinition> MonstersThatEmitLight = new()
+    {
+        CubeOfLight,
+        Fire_Elemental,
+        Fire_Jester,
+        Fire_Osprey,
+        Fire_Spider
+    };
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
-    internal static void Load()
+    internal static void LateLoad()
     {
-        //BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
-        foreach (var spells in SpellListDefinitions.SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
-        {
-            spells.RemoveAll(x => x == null);
-        }
-
-        //BUGFIX: fix tradition light race repertoire
-        CastSpellTraditionLight.slotsPerLevels = CastSpellElfHigh.slotsPerLevels;
-
-        //BUGFIX: add a sprite reference to Resurrection
-        Resurrection.GuiPresentation.spriteReference =
-            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
-
-        //BUGFIX: this official condition doesn't have sprites or description
-        ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
-        ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
-        ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
-
         //SETTING: modify normal vision range
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
 
+        AddBleedingToRestoration();
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplySrdWeightToFoodRations();
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
+        SwitchAllowClubsToBeThrown();
+        SwitchDarknessSpell();
+        SwitchDruidAllowMetalArmor();
+        SwitchEldritchBlastRange();
+        SwitchEnableUpcastConjureElementalAndFey();
+        SwitchFilterOnHideousLaughter();
+        SwitchFullyControlConjurations();
+        SwitchMagicStaffFoci();
+        SwitchRecurringEffectOnEntangle();
+        SwitchUniversalSylvanArmorAndLightbringer();
+        UseCubeOnSleetStorm();
+        UseHeightOneCylinderEffect();
     }
 
-    internal static void LateLoad()
+    internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
     {
-        FixDivineSmiteRestrictions();
-        FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
-        FixMeleeHitEffectsRange();
-        FixMountaineerBonusShoveRestrictions();
-        FixRecklessAttackForReachWeapons();
-        FixStunningStrikeForAnyMonkWeapon();
-        SpellsMinorFixes();
-        AddBleedingToRestoration();
-        SwitchFilterOnHideousLaughter();
-        SwitchRecurringEffectOnEntangle();
-        UseCubeOnSleetStorm();
-        SwitchEldritchBlastRange();
-        UseHeightOneCylinderEffect();
-        SwitchUniversalSylvanArmorAndLightbringer();
-        SwitchDruidAllowMetalArmor();
-        SwitchMagicStaffFoci();
-        SwitchEnableUpcastConjureElementalAndFey();
-        SwitchFullyControlConjurations();
-        SwitchMakeLargeWildshapeFormsMedium();
-        SwitchAllowClubsToBeThrown();
-        FixMartialArtsProgression();
-        FixTwinnedMetamagic();
-        FixAttackBuffsAffectingSpellDamage();
-        FixMissingWildShapeTagOnSomeForms();
-        MakeGorillaWildShapeRocksUnlimited();
-        AddCustomWeaponValidatorToFightingStyleArchery();
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+        {
+            return;
+        }
+
+        if (!MonstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacterMonster, "ShouldEmitLightFromMonster");
+    }
+
+    internal static void AddLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    {
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (rulesetCondition == null || !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacter rulesetCharacter)
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacter, "ShouldEmitLightFromCondition");
+    }
+
+    private static void AddLightSource(
+        GameLocationCharacter gameLocationCharacter,
+        RulesetCharacter rulesetCharacter,
+        string name)
+    {
+        var lightSourceForm = Shine.EffectDescription.EffectForms[0].LightSourceForm;
+
+        rulesetCharacter.PersonalLightSource?.Unregister();
+        rulesetCharacter.PersonalLightSource = new RulesetLightSource(
+            lightSourceForm.Color,
+            2,
+            4,
+            lightSourceForm.GraphicsPrefabAssetGUID,
+            LightSourceType.Basic,
+            name,
+            rulesetCharacter.Guid);
+
+        rulesetCharacter.PersonalLightSource.Register(true);
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .AddCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
+    }
+
+    internal static void RemoveLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    {
+        if (rulesetCondition == null ||
+            !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacter rulesetCharacter ||
+            rulesetCharacter.PersonalLightSource == null) // if using extinguish fire light source will come null here
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .RemoveCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
+
+        rulesetCharacter.PersonalLightSource.Unregister();
+        rulesetCharacter.PersonalLightSource = null;
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
@@ -183,80 +247,6 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    /**
-     * Makes Divine Smite trigger only from melee attacks.
-     * This wasn't relevant until we changed how SpendSpellSlot trigger works.
-     */
-    private static void FixDivineSmiteRestrictions()
-    {
-        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
-        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
-            RestrictedContextRequiredProperty.MeleeWeapon;
-    }
-
-    /**
-     * Makes Divine Smite use correct number of dice when spending slot level 5+.
-     * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.
-     */
-    private static void FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots()
-    {
-        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
-            DiceByRankBuilder.BuildDiceByRankTable(2);
-
-        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.diceByRankTable =
-            DiceByRankBuilder.BuildDiceByRankTable(2);
-    }
-
-    /**
-     * Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1.
-     * Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data.
-     */
-    private static void FixMeleeHitEffectsRange()
-    {
-        foreach (var effectDescription in DatabaseRepository.GetDatabase<SpellDefinition>()
-                     .Select(x => x.EffectDescription)
-                     .Where(x => x.rangeType == RangeType.MeleeHit))
-        {
-            effectDescription.rangeParameter = 1;
-        }
-
-        foreach (var effectDescription in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
-                     .Select(x => x.EffectDescription)
-                     .Where(x => x.rangeType == RangeType.MeleeHit))
-        {
-            effectDescription.rangeParameter = 1;
-        }
-    }
-
-    /**
-     * Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped.
-     * This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`.
-     */
-    private static void FixMountaineerBonusShoveRestrictions()
-    {
-        ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield));
-    }
-
-    /**
-     * Makes `Reckless` context check if main hand weapon is melee, instead of if character is next to target.
-     * Required for it to work on reach weapons.
-     */
-    private static void FixRecklessAttackForReachWeapons()
-    {
-        FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed;
-    }
-
-    /**
-     * Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
-     * Required for it to work with monk weapon specialization and/or way of distant hand.
-     */
-    private static void FixStunningStrikeForAnyMonkWeapon()
-    {
-        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
-    }
-
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
     {
         // Use the shocked condition affinity which has the desired effect
@@ -305,7 +295,7 @@ internal static class SrdAndHouseRulesContext
         var foodSrdWeight = Food_Ration;
         var foodForagedSrdWeight = Food_Ration_Foraged;
 
-        if (Main.Settings.ApplySrdWeightToFoodRations)
+        if (Main.Settings.UseOfficialFoodRationsWeight)
         {
             foodSrdWeight.weight = 2.0f;
             foodForagedSrdWeight.weight = 2.0f;
@@ -341,28 +331,6 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private static void SpellsMinorFixes()
-    {
-        // Shows Concentration tag in UI
-        BladeBarrier.requiresConcentration = true;
-
-        //
-        // BUGFIX: spells durations
-        //
-
-        // Stops upcasting assigning non-SRD durations
-        var spells = new IMagicEffect[]
-        {
-            ProtectionFromEnergy, ProtectionFromEnergyAcid, ProtectionFromEnergyCold, ProtectionFromEnergyFire,
-            ProtectionFromEnergyLightning, ProtectionFromEnergyThunder, ProtectionFromPoison
-        };
-
-        foreach (var spell in spells)
-        {
-            spell.EffectDescription.EffectAdvancement.alteredDuration = AdvancementDuration.None;
-        }
-    }
-
     internal static void UseCubeOnSleetStorm()
     {
         var sleetStormEffect = SleetStorm.EffectDescription;
@@ -380,6 +348,25 @@ internal static class SrdAndHouseRulesContext
             sleetStormEffect.targetType = TargetType.Cylinder;
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
+        }
+    }
+
+    internal static void SwitchDarknessSpell()
+    {
+        //BUGFIX: Now that we have better handled sight and advantage elsewhere, darkness should no more give other source of disadvantage on attack
+        // and the immunity to condition darkness provided by the condition affinity below prevents one with devil sight and similar abilities, causing other problems
+        // so here we remove this immunity
+        if (Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
+        {
+            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.None;
+            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
+                ConditionAffinityType.None;
+        }
+        else
+        {
+            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.Disadvantage;
+            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
+                ConditionAffinityType.Immunity;
         }
     }
 
@@ -519,18 +506,6 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void SwitchMakeLargeWildshapeFormsMedium()
-    {
-        foreach (var monsterDefinitionName in LargeWildshapeForms)
-        {
-            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterDefinitionName);
-
-            monsterDefinition.sizeDefinition = Main.Settings.MakeLargeWildshapeFormsMedium
-                ? CharacterSizeDefinitions.Medium
-                : CharacterSizeDefinitions.Large;
-        }
-    }
-
     internal static void SwitchAllowClubsToBeThrown()
     {
         var db = DatabaseRepository.GetDatabase<ItemDefinition>();
@@ -552,87 +527,6 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private static void FixMartialArtsProgression()
-    {
-        //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
-        var provider = new RankByClassLevel(Monk);
-        var features = new List<FeatureDefinition>
-        {
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
-        };
-
-        foreach (var feature in features)
-        {
-            feature.AddCustomSubFeatures(provider);
-        }
-    }
-
-    private static void FixTwinnedMetamagic()
-    {
-        //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
-        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(new MetamagicApplicationValidator(
-            (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
-                ref string failure) =>
-            {
-                var effectDescription = spell.SpellDefinition.effectDescription;
-
-                if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique)
-                    || spell.ComputeTargetParameter() == 1)
-                {
-                    return;
-                }
-
-                failure = FailureFlagInvalidSingleTarget;
-                result = false;
-            }));
-    }
-
-    private static void FixAttackBuffsAffectingSpellDamage()
-    {
-        //BUGFIX: fix Branding Smite applying bonus damage to spells
-        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
-
-        //BUGFIX: fix Divine Favor applying bonus damage to spells
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
-    }
-
-    private static void FixMissingWildShapeTagOnSomeForms()
-    {
-        //BUGFIX: fix some Wild Shape forms missing proper tag, making wild shape action button visible while wild-shaped
-        var wildShape = FeatureDefinitionPowers.PowerDruidWildShape;
-        foreach (var option in wildShape.EffectDescription.FindFirstShapeChangeForm().ShapeOptions)
-        {
-            option.substituteMonster.CreatureTags.TryAdd(TagsDefinitions.CreatureTagWildShape);
-        }
-    }
-
-    private static void MakeGorillaWildShapeRocksUnlimited()
-    {
-        //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
-        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
-        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
-    }
-
-    // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
-    private static void AddCustomWeaponValidatorToFightingStyleArchery()
-    {
-        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
-                ValidatorsWeapon.IsWeaponType(item,
-                    CustomWeaponsContext.HandXbowWeaponType,
-                    CustomWeaponsContext.LightningLauncherType,
-                    WeaponTypeDefinitions.LongbowType,
-                    WeaponTypeDefinitions.ShortbowType,
-                    WeaponTypeDefinitions.HeavyCrossbowType,
-                    WeaponTypeDefinitions.LightCrossbowType,
-                    WeaponTypeDefinitions.DartType))));
-    }
-
     internal static void SwitchEnableUpcastConjureElementalAndFey()
     {
         if (!Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -644,8 +538,8 @@ internal static class SrdAndHouseRulesContext
 
         ConfigureAdvancement(ConjureFey);
         ConfigureAdvancement(ConjureElemental);
-        ConjureElemental.SubspellsList.Add(ConjureElementalInvisibleStalker);
         ConfigureAdvancement(ConjureMinorElementals);
+        ConjureElemental.SubspellsList.Add(ConjureElementalInvisibleStalker);
 
         // Set advancement at spell level, not sub-spell
         static void ConfigureAdvancement([NotNull] IMagicEffect spell)
@@ -726,7 +620,10 @@ internal static class SrdAndHouseRulesContext
             hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand));
     }
 
-    internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main,
+    internal static bool IsHandCrossbowUseInvalid(
+        RulesetItem item,
+        RulesetCharacterHero hero,
+        RulesetItem main,
         RulesetItem off)
     {
         if (Main.Settings.IgnoreHandXbowFreeHandRequirements)
@@ -741,8 +638,9 @@ internal static class SrdAndHouseRulesContext
 
         Tags.Clear();
         item.FillTags(Tags, hero, true);
-        if (!Tags.ContainsKey(TagsDefinitions.WeaponTagAmmunition)
-            || Tags.ContainsKey(TagsDefinitions.WeaponTagTwoHanded))
+
+        if (!Tags.ContainsKey(TagsDefinitions.WeaponTagAmmunition) ||
+            Tags.ContainsKey(TagsDefinitions.WeaponTagTwoHanded))
         {
             return false;
         }
@@ -796,24 +694,6 @@ internal static class SrdAndHouseRulesContext
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
-    }
-}
-
-internal static class ArmorClassStacking
-{
-    internal static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
-    {
-        //process only for wild-shaped heroes
-        if (monster.OriginalFormCharacter is RulesetCharacterHero)
-        {
-            var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
-
-            MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
-            MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
-        }
-
-        //sort modifiers, since we replaced this call
-        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 }
 
@@ -972,8 +852,8 @@ internal static class UpcastConjureElementalAndFey
             return true;
         }
 
-        __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire, _filteredSubspells[index],
-            __instance.slotLevel);
+        __instance.spellCastEngaged?.Invoke(
+            __instance.spellRepertoire, _filteredSubspells[index], __instance.slotLevel);
 
         __instance.Hide();
 
@@ -1039,8 +919,441 @@ internal static class UpcastConjureElementalAndFey
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
         // ReSharper disable once InvocationIsSkipped
-        _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
+        _filteredSubspells.ForEach(s => Main.Info($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
         return _filteredSubspells;
+    }
+}
+
+internal static class FlankingAndHigherGroundRules
+{
+    private static readonly Dictionary<(ulong, ulong), bool> FlankingDeterminationCache = new();
+
+    internal static void ClearFlankingDeterminationCache()
+    {
+        FlankingDeterminationCache.Clear();
+    }
+
+    private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
+    {
+        if ((side & CellFlags.Side.North) > 0)
+        {
+            yield return CellFlags.Side.North;
+        }
+
+        if ((side & CellFlags.Side.South) > 0)
+        {
+            yield return CellFlags.Side.South;
+        }
+
+        if ((side & CellFlags.Side.East) > 0)
+        {
+            yield return CellFlags.Side.East;
+        }
+
+        if ((side & CellFlags.Side.West) > 0)
+        {
+            yield return CellFlags.Side.West;
+        }
+
+        if ((side & CellFlags.Side.Top) > 0)
+        {
+            yield return CellFlags.Side.Top;
+        }
+
+        if ((side & CellFlags.Side.Bottom) > 0)
+        {
+            yield return CellFlags.Side.Bottom;
+        }
+    }
+
+    private static IEnumerable<int3> GetPositions(GameLocationCharacter gameLocationCharacter)
+    {
+        // collect all positions in the character cube surface
+        var basePosition = gameLocationCharacter.LocationPosition;
+        var maxExtents = gameLocationCharacter.SizeParameters.maxExtent;
+
+        // traverse by horizontal planes as most common use case in battles
+        for (var x = 0; x <= maxExtents.x; x++)
+        {
+            for (var z = 0; z <= maxExtents.z; z++)
+            {
+                for (var y = 0; y <= maxExtents.y; y++)
+                {
+                    yield return basePosition + new int3(x, y, z);
+                }
+            }
+        }
+    }
+
+    private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
+    {
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
+        {
+            return result;
+        }
+
+        FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return false;
+        }
+
+        var allies = gameLocationBattleService.Battle.AllContenders
+            .Where(x =>
+                x != attacker &&
+                x.Side == attacker.Side &&
+                x.CanAct() &&
+                gameLocationBattleService.IsWithin1Cell(x, defender))
+            .ToList();
+
+        if (allies.Count == 0)
+        {
+            return false;
+        }
+
+        // collect all possible flanking sides from all attacker cells against all enemy cells
+
+        var attackerFlankingSides = new HashSet<CellFlags.Side>();
+
+        foreach (var attackerPosition in GetPositions(attacker))
+        {
+            foreach (var defenderPosition in GetPositions(defender))
+            {
+                var attackerDirection = defenderPosition - attackerPosition;
+                var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
+                var flankingSide = GetEachSide(attackerSide)
+                    .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+
+                attackerFlankingSides.Add(flankingSide);
+            }
+        }
+
+        result = allies
+            .Any(ally => GetPositions(ally)
+                .Any(allyPosition => GetPositions(defender)
+                    .Any(defenderPosition =>
+                        attackerFlankingSides.Contains(
+                            CellFlags.DirectionToAllSurfaceSides(defenderPosition - allyPosition)))));
+
+        FlankingDeterminationCache[(attacker.Guid, defender.Guid)] = result;
+
+        return result;
+    }
+
+    internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        if (!Main.Settings.UseOfficialFlankingRules)
+        {
+            return;
+        }
+
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForRanged && evaluationParams.attackProximity is
+                not (BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.MagicReach))
+        {
+            return;
+        }
+
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
+            (gameLocationBattleService == null || !gameLocationBattleService.IsWithin1Cell(attacker, defender)))
+        {
+            return;
+        }
+
+        if (Main.Settings.UseExperimentalFlankingRules)
+        {
+            if (!IsFlankingExperimental(attacker, defender))
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (!IsFlanking(attacker, defender))
+            {
+                return;
+            }
+        }
+
+        var actionModifier = evaluationParams.attackModifier;
+
+        actionModifier.AttackAdvantageTrends.Add(
+            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+    }
+
+    internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        if (!Main.Settings.EnableHigherGroundRules)
+        {
+            return;
+        }
+
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+
+        if (attacker.LocationPosition.y <= defender.LocationPosition.y)
+        {
+            return;
+        }
+
+        var actionModifier = evaluationParams.attackModifier;
+
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(
+            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&HigherGroundAttack", null));
+    }
+
+    //
+    //EXPERIMENTAL FLANKING IMPLEMENTATION WITH MATH
+    // Uses custom classes
+
+    private static bool IsFlankingExperimental(GameLocationCharacter attacker, GameLocationCharacter defender)
+    {
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
+        {
+            return result;
+        }
+
+        FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return false;
+        }
+
+        var attackerCenter = new Point3D(attacker.LocationBattleBoundingBox.Center);
+        var defenderCube = new Cube(new Point3D(defender.LocationBattleBoundingBox.Min),
+            new Point3D(defender.LocationBattleBoundingBox.Max + 1));
+
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var ally in gameLocationBattleService.Battle.AllContenders)
+        {
+            if (ally == attacker
+                || ally == defender
+                || ally.Side != attacker.Side
+                || !ally.CanAct()
+                || !gameLocationBattleService.IsWithin1Cell(ally, defender)
+               )
+            {
+                continue;
+            }
+
+            var allyCenter = new Point3D(ally.LocationBattleBoundingBox.Center);
+            result = LineIntersectsCubeOppositeSides(attackerCenter, allyCenter, defenderCube);
+
+            //Main.Log("IsFlanking " + result + " attacker " + attacker.Name + " center " + attackerCenter.ToString()
+            //            + " defender " + defender.Name + " cube " + defenderCube.ToString()
+            //            + " ally " + ally.Name + " center " + allyCenter.ToString());
+
+            if (result)
+            {
+                break;
+            }
+        }
+
+        FlankingDeterminationCache[(attacker.Guid, defender.Guid)] = result;
+
+        return result;
+    }
+
+    private static bool LineIntersectsCubeOppositeSides(Point3D p1, Point3D p2, Cube cube)
+    {
+        // Check if the line intersects opposite sides of the cube
+        var intersectsFrontBack =
+            LineIntersectsFace(p1, p2, cube.FrontFace) && LineIntersectsFace(p1, p2, cube.BackFace);
+        
+        if (intersectsFrontBack)
+        {
+            return true;
+        }
+
+        var intersectsLeftRight =
+            LineIntersectsFace(p1, p2, cube.LeftFace) && LineIntersectsFace(p1, p2, cube.RightFace);
+        
+        if (intersectsLeftRight)
+        {
+            return true;
+        }
+
+        var intersectsTopBottom =
+            LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
+        
+        return intersectsTopBottom;
+    }
+
+    private static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
+    {
+        // Check if the line intersects the plane of the face
+        if (!LineIntersectsPlane(p1, p2, face))
+        {
+            return false;
+        }
+
+        // Find the intersection point on the plane
+        var intersection = GetIntersectionPoint(p1, p2, face);
+
+        // Check if the intersection point is within the boundaries of the face
+        return PointIsWithinFace(intersection, face);
+    }
+
+    private static bool LineIntersectsPlane(Point3D p1, Point3D p2, Plane plane)
+    {
+        // Compute the direction vector of the line
+        var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+
+        // Compute the dot product of the line direction and the normal vector of the plane
+        var dotProduct = direction.DotProduct(plane.Normal);
+
+        // If the dot product is close to zero, the line is parallel to the plane
+        return !(Math.Abs(dotProduct) < double.Epsilon);
+    }
+
+    private static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
+    {
+        // Compute the direction vector of the line
+        var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+
+        // Compute the distance from p1 to the intersection point
+        var t = (plane.D - plane.Normal.DotProduct(new Vector3D(p1.X, p1.Y, p1.Z))) /
+                plane.Normal.DotProduct(direction);
+
+        // Compute the intersection point
+        var x = p1.X + (direction.X * t);
+        var y = p1.Y + (direction.Y * t);
+        var z = p1.Z + (direction.Z * t);
+
+        return new Point3D(x, y, z);
+    }
+
+    private static bool PointIsWithinFace(Point3D point, Plane face)
+    {
+        // Check if the point is within the boundaries of the face
+        return point.X >= face.MinX && point.X <= face.MaxX &&
+               point.Y >= face.MinY && point.Y <= face.MaxY &&
+               point.Z >= face.MinZ && point.Z <= face.MaxZ;
+    }
+
+    private class Point3D
+    {
+        public Point3D(Vector3 pt)
+        {
+            X = pt.x;
+            Y = pt.y;
+            Z = pt.z;
+        }
+
+        public Point3D(int3 pt)
+        {
+            X = pt.x;
+            Y = pt.y;
+            Z = pt.z;
+        }
+
+        public Point3D(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public double X { get; }
+        public double Y { get; }
+        public double Z { get; }
+
+        public override String ToString()
+        {
+            return "(" + X + "," + Y + "," + Z + ")";
+        }
+    }
+
+    private class Vector3D
+    {
+        public Vector3D(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public double X { get; }
+        public double Y { get; }
+        public double Z { get; }
+
+        public double DotProduct(Vector3D other)
+        {
+            return (X * other.X) + (Y * other.Y) + (Z * other.Z);
+        }
+    }
+
+    private class Plane
+    {
+        public Plane(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, Vector3D normal,
+            double d)
+        {
+            MinX = minX;
+            MaxX = maxX;
+            MinY = minY;
+            MaxY = maxY;
+            MinZ = minZ;
+            MaxZ = maxZ;
+            Normal = normal;
+            D = d;
+        }
+
+        public double MinX { get; }
+        public double MaxX { get; }
+        public double MinY { get; }
+        public double MaxY { get; }
+        public double MinZ { get; }
+        public double MaxZ { get; }
+        public Vector3D Normal { get; }
+        public double D { get; }
+    }
+
+    private class Cube
+    {
+        private readonly Point3D min;
+        private readonly Point3D max;
+
+        public Cube(Point3D minPoint, Point3D maxPoint)
+        {
+            min = minPoint;
+            max = maxPoint;
+
+            // Define the six faces of the cube
+            FrontFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, maxPoint.Z, maxPoint.Z,
+                new Vector3D(0, 0, 1), maxPoint.Z);
+            BackFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, minPoint.Z,
+                new Vector3D(0, 0, -1), -minPoint.Z);
+            LeftFace = new Plane(minPoint.X, minPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(-1, 0, 0), -minPoint.X);
+            RightFace = new Plane(maxPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(1, 0, 0), maxPoint.X);
+            TopFace = new Plane(minPoint.X, maxPoint.X, maxPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(0, 1, 0), maxPoint.Y);
+            BottomFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, minPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(0, -1, 0), -minPoint.Y);
+        }
+
+        public Plane FrontFace { get; }
+        public Plane BackFace { get; }
+        public Plane LeftFace { get; }
+        public Plane RightFace { get; }
+        public Plane TopFace { get; }
+        public Plane BottomFace { get; }
+
+        public override String ToString()
+        {
+            return "(" + min + ":" + max + ")";
+        }
     }
 }

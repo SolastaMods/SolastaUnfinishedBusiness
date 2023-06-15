@@ -61,7 +61,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ActionInitiatedDisplacement(), PushesFromEffectPoint.Marker)
+            .SetCustomSubFeatures(new ActionInitiatedDisplacement(), PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -366,16 +366,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
             foreach (var gameLocationTarget in gameLocationBattleService.Battle.EnemyContenders
-                         .ToList()
-                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
                          .Where(x =>
-                             gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2) &&
-                             !x.RulesetCharacter.IsDeadOrDying))
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2))
+                         .ToList()) // avoid changing enumerator
             {
-                EffectHelpers.StartVisualEffect(
-                    action.ActingCharacter, gameLocationTarget, EldritchBlast);
-                effectPower.ApplyEffectOnCharacter(gameLocationTarget.RulesetCharacter, true,
-                    gameLocationTarget.LocationPosition);
+                EffectHelpers.StartVisualEffect(action.ActingCharacter, gameLocationTarget, EldritchBlast);
+                effectPower.ApplyEffectOnCharacter(
+                    gameLocationTarget.RulesetCharacter, true, gameLocationTarget.LocationPosition);
             }
         }
     }

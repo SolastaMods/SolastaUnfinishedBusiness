@@ -1,0 +1,5 @@
+TutorialSection/&BasicsTitle=基本
+TutorialSection/&CombatTitle=戦闘
+TutorialSection/&ExplorationTitle=探検
+TutorialSection/&InventoryTitle=在庫
+TutorialSection/&TravelTitle=旅行

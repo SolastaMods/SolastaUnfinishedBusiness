@@ -1,8 +1,0 @@
-MerchantCategory/&AdventuringTitle=Attrezzatura da avventura
-MerchantCategory/&AllTitle=Tutti gli articoli
-MerchantCategory/&ArmorTitle=Armatura
-MerchantCategory/&CraftingTitle=Creazione
-MerchantCategory/&IngredientTitle=Ingredienti
-MerchantCategory/&MagicDeviceTitle=Dispositivi magici
-MerchantCategory/&WeaponTitle=Armi
-MerchantCategory/&DocumentTitle=Documenti

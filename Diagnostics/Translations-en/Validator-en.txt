@@ -38,3 +38,6 @@ Validator/&ParameterVariableTestValueBoolTitle=Test Value
 Validator/&ParameterVariableTestValueBoolDescription=The Boolean value to compare in the test
 Validator/&ParameterVariableTestValueStringTitle=Test Value
 Validator/&ParameterVariableTestValueStringDescription=The string value to compare in the test
+Validator/&ParameterMonsterorNPCTitle=Monster or NPC
+Validator/&ParameterFromDeviceTitle=From Device
+Validator/&ParameterFromDeviceDescription=Was the spell cast from a magical device (1) such as a scroll or magical item or from a standard spell casting ability (0)

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Puoi assorbire energia dalla luce solare. Mentre sei esposto alla luce diretta e intensa, recuperi 2 PS all'inizio del tuo turno.
+Condition/&ConditionAncientForestPhotosynthesisDescription=Puoi assorbire energia dalla luce solare. Mentre sei esposto alla luce diretta e intensa, recuperi 2 PS all'inizio del tuo turno.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Fotosintesi
 Condition/&ConditionAncientForestRootedDescription=I viticci arboricoli crescono dai tuoi piedi e scavano nel terreno. Puoi lanciare intralciare a volontà. La tua velocità diventa 0 e ottieni vantaggio su qualsiasi tiro salvezza per spingerti, tirarti o farti cadere prono.
 Condition/&ConditionAncientForestRootedTitle=Radicato
@@ -30,7 +30,7 @@ Feature/&PowerAncientForestRootedDescription=I viticci arboricoli crescono dai t
 Feature/&PowerAncientForestRootedTitle=Radicato
 Feature/&PowerPoolAncientForestHerbalBrewDescription=Puoi creare infusi di erbe, ognuno dei quali dura fino al prossimo lungo riposo. Crei un totale di birre pari al tuo bonus di competenza. Per ogni infuso, scegli uno dei seguenti effetti:\n<color=#add8e6ff>Infuso fortificante</color>: conferisce resistenza a diversi tipi di danno per 1 ora.\n<color=#add8e6ff>Infuso vivificante</color> color>: fornisce 2d4 punti ferita.\n<color=#add8e6ff>Infuso Tossificante</color>: agisce come veleno che può essere applicato a un'arma che dura 1 minuto. Se il colpo va a segno, il bersaglio subisce 1d4 danni da veleno per ogni colpo.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Birra a base di erbe
-Feature/&PowerPoolAncientForestWallOfThornsDescription=Puoi lanciare Wall of Thorns un numero di volte pari al tuo modificatore di Saggezza. Si ricarica durante i riposi lunghi.
+Feature/&PowerPoolAncientForestWallOfThornsDescription=Puoi lanciare Wall of Thorns un numero di volte pari al tuo modificatore di Saggezza. Si ricarica durante i lunghi riposi.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=Muro di spine
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat={0} crea {1}
@@ -39,5 +39,5 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} crea {1}
-Subclass/&CircleOfTheAncientForestDescription=Hai stretto una relazione con una potente entità della natura: Antiche Driadi, Arcidruidi, Manifestazioni della Selva Fatata che si riversano nel piano materiale, Divinità dimenticate da un'era primordiale. Potrebbe desiderare che tu protegga il mondo naturale, viaggiare in terre lontane che non può, o potrebbe avere un altro motivo che sembra imperscrutabile ai mortali di breve durata.
+Subclass/&CircleOfTheAncientForestDescription=Hai stretto una relazione con una potente entità della natura: Antiche Driadi, Arcidruidi, Manifestazioni della Selva dei Folletti che sanguinano nel piano materiale, Divinità dimenticate da un'era primordiale. Potrebbe desiderare che tu protegga il mondo naturale, viaggiare in terre lontane che non può, o potrebbe avere un altro motivo che sembra imperscrutabile ai mortali di breve durata.
 Subclass/&CircleOfTheAncientForestTitle=Circolo della Foresta Antica

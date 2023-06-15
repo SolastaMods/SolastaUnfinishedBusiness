@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": "Definition:IdleGuard_NoIntercept:81e247c4ebe23c741800c91fd18c473e",
   "characterFamily": "Dragon",
   "creatureTags": [],
@@ -112,7 +112,7 @@
   "audioRaceRTPCValue": 39.0,
   "challengeRating": 8.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Feral_Dragon_loot_drop:73d0e1eb0aea65c48a312b2d19dacf74",
+  "droppedLootDefinition": "Definition:DLC3_Feral_Dragon_loot_drop:73d0e1eb0aea65c48a312b2d19dacf74",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
@@ -155,13 +155,13 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 10.0,
-    "z": -60.0
+    "z": -55.0
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
@@ -301,6 +301,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "37eb040ee873d4f4d91e2f0d46d2ff7f",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "FeralDragon_Red"
 }

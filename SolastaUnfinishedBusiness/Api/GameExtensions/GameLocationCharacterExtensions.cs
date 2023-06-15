@@ -77,7 +77,7 @@ public static class GameLocationCharacterExtensions
     }
 
     /**
-     * Finds first melee attack mode that can attack target on positionBefore, but can't on positionAfter
+     * Finds first attack mode that can attack target on positionBefore, but can't on positionAfter
      */
     internal static bool CanPerformOpportunityAttackOnCharacter(
         this GameLocationCharacter instance,
@@ -86,6 +86,7 @@ public static class GameLocationCharacterExtensions
         int3? positionAfter,
         out RulesetAttackMode attackMode,
         out ActionModifier attackModifier,
+        bool allowRange = false,
         IGameLocationBattleService service = null,
         bool accountAoOImmunity = false,
         IsWeaponValidHandler weaponValidator = null)
@@ -101,7 +102,7 @@ public static class GameLocationCharacterExtensions
 
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (mode.Ranged)
+            if (mode.Ranged && !allowRange)
             {
                 continue;
             }
@@ -114,8 +115,16 @@ public static class GameLocationCharacterExtensions
             // Prepare attack evaluation params
             var paramsBefore = new BattleDefinitions.AttackEvaluationParams();
 
-            paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
-                target, positionBefore ?? target.LocationPosition, new ActionModifier());
+            if (mode.Ranged)
+            {
+                paramsBefore.FillForPhysicalRangeAttack(instance, instance.LocationPosition, mode,
+                    target, positionBefore ?? target.LocationPosition, new ActionModifier());
+            }
+            else
+            {
+                paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                    target, positionBefore ?? target.LocationPosition, new ActionModifier());
+            }
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
             if (!service.CanAttack(paramsBefore))
@@ -146,19 +155,36 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
+    internal static bool CanAct(this GameLocationCharacter instance)
     {
         var character = instance.RulesetCharacter;
 
-        if (character == null)
+        return character is { IsDeadOrDyingOrUnconscious: false }
+               && !character.HasConditionOfType(RuleDefinitions.ConditionProne)
+               && !character.HasConditionOfType(RuleDefinitions.ConditionIncapacitated)
+               && !character.HasConditionOfType(RuleDefinitions.ConditionStunned)
+               && !character.HasConditionOfType(RuleDefinitions.ConditionParalyzed);
+    }
+
+    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
+    {
+        if (!instance.CanAct())
         {
             return false;
         }
 
-        if (character.HasConditionOfType(RuleDefinitions.ConditionProne)
-            || character.HasConditionOfType(RuleDefinitions.ConditionIncapacitated)
-            || character.HasConditionOfType(RuleDefinitions.ConditionStunned)
-            || character.HasConditionOfType(RuleDefinitions.ConditionParalyzed))
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        if (actionService == null)
+        {
+            return false;
+        }
+
+        var hasReactionInQueue = actionService.PendingReactionRequestGroups
+            .SelectMany(x => x.Requests)
+            .Any(x => x.Character == instance);
+
+        if (hasReactionInQueue)
         {
             return false;
         }

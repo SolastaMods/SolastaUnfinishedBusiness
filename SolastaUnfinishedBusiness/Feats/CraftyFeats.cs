@@ -63,18 +63,21 @@ internal static class CraftyFeats
             .Create("FeatApothecaryInt")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyHerbalismKit, proficiencyCraftyArcana)
+            .SetFeatFamily("Apothecary")
             .AddToDB();
 
         var featApothecaryWis = FeatDefinitionBuilder
             .Create("FeatApothecaryWis")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
+            .SetFeatFamily("Apothecary")
             .AddToDB();
 
         var featApothecaryCha = FeatDefinitionBuilder
             .Create("FeatApothecaryCha")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
+            .SetFeatFamily("Apothecary")
             .AddToDB();
 
         var featGroupApothecary = GroupFeats.MakeGroup("FeatGroupApothecary", "Apothecary",
@@ -90,12 +93,14 @@ internal static class CraftyFeats
             .Create("FeatToxicologistInt")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyPoisonersKit, proficiencyCraftyNature)
+            .SetFeatFamily("Toxicologist")
             .AddToDB();
 
         var featToxicologistWis = FeatDefinitionBuilder
             .Create("FeatToxicologistWis")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyPoisonersKit, proficiencyCraftyMedicine)
+            .SetFeatFamily("Toxicologist")
             .AddToDB();
 
         var featToxicologistCha = FeatDefinitionBuilder
@@ -103,6 +108,7 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyPoisonersKit,
                 proficiencyCraftyAnimalHandling)
+            .SetFeatFamily("Toxicologist")
             .AddToDB();
 
         var featGroupToxicologist = GroupFeats.MakeGroup("FeatGroupToxicologist", "Toxicologist",

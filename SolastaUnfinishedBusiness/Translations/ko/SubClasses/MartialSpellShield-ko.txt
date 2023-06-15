@@ -1,0 +1,10 @@
+Feature/&CastSpellSpellShieldDescription=Cast Wizard 주문 및 캔트립.
+Feature/&CastSpellSpellShieldTitle=철자법
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=주문 절약 던지기 DC 및 주문 공격 굴림에 강도 또는 민첩 수정자를 더 높은 값으로 추가합니다.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=활기
+Feature/&PowerSpellShieldArcaneDeflectionDescription=신비한 힘을 사용하여 반응으로 자신을 보호할 수 있습니다. 이것은 당신의 다음 턴까지 당신의 갑옷 등급에 +3을 줍니다.
+Feature/&PowerSpellShieldArcaneDeflectionTitle=신비한 굴절
+Feature/&PowerSpellShieldRangedDeflectionDescription=당신이 볼 수 있는 공격자가 원거리 공격이나 주문으로 당신을 때리면, 당신은 당신에 대한 공격의 피해를 절반으로 줄이기 위해 당신의 반응을 사용할 수 있습니다.
+Feature/&PowerSpellShieldRangedDeflectionTitle=원거리 굴절
+Subclass/&MartialSpellShieldDescription=Spell Shields는 방어와 보호에 특화된 전투기입니다. 그들은 타고난 능력을 돕기 위해 마법을 사용합니다.
+Subclass/&MartialSpellShieldTitle=스펠 실드

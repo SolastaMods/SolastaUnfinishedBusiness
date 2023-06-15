@@ -1,6 +1,0 @@
-Size/&GargantuanTitle=Gigantesco
-Size/&HugeTitle=Enorme
-Size/&LargeTitle=Grande
-Size/&MediumTitle=Medio
-Size/&SmallTitle=Pequeña
-Size/&TinyTitle=Diminuto

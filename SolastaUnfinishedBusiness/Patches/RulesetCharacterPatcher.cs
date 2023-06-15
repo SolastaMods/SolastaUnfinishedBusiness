@@ -88,6 +88,39 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindFirstRetargetableEffect))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FindFirstRetargetableEffect_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref RulesetEffect __result)
+        {
+            //PATCH: allow effects retarget even if they have conditions applied to self
+            if (__result != null)
+            {
+                return;
+            }
+
+            var effects = __instance.EnumerateActiveEffectsActivatedByMe();
+            foreach (var effect in effects)
+            {
+                if (!effect.EffectDescription.RetargetAfterDeath)
+                {
+                    continue;
+                }
+
+                if (!effect.SourceDefinition.HasSubFeatureOfType<ForceRetargetAvailability>())
+                {
+                    continue;
+                }
+
+                __result = effect;
+                return;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -182,7 +215,7 @@ public static class RulesetCharacterPatcher
             ref int __result,
             ref RulesetSpellRepertoire matchingRepertoire)
         {
-            //BUGFIX: game doesn't consider cantrips gained from BonusCantrips feature
+            //PATCH: game doesn't consider cantrips gained from BonusCantrips feature
             //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
             //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
@@ -593,11 +626,35 @@ public static class RulesetCharacterPatcher
                 new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
                     .Method;
 
-            return instructions.ReplaceCall(currentValueMethod,
-                1, "RulesetCharacter.RollAttack",
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Ldarg, 4),
-                new CodeInstruction(OpCodes.Call, method));
+            var tryModifyCrit = new Func<
+                RulesetAttribute, // attribute, 
+                RulesetCharacter, // me, 
+                RulesetCharacter, // target, 
+                BaseDefinition, // attackMethod,
+                int //result
+            >(TryModifyCritThreshold).Method;
+
+            return instructions
+                .ReplaceCall(currentValueMethod,
+                    1, "RulesetCharacter.RollAttack.AC",
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg, 4),
+                    new CodeInstruction(OpCodes.Call, method))
+                //technically second occurence of this getter, but first one is replaced on previous call
+                .ReplaceCall(currentValueMethod, 1, "RulesetCharacter.RollAttack.CritThreshold",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg_3),
+                    new CodeInstruction(OpCodes.Call, tryModifyCrit));
+        }
+
+        private static int TryModifyCritThreshold(RulesetAttribute attribute, RulesetCharacter me,
+            RulesetCharacter target, BaseDefinition attackMethod)
+        {
+            var current = attribute.CurrentValue;
+            me.GetSubFeaturesByType<IModifyMyAttackCritThreshold>().ForEach(m =>
+                current = m.TryModifyMyAttackCritThreshold(current, me, target, attackMethod));
+            return current;
         }
     }
 
@@ -868,39 +925,6 @@ public static class RulesetCharacterPatcher
             {
                 spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RechargePowersForTurnStart))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RechargePowersForTurnStart_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance)
-        {
-            //PATCH: support for powers that recharge on turn start
-            foreach (var usablePower in __instance.UsablePowers)
-            {
-                if (usablePower.RemainingUses >= usablePower.MaxUses)
-                {
-                    continue;
-                }
-
-                var startOfTurnRecharge = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IStartOfTurnRecharge>();
-
-                if (startOfTurnRecharge == null)
-                {
-                    continue;
-                }
-
-                usablePower.Recharge();
-
-                if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
-                {
-                    __instance.PowerRecharged(__instance, usablePower);
-                }
             }
         }
     }
@@ -1429,7 +1453,7 @@ public static class RulesetCharacterPatcher
     }
 
     //PATCH: allow FeatureDefinitionRegeneration to be validated with IsCharacterValidHandler
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindBestRegenerationFeature))]
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeActiveRegenerationFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FindBestRegenerationFeature_Patch

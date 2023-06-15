@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2300,
+    7515,
     0,
     0,
     0
@@ -96,6 +96,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -526,12 +527,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Rapier_plus_one_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Rapier_plus_one_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0713347ab69823f47937a93125e9773c",
+      "m_AssetGUID": "8787fdf1e5cdd3148a7779e8627d6049",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -543,6 +544,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -551,8 +553,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

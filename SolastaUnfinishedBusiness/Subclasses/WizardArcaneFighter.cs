@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -18,12 +19,21 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
+        // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
+        var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
+            .Create("PowerArcaneFighterEnchantWeapon")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                new CanUseAttribute(AttributeDefinitions.Intelligence, CanWeaponBeEnchanted))
+            .AddToDB();
+
         var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionArcaneFighter")
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-            .SetMaxAttacksNumber(-1)
             .SetTriggerCondition(AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .AddToDB();
 
@@ -43,7 +53,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
-                PowerArcaneFighterEnchantWeapon)
+                powerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
                 AttackReplaceWithCantripCasterFighting)

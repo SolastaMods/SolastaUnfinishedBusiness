@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2450,
+    4050,
     0,
     0,
     0
@@ -57,6 +57,22 @@
       "appliesOnItemOnly": false,
       "type": "Feature",
       "featureDefinition": "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
     }
@@ -191,8 +207,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&PlatePlus1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&ScaleArmorPlus1_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -206,16 +222,19 @@
     "armorAddressableName": "FullPlate",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "FullPlatelvl2",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
-      "Both",
+      "Armor",
       "Nothing",
       "Shape",
-      "Shape",
+      "Armor",
+      "Armor",
+      "Armor",
       "Armor",
       "Armor",
       "Armor",
@@ -227,8 +246,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

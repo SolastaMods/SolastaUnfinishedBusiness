@@ -17,12 +17,23 @@ public static class LoadPanelPatcher
         public static bool Prefix([NotNull] LoadPanel __instance)
         {
             //PATCH: EnableSaveByLocation
-            if (Main.Settings.EnableSaveByLocation)
+            if (Main.Settings.EnableSaveByLocation && !__instance.ImportSaveMode)
             {
                 return LoadPanelOnBeginShowSaveByLocationBehavior(__instance);
             }
 
-            if (Dropdown != null)
+            //PATCH: Allow import any campaign if override min max level is on
+
+            // this is causing issues loading games so had to disable until finding out why
+
+            // if (Main.Settings.OverrideMinMaxLevel)
+            // {
+            //     __instance.CampaignForImportSaveMode.maxLevelImport = Level20Context.ModMaxLevel;
+            // }
+
+#pragma warning disable IDE0031
+            if (Dropdown != null && Dropdown.activeSelf)
+#pragma warning restore IDE0031
             {
                 Dropdown.SetActive(false);
             }

@@ -6,6 +6,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -32,6 +33,7 @@ internal static class ClassFeats
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
         var featExpandTheHunt = BuildExpandTheHunt();
+        var featExploiter = BuildExploiter();
         var featNaturalFluidity = BuildNaturalFluidity();
         var featPoisoner = BuildPoisoner();
         var featSlayTheEnemies = BuildSlayTheEnemies();
@@ -39,6 +41,7 @@ internal static class ClassFeats
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
         var blessedSoulGroup = BuildBlessedSoul(feats);
+        var closeQuartersGroup = BuildCloseQuarters(feats);
         var hardyGroup = BuildHardy(feats);
         var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
         var primalRageGroup = BuildPrimalRage(feats);
@@ -47,6 +50,7 @@ internal static class ClassFeats
             featCallForCharge,
             featCunningEscape,
             featExpandTheHunt,
+            featExploiter,
             featNaturalFluidity,
             featPoisoner,
             featSlayTheEnemies,
@@ -66,12 +70,14 @@ internal static class ClassFeats
             featCallForCharge,
             featCunningEscape,
             featExpandTheHunt,
+            featExploiter,
             featNaturalFluidity,
             featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
+            closeQuartersGroup,
             hardyGroup,
             potentSpellcasterGroup,
             primalRageGroup);
@@ -95,7 +101,7 @@ internal static class ClassFeats
                     EffectDescriptionBuilder
                         .Create()
                         .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                        .SetDurationData(DurationType.Round, 1)
+                        .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
@@ -103,7 +109,7 @@ internal static class ClassFeats
                                     ConditionDefinitionBuilder
                                         .Create($"Condition{NAME}")
                                         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                                        .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                         .SetPossessive()
                                         .SetFeatures(
                                             FeatureDefinitionMovementAffinityBuilder
@@ -142,6 +148,7 @@ internal static class ClassFeats
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Maraike)
             .SetValidators(ValidatorsFeat.IsClericLevel4)
+            .SetFeatFamily("BlessedSoul")
             .AddToDB();
 
         var blessedSoulPaladin = FeatDefinitionWithPrerequisitesBuilder
@@ -151,12 +158,15 @@ internal static class ClassFeats
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Solasta)
             .SetValidators(ValidatorsFeat.IsPaladinLevel4)
+            .SetFeatFamily("BlessedSoul")
             .AddToDB();
 
         feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupBlessedSoul", null, blessedSoulCleric, blessedSoulPaladin);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupBlessedSoul", "BlessedSoul", ValidatorsFeat.IsClericOrPaladinLevel4,
+            blessedSoulCleric,
+            blessedSoulPaladin);
     }
 
     #endregion
@@ -174,6 +184,7 @@ internal static class ClassFeats
                 AttributeModifierBarbarianRagePointsAdd,
                 AttributeModifierCreed_Of_Einar)
             .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         var primalRageCon = FeatDefinitionWithPrerequisitesBuilder
@@ -183,6 +194,7 @@ internal static class ClassFeats
                 AttributeModifierBarbarianRagePointsAdd,
                 AttributeModifierCreed_Of_Arun)
             .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         feats.AddRange(primalRageStr, primalRageCon);
@@ -213,6 +225,212 @@ internal static class ClassFeats
 
     #endregion
 
+    #region Close Quarters
+
+    private static FeatDefinition BuildCloseQuarters(List<FeatDefinition> feats)
+    {
+        const string Family = "CloseQuarters";
+        const string Name = "FeatCloseQuarters";
+
+        var featureCloseQuarters = FeatureDefinitionBuilder
+            .Create("FeatureCloseQuarters")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        DieType UpgradeCloseQuartersDice(
+            FeatureDefinitionAdditionalDamage additionalDamage,
+            DamageForm damageForm,
+            RulesetAttackMode attackMode,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (attackMode.Ranged ||
+                !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
+                gameLocationBattleService == null ||
+                !gameLocationBattleService.IsWithin1Cell(attacker, defender))
+            {
+                return additionalDamage.DamageDieType;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, featureCloseQuarters);
+
+            return DieType.D8;
+        }
+
+        featureCloseQuarters.SetCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
+
+        static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
+        {
+            var hasSneakAttack = hero.GetFeaturesByType<FeatureDefinitionAdditionalDamage>()
+                .Any(x => x.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag));
+
+            var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", "Feature/&RogueSneakAttackTitle");
+
+            return hasSneakAttack ? (true, guiFormat) : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        }
+
+        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
+            .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
+            .AddToDB();
+
+        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Einar)
+            .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
+            .AddToDB();
+
+        feats.AddRange(closeQuartersDex, closeQuartersInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
+    }
+
+    #endregion
+
+    #region Poisoner
+
+    private static FeatDefinition BuildPoisoner()
+    {
+        const string Name = "FeatPoisoner";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
+                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+                    .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
+                    .AddToDB(),
+                FeatureDefinitionCraftingAffinityBuilder
+                    .Create($"CraftingAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                        ToolTypeDefinitions.PoisonersKitType)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Exploiter
+
+    private static FeatDefinition BuildExploiter()
+    {
+        const string Name = "FeatExploiter";
+
+        var featureExploiter = FeatureDefinitionBuilder
+            .Create("FeatureExploiter")
+            .SetGuiPresentation("FeatExploiter", Category.Feat)
+            .AddToDB();
+
+        featureExploiter.SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter(featureExploiter));
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .AddFeatures(featureExploiter)
+            .SetValidators(ValidatorsFeat.IsRogueLevel5)
+            .AddToDB();
+    }
+
+    private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
+    {
+        private readonly FeatureDefinition _featureExploiter;
+
+        public ReactToAttackOnMeOrAllyFinishedFeatExploiter(FeatureDefinition featureExploiter)
+        {
+            _featureExploiter = featureExploiter;
+        }
+
+        public IEnumerator HandleReactToAttackOnEnemyFinished(
+            GameLocationCharacter ally,
+            GameLocationCharacter me,
+            GameLocationCharacter enemy,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
+        {
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            //do not trigger on my own turn, so won't exploit on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
+            var rulesetEnemy = enemy.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                me == ally ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(enemy);
+
+            if (retaliationMode == null || retaliationMode.ranged)
+            {
+                yield break;
+            }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(enemy);
+            reactionParams.StringParameter = ally.Name;
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(me.RulesetCharacter, _featureExploiter);
+        }
+    }
+
+    #endregion
+
     #region Awaken The Beast Within
 
     private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
@@ -236,6 +454,7 @@ internal static class ClassFeats
                                 Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
                         Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
                     .SetFeatures(t.attributeModifier)
+                    .SetFeatFamily(NAME)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
                     .SetCustomSubFeatures(new CustomBehaviorFeatAwakenTheBeastWithin())
                     .AddToDB())
@@ -291,75 +510,6 @@ internal static class ClassFeats
 
     #endregion
 
-    #region Poisoner
-
-    private static FeatDefinition BuildPoisoner()
-    {
-        const string Name = "FeatPoisoner";
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
-                FeatureDefinitionCraftingAffinityBuilder
-                    .Create($"CraftingAffinity{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
-                        ToolTypeDefinitions.PoisonersKitType)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
-            .AddToDB();
-    }
-
-    internal static void TweakUseItemBonusActionId(
-        IControllableCharacter __instance,
-        ref ActionDefinitions.ActionStatus __result,
-        ActionDefinitions.Id actionId)
-    {
-        // no changes if not an available use item bonus action in battle
-        if (Gui.Battle == null ||
-            actionId != ActionDefinitions.Id.UseItemBonus ||
-            __result != ActionDefinitions.ActionStatus.Available)
-        {
-            return;
-        }
-
-        // no changes if character is Roguish Thief or Grenadier
-        var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
-                   __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-
-        if (hero == null ||
-            (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var rogueSub) &&
-             rogueSub.Name == "RoguishThief") ||
-            (hero.ClassesAndSubclasses.TryGetValue(InventorClass.Class, out var inventorSub) &&
-             inventorSub.Name == "InnovationAlchemy"))
-        {
-            return;
-        }
-
-        // no changes if device is poison
-        __instance.RulesetCharacter.RefreshUsableDeviceFunctions();
-
-        if (__instance.RulesetCharacter.EnumerateAvailableDevices(false)
-            .Where(enumerateAvailableDevice =>
-                __instance.RulesetCharacter.UsableDeviceFunctionsByDevice.ContainsKey(enumerateAvailableDevice))
-            .All(enumerateAvailableDevice =>
-                enumerateAvailableDevice.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
-        {
-            return;
-        }
-
-        __result = ActionDefinitions.ActionStatus.CannotPerform;
-    }
-
-    #endregion
-
     #region Cunning Escape
 
     private static FeatDefinition BuildCunningEscape()
@@ -368,7 +518,7 @@ internal static class ClassFeats
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new ActionFinishedFeatCunningEscape())
-            .SetValidators(ValidatorsFeat.IsRogueLevel4)
+            .SetValidators(ValidatorsFeat.IsRogueLevel3)
             .AddToDB();
     }
 
@@ -420,6 +570,7 @@ internal static class ClassFeats
                 feature,
                 AttributeModifierCreed_Of_Einar)
             .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         var hardyCon = FeatDefinitionWithPrerequisitesBuilder
@@ -429,6 +580,7 @@ internal static class ClassFeats
                 feature,
                 AttributeModifierCreed_Of_Arun)
             .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         feats.AddRange(hardyStr, hardyCon);
@@ -633,14 +785,26 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
-        var spellLists = new List<SpellListDefinition>
+        var spellLists = new List<List<SpellListDefinition>>
         {
-            SpellListDefinitions.SpellListBard,
-            SpellListDefinitions.SpellListCleric,
-            SpellListDefinitions.SpellListDruid,
-            SpellListDefinitions.SpellListSorcerer,
-            SpellListDefinitions.SpellListWizard,
-            InventorClass.SpellList
+            new() { SpellListDefinitions.SpellListBard },
+            new() { SpellListDefinitions.SpellListCleric },
+            new()
+            {
+                SpellListDefinitions.SpellListDruid,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperDruid")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListSorcerer,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperSorcerer")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListWizard,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
+            },
+            new() { InventorClass.SpellList }
         };
 
         var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
@@ -659,22 +823,24 @@ internal static class ClassFeats
         {
             var spellList = spellLists[i];
             var validator = validators[i];
-            var className = spellList.Name.Replace("SpellList", String.Empty);
+            var className = spellList[0].Name.Replace("SpellList", String.Empty);
             var classTitle = GetDefinition<CharacterClassDefinition>(className).FormatTitle();
             var featPotentSpellcaster = FeatDefinitionWithPrerequisitesBuilder
                 .Create($"{Name}{className}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList.ToArray()))
                 .SetValidators(validator)
+                .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
 
             potentSpellcasterFeats.Add(featPotentSpellcaster);
         }
 
-        var potentSpellcasterGroup = GroupFeats.MakeGroup(
-            "FeatGroupPotentSpellcaster", null, potentSpellcasterFeats);
+        var potentSpellcasterGroup = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupPotentSpellcaster", "PotentSpellcaster", ValidatorsFeat.IsLevel4,
+            potentSpellcasterFeats.ToArray());
 
         feats.AddRange(potentSpellcasterFeats);
 
@@ -683,62 +849,50 @@ internal static class ClassFeats
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
-        private readonly SpellListDefinition _spellListDefinition;
+        private readonly SpellListDefinition[] _spellListDefinition;
 
-        public ModifyMagicEffectFeatPotentSpellcaster(SpellListDefinition spellListDefinition)
+        public ModifyMagicEffectFeatPotentSpellcaster(params SpellListDefinition[] spellListDefinition)
         {
             _spellListDefinition = spellListDefinition;
         }
 
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition ||
-                !_spellListDefinition.SpellsByLevel
-                    .Any(x => x.Level == 0 && x.Spells.Contains(spellDefinition)))
+            if (definition is not SpellDefinition spellDefinition || spellDefinition.SpellLevel > 0)
             {
-                return effect;
+                return effectDescription;
             }
 
-            var damage = effect.FindFirstDamageForm();
+            // this might not be correct if same spell is learned from different classes
+            // if we follow other patches we should ideally identify all repertoires that can cast spell
+            // and use the one with highest attribute. will revisit if this ever becomes a thing
+            var spellRepertoire =
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spellDefinition));
+
+            if (spellRepertoire == null)
+            {
+                return effectDescription;
+            }
+
+            var damage = effectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
-                return effect;
+                return effectDescription;
             }
 
-            string attribute;
-
-            if (_spellListDefinition == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition == SpellListDefinitions.SpellListSorcerer)
-
-            {
-                attribute = AttributeDefinitions.Charisma;
-            }
-            else if (_spellListDefinition == SpellListDefinitions.SpellListCleric ||
-                     _spellListDefinition == SpellListDefinitions.SpellListDruid)
-            {
-                attribute = AttributeDefinitions.Wisdom;
-            }
-            else if (_spellListDefinition == SpellListDefinitions.SpellListWizard ||
-                     _spellListDefinition == InventorClass.SpellList)
-            {
-                attribute = AttributeDefinitions.Intelligence;
-            }
-            else
-            {
-                return effect;
-            }
-
+            var attribute = spellRepertoire.SpellCastingAbility;
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
                 "Feat/&FeatPotentSpellcasterTitle", null));
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -945,6 +1099,31 @@ internal static class ClassFeats
 
         var powerPoolList = new List<FeatureDefinitionPower>();
 
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("SlayTheEnemy")
+            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetIgnoreCriticalDoubleDice(true)
+            .SetFlatDamageBonus(0)
+            .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount,
+                DiceByRankBuilder.Build((1, 1), (2, 2), (3, 3)))
+            .AddToDB();
+
+        var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}Favorite")
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+        var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}Regular")
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetMyAttackModifier(ExtraCombatAffinityValueDetermination.ConditionAmountIfNotFavoriteEnemy)
+            .AddToDB();
+
         for (var i = 3; i >= 1; i--)
         {
             // closure
@@ -955,29 +1134,24 @@ internal static class ClassFeats
             var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"Power{NAME}{i}")
                 .SetGuiPresentation(
-                    Gui.Format($"Feature/&Power{NAME}Title", i.ToString(), rounds.ToString()),
+                    Gui.Format($"Feature/&Power{NAME}Title", Gui.ToRoman(i)),
                     Gui.Format($"Feature/&Power{NAME}Description", i.ToString(), rounds.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, powerPool)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.Round, rounds)
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"Condition{NAME}{i}")
-                                        .SetGuiPresentation(
-                                            "Condition/&ConditionFeatSlayTheEnemiesTitle",
-                                            Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
-                                                i.ToString()), ConditionDefinitions.ConditionTrueStrike)
-                                        .SetPossessive()
-                                        .AddToDB(),
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .Build())
+                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                    .SetDurationData(DurationType.Round, rounds)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create($"Condition{NAME}{i}")
+                            .SetGuiPresentation(
+                                "Condition/&ConditionFeatSlayTheEnemiesTitle",
+                                Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
+                                    i.ToString()), ConditionDefinitions.ConditionTrueStrike)
+                            .SetPossessive()
+                            .SetFixedAmount(i)
+                            .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
+                            .AddToDB()))
+                    .Build())
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(
                         c =>
@@ -987,10 +1161,10 @@ internal static class ClassFeats
                             c.GetClassSpellRepertoire(Ranger)?
                                 .GetSlotsNumber(a, out remaining, out _);
 
-                            var noCondition = ValidatorsCharacter.HasNoneOfConditions(
+                            var noCondition = !c.HasAnyConditionOfType(
                                 "ConditionFeatSlayTheEnemies1",
                                 "ConditionFeatSlayTheEnemies2",
-                                "ConditionFeatSlayTheEnemies3")(c);
+                                "ConditionFeatSlayTheEnemies3");
 
                             return remaining > 0 && noCondition;
                         }))
@@ -1006,99 +1180,8 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerPool)
             .SetValidators(ValidatorsFeat.IsRangerLevel1)
-            .SetCustomSubFeatures(
-                new OnComputeAttackModifierSlayTheEnemies(powerPool),
-                new ActionFinishedFeatSlayTheEnemies())
+            .SetCustomSubFeatures(new ActionFinishedFeatSlayTheEnemies())
             .AddToDB();
-    }
-
-    private sealed class OnComputeAttackModifierSlayTheEnemies : IPhysicalAttackInitiated
-    {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public OnComputeAttackModifierSlayTheEnemies(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
-        public IEnumerator OnAttackInitiated(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetCharacter == null || rulesetDefender == null)
-            {
-                yield break;
-            }
-
-            if (ValidatorsCharacter.HasNoneOfConditions(
-                    "ConditionFeatSlayTheEnemies1",
-                    "ConditionFeatSlayTheEnemies2",
-                    "ConditionFeatSlayTheEnemies3")(rulesetCharacter))
-            {
-                yield break;
-            }
-
-            if (attackerAttackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
-            {
-                yield break;
-            }
-
-            var damage = attackerAttackMode.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                yield break;
-            }
-
-            var spellLevel = 0;
-
-            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(rulesetCharacter))
-            {
-                spellLevel = 1;
-            }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(rulesetCharacter))
-            {
-                spellLevel = 2;
-            }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(rulesetCharacter))
-            {
-                spellLevel = 3;
-            }
-
-            if (IsFavoriteEnemy(rulesetCharacter, rulesetDefender))
-            {
-                attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-            }
-            else
-            {
-                attackerAttackMode.ToHitBonus += spellLevel;
-                attackerAttackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                    _featureDefinition.Name, _featureDefinition));
-            }
-
-            damage.BonusDamage += spellLevel;
-            damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                _featureDefinition.Name, _featureDefinition));
-        }
-
-        private static bool IsFavoriteEnemy(RulesetActor attacker, RulesetCharacter defender)
-        {
-            var favoredEnemyChoices = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
-                .Cast<FeatureDefinitionAdditionalDamage>();
-            var characterAdditionalDamages = attacker.GetFeaturesByType<FeatureDefinitionAdditionalDamage>();
-
-            return favoredEnemyChoices
-                .Intersect(characterAdditionalDamages)
-                .Any(x => x.RequiredCharacterFamily.Name == defender.CharacterFamily);
-        }
     }
 
     private sealed class ActionFinishedFeatSlayTheEnemies : IActionFinished

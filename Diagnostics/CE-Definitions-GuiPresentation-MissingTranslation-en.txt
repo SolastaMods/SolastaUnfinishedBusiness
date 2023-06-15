@@ -1,2 +1,4 @@
-WildShapeWaterElemental	Title='Monster/&IceElemental_Title'.
-WildShapeWaterElemental	Description='Monster/&IceElemental_Description'.
+AttributeModifierInnovationArmorExtraAttack	Title='Feature/&AttributeModifierInnovationArmorExtraAttackTitle'.
+AttributeModifierInnovationArmorExtraAttack	Description='Feature/&AttributeModifierInnovationArmorExtraAttackDescription'.
+AttributeModifierInnovationWeaponExtraAttack	Title='Feature/&AttributeModifierInnovationWeaponExtraAttackTitle'.
+AttributeModifierInnovationWeaponExtraAttack	Description='Feature/&AttributeModifierInnovationWeaponExtraAttackDescription'.

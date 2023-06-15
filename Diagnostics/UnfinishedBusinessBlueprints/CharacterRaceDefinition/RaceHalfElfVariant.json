@@ -60,7 +60,10 @@
     "bodyAssetPrefix": "Elf",
     "armorAssetPrefix": "Elf",
     "helmetAssetPrefix": "Elf",
-    "morphotypeAssetPrefix": "Elf",
+    "faceShapeAssetPrefix": "Elf",
+    "hairShapeAssetPrefix": "Elf",
+    "beardShapeAssetPrefix": "Elf",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [
       "Race/&HalfElfMaleName1Title",
       "Race/&HalfElfMaleName2Title",
@@ -131,7 +134,10 @@
       "FaceShape_HalfElf_NPC_Carran_Rightower",
       "FaceShape_HalfElf_NPC_Karel_Martel",
       "FaceShape_HalfElf_NPC_Zhoron",
-      "FaceShape_HalfElf_NPC_Hasdrubal_Swiftmind"
+      "FaceShape_HalfElf_NPC_Hasdrubal_Swiftmind",
+      "FaceShape_HalfElf_G",
+      "FaceShape_HalfElf_I",
+      "FaceShape_HalfElf_H"
     ],
     "femaleFaceShapeOptions": [
       "FaceShape_HalfElf_D",
@@ -141,7 +147,11 @@
       "FaceShape_HalfElf_B",
       "FaceShape_HalfElf_C",
       "FaceShape_HalfElf_NPC_Alena",
-      "FaceShape_HalfElf_NPC_Verissa_Ironshell"
+      "FaceShape_HalfElf_NPC_Verissa_Ironshell",
+      "FaceShape_HalfElf_G",
+      "FaceShape_HalfElf_I",
+      "FaceShape_HalfElf_H",
+      "FaceShape_HalfElf_NPC_LenaSwiftHand"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",
@@ -245,7 +255,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 1.0
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "HalfElf"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

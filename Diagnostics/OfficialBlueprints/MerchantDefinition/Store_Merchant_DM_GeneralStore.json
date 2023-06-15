@@ -685,20 +685,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
-      "stackCount": 1,
-      "initialAmount": 2,
-      "minAmount": 0,
-      "maxAmount": 20,
-      "reassortAmount": 1,
-      "reassortRateType": "Day",
-      "reassortRateValue": 1,
-      "requiredFaction": "",
-      "factionStatus": "Alliance"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:ComponentPouch_ArcaneAmulet:4ad08ea4bfa795f49b90f7cc3f483c4b",
       "stackCount": 1,
       "initialAmount": 2,

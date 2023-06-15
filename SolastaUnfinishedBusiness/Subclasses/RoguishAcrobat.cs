@@ -32,7 +32,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         var proficiencyAcrobatConnoisseur = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Maven")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
             .AddToDB();
 
         // Acrobat Protector
@@ -80,7 +80,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         var featureSwiftWind = FeatureDefinitionBuilder
             .Create($"Feature{Name}SwiftWind")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
+            .SetCustomSubFeatures(
+                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D6, DieType.D10), validWeapon))
             .AddToDB();
 
         var featureSetSwiftWind = FeatureDefinitionFeatureSetBuilder
@@ -142,7 +143,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         powerHeroicUncannyDodge.SetCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedHeroicUncannyDodge(powerHeroicUncannyDodge));
+            new PhysicalAttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -193,11 +194,11 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         }
     }
 
-    private class PhysicalAttackBeforeHitConfirmedHeroicUncannyDodge : IPhysicalAttackBeforeHitConfirmed
+    private class PhysicalAttackBeforeHitConfirmedOnMeHeroicUncannyDodge : IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public PhysicalAttackBeforeHitConfirmedHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
+        public PhysicalAttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
@@ -230,7 +231,17 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanReact())
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
@@ -254,7 +265,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
+            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+
             attackModifier.damageRollReduction = Int32.MaxValue;
         }
     }

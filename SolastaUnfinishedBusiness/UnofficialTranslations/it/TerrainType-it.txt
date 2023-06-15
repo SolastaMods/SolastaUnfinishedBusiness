@@ -1,0 +1,16 @@
+TerrainType/&ArcticDescription=Le aree di neve o permafrost sono considerate terreno artico. Attenzione, questo tipo di terreno non è utilizzato nella campagna Corona del Magister.
+TerrainType/&ArcticTitle=artico
+TerrainType/&BadlandsDescription=La maggior parte delle aree che coprono le ex province interne dell'Impero Manacalon, ora un mix selvaggio di vari tipi di terreno con manifestazioni caotiche di magia post-cataclisma, sono considerate terreno Badlands.
+TerrainType/&CoastDescription=Le aree che contengono una costa sono considerate terreno costiero. Attenzione, questo tipo di terreno non è utilizzato nella campagna Corona del Magister.
+TerrainType/&CoastTitle=Costa
+TerrainType/&DablandsTitle=Calanchi
+TerrainType/&DesertDescription=Le aree aride con poca o nessuna pioggia e vegetazione minima sono considerate terreno desertico.
+TerrainType/&DesertTitle=Deserto
+TerrainType/&ForestDescription=Le aree con vegetazione rigogliosa e vaste aree boschive sono considerate terreno forestale.
+TerrainType/&ForestTitle=foresta
+TerrainType/&GrasslandDescription=Le aree con foreste rare e vaste aree di pianure verdi sono considerate terreno erboso.
+TerrainType/&GrasslandTitle=Prateria
+TerrainType/&MountainDescription=Le aree con terreno roccioso, colline e montagne sono considerate terreno di montagna.
+TerrainType/&MountainTitle=Montagna
+TerrainType/&SwampDescription=Le aree con paludi e stagni e un'atmosfera umida sono considerate terreno paludoso.
+TerrainType/&SwampTitle=Pantano

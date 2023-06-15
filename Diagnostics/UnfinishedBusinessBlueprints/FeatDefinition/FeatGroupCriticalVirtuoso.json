@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupCriticalVirtuosoTitle",
-    "description": "You dedicated your time learning how to leverage enemies weak spots to increase your chance to critical damage.",
+    "description": "Improved Critical, Superior Critical",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3625,
+    9165,
     0,
     0,
     0
@@ -94,7 +94,7 @@
       "durationType": "Instantaneous",
       "durationParameter": 1,
       "endOfEffect": "EndOfTurn",
-      "hasSavingThrow": true,
+      "hasSavingThrow": false,
       "disableSavingThrowOnAllies": false,
       "savingThrowAbility": "Wisdom",
       "ignoreCover": false,
@@ -107,6 +107,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -130,7 +131,7 @@
           "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
-          "hasSavingThrow": true,
+          "hasSavingThrow": false,
           "savingThrowAffinity": "None",
           "dcModifier": 0,
           "canSaveToCancel": false,
@@ -165,7 +166,7 @@
           "diceByLevelTable": [],
           "createdByCharacter": false,
           "createdByCondition": false,
-          "hasSavingThrow": true,
+          "hasSavingThrow": false,
           "savingThrowAffinity": "HalfDamage",
           "dcModifier": 0,
           "canSaveToCancel": false,
@@ -392,7 +393,43 @@
     "ammunitionType": "ArrowType"
   },
   "isAmmunition": false,
-  "isUsableDevice": false,
+  "isUsableDevice": true,
+  "usableDeviceDescription": {
+    "$type": "UsableDeviceDescription, Assembly-CSharp",
+    "usage": "ByFunction",
+    "chargesCapital": "Fixed",
+    "chargesCapitalNumber": 1,
+    "chargesCapitalDie": "D1",
+    "chargesCapitalBonus": 0,
+    "rechargeRate": "Dawn",
+    "rechargeNumber": 1,
+    "rechargeDie": "D1",
+    "rechargeBonus": 0,
+    "outOfChargesConsequence": "Persist",
+    "magicAttackBonus": 0,
+    "saveDC": 10,
+    "deviceFunctions": [
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "ByFunction",
+        "useAffinity": "IterationPerRecharge",
+        "useAmount": 1,
+        "rechargeRate": "Dawn",
+        "durationType": "UntilLongRest",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "featureDefinitionPower": null
+      }
+    ],
+    "usableDeviceTags": [],
+    "onUseParticle": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
   "isTool": false,
   "isMusicalInstrument": false,
   "musicalInstrumentDefinition": {
@@ -530,6 +567,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -538,8 +576,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -565,6 +602,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "2c3c738da46fbcc4db88d7c4205bc97b",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "Enchanted_Rapier_Of_Harmony"
 }

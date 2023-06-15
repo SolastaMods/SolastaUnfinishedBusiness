@@ -1,4 +1,0 @@
-Power/&PowerStoneGolemSlow_Title=Lento
-Power/&PowerStoneGolemSlow_Description=Los golems de piedra pueden ralentizar a los enemigos cercanos.
-Power/&WightLifeDrain_Description=Los wights pueden drenar la esencia de la vida en un golpe cuerpo a cuerpo exitoso.
-Power/&WightLordCircleofDeath_Description=Un señor de los espectros puede drenar la esencia vital de los enemigos que lo rodean.

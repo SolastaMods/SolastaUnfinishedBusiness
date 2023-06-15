@@ -8,6 +8,9 @@
 
 import os
 import codecs
+from deep_translator import GoogleTranslator
+
+CHARS_MAX = 4500
 
 def unpack_record(record):
     term = ""
@@ -19,6 +22,16 @@ def unpack_record(record):
         term = record
 
     return term, text if text != "" else "EMPTY"
+
+def translate_text(text, code):
+    text = text.replace("\\n", "{99}")
+    if len(text) > 3 and len(text) <= CHARS_MAX:
+        translated = GoogleTranslator(source="auto", target=code).translate(text) 
+    else:
+        translated = text
+    translated = translated.replace("{99}", "\\n")
+
+    return translated
 
 def readRecord(filename):
     # read file and split with "=" to dict
@@ -48,7 +61,8 @@ def sync_file(input_file, output_file, code):
     # compare
     for key, value in inputDict.items():
         if key not in outputDict:
-            outputDict[key] = value
+            # outputDict[key] = value
+            outputDict[key] = translate_text(value, code)
             print(f"\t+ {output_file} add：{key}={value}")
     # write
     with open(output_file, "wt", encoding="utf-8") as f:
@@ -79,6 +93,13 @@ def sync_folder(root_folder_name, folder_name, code):
 def main():
     # sync cn language
     sync_folder("en", "en", "zh-CN")
+    sync_folder("en", "en", "ko")
+    sync_folder("en", "en", "ja")
+    sync_folder("en", "en", "pt")
+    sync_folder("en", "en", "es")
+    sync_folder("en", "en", "fr")
+    sync_folder("en", "en", "de")
+    sync_folder("en", "en", "it")
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
 Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 para mover la velocidad.
-Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Golpe de desactivación
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Huelga de inhabilitación
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 a la clase de armadura y velocidad de movimiento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Golpe de desactivación mejorado
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La primera vez que golpeas a una criatura con un ataque de arma en cada uno de tus turnos, debe hacer una tirada de salvación de Destreza contra la CD de tu hechizo de guardabosques o quedar obstaculizada durante un minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, finalizando el efecto si tiene éxito.
@@ -10,7 +10,7 @@ Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Obtienes hechizos de bon
 Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Hechizos de bonificación de superviviente
 Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription=Obtenga ventaja en las pruebas de Supervivencia para aumentar el conocimiento de las criaturas, así como todos los beneficios del estilo de lucha Verdugo.
 Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle=Mente analítica
-Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Obtenga competencia en Supervivencia, o experiencia si ya es competente.
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Obtienes competencia en la habilidad de supervivencia.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Desterrado errante
 Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Gana competencia en las tiradas de salvación de Sabiduría.
 Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Experiencia inigualable

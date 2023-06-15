@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
@@ -10,31 +9,14 @@ internal static class ToolsDisplay
 {
     internal const float DefaultFastTimeModifier = 1.5f;
 
-    private static bool DisplayAdventureToggle { get; set; }
-
-    private static bool DisplayFactionRelationsToggle { get; set; }
-
-    private static bool DisplaySettingsToggle { get; set; } = true;
-
     private static string ExportFileName { get; set; } =
         ServiceRepository.GetService<INetworkingService>().GetUserName();
-
-    private static void SetFactionRelation(string name, int value)
-    {
-        var service = ServiceRepository.GetService<IGameFactionService>();
-
-        service?.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
-            value - service.FactionRelations[name], "",
-            null /* this string and monster doesn't matter if we're using "SetValue" */);
-    }
 
     internal static void DisplayTools()
     {
         DisplayGeneral();
         DisplayAdventure();
-        DisplayFactionRelations();
         DisplaySettings();
-
         UI.Label();
     }
 
@@ -45,18 +27,24 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Update".Bold().Khaki(), () => BootContext.UpdateMod(), UI.Width((float)200));
-            UI.ActionButton("Rollback".Bold().Khaki(), BootContext.DisplayRollbackMessage, UI.Width((float)200));
-            UI.ActionButton("History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
+                UI.Width((float)200));
         }
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("<b>Donate:</b> GitHub".Khaki(), BootContext.OpenDonateGithub, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "Github"), UpdateContext.OpenDonateGithub,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "Patreon"), UpdateContext.OpenDonatePatreon,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "PayPal"), UpdateContext.OpenDonatePayPal,
+                UI.Width((float)200));
         }
 
         UI.Label();
@@ -65,6 +53,22 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUpdateMessage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUpdateMessage = toggle;
+        }
+
+        toggle = Main.Settings.DisableUnofficialTranslations;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableUnofficialTranslations = toggle;
+            Main.Settings.FixAsianLanguagesTextWrap = !toggle;
+        }
+
+        if (!Main.Settings.DisableUnofficialTranslations)
+        {
+            toggle = Main.Settings.FixAsianLanguagesTextWrap;
+            if (UI.Toggle(Gui.Localize("ModUi/&FixAsianLanguagesTextWrap"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FixAsianLanguagesTextWrap = toggle;
+            }
         }
 
         toggle = Main.Settings.EnableBetaContent;
@@ -125,23 +129,9 @@ internal static class ToolsDisplay
 
     private static void DisplayAdventure()
     {
-        var toggle = DisplayAdventureToggle;
-
         UI.Label();
 
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Adventure"), ref toggle))
-        {
-            DisplayAdventureToggle = toggle;
-        }
-
-        if (!DisplayAdventureToggle)
-        {
-            return;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.NoExperienceOnLevelUp;
+        var toggle = Main.Settings.NoExperienceOnLevelUp;
         if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.NoExperienceOnLevelUp = toggle;
@@ -212,9 +202,9 @@ internal static class ToolsDisplay
             return;
         }
 
-        var gameTime = Gui.GameCampaign.GameTime;
+        var gameCampaign = Gui.GameCampaign;
 
-        if (gameTime == null)
+        if (gameCampaign == null)
         {
             return;
         }
@@ -224,90 +214,15 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width((float)300));
-            UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width((float)100));
-            UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width((float)100));
-            UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width((float)100));
-            UI.ActionButton("24 hours", () => gameTime.UpdateTime(60 * 60 * 24), UI.Width((float)100));
-        }
-    }
-
-    private static void DisplayFactionRelations()
-    {
-        var toggle = DisplayFactionRelationsToggle;
-
-        UI.Label();
-
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle))
-        {
-            DisplayFactionRelationsToggle = toggle;
-        }
-
-        if (!DisplayFactionRelationsToggle)
-        {
-            return;
-        }
-
-        UI.Label();
-
-        var flip = true;
-        var gameCampaign = Gui.GameCampaign;
-        var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
-
-        // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
-        if (gameFactionService != null && gameCampaign != null &&
-            gameCampaign.CampaignDefinitionName != "UserCampaign")
-        {
-            foreach (var faction in gameFactionService.RegisteredFactions)
-            {
-                if (faction.BuiltIn)
-                {
-                    // These are things like monster factions, generally set to a specific relation and can't be changed.
-                    continue;
-                }
-
-                if (faction.GuiPresentation.Hidden)
-                {
-                    // These are things like Silent Whispers and Church Of Einar that are not fully implemented factions.
-                    continue;
-                }
-
-                var title = faction.FormatTitle();
-
-                title = flip ? title.Khaki() : title.White();
-
-                var intValue = gameFactionService.FactionRelations[faction.Name];
-
-                if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
-                        faction.MaxRelationCap, 0, "", UI.AutoWidth()))
-                {
-                    SetFactionRelation(faction.Name, intValue);
-                }
-
-                flip = !flip;
-            }
-        }
-        else
-        {
-            UI.Label(Gui.Localize("ModUi/&FactionHelp"));
+            UI.ActionButton("1 hour", () => gameCampaign.UpdateTime(60 * 60), UI.Width((float)100));
+            UI.ActionButton("6 hours", () => gameCampaign.UpdateTime(60 * 60 * 6), UI.Width((float)100));
+            UI.ActionButton("12 hours", () => gameCampaign.UpdateTime(60 * 60 * 12), UI.Width((float)100));
+            UI.ActionButton("24 hours", () => gameCampaign.UpdateTime(60 * 60 * 24), UI.Width((float)100));
         }
     }
 
     private static void DisplaySettings()
     {
-        var toggle = DisplaySettingsToggle;
-
-        UI.Label();
-
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Settings"), ref toggle))
-        {
-            DisplaySettingsToggle = toggle;
-        }
-
-        if (!DisplaySettingsToggle)
-        {
-            return;
-        }
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&SettingsHelp"));
         UI.Label();

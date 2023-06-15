@@ -24,57 +24,26 @@ internal static class AttacksOfOpportunity
         GameLocationCharacter attacker,
         GameLocationCharacter defender)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
-        // this happens during Aksha fight when she uses second veil a 2nd time
-        if (defender == null)
-        {
-            yield break;
-        }
-
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
         //Process features on attacker or defender
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+        var units = Gui.Battle.AllContenders
+            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            .ToList(); // avoid changing enumerator
 
         //Process other participants of the battle
-        foreach (var unit in units)
+        foreach (var unit in units
+                     .Where(unit => attacker != defender &&
+                                    unit != attacker &&
+                                    unit != defender &&
+                                    defender.RulesetCharacter.Side == unit.RulesetCharacter.Side &&
+                                    attacker.RulesetCharacter.Side != unit.RulesetCharacter.Side))
         {
-            if (attacker != unit && defender != unit)
+            foreach (var reaction in unit.RulesetCharacter.GetSubFeaturesByType<SentinelFeatMarker>()
+                         .Where(feature => feature.IsValid(unit, attacker)))
             {
-                yield return ProcessSentinel(unit, attacker, defender, battleManager, actionManager);
+                yield return reaction.Process(unit, attacker, null, battleManager, actionManager, false);
             }
-        }
-    }
-
-    private static IEnumerator ProcessSentinel(
-        [NotNull] GameLocationCharacter unit,
-        [NotNull] GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        GameLocationBattleManager battleManager,
-        GameLocationActionManager actionManager)
-    {
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender)
-        {
-            yield break;
-        }
-
-        foreach (var reaction in unit.RulesetActor.GetSubFeaturesByType<SentinelFeatMarker>()
-                     .Where(feature => feature.IsValid(unit, attacker)))
-        {
-            yield return reaction.Process(unit, attacker, null, battleManager, actionManager);
         }
     }
 
@@ -83,33 +52,22 @@ internal static class AttacksOfOpportunity
         MovingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
     }
 
-    internal static IEnumerator ProcessOnCharacterMoveEnd(GameLocationBattleManager battleManager,
+    internal static IEnumerator ProcessOnCharacterMoveEnd(
+        GameLocationBattleManager battleManager,
         GameLocationCharacter mover)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
-        var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+        var units = Gui.Battle.AllContenders
+            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            .ToList(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units)
         {
-            if (mover == unit
-                || !mover.IsOppositeSide(unit.Side)
-                || !MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
+            if (mover == unit ||
+                mover.Side == unit.Side ||
+                !MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
             {
                 continue;
             }
@@ -117,7 +75,7 @@ internal static class AttacksOfOpportunity
             foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
                          .Where(feature => feature.IsValid(unit, mover)))
             {
-                yield return brace.Process(unit, mover, movement, battleManager, actionManager);
+                yield return brace.Process(unit, mover, movement, battleManager, actionManager, brace.AllowRange);
             }
         }
     }
@@ -191,6 +149,8 @@ internal class CanMakeAoOOnReachEntered : CustomReactionAttack
     {
         Name = "ReactionAttackAoOEnter";
     }
+
+    public bool AllowRange { get; set; }
 }
 
 internal class CustomReactionAttack
@@ -222,12 +182,16 @@ internal class CustomReactionAttack
                && (ValidateMover?.Invoke(rulesetMover) ?? true);
     }
 
-    public IEnumerator Process([NotNull] GameLocationCharacter attacker, [NotNull] GameLocationCharacter mover,
-        (int3 from, int3 to)? movement, GameLocationBattleManager battleManager,
-        GameLocationActionManager actionManager)
+    public IEnumerator Process(
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter mover,
+        (int3 from, int3 to)? movement,
+        GameLocationBattleManager battleManager,
+        GameLocationActionManager actionManager,
+        bool allowRange)
     {
         if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement?.to, movement?.from,
-                out var mode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
+                out var mode, out var attackModifier, allowRange, battleManager, AccountAoOImmunity, WeaponValidator))
         {
             yield break;
         }

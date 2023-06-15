@@ -1,0 +1,12 @@
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=당신이 공격을 가하거나 주문으로 피해를 입힐 때, 그 공격이나 주문의 한 피해 굴림에 보너스 힘 피해로 카리스마 수정자를 추가하십시오.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=전쟁 마법사
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=갑옷 등급이 2 증가하고 민첩 내성 굴림에 능숙해집니다.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=전투 반사 신경
+Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=보너스 액션을 사용하여 1분 동안 소서러 레벨 + 카리스마 수정치에 해당하는 임시 히트 포인트를 얻을 수 있습니다. 2레벨부터는 사용하지 않으면 마법 포인트 2개를 대신 사용할 수 있습니다.
+Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=마나 쉴드
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=경갑, 중갑, 군용 무기에 대한 숙련도를 얻습니다.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=무술 훈련
+Feedback/&AdditionalDamageWarSorcererFormat=전쟁 마법사
+Feedback/&AdditionalDamageWarSorcererLine={0}은(는) {1}(+{2})에 War Sorcerer 피해를 입힙니다.
+Subclass/&SorcerousSpellBladeDescription=포스블레이드는 무술 능력과 타고난 마법 재능을 결합하여 적을 압도합니다.
+Subclass/&SorcerousSpellBladeTitle=포스블레이드

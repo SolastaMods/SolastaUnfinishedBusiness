@@ -1,0 +1,16 @@
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=지능 수정자 추가 주문을 준비하여 항상 필요한 것을 확보하십시오.
+Feature/&MagicAffinitySpellMasterExtraPreparedTitle=추가 준비
+Feature/&MagicAffinitySpellMasterKnowledgeDescription=레벨이 올라갈 때마다 추가 주문을 씁니다.
+Feature/&MagicAffinitySpellMasterKnowledgeTitle=지식의 폭
+Feature/&MagicAffinitySpellMasterPreparedDescription=숙련도 보너스 추가 주문을 준비하여 항상 필요한 것을 확보하십시오.
+Feature/&MagicAffinitySpellMasterPreparedTitle=준비하십시오
+Feature/&MagicAffinitySpellMasterRecoveryDescription=긴 휴식마다 한 번씩 주문 슬롯을 복구할 수 있습니다(아케인 복구에 추가).
+Feature/&MagicAffinitySpellMasterRecoveryTitle=신비한 깊이
+Feature/&MagicAffinitySpellMasterScriberDescription=스크라이빙 주문은 시간과 비용이 1/4로 줄어들고 이점이 있습니다.
+Feature/&MagicAffinitySpellMasterScriberTitle=마스터 스크라이버
+Feature/&PointPoolSpellMasterBonusCantripsDescription=알려진 2개의 추가 캔트립을 얻습니다.
+Feature/&PointPoolSpellMasterBonusCantripsTitle=보너스 캔트립
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=마법 훈련은 주문에 대한 내성 굴림에 유리합니다.
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=주문 저항
+Subclass/&WizardSpellMasterDescription=Spellmasters는 마법에 몰두하고 손에 넣을 수 있는 모든 주문을 배우려고 노력합니다. 그들은 주문 지식에서 타의 추종을 불허합니다.
+Subclass/&WizardSpellMasterTitle=스펠마스터

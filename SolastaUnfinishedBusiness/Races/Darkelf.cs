@@ -40,7 +40,7 @@ internal static class DarkelfSubraceBuilder
                 .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
                 .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
                 .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells()
                 .AddToDB())
             .AddToDB();
 

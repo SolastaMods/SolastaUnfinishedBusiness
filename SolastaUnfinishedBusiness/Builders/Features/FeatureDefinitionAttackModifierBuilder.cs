@@ -9,12 +9,14 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAttackModifierBuilder
     : DefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
+#if false
     internal FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
         AbilityScoreReplacement replacement)
     {
         Definition.abilityScoreReplacement = replacement;
         return this;
     }
+#endif
 
     internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(
         int value = 0,

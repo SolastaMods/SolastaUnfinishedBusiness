@@ -141,6 +141,14 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder AllowRetarget(
+        ActionDefinitions.ActionType action = ActionDefinitions.ActionType.Bonus)
+    {
+        effect.retargetAfterDeath = true;
+        effect.retargetActionType = action;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetTargetingData(
         Side targetSide,
         RangeType rangeType,
@@ -229,6 +237,27 @@ internal class EffectDescriptionBuilder
         EffectDifficultyClassComputation difficultyClassComputation,
         string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
         int fixedSavingThrowDifficultyClass = 10,
+        bool advantageForEnemies = false,
+        params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
+    {
+        return HasSavingThrow(
+            savingThrowAbility,
+            difficultyClassComputation,
+            savingThrowDifficultyAbility,
+            fixedSavingThrowDifficultyClass,
+            disableSavingThrowOnAllies,
+            ignoreCover,
+            advantageForEnemies,
+            savingThrowAffinitiesBySense);
+    }
+
+    internal EffectDescriptionBuilder HasSavingThrow(
+        string savingThrowAbility,
+        EffectDifficultyClassComputation difficultyClassComputation = EffectDifficultyClassComputation.FixedValue,
+        string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
+        int fixedSavingThrowDifficultyClass = 10,
+        bool disableSavingThrowOnAllies = false,
+        bool ignoreCover = false,
         bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
     {

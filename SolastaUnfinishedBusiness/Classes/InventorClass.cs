@@ -370,9 +370,10 @@ internal static class InventorClass
             .SetSubclassSuffix("InventorInnovation")
             .SetFilterByDeity(false)
             .SetSubclasses(
+                InnovationAlchemy.Build(),
                 InnovationArmor.Build(),
                 InnovationArtillerist.Build(),
-                InnovationAlchemy.Build(),
+                InnovationVivisectionist.Build(),
                 InnovationWeapon.Build()
             )
             .AddToDB());
@@ -381,7 +382,36 @@ internal static class InventorClass
 
         BuildCancelAllInfusionsRestActivity();
 
+        RegisterPoILoot();
+
         return Class;
+    }
+
+    /**Adds starting chest loot for PoI for Inventor class*/
+    private static void RegisterPoILoot()
+    {
+        var loot = LootPackDefinitionBuilder
+            .Create("UB_DLC3_Class_Lootpack_BasicChest_Inventor")
+            .SetGuiPresentationNoContent(true)
+            .AddExplicitItem(ItemDefinitions.SpearPlus2)
+            .AddExplicitItem(ItemDefinitions.ShieldPlus1)
+            .AddExplicitItem(CustomWeaponsContext.HandXbowAcid)
+            .AddExplicitItem(ItemDefinitions.Bolt, 40)
+            .AddExplicitItem(ItemDefinitions.BreastplatePlus1)
+            .AddExplicitItem(ItemDefinitions.StuddedLeather_plus_one)
+            .AddExplicitItem(ItemDefinitions.Backpack_Handy_Haversack)
+            .AddExplicitItem(ItemDefinitions.WandOfWarMagePlus1)
+            .AddExplicitItem(ItemDefinitions.RingDetectInvisible)
+            .AddToDB();
+
+        if (TryGetDefinition<CharacterToLootPackMapDefinition>("DLC3_CharacterToLootPackMap", out var map))
+        {
+            map.characterClassToLootPackMappings.Add(
+                new CharacterToLootPackMapDefinition.CharacterClassToLootPackMapping
+                {
+                    className = ClassName, lootPack = loot
+                });
+        }
     }
 
     private static FeatureDefinition BuildToolExpertise()
@@ -678,6 +708,7 @@ internal static class InventorClass
     internal static void LateLoadSpellStoringItem()
     {
         Class.FeatureUnlocks.Add(new FeatureUnlockByLevel(BuildSpellStoringItem(), 11));
+        Class.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private static FeatureDefinition BuildSpellStoringItem()
@@ -875,8 +906,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             return false;
         }
 
-        if (helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
-            ActionDefinitions.ActionStatus.Available)
+        if (!helper.CanReact())
         {
             return false;
         }
@@ -897,12 +927,10 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
     {
         var bonus = GetBonus(helper.RulesetActor);
 
-        saveOutcomeDelta += bonus;
-
         //reuse DC modifier from previous checks, not 100% sure this is correct
         var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDc + saveOutcomeDelta - bonus;
-        var success = saveOutcomeDelta >= 0;
+        var rolled = saveDc + saveOutcomeDelta + bonus;
+        var success = rolled >= saveDc;
 
         const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
         string result;
@@ -913,6 +941,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             result = GameConsole.SaveSuccessOutcome;
             resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
             saveOutcome = RollOutcome.Success;
+            saveOutcomeDelta += bonus;
         }
         else
         {

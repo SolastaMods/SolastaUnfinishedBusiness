@@ -12,9 +12,6 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:DamageAffinityFeatBlessingOfTheElementsFire:3ca39e22dc296064ca4b56889c6d843f",
-    "Definition:DamageAffinityFeatBlessingOfTheElementsCold:652689608ab5e5243b849dc2a29d79f6",
-    "Definition:DamageAffinityFeatBlessingOfTheElementsLightning:f858f8e5b913e414399f65cd15e16bc4",
     "Definition:PowerFeatBlessingOfTheElements:3a581696a8442aa468d9a9735a656073"
   ],
   "guiPresentation": {

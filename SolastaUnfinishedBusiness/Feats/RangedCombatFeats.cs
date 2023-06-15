@@ -200,8 +200,9 @@ internal static class RangedCombatFeats
         var conditionAdvantage = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Advantage")
             .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
             .AddFeatures(combatAffinity)
             .AddToDB();
 
@@ -210,7 +211,7 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddFeatures(combatAffinity, MovementAffinityConditionRestrained)
+            .AddFeatures(MovementAffinityConditionRestrained)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -226,7 +227,7 @@ internal static class RangedCombatFeats
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                            .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                             .SetEffectForms(
                                 EffectFormBuilder

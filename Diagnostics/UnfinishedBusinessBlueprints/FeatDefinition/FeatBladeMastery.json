@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerFeatBladeMastery:67c72872-97e3-5ee8-8ecf-e265017b77f5"
+    "Definition:AttributeModifierFeatBladeMastery:0b20d3c7-ec41-591d-943d-e1709702206a"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

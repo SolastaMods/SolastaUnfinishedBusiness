@@ -4,3 +4,4 @@ Tag/&PactTomeRitualSpellSpecialTagTitle=Pact Rituals
 Tag/&MysticArcanumSpellSpecialTagTitle=Mystic Arcanum
 Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=Magical Secrets Cantrip or Spell
 Tag/&BonusCantripsCantripSpecialTagTitle=Bonus Cantrips
+Tag/&ArcaneProfessorCantripSpecialTagTitle=Arcane Professor

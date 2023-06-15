@@ -82,13 +82,14 @@ public static class CharacterActionPatcher
         {
             var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter != null)
+            //PATCH: IActionInitiated
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
+                var iActionsInitiated = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
 
-                foreach (var modifyActionParam in modifyActionParams)
+                foreach (var iActionInitiated in iActionsInitiated)
                 {
-                    yield return modifyActionParam.OnActionInitiated(__instance);
+                    yield return iActionInitiated.OnActionInitiated(__instance);
                 }
             }
 
@@ -97,24 +98,31 @@ public static class CharacterActionPatcher
                 yield return values.Current;
             }
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
-            }
+                //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
+                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                    Gui.Battle != null &&
+                    rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
+                {
+                    __instance.ActingCharacter.UsedMainSpell = false;
+                    __instance.ActingCharacter.UsedMainCantrip = false;
+                }
 
-            //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
-            if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
-                rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
-            {
-                __instance.ActingCharacter.UsedMainSpell = false;
-                __instance.ActingCharacter.UsedMainCantrip = false;
-            }
+                //PATCH: clear determination cache on every action end
+                if (Main.Settings.UseOfficialFlankingRules &&
+                    Gui.Battle != null)
+                {
+                    FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
+                }
 
-            var onAfterActions = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
+                //PATCH: IActionFinished
+                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
 
-            foreach (var onAfterAction in onAfterActions)
-            {
-                yield return onAfterAction.OnActionFinished(__instance);
+                foreach (var iActionFinished in iActionsFinished)
+                {
+                    yield return iActionFinished.OnActionFinished(__instance);
+                }
             }
 
             //PATCH: support for character action tracking

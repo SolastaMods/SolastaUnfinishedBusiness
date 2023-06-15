@@ -101,7 +101,7 @@ public static class GameLocationManagerPatcher
                 gameLoreService.LearnRecipe(RecipeBasic_Bolts);
             }
 
-            //BUGFIX: remove carefully tracked dynamic item properties that have effect guid, but effect is removed
+            //PATCH: remove carefully tracked dynamic item properties that have effect guid, but effect is removed
             //fixes Inventor's Infusions sometimes breaking and lingering forever without ability to remove them
             ExtraCarefulTrackedItem.FixDynamicPropertiesWithoutEffect();
 

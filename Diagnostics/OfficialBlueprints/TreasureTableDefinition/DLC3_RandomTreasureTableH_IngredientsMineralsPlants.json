@@ -1,0 +1,171 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_BloodDaffodil:7d3fe4ee8c57f7f45bbc5be4e279b115",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_Dragonrose:e6aefc7519b006e489091c77fbca530c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Ingredient_DwarvenPrimrose:48e03ca4a5f3b8a47bcb385a8d6e3b22",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_Emperorseye:83578c84a3ecf00499e4aae6d314961e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_GallivanAmaranth:be5e78503dbad8d488b327ca8cd342ba",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_GoblinHairFungus:80cf95eb060947a4eadc3aa64dcd59c2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Ingredient_LilyOfTheBadlands:57fcf1816b97be04dbcc72ff373e067e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Moonflower:11b9d6eabd26bbd46a5c027c009fa2fa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Ingredient_PrimordialDragonstone:a3a9d0179e8d8a940a9d05987c000cfa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_PrimordialLavaStones:7d79576058568e54296eca2ebd5b405a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Projectile_Parts:1d2354616922cfd4484960a2ab0affc1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_RefinedOil:cd3fc4d6eb31a454d8e213653c4970d7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Serpentinite:6704bce3d2425b24ebe65ce9c668748a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Skarn:e97f0c5417a96c3439e8aaf66a58d342",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_TrollAcanthus:0e10275170f3d184eb54ff094f889077",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_StormHeather:a2365d0b9d4abfd4aba0f048b78c15ff",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e55ce1092585e1840a1ad55ed011f2ea",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableH_IngredientsMineralsPlants"
+}

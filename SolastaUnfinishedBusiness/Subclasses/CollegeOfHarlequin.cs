@@ -26,6 +26,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(ConditionDefinitions.ConditionFrightened.Features.ToArray())
             .AddFeatures(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones.Features.ToArray())
+            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .AddToDB();
 
         var powerTerrificPerformance = FeatureDefinitionPowerBuilder
@@ -266,7 +267,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             foreach (var enemy in battle.AllContenders
                          .Where(unit => attacker.IsOppositeSide(unit.Side))
-                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3)))
+                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3))
+                         .ToList())
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }

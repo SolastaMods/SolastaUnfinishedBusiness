@@ -30,7 +30,7 @@ internal static class RulesetCharacterExtensions
     internal static int GetSubclassLevel(
         this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
     {
-        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = character as RulesetCharacterHero ?? character?.OriginalFormCharacter as RulesetCharacterHero;
 
         // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
         if (hero == null ||
@@ -314,14 +314,14 @@ internal static class RulesetCharacterExtensions
 
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
-        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
 
         return hero?.GetClassLevel(classDefinition) ?? 0;
     }
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {
-        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
 
         return hero?.GetClassLevel(className) ?? 0;
     }
@@ -344,7 +344,7 @@ internal static class RulesetCharacterExtensions
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(instance, definition));
 
-            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
+            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
                 continue;
             }
@@ -534,5 +534,45 @@ internal static class RulesetCharacterExtensions
         return character.CanAttackOutcomeFromAlterationMagicalEffectFail(
             effect.EffectDescription.EffectForms,
             totalAttack);
+    }
+
+    internal static bool IsMyFavoriteEnemy(this RulesetCharacter me, RulesetCharacter enemy)
+    {
+        if (me == null || enemy == null)
+        {
+            return false;
+        }
+
+        return DatabaseHelper.FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
+            .OfType<FeatureDefinitionAdditionalDamage>()
+            .Intersect(me.GetFeaturesByType<FeatureDefinitionAdditionalDamage>())
+            .Any(x => x.RequiredCharacterFamily.Name == enemy.CharacterFamily);
+    }
+
+#if false
+    internal static void RemoveAllConditionsOfType(this RulesetCharacter character, string type)
+    {
+        character?.AllConditions
+            .Where(c => c.conditionDefinition.Name == type)
+            .ToList()
+            .ForEach(c => character.RemoveCondition(c, true, false));
+    }
+#endif
+
+    internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
+    {
+        if (!ServiceRepository.GetService<IWorldLocationEntityFactoryService>()
+                .TryFindWorldCharacter(character, out var worldCharacter))
+        {
+            return;
+        }
+
+        var labels = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
+        if (!labels.characterLabelsMap.TryGetValue(worldCharacter, out var label))
+        {
+            return;
+        }
+
+        label.EnqueueCaption(new CharacterLabel.CaptionInfo { caption = text, colorString = color });
     }
 }

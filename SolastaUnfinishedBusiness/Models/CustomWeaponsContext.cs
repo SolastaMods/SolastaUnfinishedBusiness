@@ -25,15 +25,30 @@ internal static class CustomWeaponsContext
     private const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
 
-    internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
-    internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType;
-    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
+    internal static WeaponTypeDefinition
+        HandXbowWeaponType,
+        LightningLauncherType,
+        ThunderGauntletType,
+        HalberdWeaponType,
+        PikeWeaponType,
+        LongMaceWeaponType;
 
+    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
-    private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
-    private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
-    private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
-    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
+
+    internal static ItemDefinition Halberd, HalberdPrimed, HalberdPlus2;
+    private static ItemDefinition HalberdPlus1, HalberdPlus3, HalberdLightning;
+
+    internal static ItemDefinition Pike, PikePrimed, PikePlus2;
+    private static ItemDefinition PikePlus1, PikePlus3, PikePsychic;
+
+    internal static ItemDefinition LongMace, LongMacePrimed, LongMacePlus2;
+    private static ItemDefinition LongMacePlus1, LongMacePlus3, LongMaceThunder;
+
+    internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus2;
+    private static ItemDefinition HandXbowPlus1, HandXbowPlus3;
+
+    internal static ItemDefinition HandXbowAcid;
 
     internal static void Load()
     {
@@ -149,7 +164,7 @@ internal static class CustomWeaponsContext
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.Individuals)
+                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.IndividualsUnique)
                             .ExcludeCaster()
                             .SetSavingThrowData(
                                 true,
@@ -167,10 +182,10 @@ internal static class CustomWeaponsContext
                 .Build())
             .Build();
 
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfForce, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfForce, 14, 18,
             ItemDefinitions.Ingredient_Enchant_Soul_Gem, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
 
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfPulling, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandwrapsOfPulling, 14, 18,
             ItemDefinitions.Ingredient_Enchant_Stardust, ItemDefinitions.Primed_Gauntlet), ShopItemType.ShopCrafting);
     }
 
@@ -231,27 +246,40 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Halberd, HalberdPrimed), ShopItemType.ShopCrafting);
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            950, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
+            1050, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
         HalberdPlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HalberdPlus1, ShopItemType.ShopMeleePlus1);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus1, 24, 10,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus1, 12, 14,
             HalberdPrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
-        var itemDefinition = ItemDefinitions.BattleaxePlus1;
+        var itemDefinition = ItemDefinitions.BattleaxePlus2;
 
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdP2Icon,
             properties: new[] { WeaponPlus2 });
         HalberdPlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HalberdPlus2, ShopItemType.ShopMeleePlus2);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus2, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus2, 14, 18,
             HalberdPrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
+        itemDefinition = ItemDefinitions.BattleaxePlus3;
+
+        HalberdPlus3 = BuildWeapon("CEHalberd+3", Halberd,
+            16000, true, VeryRare,
+            itemDefinition.ItemPresentation, icon: HalberdP3Icon,
+            properties: new[] { WeaponPlus3 });
+        HalberdPlus3.SetCustomSubFeatures(scale);
+        MerchantContext.AddItem(HalberdPlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus3, 16, 22,
+            HalberdPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
         HalberdLightning.SetCustomSubFeatures(scale);
@@ -259,7 +287,7 @@ internal static class CustomWeaponsContext
             .Create()
             .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
             .Build());
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdLightning, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdLightning, 14, 18,
             HalberdPrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
@@ -309,30 +337,45 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            950, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
+            1050, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
         PikePlus1.SetCustomSubFeatures(scale);
         PikePlus1.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(PikePlus1, ShopItemType.ShopMeleePlus1);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus1, 24, 10,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus1, 12, 14,
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
 
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikeP2Icon,
             properties: new[] { WeaponPlus2 });
         PikePlus2.SetCustomSubFeatures(scale);
         PikePlus2.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(PikePlus2, ShopItemType.ShopMeleePlus2);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus2, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus2, 14, 18,
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
+        itemDefinition = ItemDefinitions.MorningstarPlus3;
+
+        PikePlus3 = BuildWeapon("CEPike+3", Pike,
+            16000, true, VeryRare,
+            itemDefinition.ItemPresentation,
+            icon: PikeP3Icon,
+            properties: new[] { WeaponPlus3 });
+        PikePlus3.SetCustomSubFeatures(scale);
+        PikePlus3.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
+        MerchantContext.AddItem(PikePlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus3, 16, 22,
+            PikePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikePsychicIcon, needId: false,
             properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
@@ -342,7 +385,7 @@ internal static class CustomWeaponsContext
             .Create()
             .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
             .Build());
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePsychic, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePsychic, 14, 18,
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
@@ -390,27 +433,40 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            950, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
+            1050, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
         LongMacePlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(LongMacePlus1, ShopItemType.ShopMeleePlus1);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus1, 24, 10,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus1, 12, 14,
             LongMacePrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.MacePlus2;
 
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
             properties: new[] { WeaponPlus2 });
         LongMacePlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(LongMacePlus2, ShopItemType.ShopMeleePlus2);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus2, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus2, 14, 18,
             LongMacePrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
+        itemDefinition = ItemDefinitions.MacePlus3;
+
+        LongMacePlus3 = BuildWeapon("CELongMace+3", LongMace,
+            16000, true, VeryRare,
+            itemDefinition.ItemPresentation, icon: LongMaceP3Icon,
+            properties: new[] { WeaponPlus3 });
+        LongMacePlus3.SetCustomSubFeatures(scale);
+        MerchantContext.AddItem(LongMacePlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus3, 16, 22,
+            LongMacePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
         LongMaceThunder.SetCustomSubFeatures(scale);
@@ -418,7 +474,7 @@ internal static class CustomWeaponsContext
             .Create()
             .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
             .Build());
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMaceThunder, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMaceThunder, 14, 18,
             LongMacePrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
@@ -475,28 +531,39 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(HandXbow, HandXbowPrimed), ShopItemType.ShopCrafting);
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
-            950, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
+            1050, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
             properties: new[] { WeaponPlus1 });
         HandXbowPlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HandXbowPlus1, ShopItemType.ShopRangedPlus1);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus1, 24, 10,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus1, 12, 14,
             HandXbowPrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
         var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
 
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
             properties: new[] { WeaponPlus2 });
         HandXbowPlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HandXbowPlus2, ShopItemType.ShopRangedPlus2);
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus2, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus2, 14, 18,
             HandXbowPrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
+        HandXbowPlus3 = BuildWeapon("CEHandXbow+3", HandXbow,
+            16000, true, VeryRare,
+            itemDefinition.ItemPresentation, icon: HandXbowP3Icon, twoHanded: false,
+            properties: new[] { WeaponPlus3 });
+        HandXbowPlus3.SetCustomSubFeatures(scale);
+        MerchantContext.AddItem(HandXbowPlus3, ShopItemType.ShopRangedPlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus3, 16, 22,
+            HandXbowPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
         HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
-            2500, true, VeryRare,
+            4000, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
         HandXbowAcid.SetCustomSubFeatures(scale);
@@ -504,7 +571,7 @@ internal static class CustomWeaponsContext
             .Create()
             .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
             .Build());
-        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowAcid, 48, 16,
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowAcid, 14, 18,
             HandXbowPrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
     }
@@ -519,6 +586,7 @@ internal static class CustomWeaponsContext
 
         ProducedFlameDart = BuildWeapon("CEProducedFlameDart", ItemDefinitions.Dart, 0, true, Common,
             flame.ItemPresentation, icon: ProducedFlameThrow);
+        ProducedFlameDart.inDungeonEditor = false;
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
 
@@ -538,7 +606,7 @@ internal static class CustomWeaponsContext
                 new ModifyWeaponProducedFlameDice(),
                 new AddThrowProducedFlameAttack()
             )
-            .AddToDB(), false, EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden));
+            .AddToDB(), false));
 
         flame.IsWeapon = true;
         flame.weaponDefinition = weapon;
@@ -576,7 +644,7 @@ internal static class CustomWeaponsContext
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
-                    .SetGuiPresentation(CONDITION_NAME, Category.Condition)
+                    .SetGuiPresentationNoContent()
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
@@ -615,6 +683,7 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .AddToDB(), ConditionForm.ConditionOperation.Add, true)
             .Build());
@@ -682,10 +751,12 @@ internal static class CustomWeaponsContext
 
     #region Halberd Icons
 
-    private static AssetReferenceSprite _halberdIcon,
+    private static AssetReferenceSprite
+        _halberdIcon,
         _halberdPrimedIcon,
         _halberdP1Icon,
         _halberdP2Icon,
+        _halberdP3Icon,
         _halberdLightningIcon;
 
     [NotNull]
@@ -705,6 +776,10 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("Halberd_2", Resources.Halberd_2, 128);
 
     [NotNull]
+    private static AssetReferenceSprite HalberdP3Icon => _halberdP3Icon ??=
+        Sprites.GetSprite("Halberd_3", Resources.Halberd_2, 128);
+
+    [NotNull]
     private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
         Sprites.GetSprite("HalberdLightning", Resources.HalberdLightning, 128);
 
@@ -712,10 +787,12 @@ internal static class CustomWeaponsContext
 
     #region Pike Icons
 
-    private static AssetReferenceSprite _pikeIcon,
+    private static AssetReferenceSprite
+        _pikeIcon,
         _pikePrimedIcon,
         _pikeP1Icon,
         _pikeP2Icon,
+        _pikeP3Icon,
         _pikeLightningIcon;
 
     [NotNull]
@@ -735,6 +812,10 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("Pike_2", Resources.Pike_2, 128);
 
     [NotNull]
+    private static AssetReferenceSprite PikeP3Icon => _pikeP3Icon ??=
+        Sprites.GetSprite("Pike_3", Resources.Pike_2, 128);
+
+    [NotNull]
     private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
         Sprites.GetSprite("PikePsychic", Resources.PikePsychic, 128);
 
@@ -742,10 +823,12 @@ internal static class CustomWeaponsContext
 
     #region Long Mace Icons
 
-    private static AssetReferenceSprite _longMaceIcon,
+    private static AssetReferenceSprite
+        _longMaceIcon,
         _longMacePrimedIcon,
         _longMaceP1Icon,
         _longMaceP2Icon,
+        _longMaceP3Icon,
         _longMaceLightningIcon;
 
     [NotNull]
@@ -765,6 +848,10 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("LongMace_2", Resources.LongMace_2, 128);
 
     [NotNull]
+    private static AssetReferenceSprite LongMaceP3Icon => _longMaceP3Icon ??=
+        Sprites.GetSprite("LongMace_3", Resources.LongMace_2, 128);
+
+    [NotNull]
     private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
         Sprites.GetSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
 
@@ -776,6 +863,7 @@ internal static class CustomWeaponsContext
         _handXbowPrimedIcon,
         _handXbowP1Icon,
         _handXbowP2Icon,
+        _handXbowP3Icon,
         _handXbowAcidIcon;
 
     [NotNull]
@@ -793,6 +881,10 @@ internal static class CustomWeaponsContext
     [NotNull]
     private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
         Sprites.GetSprite("HandXbow_2", Resources.HandXbow_2, 128);
+
+    [NotNull]
+    private static AssetReferenceSprite HandXbowP3Icon => _handXbowP3Icon ??=
+        Sprites.GetSprite("HandXbow_3", Resources.HandXbow_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=

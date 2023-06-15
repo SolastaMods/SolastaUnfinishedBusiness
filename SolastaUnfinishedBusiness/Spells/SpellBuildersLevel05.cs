@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -14,53 +15,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 05
-
-    internal static SpellDefinition BuildBanishingSmite()
-    {
-        const string NAME = "BanishingSmite";
-
-        var conditionBanishingSmiteEnemy = ConditionDefinitionBuilder
-            .Create(ConditionBanished, $"Condition{NAME}Enemy")
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .AddToDB();
-
-        var additionalDamageBanishingSmite = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
-            .SetDamageDice(DieType.D10, 5)
-            .SetSpecificDamageType(DamageTypeForce)
-            .SetCustomSubFeatures(new OnAttackHitEffectBanishingSmite(conditionBanishingSmiteEnemy))
-            .AddToDB();
-
-        var conditionBanishingSmite = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
-            .SetPossessive()
-            .SetFeatures(additionalDamageBanishingSmite)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create(BrandingSmite, NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetSpellLevel(5)
-            .SetCastingTime(ActivationTime.BonusAction)
-            .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(conditionBanishingSmite, ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        return spell;
-    }
+    #region Far Step
 
     internal static SpellDefinition BuildFarStep()
     {
@@ -90,6 +45,10 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Mantle of Thorns
 
     internal static SpellDefinition BuildMantleOfThorns()
     {
@@ -129,6 +88,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Sonic Boom
+
     internal static SpellDefinition BuildSonicBoom()
     {
         const string NAME = "SonicBoom";
@@ -164,10 +127,106 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
-            .SetCustomSubFeatures(PushesFromEffectPoint.Marker)
+            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Banishing Smite
+
+    internal static SpellDefinition BuildBanishingSmite()
+    {
+        const string NAME = "BanishingSmite";
+
+        var conditionBanishingSmiteEnemy = ConditionDefinitionBuilder
+            .Create(ConditionBanished, $"Condition{NAME}Enemy")
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .AddToDB();
+
+        var additionalDamageBanishingSmite = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
+            .SetDamageDice(DieType.D10, 5)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetCustomSubFeatures(new OnAttackHitEffectBanishingSmite(conditionBanishingSmiteEnemy))
+            .AddToDB();
+
+        var conditionBanishingSmite = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
+            .SetFeatures(additionalDamageBanishingSmite)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(conditionBanishingSmite, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class OnAttackHitEffectBanishingSmite : IAttackEffectAfterDamage
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public OnAttackHitEffectBanishingSmite(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void OnAttackEffectAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                rulesetAttacker == null ||
+                rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying ||
+                rulesetDefender.CurrentHitPoints > 50)
+            {
+                return;
+            }
+
+            //TODO: ideally we need to banish extra planar creatures forever (kill them?)
+            rulesetDefender.InflictCondition(
+                _conditionDefinition.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
     }
 
     #endregion

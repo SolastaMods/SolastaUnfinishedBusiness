@@ -37,6 +37,13 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
+        var featureEnchantWeapon = FeatureDefinitionBuilder
+            .Create($"Feature{Name}EnchantWeapon")
+            .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
+            .SetCustomSubFeatures(
+                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEnchanted))
+            .AddToDB();
+
         var featureSetMartialTraining = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}MartialTraining")
             .SetGuiPresentation(Category.Feature)
@@ -56,8 +63,6 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                         EquipmentDefinitions.MartialWeaponCategory)
                     .AddToDB())
             .AddToDB();
-
-        // LEVEL 02
 
         // Mana Shield
 
@@ -111,11 +116,9 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         // LEVEL 14
 
-        const string WAR_SORCERER_NAME = $"AdditionalDamage{Name}WarSorcerer";
-
         var additionalDamageWarSorcererMagic = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}WarSorcererMagic")
-            .SetGuiPresentation(WAR_SORCERER_NAME, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("WarSorcerer")
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
@@ -126,7 +129,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         var additionalDamageWarSorcererWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}WarSorcererWeapon")
-            .SetGuiPresentation(WAR_SORCERER_NAME, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("WarSorcerer")
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()
@@ -171,10 +174,9 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("SorcererSpellBlade", Resources.SorcererSpellBlade, 256))
             .AddFeaturesAtLevel(1,
-                PowerArcaneFighterEnchantWeapon,
+                featureEnchantWeapon,
                 featureSetMartialTraining,
-                autoPreparedSpells)
-            .AddFeaturesAtLevel(2,
+                autoPreparedSpells,
                 featureSetManaShield)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
@@ -210,7 +212,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     {
         public PowerVisibilityModifierManaShieldPoints(FeatureDefinitionPower powerManaShield) :
             base((character, _, _) =>
-                character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2)
+                !character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2)
         {
         }
     }
@@ -228,15 +230,16 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             var classLevel = character.GetClassLevel(CharacterClassDefinitions.Sorcerer);
             var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healing = classLevel + Math.Max(1, charismaModifier);
 
-            effect.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
+            effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
             if (_consumedSlots)
             {
@@ -245,7 +248,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                     ?.RepayUse();
             }
 
-            return effect;
+            return effectDescription;
         }
     }
 }

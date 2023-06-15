@@ -4,11 +4,13 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:MagicAffinityConditionFlying:c7178572da6151f47873739b8c52b558"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

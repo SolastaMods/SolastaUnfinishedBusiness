@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Soul_Gem:21ac94fc3ec649b4ba9b6a8bc46b4c77",
   "stackCount": 1,
   "craftingHours": 16,

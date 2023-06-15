@@ -13,11 +13,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSoulBladeHex:96d71670-85c0-50d0-bb43-68e3f760a5dd",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSoulBladeEmpowerWeapon:f0387894-e020-5e52-92d5-f5b88bb6997d",
       "level": 1
     },

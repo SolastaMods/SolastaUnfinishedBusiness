@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=No puedes ser restringido.
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=No puedes ser restringido.
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Libertad de grieta
 Feature/&BonusCantripRiftWalkWardingBondDescription=Tu control de los portales de grietas ha aumentado hasta el punto de que ahora puedes otorgar la protección de la grieta a otros. Puedes lanzar un vínculo de protección a voluntad (sin compartir el daño).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Capa de grieta

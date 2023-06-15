@@ -30,6 +30,7 @@ internal static class SubclassesContext
         LoadSubclass(new PathOfTheReaver());
         LoadSubclass(new PathOfTheSavagery());
         LoadSubclass(new PathOfTheSpirits());
+        LoadSubclass(new PathOfTheYeoman());
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
@@ -59,6 +60,7 @@ internal static class SubclassesContext
         LoadSubclass(new OathOfAncients());
         LoadSubclass(new OathOfDread());
         LoadSubclass(new OathOfHatred());
+        LoadSubclass(new OathOfThunder(), true);
 
         // Ranger
         LoadSubclass(new RangerArcanist());
@@ -98,6 +100,7 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
+        LoadSubclass(new WizardGraviturgist());
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring

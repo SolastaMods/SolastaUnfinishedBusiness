@@ -78,10 +78,48 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
-                        RuleDefinitions.TargetType.Individuals)
+                        RuleDefinitions.TargetType.IndividualsUnique)
                     .Build())
             .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
             .AddToDB();
+
+        var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
+            .Create(powerAuraOfTheGuardian, $"Power{Name}AuraOfTheGuardian18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(powerAuraOfTheGuardian)
+            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
+            .AddToDB();
+
+        powerAuraOfTheGuardian18.EffectDescription.targetParameter = 13;
+
+        var magicAffinityExaltedProtector = FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagicAffinity{Name}ExaltedProtector")
+            .SetGuiPresentation($"Power{Name}ExaltedProtector", Category.Feature)
+            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
+            .AddToDB();
+
+        var conditionExaltedProtector = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ExaltedProtector")
+            .SetGuiPresentation(Category.Condition, ConditionBlessed)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(ConditionBlessed.Features)
+            .AddToDB();
+
+        conditionExaltedProtector.Features.Add(magicAffinityExaltedProtector);
+        conditionExaltedProtector.Features.Add(
+            FeatureDefinitionDeathSavingThrowAffinitys.DeathSavingThrowAffinityBeaconOfHope);
+
+        var powerExaltedProtector = FeatureDefinitionPowerBuilder
+            .Create(PowerPaladinAuraOfProtection, $"Power{Name}ExaltedProtector")
+            .SetUsesFixed(RuleDefinitions.ActivationTime.Permanent)
+            .SetGuiPresentation(Category.Feature, GuardianOfFaith)
+            .AddToDB();
+
+        powerExaltedProtector.EffectDescription.targetParameter = 13;
+        powerExaltedProtector.EffectDescription.EffectForms[0] = EffectFormBuilder
+            .Create()
+            .SetConditionForm(conditionExaltedProtector, ConditionForm.ConditionOperation.Add)
+            .Build();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -92,6 +130,8 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 featureSpiritualShielding)
             .AddFeaturesAtLevel(7, powerAuraOfTheGuardian)
             .AddFeaturesAtLevel(15, powerTakeThePain)
+            .AddFeaturesAtLevel(18, powerAuraOfTheGuardian18)
+            .AddFeaturesAtLevel(20, powerExaltedProtector)
             .AddToDB();
     }
 

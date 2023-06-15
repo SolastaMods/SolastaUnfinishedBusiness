@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Elemental",
   "creatureTags": [],
@@ -109,7 +109,10 @@
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
     "Definition:DamageAffinityFireVulnerability:3f6fefd9cd5a7e442b3173bafed47822",
-    "Definition:PowerIceElementalBlizzard:7415e71a3e5e7ab45b5aaf24aa74f108"
+    "Definition:PowerIceElementalBlizzard:7415e71a3e5e7ab45b5aaf24aa74f108",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -131,7 +134,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -154,7 +157,7 @@
     "customMaterials": [],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "9667fd7f6bdb8be4c83933525757b80c",
+      "m_AssetGUID": "c559fd9be2ccda7469fb5696ee6a422a",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -184,7 +187,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2a2913c5eec57a24da4af020cf0e0f0f",
+      "m_AssetGUID": "c7e1a02a8b0845d44aa851c266511b1c",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -268,6 +271,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "88e033bdd991d4d448f05fa220e683be",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "Ice_Elemental"
 }

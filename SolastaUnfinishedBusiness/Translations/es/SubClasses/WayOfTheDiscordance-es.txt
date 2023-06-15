@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Tu mente explotará en daño necrótico si entras en discordancia por tercera vez.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Tu mente explotará en daño necrótico si entras en discordancia por tercera vez.
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Discordancia
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=Toma -1d4 a las tiradas de salvación y -2 a las tiradas de ataque. Puedes intentar guardar al final de cada uno de tus turnos.
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=Agitación profunda
@@ -8,9 +8,9 @@ Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=A partir del nivel 6, ap
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Cisma
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=En el nivel 11, ganas la habilidad de provocar una erupción de energía negativa acumulada. Puedes aumentar el daño gastando puntos Ki. Cada punto que gastas, hasta un máximo de tu bonificador de competencia, aumenta el daño en 1d6.
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Explosión de desarmonía
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Gasta {0} Ki Point para infligir {1}d6 de daño.
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosión de desarmonía [{0} Ki]
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=A partir del nivel 17, cuando una criatura recibe daño de tu rasgo de Discordancia, debe tener éxito en la tirada de salvación de Carisma o recibir la condición de Agitación durante un máximo de un minuto. Si una criatura tiene éxito en la tirada de salvación o el efecto expira, la criatura es inmune a los efectos posteriores de Turmoil.
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=Agitación profunda
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Gasta {0} Ki Point para infligir {1}d6 de daño.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosión de desarmonía [{0} Ki]
 Subclass/&WayOfTheDiscordanceDescription=Mientras que la mayoría de los monjes buscan la iluminación a través de la contemplación y el logro de la paz interior, los monjes del Camino de la Discordancia, por otro lado, se centran en aprovechar las energías caóticas del universo. Estos eruditos místicos de la desarmonía explotan los conflictos internos de sus enemigos manipulando su Ki, devastándolos con ráfagas de energía distorsionadora.
 Subclass/&WayOfTheDiscordanceTitle=Camino de la discordancia

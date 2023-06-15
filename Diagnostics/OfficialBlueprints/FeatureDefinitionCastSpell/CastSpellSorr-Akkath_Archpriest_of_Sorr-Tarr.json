@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListSorr-Akkath_Archpriest_of_Sorr-Tarr:ff68b6a52afcb724c87e9e08464334c6",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 5,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,
@@ -281,6 +283,7 @@
   ],
   "focusType": "Arcane",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

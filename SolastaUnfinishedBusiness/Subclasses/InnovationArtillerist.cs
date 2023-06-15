@@ -58,10 +58,11 @@ public static class InnovationArtillerist
                     .Create(FlameStrike)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-                    .SetParticleEffectParameters(FlameStrike)
+                    .ExcludeCaster()
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.FixedValue, AttributeDefinitions.Intelligence, 15)
+                    .SetParticleEffectParameters(FlameStrike)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -97,7 +98,7 @@ public static class InnovationArtillerist
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyMagicAttackForceBallista())
+            .SetCustomSubFeatures(new ModifyMagicEffectOnActionStartForceBallista())
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -357,13 +358,12 @@ public static class InnovationArtillerist
 
         var additionalDamageArcaneFirearm = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{ArcaneFirearm}")
-            .SetGuiPresentation(ARCANE_FIREARM, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(ArcaneFirearm)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .AddToDB();
 
         var featureSetArcaneFirearm = FeatureDefinitionFeatureSetBuilder
@@ -870,9 +870,9 @@ public static class InnovationArtillerist
         return monster;
     }
 
-    private sealed class ModifyMagicAttackForceBallista : IModifyMagicAttack
+    private sealed class ModifyMagicEffectOnActionStartForceBallista : IModifyMagicEffectOnActionStart
     {
-        public void ModifyMagicAttack(CharacterActionMagicEffect characterActionMagicEffect)
+        public void OnMagicalEffectActionStarted(CharacterActionMagicEffect characterActionMagicEffect)
         {
             var rulesetCharacter = characterActionMagicEffect.ActingCharacter.RulesetCharacter;
             var rulesetCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
@@ -1043,7 +1043,7 @@ public static class InnovationArtillerist
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 
-            if (status != ActionStatus.Available)
+            if (status != ActionStatus.Available || !HasCannon(locationCharacter.RulesetCharacter))
             {
                 return;
             }

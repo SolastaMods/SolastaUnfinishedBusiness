@@ -2,58 +2,63 @@
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class SorcerousDivineHeart : AbstractSubclass
 {
+    private const string Name = "DivineHeart";
+    private const string OriginTag = "Origin";
+
     internal SorcerousDivineHeart()
     {
         var autoPreparedSpellsDivineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsDivineHeartArun")
+            .Create($"AutoPreparedSpells{Name}Arun")
             .SetGuiPresentation(Category.Feature)
-            .SetAutoTag("Origin")
+            .SetAutoTag(OriginTag)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, ProtectionFromEvilGood)
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartEinar = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsDivineHeartEinar")
+            .Create($"AutoPreparedSpells{Name}Einar")
             .SetGuiPresentation(Category.Feature)
-            .SetAutoTag("Origin")
+            .SetAutoTag(OriginTag)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, InflictWounds)
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartMariake = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsDivineHeartMariake")
+            .Create($"AutoPreparedSpells{Name}Mariake")
             .SetGuiPresentation(Category.Feature)
-            .SetAutoTag("Origin")
+            .SetAutoTag(OriginTag)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, CureWounds)
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartMisaye = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsDivineHeartMisaye")
+            .Create($"AutoPreparedSpells{Name}Misaye")
             .SetGuiPresentation(Category.Feature)
-            .SetAutoTag("Origin")
+            .SetAutoTag(OriginTag)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Bane)
             .AddToDB();
 
         var autoPreparedSpellsDivineHeartPakri = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsDivineHeartPakri")
+            .Create($"AutoPreparedSpells{Name}Pakri")
             .SetGuiPresentation(Category.Feature)
-            .SetAutoTag("Origin")
+            .SetAutoTag(OriginTag)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Bless)
             .AddToDB();
 
         var featureSetDivineHeartDeityChoice = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetDivineHeartDeityChoice")
+            .Create($"FeatureSet{Name}DeityChoice")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
@@ -65,70 +70,76 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .AddToDB();
 
         var attributeModifierDivineHeartDivineFortitude = FeatureDefinitionAttributeModifierBuilder
-            .Create(FeatureDefinitionAttributeModifiers.AttributeModifierDwarfHillToughness,
-                "AttributeModifierDivineHeartDivineFortitude")
+            .Create($"AttributeModifier{Name}DivineFortitude")
             .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
 
         var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
-                "MagicAffinityDivineHeartClericSpellsList")
+            .Create($"MagicAffinity{Name}ClericSpellsList")
             .SetGuiPresentation(Category.Feature)
             .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
             .AddToDB();
 
+        var dieRollModifierEmpoweredHealing = FeatureDefinitionDieRollModifierBuilder
+            .Create($"DieRollModifier{Name}EmpoweredHealing")
+            .SetGuiPresentation($"Power{Name}EmpoweredHealing", Category.Feature)
+            .SetModifiers(
+                RollContext.HealValueRoll,
+                1,
+                0,
+                2,
+                "Feature/&PowerDivineHeartEmpoweredHealingReroll")
+            .AddToDB();
+
         var conditionDivineHeartEmpoweredHealing = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, "ConditionDivineHeartEmpoweredHealing")
+            .Create(ConditionDefinitions.ConditionSorcererChildRiftDeflection, $"Condition{Name}EmpoweredHealing")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetFeatures(
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create(FeatureDefinitionDieRollModifiers.DieRollModifierEmpoweredSpell,
-                        "DieRollModifierDivineHeartEmpoweredHealing")
-                    .SetGuiPresentation("PowerDivineHeartEmpoweredHealing", Category.Feature)
-                    .SetModifiers(
-                        RollContext.HealValueRoll,
-                        1,
-                        0,
-                        2,
-                        "Feature/&PowerDivineHeartEmpoweredHealingReroll")
-                    .AddToDB())
+            .SetFeatures(dieRollModifierEmpoweredHealing)
             .AddToDB();
 
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing")
+            .Create($"Power{Name}EmpoweredHealing")
             .SetGuiPresentation(Category.Feature, HealingWord)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionDivineHeartEmpoweredHealing,
-                        ConditionForm.ConditionOperation.Add)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDivineHeartEmpoweredHealing,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerDivineHeartDivineFount = FeatureDefinitionPowerBuilder
-            .Create("PowerDivineHeartDivineFount")
+            .Create($"Power{Name}DivineFount")
             .SetGuiPresentation(Category.Feature, BeaconOfHope)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(FeatureDefinitionPowers.PowerSorcererManaPainterDrain.EffectDescription.EffectForms[1])
-                .Build())
-            .SetUsesAbilityBonus(ActivationTime.BonusAction,
-                RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetUsesAbilityBonus(
+                ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(PowerSorcererManaPainterDrain.EffectDescription.EffectForms[1])
+                    .Build())
             .AddToDB();
 
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
-            .Create("PowerDivineHeartPlanarPortal")
+            .Create($"Power{Name}PlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .AddToDB();
 
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
-            .Create("PowerDivineHeartDivineRecovery")
+            .Create($"Power{Name}DivineRecovery")
             .SetGuiPresentation(Category.Feature, Heal)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
@@ -139,9 +150,8 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("SorcerousDivineHeart")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("SorcererDivineHeart", Resources.SorcererDivineHeart, 256))
+            .Create($"Sorcerous{Name}")
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererDivineHeart, 256))
             .AddFeaturesAtLevel(1,
                 featureSetDivineHeartDeityChoice,
                 attributeModifierDivineHeartDivineFortitude,

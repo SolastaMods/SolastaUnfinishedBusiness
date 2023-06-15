@@ -4,12 +4,12 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityFeatSteadyAim:5e3963df-c4cd-5d2d-a14b-181e816a5713",
     "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

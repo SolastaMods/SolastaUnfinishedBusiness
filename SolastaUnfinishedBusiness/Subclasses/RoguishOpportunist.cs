@@ -117,26 +117,6 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-#if false
-    private sealed class CustomBehaviorExposingWeakness : IFeatureDefinitionCustomCode
-    {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public CustomBehaviorExposingWeakness(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == _featureDefinition);
-            }
-        }
-    }
-#endif
-
     private sealed class AttackComputeModifierOpportunistQuickStrike : IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureDefinition;
@@ -162,7 +142,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             var hero = GameLocationCharacter.GetFromActor(myself);
             var target = GameLocationCharacter.GetFromActor(defender);
 
-            if (attackMode == null)
+            if (attackMode == null || hero == null || target == null)
             {
                 return;
             }
@@ -197,14 +177,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (target.RulesetCharacter == null)
-            {
-                yield break;
-            }
-
-            if (target.Side == me.Side || me == target ||
-                me.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
-                ActionDefinitions.ActionStatus.Available)
+            if (target.Side == me.Side || !me.CanReact())
             {
                 yield break;
             }

@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&ConstructTitle",
-    "description": "CharacterFamily/&ConstructDescription",
+    "title": "Construct",
+    "description": "Constructs are made, not born. Some are programmed by their creators to follow a simple set of instructions, while others are imbued with sentience and capable of independent thought.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9c171671-31b1-54c7-a316-ab2e9cfa8176",

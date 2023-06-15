@@ -33,6 +33,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialWeaponMasterDeadlyAccuracy:6132126e-1524-563e-b218-14dbd496f7a7",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b",
       "level": 15
     },

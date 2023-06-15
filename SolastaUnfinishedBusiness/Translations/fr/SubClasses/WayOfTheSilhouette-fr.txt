@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Vous pouvez dépenser 2 points Ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Vous pouvez dépenser 2 points Ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Arts de la silhouette
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cape of Silhouettes fonctionne désormais dans la pénombre et l'obscurité magique en plus de l'obscurité naturelle.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Cape de silhouettes améliorée
@@ -15,4 +15,4 @@ Reaction/&SpendPowerShadowySanctuaryReactDescription=Utilisez votre réaction po
 Reaction/&SpendPowerShadowySanctuaryReactTitle=Sanctuaire ténébreux
 Reaction/&SpendPowerShadowySanctuaryTitle=Sanctuaire ténébreux
 Subclass/&WayOfSilhouetteDescription=Les praticiens de la Voie de la Silhouette suivent une tradition qui valorise la furtivité et le subterfuge. Ces moines servent d'espions et d'assassins. Parfois, les membres d'un monastère ninja sont des membres de la famille, formant un clan qui a juré de garder le secret sur leurs arts et leurs missions. D'autres monastères ressemblent davantage à des guildes de voleurs, louant leurs services à des nobles, à de riches marchands ou à toute autre personne pouvant payer leurs frais. Indépendamment de leurs méthodes, les chefs de ces monastères attendent l'obéissance inconditionnelle de leurs étudiants.
-Subclass/&WayOfSilhouetteTitle=Chemin de la silhouette
+Subclass/&WayOfSilhouetteTitle=Chemin de la Silhouette

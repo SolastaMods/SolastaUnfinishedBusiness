@@ -152,7 +152,7 @@ public static class RulesetCharacterHeroPatcher
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(__instance, definition));
 
-            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
+            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
                 __result = false;
 
@@ -271,8 +271,8 @@ public static class RulesetCharacterHeroPatcher
                         hero.TryGetAttributeValue(provider.AttackRollAbilityScore));
                     break;
                 case RuleDefinitions.AttackModifierMethod.None:
-                    break;
                 case RuleDefinitions.AttackModifierMethod.FlatValue:
+                    //These require no additional processing
                     break;
                 case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
                     num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
@@ -291,16 +291,12 @@ public static class RulesetCharacterHeroPatcher
             switch (provider.DamageRollModifierMethod)
             {
                 case RuleDefinitions.AttackModifierMethod.SourceConditionAmount:
-                    num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
-                    break;
-                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus when
-                    !string.IsNullOrEmpty(provider.DamageRollAbilityScore):
-                    num += AttributeDefinitions.ComputeAbilityScoreModifier(
-                        hero.TryGetAttributeValue(provider.DamageRollAbilityScore));
+                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus:
+                    //These are processed by base method
                     break;
                 case RuleDefinitions.AttackModifierMethod.None:
-                    break;
                 case RuleDefinitions.AttackModifierMethod.FlatValue:
+                    //These require no additional processing
                     break;
                 case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
                     num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);

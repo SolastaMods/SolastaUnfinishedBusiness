@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListFeatSpellSniperWarlock:28c9be90-0099-50ef-8232-9c780442c448",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,
@@ -246,11 +248,12 @@
   ],
   "focusType": "Arcane",
   "hasAccessToInvocations": true,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Sniper",
-    "description": "You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
+    "description": "You learn one cantrip of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

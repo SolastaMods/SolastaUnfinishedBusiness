@@ -147,6 +147,8 @@ public static class CharacterActionPanelPatcher
                 ActionDefinitions.Id,
                 bool,
                 bool,
+                bool,
+                ActionDefinitions.ReadyActionType,
                 GuiCharacterAction,
                 RulesetAttackMode
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromGuiAction).Method;
@@ -247,12 +249,14 @@ public static class CharacterActionPanelPatcher
             CharacterActionPanel __instance,
             // RulesetSpellRepertoire spellRepertoire,
             ref SpellDefinition spellDefinition,
-            int slotLevel)
+            ref int slotLevel)
         {
+            var spell = spellDefinition; // cannot pass ref to enumerator
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+
+            //PATCH: supports IBypassSpellConcentration
             var spellLevel = spellDefinition.SpellLevel;
             var upcastDelta = slotLevel - spellLevel;
-            var spell = spellDefinition; // cannot pass ref to enumerator
             var requiresConcentration = !rulesetCharacter
                 .GetSubFeaturesByType<IBypassSpellConcentration>()
                 .Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
@@ -263,6 +267,45 @@ public static class CharacterActionPanelPatcher
                 spellDefinition =
                     DatabaseHelper.GetDefinition<SpellDefinition>($"{spellDefinition.Name}NoConcentration");
             }
+        }
+    }
+
+    //PATCH: don't display the break free selection panel if restrained by web or or ice bound
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SelectBreakFreeMode))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SelectBreakFreeMode_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(CharacterActionPanel __instance)
+        {
+            var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+
+            RulesetCondition restrainingCondition = null;
+
+            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(
+                rulesetCharacter.FeaturesToBrowse);
+
+            foreach (var definitionActionAffinity in rulesetCharacter.FeaturesToBrowse
+                         .Cast<FeatureDefinitionActionAffinity>()
+                         .Where(definitionActionAffinity => definitionActionAffinity.AuthorizedActions
+                             .Contains(ActionDefinitions.Id.BreakFree)))
+            {
+                restrainingCondition = rulesetCharacter.FindFirstConditionHoldingFeature(definitionActionAffinity);
+            }
+
+            if (restrainingCondition?.ConditionDefinition.Name is not
+                ("ConditionGrappledRestrainedIceBound" or "ConditionGrappledRestrainedSpellWeb"))
+            {
+                return true;
+            }
+
+            __instance.actionParams.BreakFreeMode = ActionDefinitions.BreakFreeMode.Athletics;
+
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(__instance.actionParams.Clone(), __instance.ActionExecuted, false);
+
+            return false;
         }
     }
 }

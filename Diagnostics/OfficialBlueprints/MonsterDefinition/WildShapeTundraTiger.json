@@ -8,7 +8,7 @@
   ],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
-  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Unaligned",
   "armorClass": 15,
   "armor": "",
@@ -176,18 +176,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "16ea44c14cff0a04aabb7c4accf2d813",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.655,
+    "maleModelScale": 0.37,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "16ea44c14cff0a04aabb7c4accf2d813",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.655,
+    "femaleModelScale": 0.37,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

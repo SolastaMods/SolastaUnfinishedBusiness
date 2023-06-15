@@ -22,7 +22,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RangerLightBearer : AbstractSubclass
 {
-    private const string Name = "RangerLightBearer";
+    internal const string Name = "RangerLightBearer";
 
     internal RangerLightBearer()
     {
@@ -82,7 +82,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyAttackModeForWeaponBlessedWarrior(conditionBlessedWarrior))
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -107,24 +107,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands, $"Power{Name}LifeBringer")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerLifeBringer", Resources.PowerLifeBringer, 256, 128))
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
-                    .SetRestrictedCreatureFamilies(
-                        DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
-                            .Where(x => x != CharacterFamilyDefinitions.Construct &&
-                                        x != CharacterFamilyDefinitions.Undead)
-                            .Select(x => x.Name)
-                            .ToArray())
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(HealingComputation.Pool, 0, DieType.D1, 0, true,
-                                HealingCap.HalfMaximumHitPoints)
-                            .Build())
-                    .Build())
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.HealingPool, 0)
             .AddToDB();
 
         // LEVEL 07
@@ -304,35 +287,30 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IAttackEffectBeforeDamage
+    private sealed class PhysicalAttackInitiatedBlessedWarrior : IPhysicalAttackInitiated
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public ModifyAttackModeForWeaponBlessedWarrior(ConditionDefinition conditionDefinition)
+        public PhysicalAttackInitiatedBlessedWarrior(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnAttackEffectBeforeDamage(
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
         {
-            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDyingOrUnconscious ||
+                rulesetDefender.IsDeadOrDying ||
                 !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
-                return;
+                yield break;
             }
 
             var effectDescription = attackMode.EffectDescription;
@@ -418,6 +396,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
+            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
 
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
@@ -425,14 +405,12 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .ToList()
-                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
-                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5))
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
+                         .ToList()) // avoid changing enumerator
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
-
-            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
         }
     }
 
@@ -490,7 +468,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     opposingContender != defender && opposingContender.RulesetCharacter is
                     {
                         IsDeadOrDyingOrUnconscious: false
-                    } && opposingContender.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available &&
+                    } && opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&
                     opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
                     ActionStatus.Available)

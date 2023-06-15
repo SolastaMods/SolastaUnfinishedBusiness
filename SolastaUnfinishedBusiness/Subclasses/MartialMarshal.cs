@@ -132,7 +132,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .Build())
             .AddToDB();
     }
@@ -422,19 +422,14 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
 
-                if (gameLocationMonster.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                    ActionDefinitions.ActionStatus.Available
-                    && !gameLocationMonster.Prone)
+                if (gameLocationMonster.CanReact())
                 {
                     allies.Add(gameLocationMonster);
                 }
             }
 
             allies.AddRange(characterService.PartyCharacters
-                .Where(partyCharacter =>
-                    partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0 &&
-                    !partyCharacter.Prone)
-                .Where(partyCharacter => partyCharacter != me));
+                .Where(partyCharacter => partyCharacter.CanReact() && partyCharacter != me));
 
             var reactions = new List<CharacterActionParams>();
 
@@ -618,7 +613,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             var rulesetMe = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetMe == null || rulesetAttacker == null)
+            if (rulesetMe == null || rulesetAttacker == null || rulesetAttacker.IsDeadOrDying)
             {
                 yield break;
             }

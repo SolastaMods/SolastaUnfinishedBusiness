@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -10,8 +9,11 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -27,23 +29,6 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         var featureVoraciousFury = FeatureDefinitionBuilder
             .Create($"Feature{Name}VoraciousFury")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new AttackEffectAfterDamageVoraciousFury(),
-                new CustomAdditionalDamageVoraciousFury(
-                    FeatureDefinitionAdditionalDamageBuilder
-                        .Create($"AdditionalDamage{Name}VoraciousFury")
-                        .SetGuiPresentation($"Feature{Name}VoraciousFury", Category.Feature)
-                        .SetNotificationTag("VoraciousFury")
-                        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-                        .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-                        .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
-                        .SetImpactParticleReference(ConditionDefinitions
-                            .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
-                        .SetDamageDice(DieType.D1, 2)
-                        .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
-                        .SetSpecificDamageType(DamageTypeNecrotic)
-                        .SetCustomSubFeatures(new BarbarianHolder())
-                        .AddToDB()))
             .AddToDB();
 
         // LEVEL 06
@@ -53,7 +38,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}ProfaneVitality")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
+                    .AddToDB())
             .AddToDB();
 
         // LEVEL 10
@@ -65,43 +55,21 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerBloodbath.SetCustomSubFeatures(new TargetReducedToZeroHpBloodbath(powerBloodbath));
-
         // LEVEL 14
 
         var featureCorruptedBlood = FeatureDefinitionBuilder
             .Create($"Feature{Name}CorruptedBlood")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures()
-            .AddToDB();
-
-        var conditionCorruptedBlood = ConditionDefinitionBuilder
-            .Create($"Condition{Name}CorruptedBlood")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(featureCorruptedBlood)
-            .AddToDB();
-
-        var powerCorruptedBlood = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}CorruptedBlood")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionCorruptedBlood, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
             .AddToDB();
 
+        // CONNECT ALL THEM TOGETHER NOW
+
+        featureVoraciousFury.SetCustomSubFeatures(
+            new PhysicalAttackFinishedVoraciousFury(featureVoraciousFury, powerBloodbath));
+        powerBloodbath.SetCustomSubFeatures(
+            new TargetReducedToZeroHpBloodbath(powerBloodbath));
         featureCorruptedBlood.SetCustomSubFeatures(
-            new AttackEffectAfterDamageCorruptedBlood(conditionCorruptedBlood, powerCorruptedBlood));
+            new PhysicalAttackFinishedOnMeCorruptedBlood(featureCorruptedBlood, powerBloodbath));
 
         // MAIN
 
@@ -111,7 +79,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .AddFeaturesAtLevel(3, featureVoraciousFury)
             .AddFeaturesAtLevel(6, featureSetProfaneVitality)
             .AddFeaturesAtLevel(10, powerBloodbath)
-            .AddFeaturesAtLevel(14, powerCorruptedBlood)
+            .AddFeaturesAtLevel(14, featureCorruptedBlood)
             .AddToDB();
     }
 
@@ -123,87 +91,195 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
-    {
-        var isValid = (ValidatorsWeapon.IsMelee(attackMode) ||
-                       ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
-                      ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
-                      ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
+    //
+    // Common Helpers
+    //
 
-        return isValid;
+    private static void InflictDamage(
+        RulesetEntity rulesetAttacker,
+        RulesetActor rulesetDefender,
+        int totalDamage,
+        List<string> attackTags)
+    {
+        var damageForm = new DamageForm
+        {
+            DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
+        };
+
+        RulesetActor.InflictDamage(
+            totalDamage,
+            damageForm,
+            DamageTypeNecrotic,
+            new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+            rulesetDefender,
+            false,
+            rulesetAttacker.Guid,
+            false,
+            attackTags,
+            new RollInfo(DieType.D1, new List<int>(), totalDamage),
+            false,
+            out _);
+    }
+
+    private static void ReceiveHealing(GameLocationCharacter gameLocationCharacter, int totalHealing)
+    {
+        EffectHelpers.StartVisualEffect(
+            gameLocationCharacter, gameLocationCharacter, Heal, EffectHelpers.EffectType.Effect);
+        gameLocationCharacter.RulesetCharacter.ReceiveHealing(totalHealing, true, gameLocationCharacter.Guid);
+    }
+
+    private static IEnumerator HandleEnemyDeath(
+        GameLocationCharacter attacker,
+        RulesetAttackMode attackMode,
+        FeatureDefinitionPower featureDefinitionPower)
+    {
+        var gameLocationActionService =
+            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        var gameLocationBattleService =
+            ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (gameLocationActionService == null || gameLocationBattleService == null)
+        {
+            yield break;
+        }
+
+        var rulesetAttacker = attacker.RulesetCharacter;
+
+        if (rulesetAttacker.MissingHitPoints == 0 || !rulesetAttacker.HasConditionOfType(ConditionRaging))
+        {
+            yield break;
+        }
+
+        if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode))
+        {
+            yield break;
+        }
+
+        if (rulesetAttacker.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
+        {
+            yield break;
+        }
+
+        rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
+
+        var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
+        var totalHealing = 2 * classLevel;
+        var reactionParams =
+            new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter =
+                    Gui.Format("Reaction/&CustomReactionBloodbathDescription", totalHealing.ToString())
+            };
+        var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
+        var reactionRequest = new ReactionRequestCustom("Bloodbath", reactionParams);
+
+        gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+        yield return gameLocationBattleService.WaitForReactions(
+            attacker, gameLocationActionService, previousReactionCount);
+
+        if (!reactionParams.ReactionValidated)
+        {
+            yield break;
+        }
+
+        GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, featureDefinitionPower);
+        ReceiveHealing(attacker, totalHealing);
     }
 
     //
-    // Corrupted Blood
+    // Voracious Fury
     //
 
-    private class AttackEffectAfterDamageCorruptedBlood : IAttackEffectAfterDamage
+    private sealed class PhysicalAttackFinishedVoraciousFury : IPhysicalAttackFinished
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinition _featureVoraciousFury;
+        private readonly FeatureDefinitionPower _powerBloodBath;
 
-        public AttackEffectAfterDamageCorruptedBlood(
-            ConditionDefinition conditionDefinition,
-            FeatureDefinitionPower featureDefinitionPower)
+        public PhysicalAttackFinishedVoraciousFury(
+            FeatureDefinition featureVoraciousFury,
+            FeatureDefinitionPower powerBloodBath)
         {
-            _conditionDefinition = conditionDefinition;
-            _featureDefinitionPower = featureDefinitionPower;
+            _featureVoraciousFury = featureVoraciousFury;
+            _powerBloodBath = powerBloodBath;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public IEnumerator OnAttackFinished(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker == null)
+            {
+                yield break;
+            }
+
+            if (!IsVoraciousFuryValidContext(rulesetAttacker, attackMode))
+            {
+                yield break;
+            }
+
+            if (attacker.UsedSpecialFeatures.ContainsKey(_featureVoraciousFury.Name) ||
+                Gui.Battle == null || Gui.Battle.ActiveContender != attacker)
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd(_featureVoraciousFury.Name, 1);
+
+            var multiplier = 1;
+
+            if (outcome is RollOutcome.CriticalSuccess)
+            {
+                multiplier += 1;
+            }
+
+            if (rulesetAttacker.MissingHitPoints > rulesetAttacker.CurrentHitPoints)
+            {
+                multiplier += 1;
+            }
+
+            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var totalDamageOrHealing = proficiencyBonus * multiplier;
+
+            ReceiveHealing(attacker, totalDamageOrHealing);
+
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null ||
-                rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
-                return;
+                yield break;
             }
 
-            var condition = rulesetAttacker.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition && x.SourceGuid == defender.Guid);
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureVoraciousFury);
+            EffectHelpers.StartVisualEffect(attacker, defender, VampiricTouch, EffectHelpers.EffectType.Effect);
+            InflictDamage(rulesetAttacker, rulesetDefender, totalDamageOrHealing, attackMode.AttackTags);
 
-            if (condition == null)
+            if (rulesetDefender.IsDeadOrDying)
             {
-                return;
+                yield return HandleEnemyDeath(attacker, attackMode, _powerBloodBath);
             }
+        }
 
-            var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
-            var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
-            };
+        private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+        {
+            var isValid =
+                (ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
+                ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
+                ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
 
-            EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.VampiricTouch,
-                EffectHelpers.EffectType.Effect);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _featureDefinitionPower);
-            RulesetActor.InflictDamage(
-                totalDamage,
-                damageForm,
-                DamageTypeNecrotic,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
-                rulesetAttacker,
-                false,
-                attacker.Guid,
-                false,
-                attackMode.AttackTags,
-                new RollInfo(DieType.D1, new List<int>(), totalDamage),
-                true,
-                out _);
+            return isValid;
         }
     }
 
@@ -213,11 +289,11 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
     private class TargetReducedToZeroHpBloodbath : ITargetReducedToZeroHp
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinitionPower _powerBloodBath;
 
-        public TargetReducedToZeroHpBloodbath(FeatureDefinitionPower featureDefinitionPower)
+        public TargetReducedToZeroHpBloodbath(FeatureDefinitionPower powerBloodBath)
         {
-            _featureDefinitionPower = featureDefinitionPower;
+            _powerBloodBath = powerBloodBath;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -226,128 +302,62 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService == null)
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.MissingHitPoints == 0 || !rulesetAttacker.HasConditionOfType(ConditionRaging))
-            {
-                yield break;
-            }
-
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode))
-            {
-                yield break;
-            }
-
-            if (rulesetAttacker.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
-            {
-                yield break;
-            }
-
-            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
-            var totalHealing = 2 * classLevel;
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter =
-                        Gui.Format("Reaction/&CustomReactionBloodbathDescription", totalHealing.ToString())
-                };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("Bloodbath", reactionParams);
-
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
-            EffectHelpers.StartVisualEffect(attacker, attacker, SpellDefinitions.Heal, EffectHelpers.EffectType.Effect);
-            rulesetAttacker.ReceiveHealing(totalHealing, true, rulesetAttacker.Guid);
+            yield return HandleEnemyDeath(attacker, attackMode, _powerBloodBath);
         }
     }
 
     //
-    // Voracious Fury
+    // Corrupted Blood
     //
 
-    private sealed class CustomAdditionalDamageVoraciousFury : CustomAdditionalDamage
+    private class PhysicalAttackFinishedOnMeCorruptedBlood : IPhysicalAttackFinishedOnMe
     {
-        public CustomAdditionalDamageVoraciousFury(IAdditionalDamageProvider provider) : base(provider)
+        private readonly FeatureDefinition _featureCorruptedBlood;
+        private readonly FeatureDefinitionPower _powerBloodBath;
+
+        public PhysicalAttackFinishedOnMeCorruptedBlood(
+            FeatureDefinition featureCorruptedBlood,
+            FeatureDefinitionPower powerBloodBath)
         {
+            _featureCorruptedBlood = featureCorruptedBlood;
+            _powerBloodBath = powerBloodBath;
         }
 
-        internal override bool IsValid(
+        public IEnumerator OnAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget,
-            out CharacterActionParams reactionParams)
-        {
-            reactionParams = null;
-
-            return IsVoraciousFuryValidContext(attacker.RulesetCharacter, attackMode);
-        }
-    }
-
-    private sealed class AttackEffectAfterDamageVoraciousFury : IAttackEffectAfterDamage
-    {
-        private const string SpecialFeatureName = $"AdditionalHealing{Name}VoraciousFury";
-
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
             RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            int damageAmount)
         {
             if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (!IsVoraciousFuryValidContext(rulesetAttacker, attackMode) ||
-                attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName))
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
-                return;
+                yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
+            var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
+            var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
+            var defenderAttackTags =
+                defender.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? new List<string>();
 
-            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var multiplier = outcome is RollOutcome.Success ? 1 : 2;
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetDefender, _featureCorruptedBlood);
+            EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainMischiefStrikeOfChaos);
+            InflictDamage(rulesetDefender, rulesetAttacker, totalDamage, defenderAttackTags);
 
-            rulesetAttacker.ReceiveHealing(multiplier * proficiencyBonus, true, rulesetAttacker.Guid);
+            if (rulesetAttacker.IsDeadOrDying)
+            {
+                yield return HandleEnemyDeath(defender, attackMode, _powerBloodBath);
+            }
         }
-    }
-
-    private sealed class BarbarianHolder : IClassHoldingFeature
-    {
-        // allows Illuminating Strike damage to scale with barbarian level
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 }

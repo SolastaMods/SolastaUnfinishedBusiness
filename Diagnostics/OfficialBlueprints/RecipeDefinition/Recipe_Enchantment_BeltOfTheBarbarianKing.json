@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:BeltOfTheBarbarianKing:cde5eb47fd16be0469f1dc9f5d68dc2f",
   "stackCount": 1,
-  "craftingHours": 15,
-  "craftingDC": 14,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -25,6 +26,11 @@
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:50_GP_Sapphire:94593fce05b78ec4aa7d55125259126e"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Mutant_DireWolf_Pelt:0d1dec4ed811cb94498fe533ea3fa8da"
     }
   ],
   "spellDefinition": null,

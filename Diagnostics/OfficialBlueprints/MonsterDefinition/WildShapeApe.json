@@ -3,10 +3,12 @@
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Beast",
-  "creatureTags": [],
+  "creatureTags": [
+    "WildShape"
+  ],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
-  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
   "armorClass": 15,
   "armor": "",
@@ -48,7 +50,7 @@
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_Wildshape_Ape_Fist:ab7f17cc39f85d34883309a55fdb41bc"
     },
     {
@@ -148,14 +150,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.655,
+    "maleModelScale": 0.3,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "8f4589a9a294b444785fab045256a713",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.655,
+    "femaleModelScale": 0.3,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -186,7 +188,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": true,
+  "groupAttacks": false,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {

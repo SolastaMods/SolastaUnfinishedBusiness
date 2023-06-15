@@ -1,0 +1,8 @@
+MerchantCategory/&AdventuringTitle=冒险用品
+MerchantCategory/&AllTitle=所有物品
+MerchantCategory/&ArmorTitle=护甲
+MerchantCategory/&CraftingTitle=制作
+MerchantCategory/&DocumentTitle=文件
+MerchantCategory/&IngredientTitle=原料
+MerchantCategory/&MagicDeviceTitle=魔法设备
+MerchantCategory/&WeaponTitle=武器

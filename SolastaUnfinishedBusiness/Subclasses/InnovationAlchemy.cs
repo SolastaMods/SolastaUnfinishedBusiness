@@ -315,7 +315,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombForceSplash", Resources.AlchemyBombForceSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombForceBreath", Resources.AlchemyBombForceBreath, 128);
         particle = WallOfForce.EffectDescription.effectParticleParameters;
@@ -356,7 +356,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombRadiantSplash", Resources.AlchemyBombRadiantSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombRadiantBreath", Resources.AlchemyBombRadiantBreath, 128);
         particle = BurningHands_B.EffectDescription.effectParticleParameters;
@@ -397,7 +397,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombNecroticSplash", Resources.AlchemyBombNecroticSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombNecroticBreath", Resources.AlchemyBombNecroticBreath, 128);
         particle = VampiricTouch.EffectDescription.effectParticleParameters;
@@ -443,7 +443,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombThunderSplash", Resources.AlchemyBombThunderSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombThunderBreath", Resources.AlchemyBombThunderBreath, 128);
         particle = Thunderwave.EffectDescription.effectParticleParameters;
@@ -492,7 +492,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombPsychicSplash", Resources.AlchemyBombPsychicSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombPsychicBreath", Resources.AlchemyBombPsychicBreath, 128);
         particle = splash; //PhantasmalKiller.EffectDescription.effectParticleParameters;
@@ -595,7 +595,7 @@ public static class InnovationAlchemy
                 InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)
@@ -630,8 +630,9 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
                 InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
+                .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
+                .ExcludeCaster()
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
                     false,
@@ -639,8 +640,8 @@ public static class InnovationAlchemy
                     false,
                     EffectDifficultyClassComputation.SpellCastingFeature,
                     AttributeDefinitions.Intelligence)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetParticleEffectParameters(particleParameters)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(damageType, 2, dieType)
@@ -776,15 +777,19 @@ public static class InnovationAlchemy
 
 internal sealed class AddPBToDamage : IModifyMagicEffect
 {
-    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
+    public EffectDescription ModifyEffect(
+        BaseDefinition definition,
+        EffectDescription effectDescription,
+        RulesetCharacter character,
+        RulesetEffect rulesetEffect)
     {
-        var damage = effect.FindFirstDamageForm();
+        var damage = effectDescription.FindFirstDamageForm();
 
         if (damage != null)
         {
-            damage.bonusDamage += caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            damage.bonusDamage += character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
         }
 
-        return effect;
+        return effectDescription;
     }
 }

@@ -1,0 +1,96 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:ChainmailOfLifeRegnant:d9fa5e5af743e354ba10e888fcb11e6f",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Longsword+2:d579aefc31c24434e9d53e702276e8fd",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:5D6_Gold_Coins:c7ef4dc502217ae498b72232aaf308e4",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 3,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 3,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_Gallivan_Lore_TheCourtOfKnives:7b25df63d5369a94897c5821e8791e79",
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "3dd34ce71d79e81428ed989ae727ad7b",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_CaporalGallivan_Loot_Drop"
+}

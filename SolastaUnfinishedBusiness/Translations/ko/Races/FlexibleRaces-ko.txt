@@ -1,0 +1,6 @@
+Feature/&PointPoolAbilityScore3Description=원하는 조합으로 능력 점수에 세 가지 부스트를 사용하십시오.
+Feature/&PointPoolAbilityScore3Title=능력치 증가
+Feature/&PointPoolAbilityScore4Description=원하는 조합으로 능력 점수에 4개의 부스트를 사용하십시오.
+Feature/&PointPoolAbilityScore4Title=능력치 증가
+Feature/&PointPoolSelectBonusFeatsDescription=캐릭터에 대한 {0} 추가 재주를 선택하십시오.
+Feature/&PointPoolSelectBonusFeatsTitle={0} 보너스 재주

@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&UndeadTitle",
-    "description": "CharacterFamily/&UndeadDescription",
+    "title": "Undead",
+    "description": "Undead are once-living creatures brought to a horrifying state of undeath through the practice of necromantic magic or some unholy curse.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8b754c6d-6839-538a-892c-111c1bd0afbf",

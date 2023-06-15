@@ -3,19 +3,23 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AdditionalActionFeatCleavingAttackFinish:8a2875ec-189d-52f9-878e-71c8e1632ab9"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D1",
-  "durationParameter": 1,
+  "durationParameterDie": "D4",
+  "durationParameter": 0,
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    "Attacked"
+    "AnyBattleTurnEnd",
+    "UsePower"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -86,7 +90,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -127,9 +131,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionFeatCleavingAttackFinishTitle",
+    "description": "Condition/&ConditionFeatCleavingAttackFinishDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

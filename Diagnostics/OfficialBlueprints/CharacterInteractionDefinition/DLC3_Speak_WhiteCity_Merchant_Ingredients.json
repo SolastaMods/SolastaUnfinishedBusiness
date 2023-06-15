@@ -1,0 +1,33 @@
+{
+  "$type": "CharacterInteractionDefinition, Assembly-CSharp",
+  "actionId": "Manipulate",
+  "cursorType": "Parley",
+  "animation": "NoAnimation",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_Ingredients_Description",
+    "description": "CharacterInteraction/&NpcInteractionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "bdbbc0c6ea8d15943b93974a1f59421e",
+      "m_SubObjectName": "MerchantIngredient",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5f921d6f5ebb4024ea5db2d7de2be363",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Speak_WhiteCity_Merchant_Ingredients"
+}

@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=You can spend 2 Ki points to cast darkness, darkvision, pass without trace, or silence, without providing material components. Additionally, you gain the light cantrip if you don't already know it.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=You can spend 2 Ki points to cast darkness, darkvision, pass without trace, or silence, without providing material components. Additionally, you gain the light cantrip if you don't already know it.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silhouette Arts
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes now works in dim light and magical darkness in addition to natural darkness.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Improved Cloak of Silhouettes

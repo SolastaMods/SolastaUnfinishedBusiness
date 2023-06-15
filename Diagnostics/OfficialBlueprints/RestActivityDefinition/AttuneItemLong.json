@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": "HasAttunableItem",
+  "requiresMissingClassSpellSlots": false,
   "functor": "AttuneItem",
   "stringParameter": "",
   "checkConsciousness": false,

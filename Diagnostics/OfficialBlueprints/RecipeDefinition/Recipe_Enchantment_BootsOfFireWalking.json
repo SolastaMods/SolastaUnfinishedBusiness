@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:BootsOfFireWalking:0f49500c229e13149aabb6bb6b231ac1",
   "stackCount": 1,
   "craftingHours": 14,
-  "craftingDC": 8,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

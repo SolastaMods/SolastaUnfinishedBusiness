@@ -1,0 +1,71 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Teleport_Aggressive:5908cf5285daf2b4495d2ef88b607cf3",
+        "weight": 6.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 4.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_Aggressive:9e365323e03739e4ab849327563a6679",
+        "weight": 2.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:LongRangePathToEnemyOnlyIfNoAction_Dash:f8cf5d9e693665a4b9c02d2503814034",
+        "weight": 0.1,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "52a6ea1b69009ce48937a9bcfaee8eef",
+  "contentPack": "BaseGame",
+  "name": "SessrothCombatDecisionsPhase1"
+}

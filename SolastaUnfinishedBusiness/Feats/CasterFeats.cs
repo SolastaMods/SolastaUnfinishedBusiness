@@ -563,7 +563,7 @@ internal static class CasterFeats
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetSavingThrowData(
                     true,
                     AttributeDefinitions.Strength,

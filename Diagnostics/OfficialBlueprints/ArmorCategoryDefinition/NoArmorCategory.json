@@ -3,7 +3,7 @@
   "requiresProficiency": false,
   "isPhysicalArmor": false,
   "noiseRangeIfStealthProficient": 2,
-  "noiseRangeIfNotStealthProficient": 4,
+  "noiseRangeIfNotStealthProficient": 2,
   "forbidsNegativeDexterityBonus": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

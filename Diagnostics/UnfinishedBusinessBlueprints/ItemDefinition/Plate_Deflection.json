@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3100,
+    3900,
     0,
     0,
     0
@@ -191,8 +191,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&PlatePlus1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&ScaleArmorPlus1_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -206,16 +206,19 @@
     "armorAddressableName": "FullPlate",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "FullPlatelvl2",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
-      "Both",
+      "Armor",
       "Nothing",
       "Shape",
-      "Shape",
+      "Armor",
+      "Armor",
+      "Armor",
       "Armor",
       "Armor",
       "Armor",
@@ -227,8 +230,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

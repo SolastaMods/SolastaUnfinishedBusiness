@@ -15,20 +15,22 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using TMPro;
 using UnityEngine;
-using UnityModManagerNet;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal struct LanguageEntry
 {
-    public string Code, Text, Directory;
+    public string Code;
+    public string Text;
+    public string Directory;
+    [UsedImplicitly] public string SourceCode;
 }
 
 internal static class TranslatorContext
 {
-    private const string UnofficialLanguagesFolderPrefix = "UnofficialTranslations-";
+    private const string UnofficialLanguagesFolderPrefix = "UnofficialTranslations/";
 
     internal const string English = "en";
 
@@ -36,41 +38,147 @@ internal static class TranslatorContext
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "pt", "ru", "zh-CN" };
+    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "ja", "it", "ko", "pt", "zh-CN" };
 
     internal static readonly List<LanguageEntry> Languages = new();
 
-    internal static void LoadCustomLanguages()
+    private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
+
+    /// <summary>
+    ///     Maps unofficial language codes to official language codes.
+    /// </summary>
+    private static Dictionary<string, string> SourceCodeCache { get; } = new();
+
+    public static bool IsCJKChar(char c)
+    {
+        return c >= 0x4E00 && c <= 0x9FA5;
+    }
+
+    public static bool HasCJKChar(string s)
+    {
+        return s.Length > 0 && RegexHasCJK.IsMatch(s);
+    }
+
+    public static bool HasCJKCharQuick(string s)
+    {
+        return s.Length > 0 && IsCJKChar(s[0]);
+    }
+
+    internal static void EarlyLoad()
+    {
+        if (Main.Settings.DisableUnofficialTranslations)
+        {
+            Main.Info("Unofficial translations support disabled.");
+
+            return;
+        }
+
+        if (!Directory.Exists(Path.Combine(Main.ModFolder, UnofficialLanguagesFolderPrefix)))
+        {
+            Main.Error("Unofficial translations not found.");
+
+            return;
+        }
+
+        LoadCustomLanguages();
+        LoadCustomTerms();
+
+        // LOAD CUSTOM FONTS
+
+        var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+
+        // JAPANESE
+
+        var fullFilename = Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}JapaneseHanSans.unity3d");
+
+        if (!File.Exists(fullFilename))
+        {
+            Main.Error($"Loading the font bundle {fullFilename}.");
+        }
+        else
+        {
+            var fontBundle = AssetBundle.LoadFromFile(fullFilename);
+
+            AddFont("NotoSansJP-Light SDF", fontBundle, allFonts, "Noto-Light SDF", "Noto-Thin SDF");
+            AddFont("NotoSansJP-Regular SDF", fontBundle, allFonts, "Noto-Regular SDF", "LiberationSans SDF");
+            AddFont("NotoSansJP-Bold SDF", fontBundle, allFonts, "Noto-Bold SDF");
+        }
+
+        // KOREAN
+
+        fullFilename = Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}KoreanHanSans.unity3d");
+
+        if (!File.Exists(fullFilename))
+        {
+            Main.Error($"Loading the font bundle {fullFilename}.");
+        }
+        else
+        {
+            var fontBundle = AssetBundle.LoadFromFile(fullFilename);
+
+            AddFont("SourceHanSansK-Light SDF", fontBundle, allFonts, "Noto-Light SDF", "Noto-Thin SDF");
+            AddFont("SourceHanSansK-Regular SDF", fontBundle, allFonts, "Noto-Regular SDF", "LiberationSans SDF");
+            AddFont("SourceHanSansK-Bold SDF", fontBundle, allFonts, "Noto-Bold SDF");
+        }
+    }
+
+    private static void LoadCustomLanguages()
     {
         var cultureInfos = CultureInfo.GetCultures(CultureTypes.AllCultures);
-        var directoryInfo = new DirectoryInfo($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}");
-        var directories = directoryInfo.GetDirectories($"{UnofficialLanguagesFolderPrefix}??");
+        var directoryInfo = new DirectoryInfo($@"{Main.ModFolder}/{UnofficialLanguagesFolderPrefix}");
+        var directories = directoryInfo.GetDirectories();
 
         foreach (var directory in directories)
         {
-            var code = directory.Name.Substring(UnofficialLanguagesFolderPrefix.Length,
-                directory.Name.Length - UnofficialLanguagesFolderPrefix.Length);
-            var cultureInfo = cultureInfos.First(o => o.Name == code);
+            var code = directory.Name;
+            var cultureInfo = cultureInfos.FirstOrDefault(o => o.Name == code);
 
-            if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+            if (File.Exists($"{directory.FullName}/info.json"))
             {
-                Main.Error($"Language {code} from {directory.Name} already in game");
-            }
-            else
-            {
+                var info = JsonConvert.DeserializeObject<JObject>(File.ReadAllText($"{directory.FullName}/info.json"));
+                var sourceCode = info["SourceCode"]?.ToString() ?? string.Empty;
+
+                if (!string.IsNullOrEmpty(sourceCode))
+                {
+                    SourceCodeCache.Add(code, sourceCode);
+                }
+
                 Languages.Add(new LanguageEntry
                 {
                     Code = code,
-                    Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
-                    Directory = directory.Name
+                    Text = info["NativeName"]!.ToString(),
+                    Directory = directory.FullName,
+                    SourceCode = sourceCode
                 });
 
                 Main.Info($"Language {code} detected.");
             }
+            else if (cultureInfo != null)
+            {
+                if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+                {
+                    Main.Error($"Language {code} from {directory.Name} already in game.");
+                }
+                else
+                {
+                    Languages.Add(new LanguageEntry
+                    {
+                        Code = code,
+                        Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
+                        Directory = directory.FullName
+                    });
+
+                    Main.Info($"Language {code} detected.");
+                }
+            }
+            else
+            {
+                Main.Error($"Language {code} illegal!");
+            }
         }
     }
 
-    internal static void LoadCustomTerms()
+    private static void LoadCustomTerms()
     {
         var languageSourceData = LocalizationManager.Sources[0];
 
@@ -83,14 +191,12 @@ internal static class TranslatorContext
             var languageIndex = languageSourceData.GetLanguageIndex(language.Text);
 
             // add terms
-            var directoryInfo =
-                new DirectoryInfo($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/{language.Directory}");
+            var directoryInfo = new DirectoryInfo(language.Directory);
             var files = directoryInfo.GetFiles("*.txt");
 
             foreach (var file in files)
             {
-                var filename = $@"{Main.ModFolder}/{language.Directory}/{file.Name}";
-                using var sr = new StreamReader(filename);
+                using var sr = new StreamReader(file.FullName);
 
                 while (sr.ReadLine() is { } line)
                 {
@@ -109,10 +215,33 @@ internal static class TranslatorContext
                     }
                     catch
                     {
-                        Main.Error($"Skipping line [{line}] in file [{filename}]");
+                        Main.Error($"Skipping line [{line}] in file [{file.FullName}]");
                     }
                 }
             }
+        }
+    }
+
+    private static void AddFont(
+        string fontName,
+        AssetBundle fontBundle,
+        IEnumerable<TMP_FontAsset> allFonts,
+        params string[] fontsToAppend)
+    {
+        var modFontAsset = fontBundle.LoadAsset<TMP_FontAsset>($"{fontName}.asset");
+
+        if (modFontAsset == null)
+        {
+            Main.Error($"Font asset {fontName} not found.");
+
+            return;
+        }
+
+        foreach (var tmpFontAsset in allFonts.Where(x => fontsToAppend.Contains(x.name)))
+        {
+            tmpFontAsset.fallbackFontAssetTable.Add(modFontAsset);
+
+            Main.Info($"Font asset {fontName} loaded.");
         }
     }
 
@@ -234,7 +363,7 @@ internal static class TranslatorContext
     [UsedImplicitly]
     internal static IEnumerable<string> GetTranslations(string languageCode, Func<string, string, bool> validate)
     {
-        using var zipStream = new MemoryStream(Resources.Translations);
+        using var zipStream = new MemoryStream(Properties.Resources.Translations);
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         foreach (var entry in zip.Entries.Where(x => validate(x.FullName, languageCode)))
@@ -254,6 +383,12 @@ internal static class TranslatorContext
         Func<string, string, bool> validate)
     {
         var result = new Dictionary<string, string>();
+
+        if (SourceCodeCache.TryGetValue(languageCode, out var sourceCode))
+        {
+            // if has source language, use it
+            languageCode = sourceCode;
+        }
 
         foreach (var line in GetTranslations(languageCode, validate))
         {
@@ -465,7 +600,13 @@ internal static class TranslatorContext
                 userCampaign.UserQuests
                     .SelectMany(x => x.AllQuestStepDescriptions)
                     .SelectMany(x => x.OutcomesTable)
-                    .Count();
+                    .Count() +
+                userCampaign.UserBiomes
+                    .SelectMany(x => x.narrativeEventBasicLines)
+                    .Count() +
+                userCampaign.UserEncounterTables.Count +
+                userCampaign.userEncounters.Count +
+                userCampaign.campaignMapNodes.Count;
 
             IEnumerator Update()
             {
@@ -594,9 +735,7 @@ internal static class TranslatorContext
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
-                        outcome.validatorDescription.stringParameter =
-                            Translate(outcome.validatorDescription.stringParameter, languageCode);
-
+                        // magicSkySword : Only place parameters can be translated
                         // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                         switch (outcome.validatorDescription.type)
                         {
@@ -644,6 +783,50 @@ internal static class TranslatorContext
 
                 lootPack.Title = Translate(lootPack.Title, languageCode);
                 lootPack.Description = Translate(lootPack.Description, languageCode);
+            }
+
+            // USER BIOMES
+            foreach (var userBiome in userCampaign.userBiomes)
+            {
+                userBiome.Title = Translate(userBiome.Title, languageCode);
+                userBiome.Description = Translate(userBiome.Description, languageCode);
+
+                for (var index = 0; index < userBiome.NarrativeEventBasicLines.Count; index++)
+                {
+                    yield return Update();
+
+                    var narrativeEventBasicLine = userBiome.NarrativeEventBasicLines[index];
+                    userBiome.NarrativeEventBasicLines[index] = Translate(narrativeEventBasicLine, languageCode);
+                }
+            }
+
+            // USER ENCOUNTER TABLES
+            foreach (var userEncounterTable in userCampaign.userEncounterTables)
+            {
+                yield return Update();
+
+                userEncounterTable.Title = Translate(userEncounterTable.Title, languageCode);
+                userEncounterTable.Description = Translate(userEncounterTable.Description, languageCode);
+            }
+
+            // USER ENCOUNTERS
+            foreach (var userEncounter in userCampaign.userEncounters)
+            {
+                yield return Update();
+
+                userEncounter.Title = Translate(userEncounter.Title, languageCode);
+                userEncounter.Description = Translate(userEncounter.Description, languageCode);
+            }
+
+            // USER CAMPAIGN MAP NODES
+            foreach (var userCampaignMapNode in userCampaign.campaignMapNodes)
+            {
+                yield return Update();
+
+                userCampaignMapNode.userLocationName = Translate(userCampaignMapNode.userLocationName, languageCode);
+                userCampaignMapNode.overriddenTitle = Translate(userCampaignMapNode.overriddenTitle, languageCode);
+                userCampaignMapNode.overriddenDescription =
+                    Translate(userCampaignMapNode.overriddenDescription, languageCode);
             }
 
             CurrentExports.Remove(exportName);

@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "type": "Battle",
   "challengeRating": 6,
   "locationOverride": "Definition:EncounterCrossroads_LocationDB:a1b9f35b7028fe24184b3a5b92265a74",

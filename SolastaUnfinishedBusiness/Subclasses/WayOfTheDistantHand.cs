@@ -49,12 +49,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 new RestrictReactionAttackMode((mode, character, _) =>
                     mode != null &&
                     mode.AttackTags.Contains(ZenArrowTag) &&
-                    character.RulesetCharacter != null &&
+                    character.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
@@ -66,7 +66,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetSavingThrowData(
                         true,
@@ -90,7 +90,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetSavingThrowData(
                         true,
@@ -114,7 +114,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetSavingThrowData(
                         true,
@@ -158,7 +158,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 new UpgradeFlurry(
@@ -208,12 +208,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 new RestrictReactionAttackMode((mode, character, _) =>
                     mode != null &&
                     mode.AttackTags.Contains(ZenArrowTag) &&
-                    character.RulesetCharacter != null &&
+                    character.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
@@ -225,7 +225,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetSavingThrowData(
                         true,
@@ -264,7 +264,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetSavingThrowData(
                         true,
@@ -286,7 +286,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetSavingThrowData(
                         true,

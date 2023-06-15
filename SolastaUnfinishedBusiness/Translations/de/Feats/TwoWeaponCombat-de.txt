@@ -1,6 +1,6 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=Deine Feinde taumeln!
-Condition/&ConditionDualFlurryGrantTitle=Zweifacher Flurry
-Feat/&FeatDualFlurryDescription=Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, kannst du einen zusätzlichen Nebenhandangriff ausführen, wenn du mit deiner Bonusaktion angreifst.
-Feat/&FeatDualFlurryTitle=Zweifacher Flurry
-Feat/&FeatDualWeaponDefenseDescription=Du erhältst einen Bonus von +1 auf die Rüstungsklasse, während du in jeder Hand eine separate Nahkampfwaffe führst.
-Feat/&FeatDualWeaponDefenseTitle=Verteidigung mit zwei Waffen
+Condition/&ConditionDualFlurryGrantDescription=Deine Feinde geraten ins Wanken!
+Condition/&ConditionDualFlurryGrantTitle=Doppelter Wirbel
+Feat/&FeatDualFlurryDescription=Du bist ein Meister im Kampf mit gepaarten Waffen. In jeder Runde, in der Sie mit Nahkampfangriffen zweimal zuschlagen, während Sie in jeder Hand eine Waffe führen, können Sie beim Angriff mit Ihrer Bonusaktion einen zusätzlichen Nebenhandangriff ausführen.
+Feat/&FeatDualFlurryTitle=Doppelter Wirbel
+Feat/&FeatDualWeaponDefenseDescription=Du erhältst einen Bonus von +1 auf die Rüstungsklasse, wenn du in jeder Hand eine separate Nahkampfwaffe führst.
+Feat/&FeatDualWeaponDefenseTitle=Doppelte Waffenverteidigung

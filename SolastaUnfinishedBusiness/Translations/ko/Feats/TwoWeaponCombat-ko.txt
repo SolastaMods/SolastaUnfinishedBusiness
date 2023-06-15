@@ -1,0 +1,6 @@
+Condition/&ConditionDualFlurryGrantDescription=적들이 비틀거리고 있습니다!
+Condition/&ConditionDualFlurryGrantTitle=듀얼 플러리
+Feat/&FeatDualFlurryDescription=당신은 짝을 이룬 무기로 싸우는 달인입니다. 각 손에 무기를 들고 근접 공격으로 두 번 명중하는 턴에서 보너스 액션으로 공격할 때 추가 오프 핸드 공격을 할 수 있습니다.
+Feat/&FeatDualFlurryTitle=듀얼 플러리
+Feat/&FeatDualWeaponDefenseDescription=각 손에 별도의 근접 무기를 휘두르는 동안 갑옷 등급에 +1 보너스를 얻습니다.
+Feat/&FeatDualWeaponDefenseTitle=이중 무기 방어

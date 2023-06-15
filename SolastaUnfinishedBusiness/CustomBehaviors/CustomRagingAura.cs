@@ -187,16 +187,16 @@ public class CustomRagingAura :
 
         if (_friendlyAura)
         {
-            foreach (var targetLocationCharacter in battle.AllContenders
+            foreach (var allyCharacter in battle.AllContenders
                          .Where(x =>
-                             x.Side == sourceLocationCharacter.Side &&
                              x != sourceLocationCharacter &&
-                             !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
-                             gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2)))
+                             x.Side == sourceLocationCharacter.Side &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2))
+                         .Select(allyLocationCharacter => allyLocationCharacter.RulesetCharacter)
+                         .ToList()) // avoid changing enumerator
             {
-                var targetCharacter = targetLocationCharacter.RulesetCharacter;
-
-                targetCharacter.InflictCondition(
+                allyCharacter.InflictCondition(
                     _conditionDefinition.Name,
                     DurationType.Round,
                     1,
@@ -213,17 +213,17 @@ public class CustomRagingAura :
         }
         else
         {
-            foreach (var targetLocationCharacter in battle.AllContenders
+            foreach (var defenderCharacter in battle.AllContenders
                          .Where(x =>
-                             x.Side != sourceLocationCharacter.Side &&
                              x != sourceLocationCharacter &&
-                             !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                             x.Side != sourceLocationCharacter.Side &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2) &&
-                             sourceLocationCharacter.RulesetCharacter.HasConditionOfCategory("ConditionRaging")))
+                             sourceLocationCharacter.RulesetCharacter.HasConditionOfCategory(ConditionRaging))
+                         .Select(defenderLocationCharacter => defenderLocationCharacter.RulesetCharacter)
+                         .ToList()) // avoid changing enumerator
             {
-                var targetCharacter = targetLocationCharacter.RulesetCharacter;
-
-                targetCharacter.InflictCondition(
+                defenderCharacter.InflictCondition(
                     _conditionDefinition.Name,
                     DurationType.Round,
                     1,

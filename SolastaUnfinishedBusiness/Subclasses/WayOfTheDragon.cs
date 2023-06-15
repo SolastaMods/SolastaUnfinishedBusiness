@@ -89,7 +89,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerAscension = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Ascension")
             .SetGuiPresentation(Category.Feature, Fly)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 4)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 4, 4)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -275,7 +275,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Power{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature, AcidSplash)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryAcid.Name))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -314,7 +314,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Power{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature, ShockingGrasp)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryLightning.Name))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetParticleEffectParameters(LightningBolt)
@@ -351,7 +351,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Power{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Feature, PoisonSpray)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryPoison.Name))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -390,7 +390,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Power{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature, ProduceFlame)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryFire.Name))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -429,7 +429,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Power{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature, RayOfFrost)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryCold.Name))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -477,26 +477,40 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            if (me.RulesetCharacter.RemainingKiPoints == 0)
+            if (!me.CanAct())
             {
                 yield break;
             }
 
-            if (!me.RulesetCharacter.HasConditionOfType($"Condition{Name}ReactiveHide"))
+            var rulesetCharacter = me.RulesetCharacter;
+
+            if (rulesetCharacter.RemainingKiPoints == 0)
+            {
+                yield break;
+            }
+
+            if (!rulesetCharacter.HasConditionOfType($"Condition{Name}ReactiveHide"))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker == null)
             {
                 yield break;
             }
 
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
-            var attackerConModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .TryGetAttributeValue(AttributeDefinitions.Constitution));
-            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(me.RulesetCharacter
-                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-            var myWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(me.RulesetCharacter
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
+            var attackerConModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution));
+            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+            var myWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
-            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+            rulesetAttacker.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, attackerConModifier, 8 + profBonus + myWisModifier, false, out var savingOutcome,
                 out _);
 
@@ -508,7 +522,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
                 out var damageType);
 
-            var classLevel = me.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
+            var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
 
             var damageInt = classLevel switch
             {
@@ -525,7 +539,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfType(ConditionAcidArrowed):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeAcid, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
@@ -552,7 +565,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfType(ConditionShocked):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeLightning,
@@ -580,9 +592,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 case DamageTypeLightning:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionShocked);
                     yield break;
-                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfType(ConditionOnFire):
+                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionOnFire.Name):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
@@ -608,9 +619,9 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionOnFire);
                     yield break;
                 case DamageTypePoison
-                    when attacker.RulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionPoisoned):
+                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                        ConditionDefinitions.ConditionPoisoned.Name):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
@@ -633,12 +644,11 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypePoison:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter,
-                        ConditionDefinitions.ConditionPoisoned);
+                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionDefinitions.ConditionPoisoned);
                     yield break;
-                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered_By_Frost):
+                case DamageTypeCold
+                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionHindered_By_Frost.Name):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeCold, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt

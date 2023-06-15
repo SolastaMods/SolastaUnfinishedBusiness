@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
@@ -20,12 +19,6 @@ internal static class EncountersDisplay
     private static readonly Dictionary<MonsterDefinition, bool> CurrentAttacksMonster = new();
 
     private static readonly Dictionary<RulesetCharacterHero, bool> CurrentItemsHeroes = new();
-
-    [NotNull]
-    private static string SplitCamelCase([NotNull] string str)
-    {
-        return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
-    }
 
     private static void DisplayHeroStats([NotNull] RulesetCharacterHero hero, string actionText, Action action)
     {
@@ -125,7 +118,7 @@ internal static class EncountersDisplay
         {
             UI.ActionButton(actionText.Bold().Red(), action, UI.Width((float)30));
             UI.Label($"{monsterDefinition.FormatTitle()}".Orange().Bold(), UI.Width((float)240));
-            UI.Label($"{SplitCamelCase(monsterDefinition.Alignment)}".White(), UI.Width((float)120));
+            UI.Label($"{monsterDefinition.Alignment.SplitCamelCase()}".White(), UI.Width((float)120));
 
             var attributesLabel = _showAttributes ? "" : "Attributes";
 
@@ -188,7 +181,7 @@ internal static class EncountersDisplay
 
                         if (title == "None")
                         {
-                            title = SplitCamelCase(feature.Name);
+                            title = feature.Name.SplitCamelCase();
                         }
 
                         UI.Space((float)60);
@@ -222,7 +215,7 @@ internal static class EncountersDisplay
 
                         if (title == "None")
                         {
-                            title = SplitCamelCase(attackIteration.MonsterAttackDefinition.name);
+                            title = attackIteration.MonsterAttackDefinition.name.SplitCamelCase();
                         }
 
                         UI.Space((float)60);

@@ -1,10 +1,10 @@
 Feature/&CastSpellSpellShieldDescription=Wirke Zaubererzauber und Cantrips.
-Feature/&CastSpellSpellShieldTitle=Zaubern
-Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Addiere deinen Stärke- oder Geschicklichkeitsmodifikator, je nachdem welcher höher ist, zu deinem SG für Zauberrettungswürfe und deinem Zauberangriffswurf.
+Feature/&CastSpellSpellShieldTitle=Zauberei
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Addieren Sie Ihren Stärke- oder Geschicklichkeitsmodifikator, je nachdem, welcher Wert höher ist, zu Ihrem Zauberwurf-SG und Ihrem Zauberangriffswurf.
 Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Kraft
-Feature/&PowerSpellShieldArcaneDeflectionDescription=Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +3 auf deine Rüstungsklasse.
+Feature/&PowerSpellShieldArcaneDeflectionDescription=Als Reaktion können Sie Ihre arkanen Kräfte nutzen, um sich selbst zu schützen. Dadurch erhältst du bis zu deinem nächsten Zug +3 auf deine Rüstungsklasse.
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Arkane Ablenkung
-Feature/&PowerSpellShieldRangedDeflectionDescription=Wenn ein Angreifer, den du sehen kannst, dich mit einem Fernkampfangriff oder Zauber trifft, kannst du deine Reaktion nutzen, um den Schaden des Angriffs gegen dich zu halbieren.
-Feature/&PowerSpellShieldRangedDeflectionTitle=Fernablenkung
-Subclass/&MartialSpellShieldDescription=Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
+Feature/&PowerSpellShieldRangedDeflectionDescription=Wenn ein Angreifer, den Sie sehen können, Sie mit einem Fernangriff oder einem Zauber trifft, können Sie Ihre Reaktion nutzen, um den Schaden des Angriffs gegen Sie zu halbieren.
+Feature/&PowerSpellShieldRangedDeflectionTitle=Fernkampfablenkung
+Subclass/&MartialSpellShieldDescription=Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie nutzen Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
 Subclass/&MartialSpellShieldTitle=Zauberschild

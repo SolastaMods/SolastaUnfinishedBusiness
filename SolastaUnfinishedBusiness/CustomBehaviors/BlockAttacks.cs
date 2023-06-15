@@ -23,26 +23,9 @@ internal static class BlockAttacks
         ActionModifier attackModifier,
         int attackRoll)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
-        if (defender == null)
-        {
-            yield break;
-        }
-
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
-        var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+        var units = Gui.Battle.AllContenders
+            .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
+            .ToArray(); // avoid changing enumerator
 
         foreach (var unit in units)
         {

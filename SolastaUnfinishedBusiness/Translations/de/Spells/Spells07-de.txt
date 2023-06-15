@@ -1,4 +1,4 @@
-﻿Condition/&ConditionReverseGravityDescription=Eingefangen von der umgekehrten Schwerkraft.
+Condition/&ConditionReverseGravityDescription=Gefangen durch die umgekehrte Schwerkraft.
 Condition/&ConditionReverseGravityTitle=Umgekehrte Schwerkraft
-Spell/&ReverseGravityDescription=Dieser Zauber kehrt die Schwerkraft in einem 100 Fuß hohen Zylinder mit einem Radius von 50 Fuß um, der auf einen Punkt in Reichweite zentriert ist.
+Spell/&ReverseGravityDescription=Dieser Zauber kehrt die Schwerkraft in einem 100 Fuß hohen Zylinder mit einem Radius von 50 Fuß um, der auf einem Punkt in Reichweite zentriert ist.
 Spell/&ReverseGravityTitle=Umgekehrte Schwerkraft

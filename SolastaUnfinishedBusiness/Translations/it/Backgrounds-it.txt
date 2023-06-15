@@ -1,6 +1,6 @@
-Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Competenza in mazze e asce a mano. +1 per colpire con loro.
-Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Armi contadine
-Feature/&ProficiencyBackgroundFarmerSkillsDescription=Gestione degli animali, natura e percezione
-Feature/&ProficiencyBackgroundFarmerSkillsTitle=Competenze contadine
 Background/&BackgroundFarmerDescription=Hai lavorato la terra e allevato bestiame fin dalla nascita per sfamare la bocca di molti. Come agricoltore, ti sei svegliato prima del sole e sei rientrato dal lavoro nei campi dopo che era tramontato. Ti sei lasciato alle spalle una vita mondana per cercare l'avventura per il brivido, la fama o la fortuna.
 Background/&BackgroundFarmerTitle=Contadino
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=Gestione degli animali, natura e percezione
+Feature/&ProficiencyBackgroundFarmerSkillsTitle=Competenze contadine
+Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Competenza in mazze e asce a mano. +1 per colpire con loro.
+Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Armi contadine

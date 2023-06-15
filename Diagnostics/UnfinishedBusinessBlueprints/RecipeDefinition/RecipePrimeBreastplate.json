@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Breastplate:1f94fb24c81d1c5449ef6aedeacbea84",
   "stackCount": 1,
   "craftingHours": 8,

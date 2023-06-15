@@ -1,0 +1,10 @@
+Feature/&AdditionalActionArcaneFighterDescription=무기 공격으로 적을 물리친 후 주문을 시전할 수 있습니다.
+Feature/&AdditionalActionArcaneFighterTitle=철자 싸움
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=턴당 한 번, 당신의 무기 공격은 1d8의 추가 피해를 입힙니다.
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=마법으로 강화된 공격
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=혼돈의 전투 경험으로 인해 집중력 검사에서 이점을 얻으십시오.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=집중력 향상
+Feedback/&AdditionalDamageArcaneFighterFormat=아케인 파이터!
+Feedback/&AdditionalDamageArcaneFighterLine=아케인 파이터는 추가 +{2} 데미지를 입힙니다!
+Subclass/&WizardArcaneFighterDescription=아케인 파이터는 파괴적인 공격을 수행하기 위해 무기에 마법을 주입합니다. 그들의 적들은 종종 이 주문 캐스터들의 잔인함과 냉혹함에 놀란다.
+Subclass/&WizardArcaneFighterTitle=아케인 파이터

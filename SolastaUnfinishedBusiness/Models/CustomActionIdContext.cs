@@ -319,11 +319,10 @@ public static class CustomActionIdContext
             : ActionStatus.Unavailable;
     }
 
-    private static bool IsInvocationActionId(Id id)
+    internal static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
 
-        //TODO: consider adding all invocation actions to a list and check it here
         return id is Id.CastInvocation
                || extra is ExtraActionId.CastInvocationBonus
                    or ExtraActionId.CastInvocationNoCost

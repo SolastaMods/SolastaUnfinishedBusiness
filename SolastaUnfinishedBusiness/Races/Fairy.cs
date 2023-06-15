@@ -65,7 +65,7 @@ internal static class FairyRaceBuilder
                 .SetSpellsAtLevel(0, SpellsContext.BurstOfRadiance)
                 .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
                 .SetSpellsAtLevel(2, SpellsContext.ColorBurst)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells()
                 .AddToDB())
             .AddToDB();
 
@@ -121,7 +121,8 @@ internal static class FairyRaceBuilder
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid))
+            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder

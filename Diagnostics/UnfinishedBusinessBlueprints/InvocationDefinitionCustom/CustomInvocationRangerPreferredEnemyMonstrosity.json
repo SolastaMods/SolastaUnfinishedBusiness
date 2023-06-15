@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&MonstrosityTitle",
-    "description": "CharacterFamily/&MonstrosityDescription",
+    "title": "Monstrosity",
+    "description": "Monstrosities are monsters in the strictest sense - frightening creatures that are not ordinary, not truly natural, and almost never benign. Some are the results of magical experimentation gone awry, and others are the product of terrible curses. They defy categorization, and in some sense serve as a catch-all category for creatures that don't fit into any other type.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "fac8eafa-e6e2-5548-9ee0-1246c8cd804d",

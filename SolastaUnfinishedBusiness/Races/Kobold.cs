@@ -77,17 +77,15 @@ internal static class KoboldRaceBuilder
             .AddToDB();
 
         var conditionDarkKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDarkKoboldGrovelCowerAndBeg")
+            .Create(CustomConditionsContext.Distracted, "ConditionDarkKoboldGrovelCowerAndBeg")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
-
-        conditionDarkKoboldGrovelCowerAndBeg.specialInterruptions = new List<ConditionInterruption>();
 
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-            .SetDurationData(DurationType.Round, 1)
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .Build();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDarkKoboldGrovelCowerAndBeg;
@@ -138,7 +136,7 @@ internal static class KoboldRaceBuilder
             .Create("SpellListDraconicKobold")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
-            .FinalizeSpells(true, -1)
+            .FinalizeSpells()
             .AddToDB();
 
         //explicitly re-use sorcerer spell list, so custom cantrips selected for sorcerer will show here 

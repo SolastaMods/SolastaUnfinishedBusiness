@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -34,7 +37,7 @@ internal static class TwoWeaponCombatFeats
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -43,7 +46,7 @@ internal static class TwoWeaponCombatFeats
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
@@ -51,6 +54,7 @@ internal static class TwoWeaponCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                    .SetMaxAttacksNumber(1)
                     .AddToDB())
             .AddToDB();
 
@@ -106,26 +110,54 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (!ValidatorsWeapon.IsOneHanded(attackMode) ||
-                outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 return;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
+            if (attacker.RulesetCharacter is not RulesetCharacterHero hero)
+            {
+                return;
+            }
 
-            var condition = rulesetAttacker.HasConditionOfType(_conditionDualFlurryApply.Name)
-                ? _conditionDualFlurryGrant
-                : _conditionDualFlurryApply;
+            var hasWeaponInMainHand = ValidatorsCharacter.HasMeleeWeaponInMainHand(hero);
+            var hasWeaponInOffHand = ValidatorsCharacter.HasMeleeWeaponInOffHand(hero);
+            var hasShield = ValidatorsCharacter.HasShield(hero);
+            var hasShieldExpert =
+                hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
+                hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
+            var hasGauntlet =
+                ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.ThunderGauntletType)(attackMode, null, null);
 
-            rulesetAttacker.InflictCondition(
+            var isValid = (hasWeaponInMainHand || hasGauntlet) &&
+                          ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
+
+            if (attackMode == null || !isValid)
+            {
+                return;
+            }
+
+            if (attacker.UsedSpecialFeatures.ContainsKey(_conditionDualFlurryGrant.Name))
+            {
+                return;
+            }
+
+            var condition = _conditionDualFlurryApply;
+
+            if (hero.HasConditionOfType(condition))
+            {
+                attacker.UsedSpecialFeatures.Add(_conditionDualFlurryGrant.Name, 1);
+                condition = _conditionDualFlurryGrant;
+            }
+
+            hero.InflictCondition(
                 condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
+                condition.DurationType,
+                condition.DurationParameter,
+                condition.TurnOccurence,
                 AttributeDefinitions.TagCombat,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
+                hero.guid,
+                hero.CurrentFaction.Name,
                 1,
                 null,
                 0,

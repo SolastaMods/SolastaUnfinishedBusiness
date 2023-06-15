@@ -1,9 +1,9 @@
-Feat/&FeatApothecaryChaDescription=Aumente seu Carisma em 1, até um máximo de 20.\nVocê ganha proficiência com kit de fitoterapia e Arcanismo, ou perícia se já for proficiente.
+Feat/&FeatApothecaryChaDescription=Aumente seu Carisma em 1, até um máximo de 20.\nVocê ganha proficiência com kit de fitoterapia e remédios, ou perícia se já for proficiente.
 Feat/&FeatApothecaryChaTitle=Boticário [Cha]
-Feat/&FeatApothecaryIntDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de fitoterapia e Arcanismo, ou perícia se já for proficiente.
+Feat/&FeatApothecaryIntDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de fitoterapia e remédios, ou perícia se já for proficiente.
 Feat/&FeatApothecaryIntTitle=Boticário [Int]
-Feat/&FeatApothecaryWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de fitoterapia e Arcanismo, ou perícia se já for proficiente.
-Feat/&FeatApothecaryWisTitle=Boticário [Wis]
+Feat/&FeatApothecaryWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de fitoterapia e Arcanismo, ou medicina se já for proficiente.
+Feat/&FeatApothecaryWisTitle=Boticário [Sab]
 Feat/&FeatCraftyScriberDescription=Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de rolagem e Arcanismo, ou perícia se já for proficiente.
 Feat/&FeatCraftyScriberTitle=Escriba
 Feat/&FeatToxicologistChaDescription=Aumente seu carisma em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenamento e manejo de animais, ou perícia se já for proficiente.

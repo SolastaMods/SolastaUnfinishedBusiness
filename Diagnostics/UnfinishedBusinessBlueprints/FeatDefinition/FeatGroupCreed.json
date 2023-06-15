@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupCreedTitle",
-    "description": "Increase one of your attributes by 1, to a maximum of 20.\nProficiency in saves of chosen attribute, if not already proficient; +1 otherwise.",
+    "description": "Creed of Arun, Creed of Einar, Creed of Maraike, Creed of Misaye, Creed of Pakri, Creed of Solasta",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

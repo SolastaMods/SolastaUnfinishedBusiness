@@ -18,13 +18,18 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierInnovationArmorExtraAttack:0c1cff3e-7c84-5d6e-963e-7b910f9e96c5",
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
       "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierInventorInfusionPoolArmorModification:8c89aae6-509c-5fd8-8b20-b8675387acbc",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInventorArmorerPerfectedArmor:2db0484b-1b42-59cc-a851-aa3c1546c2df",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

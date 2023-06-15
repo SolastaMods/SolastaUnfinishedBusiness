@@ -1,3 +1,0 @@
-Open Mod UI > Tools and click History for full change details:
-
-- allowed gambits to use highest of str, dex or int on saving difficult ability

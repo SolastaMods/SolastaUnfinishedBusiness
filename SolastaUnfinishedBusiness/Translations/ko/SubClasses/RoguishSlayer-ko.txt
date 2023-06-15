@@ -1,0 +1,14 @@
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=다음 차례가 끝날 때까지 다음 기습 공격의 피해를 추가로 3d6 증가시킵니다. 이 손상은 13레벨에서 4d6, 17레벨에서 5d6으로 증가합니다.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=실행 체인
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=당신은 Slayer로 표시됩니다.
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=학살자의 표식
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=9레벨부터 생물의 생명력을 0으로 줄이거나 다음 차례가 시작되기 전에 기습 공격으로 피해를 입은 생물이 죽을 때마다 다음 기습 공격의 피해를 총 기습 주사위의 절반(반올림)으로 늘립니다. ), 다음 차례가 끝날 때까지.
+Feature/&FeatureRoguishSlayerChainOfExecutionTitle=실행 체인
+Feature/&FeatureRoguishSlayerEliminationDescription=3레벨부터 시작하여 적을 공격할 때가 가장 치명적입니다. 당신은 아직 전투에서 차례를 취하지 않은 생물에 대한 공격 굴림에 유리합니다. 또한 놀란 생물에 대해 득점하는 모든 히트는 치명타입니다.
+Feature/&FeatureRoguishSlayerEliminationTitle=제거
+Feature/&FeatureRoguishSlayerFatalStrikeDescription=17레벨부터 당신은 즉사(instant death)의 달인이 됩니다. 놀란 생물을 공격하고 때리면 건강 내성 굴림을 해야 합니다(DC 8 + 민첩 수정치 + 숙련도 보너스). 저장에 실패하면 생물에 대한 공격 피해를 두 배로 늘립니다.
+Feature/&FeatureRoguishSlayerFatalStrikeTitle=페이탈 스트라이크
+Feature/&PowerRoguishSlayerCloakOfShadowsDescription=13레벨부터 보너스 액션을 사용하여 1분 동안 보이지 않게 될 수 있습니다. 이 기능은 짧은 휴식당 한 번만 사용할 수 있습니다.
+Feature/&PowerRoguishSlayerCloakOfShadowsTitle=그림자 망토
+Subclass/&RoguishSlayerDescription=슬레이어는 암울한 죽음의 예술에 훈련을 집중합니다. 이 원형을 고수하는 사람들은 다양합니다. 고용된 살인자, 스파이, 현상금 사냥꾼, 심지어 신의 적을 근절하기 위해 훈련받은 특별히 기름부음받은 사제까지 있습니다. 은신, 독, 변장은 치명적인 효율성으로 적을 제거하는 데 도움이 됩니다.
+Subclass/&RoguishSlayerTitle=살해자

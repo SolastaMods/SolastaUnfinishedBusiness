@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDraconicKobold:6d6fbcad-5330-5bb5-958e-a2b75ad198e1",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
+  "fixedSpellTag": null,
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,
@@ -249,6 +251,7 @@
   ],
   "focusType": "Arcane",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&SwampTitle",
-    "description": "TerrainType/&SwampDescription",
+    "title": "Swamp",
+    "description": "Areas with marshes and ponds and a humid atmosphere are considered swamp terrain.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c6922601-ab72-5ec1-b523-84fcec023c72",

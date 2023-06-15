@@ -28,11 +28,12 @@ internal class FeatureDefinitionReduceDamageBuilder
 
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetConsumeSpellSlotsReducedDamage(
-        CharacterClassDefinition spellCastingClass, int reducedDamage)
+        CharacterClassDefinition spellCastingClass, int reducedDamage, params string[] damageTypes)
     {
         Definition.SpellCastingClass = spellCastingClass;
         Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot;
         Definition.ReducedDamage = reducedDamage;
+        Definition.DamageTypes.SetRange(damageTypes);
         return this;
     }
 

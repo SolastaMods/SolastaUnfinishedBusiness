@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListKythaela_Full:c471c5e27be15254db80755ff13ae8c8",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 7,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,
@@ -318,6 +320,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -135,6 +135,21 @@
       "floatDefaultValue": 0.0,
       "requiresNonEmpty": false,
       "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "CanRepeat",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": false,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": false,
+      "gadgetExecutionFilter": ""
     }
   ],
   "interactionNodes": [],

@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -30,7 +31,9 @@ public static class CursorLocationBattleFriendlyTurnPatcher
             return instructions.ReplaceCalls(findBestActionDestinationMethod,
                 "CursorLocationBattleFriendlyTurn.IsValidAttack",
                 new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Ldloc_2),
+                Debug.isDebugBuild
+                    ? new CodeInstruction(OpCodes.Ldloc_3)
+                    : new CodeInstruction(OpCodes.Ldloc_2),
                 new CodeInstruction(OpCodes.Call, method));
         }
     }

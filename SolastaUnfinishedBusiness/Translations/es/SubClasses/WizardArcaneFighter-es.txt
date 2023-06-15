@@ -5,6 +5,6 @@ Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Ataques con poder mágico
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Debido a la experiencia en el caos del combate, obtén ventaja en las pruebas de concentración.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentración mejorada
 Feedback/&AdditionalDamageArcaneFighterFormat=¡Luchador Arcano!
-Feedback/&AdditionalDamageArcaneFighterLine=¡Arcane Fighter inflige +{2} daño extra!
+Feedback/&AdditionalDamageArcaneFighterLine=¡Arcane Fighter inflige +{2} daño adicional!
 Subclass/&WizardArcaneFighterDescription=Arcane Fighters canaliza la magia en sus armas para realizar ataques devastadores. Sus adversarios a menudo se sorprenden de la ferocidad y la implacabilidad de estos lanzadores de hechizos.
 Subclass/&WizardArcaneFighterTitle=Luchador Arcano

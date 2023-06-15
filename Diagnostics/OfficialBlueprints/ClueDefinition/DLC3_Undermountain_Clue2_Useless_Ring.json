@@ -1,0 +1,30 @@
+{
+  "$type": "ClueDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ItemFlag_Clue",
+    "description": "Equipment/&DLC3_Investigation_UselessClue_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9ba3cf6fb3c9b8b4ca2f92d59eca42a6",
+      "m_SubObjectName": "RingOfInvisibility",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2c42a5d1f8f0b8e4bb1f4d517f74ce44",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_Clue2_Useless_Ring"
+}

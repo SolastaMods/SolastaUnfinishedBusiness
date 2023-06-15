@@ -13,18 +13,27 @@ internal enum ExtraAncestryType
 
 internal enum ExtraSituationalContext
 {
-    MainWeaponIsMeleeOrUnarmed = 1000,
-    WearingNoArmorOrLightArmorWithoutShield = 1001,
-    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
-    TargetIsNotEffectSource = 1003,
-    SummonerIsNextToBeast = 1004,
-    HasSpecializedWeaponInHands = 1005,
-    HasLongswordInHands = 1006,
-    HasGreatswordInHands = 1007,
-    IsNotInBrightLight = 1008,
-    IsRagingAndDualWielding = 1009,
-    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
-    TargetIsNotInBrightLight = 1011,
+    HasBladeMasteryWeaponTypesInHands = 1000,
+    HasGreatswordInHands = 1001,
+    HasLongswordInHands = 1002,
+    HasSpecializedWeaponInHands = 1003,
+    HasVersatileWeaponInHands = 1004,
+    IsNotInBrightLight = 1005,
+    IsRagingAndDualWielding = 1006,
+    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 1007,
+    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1008,
+    SummonerIsNextToBeast = 1009,
+    TargetIsNotEffectSource = 1010,
+    WearingNoArmorOrLightArmorWithoutShield = 1011,
+    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012,
+    TargetIsFavoriteEnemy = 1013
+}
+
+internal enum ExtraCombatAffinityValueDetermination
+{
+    ConditionAmount = 1000,
+    ConditionAmountIfFavoriteEnemy,
+    ConditionAmountIfNotFavoriteEnemy
 }
 
 #if false
@@ -126,7 +135,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
 
     TargetWithin10Ft = 9000,
     TargetIsDuelingWithYou = 9002,
-    SourceHasCondition = 9003
+    FlurryOfBlows = 9003
 }
 
 public enum ExtraConditionInterruption
@@ -151,7 +160,13 @@ internal enum ExtraAdditionalDamageAdvancement
     // None = AdditionalDamageAdvancement.None,
     // ClassLevel = AdditionalDamageAdvancement.ClassLevel,
     // SlotLevel = AdditionalDamageAdvancement.SlotLevel,
-    CharacterLevel = 9000
+    CharacterLevel = 9000,
+    ConditionAmount
+}
+
+internal enum ExtraAdditionalDamageValueDetermination
+{
+    FlatWithProgression = 1000
 }
 
 #if false
@@ -204,7 +219,8 @@ internal enum ExtraActionId
     QuiveringPalmToggle = 9024,
     CannonFlamethrowerBonus = 9025,
     CannonForceBallistaBonus = 9026,
-    CannonProtectorBonus = 9027
+    CannonProtectorBonus = 9027,
+    TempestFury = 9028
 }
 
 #if false

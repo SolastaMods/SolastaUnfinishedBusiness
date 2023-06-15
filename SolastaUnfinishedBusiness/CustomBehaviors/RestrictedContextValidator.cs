@@ -82,7 +82,7 @@ public static class RestrictedContextValidatorPatch
                 def = def && result;
                 break;
             default:
-                throw new ArgumentOutOfRangeException($"Unknown operationtype '{operation}'");
+                throw new ArgumentOutOfRangeException($"Unknown operation type '{operation}'");
         }
 
         return def;

@@ -66,6 +66,37 @@ internal class ConditionDefinitionBuilder
         return SetAmountOrigin((ConditionDefinition.OriginOfAmount)value);
     }
 
+    internal ConditionDefinitionBuilder SetFixedAmount(int value)
+    {
+        Definition.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
+        Definition.baseAmount = value;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder AdditionalDiceDamageWhenHit(
+        int dieNumber = 0,
+        RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
+        RuleDefinitions.AdditionalDamageType damageTypeDetermination =
+            RuleDefinitions.AdditionalDamageType.SameAsBaseDamage,
+        string damageType = null
+    )
+    {
+        if (damageTypeDetermination == RuleDefinitions.AdditionalDamageType.Specific
+            && string.IsNullOrEmpty(damageType))
+        {
+            throw new ArgumentException("Damage type must be set if damage type determination set to Specific");
+        }
+
+        Definition.additionalDamageWhenHit = true;
+        Definition.additionalDamageQuantity = ConditionDefinition.DamageQuantity.Dice;
+        Definition.additionalDamageDieNumber = dieNumber;
+        Definition.additionalDamageDieType = dieType;
+        Definition.additionalDamageTypeDetermination = damageTypeDetermination;
+        Definition.additionalDamageType = damageType;
+
+        return this;
+    }
+
     internal ConditionDefinitionBuilder CopyParticleReferences(ConditionDefinition from)
     {
         Definition.conditionParticleReference = from.conditionParticleReference;
@@ -87,6 +118,11 @@ internal class ConditionDefinitionBuilder
     {
         Definition.conditionType = value;
         return this;
+    }
+
+    internal ConditionDefinitionBuilder Detrimental()
+    {
+        return SetConditionType(RuleDefinitions.ConditionType.Detrimental);
     }
 
     internal ConditionDefinitionBuilder SetParentCondition(ConditionDefinition value)

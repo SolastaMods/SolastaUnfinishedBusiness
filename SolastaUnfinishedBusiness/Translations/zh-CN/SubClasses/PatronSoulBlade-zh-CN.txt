@@ -1,4 +1,4 @@
-Condition/&ConditionSoulBladeHexDefenderDescription=被灵魂诅咒诅咒。
+Condition/&ConditionSoulBladeHexDefenderDescription=被灵魂魔咒诅咒。
 Condition/&ConditionSoulBladeHexDefenderTitle=灵魂魔咒
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=算作魔法并使用魅力修正值进行攻击和伤害检定。
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=灵魂赋能
@@ -6,7 +6,7 @@ Feature/&FeatureSetSoulBladeMasterHexDescription=你现在可以在每次短休�
 Feature/&FeatureSetSoulBladeMasterHexTitle=灵魂魔咒大师
 Feature/&PowerSoulBladeEmpowerWeaponDescription=你可以用灵魂赋予武器力量。它算作魔法并使用魅力修正来进行攻击和伤害检定。
 Feature/&PowerSoulBladeEmpowerWeaponTitle=灵魂赋能
-Feature/&PowerSoulBladeHexDescription=你可以诅咒 30 尺内你能看到的一个生物。在生效期间：\n• 你将你的熟练加值加到对被诅咒生物的伤害上。\n• 你对被诅咒生物的严重威胁范围增加 1。{99 }• 当被诅咒的生物死去时，你获得的生命值等于你的术士等级+你的魅力调整值。
+Feature/&PowerSoulBladeHexDescription=你可以诅咒 30 尺内你能看到的一个生物。在生效期间：\n• 你将你的熟练加值加到对被诅咒生物的伤害上。\n• 你对被诅咒生物的严重威胁范围增加 1。\n• 当被诅咒的生物死去时，你获得的生命值等于你的术士等级+你的魅力调整值。
 Feature/&PowerSoulBladeHexTitle=灵魂魔咒
 Feature/&PowerSoulBladeSoulShieldDescription=你可以使用灵魂的力量来保护自己。作为一个反应，你可以在你的下一轮开始之前为你的防御等级提供 +5。
 Feature/&PowerSoulBladeSoulShieldTitle=灵魂之盾

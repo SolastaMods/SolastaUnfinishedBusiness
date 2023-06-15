@@ -1,0 +1,8 @@
+Condition/&AfterRestIdentifyDescription=마법 아이템 식별
+Condition/&AfterRestIdentifyTitle=식별
+Condition/&ConditionDistractedByAllyDescription=이 생물은 주의가 산만해졌습니다.
+Condition/&ConditionDistractedByAllyTitle=산만
+Condition/&ConditionLightSensitivityDescription=당신은 밝은 빛에서 지혜(지각) 판정에 불리하며 공격 굴림에 -1d4 페널티를 받습니다.
+Condition/&ConditionLightSensitivityTitle=감광도
+Condition/&ConditionStopMovementDescription=움직일 수 없습니다. 속도는 0으로 설정됩니다.
+Condition/&ConditionStopMovementTitle=중지됨

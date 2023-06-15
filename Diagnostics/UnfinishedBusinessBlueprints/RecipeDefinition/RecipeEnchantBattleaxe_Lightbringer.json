@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Battleaxe_Lightbringer:beeaa17f-3485-5e4e-bc80-ea9b28c2a2ac",
   "stackCount": 1,
-  "craftingHours": 36,
-  "craftingDC": 15,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

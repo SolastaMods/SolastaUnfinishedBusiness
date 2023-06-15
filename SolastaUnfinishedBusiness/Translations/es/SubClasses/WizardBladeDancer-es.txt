@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBladeDancerBladeDanceDescription=Puedes usar una acción adicional para iniciar el Blade Dance, que dura 1 minuto. Termina antes de tiempo si estás incapacitado, si usas una armadura media, una armadura pesada o un escudo, o si empuñas una espada a dos manos para realizar un ataque con un arma.
+Condition/&ConditionBladeDancerBladeDanceDescription=Puedes usar una acción adicional para iniciar el Blade Dance, que dura 1 minuto. Termina antes de tiempo si estás incapacitado, si usas una armadura media, una armadura pesada o un escudo, o si empuñas una espada a dos manos para realizar un ataque con un arma.
 Condition/&ConditionBladeDancerBladeDanceTitle=Baile de cuchillas
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=Agregas un +5 al daño de tus ataques con armas mientras tu Blade Dance está activo.
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=Danza de la victoria

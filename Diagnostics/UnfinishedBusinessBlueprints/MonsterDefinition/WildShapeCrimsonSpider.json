@@ -91,7 +91,8 @@
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
     "Definition:DamageAffinityAcidImmunity:2aee6491b5f11104ca5c7964578c54b0",
     "Definition:DamageAffinityThunderVulnerability:34c11328ff4efcb4480be632c698caa2",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6"
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:ConditionAffinityGrappledRestrainedSpellWebImmunity:1dbd0da8-d0cc-5aa1-a257-3046578f53bd"
   ],
   "attackIterations": [
     {

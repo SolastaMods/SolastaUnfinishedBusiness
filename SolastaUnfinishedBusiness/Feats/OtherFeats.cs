@@ -170,7 +170,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feature, spriteMedKit)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetHealingForm(
@@ -193,7 +193,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feature, spriteResuscitate)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
                     TargetFilteringTag.No,
@@ -484,6 +484,7 @@ internal static class OtherFeats
             .SetCustomSubFeatures(
                 new CanMakeAoOOnReachEntered
                 {
+                    AllowRange = false,
                     WeaponValidator = (mode, _, character) =>
                         ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(character, mode)
                 },
@@ -545,12 +546,14 @@ internal static class OtherFeats
                     .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
                     .AddToDB())
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalAdept")
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", null, elementalAdeptFeats);
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalAdept", "ElementalAdept", elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
@@ -615,13 +618,15 @@ internal static class OtherFeats
                         .SetDamageType(damageType)
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalMaster")
                 .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalMaster", null, elementalAdeptFeats);
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalMaster", "ElementalMaster", elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
@@ -842,7 +847,7 @@ internal static class OtherFeats
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
@@ -865,11 +870,8 @@ internal static class OtherFeats
         var castSpells = new List<FeatureDefinitionCastSpell>
         {
             // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
-            CastSpellCleric,
-            CastSpellDruid,
-            CastSpellSorcerer,
-            CastSpellWarlock,
-            CastSpellWizard
+            // CastSpellCleric, // Cleric doesn't have any cantrips in Solasta that are RangeHit
+            CastSpellDruid, CastSpellSorcerer, CastSpellWarlock, CastSpellWizard
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
@@ -895,7 +897,7 @@ internal static class OtherFeats
                 .SetGuiPresentationNoContent(true)
                 .ClearSpells()
                 .SetSpellsAtLevel(0, spellSniperSpells)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells()
                 .AddToDB();
 
             var featSpellSniper = FeatDefinitionBuilder
@@ -956,22 +958,23 @@ internal static class OtherFeats
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter caster)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             if (definition is not SpellDefinition spellDefinition)
             {
-                return effect;
+                return effectDescription;
             }
 
-            if (effect.rangeType != RangeType.RangeHit || !effect.HasDamageForm())
+            if (effectDescription.rangeType != RangeType.RangeHit || !effectDescription.HasDamageForm())
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
+            effectDescription.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
 
-            return effect;
+            return effectDescription;
         }
     }
 

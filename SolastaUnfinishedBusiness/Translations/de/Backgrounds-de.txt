@@ -1,6 +1,6 @@
-Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Kenntnisse im Umgang mit Keulen und Handäxten. +1, um mit ihnen zu schlagen.
-Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Bauernwaffen
-Feature/&ProficiencyBackgroundFarmerSkillsDescription=Umgang mit Tieren, Natur und Wahrnehmung
-Feature/&ProficiencyBackgroundFarmerSkillsTitle=Farmer-Fähigkeiten
-Background/&BackgroundFarmerDescription=Sie haben das Land bearbeitet und Vieh von Geburt an von Hand gezüchtet, um den Mund vieler zu füllen. Als Bauer wacht man vor Sonnenaufgang auf und kommt nach Sonnenuntergang von der Feldarbeit zurück. Du hast ein banales Leben hinter dir gelassen, um Abenteuer zu suchen, um Nervenkitzel, Ruhm oder Reichtum zu erlangen.
+Background/&BackgroundFarmerDescription=Sie haben von Geburt an das Land bearbeitet und Vieh von Hand gezüchtet, um den Mund vieler zu ernähren. Als Bauer wachte man vor Sonnenaufgang auf und kam erst nach Sonnenuntergang von der Feldarbeit zurück. Sie haben ein alltägliches Leben hinter sich gelassen, um auf der Suche nach Abenteuern, Nervenkitzel, Ruhm oder Reichtum zu suchen.
 Background/&BackgroundFarmerTitle=Bauer
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=Umgang mit Tieren, Natur und Wahrnehmung
+Feature/&ProficiencyBackgroundFarmerSkillsTitle=Fertigkeiten des Landwirts
+Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Kenntnisse im Umgang mit Keulen und Handäxten. +1, um mit ihnen zu treffen.
+Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Bauernwaffen

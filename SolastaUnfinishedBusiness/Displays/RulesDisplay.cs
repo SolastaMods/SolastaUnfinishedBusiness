@@ -13,23 +13,39 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label();
 
-        var toggle = Main.Settings.ApplySrdWeightToFoodRations;
-        if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ApplySrdWeightToFoodRations = toggle;
-            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
-        }
-
-        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
+            Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
         }
 
-        toggle = Main.Settings.IdentifyAfterRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.UseOfficialFlankingRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.IdentifyAfterRest = toggle;
+            Main.Settings.UseOfficialFlankingRules = toggle;
+        }
+
+        if (Main.Settings.UseOfficialFlankingRules)
+        {
+            toggle = Main.Settings.UseOfficialFlankingRulesAlsoForReach;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForReach"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesAlsoForReach = toggle;
+            }
+
+            toggle = Main.Settings.UseOfficialFlankingRulesAlsoForRanged;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForRanged"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
+            }
+        }
+
+        toggle = Main.Settings.UseOfficialFoodRationsWeight;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialFoodRationsWeight = toggle;
+            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
         }
 
         UI.Label();
@@ -39,6 +55,14 @@ internal static class RulesDisplay
         {
             Main.Settings.AddBleedingToLesserRestoration = toggle;
             SrdAndHouseRulesContext.AddBleedingToRestoration();
+        }
+
+        toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
+        if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
+            SrdAndHouseRulesContext.SwitchDarknessSpell();
         }
 
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
@@ -59,21 +83,21 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
         if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
         }
-
-        toggle = Main.Settings.ChangeSleetStormToCube;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
-        }
-
-        UI.Label();
 
         toggle = Main.Settings.FixEldritchBlastRange;
         if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
@@ -102,18 +126,18 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+        }
+
         toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
             SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
-        }
-
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
@@ -127,10 +151,16 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
-        toggle = Main.Settings.AllowStackedMaterialComponent;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.IdentifyAfterRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AllowStackedMaterialComponent = toggle;
+            Main.Settings.IdentifyAfterRest = toggle;
+        }
+
+        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
         }
 
         toggle = Main.Settings.AllowClubsToBeThrown;
@@ -138,6 +168,26 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowClubsToBeThrown = toggle;
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+        }
+
+        toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
+        }
+
+        toggle = Main.Settings.EnableHigherGroundRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHigherGroundRules = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AllowStackedMaterialComponent;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowStackedMaterialComponent = toggle;
         }
 
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
@@ -152,6 +202,19 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+        }
+
+        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
+        }
+
+        toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
+        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
+            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
         UI.Label();
@@ -169,17 +232,10 @@ internal static class RulesDisplay
             Main.Settings.IncreaseMaxAttunedItems = toggle;
         }
 
-        toggle = Main.Settings.MakeLargeWildshapeFormsMedium;
-        if (UI.Toggle(Gui.Localize("ModUi/&MakeLargeWildshapeFormsMedium"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableCharactersOnFireToEmitLight;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.MakeLargeWildshapeFormsMedium = toggle;
-            SrdAndHouseRulesContext.SwitchMakeLargeWildshapeFormsMedium();
-        }
-
-        toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
+            Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 

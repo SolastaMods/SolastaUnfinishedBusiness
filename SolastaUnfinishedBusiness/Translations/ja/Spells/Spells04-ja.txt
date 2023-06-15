@@ -1,0 +1,12 @@
+Condition/&ConditionBrainBulwarkDescription=あなたは精神的ダメージに対する抵抗力を持ち、魅了されたり、怯えたり、恐怖したり、精神に支配されたり、精神に支配されたりする状況に対する免疫を持っています。
+Condition/&ConditionBrainBulwarkTitle=ブレインブルワーク
+Condition/&ConditionStaggeringSmiteEnemyDescription=精神的なダメージを受けてしまいます。
+Condition/&ConditionStaggeringSmiteEnemyTitle=よろめきのスマイト
+Feedback/&AdditionalDamageStaggeringSmiteFormat=驚異のスマイト！
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} は驚異的な打撃により {1} にさらに多くのダメージを与えます (+{2})
+Spell/&BrainBulwarkDescription=期間中、あなたまたは範囲内で見える自発的なクリーチャー 1 体は精神的ダメージに対する耐性を持ち、また魅了、恐怖、恐怖、精神支配、精神支配状態に対する免疫を持ちます。
+Spell/&BrainBulwarkTitle=ブレインブルワーク
+Spell/&GravitySinkholeDescription=敵を引き寄せ、重力エネルギーで粉砕します。
+Spell/&GravitySinkholeTitle=重力シンクホール
+Spell/&StaggeringSmiteDescription=この呪文の持続時間中に次にあなたが武器攻撃でクリーチャーを攻撃するとき、あなたの武器は体と精神の両方を貫通し、その攻撃はターゲットに追加の 4d6 精神的ダメージを与えます。ターゲットはウィズダム・セーヴィング・スローを行わなければなりません。セーブに失敗すると、次のターンの終了時まで、攻撃ロールと能力判定に不利になり、反応を取ることができません。
+Spell/&StaggeringSmiteTitle=よろめきのスマイト

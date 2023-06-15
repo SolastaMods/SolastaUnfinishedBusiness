@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
+  "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
   "features": [
     null
@@ -9,6 +9,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",

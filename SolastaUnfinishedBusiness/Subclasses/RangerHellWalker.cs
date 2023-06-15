@@ -94,7 +94,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
         var proficiencyCursedTongue = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}CursedTongue")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Language, "Language_Abyssal", "LanguageInfernal")
+            .SetProficiencies(ProficiencyType.Language, "Language_Abyssal", "Language_Infernal")
             .AddToDB();
 
         // LEVEL 07
@@ -118,6 +118,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPoisoned)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
             .SetFeatures(ConditionDefinitions.ConditionFrightened.Features)
             .SetRecurrentEffectForms(
@@ -136,7 +137,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     // .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                     //     EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -295,9 +296,9 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
             // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .ToList()
-                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
-                         .Where(x => x != gameLocationDefender))
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .Where(x => x != gameLocationDefender)
+                         .ToList()) // avoid changing enumerator
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions

@@ -46,7 +46,7 @@
     "description": "Subclass/&SorcerousDivineHeartDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "36cc8d8d-4982-57ff-bd59-14e742efd3db",
+      "m_AssetGUID": "896fbe51-8598-5687-bb8c-a7a260125978",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

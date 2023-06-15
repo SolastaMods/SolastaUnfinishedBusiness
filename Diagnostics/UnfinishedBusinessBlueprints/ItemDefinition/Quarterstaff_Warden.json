@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2250,
+    4500,
     0,
     0,
     0
@@ -43,7 +43,7 @@
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": true,
       "type": "Feature",
-      "featureDefinition": "Definition:AttackModifierWeapon+1AT:af316240961a7b345b635c27f16010b6",
+      "featureDefinition": "Definition:AttackModifierWeapon+1:45e5b7165fa58854bb859e5b205dcc71",
       "conditionDefinition": null,
       "knowledgeAffinity": "ActiveAndVisible"
     },
@@ -114,6 +114,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -518,12 +519,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Quarterstaff_plus_three_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Quarterstaff_plus_two_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
+      "m_AssetGUID": "a1913fedad54a2848a3ebec8aa31792a",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -535,6 +536,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -543,8 +545,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -30,7 +30,8 @@
   "languageAutolearnPreference": [
     "Language_Dwarvish",
     "Language_Halfling",
-    "Language_Elvish"
+    "Language_Elvish",
+    "Language_Dwarvish"
   ],
   "audioSwitches": [],
   "audioRaceRTPCValue": 66.0,
@@ -39,7 +40,10 @@
     "bodyAssetPrefix": "Dragonborn",
     "armorAssetPrefix": "Human",
     "helmetAssetPrefix": "Dragonborn",
-    "morphotypeAssetPrefix": "Dragonborn",
+    "faceShapeAssetPrefix": "Dragonborn",
+    "hairShapeAssetPrefix": "Dragonborn",
+    "beardShapeAssetPrefix": "Dragonborn",
+    "hornsTailAssetPrefix": "Dragonborn",
     "maleNameOptions": [
       "Race/&DragonbornMaleName1Title",
       "Race/&DragonbornMaleName2Title",
@@ -189,7 +193,13 @@
       "minValue": 0,
       "maxValue": 0
     },
-    "musicalInstrumentScale": 1.0
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.5,
+      "maxValue": 0.75
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Dragonborn"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

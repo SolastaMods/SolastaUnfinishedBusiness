@@ -52,3 +52,5 @@ LocationType/&DLC1_Encounter_Anfarel_Town_Description=A typical jungle town, and
 LocationType/&DLC1_HuntingGrounds_Title=Hunting Grounds
 LocationType/&DLC1_HuntingGrounds_Description=Henrik told you this is a good place to hunt Badlands bears.
 LocationType/&Encounter_Jungle_Outpost_Title=Unknown Outpost
+LocationType/&Encounter_Woods_Title=Woods
+LocationType/&Encounter_Woods_Description=A dark and wet wood in a gloomy forest.

@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -60,6 +61,36 @@
     "effectApplication": "All",
     "effectFormFilters": [],
     "effectForms": [
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "ItemProperty",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "itemPropertyForm": {
+          "$type": "ItemPropertyForm, Assembly-CSharp",
+          "featureBySlotLevel": [
+            {
+              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+              "featureDefinition": "Definition:AttackModifierDemonGreaseNightHunt+2:261b64a53352fb048b41855dea869652",
+              "level": 0
+            }
+          ],
+          "usageLimitation": "Unlimited",
+          "useAmount": 3
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
@@ -78,7 +109,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionDemonGreaseNightHuntHigherAC_WPN:c3495e3f9f897064ea8d7cc6e93d8713",
+          "conditionDefinition": "Definition:ConditionDemonGreaseNightHuntBonusAttack_WPN:9ad0417d5dd371f4099d2d91bed6cdaf",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -106,33 +137,6 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
           "conditionDefinition": "Definition:ConditionLightSensitiveDemonGreaseNightHunt:32c1d9a150153474ebece95ccc29b160",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 0,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionDemonGreaseNightHuntBonusAttack_WPN:9ad0417d5dd371f4099d2d91bed6cdaf",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -377,6 +381,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

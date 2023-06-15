@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
@@ -209,6 +210,7 @@ public static class RulesetImplementationManagerPatcher
             int additionalDamage,
             int damageRollReduction,
             float damageMultiplier,
+            bool maximumDamage,
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
@@ -229,7 +231,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 return rulesetActor.RollDamage(
                     damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
-                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+                    damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
             return hero.Side switch
@@ -246,7 +248,8 @@ public static class RulesetImplementationManagerPatcher
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
                     _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        damageRollReduction, damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage,
+                        rolledValues,
                         canRerollDice)
                 },
                 RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
@@ -261,12 +264,13 @@ public static class RulesetImplementationManagerPatcher
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
                     _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        damageRollReduction, damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage,
+                        rolledValues,
                         canRerollDice)
                 },
                 _ => rulesetActor.RollDamage(
                     damageForm, addDice, true, additionalDamage, damageRollReduction,
-                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
+                    damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
         }
 
@@ -277,7 +281,7 @@ public static class RulesetImplementationManagerPatcher
             var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
             var myRollDamageMethod =
                 new Func<RulesetActor,
-                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, int>(
+                    DamageForm, int, bool, int, int, float, bool, bool, bool, List<int>, bool, int>(
                     RollDamage).Method;
 
             return instructions.ReplaceCalls(rollDamageMethod,
@@ -640,19 +644,25 @@ public static class RulesetImplementationManagerPatcher
 
         private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
         {
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
             var savingThrowBonus =
-                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
-                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+                AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetCharacter.TryGetAttributeValue(attributeScore)) +
+                rulesetCharacter.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
 
             var attr = attributeScore;
 
-            foreach (var attribute in rulesetActor
+            foreach (var attribute in rulesetCharacter
                          .GetSubFeaturesByType<IChangeSavingThrowAttribute>()
-                         .Where(x => x.IsValid(rulesetActor, attr))
-                         .Select(x => x.SavingThrowAttribute(rulesetActor)))
+                         .Where(x => x.IsValid(rulesetCharacter, attr))
+                         .Select(x => x.SavingThrowAttribute(rulesetCharacter)))
             {
                 var newSavingThrowBonus =
-                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
+                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attribute)) +
                     rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
 
                 // get the last one instead unless we start using this with other subs and then need to decide which one is better
@@ -666,10 +676,28 @@ public static class RulesetImplementationManagerPatcher
             }
         }
 
-        //PATCH: supports IChangeSavingThrowAttribute interface
         [UsedImplicitly]
-        public static void Prefix(RulesetActor target, ref string savingThrowAbility)
+        public static void Prefix(
+            RulesetCharacter caster,
+            RulesetActor target,
+            ref string savingThrowAbility,
+            List<EffectForm> effectForms,
+            BaseDefinition sourceDefinition)
         {
+            //PATCH: supports Oath of Ancients / Oath of Dread level 20 powers
+            //TODO: convert to an interface
+            var hasSmiteCondition = effectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Condition &&
+                x.ConditionForm.ConditionDefinition != null &&
+                x.ConditionForm.ConditionDefinition.Name.Contains("Smite"));
+
+            if (hasSmiteCondition)
+            {
+                OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
+                OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
+            }
+
+            //PATCH: supports IChangeSavingThrowAttribute interface
             GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
         }
 

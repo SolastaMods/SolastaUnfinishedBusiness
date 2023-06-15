@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2500,
+    4000,
     0,
     0,
     0
@@ -42,7 +42,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttackImpactThunderwaveSpellVFX:d3f1e7b6-7e3c-5574-8b3b-7fa1099791c4",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -50,7 +50,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttackModifierWeapon+1AT:af316240961a7b345b635c27f16010b6",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -113,6 +113,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -521,7 +522,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "bfe46e8cb70520347b28cef32c05b65c",
+      "m_AssetGUID": "4a7b4f70ed9e9db4dab68b3f24bcb156",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -533,6 +534,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -541,8 +543,7 @@
     "itemFlags": [],
     "serializedVersion": 0
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

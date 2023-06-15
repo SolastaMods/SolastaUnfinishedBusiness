@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListSkeletonSorcerer:7ac7b9d3f44d916469f2a746ed8a39ff",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 5,
+  "cantripsOnly": false,
   "knownCantrips": [
     2,
     2,
@@ -281,6 +283,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

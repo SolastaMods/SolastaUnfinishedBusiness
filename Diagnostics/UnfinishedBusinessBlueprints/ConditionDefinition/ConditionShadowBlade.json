@@ -4,12 +4,12 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
-    "Definition:CombatAffinityShadowBlade:af98c62e-f92d-53ef-b65f-ae5baaae14ad"
+    "Definition:FeatureShadowBlade:aa9a0c6a-22d4-5f5a-b9c6-0bc354dd70f3"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

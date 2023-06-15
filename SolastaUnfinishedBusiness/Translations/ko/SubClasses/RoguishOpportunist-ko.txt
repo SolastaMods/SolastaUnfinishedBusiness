@@ -1,0 +1,14 @@
+Condition/&ConditionOpportunistDebilitatedDescription=모든 세이브 드로우는 한 라운드 동안 1D6만큼 감소합니다.
+Condition/&ConditionOpportunistDebilitatedTitle=쇠약해진
+Condition/&ConditionOpportunistExposedDescription=적은 당신에 대한 공격에 유리합니다.
+Condition/&ConditionOpportunistExposedTitle=노출된
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=13레벨부터 적이 내성 굴림에 실패하고 당신의 차례가 아닐 때, 당신은 당신의 반응을 사용하여 적을 공격할 수 있습니다. 여기에서 은밀한 공격이 발동될 수 있습니다.
+Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=기회를 잡으세요
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=3레벨부터는 자신보다 주도권이 낮은 적을 공격하는 데 유리합니다. 또한 기회 공격을 수행할 때도 유리합니다.
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=퀵 스트라이크
+Feature/&PowerOpportunistDebilitatingStrikeDescription=9레벨부터 기습 공격을 하면 대상이 건강 내성 굴림(DC 8 + 숙련도 보너스 + 민첩 수정치)을 하거나 한 라운드 동안 모든 내성 굴림이 1D6 감소합니다.
+Feature/&PowerOpportunistDebilitatingStrikeTitle=쇠약의 일격
+Feature/&PowerOpportunistExposingWeaknessDescription=17레벨부터 Debilitating Strike 기능의 내성 굴림에 실패한 생물에 대한 모든 공격이 유리하게 이루어집니다.
+Feature/&PowerOpportunistExposingWeaknessTitle=약점 노출
+Subclass/&RoguishOpportunistDescription=기회주의자는 적을 끝장낼 기회를 절대 놓치지 않는 사람들입니다. 그들은 빠르게 찌르고 중요한 곳을 찌릅니다. 긁히지 않고 탈출할 수 있는 사람은 많지 않습니다.
+Subclass/&RoguishOpportunistTitle=기회주의자

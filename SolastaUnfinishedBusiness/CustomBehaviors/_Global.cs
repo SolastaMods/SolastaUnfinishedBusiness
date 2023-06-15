@@ -48,9 +48,6 @@ internal static class Global
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; set; }
 
-    // last attack was a critical hit
-    internal static bool CriticalHit { get; set; }
-
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 

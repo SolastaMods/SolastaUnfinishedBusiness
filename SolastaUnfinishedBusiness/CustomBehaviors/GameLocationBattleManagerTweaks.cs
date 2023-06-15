@@ -148,6 +148,7 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT START
              * Support for `CharacterLevel` damage progression
              */
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
                      ExtraAdditionalDamageAdvancement.CharacterLevel)
             {
@@ -159,6 +160,26 @@ internal static class GameLocationBattleManagerTweaks
             }
             /*
              * Support for `CharacterLevel` damage progression
+             * [CE] EDIT END
+             * ######################################
+             */
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for `ConditionAmount` damage progression
+             */
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.ConditionAmount)
+            {
+                var condition =
+                    attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                if (condition != null)
+                {
+                    diceNumber = provider.GetDiceOfRank(condition.Amount);
+                }
+            }
+            /*
+             * Support for `ConditionAmount` damage progression
              * [CE] EDIT END
              * ######################################
              */
@@ -202,10 +223,20 @@ internal static class GameLocationBattleManagerTweaks
             // additionalDamageForm.DieType = provider.DamageDieType;
 
             //Get die type from features if applicable
+            var rulesetCharacter = attacker.RulesetCharacter;
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
 
-            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ??
-                                           provider.DamageDieType;
+            additionalDamageForm.DieType =
+                dieTypeProvider?.Invoke(rulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
+
+            //Mainly to support Closer Quarters feat
+            foreach (var damageDieProviderFromCharacter in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
+            {
+                additionalDamageForm.DieType =
+                    damageDieProviderFromCharacter.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
+                        additionalDamageForm, attackMode, attacker, defender);
+            }
 
             /*
              * Support for damage die progression
@@ -214,6 +245,73 @@ internal static class GameLocationBattleManagerTweaks
              */
             additionalDamageForm.DiceNumber = diceNumber;
         }
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
+         */
+        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
+                 ExtraAdditionalDamageValueDetermination.FlatWithProgression)
+        {
+            var bonus = provider.FlatBonus;
+
+            if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
+            {
+                // Find the character class which triggered this
+                var classDefinition = hero?.FindClassHoldingFeature(featureDefinition);
+
+                if (classDefinition != null)
+                {
+                    var classLevel = hero.ClassesAndLevels[classDefinition];
+                    bonus += provider.GetDiceOfRank(classLevel);
+                }
+            }
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.CharacterLevel)
+            {
+                if (hero != null)
+                {
+                    var characterLevel = hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+                    bonus += provider.GetDiceOfRank(characterLevel);
+                }
+            }
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.ConditionAmount)
+            {
+                var condition =
+                    attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                if (condition != null)
+                {
+                    bonus += provider.GetDiceOfRank(condition.Amount);
+                }
+            }
+            else if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.SlotLevel)
+            {
+                if (reactionParams != null)
+                {
+                    bonus += provider.GetDiceOfRank(reactionParams.IntParameter);
+                }
+                else
+                {
+                    var condition =
+                        attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                    if (condition != null)
+                    {
+                        bonus += provider.GetDiceOfRank(condition.EffectLevel);
+                    }
+                }
+            }
+
+            additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
+            additionalDamageForm.DiceNumber = 0;
+            additionalDamageForm.BonusDamage = bonus;
+        }
+        /*
+         * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
+         * [CE] EDIT END
+         * ######################################
+         */
         /*
         * ######################################
         * [CE] EDIT START
@@ -380,7 +478,20 @@ internal static class GameLocationBattleManagerTweaks
             var useVersatileDamage = attackMode is { UseVersatileDamage: true };
             var damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             additionalDamageForm.DieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
-            additionalDamageForm.DiceNumber = 1;
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for accounting for all damage dice on savage critical
+             * Base game uses only 1 dice, which makes Greatsword weak in this case
+             */
+            //Commented out original code
+            //additionalDamageForm.DiceNumber = 1;
+            additionalDamageForm.DiceNumber = Main.Settings.AccountForAllDiceOnSavageAttack ? damageForm.DiceNumber : 1;
+            /*
+             * Support for accounting for all damage dice on savage critical
+             * [CE] EDIT END
+             * ######################################
+             */
             additionalDamageForm.BonusDamage = 0;
         }
         else if (provider.DamageValueDetermination ==
@@ -662,7 +773,8 @@ internal static class GameLocationBattleManagerTweaks
         {
             if (attackMode?.SourceObject is RulesetItem weapon)
             {
-                weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(instance.featuresToBrowseItem);
+                weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
+                    instance.featuresToBrowseItem, attacker.Name);
                 instance.featuresToBrowseReaction.AddRange(instance.featuresToBrowseItem);
                 instance.featuresToBrowseItem.Clear();
             }
@@ -836,12 +948,10 @@ internal static class GameLocationBattleManagerTweaks
                             hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
                         }
 
-                        // This is used to only offer smites on critical hits
+                        // This is used to only offer divine smites on critical hits
                         if (!criticalHit &&
-                            // allows EldritchSmite to pass through
-                            featureDefinition is not FeatureDefinitionAdditionalDamage &&
-                            // allows PaladinSmite to pass through
                             Main.Settings.AddPaladinSmiteToggle &&
+                            featureDefinition is FeatureDefinitionAdditionalDamage { NotificationTag: "DivineSmite" } &&
                             !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
                         {
                             break;
@@ -986,10 +1096,11 @@ internal static class GameLocationBattleManagerTweaks
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.SourceHasCondition:
+                        ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
                     {
-                        validTrigger =
-                            attacker.RulesetCharacter.HasConditionOfType(provider.RequiredTargetCondition.Name);
+                        validTrigger = attackMode != null &&
+                                       attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
+
                         break;
                     }
                     /*
@@ -1180,7 +1291,7 @@ internal static class GameLocationBattleManagerTweaks
         foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
         {
             var validUses = true;
-            var featureDefinition = feature.Provider as FeatureDefinitionAdditionalDamage;
+            var additionalDamage = feature.Provider as FeatureDefinitionAdditionalDamage;
             var provider = feature.Provider;
 
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
@@ -1189,10 +1300,10 @@ internal static class GameLocationBattleManagerTweaks
                 switch (provider.LimitedUsage)
                 {
                     case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
-                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
+                        when attacker.UsedSpecialFeatures.ContainsKey(additionalDamage.Name) ||
                              (instance.Battle != null && instance.Battle.ActiveContender != attacker):
                     case RuleDefinitions.FeatureLimitedUsage.OncePerTurn
-                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name):
+                        when attacker.UsedSpecialFeatures.ContainsKey(additionalDamage.Name):
                         validUses = false;
                         break;
 

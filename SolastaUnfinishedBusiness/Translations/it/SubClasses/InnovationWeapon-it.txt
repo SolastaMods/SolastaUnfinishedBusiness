@@ -1,12 +1,10 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonus di attacco magico del suo creatore
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Puoi attaccare due volte, anziché una volta, quando usi le azioni di attacco o spinta.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Attacco extra
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Impara e preparati sempre:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Incantesimi del fabbro
-Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=I tuoi esperimenti con le armi ti hanno portato un compagno di Defending Blade. È immune al veleno, all'esaurimento, all'incantesimo o alla sorpresa. In combattimento, la lama condivide la tua iniziativa e fa il suo turno subito dopo di te. Può muoversi e usare la reazione per imporre svantaggio al tiro per colpire del nemico che attacca l'alleato entro 1 casella dalla lama, ma richiede un'azione di schivata all'inizio del turno, a meno che tu non usi un'azione bonus per comandarlo. Se sei incapace, la lama può compiere qualsiasi azione a sua scelta.
-Feature/&FeatureSetInnovationWeaponSteelDefenderTitle=Lama in difesa
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Il tuo Scossa Arcana e il difensore d'acciaio diventano più potenti:\n• I danni extra e le cure fornite da Scossa Arcana aumentano entrambi a 4d6.\n• Il tuo difensore d'acciaio ottiene un bonus di +2 alla Classe Armatura.
 Feature/&FeatureSetInnovationWeaponImprovedDefenderTitle=Difensore migliorato
+Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=I tuoi esperimenti con le armi ti hanno portato un compagno di Defending Blade. È immune al veleno, all'esaurimento, all'incantesimo o alla sorpresa. In combattimento, la lama condivide la tua iniziativa e fa il suo turno subito dopo di te. Può muoversi e usare la reazione per imporre svantaggio al tiro per colpire del nemico che attacca l'alleato entro 1 casella dalla lama, ma richiede un'azione di schivata all'inizio del turno, a meno che tu non usi un'azione bonus per comandarlo. Se sei incapace, la lama può compiere qualsiasi azione a sua scelta.
+Feature/&FeatureSetInnovationWeaponSteelDefenderTitle=Lama in difesa
 Feature/&PowerInnovationWeaponArcaneJoltDescription=Quando colpisci un nemico con il tuo attacco, puoi incanalare energia magica attraverso il colpo per far subire al bersaglio 2d6 danni da Forza extra. Puoi usare questo potere un numero di volte pari al tuo modificatore di Intelligenza per riposo lungo, ma non più di una volta per turno.
 Feature/&PowerInnovationWeaponArcaneJoltTitle=Forza Scossa
 Feature/&PowerInnovationWeaponSteelDefenderRecuperateDescription=Defending Blade ha un numero di d8 dadi vita pari al tuo livello di Inventore. Durante il riposo breve puoi tirarli per ripristinare gli HP di Defending Blade.

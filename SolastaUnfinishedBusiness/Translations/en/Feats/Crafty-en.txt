@@ -1,8 +1,8 @@
-Feat/&FeatApothecaryChaDescription=Increase your Charisma by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+Feat/&FeatApothecaryChaDescription=Increase your Charisma by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and medicine, or expertise if already proficient.
 Feat/&FeatApothecaryChaTitle=Apothecary [Cha]
-Feat/&FeatApothecaryIntDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+Feat/&FeatApothecaryIntDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and medicine, or expertise if already proficient.
 Feat/&FeatApothecaryIntTitle=Apothecary [Int]
-Feat/&FeatApothecaryWisDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+Feat/&FeatApothecaryWisDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or medicine if already proficient.
 Feat/&FeatApothecaryWisTitle=Apothecary [Wis]
 Feat/&FeatCraftyScriberDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with scroll kit and Arcana, or expertise if already proficient.
 Feat/&FeatCraftyScriberTitle=Scriber

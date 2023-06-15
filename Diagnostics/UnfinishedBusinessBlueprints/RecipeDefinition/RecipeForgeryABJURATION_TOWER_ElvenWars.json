@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ABJURATION_TOWER_ElvenWars:2a44de71797e3474da1cd8891f2d6af1",
   "stackCount": 1,
   "craftingHours": 16,

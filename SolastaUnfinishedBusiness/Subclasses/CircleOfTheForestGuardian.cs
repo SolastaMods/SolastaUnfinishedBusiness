@@ -168,10 +168,10 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsForestGuardian,
                 attributeModifierForestGuardianSylvanDurability,
-                PowerCasterFightingWarMagic,
                 powerSharedPoolForestGuardianBarkWard)
             .AddFeaturesAtLevel(6,
-                AttributeModifierCasterFightingExtraAttack)
+                AttributeModifierCasterFightingExtraAttack,
+                PowerCasterFightingWarMagic)
             .AddFeaturesAtLevel(10,
                 powerSharedPoolForestGuardianImprovedBarkWard)
             .AddFeaturesAtLevel(14,

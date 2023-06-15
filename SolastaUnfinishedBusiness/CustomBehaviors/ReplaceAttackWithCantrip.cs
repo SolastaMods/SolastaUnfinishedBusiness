@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -38,10 +37,13 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        result = ActionDefinitions.ActionStatus.Available;
+        if (result == ActionDefinitions.ActionStatus.NoLongerAvailable)
+        {
+            result = ActionDefinitions.ActionStatus.Available;
+        }
     }
 
-    internal static void AllowAttacksAfterCantrip(GameLocationCharacter __instance, CharacterActionParams actionParams,
+    internal static void AllowAttacksAfterCantrip(GameLocationCharacter character, CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope)
     {
         if (scope != ActionDefinitions.ActionScope.Battle)
@@ -49,7 +51,7 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
+        var rulesetCharacter = character.RulesetCharacter;
 
         if (!rulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
@@ -67,53 +69,29 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        var num = actionParams.ActingCharacter.RulesetCharacter.AttackModes
+        const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Main;
+        var rank = --character.currentActionRankByType[ACTION_TYPE];
+
+        var maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
+        var maxAttacksNumber = rulesetCharacter.AttackModes
             .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
-            .Aggregate(0, (current, attackMode) => Mathf.Max(current, attackMode.AttacksNumber));
+            .Max(attackMode => attackMode.AttacksNumber);
 
-        //increment used attacks to count cantrip as attack
-        __instance.usedMainAttacks++;
-
-        //if still attacks left - refund main action
-        if (__instance.usedMainAttacks < num)
+        if (maxAllowedAttacks < 0 || maxAllowedAttacks >= maxAttacksNumber)
         {
-            __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+            maxAllowedAttacks = maxAttacksNumber;
         }
 
-        // reset __instance.usedMainAttacks so doesn't block haste or action surge
-        if (__instance.usedMainAttacks >= num)
-        {
-            __instance.usedMainAttacks = 0;
-        }
-    }
+        character.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
 
-    internal static void MightRefundOneAttackOfMainAction(
-        GameLocationCharacter __instance,
-        CharacterActionParams actionParams,
-        ActionDefinitions.ActionScope scope)
-    {
-        // should be in battle only
-        if (scope != ActionDefinitions.ActionScope.Battle)
+        if (character.UsedMainAttacks < maxAllowedAttacks)
         {
             return;
         }
 
-        // if main is still available then don't refund
-        if (__instance.currentActionRankByType[ActionDefinitions.ActionType.Main] <= 0)
-        {
-            return;
-        }
-
-        var features = actionParams.actingCharacter.RulesetCharacter
-            .GetSubFeaturesByType<IMightRefundOneAttackOfMainAction>();
-        var refund = features.Aggregate(false,
-            (current, f) => current | f.MightRefundOneAttackOfMainAction(__instance, actionParams));
-
-        if (!refund)
-        {
-            return;
-        }
-
-        __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+        character.currentActionRankByType[ACTION_TYPE]++;
+        character.UsedMainAttacks = 0;
     }
 }

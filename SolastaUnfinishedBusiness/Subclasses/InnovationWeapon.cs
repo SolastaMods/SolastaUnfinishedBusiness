@@ -15,6 +15,7 @@ using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -27,6 +28,14 @@ public static class InnovationWeapon
 
     public static CharacterSubclassDefinition Build()
     {
+        // BEGIN BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierInnovationWeaponExtraAttack")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
+            .AddToDB();
+        // END BACKWARD COMPATIBILITY
+
         var steelDefenderFeatureSet =
             BuildSteelDefenderFeatureSet(out var steelDefenderPower, out var steelDefenderMonster);
 
@@ -34,7 +43,7 @@ public static class InnovationWeapon
             .Create("InnovationWeapon")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorWeapon", Resources.InventorWeapon, 256))
             .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), steelDefenderFeatureSet)
-            .AddFeaturesAtLevel(5, BuildExtraAttack())
+            .AddFeaturesAtLevel(5, AttributeModifierCasterFightingExtraAttack)
             .AddFeaturesAtLevel(9, BuildArcaneJolt())
             .AddFeaturesAtLevel(15, BuildImprovedDefenderFeatureSet(steelDefenderPower, steelDefenderMonster))
             .AddToDB();
@@ -63,15 +72,6 @@ public static class InnovationWeapon
             .AddPreparedSpellGroup(9, RemoveCurse, BeaconOfHope)
             .AddPreparedSpellGroup(13, FireShield, DeathWard)
             .AddPreparedSpellGroup(17, MassCureWounds, WallOfForce)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildExtraAttack()
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierInnovationWeaponExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
     }
 
@@ -459,7 +459,7 @@ public static class InnovationWeapon
             .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeForce, 2, DieType.D6)

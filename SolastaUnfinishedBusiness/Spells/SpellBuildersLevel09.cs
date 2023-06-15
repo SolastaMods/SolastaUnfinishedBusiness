@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 09
+    #region Foresight
 
     internal static SpellDefinition BuildForesight()
     {
@@ -24,7 +24,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Hour, 8)
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
@@ -58,12 +58,16 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Mass Heal
+
     internal static SpellDefinition BuildMassHeal()
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Individuals, 6)
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetHealingForm(
@@ -88,6 +92,10 @@ internal static partial class SpellBuilders
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Meteor Swarm
 
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
@@ -134,12 +142,16 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Power Word Heal
+
     internal static SpellDefinition BuildPowerWordHeal()
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -176,7 +188,7 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create("PowerWordHeal")
             .SetGuiPresentation(Category.Spell, HealingWord)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)
@@ -186,12 +198,16 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Power Word Kill
+
     internal static SpellDefinition BuildPowerWordKill()
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -211,6 +227,10 @@ internal static partial class SpellBuilders
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Shapechange
 
     internal static SpellDefinition BuildShapechange()
     {
@@ -262,6 +282,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Time Stop
+
     internal static SpellDefinition BuildTimeStop()
     {
         const string NAME = "TimeStop";
@@ -299,6 +323,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Weird
+
     internal static SpellDefinition BuildWeird()
     {
         var effectDescription = EffectDescriptionBuilder
@@ -327,7 +355,7 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create("Weird")
             .SetGuiPresentation(Category.Spell, PhantasmalKiller)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)

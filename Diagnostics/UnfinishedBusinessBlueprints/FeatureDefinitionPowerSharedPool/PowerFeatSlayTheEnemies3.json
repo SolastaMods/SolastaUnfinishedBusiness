@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -296,6 +297,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
@@ -324,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Slay the Enemies 3",
-    "description": "You gain +3 to hit and damage rolls against non favored enemies for 5 rounds. You gain advantage against favored ones instead.",
+    "title": "Slay the Enemies III",
+    "description": "Consume level 3 spell slot to gain +3 to attack and damage rolls for 5 rounds. Against favored enemies attack roll bonus is replaced with advantage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

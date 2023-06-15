@@ -1,0 +1,6 @@
+Size/&GargantuanTitle=超巨型
+Size/&HugeTitle=巨型
+Size/&LargeTitle=大型
+Size/&MediumTitle=中型
+Size/&SmallTitle=小型
+Size/&TinyTitle=微型

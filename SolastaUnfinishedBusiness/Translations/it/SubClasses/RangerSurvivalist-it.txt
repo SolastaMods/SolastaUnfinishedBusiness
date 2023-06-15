@@ -1,5 +1,5 @@
 Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 per spostare la velocità.
-Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Colpo disabilitante
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Colpo invalidante
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 alla classe armatura e alla velocità di movimento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Colpo disabilitante migliorato
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La prima volta che colpisci una creatura con un attacco con un'arma in ciascuno dei tuoi turni, deve effettuare un tiro salvezza su Destrezza contro la CD del tuo incantesimo da ranger o rimanere ostacolata per un minuto. Una creatura può ripetere il tiro salvezza alla fine di ciascuno dei suoi turni, terminando l'effetto in caso di successo.
@@ -10,7 +10,7 @@ Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Ottieni incantesimi bonu
 Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Incantesimi bonus del sopravvissuto
 Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription=Ottieni vantaggio alle prove di Sopravvivenza per aumentare la conoscenza delle creature e tutti i benefici dello stile di combattimento del Boia.
 Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle=Mente analitica
-Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Ottieni competenza in Sopravvivenza o competenza se già abile.
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Ottieni competenza nell'abilità di sopravvivenza.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Emarginato errante
 Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Ottieni competenza nei tiri salvezza di Saggezza.
 Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Esperienza senza eguali

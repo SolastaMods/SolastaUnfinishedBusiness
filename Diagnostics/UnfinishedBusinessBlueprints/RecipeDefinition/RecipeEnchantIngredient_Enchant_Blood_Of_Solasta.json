@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Blood_Of_Solasta:f139a17731fb4a94b9405e1869606d86",
   "stackCount": 1,
   "craftingHours": 16,

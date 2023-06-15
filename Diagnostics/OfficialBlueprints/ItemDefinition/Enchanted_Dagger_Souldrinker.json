@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1780,
+    4502,
     0,
     0,
     0
@@ -36,14 +36,14 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": true,
       "type": "Feature",
-      "featureDefinition": "Definition:AttackModifierWeapon+1AT:af316240961a7b345b635c27f16010b6",
+      "featureDefinition": "Definition:AttackModifierWeapon+1:45e5b7165fa58854bb859e5b205dcc71",
       "conditionDefinition": null,
       "knowledgeAffinity": "ActiveAndVisible"
     }
@@ -108,6 +108,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -531,6 +532,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -539,8 +541,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

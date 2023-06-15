@@ -1,0 +1,14 @@
+Feat/&FeatApothecaryChaDescription=カリスマ性を 1 増加させ、最大 20 まで高めます。\n薬草キットと薬の使用に習熟するか、すでに習熟している場合は専門知識を習得します。
+Feat/&FeatApothecaryChaTitle=薬屋[チャ]
+Feat/&FeatApothecaryIntDescription=知力を 1 増加させ、最大 20 まで増やします。\n薬草キットと薬の使用に習熟するか、すでに習熟している場合は専門知識を習得します。
+Feat/&FeatApothecaryIntTitle=アポセカリー[Int]
+Feat/&FeatApothecaryWisDescription=知恵を 1 増やし、最大 20 まで増やします。\n薬草キットとアルカナ、またはすでに熟練している場合は薬の熟練度を獲得します。
+Feat/&FeatApothecaryWisTitle=アポセカリー [ウィス]
+Feat/&FeatCraftyScriberDescription=インテリジェンスを 1 増加させ、最大 20 まで増やします。\nスクロール キットとアルカナの熟練度を獲得するか、すでに熟練している場合は専門知識を獲得します。
+Feat/&FeatCraftyScriberTitle=スクライバー
+Feat/&FeatToxicologistChaDescription=カリスマ性を 1 増加させ、最大 20 まで増やします。\n毒殺キットと動物の取り扱いに関する習熟度、またはすでに習熟している場合は専門知識を獲得します。
+Feat/&FeatToxicologistChaTitle=毒物学者 [チャ]
+Feat/&FeatToxicologistIntDescription=インテリジェンスを 1 増加させ、最大 20 まで増加させます。\n毒殺キットと自然に関する熟練度を獲得するか、すでに熟練している場合は専門知識を獲得します。
+Feat/&FeatToxicologistIntTitle=毒物学者 [Int]
+Feat/&FeatToxicologistWisDescription=知恵を 1 増やして、最大 20 まで増やします。\n毒殺キットと薬の熟練度を獲得するか、すでに熟練している場合は専門知識を獲得します。
+Feat/&FeatToxicologistWisTitle=毒物学者 [ウィス]

@@ -1,4 +1,0 @@
-Power/&PowerStoneGolemSlow_Title=Lento
-Power/&PowerStoneGolemSlow_Description=I golem di pietra possono rallentare i nemici nelle vicinanze.
-Power/&WightLifeDrain_Description=Gli spettri possono risucchiare l'essenza vitale con un colpo in mischia andato a segno.
-Power/&WightLordCircleofDeath_Description=Un wight lord può assorbire l'essenza vitale dai nemici circostanti.
