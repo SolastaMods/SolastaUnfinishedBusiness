@@ -23,5 +23,5 @@ Feature/&PowerBlastReloadDescription=你的技术精湛到能够连放两次<b>�
 Feature/&PowerPursuitPermanencyTitle=永恒追击
 Feature/&PowerPursuitPermanencyDescription=如果你的契约法术槽已全部消耗，则你始终处于<b>魔爆追击</b>状态，但你必须施展<b>魔能爆</b>才能获得额外的主要动作，每回合至多获得两次。
 Feedback/&BlastPursuitExtraAction={1}给予{0}额外动作！ 
-Feedback/&AdditionalDamageBlastOverloadFormat=魔爆超限
-Feedback/&AdditionalDamageBlastOverloadLine={0}向{1}倾泻奥能 (+{2})
+Feedback/&AdditionalDamageBlastOverloadFormat=魔爆超限！
+Feedback/&AdditionalDamageBlastOverloadLine={0}向{1}倾泻奥能 (+{2})！
