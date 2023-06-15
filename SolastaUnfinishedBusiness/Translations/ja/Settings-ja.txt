@@ -241,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=公式の有利/不利ルールを�
 ModUi/&UseOfficialFlankingRules=公式の側面ルールを使用する<i><color=#F0DAA0>[味方がターゲットの反対側にいる場合、攻撃側が有利]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にします</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にする</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

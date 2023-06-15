@@ -241,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/
 ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento <i><color=#F0DAA0>[um atacante tem vantagem se um aliado estiver no lado oposto do alvo]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à distância</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também para ataques de alcance</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de conceder vantagem +1 para jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

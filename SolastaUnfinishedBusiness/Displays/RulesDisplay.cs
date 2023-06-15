@@ -39,6 +39,12 @@ internal static class RulesDisplay
             {
                 Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
             }
+            
+            toggle = Main.Settings.UseOfficialFlankingRulesButAddAttackModifier;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesButAddAttackModifier"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesButAddAttackModifier = toggle;
+            }
         }
 
         toggle = Main.Settings.UseOfficialFoodRationsWeight;

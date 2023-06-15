@@ -241,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorte
 ModUi/&UseOfficialFlankingRules=Verwenden Sie die offiziellen Flankierungsregeln <i><color=#F0DAA0>[ein Angreifer hat einen Vorteil, wenn sich ein Verbündeter auf der gegenüberliegenden Seite des Ziels befindet]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe aktivieren</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

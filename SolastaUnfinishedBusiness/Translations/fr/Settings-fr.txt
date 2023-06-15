@@ -241,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Utilisez les règles officielles d'
 ModUi/&UseOfficialFlankingRules=Utilisez les règles officielles de flanquement <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé de la cible]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par portée</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

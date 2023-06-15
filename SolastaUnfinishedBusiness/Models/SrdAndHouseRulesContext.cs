@@ -1096,11 +1096,20 @@ internal static class FlankingAndHigherGroundRules
                 return;
             }
         }
-
+        
         var actionModifier = evaluationParams.attackModifier;
 
-        actionModifier.AttackAdvantageTrends.Add(
-            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        if (Main.Settings.UseOfficialFlankingRulesButAddAttackModifier)
+        {
+            actionModifier.attackRollModifier += 1;
+            actionModifier.attackToHitTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        }
+        else
+        {
+            actionModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        }
     }
 
     internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)

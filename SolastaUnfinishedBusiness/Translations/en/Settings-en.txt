@@ -241,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvanta
 ModUi/&UseOfficialFlankingRules=Use official flanking rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
 ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

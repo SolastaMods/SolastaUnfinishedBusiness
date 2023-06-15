@@ -241,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggi
 ModUi/&UseOfficialFlankingRules=Usa le regole ufficiali sui fianchi <i><color=#F0DAA0>[un attaccante ha vantaggio se un alleato si trova sul lato opposto del bersaglio]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche per attacchi a distanza</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche per attacchi di portata</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
