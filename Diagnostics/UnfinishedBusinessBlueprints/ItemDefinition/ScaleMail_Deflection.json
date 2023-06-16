@@ -238,8 +238,8 @@
     "description": "Item/&ScaleMail_Deflection_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dbac01b210c3c70438386d2abcb73f39",
-      "m_SubObjectName": "ScaleMail",
+      "m_AssetGUID": "d532e62e12e2b7c4fb89700b5cbeea96",
+      "m_SubObjectName": "ScaleMailOfRobustness+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

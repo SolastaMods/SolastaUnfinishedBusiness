@@ -251,8 +251,8 @@
     "description": "Item/&ChainMail_Deflection_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3fd77e74322b2b14abda2f89337dbfe7",
-      "m_SubObjectName": "StandardChainMail",
+      "m_AssetGUID": "85c0debc1d79d6449a24f3bd57e3bf05",
+      "m_SubObjectName": "ChainMailOfRobustness+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

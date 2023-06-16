@@ -168,6 +168,7 @@
       "FaceShape_NPC_Daisy",
       "FaceShape_NPC_Vigdis"
     ],
+    "dontSortFaceShapes": false,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -258,6 +259,7 @@
     "showGauntlets": true,
     "showShoes": true,
     "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL2",
     "femaleVoiceDefinition": "FEM1",

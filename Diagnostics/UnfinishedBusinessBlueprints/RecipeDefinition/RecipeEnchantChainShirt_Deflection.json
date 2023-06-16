@@ -26,8 +26,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "31fa0f52cc8574e44bdbc21e030ae5dd",
-      "m_SubObjectName": "StandardChainShirt",
+      "m_AssetGUID": "dd1819b82eaceb14aba0248d38ac1b87",
+      "m_SubObjectName": "ChainShirt+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

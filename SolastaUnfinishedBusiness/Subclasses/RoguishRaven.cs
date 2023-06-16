@@ -316,9 +316,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            GameConsoleHelper.LogCharacterUsedPower(
-                rulesetAttacker,
-                _power,
+            rulesetAttacker.LogCharacterUsedPower(_power,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),

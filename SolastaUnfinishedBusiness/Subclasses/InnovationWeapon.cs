@@ -550,7 +550,7 @@ public static class InnovationWeapon
 
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, power);
+            rulesetCharacter.LogCharacterUsedPower(power);
             rulesetCharacter.InflictCondition(
                 condition.Name,
                 DurationType.Round,

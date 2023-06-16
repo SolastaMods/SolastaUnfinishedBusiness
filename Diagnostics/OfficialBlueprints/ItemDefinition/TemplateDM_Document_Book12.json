@@ -1,8 +1,8 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
-  "merchantCategory": "Ingredient",
-  "weight": 0.5,
+  "inDungeonEditor": true,
+  "merchantCategory": "Document",
+  "weight": 0.1,
   "slotTypes": [
     "ContainerSlot"
   ],
@@ -11,18 +11,18 @@
   "destroyedWhenUnequiped": false,
   "forceEquip": false,
   "forceEquipSlot": "",
-  "canBeStacked": true,
-  "stackSize": 6,
+  "canBeStacked": false,
+  "stackSize": 20,
   "defaultStackCount": 3,
   "costs": [
     0,
-    70,
+    5,
     0,
     0,
     0
   ],
   "itemTags": [
-    "Ingredient"
+    "Paper"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -49,7 +49,32 @@
   "isFocusItem": false,
   "isWealthPile": false,
   "isSpellbook": false,
-  "isDocument": false,
+  "isDocument": true,
+  "documentDescription": {
+    "$type": "DocumentDescription, Assembly-CSharp",
+    "format": "Parchment",
+    "contentFragments": [
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&DM_Document_Content",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      }
+    ],
+    "script": "Narrative",
+    "language": "Language_Common",
+    "loreType": "None",
+    "recipeDefinition": null,
+    "locationDefinition": null,
+    "locationKnowledgeLevel": "Known",
+    "unlockedBestiaryContent": [],
+    "destroyAfterReading": false
+  },
   "isFood": false,
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
@@ -187,12 +212,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Ingredient_FireSpiderVenomGland_Title",
-    "description": "Equipment/&Ingredient_FireSpiderVenomGland_Description",
+    "title": "Equipment/&DM_Document_05_Title",
+    "description": "Equipment/&DM_Document_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "79667a4cd062ca74f9138f803281958c",
-      "m_SubObjectName": "Ingredient_GlandOfPoison",
+      "m_AssetGUID": "07ce96f792064044db19fce30027f55b",
+      "m_SubObjectName": "DLC_Document_Premanacalon3",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -208,7 +233,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
-  "guid": "5c98c8f9160ea0646aec8c2d494aa197",
-  "contentPack": "BaseGame",
-  "name": "Ingredient_FireSpiderVenomGland_DONOTUSE"
+  "guid": "128ad4e474b9add43b03e31c55a972ad",
+  "contentPack": "LostValley",
+  "name": "TemplateDM_Document_Book12"
 }

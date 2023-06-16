@@ -46,7 +46,7 @@
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": true,
+      "appliesOnItemOnly": false,
       "type": "Feature",
       "featureDefinition": "Definition:CombatAffinityRangedWeaponCover:3be66f80cb06b5142ab9d1df61caeb40",
       "conditionDefinition": null,

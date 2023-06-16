@@ -33,6 +33,7 @@
   },
   "originAllowed": [],
   "subClassFilterMask": "Default",
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -9,7 +9,8 @@
     "Definition:DLC3_Encounter_Canyon_LocationDB:56f8620f7dfe96b46aeb0b307a0eb2a5",
     "Definition:DLC3_Encounter_Desert_LocationDB:91899f0bcb29cdd44bd61e73d596cf12",
     "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321",
-    "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6"
+    "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6",
+    "Definition:DLC3_Encounter_TrapperHut_LocationDB:86c0cbd0238f3b242b32f7b7bf0098a5"
   ],
   "monsterOccurences": [
     {

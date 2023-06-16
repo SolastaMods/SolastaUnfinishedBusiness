@@ -69,7 +69,7 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:RingOfTheAmbassador:bcc9cc1ec14ac1046bca09843bb92be7",
+      "itemDefinition": "Definition:SlippersOfSpiderClimbing:63ae1df35f54dfa49bfca2709b23abd4",
       "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
       "autoIdentify": true
     },

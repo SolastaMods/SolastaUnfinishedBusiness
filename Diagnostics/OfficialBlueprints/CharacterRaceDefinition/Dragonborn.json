@@ -149,6 +149,7 @@
       "FaceShape_D",
       "FaceShape_E"
     ],
+    "dontSortFaceShapes": false,
     "maleHairShapeOptions": [
       "HairShape_None"
     ],
@@ -194,6 +195,7 @@
     "showGauntlets": false,
     "showShoes": false,
     "hasGenderRelatedBodyDecoration": true,
+    "hasSpecificBodyDecorationForFaceshape": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM1",

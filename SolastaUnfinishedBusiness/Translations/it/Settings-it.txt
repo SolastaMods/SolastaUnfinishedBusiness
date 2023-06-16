@@ -21,6 +21,7 @@ ModUi/&AllowClubsToBeThrown=Consenti il lancio di <color=#D89555>mazze</color> c
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il <color=#1E81B0>CTRL</color> clic per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
+ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'essere affrettati <color=#F0DAA0> (sei ancora limitato a 1 incantesimo di azione principale per round)</color>
 ModUi/&AllowHornsOnAllRaces=Consenti le corna a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e delle corna]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Consenti più stato reale sul pannello di riposo <i><color=#F0DAA0>[nascondi le azioni dopo il riposo sul pannello prima e le funzionalità di recupero sul pannello dopo]</color></i>
 ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=#F0DAA0>[ad es. 2 diamanti da 500 gp equivalgono a un diamante da 1000 gp]</color></i>
@@ -66,6 +67,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi cono
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
 ModUi/&Donate=<b><color=#D89555>Dona:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Non visualizzare i caschi sui caratteri grafici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo aver utilizzato l'azione pronta <i><color=#F0DAA0>[consente di utilizzare l'azione bonus o qualsiasi azione principale extra da Fretta o altre fonti]</color></i>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
 ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o entro il % del bordo dello schermo</color></i>
 ModUi/&DungeonMakerBasicHelp=. Queste impostazioni non richiedono che il giocatore abbia installato questa mod
@@ -239,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggi
 ModUi/&UseOfficialFlankingRules=Usa le regole ufficiali sui fianchi <i><color=#F0DAA0>[un attaccante ha vantaggio se un alleato si trova sul lato opposto del bersaglio]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche per attacchi a distanza</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche per attacchi di portata</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

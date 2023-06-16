@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionEquipmentAffinity, Assembly-CSharp",
+  "carryingCapacityMultiplier": 2.0,
+  "additionalCarryingCapacity": 0.0,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&EquipmentAffinityWendigoPowerfulBuildTitle",
+    "description": "Feature/&EquipmentAffinityWendigoPowerfulBuildDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d2f8cd80-99eb-552d-b605-99c3aae673f8",
+  "contentPack": 9999,
+  "name": "EquipmentAffinityWendigoPowerfulBuild"
+}

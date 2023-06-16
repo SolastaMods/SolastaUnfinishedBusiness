@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Weapon",
   "weight": 6.0,
   "slotTypes": [
@@ -481,7 +481,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "27d4258bee8619140bb5540669742639",
+      "m_AssetGUID": "74c0ed15495fccd4ea951ca63ac2a034",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

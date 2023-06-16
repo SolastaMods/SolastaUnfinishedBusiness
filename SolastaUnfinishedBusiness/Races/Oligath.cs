@@ -192,7 +192,7 @@ internal static class RaceOligathBuilder
 
             attackModifier.DamageRollReduction += totalReducedDamage;
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
+            rulesetMe.LogCharacterUsedPower(_featureDefinitionPower);
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
             rulesetMe.DamageReduced(rulesetMe, _featureDefinitionPower, totalReducedDamage);
         }

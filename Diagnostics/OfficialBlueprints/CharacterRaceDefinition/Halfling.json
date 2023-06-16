@@ -147,6 +147,7 @@
       "FaceShape_I",
       "FaceShape_NPC_VioletGoodCheer"
     ],
+    "dontSortFaceShapes": false,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -230,6 +231,7 @@
     "showGauntlets": true,
     "showShoes": true,
     "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "NEUTRAL1",
     "femaleVoiceDefinition": "FEM2",

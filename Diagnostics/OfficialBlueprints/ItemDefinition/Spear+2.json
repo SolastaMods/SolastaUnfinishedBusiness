@@ -485,7 +485,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "141eb52a9b630a6468c3a3e3bed849bf",
+      "m_AssetGUID": "86730572b15765b4cb2755bab41f4423",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -514,8 +514,8 @@
     "description": "Equipment/&Spear_plus_two_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d74269a8b791c264ea56fd0cd09dcf9f",
-      "m_SubObjectName": "StandardSpear",
+      "m_AssetGUID": "20b3c7a36a9a56a4cb416b29d00964e9",
+      "m_SubObjectName": "Spear+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

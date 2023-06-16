@@ -35,6 +35,7 @@
     "Origin_Dragonborn"
   ],
   "subClassFilterMask": "Default",
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

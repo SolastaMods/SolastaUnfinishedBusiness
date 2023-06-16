@@ -32,7 +32,7 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": true,
+  "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",

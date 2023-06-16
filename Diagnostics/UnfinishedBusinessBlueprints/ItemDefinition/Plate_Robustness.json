@@ -230,8 +230,8 @@
     "description": "Item/&Plate_Robustness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "732af4d7d40a2214ba34e8deb25da2db",
-      "m_SubObjectName": "Plate_a",
+      "m_AssetGUID": "670ae8f6d52798c4d930f9759e44596f",
+      "m_SubObjectName": "Plate_c",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

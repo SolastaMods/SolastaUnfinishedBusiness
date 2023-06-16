@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Weapon",
   "weight": 6.0,
   "slotTypes": [
@@ -510,8 +510,8 @@
     "description": "Equipment/&Enchanted_WeaponOfSharpness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b0f83d1a7bbcfaa499d65b9ad551eb09",
-      "m_SubObjectName": "GreatswordDoomblade",
+      "m_AssetGUID": "bddc3ed4ff7d7f94c990c26544b4806f",
+      "m_SubObjectName": "Greatsword+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

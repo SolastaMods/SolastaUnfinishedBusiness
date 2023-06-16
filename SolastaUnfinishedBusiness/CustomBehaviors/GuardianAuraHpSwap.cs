@@ -127,8 +127,7 @@ internal static class GuardianAuraHpSwap
                 out _);
         }
 
-        GameConsoleHelper.LogCharacterUsedPower(unit.RulesetCharacter, DummyAuraGuardianPower,
-            "Feedback/&GuardianAuraHeal");
+        unit.RulesetCharacter.LogCharacterUsedPower(DummyAuraGuardianPower, "Feedback/&GuardianAuraHeal");
     }
 
     private static void RequestCustomReaction(string type, CharacterActionParams actionParams)

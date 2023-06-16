@@ -277,6 +277,7 @@ internal static partial class SpellBuilders
         var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
             .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionRestrainedByWeb)
             //.SetSpecialDuration(DurationType.Round, 1)
             //.SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .AddToDB();

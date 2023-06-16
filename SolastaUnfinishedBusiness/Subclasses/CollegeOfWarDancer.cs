@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -37,57 +35,81 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
         .AllowMultipleInstances()
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetPossessive()
         .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageWarDanceMomentum")
-                .SetGuiPresentationNoContent(true)
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-                .SetDamageDice(DieType.D6, 2)
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                .SetAttackModeOnly()
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-                .SetNotificationTag("Momentum")
-                .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
-                .AddToDB(),
-            FeatureDefinitionAdditionalActionBuilder
-                .Create("AdditionalActionWarDanceMomentum")
-                .SetCustomSubFeatures(AllowDuplicates.Mark)
-                .SetActionType(ActionType.Main)
-                .SetMaxAttacksNumber(1)
-                .SetRestrictedActions(Id.AttackMain, Id.CastMain, Id.Shove, Id.DashMain, Id.DisengageMain)
-                .AddToDB())
+            .Create("AdditionalDamageWarDanceMomentum")
+            .SetGuiPresentationNoContent(true)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetDamageDice(DieType.D6, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetAttackModeOnly()
+            .SetIgnoreCriticalDoubleDice(true)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetNotificationTag("Momentum")
+            .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
+            .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-        .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
+        .AddToDB();
+
+    private static readonly ConditionDefinition WarDanceExtraAttack = ConditionDefinitionBuilder
+        .Create("ConditionWarDanceExtraAttack")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .AllowMultipleInstances()
+        .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+            .Create("AdditionalActionWarDanceMomentum")
+            .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
+            .SetActionType(ActionType.Main)
+            .SetMaxAttacksNumber(1)
+            .SetRestrictedActions(Id.AttackMain)
+            .AddToDB())
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+
+    private static readonly ConditionDefinition WarDanceMissedAttack = ConditionDefinitionBuilder
+        .Create("ConditionWarDanceMomentumAlreadyApplied") //name kept from old code for backwards compatibility
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
     internal CollegeOfWarDancer()
     {
-        // BEGIN BACKWARD COMPATIBILITY
+        #region BACKWARD COMPATIBILITY
+
         _ = ConditionDefinitionBuilder
-            .Create("ConditionWarDanceMomentumAlreadyApplied")
-            .SetGuiPresentationNoContent()
+            .Create("ConditionWarDanceMomentumExtraAction")
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures()
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
-        // END BACKWARD COMPATIBILITY
+
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionImprovedWarDanceMomentumExtraAction")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures()
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        #endregion
 
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
                 .SetEffectForms(
                     EffectFormBuilder.ConditionForm(ConditionWarDance),
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration)
                 )
                 .Build())
-            .SetCustomSubFeatures(
-                ValidatorsCharacter.HasMeleeWeaponInMainHand,
-                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
-                new WarDanceMomentumExtraAttacks())
+            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
+                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder
@@ -114,8 +136,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
-    // ReSharper disable once UnassignedGetOnlyAutoProperty
-    internal override DeityDefinition DeityDefinition { get; }
+    internal override DeityDefinition DeityDefinition => null;
 
     private static ConditionDefinition BuildConditionWarDance()
     {
@@ -128,24 +149,18 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetBaseSpeedAdditiveModifier(3)
                     .SetImmunities(false, false, true)
                     .AddToDB(),
-                FeatureDefinitionBuilder
-                    .Create("FeatureConditionWarDanceCustom")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new WarDanceFlurryPhysicalAttack(),
-                        new ExtendedWarDanceDurationOnKill())
-                    .AddToDB(),
-                FeatureDefinitionBuilder
-                    .Create("FeatureConditionWarDanceSwitchWeaponFreely")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new SwitchWeaponFreely())
-                    .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierWarDance")
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
-                    .AddToDB()
+                    .SetCustomSubFeatures(
+                        new SwitchWeaponFreely(),
+                        new StopMomentumAndAttacksWhenRemoved(),
+                        new WarDanceFlurryPhysicalAttack(),
+                        new WarDanceFlurryWeaponAttackModifier(),
+                        new WarDanceExtraAttacks()
+                    ).AddToDB()
             )
-            .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
             .AddToDB();
     }
 
@@ -198,31 +213,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         return momentum + 1;
     }
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacter character)
-    {
-        if (character is RulesetCharacterHero hero && !ValidatorsWeapon.IsMelee(hero.GetMainWeapon()))
-        {
-            WarDanceFlurryPhysicalAttack.RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(character);
-        }
-    }
-
-    private static bool RemoveMomentumAnyway(IControllableCharacter hero)
-    {
-        var rulesetCharacter = hero?.RulesetCharacter;
-        if (rulesetCharacter == null)
-        {
-            return true;
-        }
-
-        var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-        if (pb == 0)
-        {
-            return true;
-        }
-
-        return GetMomentumStacks(rulesetCharacter) >= (pb + 1) / 2;
-    }
-
     private static int GetMomentumStacks(RulesetActor character)
     {
         return character?.ConditionsByCategory
@@ -230,103 +220,76 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .Count(x => x.conditionDefinition == WarDanceMomentum) ?? 0;
     }
 
-    private sealed class RemoveOnAttackMissOrAttackWithNonMeleeWeapon
+    private static int GetExtraAttacks(RulesetActor character)
     {
+        return character?.ConditionsByCategory
+            .SelectMany(x => x.Value)
+            .Count(x => x.conditionDefinition == WarDanceExtraAttack) ?? 0;
+    }
+
+    private static void GrantWarDanceCondition(RulesetCharacter rulesetCharacter, BaseDefinition condition)
+    {
+        if (rulesetCharacter is not RulesetCharacterHero)
+        {
+            return;
+        }
+
+        rulesetCharacter.InflictCondition(
+            condition.Name,
+            DurationType.Round,
+            1,
+            TurnOccurenceType.StartOfTurn,
+            AttributeDefinitions.TagCombat,
+            rulesetCharacter.guid,
+            rulesetCharacter.CurrentFaction.Name,
+            1,
+            null,
+            0,
+            0,
+            0);
     }
 
     private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinished
     {
-        private const string Format = "Reaction/&CustomReactionDanceOfWarOnMissDescription";
-
         public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
             GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackerAttackMode,
             RollOutcome attackRollOutcome, int damageAmount)
         {
-            if (attackerAttackMode == null || !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance))
+            var rulesetCharacter = attacker.RulesetCharacter;
+            if (rulesetCharacter == null || attackerAttackMode == null)
             {
                 yield break;
             }
 
-            if (attackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) &&
-                ValidatorsWeapon.IsMelee(attackerAttackMode))
+            if (action.ActionType == ActionType.Reaction)
             {
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            if (!RemoveMomentumAnyway(attacker) && attacker.RulesetCharacter.RemainingBardicInspirations > 0 &&
-                manager != null)
+            if (!rulesetCharacter.HasConditionOfType(ConditionWarDance))
             {
-                // spend bardic inspiration dice to keep war dance condition
-                var description = Gui.Format(Format, attacker.Name);
-                var reactionParams = new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = description
-                };
-                var reactionRequest = new ReactionRequestCustom("DanceOfWarOnMiss", reactionParams);
-
-                var count = manager.PendingReactionRequestGroups.Count;
-
-                manager.AddInterruptRequest(reactionRequest);
-                yield return battleManager.WaitForReactions(attacker, manager, count);
-
-                if (reactionParams.ReactionValidated)
-                {
-                    attacker.RulesetCharacter.usedBardicInspiration += 1;
-                    yield break;
-                }
+                yield break;
             }
 
-            RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(attacker.RulesetCharacter);
-        }
-
-        internal static void RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(RulesetActor attacker)
-        {
-            var conditionsToRemove = new List<RulesetCondition>();
-
-            conditionsToRemove.AddRange(
-                attacker.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .Where(x => x.ConditionDefinition
-                        .HasSubFeatureOfType<RemoveOnAttackMissOrAttackWithNonMeleeWeapon>()));
-
-            foreach (var conditionToRemove in conditionsToRemove)
+            if (!ValidatorsWeapon.IsMelee(attackerAttackMode))
             {
-                attacker.RemoveCondition(conditionToRemove);
+                yield break;
             }
+
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                GrantWarDanceCondition(rulesetCharacter, WarDanceMissedAttack);
+                yield break;
+            }
+
+            GrantWarDanceCondition(rulesetCharacter, WarDanceMomentum);
+            rulesetCharacter.ShowLabel(WarDanceMomentum.GuiPresentation.Title, Gui.ColorPositive);
+            rulesetCharacter.LogCharacterUsedFeature(WarDanceMomentum, "Feedback/&ActivateWarDancerMomentum", true);
         }
     }
 
-    private sealed class WarDanceMomentumExtraAttacks : IActionExecutionHandled
+    private sealed class WarDanceExtraAttacks : IActionExecutionHandled
     {
-        private static readonly ConditionDefinition WarDanceMomentumExtraAction = ConditionDefinitionBuilder
-            .Create("ConditionWarDanceMomentumExtraAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityWarDanceExtraAction")
-                    .SetGuiPresentationNoContent(true)
-                    .SetForbiddenActions(Id.CastMain)
-                    .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
-                    .AddToDB())
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        private static readonly ConditionDefinition ImprovedWarDanceMomentumExtraAction = ConditionDefinitionBuilder
-            .Create("ConditionImprovedWarDanceMomentumExtraAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder //using old name to not break characters that are under war dance when update hits
-                    .Create("ActionAffinityImprovedWarDanceExtraAction")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
-                    .AddToDB())
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-
         public void OnActionExecutionHandled(
             GameLocationCharacter hero,
             CharacterActionParams actionParams,
@@ -342,149 +305,54 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 return;
             }
 
+            //Character isn't War Dancing or doesn't have Improved War Dance, skip
+            if (!rulesetHero.HasConditionOfType(ConditionWarDance)
+                || !rulesetHero.HasAnyFeature(ImproveWarDance))
+            {
+                return;
+            }
+
             //Still has attacks, skip
             if (hero.GetActionAvailableIterations(Id.AttackMain) > 0)
             {
                 return;
             }
 
-            //Wrong action after momentum started, skip
-            if (actionDefinition.Id is not (Id.AttackMain or Id.CastMain) && GetMomentumStacks(rulesetHero) > 0)
+            //Wrong action or weapon or a miss after momentum started, skip
+            var extraAttacks = GetExtraAttacks(rulesetHero);
+            var wrongAction = actionDefinition.Id is not Id.AttackMain;
+            var wrongWeapon = !ValidatorsWeapon.IsMelee(actionParams.attackMode);
+            var missed = rulesetHero.RemoveAllConditionsOfType(WarDanceMissedAttack.Name);
+            if (extraAttacks > 0 && (wrongAction || wrongWeapon || missed))
             {
                 return;
             }
 
-            //No active War Dance or too many Momentum stacks, skip
-            if (!rulesetHero.HasConditionOfType(ConditionWarDance) || RemoveMomentumAnyway(hero))
+            //Too many extra attacks, skip
+            var maxAttacks = rulesetHero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
+            if (extraAttacks >= maxAttacks)
             {
                 return;
             }
 
-            // apply action affinity
-            hero.UsedMainSpell = true;
-            hero.UsedMainCantrip = false;
-            ApplyActionAffinity(hero.RulesetCharacter);
-
-            GrantWarDanceMomentum(hero);
-
-            var text = WarDanceMomentum.GuiPresentation.Title;
-            rulesetHero.ShowLabel(text, Gui.ColorPositive);
-            GameConsoleHelper.LogCharacterActivatesAbility(rulesetHero, text, "Feedback/&ActivateMomentum", true);
-        }
-
-        private static void ApplyActionAffinity(RulesetCharacter rulesetCharacter)
-        {
-            if (rulesetCharacter is not RulesetCharacterHero)
-            {
-                return;
-            }
-
-            var condition = WarDanceMomentumExtraAction;
-
-            if (rulesetCharacter.HasAnyFeature(ImproveWarDance))
-            {
-                condition = ImprovedWarDanceMomentumExtraAction;
-            }
-
-            if (rulesetCharacter.HasConditionOfType(condition))
-            {
-                return;
-            }
-
-            rulesetCharacter.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
-
-        private static void GrantWarDanceMomentum(IControllableCharacter hero)
-        {
-            // required for wildshape scenarios
-            var rulesetCharacter = hero.RulesetCharacter;
-
-            if (rulesetCharacter is not RulesetCharacterHero)
-            {
-                return;
-            }
-
-            var item = hero.RulesetCharacter.GetMainWeapon();
-
-            if (item == null || !item.itemDefinition.isWeapon)
-            {
-                return;
-            }
-
-            rulesetCharacter.InflictCondition(
-                WarDanceMomentum.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
+            GrantWarDanceCondition(rulesetHero, WarDanceExtraAttack);
+            rulesetHero.LogCharacterUsedFeature(ImproveWarDance, "Feedback/&ActivateWarDancerAttack", true);
         }
     }
 
-    private sealed class ExtendedWarDanceDurationOnKill : ITargetReducedToZeroHp
-    {
-        public IEnumerator HandleCharacterReducedToZeroHp(
-            GameLocationCharacter attacker,
-            GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode, RulesetEffect activeEffect)
-        {
-            // activeEffect != null means a magical attack
-            if (attackMode == null || activeEffect != null ||
-                !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance) ||
-                !ValidatorsWeapon.IsMelee(attackMode))
-            {
-                yield break;
-            }
-
-            if (!attacker.RulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    ConditionWarDance.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
-            activeCondition.remainingRounds += 1;
-            activeCondition.endOccurence = TurnOccurenceType.EndOfTurn;
-
-            foreach (var power in attacker.RulesetCharacter.powersUsedByMe.Where(power =>
-                         power.Name == PowerWarDanceName))
-            {
-                power.remainingRounds += 1;
-                break;
-            }
-        }
-    }
-
-    private sealed class WarDanceFlurryWeaponAttackModifier : IModifyWeaponAttackMode
+    private sealed class WarDanceFlurryWeaponAttackModifier : ModifyWeaponAttackModeBase
     {
         private const int LightMomentumModifier = -2;
         private const int MomentumModifier = -3;
         private const int HeavyMomentumModifier = -4;
 
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public WarDanceFlurryWeaponAttackModifier() : base(ValidatorsWeapon.IsMelee)
         {
-            if (attackMode == null || !ValidatorsWeapon.IsMelee(attackMode))
-            {
-                return;
-            }
+        }
 
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+            RulesetItem weapon)
+        {
             var momentum = GetMomentumStacks(character);
 
             if (momentum == 0)
@@ -492,27 +360,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 return;
             }
 
-            ApplyMomentum(momentum, attackMode);
-        }
-
-        private static void ApplyMomentum(int momentum, RulesetAttackMode attackMode)
-        {
-            if (attackMode == null)
-            {
-                return;
-            }
-
-            //this.sourceDefinition is ItemDefinition sourceDefinition && sourceDefinition.IsWeapon && sourceDefinition.WeaponDescription.WeaponTags.Contains("Light");
             var item = attackMode.sourceDefinition as ItemDefinition;
 
-            if (item == null || !item.IsWeapon)
-            {
-                return;
-            }
-
-            var isLight = item.WeaponDescription.WeaponTags.Contains("Light");
-            var isHeavy = item.WeaponDescription.WeaponTags.Contains("Heavy");
-            var toHit = -1;
+            var isLight = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagLight);
+            var isHeavy = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagHeavy);
+            var toHit = 0;
 
             if (isLight)
             {
@@ -529,23 +381,25 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             attackMode.toHitBonus += toHit;
 
-            var trendInfo = new TrendInfo(toHit, FeatureSourceType.CharacterFeature,
-                Gui.Localize("Feedback/&AdditionalDamageMomentumFormat"), null);
-            var index = attackMode.ToHitBonusTrends.IndexOf(trendInfo);
-
-            if (index == -1)
-            {
-                attackMode.ToHitBonusTrends.Add(trendInfo);
-            }
-            else
-            {
-                attackMode.ToHitBonusTrends[index] = trendInfo;
-            }
+            var trendInfo = new TrendInfo(toHit, FeatureSourceType.Condition, WarDanceMomentum.Name, character);
+            attackMode.ToHitBonusTrends.Add(trendInfo);
         }
     }
 
     private sealed class SwitchWeaponFreely : IUnlimitedFreeAction
     {
+    }
+
+    private sealed class StopMomentumAndAttacksWhenRemoved : ICustomConditionFeature
+    {
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.RemoveAllConditionsOfType(WarDanceMomentum.Name, WarDanceExtraAttack.Name);
+        }
     }
 
     private sealed class FocusedWarDance : IChangeConcentrationAttribute

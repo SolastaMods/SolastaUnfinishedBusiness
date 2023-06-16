@@ -26,8 +26,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2d2f76be0a34c674785b6f87a03cdf81",
-      "m_SubObjectName": "StandardRapier",
+      "m_AssetGUID": "7393983b7e051cb47815784509ad565c",
+      "m_SubObjectName": "Rapier+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

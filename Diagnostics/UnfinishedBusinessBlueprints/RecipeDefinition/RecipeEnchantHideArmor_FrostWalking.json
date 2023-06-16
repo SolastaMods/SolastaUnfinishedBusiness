@@ -36,8 +36,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3cb578eef14455d4cb1db7842a460774",
-      "m_SubObjectName": "StandardHideArmor",
+      "m_AssetGUID": "9d86579625176784eb291dd364e45729",
+      "m_SubObjectName": "DLC1_HideArmorOftheVagrant",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
