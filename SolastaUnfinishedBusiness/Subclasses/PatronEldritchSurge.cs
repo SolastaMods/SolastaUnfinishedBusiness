@@ -361,7 +361,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
 
     }
-    private sealed class HandleCastCantrip : IActionExecutionHandled, ICharacterTurnEndListener, IQualifySpellToRepertoireLine
+    private sealed class HandleCastCantrip : IActionExecutionHandled, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
         private List<SpellDefinition> usedCantrips = new List<SpellDefinition>();
 
@@ -370,8 +370,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             var actionDefinition = actionParams.ActionDefinition;
             var rulesetHero = hero.RulesetCharacter;
 
-            if (rulesetHero is null || scope != ActionScope.Battle || actionDefinition.ActionType != ActionType.Main
-                || actionParams.activeEffect is not RulesetEffectSpell spell
+            if (rulesetHero is null || actionParams.activeEffect is not RulesetEffectSpell spell
                 || spell.spellDefinition.spellLevel != 0 || usedCantrips.Contains(spell.SpellDefinition)
                 )
             {
@@ -395,7 +394,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
         }
 
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
                 usedCantrips.Clear();
         }
