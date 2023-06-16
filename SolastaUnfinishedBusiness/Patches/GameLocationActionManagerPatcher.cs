@@ -79,13 +79,14 @@ public static class GameLocationActionManagerPatcher
     [UsedImplicitly]
     public static class IsAnyMetamagicOptionAvailable_Patch
     {
+        [UsedImplicitly]
         public static IEnumerator Postfix([NotNull] IEnumerator values,
             RulesetCharacter rulesetTarget,
             bool wasConscious,
             bool stillConscious,
             bool massiveDamage)
         {
-            //pATCH: support for `DoNotTerminateWhileUnconscious`
+            //PATCH: support for `DoNotTerminateWhileUnconscious`
             yield return DoNotTerminateWhileUnconscious.TerminateAllSpellsAndEffects(values, rulesetTarget,
                 wasConscious, stillConscious, massiveDamage);
         }

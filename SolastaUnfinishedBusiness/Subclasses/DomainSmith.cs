@@ -343,7 +343,8 @@ internal sealed class DomainSmith : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainSmith, 256))
-            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainSmith, bonusProficiencyArmorDomainForge, bonusProficiencySmithingDomainForge, powerReinforceArmor1)
+            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainSmith, bonusProficiencyArmorDomainForge,
+                bonusProficiencySmithingDomainForge, powerReinforceArmor1)
             .AddFeaturesAtLevel(2, powerAdamantBenediction)
             .AddFeaturesAtLevel(6, additionalDamageDivineStrike6, powerReinforceArmor6)
             .AddFeaturesAtLevel(8, attributeModifierForgeMastery, damageAffinityForgeMastery)
