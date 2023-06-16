@@ -954,11 +954,21 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //call all before handlers
                 foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
                 {
-                    yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
-                        actualEffectForms, firstTarget, criticalHit);
+                    yield return feature.OnMagicalAttackInitiated(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
+            }
+
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var feature in defender.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiatedOnMe>())
+                {
+                    yield return feature.OnMagicalAttackInitiatedOnMe(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
 
@@ -972,11 +982,10 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //call all after handlers
                 foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
                 {
-                    yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
-                        actualEffectForms, firstTarget, criticalHit);
+                    yield return feature.OnMagicalAttackFinished(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
         }
