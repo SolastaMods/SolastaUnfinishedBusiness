@@ -1,5 +1,5 @@
 Equipement/&AttunedCharacterFormat=此物品同调于{0}
-Equipement/&AttunementCountFormat=同调物品：\n\n{0}/{1}
+Equipement/&AttunementCountFormat=同调物品：\n\n  {0}/{1}
 Equipement/&Document_BloodFangInvasion_Content01=这一切都始于一连串突袭，他们在墙外袭扰，攻击商队。这足以让我们担忧并做出回应，但他们又止步于此！唉！这是一出诡计，实际上，突袭由狡诈之人引导，能够准确无误地预测我们的反应。
 Equipement/&Document_BloodFangInvasion_Content02=因此，我们在突袭后派出的部队几乎被一个不剩地歼灭了。这绝不仅是一次来自兽人部落的袭击，而是旨在征服我们峡谷的全面入侵！我们在城门前几乎惊呆了，但仍设法及时关上了门！我们失去了精锐，但岩壁仍旧坚固，使我们得以生产武器，补充我们迅速耗尽的箭矢。这次围攻使我们陷入停滞，因为我们不太明白他们进攻的目的。通往柯帕伦峡谷唯一的通道是已被我们的城镇和要塞封锁的山口。峡谷本身是很容易进来的——只要你能飞！否则，陡峭的岩壁提供的就是我所见过最佳的自然防御！
 Equipement/&Document_BloodFangInvasion_Content03=然而，敌人的数量如此之多，同时我们的数量开始慢慢减少。我们意识到，我们无法仅靠自己的力量坚持下去！于是，我派出了我的发小，乔瑞斯·尼卡农，用魔法乃至更平凡的信使们来传递我们受困的信息！

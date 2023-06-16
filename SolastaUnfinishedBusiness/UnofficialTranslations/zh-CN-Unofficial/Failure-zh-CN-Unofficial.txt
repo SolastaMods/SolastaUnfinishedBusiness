@@ -142,6 +142,7 @@ Failure/&FailureGadgetInvalidPlacement=互动物体放置无效
 Failure/&FailureGadgetNotInRoom=此互动物体必须被置于已存在的房间内
 Failure/&FailureGadgetOutOfRoomBounds=此互动物体位于此房间外侧
 Failure/&FailureGadgetOverlapExisting=此互动物体与另一互动物体或装饰物体重叠
+Failure/&FailureGenericTryAgain=请稍后再试。
 Failure/&FailureInsufficientCapital=你的总量不足以恢复该环阶的法术位。
 Failure/&FailureInvalidPosition=无效位置
 Failure/&FailureLocationInconsistentCharacterLevels=角色的最低/最高等级不一致
