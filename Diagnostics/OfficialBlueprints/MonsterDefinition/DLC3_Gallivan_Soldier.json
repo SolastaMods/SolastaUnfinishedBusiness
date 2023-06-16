@@ -88,7 +88,7 @@
     }
   ],
   "sneakStance": "Stealth",
-  "patrolStance": "SlowWalk",
+  "patrolStance": "Walk",
   "interceptStance": "Run",
   "dualSex": true,
   "minimalAge": 20,

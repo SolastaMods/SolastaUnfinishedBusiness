@@ -508,12 +508,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Equipment/&Greataxe_plus_01_unidentified_Title",
-    "unidentifiedDescription": "Equipment/&Greataxe_plus_01_unidentified_Description",
+    "unidentifiedTitle": "Equipment/&Greatsword_plus_1_unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Greatsword_plus_1_unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "07ca6728a8030a64c9e01d339dc49d64",
+      "m_AssetGUID": "92cdb0d14b71e9648af5efc5cd1f6585",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -542,8 +542,8 @@
     "description": "Item/&Greatsword_Punisher_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ef9f134df3d7d49418bd980c0830cbf2",
-      "m_SubObjectName": "StandardGreatsword",
+      "m_AssetGUID": "bddc3ed4ff7d7f94c990c26544b4806f",
+      "m_SubObjectName": "Greatsword+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

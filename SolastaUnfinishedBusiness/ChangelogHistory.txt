@@ -1,17 +1,74 @@
 ﻿CHANGES:
 
+1.5.74.0:
+
+- added Wendigo race
+- added additional setting to tweak flanking rules
+- fixed many issues around extra attacks
+- updated to game code base 1.5.74
+- fixed almost all reported issues since previous version
+
+1.5.52.5 (re-release):
+
+ATTENTION: 
+
+- TA will release a new patch this week. This version should work there
+- in transit this week so next release won't happen until at least Friday [wish I had a SteamDeck ;-(]
+
+CHANGES:
+
+- added hidden setting to enable experimental flanking rules [by @andargor]
+- fixed Paladin ranged attack soft locking the combat
+
+1.5.52.4:
+
+ATTENTION: 
+
+- TA will release a new patch this week. This version should work there
+- in transit this week so next release won't happen until at least Friday [wish I had a SteamDeck ;-(]
+
+CHANGES:
+
+- added hidden setting to enable experimental flanking rules [by @andargor]
+- fixed Paladin ranged attack soft locking the combat
+
+1.5.52.3:
+
+- added Oligath race [by Otearaisu]
+- changed Oath of Hammers to Oath of Thunders [still beta and incomplete]
+- fixed Circle of the Ancient Forest missing the regrowth power
+- fixed Flanking rules miscalculating against larger targets
+- fixed Ready feat skipping next contender turn
+- fixed War Dancer momentum extra attacks interactions
+- fixed Widen Spell increasing AoE size inconsistently
+
+1.5.52.2:
+
+- added Oath of Hammer subclass [beta, only level 3 implemented so far]
+- added Oath of Hatred auto prepared spells at level 17th
+- added optional flanking rules setting for reach attacks
+- fixed damage roll modifier applying damage twice when from an attribute modifier [Way of Survival]
+- fixed formation settings templates to always have a hero at pos (1,3) to avoid odd looting behavior
+- refactored reduce damage feature to work in all damage scenarios [Bladedancer]
+- removed fix on Aura of Righteousness after TA changed power description
+ 
 1.5.52.1:
 
 - added Innovation Vivisectionist subclass [looking for feedback]
-- changed flanking rules to be by the book, and added a separate higher ground house rule
+- changed flanking rules to be as tabletop, and added a separate higher ground house rule
 - changed Soulblade's summon pact weapon to use a bonus action instead of a free one
 - fixed custom weapons not getting the proper bonuses to hit and to damage
-- fixed vanilla Haste spell not allowing the sequence attack / cast spell
+- fixed Haste spell not allowing the sequence attack / cast spell
+- fixed Path of the Savagery not using strength on ability checks from level 14th
+- fixed Path of the Savagery triggering critical threshold increase on misses
+- fixed Piercer feat trying to reroll D1s
+- fixed target selection panel not closing after casting some targeted spells through invocations
 - fixed Shadow Blade spell granting advantage to any attack if blade in hands
 - improved flanking rules to highlight advantage on hovering cursor tooltip
 - improved integration between Potent Spellcaster and Spell Sniper feats
 - improved Soulblade's soul hex to allow retargeting after target dies
 - removed grievous wound from Path of the Savagery wrath and fury feature
+- removed "Make all wildshape medium in size" setting now that TA coded it officially
 
 1.5.52.0:
 

@@ -1,0 +1,2 @@
+Conditions/&ConditionPOI_Title=Palace of Ice Lair Effect
+Conditions/&ConditionPOI_Description=While in the Palace of Ice and Demon Realms, non-fiends suffer from multiple penalties.

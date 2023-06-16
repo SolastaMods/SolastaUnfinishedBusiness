@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -10,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -27,17 +30,41 @@ internal static class InvocationsBuilders
                 .Create("AdditionalDamageInvocationEldritchSmite")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(EldritchSmiteTag)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
-                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.SpendSpellSlot)
+                .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                 .SetAttackModeOnly()
-                .SetDamageDice(RuleDefinitions.DieType.D8, 0)
-                .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-                .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel, 2)
+                .SetDamageDice(DieType.D8, 0)
+                .SetSpecificDamageType(DamageTypeForce)
+                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
                 .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                .SetCustomSubFeatures(WarlockHolder.Instance)
+                .SetCustomSubFeatures(
+                    WarlockHolder.Instance,
+                    new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
                 .AddToDB())
             .AddToDB();
     }
+
+    private static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        IAdditionalDamageProvider provider)
+    {
+        var rulesetDefender = defender.RulesetCharacter;
+
+        if (rulesetDefender is null || rulesetDefender.SizeDefinition.WieldingSize > CreatureSize.Huge)
+        {
+            return null;
+        }
+
+        rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
+        return new[]
+        {
+            EffectFormBuilder.Create()
+                .SetMotionForm(MotionForm.MotionType.FallProne)
+                .Build()
+        };
+    }
+
 
     internal static InvocationDefinition BuildShroudOfShadow()
     {
@@ -113,7 +140,7 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
-        spellTrickstersEscape.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
+        spellTrickstersEscape.EffectDescription.targetType = TargetType.Self;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -134,7 +161,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityInvocationEldritchMind")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
                     .AddToDB())
             .AddToDB();
     }
@@ -170,7 +197,7 @@ internal static class InvocationsBuilders
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}")
                 .SetGuiPresentationNoContent(true)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
                 .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
                 .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinitions.ConditionHindered_By_Frost)
@@ -217,7 +244,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(NAME, Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(FeatureDefinitionPowers.PowerSorakShadowEscape)
                 .UseQuickAnimations()
@@ -312,8 +339,12 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.Haste, "Kinesis")
             .AddToDB();
 
-        spellKinesis.EffectDescription.targetType = RuleDefinitions.TargetType.Individuals;
-        spellKinesis.EffectDescription.targetParameter = 2;
+        var effect = spellKinesis.EffectDescription;
+        effect.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
+        effect.targetExcludeCaster = true;
+        effect.EffectForms.Add(EffectFormBuilder.ConditionForm(
+            ConditionDefinitions.ConditionHasted,
+            ConditionForm.ConditionOperation.Add, true));
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -352,7 +383,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeCold))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeCold))
                     .AddToDB())
             .AddToDB();
     }
@@ -368,7 +399,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeAcid))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeAcid))
                     .AddToDB())
             .AddToDB();
     }
@@ -384,7 +415,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeFire))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeFire))
                     .AddToDB())
             .AddToDB();
     }
@@ -400,7 +431,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeLightning))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeLightning))
                     .AddToDB())
             .AddToDB();
     }
@@ -691,9 +722,9 @@ internal static class InvocationsBuilders
         {
             rulesetCharacter.InflictCondition(
                 conditionDefinition.Name,
-                RuleDefinitions.DurationType.Minute,
+                DurationType.Minute,
                 1,
-                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

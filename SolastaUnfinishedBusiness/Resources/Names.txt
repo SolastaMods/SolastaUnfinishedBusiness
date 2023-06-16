@@ -607,13 +607,3 @@ RaceFairy	Sur	Crator
 RaceFairy	Sur	Nightfall
 RaceFairy	Sur	Twilight
 RaceFairy	Sur	Jade
-Tiefling	Female	Akta
-Tiefling	Female	Anakis
-Tiefling	Female	Bryseis
-Tiefling	Female	Ea
-Tiefling	Female	Kallista
-Tiefling	Male	Akmenos
-Tiefling	Male	Amnon
-Tiefling	Male	Barakas
-Tiefling	Male	Damakos
-Tiefling	Male	Ekemon

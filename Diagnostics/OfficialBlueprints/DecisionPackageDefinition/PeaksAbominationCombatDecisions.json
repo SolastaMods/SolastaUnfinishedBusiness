@@ -52,6 +52,13 @@
         "weight": 1.0,
         "cooldown": 0,
         "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_Leap_Giant_Aggressive:4ff76930518612c44be38b9d002d679c",
+        "weight": 0.1,
+        "cooldown": 0,
+        "dynamicCooldown": false
       }
     ]
   },

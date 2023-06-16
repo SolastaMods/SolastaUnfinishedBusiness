@@ -1,0 +1,16 @@
+Condition/&ConditionOathOfThunderDivineBoltDescription=Sua velocidade de movimento é reduzida pela metade.
+Condition/&ConditionOathOfThunderDivineBoltTitle=Raio Divino
+Feature/&FeatureOathOfThunderAxesBoonDescription=Ao empunhar Machados de Batalha ou Martelos de Guerra, eles podem ser lançados com um alcance de 20/60 e retornar à sua mão imediatamente após serem usados para fazer um ataque de arremesso. Além disso, seu recurso Divine Smite pode ser usado em todos os ataques feitos com eles, mas você tem desvantagem para atacar com qualquer outro tipo de arma diferente de Battle Axes e War Hammers.
+Feature/&FeatureOathOfThunderAxesBoonTitle=Stormbreaker
+Feature/&FeatureOathOfThunderHammersBoonDescription=Ao empunhar um martelo de guerra, eles podem ser lançados com um alcance de 20/60 e retornar à sua mão imediatamente após serem usados para fazer um ataque de arremesso. Além disso, seu recurso Divine Smite pode ser usado em todos os ataques feitos com eles, mas você tem desvantagem para atacar com qualquer outro tipo de arma diferente de War Hammers.
+Feature/&FeatureOathOfThunderHammersBoonTitle=Mjolnir
+Feature/&PowerOathOfThunderDivineBoltDescription=Como uma ação bônus, você pode invocar um raio para atingir uma criatura inimiga que você possa ver a até 18 metros de você.
+Feature/&PowerOathOfThunderDivineBoltTitle=Canalizar Divindade: Raio Divino
+Feature/&PowerOathOfThunderThunderousRebukeDescription=Quando uma criatura inimiga o atingir com um ataque corpo a corpo enquanto estiver a até 1,5 metro de você, você pode usar seu Canalizar Divindade como uma reação para atingi-la com um trovão estrondoso.
+Feature/&PowerOathOfThunderThunderousRebukeTitle=Canalizar Divindade: Repreensão Trovejante
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeDescription=Quando danificado por um ataque corpo a corpo, você pode usar sua reação para repreender o alvo.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactDescription=Use uma reação para repreender o alvo.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactTitle=Repreensão Trovejante
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeTitle=Repreensão Trovejante
+Subclass/&OathOfThunderDescription=Paladinos do Trovão nasceram para acabar com a guerra eterna entre os planos. Mesmo aqueles que viajam para longe de casa ainda estão ansiosos para cumprir seu dever, atingindo seus inimigos com a fúria do trovão e o poder dos deuses antigos.
+Subclass/&OathOfThunderTitle=Juramento do Trovão

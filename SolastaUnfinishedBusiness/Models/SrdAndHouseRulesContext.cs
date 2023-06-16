@@ -7,6 +7,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using TA;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -57,16 +59,6 @@ internal static class SrdAndHouseRulesContext
         FeyDriad // CR 1
     };
 
-    private static readonly string[] LargeWildshapeForms =
-    {
-        "WildShapeAirElemental", //
-        "WildShapeFireElemental", //
-        "WildShapeEarthElemental", //
-        "WildShapeWaterElemental", //
-        "WildShapeApe", //
-        "WildShapeTundraTiger" //
-    };
-
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
 
     private static readonly List<MonsterDefinition> MonstersThatEmitLight = new()
@@ -99,11 +91,11 @@ internal static class SrdAndHouseRulesContext
         SwitchFilterOnHideousLaughter();
         SwitchFullyControlConjurations();
         SwitchMagicStaffFoci();
-        SwitchMakeLargeWildshapeFormsMedium();
         SwitchRecurringEffectOnEntangle();
         SwitchUniversalSylvanArmorAndLightbringer();
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
+        SwitchHastedCasing();
     }
 
     internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
@@ -453,6 +445,19 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void SwitchHastedCasing()
+    {
+        var restrictedActions = FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions;
+        if (Main.Settings.AllowHasteCasting)
+        {
+            restrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
+        }
+        else
+        {
+            restrictedActions.RemoveAll(id => id == ActionDefinitions.Id.CastMain);
+        }
+    }
+
     internal static void AddBleedingToRestoration()
     {
         var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
@@ -512,18 +517,6 @@ internal static class SrdAndHouseRulesContext
         foreach (var conjuredMonster in ConjuredMonsters)
         {
             conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
-        }
-    }
-
-    internal static void SwitchMakeLargeWildshapeFormsMedium()
-    {
-        foreach (var monsterDefinitionName in LargeWildshapeForms)
-        {
-            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterDefinitionName);
-
-            monsterDefinition.sizeDefinition = Main.Settings.MakeLargeWildshapeFormsMedium
-                ? CharacterSizeDefinitions.Medium
-                : CharacterSizeDefinitions.Large;
         }
     }
 
@@ -940,7 +933,7 @@ internal static class UpcastConjureElementalAndFey
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
         // ReSharper disable once InvocationIsSkipped
-        _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
+        _filteredSubspells.ForEach(s => Main.Info($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
         return _filteredSubspells;
     }
@@ -948,6 +941,13 @@ internal static class UpcastConjureElementalAndFey
 
 internal static class FlankingAndHigherGroundRules
 {
+    private static readonly Dictionary<(ulong, ulong), bool> FlankingDeterminationCache = new();
+
+    internal static void ClearFlankingDeterminationCache()
+    {
+        FlankingDeterminationCache.Clear();
+    }
+
     private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
     {
         if ((side & CellFlags.Side.North) > 0)
@@ -981,8 +981,34 @@ internal static class FlankingAndHigherGroundRules
         }
     }
 
+    private static IEnumerable<int3> GetPositions(GameLocationCharacter gameLocationCharacter)
+    {
+        // collect all positions in the character cube surface
+        var basePosition = gameLocationCharacter.LocationPosition;
+        var maxExtents = gameLocationCharacter.SizeParameters.maxExtent;
+
+        // traverse by horizontal planes as most common use case in battles
+        for (var x = 0; x <= maxExtents.x; x++)
+        {
+            for (var z = 0; z <= maxExtents.z; z++)
+            {
+                for (var y = 0; y <= maxExtents.y; y++)
+                {
+                    yield return basePosition + new int3(x, y, z);
+                }
+            }
+        }
+    }
+
     private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
+        {
+            return result;
+        }
+
+        FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
+
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
         if (gameLocationBattleService is not { IsBattleInProgress: true })
@@ -990,30 +1016,50 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        var attackerPosition = attacker.LocationPosition;
-        var defenderPosition = defender.LocationPosition;
-        var attackerDirection = defenderPosition - attackerPosition;
-        var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
-        var flankingSide = GetEachSide(attackerSide)
-            .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
-
-        return gameLocationBattleService.Battle.AllContenders
+        var allies = gameLocationBattleService.Battle.AllContenders
             .Where(x =>
                 x != attacker &&
                 x.Side == attacker.Side &&
                 x.CanAct() &&
                 gameLocationBattleService.IsWithin1Cell(x, defender))
-            .Select(ally => defenderPosition - ally.LocationPosition)
-            .Select(CellFlags.DirectionToAllSurfaceSides)
-            .Any(allySide => allySide == flankingSide);
+            .ToList();
+
+        if (allies.Count == 0)
+        {
+            return false;
+        }
+
+        // collect all possible flanking sides from all attacker cells against all enemy cells
+
+        var attackerFlankingSides = new HashSet<CellFlags.Side>();
+
+        foreach (var attackerPosition in GetPositions(attacker))
+        {
+            foreach (var defenderPosition in GetPositions(defender))
+            {
+                var attackerDirection = defenderPosition - attackerPosition;
+                var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
+                var flankingSide = GetEachSide(attackerSide)
+                    .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+
+                attackerFlankingSides.Add(flankingSide);
+            }
+        }
+
+        result = allies
+            .Any(ally => GetPositions(ally)
+                .Any(allyPosition => GetPositions(defender)
+                    .Any(defenderPosition =>
+                        attackerFlankingSides.Contains(
+                            CellFlags.DirectionToAllSurfaceSides(defenderPosition - allyPosition)))));
+
+        FlankingDeterminationCache[(attacker.Guid, defender.Guid)] = result;
+
+        return result;
     }
 
     internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
-        var attacker = evaluationParams.attacker;
-        var defender = evaluationParams.defender;
-        var actionModifier = evaluationParams.attackModifier;
-
         if (!Main.Settings.UseOfficialFlankingRules)
         {
             return;
@@ -1025,33 +1071,312 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
-        if (!IsFlanking(attacker, defender))
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
+            (gameLocationBattleService == null || !gameLocationBattleService.IsWithin1Cell(attacker, defender)))
         {
             return;
         }
 
-        actionModifier.AttackAdvantageTrends.Add(
-            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        if (Main.Settings.UseExperimentalFlankingRules)
+        {
+            if (!IsFlankingExperimental(attacker, defender))
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (!IsFlanking(attacker, defender))
+            {
+                return;
+            }
+        }
+
+        var actionModifier = evaluationParams.attackModifier;
+
+        if (Main.Settings.UseOfficialFlankingRulesButAddAttackModifier)
+        {
+            actionModifier.attackRollModifier += 1;
+            actionModifier.attackToHitTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        }
+        else
+        {
+            actionModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        }
     }
 
     internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
-        var attacker = evaluationParams.attacker;
-        var defender = evaluationParams.defender;
-        var actionModifier = evaluationParams.attackModifier;
-
         if (!Main.Settings.EnableHigherGroundRules)
         {
             return;
         }
+
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
 
         if (attacker.LocationPosition.y <= defender.LocationPosition.y)
         {
             return;
         }
 
+        var actionModifier = evaluationParams.attackModifier;
+
         actionModifier.attackRollModifier += 1;
         actionModifier.attackToHitTrends.Add(
             new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&HigherGroundAttack", null));
+    }
+
+    //
+    //EXPERIMENTAL FLANKING IMPLEMENTATION WITH MATH
+    // Uses custom classes
+
+    private static bool IsFlankingExperimental(GameLocationCharacter attacker, GameLocationCharacter defender)
+    {
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
+        {
+            return result;
+        }
+
+        FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return false;
+        }
+
+        var attackerCenter = new Point3D(attacker.LocationBattleBoundingBox.Center);
+        var defenderCube = new Cube(new Point3D(defender.LocationBattleBoundingBox.Min),
+            new Point3D(defender.LocationBattleBoundingBox.Max + 1));
+
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var ally in gameLocationBattleService.Battle.AllContenders)
+        {
+            if (ally == attacker
+                || ally == defender
+                || ally.Side != attacker.Side
+                || !ally.CanAct()
+                || !gameLocationBattleService.IsWithin1Cell(ally, defender)
+               )
+            {
+                continue;
+            }
+
+            var allyCenter = new Point3D(ally.LocationBattleBoundingBox.Center);
+            result = LineIntersectsCubeOppositeSides(attackerCenter, allyCenter, defenderCube);
+
+            //Main.Log("IsFlanking " + result + " attacker " + attacker.Name + " center " + attackerCenter.ToString()
+            //            + " defender " + defender.Name + " cube " + defenderCube.ToString()
+            //            + " ally " + ally.Name + " center " + allyCenter.ToString());
+
+            if (result)
+            {
+                break;
+            }
+        }
+
+        FlankingDeterminationCache[(attacker.Guid, defender.Guid)] = result;
+
+        return result;
+    }
+
+    private static bool LineIntersectsCubeOppositeSides(Point3D p1, Point3D p2, Cube cube)
+    {
+        // Check if the line intersects opposite sides of the cube
+        var intersectsFrontBack =
+            LineIntersectsFace(p1, p2, cube.FrontFace) && LineIntersectsFace(p1, p2, cube.BackFace);
+
+        if (intersectsFrontBack)
+        {
+            return true;
+        }
+
+        var intersectsLeftRight =
+            LineIntersectsFace(p1, p2, cube.LeftFace) && LineIntersectsFace(p1, p2, cube.RightFace);
+
+        if (intersectsLeftRight)
+        {
+            return true;
+        }
+
+        var intersectsTopBottom =
+            LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
+
+        return intersectsTopBottom;
+    }
+
+    private static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
+    {
+        // Check if the line intersects the plane of the face
+        if (!LineIntersectsPlane(p1, p2, face))
+        {
+            return false;
+        }
+
+        // Find the intersection point on the plane
+        var intersection = GetIntersectionPoint(p1, p2, face);
+
+        // Check if the intersection point is within the boundaries of the face
+        return PointIsWithinFace(intersection, face);
+    }
+
+    private static bool LineIntersectsPlane(Point3D p1, Point3D p2, Plane plane)
+    {
+        // Compute the direction vector of the line
+        var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+
+        // Compute the dot product of the line direction and the normal vector of the plane
+        var dotProduct = direction.DotProduct(plane.Normal);
+
+        // If the dot product is close to zero, the line is parallel to the plane
+        return !(Math.Abs(dotProduct) < double.Epsilon);
+    }
+
+    private static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
+    {
+        // Compute the direction vector of the line
+        var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+
+        // Compute the distance from p1 to the intersection point
+        var t = (plane.D - plane.Normal.DotProduct(new Vector3D(p1.X, p1.Y, p1.Z))) /
+                plane.Normal.DotProduct(direction);
+
+        // Compute the intersection point
+        var x = p1.X + (direction.X * t);
+        var y = p1.Y + (direction.Y * t);
+        var z = p1.Z + (direction.Z * t);
+
+        return new Point3D(x, y, z);
+    }
+
+    private static bool PointIsWithinFace(Point3D point, Plane face)
+    {
+        // Check if the point is within the boundaries of the face
+        return point.X >= face.MinX && point.X <= face.MaxX &&
+               point.Y >= face.MinY && point.Y <= face.MaxY &&
+               point.Z >= face.MinZ && point.Z <= face.MaxZ;
+    }
+
+    private class Point3D
+    {
+        public Point3D(Vector3 pt)
+        {
+            X = pt.x;
+            Y = pt.y;
+            Z = pt.z;
+        }
+
+        public Point3D(int3 pt)
+        {
+            X = pt.x;
+            Y = pt.y;
+            Z = pt.z;
+        }
+
+        public Point3D(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public double X { get; }
+        public double Y { get; }
+        public double Z { get; }
+
+        public override String ToString()
+        {
+            return "(" + X + "," + Y + "," + Z + ")";
+        }
+    }
+
+    private class Vector3D
+    {
+        public Vector3D(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public double X { get; }
+        public double Y { get; }
+        public double Z { get; }
+
+        public double DotProduct(Vector3D other)
+        {
+            return (X * other.X) + (Y * other.Y) + (Z * other.Z);
+        }
+    }
+
+    private class Plane
+    {
+        public Plane(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, Vector3D normal,
+            double d)
+        {
+            MinX = minX;
+            MaxX = maxX;
+            MinY = minY;
+            MaxY = maxY;
+            MinZ = minZ;
+            MaxZ = maxZ;
+            Normal = normal;
+            D = d;
+        }
+
+        public double MinX { get; }
+        public double MaxX { get; }
+        public double MinY { get; }
+        public double MaxY { get; }
+        public double MinZ { get; }
+        public double MaxZ { get; }
+        public Vector3D Normal { get; }
+        public double D { get; }
+    }
+
+    private class Cube
+    {
+        private readonly Point3D max;
+        private readonly Point3D min;
+
+        public Cube(Point3D minPoint, Point3D maxPoint)
+        {
+            min = minPoint;
+            max = maxPoint;
+
+            // Define the six faces of the cube
+            FrontFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, maxPoint.Z, maxPoint.Z,
+                new Vector3D(0, 0, 1), maxPoint.Z);
+            BackFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, minPoint.Z,
+                new Vector3D(0, 0, -1), -minPoint.Z);
+            LeftFace = new Plane(minPoint.X, minPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(-1, 0, 0), -minPoint.X);
+            RightFace = new Plane(maxPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(1, 0, 0), maxPoint.X);
+            TopFace = new Plane(minPoint.X, maxPoint.X, maxPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(0, 1, 0), maxPoint.Y);
+            BottomFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, minPoint.Y, minPoint.Z, maxPoint.Z,
+                new Vector3D(0, -1, 0), -minPoint.Y);
+        }
+
+        public Plane FrontFace { get; }
+        public Plane BackFace { get; }
+        public Plane LeftFace { get; }
+        public Plane RightFace { get; }
+        public Plane TopFace { get; }
+        public Plane BottomFace { get; }
+
+        public override String ToString()
+        {
+            return "(" + min + ":" + max + ")";
+        }
     }
 }

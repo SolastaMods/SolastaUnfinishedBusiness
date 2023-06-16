@@ -39,6 +39,7 @@
     "Origin_HO"
   ],
   "subClassFilterMask": "SorcererHauntedSoul",
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

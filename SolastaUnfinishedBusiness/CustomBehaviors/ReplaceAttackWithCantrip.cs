@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using UnityEngine;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -9,16 +9,16 @@ internal static class ReplaceAttackWithCantrip
 {
     internal static void AllowCastDuringMainAttack(
         GameLocationCharacter character,
-        ActionDefinitions.Id actionId,
-        ActionDefinitions.ActionScope scope,
-        ref ActionDefinitions.ActionStatus result)
+        Id actionId,
+        ActionScope scope,
+        ref ActionStatus result)
     {
-        if (scope != ActionDefinitions.ActionScope.Battle)
+        if (scope != ActionScope.Battle)
         {
             return;
         }
 
-        if (actionId != ActionDefinitions.Id.CastMain)
+        if (actionId != Id.CastMain)
         {
             return;
         }
@@ -38,25 +38,28 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        result = ActionDefinitions.ActionStatus.Available;
+        if (result == ActionStatus.NoLongerAvailable)
+        {
+            result = ActionStatus.Available;
+        }
     }
 
-    internal static void AllowAttacksAfterCantrip(GameLocationCharacter __instance, CharacterActionParams actionParams,
-        ActionDefinitions.ActionScope scope)
+    internal static void AllowAttacksAfterCantrip(GameLocationCharacter character, CharacterActionParams actionParams,
+        ActionScope scope)
     {
-        if (scope != ActionDefinitions.ActionScope.Battle)
+        if (scope != ActionScope.Battle)
         {
             return;
         }
 
-        var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
+        var rulesetCharacter = character.RulesetCharacter;
 
         if (!rulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
             return;
         }
 
-        if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
+        if (actionParams.actionDefinition.Id != Id.CastMain)
         {
             return;
         }
@@ -67,53 +70,37 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        var num = actionParams.ActingCharacter.RulesetCharacter.AttackModes
-            .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
-            .Aggregate(0, (current, attackMode) => Mathf.Max(current, attackMode.AttacksNumber));
+        const ActionType ACTION_TYPE = ActionType.Main;
+        var rank = --character.currentActionRankByType[ACTION_TYPE];
 
-        //increment used attacks to count cantrip as attack
-        __instance.usedMainAttacks++;
-
-        //if still attacks left - refund main action
-        if (__instance.usedMainAttacks < num)
+        //If character can't attack on this action - do not refund it
+        if (character.GetActionStatus(Id.AttackMain, ActionScope.Battle) != ActionStatus.Available)
         {
-            __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+            character.currentActionRankByType[ACTION_TYPE]++;
+            return;
         }
 
-        // reset __instance.usedMainAttacks so doesn't block haste or action surge
-        if (__instance.usedMainAttacks >= num)
-        {
-            __instance.usedMainAttacks = 0;
-        }
-    }
 
-    internal static void MightRefundOneAttackOfMainAction(
-        GameLocationCharacter __instance,
-        CharacterActionParams actionParams,
-        ActionDefinitions.ActionScope scope)
-    {
-        // should be in battle only
-        if (scope != ActionDefinitions.ActionScope.Battle)
+        var maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
+        var maxAttacksNumber = rulesetCharacter.AttackModes
+            .Where(attackMode => attackMode.ActionType == ActionType.Main)
+            .Max(attackMode => attackMode.AttacksNumber);
+
+        if (maxAllowedAttacks < 0 || maxAllowedAttacks >= maxAttacksNumber)
+        {
+            maxAllowedAttacks = maxAttacksNumber;
+        }
+
+        character.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        if (character.UsedMainAttacks < maxAllowedAttacks)
         {
             return;
         }
 
-        // if main is still available then don't refund
-        if (__instance.currentActionRankByType[ActionDefinitions.ActionType.Main] <= 0)
-        {
-            return;
-        }
-
-        var features = actionParams.actingCharacter.RulesetCharacter
-            .GetSubFeaturesByType<IMightRefundOneAttackOfMainAction>();
-        var refund = features.Aggregate(false,
-            (current, f) => current | f.MightRefundOneAttackOfMainAction(__instance, actionParams));
-
-        if (!refund)
-        {
-            return;
-        }
-
-        __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+        character.currentActionRankByType[ACTION_TYPE]++;
+        character.UsedMainAttacks = 0;
     }
 }

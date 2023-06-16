@@ -1,0 +1,16 @@
+Condition/&ConditionOathOfThunderDivineBoltDescription=Votre vitesse de déplacement est réduite de moitié.
+Condition/&ConditionOathOfThunderDivineBoltTitle=Éclair divin
+Feature/&FeatureOathOfThunderAxesBoonDescription=Lorsque vous brandissez des haches de combat ou des marteaux de guerre, ils peuvent être lancés avec une portée de 20/60 et revenir dans votre main immédiatement après avoir été utilisés pour effectuer une attaque lancée. De plus, votre fonction Divine Smite peut être utilisée sur toutes les attaques effectuées avec eux, mais vous avez un désavantage à attaquer avec tout autre type d'arme autre que les haches de combat et les marteaux de guerre.
+Feature/&FeatureOathOfThunderAxesBoonTitle=Brise-tempête
+Feature/&FeatureOathOfThunderHammersBoonDescription=Lorsque vous brandissez un marteau de guerre, ils peuvent être lancés avec une portée de 20/60 et revenir dans votre main immédiatement après avoir été utilisés pour effectuer une attaque lancée. De plus, votre fonction Divine Smite peut être utilisée sur toutes les attaques effectuées avec eux, mais vous avez un désavantage à attaquer avec tout autre type d'arme autre que War Hammers.
+Feature/&FeatureOathOfThunderHammersBoonTitle=Mjölnir
+Feature/&PowerOathOfThunderDivineBoltDescription=Par une action bonus, vous pouvez invoquer un éclair pour frapper une créature ennemie que vous pouvez voir dans un rayon de 18 mètres autour de vous.
+Feature/&PowerOathOfThunderDivineBoltTitle=Channel Divinity : Éclair divin
+Feature/&PowerOathOfThunderThunderousRebukeDescription=Lorsqu'une créature ennemie vous frappe avec une attaque de mêlée alors qu'elle se trouve à 1,50 mètre de vous, vous pouvez utiliser votre canal divin en réaction pour la frapper avec un tonnerre rugissant.
+Feature/&PowerOathOfThunderThunderousRebukeTitle=Channel Divinity : Réprimande tonitruante
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeDescription=Lorsqu'il est endommagé par une attaque au corps à corps, vous pouvez utiliser votre réaction pour réprimander la cible.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactDescription=Utilisez une réaction pour réprimander la cible.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactTitle=Réprimande tonitruante
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeTitle=Réprimande tonitruante
+Subclass/&OathOfThunderDescription=Les paladins du tonnerre sont nés pour mettre fin à la guerre éternelle à travers les plans. Même ceux qui voyagent loin de chez eux sont toujours désireux de remplir leur devoir, frappant leurs ennemis avec la fureur du tonnerre et la puissance des anciens dieux.
+Subclass/&OathOfThunderTitle=Serment du tonnerre

@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Weapon",
   "weight": 6.0,
   "slotTypes": [
@@ -481,7 +481,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "27d4258bee8619140bb5540669742639",
+      "m_AssetGUID": "92cdb0d14b71e9648af5efc5cd1f6585",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -510,8 +510,8 @@
     "description": "Equipment/&Greatsword_plus_1_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b0f83d1a7bbcfaa499d65b9ad551eb09",
-      "m_SubObjectName": "GreatswordDoomblade",
+      "m_AssetGUID": "bddc3ed4ff7d7f94c990c26544b4806f",
+      "m_SubObjectName": "Greatsword+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

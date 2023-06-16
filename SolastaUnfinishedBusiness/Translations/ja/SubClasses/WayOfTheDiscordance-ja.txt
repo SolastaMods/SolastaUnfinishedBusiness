@@ -12,5 +12,5 @@ Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=17レベル以降、
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=深刻な混乱
 Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription={0} 気ポイントを消費して、{1}d6 ダメージを与えます。
 Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=不調和の爆発[{0} Ki]
-Subclass/&WayOfTheDiscordanceDescription=ほとんどの僧侶は瞑想と心の平安の達成を通じて悟りを求めますが、一方、不調和の道の僧侶は宇宙の混沌としたエネルギーを利用することに焦点を当てています。これらの神秘的な不調和学者は、気を操作することで敵の内なる葛藤を利用し、歪んだエネルギーの爆発で敵を破壊します。
+Subclass/&WayOfTheDiscordanceDescription=ほとんどの僧侶は瞑想と心の平安の達成を通じて悟りを求めますが、一方、不調和の道の僧侶は宇宙の混沌としたエネルギーを利用することに焦点を当てています。これらの神秘的な不調和学者は、気を操作することで敵の内面の葛藤を利用し、歪んだエネルギーの爆発で敵を破壊します。
 Subclass/&WayOfTheDiscordanceTitle=不一致の道

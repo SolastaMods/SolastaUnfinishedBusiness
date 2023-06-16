@@ -71,7 +71,6 @@ internal static partial class DatabaseHelper
     }
     internal static class CharacterSizeDefinitions
     {
-        internal static CharacterSizeDefinition Large { get; } = GetDefinition<CharacterSizeDefinition>("Large");
         internal static CharacterSizeDefinition Medium { get; } = GetDefinition<CharacterSizeDefinition>("Medium");
         internal static CharacterSizeDefinition Small { get; } = GetDefinition<CharacterSizeDefinition>("Small");
         internal static CharacterSizeDefinition Tiny { get; } = GetDefinition<CharacterSizeDefinition>("Tiny");
@@ -203,6 +202,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionRaging { get; } = GetDefinition<ConditionDefinition>("ConditionRaging");
         internal static ConditionDefinition ConditionRestrained { get; } = GetDefinition<ConditionDefinition>("ConditionRestrained");
         internal static ConditionDefinition ConditionRestrainedByEntangle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByEntangle");
+        internal static ConditionDefinition ConditionRestrainedByWeb { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByWeb");
         internal static ConditionDefinition ConditionRestrictedInsideMagicCircle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrictedInsideMagicCircle");
         internal static ConditionDefinition ConditionRevealedByDetectGoodOrEvil { get; } = GetDefinition<ConditionDefinition>("ConditionRevealedByDetectGoodOrEvil");
         internal static ConditionDefinition ConditionRousingShout { get; } = GetDefinition<ConditionDefinition>("ConditionRousingShout");
@@ -349,8 +349,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageInvocationAgonizingBlast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageInvocationAgonizingBlast");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinDivineSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinDivineSmite");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinImprovedDivineSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinImprovedDivineSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePoison_GhoulsCaress { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePoison_GhoulsCaress");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyAberration { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyAberration");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyBeast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyBeast");
@@ -408,8 +408,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionSuperiorCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionSuperiorCritical");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialMountainerTunnelFighter { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialMountainerTunnelFighter");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMonkUnarmoredDefense { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkUnarmoredDefense");
-        internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolBase");
-        internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolMultiplier { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolMultiplier");
         internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererSorceryPointsBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererSorceryPointsBase");
         internal static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseCha { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseCha");
     }
@@ -661,6 +659,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace");
         internal static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift");
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
+        internal static FeatureDefinitionPower PowerRangerPrimevalAwareness { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerPrimevalAwareness");
         internal static FeatureDefinitionPower PowerRangerSwiftBladeBattleFocus { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerSwiftBladeBattleFocus");
         internal static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } = GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting");
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
@@ -951,6 +950,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition GreataxePlus1 { get; } = GetDefinition<ItemDefinition>("Greataxe+1");
         internal static ItemDefinition GreataxePlus2 { get; } = GetDefinition<ItemDefinition>("Greataxe+2");
         internal static ItemDefinition Greatsword { get; } = GetDefinition<ItemDefinition>("Greatsword");
+        internal static ItemDefinition GreatswordPlus2 { get; } = GetDefinition<ItemDefinition>("Greatsword+2");
         internal static ItemDefinition GreenmageArmor { get; } = GetDefinition<ItemDefinition>("GreenmageArmor");
         internal static ItemDefinition HalfPlate { get; } = GetDefinition<ItemDefinition>("HalfPlate");
         internal static ItemDefinition HalfPlatePlus2 { get; } = GetDefinition<ItemDefinition>("HalfPlate+2");

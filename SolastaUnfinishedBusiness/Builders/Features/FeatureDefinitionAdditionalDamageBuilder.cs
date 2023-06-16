@@ -18,6 +18,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetFlatDamageBonus(int bonus)
+    {
+        Definition.flatBonus = bonus;
+        return this;
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
     {
         Definition.damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.Die;
@@ -46,6 +52,14 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.damageAdvancement = advancement;
         Definition.DiceByRankTable.SetRange(ranks);
         return this;
+    }
+
+    [UsedImplicitly]
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        ExtraAdditionalDamageAdvancement advancement,
+        IEnumerable<DiceByRank> ranks)
+    {
+        return SetAdvancement((RuleDefinitions.AdditionalDamageAdvancement)advancement, ranks);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
@@ -175,6 +189,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     {
         Definition.damageValueDetermination = determination;
         return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
+        ExtraAdditionalDamageValueDetermination determination)
+    {
+        return SetDamageValueDetermination((RuleDefinitions.AdditionalDamageValueDetermination)determination);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAddLightSource(bool addLightSource)

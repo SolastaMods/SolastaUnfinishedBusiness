@@ -909,6 +909,18 @@
             PublicKeyToken=b77a5c561934e089
         </value>
     </data>
+    <data name="Oligath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+        <value>
+            ../Resources/Races/Oligath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </data>
+    <data name="Wendigo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+        <value>
+            ../Resources/Races/Wendigo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </data>
     <data name="FeatTelekinetic" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>../Resources/Spells/FeatTelekinetic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
@@ -1421,6 +1433,11 @@
     </data>
     <data name="OathOfDread" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>..\Resources\Subclasses\OathOfDread.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a
+        </value>
+    </data>
+    <data name="OathOfThunder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+        <value>..\Resources\Subclasses\OathOfThunder.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>

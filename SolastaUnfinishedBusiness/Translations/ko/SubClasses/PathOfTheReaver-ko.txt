@@ -10,5 +10,5 @@ Reaction/&CustomReactionBloodbathDescription=이 생명체를 절개하여 {0} �
 Reaction/&CustomReactionBloodbathReactDescription=이 생명체를 절개하십시오.
 Reaction/&CustomReactionBloodbathReactTitle=절개하다
 Reaction/&CustomReactionBloodbathTitle=피의 목욕
-Subclass/&PathOfTheReaverDescription=모든 약탈자들은 오염된 용의 피를 마시고 그들의 몸에 용의 힘과 탐욕을 영구적으로 주입하는 의식을 치릅니다. 그 대가로 점차 부패가 증가합니다. 이 무시무시한 전사들은 적의 고통에서 에너지를 되찾고 죽음을 즐깁니다.
+Subclass/&PathOfTheReaverDescription=모든 약탈자들은 오염된 용의 피를 마시고 그들의 몸에 용의 힘과 탐욕의 조각을 영구적으로 주입하는 의식을 거칩니다. 이 무시무시한 전사들은 적의 고통에서 에너지를 되찾고 죽음을 즐깁니다.
 Subclass/&PathOfTheReaverTitle=약탈자의 길

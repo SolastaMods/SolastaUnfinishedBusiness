@@ -271,8 +271,8 @@ public static class RulesetCharacterHeroPatcher
                         hero.TryGetAttributeValue(provider.AttackRollAbilityScore));
                     break;
                 case RuleDefinitions.AttackModifierMethod.None:
-                    break;
                 case RuleDefinitions.AttackModifierMethod.FlatValue:
+                    //These require no additional processing
                     break;
                 case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
                     num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
@@ -291,16 +291,12 @@ public static class RulesetCharacterHeroPatcher
             switch (provider.DamageRollModifierMethod)
             {
                 case RuleDefinitions.AttackModifierMethod.SourceConditionAmount:
-                    num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
-                    break;
-                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus when
-                    !string.IsNullOrEmpty(provider.DamageRollAbilityScore):
-                    num += AttributeDefinitions.ComputeAbilityScoreModifier(
-                        hero.TryGetAttributeValue(provider.DamageRollAbilityScore));
+                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus:
+                    //These are processed by base method
                     break;
                 case RuleDefinitions.AttackModifierMethod.None:
-                    break;
                 case RuleDefinitions.AttackModifierMethod.FlatValue:
+                    //These require no additional processing
                     break;
                 case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
                     num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
@@ -393,6 +389,8 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: remove invalid attacks
             //used to prevent hand crossbows use with no free hand
             __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
+            //PATCH: support for IAdditionalActionAttackValidator
+            AdditionalActionAttackValidator.ValidateAttackModes(__instance);
 
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)
@@ -903,7 +901,6 @@ public static class RulesetCharacterHeroPatcher
         {
             //TODO: convert this to an interface
             WizardBladeDancer.OnItemEquipped(__instance);
-            CollegeOfWarDancer.OnItemEquipped(__instance);
             FairyRaceBuilder.OnItemEquipped(__instance);
         }
     }

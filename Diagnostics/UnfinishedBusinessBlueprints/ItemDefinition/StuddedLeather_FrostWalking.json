@@ -247,8 +247,8 @@
     "description": "Item/&StuddedLeather_FrostWalking_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df184baca0ffa054785046693c04fa8a",
-      "m_SubObjectName": "StandardStuddedLeather",
+      "m_AssetGUID": "8c666e84a9a0b2f448c94aa7fd5a0007",
+      "m_SubObjectName": "DLC1_StuddedArmor+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

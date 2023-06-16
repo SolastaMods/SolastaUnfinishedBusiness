@@ -514,8 +514,8 @@
     "description": "Equipment/&Enchanted_WeaponOfAcuteness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d74269a8b791c264ea56fd0cd09dcf9f",
-      "m_SubObjectName": "StandardSpear",
+      "m_AssetGUID": "2ab771034bb7db74e9c3fba93f52334b",
+      "m_SubObjectName": "Spear+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

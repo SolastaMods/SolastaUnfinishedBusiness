@@ -1,0 +1,6 @@
+Maps/&Location_Presentation_DLC3_Undermountain_Title=Turvaamalinn
+Maps/&Location_Presentation_DLC3_Undermountain_Description=A gigantic fortress carved into rock and ice, where the old dwarf clans of the Snow Alliance mine and trade with other cities.
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=Lava Tunnels
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Description=A complex network of tunnels and lava channels, hosting some dwarven machinery to power a heating system for Turvaamalinn.
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=The Tunnel Entrance
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Description=The main access to Turvaamalinn generally used by travelers and merchants… when it's not blocked by tons of ice.

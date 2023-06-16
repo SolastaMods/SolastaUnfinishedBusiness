@@ -28,19 +28,37 @@ internal static class RulesDisplay
 
         if (Main.Settings.UseOfficialFlankingRules)
         {
+            toggle = Main.Settings.UseOfficialFlankingRulesAlsoForReach;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForReach"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesAlsoForReach = toggle;
+            }
+
             toggle = Main.Settings.UseOfficialFlankingRulesAlsoForRanged;
             if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForRanged"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
             }
+
+            toggle = Main.Settings.UseOfficialFlankingRulesButAddAttackModifier;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesButAddAttackModifier"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesButAddAttackModifier = toggle;
+            }
         }
-        
 
         toggle = Main.Settings.UseOfficialFoodRationsWeight;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
             SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
+        }
+
+        toggle = Main.Settings.DontEndTurnAfterReady;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
         UI.Label();
@@ -165,6 +183,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
+        toggle = Main.Settings.AllowHasteCasting;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowHasteCasting = toggle;
+            SrdAndHouseRulesContext.SwitchHastedCasing();
+        }
+
         toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
         {
@@ -225,13 +250,6 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.IncreaseMaxAttunedItems = toggle;
-        }
-
-        toggle = Main.Settings.MakeLargeWildshapeFormsMedium;
-        if (UI.Toggle(Gui.Localize("ModUi/&MakeLargeWildshapeFormsMedium"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.MakeLargeWildshapeFormsMedium = toggle;
-            SrdAndHouseRulesContext.SwitchMakeLargeWildshapeFormsMedium();
         }
 
         toggle = Main.Settings.EnableCharactersOnFireToEmitLight;

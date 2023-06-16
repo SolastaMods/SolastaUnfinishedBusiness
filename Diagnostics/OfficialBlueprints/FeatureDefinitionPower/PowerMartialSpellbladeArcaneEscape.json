@@ -32,8 +32,8 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Round",
-    "durationParameter": 0,
-    "endOfEffect": "EndOfTurn",
+    "durationParameter": 1,
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -79,11 +79,11 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionSurged",
-          "conditionDefinition": "Definition:ConditionSpellbladeArcaneEscape:dcd805d96413c6f4bbee10e836f2928e",
+          "conditionDefinition": "Definition:ConditionDodging:f3fc376a7fa72954dadc467627325195",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+          "applyToSelf": true,
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0

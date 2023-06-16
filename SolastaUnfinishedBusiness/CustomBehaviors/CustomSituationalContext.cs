@@ -62,6 +62,9 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.TargetIsNotEffectSource =>
                 contextParams.target != effectSource,
 
+            ExtraSituationalContext.TargetIsFavoriteEnemy =>
+                contextParams.source.IsMyFavoriteEnemy(contextParams.target),
+
             ExtraSituationalContext.SummonerIsNextToBeast =>
                 IsConsciousSummonerNextToBeast(GameLocationCharacter.GetFromActor(contextParams.source)),
 

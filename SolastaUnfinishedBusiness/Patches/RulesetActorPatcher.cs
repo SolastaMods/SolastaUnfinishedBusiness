@@ -59,6 +59,26 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class InflictDamage_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            ref int rolledDamage,
+            string damageType,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            RollInfo rollInfo
+        )
+        {
+            //PATCH: support for FeatureDefinitionReduceDamage
+            var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
+            rolledDamage -= reduction;
+            rollInfo.modifier -= reduction;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictCondition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -127,20 +147,14 @@ public static class RulesetActorPatcher
                         AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
                     break;
 
+                //Do nothing for default origins
                 case ConditionDefinition.OriginOfAmount.None:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceDamage:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceGain:
-                    break;
                 case ConditionDefinition.OriginOfAmount.AddDice:
-                    break;
                 case ConditionDefinition.OriginOfAmount.Fixed:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceHalfHitPoints:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceSpellAttack:
                     break;
                 default:
@@ -445,9 +459,18 @@ public static class RulesetActorPatcher
 
         // TODO: make this more generic
         [UsedImplicitly]
-        public static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
-            ref bool enumerateFeatures, ref bool canRerollDice)
+        public static void Prefix(RulesetActor __instance,
+            RuleDefinitions.DieType dieType,
+            RuleDefinitions.RollContext rollContext,
+            ref bool enumerateFeatures,
+            ref bool canRerollDice)
         {
+            if (dieType == RuleDefinitions.DieType.D1)
+            {
+                canRerollDice = false;
+                return;
+            }
+
             //PATCH: support for `RoguishRaven` Rogue subclass
             if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
                 rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
@@ -506,12 +529,21 @@ public static class RulesetActorPatcher
                         modifier.Value = level;
                     }
 
-                    //TODO: make this more generic. it supports Ranger Light Bearer subclass
-                    if (modifier.Operation == AttributeModifierOperation.Additive &&
-                        attribute.Key == AttributeDefinitions.HealingPool)
+                    //TODO: make this more generic. it supports Ancient Forest and Light Bearer subclasses
+                    //this will also not work if both subclasses are present...
+                    if (modifier.Operation != AttributeModifierOperation.Additive ||
+                        attribute.Key != AttributeDefinitions.HealingPool)
                     {
-                        modifier.Value = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger) * 5;
+                        continue;
                     }
+
+                    var levels =
+                        hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid,
+                            CircleOfTheAncientForest.Name) +
+                        hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger,
+                            RangerLightBearer.Name);
+
+                    modifier.Value = levels * 5;
                 }
             }
         }

@@ -833,7 +833,7 @@ internal static class Level20Context
 
             usablePowerNight.Recharge();
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
+            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
         }
     }
 
@@ -913,7 +913,7 @@ internal static class Level20Context
 
             character.ForceKiPointConsumption(-4);
             character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
-            GameConsoleHelper.LogCharacterUsedFeature(character, _featureDefinition);
+            character.LogCharacterUsedFeature(_featureDefinition);
         }
     }
 
@@ -1053,7 +1053,7 @@ internal static class Level20Context
 
             character.usedBardicInspiration--;
             character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
-            GameConsoleHelper.LogCharacterUsedFeature(character, _featureDefinition);
+            character.LogCharacterUsedFeature(_featureDefinition);
         }
     }
 }

@@ -245,33 +245,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 10. - Half-Elf
-
-Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
-
-
-## Level 1
-
-* Ability Score Increase
-
-Charisma +2, increase 2 other scores by 1 point each.
-
-* Darkvision
-
-See normally in dim light, and in natural darkness as if in dim light.
-
-* Fey Ancestry
-
-Saving throw advantage against Charm
- Immunity to magical sleep
-
-* Languages
-
-Common, Elvish, and one language of your choice
-
-
-
-# 11. - Half-High Elf
+# 10. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
 
@@ -288,7 +262,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# 12. - Half-Sylvan Elf
+# 11. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
@@ -301,7 +275,7 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 
 
 
-# 13. - Kobold
+# 12. - Kobold
 
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -322,7 +296,7 @@ Common, Draconic.
 
 
 
-# 14. - Mephistopheles
+# 13. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
@@ -339,32 +313,48 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 
 
-# 15. - Tiefling
+# 14. - Oligath
 
-One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+Oligaths share ancestry with the giants that live in the northern regions of Solasta.
 
 
 ## Level 1
 
-* Ability Score Increase
+* Attribute Increase
 
-Charisma + 2
+Strength +2
 
-* Darkvision
+* Attribute Increase
 
-See normally in dim light, and in natural darkness as if in dim light.
+Constitution +1
 
-* Hellish Resistance
+* Hot-Blooded
 
-You have resistance to fire damage.
+You have resistance to cold damage.
+
+* Language
+
+Common and Giant.
 
 * Move
 
 6◎
 
+* Natural Athlete
+
+You have proficiency in the Athletics skill.
+
+* Powerful Build
+
+You count your size as Large when determining your carrying capacity.
+
+* Stone's Endurance
+
+When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled and reduce incoming damage by that amount. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
 
 
-# 16. - Zariel
+
+# 15. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 

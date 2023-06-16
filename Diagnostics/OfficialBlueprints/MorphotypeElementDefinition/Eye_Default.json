@@ -39,6 +39,7 @@
     "Origin_HO"
   ],
   "subClassFilterMask": 34,
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

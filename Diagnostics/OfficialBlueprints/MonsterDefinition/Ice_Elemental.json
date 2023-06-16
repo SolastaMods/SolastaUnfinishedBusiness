@@ -170,16 +170,16 @@
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
+      "r": 0.745283,
+      "g": 0.689035237,
+      "b": 0.689035237,
       "a": 0.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0,
+      "r": 0.5833927,
+      "g": 0.762069166,
+      "b": 0.8962264,
       "a": 0.0
     },
     "hasPhantomDistortion": true,

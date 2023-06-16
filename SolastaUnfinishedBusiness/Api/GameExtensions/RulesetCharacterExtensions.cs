@@ -30,7 +30,7 @@ internal static class RulesetCharacterExtensions
     internal static int GetSubclassLevel(
         this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
     {
-        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = character as RulesetCharacterHero ?? character?.OriginalFormCharacter as RulesetCharacterHero;
 
         // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
         if (hero == null ||
@@ -314,14 +314,14 @@ internal static class RulesetCharacterExtensions
 
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
-        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
 
         return hero?.GetClassLevel(classDefinition) ?? 0;
     }
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {
-        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
 
         return hero?.GetClassLevel(className) ?? 0;
     }
@@ -536,13 +536,58 @@ internal static class RulesetCharacterExtensions
             totalAttack);
     }
 
-#if false
-    internal static void RemoveAllConditionsOfType(this RulesetCharacter character, string type)
+    internal static bool IsMyFavoriteEnemy(this RulesetCharacter me, RulesetCharacter enemy)
     {
-        character?.AllConditions
-            .Where(c => c.conditionDefinition.Name == type)
-            .ToList()
-            .ForEach(c => character.RemoveCondition(c, true, false));
+        if (me == null || enemy == null)
+        {
+            return false;
+        }
+
+        return DatabaseHelper.FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
+            .OfType<FeatureDefinitionAdditionalDamage>()
+            .Intersect(me.GetFeaturesByType<FeatureDefinitionAdditionalDamage>())
+            .Any(x => x.RequiredCharacterFamily.Name == enemy.CharacterFamily);
     }
-#endif
+
+    /**
+     * Removes all matching conditions and returns true if any was removed, false otherwise
+     */
+    internal static bool RemoveAllConditionsOfType(this RulesetCharacter character, params string[] types)
+    {
+        //should we return number of removed conditions, instead of whether we removed any?
+        var conditions = character?.AllConditions
+            .Where(c => types.Contains(c.conditionDefinition.Name))
+            .ToList();
+
+        if (conditions == null || conditions.Empty())
+        {
+            return false;
+        }
+
+        conditions.ForEach(c => character.RemoveCondition(c, false, false));
+        character.RefreshAll();
+        return true;
+    }
+
+    internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
+    {
+        if (character == null)
+        {
+            return;
+        }
+
+        if (!ServiceRepository.GetService<IWorldLocationEntityFactoryService>()
+                .TryFindWorldCharacter(character, out var worldCharacter))
+        {
+            return;
+        }
+
+        var labels = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
+        if (!labels.characterLabelsMap.TryGetValue(worldCharacter, out var label))
+        {
+            return;
+        }
+
+        label.EnqueueCaption(new CharacterLabel.CaptionInfo { caption = text, colorString = color });
+    }
 }

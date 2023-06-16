@@ -36,7 +36,7 @@ You have advantage on Constitution saving throws that you make to maintain your 
 
 # 10. - Eldritch Smite
 
-Once per turn when you hit a creature with your weapon, you can expend a Warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
+Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot, and you knock the target prone if it is Huge or smaller.
 
 # 11. - Eldritch Step
 

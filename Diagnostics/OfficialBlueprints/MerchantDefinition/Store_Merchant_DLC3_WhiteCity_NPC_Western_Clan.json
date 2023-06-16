@@ -489,6 +489,20 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Scimitar_of_Perfection:49fe94b9f5e99d243991efc37d01ca80",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 30,
+      "requiredFaction": "DLC3_Faction_ElvenClan",
+      "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
       "itemDefinition": "Definition:Enchanted_ScimitarOfTheAnfarels:f70efa9136a6c9f42ba6e5bff41be910",
       "stackCount": 1,
       "initialAmount": 1,
@@ -513,6 +527,20 @@
       "reassortRateValue": 3,
       "requiredFaction": "DLC3_Faction_ElvenClan",
       "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Scimitar+3:79933ec263423ae478cbd19d29287ca7",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 30,
+      "requiredFaction": "DLC3_Faction_ElvenClan",
+      "factionStatus": "Brotherhood"
     },
     {
       "$type": "StockUnitDescription, Assembly-CSharp",

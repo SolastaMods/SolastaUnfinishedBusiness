@@ -25,6 +25,15 @@ internal static class DiceByRankBuilder
     }
 
     /**
+     * Builds dice by rank table from rank/dice pairs
+     */
+    [UsedImplicitly]
+    internal static List<DiceByRank> Build(params (int rank, int dice)[] steps)
+    {
+        return steps.Select(s => new DiceByRank { rank = s.rank, diceNumber = s.dice }).ToList();
+    }
+
+    /**
      * Builds dice by rank table by specifying points of change of dice number, filling spaces between with values of previous point
      */
     [UsedImplicitly]

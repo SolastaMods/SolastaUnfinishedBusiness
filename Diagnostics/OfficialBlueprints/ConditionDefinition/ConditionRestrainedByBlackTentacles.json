@@ -272,6 +272,7 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": false,
+  "addBehavior": true,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,

@@ -1,0 +1,36 @@
+{
+  "$type": "DateTimeDefinition, Assembly-CSharp",
+  "year": 1026,
+  "month": 8,
+  "day": 6,
+  "hour": 0,
+  "minute": 0,
+  "seconds": 0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2948f68a5a110334d87dd8c459a13028",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_Outside_Start_DateTime"
+}

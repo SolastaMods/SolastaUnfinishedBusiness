@@ -267,6 +267,7 @@
     }
   ],
   "forceBehavior": false,
+  "addBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,

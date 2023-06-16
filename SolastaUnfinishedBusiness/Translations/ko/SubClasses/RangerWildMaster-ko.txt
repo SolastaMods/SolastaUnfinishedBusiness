@@ -1,5 +1,5 @@
 Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=와일드마스터 보너스
-Feature/&FeatureSetWildMaster03Description=당신은 당신의 모험에 동행하고 당신과 함께 싸우도록 훈련받은 야수 영혼 동료를 얻습니다. 갑옷 등급, 공격 롤 및 데미지 롤에 대한 지혜 수정자를 얻습니다. 또한 캐릭터 레벨당 4 HP를 얻고 다른 명령을 내리지 않는 한 자신의 턴에만 회피 행동을 취할 수 있습니다.\nSpirit Beast와 소환사는 모두 같은 주도권을 공유하며 곰, 독수리 또는 늑대를 선택할 수 있습니다. :\n. 곰은 불의 원뿔을 호흡할 수 있습니다\n. Eagle 전기선\n. 늑대는 냉기의 원뿔입니다.
+Feature/&FeatureSetWildMaster03Description=당신은 당신의 모험에 동행하고 당신과 함께 싸우도록 훈련받은 야수 영혼 동료를 얻습니다. 갑옷 등급, 공격 롤 및 데미지 롤에 대한 지혜 수정자를 얻습니다. 또한 캐릭터 레벨당 4 HP를 얻고 다른 명령을 내리지 않는 한 자신의 차례에 회피 행동만 할 수 있습니다.\nSpirit Beast와 소환사는 모두 같은 주도권을 공유하며 곰, 독수리 또는 늑대를 선택할 수 있습니다. :\n. 곰은 불의 원뿔을 호흡할 수 있습니다\n. Eagle 전기선\n. 늑대는 냉기의 원뿔입니다.
 Feature/&FeatureSetWildMaster03Title=비스트 컴패니언
 Feature/&FeatureSetWildMaster07Description=Spirit Beast는 이제 자신의 차례에 Dash 또는 Disengage 조치를 취할 수 있습니다. 저항과 면역을 극복하기 위해 공격 횟수를 마법으로 계산합니다. Spirit Beast는 또한 더 강력합니다.\n. 곰은 이제 화재에 탄력적입니다\n. 전기에 독수리\n. 추위에 늑대.
 Feature/&FeatureSetWildMaster07Title=진정한 전문성

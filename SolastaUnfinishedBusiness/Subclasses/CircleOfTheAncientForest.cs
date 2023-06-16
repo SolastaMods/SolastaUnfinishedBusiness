@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -22,15 +23,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CircleOfTheAncientForest : AbstractSubclass
 {
+    internal const string Name = "CircleOfTheAncientForest";
     private const string LifeSapName = "OnMagicalAttackDamageEffectAncientForestLifeSap";
 
     internal CircleOfTheAncientForest()
     {
-        var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
-            .Create("BonusCantripAncientForest")
-            .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(Shillelagh, ChillTouch)
-            .AddToDB();
+        // LEVEL 02
 
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsAncientForest")
@@ -45,16 +43,31 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid)
             .AddToDB();
 
-        var lifeSapFeature = FeatureDefinitionBuilder
-            .Create(LifeSapName)
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new MagicalAttackFinishedAncientForestLifeSap())
+        var attributeModifierAncientForestRegrowth = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierAncientForestRegrowth")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.HealingPool)
+            .AddToDB();
+
+        var attributeModifierAncientForestRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierAncientForestRegrowthMultiplier")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HealingPool, 1)
             .AddToDB();
 
         var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinLayOnHands, "PowerAncientForestRegrowth")
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.HealingPool, 0)
             .AddToDB();
+
+        var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
+            .Create("BonusCantripAncientForest")
+            .SetGuiPresentation(Category.Feature)
+            .SetBonusCantrips(Shillelagh, ChillTouch)
+            .AddToDB();
+
+        // LEVEL 06
 
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
@@ -72,6 +85,14 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityPoisonResistance, PotionOfHeroism),
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityRadiantResistance, PotionOfInvisibility)
         );
+
+        // LEVEL 10
+
+        var lifeSapFeature = FeatureDefinitionBuilder
+            .Create(LifeSapName)
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new MagicalAttackFinishedAncientForestLifeSap())
+            .AddToDB();
 
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityAncientForestPhotosynthesis")
@@ -128,6 +149,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
+        // LEVEL 14
+
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentation(Category.Feature, hidden: true)
@@ -154,15 +177,6 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
         }
-
-        var attributeModifierAncientForestRegrowth = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierPaladinHealingPoolBase, "AttributeModifierAncientForestRegrowth")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        var attributeModifierAncientForestRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierPaladinHealingPoolMultiplier, "AttributeModifierAncientForestRegrowthMultiplier")
-            .AddToDB();
 
         var attributeModifierAncientForestBarkskin = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierBarkskin, "AttributeModifierAncientForestBarkskin")
@@ -360,7 +374,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
             var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 
-            GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+            caster.LogCharacterActivatesAbility(ability);
             RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
         }
     }

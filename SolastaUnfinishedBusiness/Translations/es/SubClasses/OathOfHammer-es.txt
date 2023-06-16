@@ -1,0 +1,16 @@
+Condition/&ConditionOathOfThunderDivineBoltDescription=Tu velocidad de movimiento se reduce a la mitad.
+Condition/&ConditionOathOfThunderDivineBoltTitle=Rayo divino
+Feature/&FeatureOathOfThunderAxesBoonDescription=Cuando empuñas Hachas de batalla o Martillos de guerra, se pueden lanzar con un rango de 20/60 y regresar a tu mano inmediatamente después de que se usen para realizar un ataque de lanzamiento. Además, su función Divine Smite se puede usar en todos los ataques realizados con ellos, pero tiene la desventaja de atacar con cualquier otro tipo de arma que no sea Battle Axes y War Hammers.
+Feature/&FeatureOathOfThunderAxesBoonTitle=Rompetormentas
+Feature/&FeatureOathOfThunderHammersBoonDescription=Cuando empuñas un martillo de guerra, se pueden lanzar con un rango de 20/60 y regresar a tu mano inmediatamente después de que se use para realizar un ataque lanzado. Además, su función Divine Smite se puede usar en todos los ataques realizados con ellos, pero tiene la desventaja de atacar con cualquier otro tipo de arma que no sea War Hammers.
+Feature/&FeatureOathOfThunderHammersBoonTitle=Mjolnir
+Feature/&PowerOathOfThunderDivineBoltDescription=Como acción adicional, puedes invocar un rayo para golpear a una criatura enemiga que puedas ver a 60 pies de ti.
+Feature/&PowerOathOfThunderDivineBoltTitle=Canalizar Divinidad: Rayo Divino
+Feature/&PowerOathOfThunderThunderousRebukeDescription=Cuando una criatura enemiga te golpea con un ataque cuerpo a cuerpo mientras está a una distancia de hasta 5 pies de ti, puedes usar tu Canalizar Divinidad como reacción para golpearlo con un trueno rugiente.
+Feature/&PowerOathOfThunderThunderousRebukeTitle=Canalizar Divinidad: Reprimenda atronadora
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeDescription=Cuando te daña un ataque cuerpo a cuerpo, puedes usar tu reacción para reprender al objetivo.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactDescription=Usa una reacción para reprender al objetivo.
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactTitle=Reprimenda atronadora
+Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeTitle=Reprimenda atronadora
+Subclass/&OathOfThunderDescription=Paladins of the Thunder nació para poner fin a la guerra eterna en los planos. Incluso aquellos, que viajan lejos de casa, todavía están ansiosos por cumplir con su deber, golpeando a sus enemigos con la furia del trueno y el poder de los dioses antiguos.
+Subclass/&OathOfThunderTitle=Juramento del trueno

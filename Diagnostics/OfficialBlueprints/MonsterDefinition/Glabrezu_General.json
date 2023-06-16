@@ -260,14 +260,14 @@
     ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "37eddd4aa248b9e428152548948de8f8",
+      "m_AssetGUID": "2de42dc23aa2a1b478cf66606e21c0b3",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 1.3,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "37eddd4aa248b9e428152548948de8f8",
+      "m_AssetGUID": "2de42dc23aa2a1b478cf66606e21c0b3",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

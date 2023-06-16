@@ -237,14 +237,17 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            if (__instance?.RulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
+            var rulesetCharacter = __instance?.RulesetCharacter;
+            if (rulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
             {
                 return;
             }
 
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
-            ReplaceAttackWithCantrip.MightRefundOneAttackOfMainAction(__instance, actionParams, scope);
+            //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
+            rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
+                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
         }
     }
 
@@ -297,6 +300,22 @@ public static class GameLocationCharacterPatcher
             __result = __instance.RulesetCharacter.IsToggleEnabled(actionId);
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckConcentration))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CheckConcentration_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter __instance,
+            int damage,
+            string damageType,
+            bool stillConscious)
+        {
+            //PATCH: support for EffectWithConcentrationCheck
+            EffectWithConcentrationCheck.ProcessConcentratedEffects(__instance, damage, damageType, stillConscious);
         }
     }
 }

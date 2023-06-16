@@ -49,17 +49,20 @@ internal static class FixesContext
         AdditionalDamageDomainMischiefDivineStrike.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
-        AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
+        AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
+        AdditionalDamagePaladinDivineSmite.SetCustomSubFeatures(
+            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
+
+        AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
+        AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
+        AdditionalDamagePaladinImprovedDivineSmite.SetCustomSubFeatures(
+            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
         AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
         AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
         AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
-
-        AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon.attackModeOnly = true;
-        AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon.requiredProperty =
-            RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
     private static void FixAttackBuffsAffectingSpellDamage()

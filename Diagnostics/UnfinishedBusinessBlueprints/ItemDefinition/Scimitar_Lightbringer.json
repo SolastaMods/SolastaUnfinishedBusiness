@@ -544,8 +544,8 @@
     "description": "Item/&Scimitar_Lightbringer_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "28dae04c71c4bc8419b09bec665f7007",
-      "m_SubObjectName": "StandardScimitar",
+      "m_AssetGUID": "553dafd919750a04aa8d89068f79d850",
+      "m_SubObjectName": "DLC2.5_ScimitarOfSpeed",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

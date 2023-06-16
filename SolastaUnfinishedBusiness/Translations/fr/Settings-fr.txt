@@ -21,6 +21,7 @@ ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>clubs</color> à lancer
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour ignorer toute vérification lors du placement de gadgets ou d'accessoires
+ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec une action supplémentaire à partir de la hâte <color=#F0DAA0>(vous êtes toujours limité à 1 sort d'action principale par tour)</color>
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les courses <i><color=#F0DAA0>[les résultats peuvent sembler terribles selon la race, la tête et la corne]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser plus d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer après les actions de repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser le composant de matériau empilé <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
@@ -66,6 +67,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus de
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte <color=#D89555>Warlock</color> lors de la sélection de sorts au lieu du panneau de personnage</i>
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les caractères graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé l'action prêt <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire de la hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
@@ -84,7 +86,7 @@ ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour 
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages en feu doivent émettre de la lumière <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider et on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
-ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 >[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des exploits aux niveaux de classe 6 et 14
 ModUi/&EnableFighterWeaponSpecialization=Activez <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et endommager mais désavantagez avec n'importe quel autre type d'arme]</color></i>
@@ -149,7 +151,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de mains libres pour
 ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Augmente la portée de <color=#D89555>Détection de la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color>< /i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage de <color=#D89555>Détection de la vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
@@ -163,13 +165,12 @@ ModUi/&ItemsCraftingMerchants=Artisanat, objets et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur terrestre</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est universel]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Faites en sorte que toutes les grandes formes sauvages soient de taille moyenne
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
-ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement par défaut du répertoire consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
+ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour monter de niveau
 ModUi/&OfferAdditionalLoreFriendlyNames=Offrir des noms conviviaux supplémentaires lors de la création de personnage
@@ -208,14 +209,14 @@ ModUi/&SettingsRefresh=Rafraîchir
 ModUi/&SettingsRemove=Retirer
 ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Afficher le bouton qui ouvre des informations sur les monstres contrôlés <i><color=#F0DAA0>[druides de forme sauvage, invocations, suiveurs de PNJ, etc. ]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Montre combien d'utilisations <color=#D89555>Channel Divinity</color> un héros a sur son portrait, similaire aux points de sorcellerie
-ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire <i><color=#F0DAA0>[Survoler dessus affichera l'info-bulle de l'objet fabriqué]</color></i>
+ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire <i><color=#F0DAA0>[En passant la souris dessus, l'info-bulle de l'objet fabriqué] s'affichera]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans des infobulles détaillées
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>filtre de niveau orthographique</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stockez le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stockez le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Stockez le magasin Hugo avec <color=#D89555>Bâton Arcane</color>, <color=#D89555>Cou de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Matraque< /color> définir comme éléments foci
+ModUi/&StockHugoStoreWithAdditionalFoci=Stockez le magasin Hugo avec <color=#D89555>Bâton Arcane</color>, <color=#D89555>Cou de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Matraque</color> définir comme éléments foci
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&TargetLanguage=Langue cible
@@ -229,15 +230,17 @@ ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets PNJ
 ModUi/&UnleashNpcAsEnemy=Déverrouiller la sélection de monstres
 ModUi/&UnlockAllNpcFaces=Déverrouiller les visages des PNJ
 ModUi/&UnlockEyeStyles=Déverrouiller les styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages et tatouages
 ModUi/&UnlockGlowingEyeColors=Ajouter des couleurs éclatantes pour les yeux
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages ​​et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages
 ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&Update=<b><color=#D89555>Mettre à jour</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Utilisez des modèles de visage <color=#D89555>Elf</color> sur <color=#D89555>Tieflings</color>
-ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555 >Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Utilisez les règles officielles d'avantage / désavantage de DnD <i><color=#F0DAA0>[si les circonstances font qu'un jet a les deux, vous êtes considéré comme n'ayant aucun des deux]</color></i>
-ModUi/&UseOfficialFlankingRules=Utilisez les règles officielles de flanquement du DnD <i><color=#F0DAA0>[si un allié est du côté opposé, l'attaquant a l'avantage]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Activer également pour les attaques à distance</i>
-ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle du DnD d'un poids de 2 livres
+ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Utilisez les règles officielles d'avantage/désavantage <i><color=#F0DAA0>[si les circonstances font qu'un jet a les deux, vous êtes considéré comme n'ayant aucun des deux]</color></i>
+ModUi/&UseOfficialFlankingRules=Utilisez les règles officielles de flanquement <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé de la cible]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance</i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par portée</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
+ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
