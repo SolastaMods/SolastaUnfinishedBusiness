@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -70,6 +71,23 @@ public static class GameLocationActionManagerPatcher
             }
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.CharacterDamageReceivedAsync))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsAnyMetamagicOptionAvailable_Patch
+    {
+        public static IEnumerator Postfix([NotNull] IEnumerator values,
+            RulesetCharacter rulesetTarget,
+            bool wasConscious,
+            bool stillConscious,
+            bool massiveDamage)
+        {
+            //pATCH: support for `DoNotTerminateWhileUnconscious`
+            yield return DoNotTerminateWhileUnconscious.TerminateAllSpellsAndEffects(values, rulesetTarget,
+                wasConscious, stillConscious, massiveDamage);
         }
     }
 }
