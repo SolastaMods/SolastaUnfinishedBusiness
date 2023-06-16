@@ -233,8 +233,8 @@
     "description": "Item/&Leather_Robustness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "05be6fd345d7f7240a0d23dc228497ca",
-      "m_SubObjectName": "LeatherArmor",
+      "m_AssetGUID": "60310a850f0ba5142b8be0f9063f5613",
+      "m_SubObjectName": "LeatherArmor+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

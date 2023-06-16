@@ -275,7 +275,7 @@ public static class InnovationVivisectionist
             }
 
             rulesetAttacker.UpdateUsageForPower(_powerOrganDonation, _powerOrganDonation.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerOrganDonation);
+            rulesetAttacker.LogCharacterUsedPower(_powerOrganDonation);
             UsablePowersProvider.Get(_powerEmergencyCure, rulesetAttacker).RepayUse();
             UsablePowersProvider.Get(_powerEmergencySurgery, rulesetAttacker).RepayUse();
         }

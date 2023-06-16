@@ -39,6 +39,7 @@
     "Origin_HO"
   ],
   "subClassFilterMask": "SorcererChildRift",
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

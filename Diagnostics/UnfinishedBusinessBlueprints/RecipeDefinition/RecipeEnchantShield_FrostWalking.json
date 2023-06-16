@@ -36,8 +36,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "da01bc24fcee14c499743b6a7082941f",
-      "m_SubObjectName": "StandardShield",
+      "m_AssetGUID": "4527f198520207c498f1ca30daf3b41f",
+      "m_SubObjectName": "Shield+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

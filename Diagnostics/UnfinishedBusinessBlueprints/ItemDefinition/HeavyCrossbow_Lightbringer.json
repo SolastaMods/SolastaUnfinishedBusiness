@@ -544,8 +544,8 @@
     "description": "Item/&HeavyCrossbow_Lightbringer_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a5d7ccd2eae6b7346b595a27d5a2a441",
-      "m_SubObjectName": "StandardHeavyCrossbow",
+      "m_AssetGUID": "e94ea6f478f66ef4d8a3b4ba6ba50e1a",
+      "m_SubObjectName": "Heavy_Crossbow02",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

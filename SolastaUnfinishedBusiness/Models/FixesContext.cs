@@ -35,7 +35,6 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
-        FixHastedCasting();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -232,11 +231,5 @@ internal static class FixesContext
         ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
-    }
-
-    private static void FixHastedCasting()
-    {
-        //BUGFIX: Allow Casting spell using additional Main action from haste
-        FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions.Add(ActionDefinitions.Id.CastMain);
     }
 }

@@ -236,6 +236,7 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": true,
+  "addBehavior": false,
   "fearSource": false,
   "battlePackage": "Definition:DemonicInfluence:1691ecfc69f50a04b8548fa3c47ca0d0",
   "explorationPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",

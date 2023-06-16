@@ -1080,7 +1080,7 @@ public static class GameLocationBattleManagerPatcher
 
                 if (reactionParams.ReactionValidated)
                 {
-                    GameConsoleHelper.LogCharacterUsedPower(helper, power, indent: true);
+                    helper.LogCharacterUsedPower(power, indent: true);
                     rulesetDefender.UsePower(usablePower);
 
                     action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, locHelper, saveModifier,

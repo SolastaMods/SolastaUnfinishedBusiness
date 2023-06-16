@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureWendigoNaturalLungerTitle",
+    "description": "Feature/&FeatureWendigoNaturalLungerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b414fa27-eb2f-51af-9afe-80868c30c28e",
+  "guid": "bd3955cc-4299-54e5-8d3e-0b69fa9dd1dd",
   "contentPack": 9999,
-  "name": "FeatureConditionWarDanceCustom"
+  "name": "FeatureWendigoNaturalLunger"
 }

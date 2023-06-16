@@ -59,6 +59,7 @@ internal static class ItemRecipeGenerationHelper
                 var newItem = isArmor
                     ? ItemBuilder.BuildNewMagicArmor(baseItem, presentation, itemData.Name, itemData.Item)
                     : ItemBuilder.BuildNewMagicWeapon(baseItem, presentation, itemData.Name, itemData.Item);
+                newItem.GuiPresentation.spriteReference = presentation.GuiPresentation.SpriteReference;
                 var primedItem = baseToPrimed.TryGetValue(baseItem, out var value) ? value : baseItem;
                 var ingredients = new List<ItemDefinition> { primedItem };
 

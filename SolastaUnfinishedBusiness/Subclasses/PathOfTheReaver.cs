@@ -183,7 +183,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
-        GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, featureDefinitionPower);
+        rulesetAttacker.LogCharacterUsedPower(featureDefinitionPower);
         ReceiveHealing(attacker, totalHealing);
     }
 
@@ -262,7 +262,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureVoraciousFury);
+            rulesetAttacker.LogCharacterUsedFeature(_featureVoraciousFury);
             EffectHelpers.StartVisualEffect(attacker, defender, VampiricTouch, EffectHelpers.EffectType.Effect);
             InflictDamage(rulesetAttacker, rulesetDefender, totalDamageOrHealing, attackMode.AttackTags);
 
@@ -350,7 +350,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             var defenderAttackTags =
                 defender.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? new List<string>();
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetDefender, _featureCorruptedBlood);
+            rulesetDefender.LogCharacterUsedFeature(_featureCorruptedBlood);
             EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainMischiefStrikeOfChaos);
             InflictDamage(rulesetDefender, rulesetAttacker, totalDamage, defenderAttackTags);
 

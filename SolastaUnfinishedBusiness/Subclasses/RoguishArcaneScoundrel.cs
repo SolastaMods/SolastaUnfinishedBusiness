@@ -327,7 +327,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
 
-                GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _powerArcaneBackslash);
+                rulesetCharacter.LogCharacterUsedPower(_powerArcaneBackslash);
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
                 rulesetDefender.InflictCondition(
                     _conditionDistractingAmbush.Name,

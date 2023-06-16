@@ -52,6 +52,8 @@ Feature/&PowerHelpTitle=돕다
 Feature/&ToolGainChoicesPluralDescription=다음 도구 중 {0}개 선택: {1}
 Feature/&ToolGainChoicesSingleDescription=다음 도구 중 하나를 선택하십시오. {1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0}는 {1}의 보너스를 제공하고 새 결과는 {2}(DC: {3})입니다.
+Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} {1} {2} 대 DC {3} 유지를 위한 굴림, 굴림 {4} = {5}
+Feedback/&ConcentrationEffectCheckRolledLine={0} 굴려 {1} 대 DC {2} 유지, 굴림 {3} = {4}
 Feedback/&FlankingAttack=측면
 Feedback/&HigherGroundAttack=고지
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!

@@ -254,7 +254,7 @@ internal static class ClassFeats
                 return additionalDamage.DamageDieType;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, featureCloseQuarters);
+            attacker.RulesetCharacter.LogCharacterUsedFeature(featureCloseQuarters);
 
             return DieType.D8;
         }
@@ -425,7 +425,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(me.RulesetCharacter, _featureExploiter);
+            me.RulesetCharacter.LogCharacterUsedFeature(_featureExploiter);
         }
     }
 
@@ -785,26 +785,15 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
-        var spellLists = new List<List<SpellListDefinition>>
+        //TODO: use tuples here
+        var classes = new List<CharacterClassDefinition>
         {
-            new() { SpellListDefinitions.SpellListBard },
-            new() { SpellListDefinitions.SpellListCleric },
-            new()
-            {
-                SpellListDefinitions.SpellListDruid,
-                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperDruid")
-            },
-            new()
-            {
-                SpellListDefinitions.SpellListSorcerer,
-                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperSorcerer")
-            },
-            new()
-            {
-                SpellListDefinitions.SpellListWizard,
-                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
-            },
-            new() { InventorClass.SpellList }
+            Bard,
+            Cleric,
+            Druid,
+            Sorcerer,
+            Wizard,
+            InventorClass.Class
         };
 
         var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
@@ -819,18 +808,17 @@ internal static class ClassFeats
 
         var potentSpellcasterFeats = new List<FeatDefinition>();
 
-        for (var i = 0; i < spellLists.Count; i++)
+        for (var i = 0; i < classes.Count; i++)
         {
-            var spellList = spellLists[i];
+            var className = classes[i].Name;
             var validator = validators[i];
-            var className = spellList[0].Name.Replace("SpellList", String.Empty);
             var classTitle = GetDefinition<CharacterClassDefinition>(className).FormatTitle();
             var featPotentSpellcaster = FeatDefinitionWithPrerequisitesBuilder
                 .Create($"{Name}{className}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList.ToArray()))
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster())
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -849,22 +837,24 @@ internal static class ClassFeats
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
-        private readonly SpellListDefinition[] _spellListDefinition;
-
-        public ModifyMagicEffectFeatPotentSpellcaster(params SpellListDefinition[] spellListDefinition)
-        {
-            _spellListDefinition = spellListDefinition;
-        }
-
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition ||
-                !_spellListDefinition.Any(x => x.SpellsByLevel
-                    .Any(y => y.Level == 0 && y.Spells.Contains(spellDefinition))))
+            if (definition is not SpellDefinition spellDefinition || spellDefinition.SpellLevel > 0)
+            {
+                return effectDescription;
+            }
+
+            // this might not be correct if same spell is learned from different classes
+            // if we follow other patches we should ideally identify all repertoires that can cast spell
+            // and use the one with highest attribute. will revisit if this ever becomes a thing
+            var spellRepertoire =
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spellDefinition));
+
+            if (spellRepertoire == null)
             {
                 return effectDescription;
             }
@@ -876,28 +866,7 @@ internal static class ClassFeats
                 return effectDescription;
             }
 
-            string attribute;
-
-            if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
-            {
-                attribute = AttributeDefinitions.Charisma;
-            }
-            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListCleric ||
-                     _spellListDefinition[0] == SpellListDefinitions.SpellListDruid)
-            {
-                attribute = AttributeDefinitions.Wisdom;
-            }
-            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListWizard ||
-                     _spellListDefinition[0] == InventorClass.SpellList)
-            {
-                attribute = AttributeDefinitions.Intelligence;
-            }
-            else
-            {
-                return effectDescription;
-            }
-
+            var attribute = spellRepertoire.SpellCastingAbility;
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;

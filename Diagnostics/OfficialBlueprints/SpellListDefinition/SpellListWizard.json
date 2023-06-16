@@ -162,7 +162,10 @@
         "Definition:IncendiaryCloud:d7ff1dbd52e71e948b4e6b2d686e04fd",
         "Definition:Feeblemind:d116a54565935514a9437c1a79397182",
         "Definition:Maze:dd6e34fdb0acb334fa90be75576f7818",
-        "Definition:PowerWordStun:6c2a33f146b955a4a8f16ecf21d1f73f"
+        "Definition:PowerWordStun:6c2a33f146b955a4a8f16ecf21d1f73f",
+        "Definition:SpellWard:bf6cbb4f462c5fe4db090980b9126a43",
+        "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e",
+        "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354"
       ]
     },
     {

@@ -39,6 +39,7 @@
     "Origin_HO"
   ],
   "subClassFilterMask": "SorcererDraconic",
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

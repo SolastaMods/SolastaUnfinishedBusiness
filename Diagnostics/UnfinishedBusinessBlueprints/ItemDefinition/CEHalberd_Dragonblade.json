@@ -561,9 +561,9 @@
     "description": "Item/&CEHalberd_Dragonblade_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bc55638e-923c-5cc1-aeaf-3d70d1eeaa5d",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "2630eef0-2d97-59a3-8851-b0b8df4bf082",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

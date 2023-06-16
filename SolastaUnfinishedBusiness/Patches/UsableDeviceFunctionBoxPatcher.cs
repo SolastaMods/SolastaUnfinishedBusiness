@@ -78,18 +78,13 @@ public static class UsableDeviceFunctionBoxPatcher
             RulesetItemDevice usableDevice,
             RulesetDeviceFunction rulesetDeviceFunction)
         {
-            /*
-             GetComponentInParent for some reason returns one layer deeper than needed - have TA added extra component by mistake?
-             DeviceSelectionPanel component is present in
-             `/Application/GUI/BackgroundCanvas/ForegroundCanvas/DeviceSelectionPanel`
-             and its child
-             `/Application/GUI/BackgroundCanvas/ForegroundCanvas/DeviceSelectionPanel/DeviceLinesTable`
-             this makes GetComponentInParent<DeviceSelectionPanel>() called on UsableDeviceFunctionBox 
-             return DeviceLinesTable's DeviceSelectionPanel component (which doesn't seem to be setup at all)
-             instead of properly setup component of DeviceSelectionPanel object.
-             This forces us to use chaining parent getters.
-            */
-            var panel = box.transform.parent.parent.parent.parent.GetComponent<DeviceSelectionPanel>();
+            var panel = box.transform.GetComponentInParent<DeviceSelectionPanel>();
+            if (panel == null)
+            {
+                Main.Error("Couldn't find DeviceSelectionPanel for Poisoner feat patch!");
+                return;
+            }
+
             var actionType = panel.ActionType;
             if (actionType != ActionDefinitions.ActionType.Bonus)
             {

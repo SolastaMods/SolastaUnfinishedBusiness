@@ -1,58 +1,38 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "merchantCategory": "MagicDevice",
-  "weight": 2.0,
+  "merchantCategory": "Ingredient",
+  "weight": 0.5,
   "slotTypes": [
-    "ShouldersSlot",
     "ContainerSlot"
   ],
-  "slotsWhereActive": [
-    "ShouldersSlot"
-  ],
+  "slotsWhereActive": [],
   "activeOnGround": false,
   "destroyedWhenUnequiped": false,
   "forceEquip": false,
   "forceEquipSlot": "",
-  "canBeStacked": false,
-  "stackSize": 10,
-  "defaultStackCount": -1,
+  "canBeStacked": true,
+  "stackSize": 6,
+  "defaultStackCount": 3,
   "costs": [
     0,
-    50,
+    70,
     0,
     0,
     0
   ],
   "itemTags": [
-    "Leather"
+    "Ingredient"
   ],
   "activeTags": [],
   "inactiveTags": [],
-  "magical": true,
-  "requiresAttunement": true,
-  "requiresIdentification": true,
+  "magical": false,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Common",
   "incompatibleWithMonkReturnMissile": false,
-  "staticProperties": [
-    {
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": false,
-      "type": "Feature",
-      "featureDefinition": "Definition:SavingThrowAffinityRingOfProtectionPlusOne:669341fa75d5684458b55bafa1d228a4",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
-    },
-    {
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": false,
-      "type": "Feature",
-      "featureDefinition": "Definition:AttributeModifierArmor+1:1befa75fb0cf6d644bfefb3b9e489e96",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
-    }
-  ],
+  "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
   "isAmmunition": false,
@@ -177,8 +157,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Equipment/&CloakOfProtection_Unidentified_Title",
-    "unidentifiedDescription": "Equipment/&CloakOfProtection_Unidentified_Description",
+    "unidentifiedTitle": "",
+    "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -207,12 +187,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&CloakOfProtection_Title",
-    "description": "Equipment/&CloakOfProtection_Description",
+    "title": "Equipment/&Ingredient_FireSpiderVenomGland_Title",
+    "description": "Equipment/&Ingredient_FireSpiderVenomGland_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c445716fafef26f46b6c2d0a31486a80",
-      "m_SubObjectName": "CloakOfBat",
+      "m_AssetGUID": "79667a4cd062ca74f9138f803281958c",
+      "m_SubObjectName": "Ingredient_GlandOfPoison",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -227,8 +207,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "OpenGameContentModified",
-  "guid": "f5b4525537e5a644db8e80e2ff51106b",
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5c98c8f9160ea0646aec8c2d494aa197",
   "contentPack": "BaseGame",
-  "name": "CloakOfBat_DONOTUSE"
+  "name": "Ingredient_FireSpiderVenomGland"
 }

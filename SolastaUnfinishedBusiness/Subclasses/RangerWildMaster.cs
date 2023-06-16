@@ -668,7 +668,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, power);
+            rulesetCharacter.LogCharacterUsedPower(power);
             rulesetCharacter.InflictCondition(
                 condition.Name,
                 DurationType.Round,

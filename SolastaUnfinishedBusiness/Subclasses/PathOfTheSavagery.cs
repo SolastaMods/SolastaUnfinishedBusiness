@@ -312,7 +312,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
         public string SavingThrowAttribute(RulesetActor rulesetActor)
         {
-            GameConsoleHelper.LogCharacterUsedFeature((rulesetActor as RulesetCharacter)!, _featureDefinition);
+            (rulesetActor as RulesetCharacter)!.LogCharacterUsedFeature(_featureDefinition);
 
             return AttributeDefinitions.Strength;
         }

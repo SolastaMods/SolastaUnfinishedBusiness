@@ -187,7 +187,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             hero.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.Advantage, title: title);
 
-            GameConsoleHelper.LogCharacterActivatesAbility(hero, title, Line, tooltipContent: description,
+            hero.LogCharacterActivatesAbility(title, Line, tooltipContent: description,
                 indent: true,
                 extra: new[]
                 {
@@ -263,7 +263,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var effectPower = new RulesetEffectPower(rulesetAttacker, UsablePowersProvider.Get(power, rulesetAttacker));
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, power);
+            rulesetAttacker.LogCharacterUsedPower(power);
 
             foreach (var enemy in battle.AllContenders
                          .Where(unit => attacker.IsOppositeSide(unit.Side))

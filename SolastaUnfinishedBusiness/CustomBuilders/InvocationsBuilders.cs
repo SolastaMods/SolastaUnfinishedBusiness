@@ -56,7 +56,7 @@ internal static class InvocationsBuilders
             return null;
         }
 
-        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender, ConditionDefinitions.ConditionProne);
+        rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
         return new[]
         {
             EffectFormBuilder.Create()

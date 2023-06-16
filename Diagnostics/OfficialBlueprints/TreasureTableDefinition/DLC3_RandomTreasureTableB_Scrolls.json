@@ -779,12 +779,6 @@
     {
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
-      "itemDefinition": "Definition:ScrollAnimalShapes:5eefe4870384b9742b363b6b3c945e2b",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 1,
       "itemDefinition": "Definition:ScrollDivineBlade:09a37cad8bbb92d469300d00e5055b32",
       "amount": 1
     },

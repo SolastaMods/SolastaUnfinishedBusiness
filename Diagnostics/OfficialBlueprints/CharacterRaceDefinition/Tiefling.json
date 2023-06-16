@@ -142,6 +142,11 @@
       "Origin_NonHuman"
     ],
     "maleFaceShapeOptions": [
+      "FaceShape_F",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_J",
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
@@ -149,12 +154,18 @@
       "FaceShape_E"
     ],
     "femaleFaceShapeOptions": [
+      "FaceShape_F",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_J",
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
       "FaceShape_D",
       "FaceShape_E"
     ],
+    "dontSortFaceShapes": true,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -264,6 +275,7 @@
     "showGauntlets": true,
     "showShoes": true,
     "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": true,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM1",
@@ -275,13 +287,13 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 0,
-      "maxValue": 2
+      "minValue": 1,
+      "maxValue": 15
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
-      "maxValue": 0
+      "maxValue": 24
     },
     "tailLengthScale": {
       "$type": "TA.RangedFloat, Assembly-CSharp",

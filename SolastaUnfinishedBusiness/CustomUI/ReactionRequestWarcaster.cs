@@ -144,7 +144,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
                 target.LocationPosition,
                 actionModifier);
 
-            return !battle.IsValidAttackForReadiedAction(attackParams, false, RuleDefinitions.CoverType.None);
+            return !battle.IsValidAttackForReadiedAction(attackParams, false, RuleDefinitions.CoverType.ThreeQuarter);
         });
 
         return cantrips;

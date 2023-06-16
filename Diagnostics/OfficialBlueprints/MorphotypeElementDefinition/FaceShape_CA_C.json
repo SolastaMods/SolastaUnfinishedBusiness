@@ -35,6 +35,7 @@
     "Origin_CA"
   ],
   "subClassFilterMask": "All",
+  "forbiddenWithFaceshapes": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

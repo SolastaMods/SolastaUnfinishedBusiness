@@ -543,8 +543,8 @@
     "description": "Item/&LightCrossbow_Medusa_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "39e03e1f1dcb317458968d28fddebab9",
-      "m_SubObjectName": "StandardLightCrossbow",
+      "m_AssetGUID": "8b168287779ca5343b227adacd869c40",
+      "m_SubObjectName": "CrossbowLight_+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

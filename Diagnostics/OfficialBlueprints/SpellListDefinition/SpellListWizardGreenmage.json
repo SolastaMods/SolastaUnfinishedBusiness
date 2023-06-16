@@ -83,9 +83,7 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 8,
       "spells": [
-        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
-        "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
-        "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e"
+        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d"
       ]
     }
   ],

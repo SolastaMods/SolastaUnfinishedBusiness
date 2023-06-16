@@ -21,6 +21,7 @@ ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단�
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 입도록 허용
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20의 던전 허용
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> 클릭을 활성화하여 가젯이나 소품을 배치할 때 확인을 건너뜁니다.
+ModUi/&AllowHasteCasting=추가 행동이 있는 주문 시전이 가속되지 않도록 허용 <color=#F0DAA0>(여전히 라운드당 주요 행동 주문은 1개로 제한됩니다.)</color>
 ModUi/&AllowHornsOnAllRaces=모든 종족에 뿔 허용 <i><color=#F0DAA0>[인종, 머리, 뿔에 따라 결과가 끔찍해 보일 수 있음]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=나머지 패널에 더 많은 실제 상태 허용 <i><color=#F0DAA0>[패널 이전에 휴식 작업 후 숨기기 및 패널 이후에 복구 기능]</color></i>
 ModUi/&AllowStackedMaterialComponent=적층된 재료 구성 요소 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 동일합니다.]</color></i>
@@ -66,6 +67,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨 업 중 다른 클래스�
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 협정 슬롯 표시</i>
 ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=그래픽 캐릭터에 헬멧을 표시하지 않음 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&DontEndTurnAfterReady=준비 작업을 사용한 후 턴을 종료하지 마십시오. <i><color=#F0DAA0>[보너스 작업 또는 가속 또는 기타 소스의 추가 기본 작업을 사용할 수 있음]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있으면 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않는 한</color></i>
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.
@@ -239,5 +241,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 이점/불이익 규�
 ModUi/&UseOfficialFlankingRules=공식 플랭킹 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 유리함]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 가능</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 범위 공격에도 사용 가능</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 어드밴티지 대신 어택 롤에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=2파운드의 공식 <color=#D89555>식량 배급량</color>을 사용하세요.
 ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>

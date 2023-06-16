@@ -137,7 +137,6 @@ DieStyleFlaming	Title='DieStyle/&DieStyleFlamingTitle'.
 DieStyleFrozen	Title='DieStyle/&DieStyleFrozenTitle'.
 DieStyleLightning	Title='DieStyle/&DieStyleLightningTitle'.
 DLC3_KaupaapunkiUnderground_LocationDB	Description='Map/&Location_Presentation_DLC3_KaupaapunkiUnderground_Descriptio'.
-DLC3_WhiteCity_MotherYoungDwarf	Description='NPC/&DLC3_NPC_YoungDwarfsMother_Description'.
 Druid_CircleBalance_Level13	Title='CharacterTemplate/&GarradTitle'.
 Druid_CircleBalance_Level13	Description='CharacterTemplate/&GarradDescription'.
 Druid_CircleBalance_Level16	Title='CharacterTemplate/&GarradTitle'.

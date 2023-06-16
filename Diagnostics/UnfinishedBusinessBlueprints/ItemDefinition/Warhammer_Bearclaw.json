@@ -543,8 +543,8 @@
     "description": "Item/&Warhammer_Bearclaw_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "679da4557cae06242aec82a82ee455b4",
-      "m_SubObjectName": "StandardWarhammer",
+      "m_AssetGUID": "c5f3975cc51aec54fbac5d3956df1c8d",
+      "m_SubObjectName": "Warhammer+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
