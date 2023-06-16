@@ -37,10 +37,16 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
             .AddToDB();
 
-        var bonusProficiencyDomainForge = FeatureDefinitionProficiencyBuilder
-            .Create(FeatureDefinitionProficiencys.ProficiencySmithTools, $"BonusProficiency{NAME}")
+        var bonusProficiencyArmorDomainForge = FeatureDefinitionProficiencyBuilder
+            .Create($"BonusProficiencyArmor{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
+            .AddToDB();
+
+        var bonusProficiencySmithingDomainForge = FeatureDefinitionProficiencyBuilder
+            .Create($"BonusProficiencySmithing{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
             .AddToDB();
 
         const string REINFORCE_ARMOR_DESCRIPTION = "Feature/&PowerDomainSmithReinforceArmorDescription";
@@ -337,7 +343,7 @@ internal sealed class DomainSmith : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainSmith, 256))
-            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainSmith, bonusProficiencyDomainForge, powerReinforceArmor1)
+            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainSmith, bonusProficiencyArmorDomainForge, bonusProficiencySmithingDomainForge, powerReinforceArmor1)
             .AddFeaturesAtLevel(2, powerAdamantBenediction)
             .AddFeaturesAtLevel(6, additionalDamageDivineStrike6, powerReinforceArmor6)
             .AddFeaturesAtLevel(8, attributeModifierForgeMastery, damageAffinityForgeMastery)
