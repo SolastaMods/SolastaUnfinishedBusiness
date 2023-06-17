@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.5.74.3:
+
+- fixed multiclass into Warlock not gaining proficiency in simple weapons
+
 1.5.74.2:
 
 - fixed critical rules options' calculations
