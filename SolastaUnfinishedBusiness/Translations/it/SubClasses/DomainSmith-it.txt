@@ -17,4 +17,4 @@ Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Adamant Bened
 Feature/&PowerDomainSmithReinforceArmorDescription=Una volta per riposo lungo, puoi rinforzare un pezzo di armatura o scudo non magico. L'oggetto rinforzato ottiene un ulteriore +{0} CA.
 Feature/&PowerDomainSmithReinforceArmorTitle=Rinforza l'armatura
 Subclass/&DomainSmithDescription=Fabbri sacri che incanalano la loro fede attraverso l'acciaio e le fucine. Rinforzare l'armatura degli alleati e armarsi pesantemente.
-Subclass/&DomainSmithTitle=fabbro
+Subclass/&DomainSmithTitle=Fabbro

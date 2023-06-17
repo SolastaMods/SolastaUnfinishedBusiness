@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureOathOfThunderGodOfThunder:3ee233fe-4b98-5063-af41-32e0f228a1b8",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureOathOfThunderAxesBoon:e6fb9b46-0cb3-5027-b909-c424f204cb6e",
       "level": 7
     }

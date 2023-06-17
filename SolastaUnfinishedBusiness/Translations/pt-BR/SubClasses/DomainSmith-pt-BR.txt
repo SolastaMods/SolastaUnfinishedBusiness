@@ -17,4 +17,4 @@ Feature/&PowerDomainSmithAdamantBenedictionTitle=Canalizar Divindade: Bênção 
 Feature/&PowerDomainSmithReinforceArmorDescription=Uma vez por descanso longo, você pode reforçar uma peça não mágica de armadura ou escudo. O objeto reforçado ganha +{0} de CA.
 Feature/&PowerDomainSmithReinforceArmorTitle=Reforçar Armadura
 Subclass/&DomainSmithDescription=Ferreiros sagrados que canalizam sua fé através do aço e das forjas. Reforçando a armadura aliada e blindando-se pesadamente.
-Subclass/&DomainSmithTitle=ferreiro
+Subclass/&DomainSmithTitle=Ferreiro

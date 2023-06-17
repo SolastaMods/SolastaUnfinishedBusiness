@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&BonusProficiencySmithingDomainSmithTitle",
-    "description": "Feature/&BonusProficiencySmithingDomainSmithDescription",
+    "title": "Feature/&BonusProficiencyDomainSmithArtisanToolTypeTitle",
+    "description": "Feature/&BonusProficiencyDomainSmithArtisanToolTypeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a8017873-afa0-5272-b6ee-8e098ededb14",
+  "guid": "bcbe633c-cc94-5b67-98ec-357cfa9ef64a",
   "contentPack": 9999,
-  "name": "BonusProficiencySmithingDomainSmith"
+  "name": "BonusProficiencyDomainSmithArtisanToolType"
 }
