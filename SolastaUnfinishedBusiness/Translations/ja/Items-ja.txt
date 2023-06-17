@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=驚くことはできません。
 Feature/&PowerHandwrapsOfPullingDescription=ボーナスアクションとして、15フィート以内のクリーチャーを自分に近づけることができます。
 Feature/&PowerHandwrapsOfPullingTitle=リールイン
 Feedback/&ExtraDamageDescription=ライトニングスピアによる追加ダメージ。

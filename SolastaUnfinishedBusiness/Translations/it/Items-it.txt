@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Non può essere sorpreso.
 Feature/&PowerHandwrapsOfPullingDescription=Come azione bonus, puoi avvicinare a te una creatura entro 4,5 metri.
 Feature/&PowerHandwrapsOfPullingTitle=Avvolgere
 Feedback/&ExtraDamageDescription=Danni extra da Lancia illuminante.

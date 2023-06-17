@@ -1,3 +1,5 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Kann nicht überrascht sein.
+Feature/&PerceptionAffinityHelmOfAwarenessTitle=LEER
 Feature/&PowerHandwrapsOfPullingDescription=Als Bonusaktion kannst du eine Kreatur im Umkreis von 15 Fuß näher an dich heranziehen.
 Feature/&PowerHandwrapsOfPullingTitle=Spulen Sie ein
 Feedback/&ExtraDamageDescription=Zusätzlicher Schaden durch Blitzspeer.

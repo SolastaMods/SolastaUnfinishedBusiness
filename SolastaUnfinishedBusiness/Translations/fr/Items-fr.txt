@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Ne peut pas être surpris.
 Feature/&PowerHandwrapsOfPullingDescription=Par une action bonus, vous pouvez rapprocher de vous une créature située dans un rayon de 4,50 mètres.
 Feature/&PowerHandwrapsOfPullingTitle=Ramener
 Feedback/&ExtraDamageDescription=Dégâts supplémentaires de Lightning Spear.
