@@ -53,7 +53,8 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "applyToSelf": false
+    "applyToSelf": false,
+    "forceOnSelf": false
   },
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -97,8 +98,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalDamageDemonGrease_DawnBreakTitle",
-    "description": "Feature/&AdditionalDamageDemonGrease_DawnBreakDescription",
+    "title": "Equipment/&DemonGrease_DawnBreak_Title",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

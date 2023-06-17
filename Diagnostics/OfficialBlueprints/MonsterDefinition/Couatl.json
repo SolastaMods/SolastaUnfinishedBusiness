@@ -95,7 +95,8 @@
     "Definition:DamageAffinityPiercingImmunity_except_magical:a4fa74652b5aee6448c5c4226cc4556a",
     "Definition:DamageAffinitySlashingImmunity_except_magical:188cb95c327e56e4093239b4d4fc2a8c",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:PowerCouatlConstrict:145615b26225b8840ad416ab1772f1db"
+    "Definition:PowerCouatlConstrict:145615b26225b8840ad416ab1772f1db",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

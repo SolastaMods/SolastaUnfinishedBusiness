@@ -143,7 +143,8 @@
     "Definition:CastSpell_DLC3_Kratshar:f66a79a01f1142241b66089e41d14963",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
-    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

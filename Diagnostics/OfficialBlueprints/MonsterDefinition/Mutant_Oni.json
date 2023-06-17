@@ -85,7 +85,8 @@
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
-    "Definition:RegenerationOni:cf7120b10bc7bcf45ba9dccf6b3b99ea"
+    "Definition:RegenerationOni:cf7120b10bc7bcf45ba9dccf6b3b99ea",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

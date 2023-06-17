@@ -160,6 +160,7 @@
       "FaceShape_HalfElf_NPC_LenaSwiftHand"
     ],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",

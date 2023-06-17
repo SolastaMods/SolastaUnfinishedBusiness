@@ -22,7 +22,7 @@
     0
   ],
   "itemTags": [
-    "Metal"
+    "Quest"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -205,7 +205,9 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlagQuest:316eb03c4817bde459759480ab0dcbce"
+    ],
     "serializedVersion": 1
   },
   "clueSuspectPairs": [],
