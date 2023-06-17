@@ -1,2 +1,10 @@
-Subclass/&OathOfDemonHunterDescription=The Paladin of the Oath of the Hunt works to destroy evil and preserve peace.
-Subclass/&OathOfDemonHunterTitle=Oath Of Demon Hunter
+Condition/&ConditionOathOfDemonHunterTrialMarkDescription=受到印记来源的武器伤害时，额外受到 2d4 的光耀伤害。
+Condition/&ConditionOathOfDemonHunterTrialMarkTitle=审判印记
+Feedback/&AdditionalDamageTrialMarkFormat=审判！
+Feedback/&AdditionalDamageTrialMarkLine={0} 对 {1} 进行审判，造成额外光耀伤害 （+{2}）
+Feature/&FeatureOathOfDemonHunterDemonHunterDescription=第 3 级起，你使用弩类武器（轻弩，重弩，手弩）命中敌人时，可以应用至圣斩能力。
+Feature/&FeatureOathOfDemonHunterDemonHunterTitle=狩魔猎人
+Feature/&PowerOathOfDemonHunterTrialMarkDescription=作为一个附赠动作，你引导神力标记 60 尺范围内你能看到的一个敌方生物，你对具有审判印记的敌人造成武器伤害时，额外造成 2d4 的光耀伤害，持续 1 分钟。
+Feature/&PowerOathOfDemonHunterTrialMarkTitle=引导神力：审判印记
+Subclass/&OathOfDemonHunterDescription=狩魔之誓的圣武士致力于消灭邪恶，维护世间安宁。
+Subclass/&OathOfDemonHunterTitle=狩魔之誓
