@@ -25,6 +25,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         .SetOverriddenPower(PowerBarbarianRageStart)
         .AddToDB();
 
+    //TODO: shoud we move this to the CustomActionIdContext context?
     internal static readonly ActionDefinition CombatRageStart = ActionDefinitionBuilder
         .Create(GetDefinition<ActionDefinition>(nameof(ActionDefinitions.Id.RageStart)), "CombatRageStart")
         .SetActionId(ExtraActionId.CombatRageStart)

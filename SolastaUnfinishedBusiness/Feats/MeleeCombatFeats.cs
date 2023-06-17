@@ -1215,6 +1215,7 @@ internal static class MeleeCombatFeats
                         var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
                         ServiceRepository.GetService<IRulesetImplementationService>()
                             .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                            .AddAsActivePowerToSource()
                             .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
                         rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
