@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -107,11 +108,13 @@ internal sealed class Merciless : AbstractFightingStyle
 
             usablePower.saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus);
 
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
+
             var distance = isCritical ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower)
-            {
-                EffectDescription = { targetParameter = (distance * 2) + 1 }
-            };
+
+            effectPower.EffectDescription.targetParameter = (distance * 2) + 1;
 
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })

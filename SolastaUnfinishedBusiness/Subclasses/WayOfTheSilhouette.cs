@@ -218,9 +218,11 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
 
-            var effect = new RulesetEffectPower(rulesetMe, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetMe, usablePower, false)
+                .AddAsActivePowerToSource();
 
-            effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
+            effectPower.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
             actualEffectForms.Clear();
             attackMode.EffectDescription.EffectForms.Clear();
         }

@@ -401,7 +401,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
             rulesetAttacker.LogCharacterUsedPower(_featureDefinitionPower);
 
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders

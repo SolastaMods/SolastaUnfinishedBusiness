@@ -239,7 +239,9 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             }
 
             var usablePower = UsablePowersProvider.Get(_powerGrievousWound, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerGrievousWound);
             effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);

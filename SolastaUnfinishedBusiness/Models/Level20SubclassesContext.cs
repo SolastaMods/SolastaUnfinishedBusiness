@@ -760,7 +760,9 @@ internal static class Level20SubclassesContext
             }
 
             var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
-            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
 
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(10);

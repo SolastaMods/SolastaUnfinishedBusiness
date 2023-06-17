@@ -386,7 +386,9 @@ internal sealed class OathOfThunder : AbstractSubclass
             var attacker = characterAction.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             foreach (var defender in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&

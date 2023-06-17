@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -831,7 +832,9 @@ internal static class OtherFeats
                 saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
             };
 
-            return new RulesetEffectPower(rulesetCharacter, usablePower);
+            return ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
         }
 
         private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
