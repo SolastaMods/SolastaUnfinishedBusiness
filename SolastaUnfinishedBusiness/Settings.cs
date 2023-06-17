@@ -187,7 +187,7 @@ public class Settings : UnityModManager.ModSettings
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
-
+    public int CriticalHitModeNeutral { get; set; }
 
     //
     // Gameplay - Items, Crafting & Merchants

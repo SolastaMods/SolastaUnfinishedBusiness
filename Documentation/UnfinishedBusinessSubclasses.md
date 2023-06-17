@@ -726,10 +726,12 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 * Dance Of War
 
-You are inspired until the start of your next turn, and can use your Charisma on to hit bonus. You are immune to difficult terrain, your speed also increase by 15', and you can switch your weapon freely.
-After spending your main action you gain a Momentum that can be use to attack, dodge, disengage and dash. It makes your attack stronger but less accurate and the effect varies between weapons you use to make attack. You can have a maximum Momentum equal to half of your proficiency bonus rounded up.
-Your dance ends when you use a non-melee weapon or miss an attack unless you spend a bardic die to prolong it.
-The Momentum duration is also extended by 1 round if you reduce your enemy to 0 HP.
+You gain Bardic Inspiration and for the next minute add your Charisma modifier to attack rolls. You are immune to difficult terrain, your speed is increase by 15ft, and you can switch your weapon freely.
+Each successful attack grants Momentum - a buff that decreases attack rolls, but grants bonus to damage depending on weapon weight:
+•Light: attack: -2 per Momentum, damage: 1d6 per Momentum
+•Heavy: attack: -4 per Momentum, damage: 2d10 per Momentum
+•Other: attack: -3 per Momentum, damage: 1d8 + 1d8 per Momentum
+This extra damage is not multiplied on critical hits. Momentum is lost on your turn end. When you take damage you roll concentration check and on failure Dance Of War and all Momentum is lost, as well as all extra attacks from Improved War Dance.
 
 * War Casting
 
@@ -740,7 +742,7 @@ Advantage on concentration checks, be able to use your weapons as spellcasting f
 
 * Improved War Dance
 
-Starting at 6th level, you can also cast cantrips with your momentum.
+While Dance Of War is active you gain extra main hand attack after all main actions are spent. Each hit with that extra attack grants another extra attack, up to half your Proficiency Bonus (rounded down) extra attacks in total. These extra attacks can only be melee.
 
 
 ## Level 14
@@ -1654,9 +1656,27 @@ In your list and always prepared:
 
 ## Level 7
 
+* God of Thunder
+
+You deal an additional 1d4 thunder damage with Battle Axes and War Hammers. This damage increases to 2d4 at 15th.
+
 * Stormbreaker
 
 When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than Battle Axes and War Hammers.
+
+
+## Level 15
+
+* Bifrost
+
+As an action you can teleport to a point you can see within 60 feet of you, and you are able to bring an ally with you if within 5 feet. All enemy creatures within 10 feet of your destination position take 3d10 thunder damage, or half as much on a successful Constitution save. You can use this feature a number of times per long rest equal to your proficiency modifier.
+
+
+## Level 20
+
+* Storm Herald
+
+You gain a flying speed of 12 cells, and are immune to Thunder and Lightning damage. As a bonus action, you can summon a bolt of lightning to strike a 3x3 point you choose within 60 feet of you. Each affected creature must roll a Dexterity saving throw, taking 3d10 lightning damage on a failed saving throw, or half as much damage on a successful one. You can use this feature a number of times per long rest equal to your proficiency modifier.
 
 
 
@@ -2058,10 +2078,6 @@ Holy smiths who channel their faith through steel and forges. Reinforcing allied
 
 ## Level 1
 
-* Bonus Proficiencies
-
-Gain proficiency in smith tools and heavy armor.
-
 * Expanded Spells
 
 
@@ -2077,9 +2093,17 @@ Gain proficiency in smith tools and heavy armor.
 
 
 
+* Heavy Armor Proficient
+
+Gain proficiency in heavy armor.
+
 * Reinforce Armor
 
 Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +1 AC.
+
+* Smithing Tools Proficient
+
+Gain proficiency in smith tools.
 
 
 ## Level 2

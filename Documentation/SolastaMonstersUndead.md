@@ -1222,7 +1222,7 @@ Size: *Medium*
 * Necrotic Aura
 * Walk 6
 * Circle of Death
-* RETALIATE§
+* Power Wight Lord Retaliate
 * Advantage on saving throws against spells
 * Darkvision
 
@@ -1260,7 +1260,7 @@ Size: *Medium*
 * Necrotic Aura
 * Walk 6
 * Circle of Death
-* RETALIATE§
+* Power Wight Lord Retaliate
 * Advantage on saving throws against spells
 * Darkvision
 

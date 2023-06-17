@@ -119,7 +119,7 @@ Size: *Large*
 * Damage Affinity Piercing Resistance
 * Damage Affinity Slashing Resistance
 * Walk 8
-* Mutated Bear Regeneration
+* Regeneration
 * Darkvision
 * Normal Vision
 
@@ -150,7 +150,7 @@ Size: *Large*
 *Features:*
 * Ability Check Affinity Keen Smell
 * Walk 8
-* Mutated Bear Regeneration
+* Regeneration
 * Darkvision
 * Normal Vision
 
@@ -276,7 +276,7 @@ Size: *Huge*
 * Damage Affinity Slashing Resistance
 * Walk 8
 * Slam
-* Mutated Giant Ape Regeneration
+* Regeneration
 * Saving Throw Affinity Condition Resisting
 * Advantage on saving throws against spells
 * Normal Vision

@@ -218,7 +218,8 @@ public static class InnovationArmor
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed))
                 .Build())

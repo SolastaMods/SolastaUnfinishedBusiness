@@ -19,23 +19,14 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 {
     private const string Name = "PathOfTheSavagery";
 
-    private static readonly FeatureDefinitionPower PowerPrimalInstinct = FeatureDefinitionPowerBuilder
+    internal static readonly FeatureDefinitionPower PowerPrimalInstinct = FeatureDefinitionPowerBuilder
         .Create(PowerBarbarianRageStart, $"Power{Name}PrimalInstinct")
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
         .SetOverriddenPower(PowerBarbarianRageStart)
         .AddToDB();
 
-    internal static readonly ActionDefinition CombatRageStart = ActionDefinitionBuilder
-        .Create(GetDefinition<ActionDefinition>(nameof(ActionDefinitions.Id.RageStart)), "CombatRageStart")
-        .SetActionId(ExtraActionId.CombatRageStart)
-        .SetActionType(ActionDefinitions.ActionType.NoCost)
-        .SetActivatedPower(PowerPrimalInstinct)
-        .AddToDB();
-
     internal PathOfTheSavagery()
     {
-        // MAIN
-
         // LEVEL 03
 
         // Savage Strength
@@ -154,6 +145,8 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
         featureFuriousDefense.SetCustomSubFeatures(new ChangeSavingThrowAttributeFuriousDefense(featureFuriousDefense));
 
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSavagery, 256))
@@ -238,7 +231,9 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             }
 
             var usablePower = UsablePowersProvider.Get(_powerGrievousWound, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerGrievousWound);
             effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);

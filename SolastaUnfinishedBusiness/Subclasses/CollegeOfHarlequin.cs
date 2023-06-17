@@ -261,7 +261,10 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var effectPower = new RulesetEffectPower(rulesetAttacker, UsablePowersProvider.Get(power, rulesetAttacker));
+            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             rulesetAttacker.LogCharacterUsedPower(power);
 

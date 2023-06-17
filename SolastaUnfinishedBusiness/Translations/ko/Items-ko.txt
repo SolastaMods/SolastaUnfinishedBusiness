@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=놀라지 않을 수 없습니다.
 Feature/&PowerHandwrapsOfPullingDescription=보너스 액션으로 15피트 이내의 생명체를 자신에게 더 가까이 끌어당길 수 있습니다.
 Feature/&PowerHandwrapsOfPullingTitle=릴 인
 Feedback/&ExtraDamageDescription=라이트닝 스피어의 추가 데미지.

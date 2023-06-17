@@ -374,14 +374,14 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            var alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+            var alreadyThere = !hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
                 "CustomInvocationMonkWeaponSpecializationShortbowType"));
 
             // don't invert the order because of short circuit evaluation
-            alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+            alreadyThere = !hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
                                "CustomInvocationMonkWeaponSpecializationLongbowType"))
                            || alreadyThere;
-            alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+            alreadyThere = !hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
                                "CustomInvocationMonkWeaponSpecializationCEHandXbowType"))
                            || alreadyThere;
 

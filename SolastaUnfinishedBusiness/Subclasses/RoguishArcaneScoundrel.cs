@@ -319,7 +319,9 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetCharacter);
-            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
 
             actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 

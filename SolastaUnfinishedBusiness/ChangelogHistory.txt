@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.5.74.2:
+
+- fixed critical rules options' calculations
+- fixed Helm of Awareness feature description
+- fixed Marshal's coordinated attack
+- fixed Marshal's know your enemy interaction with Slay the Enemy feat
+- fixed potential effects serialization issues across the codebase
+- fixed Way of Distant Hand weapon specialization [RESPEC required]
+- promoted Oath of Thunder subclass off beta
+
 1.5.74.1:
 
 - continued work on Oath of Thunder [beta]

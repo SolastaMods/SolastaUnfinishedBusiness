@@ -35,6 +35,7 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixEagerForBattleTexts();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -234,5 +235,16 @@ internal static class FixesContext
         ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
+    }
+
+    private static void FixEagerForBattleTexts()
+    {
+        var feat = FeatDefinitions.EagerForBattle.GuiPresentation;
+        var feature = FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle.GuiPresentation;
+
+        feature.title = feat.title;
+        var parts = Gui.Localize(feat.description).Split('\n');
+        //last line of feat description
+        feature.description = parts[parts.Length - 1].Trim();
     }
 }

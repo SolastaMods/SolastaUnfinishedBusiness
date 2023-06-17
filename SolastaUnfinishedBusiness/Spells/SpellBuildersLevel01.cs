@@ -1063,7 +1063,9 @@ internal static partial class SpellBuilders
             }
 
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             effectPower.ApplyEffectOnCharacter(target, true, defender.LocationPosition);
 
