@@ -177,6 +177,8 @@ public static class RulesetImplementationManagerPatcher
             List<int> rolledValues,
             bool canRerollDice)
         {
+            const int DOUBLE = 2;
+
             var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
 
             if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
@@ -186,7 +188,7 @@ public static class RulesetImplementationManagerPatcher
             }
 
             // different than original game code we roll usual dices and multiply result by 2
-            var totalDamage = 2 * rulesetActor.RollDiceAndSum(
+            var totalDamage = rulesetActor.RollDiceAndSum(
                 diceType,
                 attackModeDamage
                     ? RuleDefinitions.RollContext.AttackDamageValueRoll
@@ -197,9 +199,9 @@ public static class RulesetImplementationManagerPatcher
             // duplicates the rolled dices as well
             rolledValues.AddRange(rolledValues.ToList());
 
-            return Mathf.FloorToInt(damageMultiplier *
-                                    (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
-                                        int.MaxValue) + additionalDamage));
+            return Mathf.FloorToInt(
+                damageMultiplier *
+                (DOUBLE * (totalDamage + damageForm.BonusDamage) - damageRollReduction + additionalDamage));
         }
 
         private static int RollDamage(
