@@ -142,6 +142,7 @@
       "FaceShape_NPC_Vigdis"
     ],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
