@@ -112,8 +112,7 @@ internal static class RaceOligathBuilder
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public AttackBeforeHitConfirmedOnMeStoneEndurance(
-            FeatureDefinitionPower featureDefinitionPower)
+        public AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }

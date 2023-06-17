@@ -72,13 +72,14 @@ internal static class RaceWendigoBuilder
                 ))
             .AddToDB();
 
-
         var featureWendigoNaturalLunger = FeatureDefinitionBuilder
             .Create("FeatureWendigoNaturalLunger")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ModifyWeaponAttackModeWendigoNaturalLunger())
             .AddToDB();
+
         var racePresentation = Tiefling.RacePresentation.DeepCopy();
+
         racePresentation.preferedSkinColors = new RangedInt(28, 47);
 
         var raceWendigo = CharacterRaceDefinitionBuilder
@@ -103,8 +104,8 @@ internal static class RaceWendigoBuilder
                 proficiencyWendigoLanguages)
             .AddToDB();
 
-
         RacesContext.RaceScaleMap[raceWendigo] = 7.8f / 6.4f;
+
         return raceWendigo;
     }
 
@@ -135,15 +136,11 @@ internal static class RaceWendigoBuilder
         }
     }
 
-    private class ModifyWeaponAttackModeWendigoNaturalLunger :
-        IModifyWeaponAttackMode
+    private class ModifyWeaponAttackModeWendigoNaturalLunger : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
-
-            if (attackMode == null ||
-                !ValidatorsWeapon.IsMelee(itemDefinition))
+            if (!ValidatorsWeapon.IsMelee(attackMode))
             {
                 return;
             }
