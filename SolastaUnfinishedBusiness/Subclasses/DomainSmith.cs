@@ -38,7 +38,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddToDB();
 
         var bonusProficiencyArmorDomainForge = FeatureDefinitionProficiencyBuilder
-            .Create($"BonusProficiencyArmor{NAME}")
+            .Create($"BonusProficiency{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();

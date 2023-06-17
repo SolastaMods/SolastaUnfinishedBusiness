@@ -3,17 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusProficiencyDomainSmith:0caba6ab-34fb-536b-8676-191a32c68455",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsDomainSmith:69630a0f-dfaa-55a3-aee4-531f20101476",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusProficiencyDomainSmith:0caba6ab-34fb-536b-8676-191a32c68455",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainSmithReinforceArmor1:0d5087c4-0cc6-53a3-907e-b4d0e7e7d218",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusProficiencySmithingDomainSmith:a8017873-afa0-5272-b6ee-8e098ededb14",
       "level": 1
     },
     {
