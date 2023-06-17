@@ -38,7 +38,6 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
         FixEagerForBattleTexts();
-        FixHastedCasting();
         FixWarlockMissingLvl18Invocation();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
