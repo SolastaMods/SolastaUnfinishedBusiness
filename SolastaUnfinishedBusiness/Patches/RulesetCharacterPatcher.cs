@@ -1180,12 +1180,13 @@ public static class RulesetCharacterPatcher
             bool inCombat,
             bool usedMainSpell,
             bool usedBonusSpell,
+            bool ignoreActivationTimeChecks,
             out string failureFlag)
         {
             //PATCH: allow PowerVisibilityModifier to make power device functions visible even if not valid
             //used to make Grenadier's grenade functions not be be hidden when you have not enough charges
             var result = device.IsFunctionAvailable(function, character, inCombat, usedMainSpell, usedBonusSpell,
-                out failureFlag);
+                ignoreActivationTimeChecks, out failureFlag);
 
             if (result || function.DeviceFunctionDescription.type != DeviceFunctionDescription.FunctionType.Power)
             {
