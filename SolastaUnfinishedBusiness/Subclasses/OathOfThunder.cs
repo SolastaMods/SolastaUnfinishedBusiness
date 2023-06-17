@@ -120,7 +120,7 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(CallLightning)
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -152,7 +152,9 @@ internal sealed class OathOfThunder : AbstractSubclass
             .SetNotificationTag("GodOfThunder")
             .SetDamageDice(DieType.D4, 1)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 7)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+            .SetImpactParticleReference(
+                ShockingGrasp.EffectDescription.effectParticleParameters.effectParticleReference)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
@@ -176,8 +178,9 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
                     .InviteOptionalAlly()
-                    .HasSavingThrow(AttributeDefinitions.Constitution,
+                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(DimensionDoor)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -195,9 +198,9 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
-                    .HasSavingThrow(AttributeDefinitions.Constitution,
+                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsThunder)
+                    .SetParticleEffectParameters(Thunderwave)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -222,9 +225,9 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 5)
-                    .HasSavingThrow(AttributeDefinitions.Dexterity,
+                    .SetSavingThrowData(true, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(PowerCallLightning)
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
