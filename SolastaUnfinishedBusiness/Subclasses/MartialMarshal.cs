@@ -95,7 +95,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddFeatureSet(
                 onComputeAttackModifierMarshalKnowYourEnemy,
                 FeatureDefinitionAdditionalDamageBuilder
-                    .Create( "AdditionalDamageMarshalKnowYourEnemy")
+                    .Create("AdditionalDamageMarshalKnowYourEnemy")
                     .SetGuiPresentationNoContent()
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
@@ -461,7 +461,8 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode == null //true means no attack
+                    StringParameter2 = MarshalCoordinatedAttackName,
+                    BoolParameter4 = mode == null //true means no attack
                 };
                 reactionParams.targetCharacters.Add(defender);
                 reactionParams.actionModifiers.Add(modifier ?? new ActionModifier());

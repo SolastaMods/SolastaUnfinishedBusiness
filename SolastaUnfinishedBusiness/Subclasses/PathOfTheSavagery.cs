@@ -19,24 +19,14 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 {
     private const string Name = "PathOfTheSavagery";
 
-    private static readonly FeatureDefinitionPower PowerPrimalInstinct = FeatureDefinitionPowerBuilder
+    internal static readonly FeatureDefinitionPower PowerPrimalInstinct = FeatureDefinitionPowerBuilder
         .Create(PowerBarbarianRageStart, $"Power{Name}PrimalInstinct")
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
         .SetOverriddenPower(PowerBarbarianRageStart)
         .AddToDB();
 
-    //TODO: shoud we move this to the CustomActionIdContext context?
-    internal static readonly ActionDefinition CombatRageStart = ActionDefinitionBuilder
-        .Create(GetDefinition<ActionDefinition>(nameof(ActionDefinitions.Id.RageStart)), "CombatRageStart")
-        .SetActionId(ExtraActionId.CombatRageStart)
-        .SetActionType(ActionDefinitions.ActionType.NoCost)
-        .SetActivatedPower(PowerPrimalInstinct)
-        .AddToDB();
-
     internal PathOfTheSavagery()
     {
-        // MAIN
-
         // LEVEL 03
 
         // Savage Strength
@@ -154,6 +144,8 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .AddToDB();
 
         featureFuriousDefense.SetCustomSubFeatures(new ChangeSavingThrowAttributeFuriousDefense(featureFuriousDefense));
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)

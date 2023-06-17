@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static RuleDefinitions;
 
@@ -108,6 +109,13 @@ public static class CustomActionIdContext
             .SetActionId(ExtraActionId.CastSignatureSpellsMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(DatabaseHelper.GetDefinition<ActionDefinition>(nameof(Id.RageStart)), "CombatRageStart")
+            .SetActionId(ExtraActionId.CombatRageStart)
+            .SetActionType(ActionType.NoCost)
+            .SetActivatedPower(PathOfTheSavagery.PowerPrimalInstinct)
             .AddToDB();
     }
 
