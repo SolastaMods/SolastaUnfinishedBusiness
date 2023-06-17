@@ -143,7 +143,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         powerHeroicUncannyDodge.SetCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
+            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -194,16 +194,16 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         }
     }
 
-    private class PhysicalAttackBeforeHitConfirmedOnMeHeroicUncannyDodge : IPhysicalAttackBeforeHitConfirmedOnMe
+    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge : IAttackBeforeHitConfirmedOnMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public PhysicalAttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
+        public AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,

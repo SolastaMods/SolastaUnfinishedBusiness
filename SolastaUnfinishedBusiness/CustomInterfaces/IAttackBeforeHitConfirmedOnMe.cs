@@ -4,11 +4,12 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-//Can add similar interfaces in future for after hit confirmed and/or for attacker
-public interface IPhysicalAttackBeforeHitConfirmedOnMe
+// triggers on any attack, magical or physical, if there is an attack roll
+// rulesetEffect != null is a magical attack
+public interface IAttackBeforeHitConfirmedOnMe
 {
     [UsedImplicitly]
-    IEnumerator OnAttackBeforeHitConfirmed(
+    IEnumerator OnAttackBeforeHitConfirmedOnMe(
         GameLocationBattleManager battle,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

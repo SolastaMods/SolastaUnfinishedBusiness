@@ -90,7 +90,7 @@ internal static class CommonBuilders
         .SetGuiPresentation(Category.Feature)
         .SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new MagicalAttackInitiatedCasterFightingWarMagic(
+            new MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
                     .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
@@ -149,16 +149,17 @@ internal static class CommonBuilders
                hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
     }
 
-    private sealed class MagicalAttackInitiatedCasterFightingWarMagic : IMagicalAttackInitiated
+    private sealed class
+        MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic : IMagicalAttackBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public MagicalAttackInitiatedCasterFightingWarMagic(ConditionDefinition conditionDefinition)
+        public MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnMagicalAttackInitiated(
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
