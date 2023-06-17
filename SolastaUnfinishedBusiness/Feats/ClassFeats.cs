@@ -359,7 +359,7 @@ internal static class ClassFeats
             _featureExploiter = featureExploiter;
         }
 
-        public IEnumerator HandleReactToAttackOnEnemyFinished(
+        public IEnumerator OnReactToAttackOnEnemyFinished(
             GameLocationCharacter ally,
             GameLocationCharacter me,
             GameLocationCharacter enemy,

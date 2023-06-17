@@ -57,7 +57,7 @@ internal sealed class Merciless : AbstractFightingStyle
     };
 
     private sealed class TargetReducedToZeroHpFightingStyleMerciless :
-        ITargetReducedToZeroHp, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        ITargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
     {
         private bool isCritical;
 

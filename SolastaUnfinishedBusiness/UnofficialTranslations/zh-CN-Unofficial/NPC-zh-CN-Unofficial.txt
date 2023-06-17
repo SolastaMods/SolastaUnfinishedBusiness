@@ -207,6 +207,7 @@ NPC/&DLC3_NPC_WhiteRockCity_Musician_Dwarf_01=矮人音乐家
 NPC/&DLC3_NPC_WhiteRockCity_Musician_Halfling_01=半身人音乐家
 NPC/&DLC3_NPC_YoungDwarf_Description=活力十足的矮人姑娘。尽管她明显还很青涩，但已经准备好迎接任何挑战了。
 NPC/&DLC3_NPC_YoungDwarf_Title=伊斯里德·远空
+NPC/&DLC3_NPC_YoungDwarfsMother_Description=伊斯里德的母亲, 虽然很担心自己的女儿, 但也以她为荣。
 NPC/&DLC3_NPC_YoungDwarfsMother_Title=嘉德里德·远空
 NPC/&DLC3_Sessroth_Description=一个强大又邪恶的恶魔。
 NPC/&DLC3_Sessroth_Title=大劫掠者塞斯罗斯

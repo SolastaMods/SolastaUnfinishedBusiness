@@ -940,7 +940,7 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomBehaviorFeatDevastatingStrikes :
-        IAttackEffectAfterDamage, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        IAttackEffectAfterDamage, IAttackBeforeHitConfirmedOnEnemy
     {
         private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
         private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
@@ -953,6 +953,47 @@ internal static class MeleeCombatFeats
         {
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
             _conditionBypassResistance = conditionBypassResistance;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (!criticalHit)
+            {
+                yield break;
+            }
+
+            rulesetCharacter.InflictCondition(
+                _conditionBypassResistance.Name,
+                _conditionBypassResistance.DurationType,
+                _conditionBypassResistance.DurationParameter,
+                _conditionBypassResistance.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         public void OnAttackEffectAfterDamage(
@@ -1068,47 +1109,6 @@ internal static class MeleeCombatFeats
                 new RollInfo(damage.DieType, rolls, bonusDamage),
                 true,
                 out _);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
-        {
-            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (!criticalHit)
-            {
-                yield break;
-            }
-
-            rulesetCharacter.InflictCondition(
-                _conditionBypassResistance.Name,
-                _conditionBypassResistance.DurationType,
-                _conditionBypassResistance.DurationParameter,
-                _conditionBypassResistance.TurnOccurence,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
         }
     }
 

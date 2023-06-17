@@ -21,7 +21,7 @@ ModUi/&AllowClubsToBeThrown=允许木棒像匕首或手斧一样投掷
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
 ModUi/&AllowDungeonsMaxLevel20=允许最高等级为20的地城
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=在放置小工具或道具时启用<color=#1E81B0>CTRL</color>点击绕过任何检查
-ModUi/&AllowHasteCasting=允许施放具有额外动作的法术被加速 <color=#F0DAA0>（你仍然被限制为每轮 1 个主要动作法术）</color>
+ModUi/&AllowHasteCasting=允许使用加速术赋予的额外动作施法<color=#F0DAA0>（你仍然每轮只能释放一个标准动作法术）</color>
 ModUi/&AllowHornsOnAllRaces=允许所有种族长角<i><color=#F0DAA0>[根据种族、头和角的不同，结果可能看起来很怪]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=允许在休息面板上显示更多真实状态<i><color=#F0DAA0>[在面板打开后隐藏休息动作，在面板关闭后恢复功能]</color></i>
 ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件<i><color=#F0DAA0>[例如2x500gp钻石相当于1000gp钻石]</color></i>
@@ -67,7 +67,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职�
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=不在角色图像上显示头盔<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&DontEndTurnAfterReady=使用准备动作后不要结束回合<i><color=#F0DAA0>[允许使用奖励动作或任何来自急速或其他来源的额外主要动作]</color></i>
+ModUi/&DontEndTurnAfterReady=使用准备动作后不会结束回合<i><color=#F0DAA0>[允许使用奖励动作或任何来自加速或其他来源的额外主要动作]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=.这些设置不需要玩家安装这个模组
@@ -242,6 +242,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规�
 ModUi/&UseOfficialFlankingRules=使用官方 DnD 夹击规则<i><color=#F0DAA0>[如果与盟友前后夹击，攻击具有优势]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 对远程攻击生效</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 对触及攻击生效</i>
-ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 而不是优势授予 +1 攻击掷骰</i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

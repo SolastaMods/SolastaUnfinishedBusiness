@@ -22,12 +22,13 @@ public static class WieldedConfigurationSelectorPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: do not show warning sign over bows for Zen Archer monks
+            //PATCH: do not show warning sign over specialized monk weapons
             var baseIsMonkWeapon =
                 typeof(WeaponDescription).GetMethod(nameof(WeaponDescription.IsMonkWeaponOrUnarmed));
 
             var customIsMonkWeapon =
-                typeof(Bind_Patch).GetMethod(nameof(IsMonkWeapon), BindingFlags.Static | BindingFlags.NonPublic);
+                typeof(Bind_Patch).GetMethod(nameof(IsMonkWeaponOrUnarmed),
+                    BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCalls(baseIsMonkWeapon,
                 "WieldedConfigurationSelector.Bind",
@@ -35,7 +36,7 @@ public static class WieldedConfigurationSelectorPatcher
                 new CodeInstruction(OpCodes.Call, customIsMonkWeapon));
         }
 
-        private static bool IsMonkWeapon(WeaponDescription description, GuiCharacter guiCharacter)
+        private static bool IsMonkWeaponOrUnarmed(WeaponDescription description, GuiCharacter guiCharacter)
         {
             return guiCharacter.RulesetCharacter.IsMonkWeapon(description);
         }

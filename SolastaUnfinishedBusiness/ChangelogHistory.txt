@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.5.74.1:
+
+- continued work on Oath of Thunder [beta]
+- fixed Domain Smith missing artisan tool type proficiency
+- fixed Monk weapon checks to consider specialization interactions
+- fixed Oligath's stone endurance not triggering on magical attacks
+- fixed Way of the Dragon's reactive hide not triggering anymore
+
 1.5.74.0:
 
 - added Wendigo race

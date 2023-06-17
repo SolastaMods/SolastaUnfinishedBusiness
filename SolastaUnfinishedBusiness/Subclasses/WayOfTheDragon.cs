@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -38,43 +39,36 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetDamageAffinityType(DamageAffinityType.Resistance)
             .AddToDB();
 
+        var conditionReactiveHide = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ReactiveHide")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .AddFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         var powerReactiveHide = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ReactiveHide")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
-            .SetCustomSubFeatures(new ReactToAttackReactiveHide())
             .SetReactionContext(ExtraReactionContext.Custom)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create($"Condition{Name}ReactiveHide")
-                            .SetGuiPresentation(Category.Condition)
-                            .SetPossessive()
-                            .AddFeatures(
-                                DamageAffinityAcidResistance,
-                                DamageAffinityBludgeoningResistance,
-                                DamageAffinityColdResistance,
-                                DamageAffinityFireResistance,
-                                DamageAffinityForceDamageResistance,
-                                DamageAffinityLightningResistance,
-                                DamageAffinityNecroticResistance,
-                                DamageAffinityPiercingResistance,
-                                DamageAffinityPoisonResistance,
-                                DamageAffinityPsychicResistance,
-                                DamageAffinityRadiantResistance,
-                                DamageAffinitySlashingResistance,
-                                DamageAffinityThunderResistance)
-                            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true)
-                    .Build())
-                .Build())
             .AddToDB();
+
+        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(powerReactiveHide,
+            conditionReactiveHide));
 
         /*
         Level 17 - Ascension
@@ -462,9 +456,51 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         return featureWayOfDragonFury;
     }
 
-    private sealed class ReactToAttackReactiveHide : IReactToAttackOnMeFinished
+    private sealed class CustomBehaviorReactiveHide : IReactToAttackOnMeFinished, IAttackBeforeHitConfirmedOnMe,
+        IMagicalAttackBeforeHitConfirmedOnMe
     {
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public CustomBehaviorReactiveHide(FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            if (rulesetEffect == null)
+            {
+                yield return HandleReaction(defender);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(defender);
+        }
+
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,
@@ -537,7 +573,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             {
                 case null:
                     yield break;
-                case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfType(ConditionAcidArrowed):
+                case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                    ConditionAcidArrowed.Name):
                 {
                     var damageForm = new DamageForm
                     {
@@ -561,9 +598,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypeAcid:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionAcidArrowed);
+                    ApplyCondition(attacker.RulesetCharacter, ConditionAcidArrowed);
                     yield break;
-                case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfType(ConditionShocked):
+                case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                    ConditionShocked.Name):
                 {
                     var damageForm = new DamageForm
                     {
@@ -590,9 +628,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypeLightning:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionShocked);
+                    ApplyCondition(attacker.RulesetCharacter, ConditionShocked);
                     yield break;
-                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionOnFire.Name):
+                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                    ConditionOnFire.Name):
                 {
                     var damageForm = new DamageForm
                     {
@@ -616,11 +655,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypeFire:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionOnFire);
+                    ApplyCondition(attacker.RulesetCharacter, ConditionOnFire);
                     yield break;
-                case DamageTypePoison
-                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
-                        ConditionDefinitions.ConditionPoisoned.Name):
+                case DamageTypePoison when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                    ConditionDefinitions.ConditionPoisoned.Name):
                 {
                     var damageForm = new DamageForm
                     {
@@ -644,10 +682,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypePoison:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionDefinitions.ConditionPoisoned);
+                    ApplyCondition(attacker.RulesetCharacter, ConditionDefinitions.ConditionPoisoned);
                     yield break;
-                case DamageTypeCold
-                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionHindered_By_Frost.Name):
+                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                    ConditionHindered_By_Frost.Name):
                 {
                     var damageForm = new DamageForm
                     {
@@ -671,12 +709,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypeCold:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionHindered_By_Frost);
+                    ApplyCondition(attacker.RulesetCharacter, ConditionHindered_By_Frost);
                     yield break;
             }
         }
 
-        private static void ApplyReactiveHideDebuff(RulesetCharacter rulesetCharacter, BaseDefinition debuff)
+        private static void ApplyCondition(RulesetCharacter rulesetCharacter, BaseDefinition debuff)
         {
             rulesetCharacter.InflictCondition(
                 debuff.Name,
@@ -691,6 +729,49 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 0,
                 0,
                 0);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
+            var rulesetMe = defender.RulesetCharacter;
+
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            {
+                yield break;
+            }
+
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+            var reactionParams =
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = $"{Name}ReactiveHide", UsablePower = usablePower
+                };
+
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleService.WaitForReactions(
+                defender, gameLocationActionService, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetMe.UsePower(usablePower);
+            ApplyCondition(rulesetMe, _conditionDefinition);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -11,7 +12,9 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -20,12 +23,16 @@ internal sealed class OathOfThunder : AbstractSubclass
     internal const string Name = "OathOfThunder";
 
     internal static readonly IsWeaponValidHandler IsValidWeapon = (mode, item, character) =>
-        character.GetSubclassLevel(CharacterClassDefinitions.Paladin, Name) >= 7
-            ? mode.thrown && ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType,
-                    WeaponTypeDefinitions.WarhammerType)
-                (mode, item, character)
-            : mode.thrown &&
-              ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.WarhammerType)(mode, item, character);
+    {
+        var levels = character.GetSubclassLevel(CharacterClassDefinitions.Paladin, Name);
+
+        return levels switch
+        {
+            >= 7 => ValidatorsWeapon.IsOfWeaponType(BattleaxeType, WarhammerType)(mode, item, character),
+            >= 1 => ValidatorsWeapon.IsOfWeaponType(WarhammerType)(mode, item, character),
+            _ => false
+        };
+    };
 
     internal OathOfThunder()
     {
@@ -138,6 +145,49 @@ internal sealed class OathOfThunder : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        var additionalDamageGodOfThunder = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}GodOfThunder")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("GodOfThunder")
+            .SetDamageDice(DieType.D4, 1)
+            .SetSpecificDamageType(DamageTypeThunder)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 7)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddToDB();
+
+        var featureGodOfThunder = FeatureDefinitionBuilder
+            .Create($"Feature{Name}GodOfThunder")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new CustomAdditionalDamageGodOfThunder(additionalDamageGodOfThunder))
+            .AddToDB();
+
+        // LEVEL 15
+
+        // Bifrost
+
+        var powerBifrost = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Bifrost")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .InviteOptionalAlly()
+                    .HasSavingThrow(AttributeDefinitions.Constitution,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 12)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfThunder, 256))
@@ -147,8 +197,10 @@ internal sealed class OathOfThunder : AbstractSubclass
                 powerThunderousRebuke,
                 powerDivineBolt)
             .AddFeaturesAtLevel(7,
-                featureAxesBoon)
-            .AddFeaturesAtLevel(15)
+                featureAxesBoon,
+                featureGodOfThunder)
+            .AddFeaturesAtLevel(15,
+                powerBifrost)
             .AddFeaturesAtLevel(20)
             .AddToDB();
     }
@@ -177,7 +229,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (IsValidWeapon(attackMode, null, myself))
+            if (!IsValidWeapon(attackMode, null, myself))
             {
                 return;
             }
@@ -215,6 +267,32 @@ internal sealed class OathOfThunder : AbstractSubclass
             }
 
             return effectDescription;
+        }
+    }
+
+    private sealed class CustomAdditionalDamageGodOfThunder : CustomAdditionalDamage
+    {
+        public CustomAdditionalDamageGodOfThunder(IAdditionalDamageProvider provider) : base(provider)
+        {
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            return IsValidWeapon(attackMode, null, null);
         }
     }
 }

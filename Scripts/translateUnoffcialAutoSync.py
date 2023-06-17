@@ -1,3 +1,4 @@
+# encoding: utf-8
 #
 # AUTHOR: magicskysword
 #
@@ -7,7 +8,16 @@
 #   - Python 3.9.x
 
 import os
+import io
 import codecs
+import sys
+
+addTermCount = 0
+changeTermCount = 0
+unuseTermCount = 0
+
+def msg(text):
+    print(text)
 
 def unpack_record(record):
     term = ""
@@ -37,7 +47,7 @@ def readRecord(filename):
                     term, text = unpack_record(record)
                     dic[term] = text
     except FileNotFoundError:
-        print("ERROR")
+        msg("ERROR")
 
     return dic
 
@@ -54,22 +64,34 @@ def split_dict(dict):
     return dict_group
 
 def sync_file(offcial_dict, file_record, file_full_name):
-    print(f"sync {file_full_name}")
+    msg(f"sync {file_full_name}")
+
+    global addTermCount
+    global changeTermCount
+    global unuseTermCount
 
     # sync file with offcial dict
     unused_keys = []
     for key, value in file_record.items():
         if key not in offcial_dict:
-            print(f"unused {file_full_name} {key} {value}")
+            msg(f"\t-Unused {file_full_name} {key} {value}")
             unused_keys.append(key)
+            unuseTermCount += 1
 
     for key in unused_keys:
         del file_record[key]
 
     for key, value in offcial_dict.items():
         if key not in file_record or file_record[key] == "EMPTY":
-            print(f"Add {file_full_name} {key} {value}")
+            msg(f"\t+Add {file_full_name} {key} {value}")
             file_record[key] = offcial_dict[key]
+            addTermCount += 1
+
+    # check changes
+    for key, value in file_record.items():
+        if key in offcial_dict and file_record[key] != offcial_dict[key]:
+            msg(f"\t!FindChange {file_full_name} {key}\n\t\t{offcial_dict[key]} \n\t\t-> \n\t\t{value}")
+            changeTermCount += 1
 
     # write file
     with open(file_full_name, "wt", encoding="utf-8") as f:
@@ -90,17 +112,17 @@ def sync_folder(dict_group, unofficial_file_code):
         file_full_name = os.path.join(unoffcial_folder_name, f"{group_name}-{unofficial_file_code}.txt")
         if os.path.exists(file_full_name):
             file_record = readRecord(file_full_name)
-            print(f"read {file_full_name}")
+            msg(f"read {file_full_name}")
         else:
             file_record = {}
-            print(f"create {file_full_name}")
+            msg(f"create {file_full_name}")
         sync_file(dict_group[group_name], file_record, file_full_name)
 
     for file_name in os.listdir(unoffcial_folder_name):
         file_full_name = os.path.join(unoffcial_folder_name, file_name)
         group_name = file_name.split("-")[0]
         if group_name not in dict_group and file_name.endswith(".txt"):
-            print(f"unuse file {file_full_name}")
+            msg(f"unuse file {file_full_name}")
 
 def sync_translation(offcial_file_code, unofficial_file_code):
     # read offcial translation file
@@ -113,7 +135,16 @@ def sync_translation(offcial_file_code, unofficial_file_code):
 def main():
     # run this script in root folder
     # sync cn language
+
+    # if arguements contains "log", redirect stdout to log file
+    if len(sys.argv) > 1 and "-log" in sys.argv:
+        sys.stdout = open("..\\translateUnoffcialAutoSync.log", "w", encoding="utf-8")
+        sys.stderr = sys.stdout
+
     sync_translation("cn-ZN", "zh-CN-Unofficial")
+    msg(f"addTermCount {addTermCount}")
+    msg(f"changeTermCount {changeTermCount}")
+    msg(f"unuseTermCount {unuseTermCount}")
 
 
 if __name__ == "__main__":

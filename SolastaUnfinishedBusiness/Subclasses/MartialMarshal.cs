@@ -383,9 +383,9 @@ internal sealed class MartialMarshal : AbstractSubclass
         return featureMarshalKnowledgeableDefense;
     }
 
-    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToMyAttackFinished
+    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToAttackFinished
     {
-        public IEnumerator HandleReactToMyAttackFinished(
+        public IEnumerator OnReactToAttackFinished(
             GameLocationCharacter me,
             GameLocationCharacter defender,
             RollOutcome outcome,

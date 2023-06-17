@@ -655,7 +655,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,

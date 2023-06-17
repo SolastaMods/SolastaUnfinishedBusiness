@@ -429,7 +429,7 @@ internal sealed class OathOfDread : AbstractSubclass
             _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
         }
 
-        public IEnumerator HandleReactToAttackOnAllyFinished(
+        public IEnumerator OnReactToAttackOnAllyFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             GameLocationCharacter ally,

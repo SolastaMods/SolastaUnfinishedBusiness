@@ -903,6 +903,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CrownOfTheMagister12 { get; } = GetDefinition<ItemDefinition>("CrownOfTheMagister12");
         internal static ItemDefinition Dagger { get; } = GetDefinition<ItemDefinition>("Dagger");
         internal static ItemDefinition Dart { get; } = GetDefinition<ItemDefinition>("Dart");
+        internal static ItemDefinition DivineBladeWeapon { get; } = GetDefinition<ItemDefinition>("DivineBladeWeapon");
         internal static ItemDefinition DruidicFocus { get; } = GetDefinition<ItemDefinition>("DruidicFocus");
         internal static ItemDefinition DungeoneerPack { get; } = GetDefinition<ItemDefinition>("DungeoneerPack");
         internal static ItemDefinition ElvenChain { get; } = GetDefinition<ItemDefinition>("ElvenChain");
