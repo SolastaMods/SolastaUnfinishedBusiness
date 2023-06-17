@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -144,7 +145,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         const string NAME = "PowerCircleOfTheNightWildShapeCombat";
 
-        var baseAction = GetDefinition<ActionDefinition>("WildShape");
         var shapeOptions = new List<ShapeOptionDescription>
         {
             ShapeBuilder(2, WildShapeBadlandsSpider),
@@ -183,9 +183,12 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         power.SetCustomSubFeatures(new ActionFinishedWildShape(power));
 
+        var wildshape = DatabaseHelper.ActionDefinitions.WildShape;
+
         ActionDefinitionBuilder
-            .Create(baseAction, "CombatWildShape")
-            .SetGuiPresentation(NAME, Category.Feature, baseAction, baseAction.GuiPresentation.SortOrder)
+            .Create(wildshape, "CombatWildShape")
+            .SetGuiPresentation(NAME, Category.Feature, DatabaseHelper.ActionDefinitions.WildShape,
+                DatabaseHelper.ActionDefinitions.WildShape.GuiPresentation.SortOrder)
             .OverrideClassName("WildShape")
             .SetActionId(ExtraActionId.CombatWildShape)
             .SetActionType(ActionDefinitions.ActionType.Bonus)

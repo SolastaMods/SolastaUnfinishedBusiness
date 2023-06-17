@@ -8,10 +8,15 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+        internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
+        internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
+        internal static ActionDefinition UseBardicInspiration { get; } = GetDefinition<ActionDefinition>("UseBardicInspiration");
+        internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
     internal static class CharacterBackgroundDefinitions
     {
