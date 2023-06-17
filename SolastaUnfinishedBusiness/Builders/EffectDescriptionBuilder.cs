@@ -240,27 +240,6 @@ internal class EffectDescriptionBuilder
         bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
     {
-        return HasSavingThrow(
-            savingThrowAbility,
-            difficultyClassComputation,
-            savingThrowDifficultyAbility,
-            fixedSavingThrowDifficultyClass,
-            disableSavingThrowOnAllies,
-            ignoreCover,
-            advantageForEnemies,
-            savingThrowAffinitiesBySense);
-    }
-
-    internal EffectDescriptionBuilder HasSavingThrow(
-        string savingThrowAbility,
-        EffectDifficultyClassComputation difficultyClassComputation = EffectDifficultyClassComputation.FixedValue,
-        string savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
-        int fixedSavingThrowDifficultyClass = 10,
-        bool disableSavingThrowOnAllies = false,
-        bool ignoreCover = false,
-        bool advantageForEnemies = false,
-        params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
-    {
         effect.hasSavingThrow = true;
         effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;
         effect.savingThrowAbility = savingThrowAbility;
