@@ -500,7 +500,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             yield return HandleReaction(defender);
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,

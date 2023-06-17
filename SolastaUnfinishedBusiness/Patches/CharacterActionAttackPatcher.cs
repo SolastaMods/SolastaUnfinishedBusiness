@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionAttackPatcher
 {
-    //PATCH: Adds support to IReactToAttackOnEnemyFinished, IReactToMyAttackFinished, IReactToAttackOnMeFinished, IReactToAttackOnMeOrAllyFinished
+    //PATCH: Adds support to IReactToAttackOnEnemyFinished, IReactToAttackFinished, IReactToAttackOnMeFinished, IReactToAttackOnMeOrAllyFinished
     [HarmonyPatch(typeof(CharacterActionAttack), nameof(CharacterActionAttack.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -63,7 +63,7 @@ public static class CharacterActionAttackPatcher
             }
 
             //
-            // IReactToMyAttackFinished
+            // IReactToAttackFinished
             //
 
             if (Gui.Battle != null &&
@@ -71,11 +71,11 @@ public static class CharacterActionAttackPatcher
                 gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 var attackerFeatures = gameLocationAttacker.RulesetCharacter
-                    .GetSubFeaturesByType<IReactToMyAttackFinished>();
+                    .GetSubFeaturesByType<IReactToAttackFinished>();
 
                 foreach (var feature in attackerFeatures)
                 {
-                    yield return feature.HandleReactToMyAttackFinished(
+                    yield return feature.OnReactToAttackFinished(
                         gameLocationAttacker, gameLocationDefender, rollOutcome, actionParams, attackMode,
                         actionModifier);
                 }
@@ -100,7 +100,7 @@ public static class CharacterActionAttackPatcher
 
                     foreach (var feature in allyFeatures)
                     {
-                        yield return feature.HandleReactToAttackOnEnemyFinished(
+                        yield return feature.OnReactToAttackOnEnemyFinished(
                             gameLocationAttacker, gameLocationAlly, gameLocationDefender, rollOutcome, actionParams,
                             attackMode,
                             actionModifier);
@@ -126,7 +126,7 @@ public static class CharacterActionAttackPatcher
 
                 foreach (var feature in defenderFeatures)
                 {
-                    yield return feature.HandleReactToAttackOnMeFinished(
+                    yield return feature.OnReactToAttackOnMeFinished(
                         gameLocationAttacker, gameLocationDefender, rollOutcome, actionParams, attackMode,
                         actionModifier);
                 }
@@ -149,7 +149,7 @@ public static class CharacterActionAttackPatcher
 
                     foreach (var feature in allyFeatures)
                     {
-                        yield return feature.HandleReactToAttackOnAllyFinished(
+                        yield return feature.OnReactToAttackOnAllyFinished(
                             gameLocationAttacker, gameLocationAlly, gameLocationDefender, rollOutcome, actionParams,
                             attackMode,
                             actionModifier);

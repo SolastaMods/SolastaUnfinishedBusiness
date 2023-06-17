@@ -121,8 +121,8 @@ internal sealed class RoguishDuelist : AbstractSubclass
     // Reflexive Party
     //
 
-    private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty : IAttackBeforeHitConfirmedOnMe,
-        IReactToAttackOnMeFinished
+    private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty :
+        IAttackBeforeHitConfirmedOnMe, IReactToAttackOnMeFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -165,7 +165,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             rulesetDefender.DamageHalved(rulesetDefender, _featureDefinition);
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,

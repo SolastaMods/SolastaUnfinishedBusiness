@@ -894,7 +894,7 @@ internal static class GambitsBuilders
             this.pool = pool;
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,
