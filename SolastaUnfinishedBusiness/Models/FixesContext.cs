@@ -145,6 +145,9 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
+        //BUGFIX: allow divine blade to be wielded
+        ItemDefinitions.DivineBladeWeapon.WeaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
+
         //BUGFIX: add an effect to Counterspell
         Counterspell.EffectDescription.effectParticleParameters =
             DreadfulOmen.EffectDescription.effectParticleParameters;
