@@ -469,7 +469,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode != null
+                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode == null //true means no attack
                 };
                 reactionParams.targetCharacters.Add(defender);
                 reactionParams.actionModifiers.Add(modifier ?? new ActionModifier());
