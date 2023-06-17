@@ -44,7 +44,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddToDB();
 
         var bonusProficiencySmithingDomainForge = FeatureDefinitionProficiencyBuilder
-            .Create($"BonusProficiencySmithing{NAME}")
+            .Create($"BonusProficiency{NAME}ArtisanToolType")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
             .AddToDB();
