@@ -729,7 +729,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
-                new PhysicalAttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuaryDamageResistance))
+                new AttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuaryDamageResistance))
             .AddToDB();
 
         var conditionSanctuary = ConditionDefinitionBuilder
@@ -827,17 +827,17 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class PhysicalAttackBeforeHitConfirmedOnMeSanctuary : IPhysicalAttackBeforeHitConfirmedOnMe
+    private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionSanctuaryBuff;
 
-        internal PhysicalAttackBeforeHitConfirmedOnMeSanctuary(ConditionDefinition conditionSanctuaryBuff)
+        internal AttackBeforeHitConfirmedOnMeSanctuary(ConditionDefinition conditionSanctuaryBuff)
         {
             _conditionSanctuaryBuff = conditionSanctuaryBuff;
         }
 
 
-        public IEnumerator OnAttackBeforeHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

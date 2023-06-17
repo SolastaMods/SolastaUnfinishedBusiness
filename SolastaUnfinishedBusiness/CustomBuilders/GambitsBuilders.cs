@@ -894,7 +894,7 @@ internal static class GambitsBuilders
             this.pool = pool;
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,
@@ -1207,7 +1207,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class Parry : IPhysicalAttackBeforeHitConfirmedOnMe
+    private sealed class Parry : IAttackBeforeHitConfirmedOnMe
     {
         private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
@@ -1220,7 +1220,7 @@ internal static class GambitsBuilders
             this.feature = feature;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,

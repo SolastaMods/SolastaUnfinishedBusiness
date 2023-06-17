@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -17,7 +16,6 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionEquipmentAffinitys;
-
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -104,34 +102,23 @@ internal static class RaceOligathBuilder
             .AddToDB();
 
         powerOligathStoneEndurance
-            .SetCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
+            .SetCustomSubFeatures(new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
 
         return powerOligathStoneEndurance;
     }
 
-    private class PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance :
-        IPhysicalAttackBeforeHitConfirmedOnMe, IMagicalAttackInitiated
+    private class AttackBeforeHitConfirmedOnMeStoneEndurance :
+        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance(
+        public AttackBeforeHitConfirmedOnMeStoneEndurance(
             FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnMagicalAttackInitiated(GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandlePowerStoneEndurance(defender, magicModifier);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
@@ -144,7 +131,22 @@ internal static class RaceOligathBuilder
             bool criticalHit,
             bool firstTarget)
         {
-            yield return HandlePowerStoneEndurance(me, attackModifier);
+            if (rulesetEffect == null)
+            {
+                yield return HandlePowerStoneEndurance(me, attackModifier);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandlePowerStoneEndurance(defender, magicModifier);
         }
 
         private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me, ActionModifier attackModifier)
@@ -166,11 +168,12 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            if (rulesetMe.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }
 
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription")
@@ -190,10 +193,8 @@ internal static class RaceOligathBuilder
 
             var totalReducedDamage = CalculateReducedDamage(rulesetMe);
 
+            rulesetMe.UsePower(usablePower);
             attackModifier.DamageRollReduction += totalReducedDamage;
-
-            rulesetMe.LogCharacterUsedPower(_featureDefinitionPower);
-            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
             rulesetMe.DamageReduced(rulesetMe, _featureDefinitionPower, totalReducedDamage);
         }
 

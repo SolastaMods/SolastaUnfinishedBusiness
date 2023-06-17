@@ -339,7 +339,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 foreach (var feature in allyFeatures)
                 {
-                    yield return feature.HandleReactToAttackOnEnemyFinished(
+                    yield return feature.OnReactToAttackOnEnemyFinished(
                         attacker,
                         gameLocationAlly,
                         target,

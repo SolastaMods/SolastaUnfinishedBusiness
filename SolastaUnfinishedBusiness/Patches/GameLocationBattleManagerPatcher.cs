@@ -349,7 +349,7 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnEnemy`
+            //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
@@ -357,7 +357,7 @@ public static class GameLocationBattleManagerPatcher
                 var rulesetAttacker = attacker.RulesetCharacter;
 
                 foreach (var extra in rulesetAttacker
-                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>()
+                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>()
                              .Select(feature => feature.OnAttackBeforeHitConfirmedOnEnemy(
                                  __instance,
                                  attacker,
@@ -378,7 +378,7 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
+            //PATCH: support for `IAttackBeforeHitConfirmedOnMe`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
@@ -386,8 +386,8 @@ public static class GameLocationBattleManagerPatcher
                 var rulesetDefender = defender.RulesetCharacter;
 
                 foreach (var extra in rulesetDefender
-                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>()
-                             .Select(feature => feature.OnAttackBeforeHitConfirmed(
+                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMe>()
+                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnMe(
                                  __instance,
                                  attacker,
                                  defender,
@@ -954,11 +954,23 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //call all before handlers
-                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
+                foreach (var feature in attacker.RulesetActor
+                             .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnEnemy>())
                 {
-                    yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
-                        actualEffectForms, firstTarget, criticalHit);
+                    yield return feature.OnMagicalAttackBeforeHitConfirmedOnEnemy(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
+            }
+
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var feature in defender.RulesetActor
+                             .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMe>())
+                {
+                    yield return feature.OnMagicalAttackBeforeHitConfirmedOnMe(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
 
@@ -972,11 +984,10 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //call all after handlers
                 foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
                 {
-                    yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
-                        actualEffectForms, firstTarget, criticalHit);
+                    yield return feature.OnMagicalAttackFinished(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
         }

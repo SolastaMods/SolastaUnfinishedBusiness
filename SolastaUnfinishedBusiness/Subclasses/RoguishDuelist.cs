@@ -72,7 +72,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         actionAffinityReflexiveParry.SetCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty(actionAffinityReflexiveParry,
+            new AttackBeforeHitConfirmedOnMeReflexiveParty(actionAffinityReflexiveParry,
                 conditionReflexiveParry));
 
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
@@ -121,13 +121,13 @@ internal sealed class RoguishDuelist : AbstractSubclass
     // Reflexive Party
     //
 
-    private sealed class PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty : IPhysicalAttackBeforeHitConfirmedOnMe,
-        IReactToAttackOnMeFinished
+    private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty :
+        IAttackBeforeHitConfirmedOnMe, IReactToAttackOnMeFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty(
+        public AttackBeforeHitConfirmedOnMeReflexiveParty(
             FeatureDefinition featureDefinition,
             ConditionDefinition conditionDefinition)
         {
@@ -135,7 +135,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -165,7 +165,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             rulesetDefender.DamageHalved(rulesetDefender, _featureDefinition);
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(
+        public IEnumerator OnReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,

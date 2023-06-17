@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IReactToAttackOnEnemyFinished
 {
     [UsedImplicitly]
-    public IEnumerator HandleReactToAttackOnEnemyFinished(
+    public IEnumerator OnReactToAttackOnEnemyFinished(
         GameLocationCharacter ally,
         GameLocationCharacter me,
         GameLocationCharacter enemy,

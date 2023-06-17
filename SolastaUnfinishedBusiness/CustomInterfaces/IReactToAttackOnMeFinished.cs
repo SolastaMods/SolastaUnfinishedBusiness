@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IReactToAttackOnMeFinished
 {
     [UsedImplicitly]
-    public IEnumerator HandleReactToAttackOnMeFinished(
+    public IEnumerator OnReactToAttackOnMeFinished(
         GameLocationCharacter attacker,
         GameLocationCharacter me,
         RuleDefinitions.RollOutcome outcome,

@@ -348,7 +348,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             if (attackMode is not { SourceDefinition: ItemDefinition item } ||
-                !item.WeaponDescription.IsMonkWeaponOrUnarmed())
+                !attacker.RulesetCharacter.IsMonkWeapon(item))
             {
                 return;
             }
