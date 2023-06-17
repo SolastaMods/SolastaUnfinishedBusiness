@@ -491,6 +491,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityFireResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityForceDamageResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityForceDamageResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityHalfOrcRelentlessEndurance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityHalfOrcRelentlessEndurance");
+        internal static FeatureDefinitionDamageAffinity DamageAffinityLightningImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityLightningImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityLightningResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityLightningResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticResistance");
@@ -600,6 +601,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionPower PowerBarbarianRageStart { get; } = GetDefinition<FeatureDefinitionPower>("PowerBarbarianRageStart");
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } = GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
+        internal static FeatureDefinitionPower PowerCallLightning { get; } = GetDefinition<FeatureDefinitionPower>("PowerCallLightning");
         internal static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery");
         internal static FeatureDefinitionPower PowerClericDivineInterventionCleric { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionCleric");
         internal static FeatureDefinitionPower PowerClericDivineInterventionPaladin { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionPaladin");
