@@ -43,7 +43,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
-        var bonusProficiencySmithingDomainForge = FeatureDefinitionProficiencyBuilder
+        var bonusProficiencyArtisanToolTypeDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}ArtisanToolType")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
@@ -344,7 +344,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainSmith, 256))
             .AddFeaturesAtLevel(1, autoPreparedSpellsDomainSmith, bonusProficiencyArmorDomainForge,
-                bonusProficiencySmithingDomainForge, powerReinforceArmor1)
+                bonusProficiencyArtisanToolTypeDomainForge, powerReinforceArmor1)
             .AddFeaturesAtLevel(2, powerAdamantBenediction)
             .AddFeaturesAtLevel(6, additionalDamageDivineStrike6, powerReinforceArmor6)
             .AddFeaturesAtLevel(8, attributeModifierForgeMastery, damageAffinityForgeMastery)

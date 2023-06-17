@@ -167,6 +167,7 @@ internal sealed class OathOfThunder : AbstractSubclass
 
         var powerBifrost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bifrost")
+            .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -174,7 +175,8 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .InviteOptionalAlly()
-                    .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
+                    .HasSavingThrow(AttributeDefinitions.Constitution,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

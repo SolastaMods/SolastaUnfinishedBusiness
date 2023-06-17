@@ -27,7 +27,8 @@ public static class WieldedConfigurationSelectorPatcher
                 typeof(WeaponDescription).GetMethod(nameof(WeaponDescription.IsMonkWeaponOrUnarmed));
 
             var customIsMonkWeapon =
-                typeof(Bind_Patch).GetMethod(nameof(IsMonkWeaponOrUnarmed), BindingFlags.Static | BindingFlags.NonPublic);
+                typeof(Bind_Patch).GetMethod(nameof(IsMonkWeaponOrUnarmed),
+                    BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCalls(baseIsMonkWeapon,
                 "WieldedConfigurationSelector.Bind",
