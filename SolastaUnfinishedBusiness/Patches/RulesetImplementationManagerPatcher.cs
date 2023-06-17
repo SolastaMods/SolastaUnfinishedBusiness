@@ -60,6 +60,7 @@ public static class RulesetImplementationManagerPatcher
             int additionalDamage,
             int damageRollReduction,
             float damageMultiplier,
+            bool maximumDamage,
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
@@ -80,7 +81,7 @@ public static class RulesetImplementationManagerPatcher
                     ? RuleDefinitions.RollContext.AttackDamageValueRoll
                     : RuleDefinitions.RollContext.MagicDamageValueRoll,
                 damageForm.DiceNumber + addDice,
-                rolledValues, canRerollDice);
+                rolledValues, canRerollDice, maximumDamage);
 
             // add additional dices equal with dice max value
             totalDamage += rolledValues.Count * diceMaxValue;
@@ -172,13 +173,12 @@ public static class RulesetImplementationManagerPatcher
             int additionalDamage,
             int damageRollReduction,
             float damageMultiplier,
+            bool maximumDamage,
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
             bool canRerollDice)
         {
-            const int DOUBLE = 2;
-
             var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
 
             if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
@@ -194,14 +194,17 @@ public static class RulesetImplementationManagerPatcher
                     ? RuleDefinitions.RollContext.AttackDamageValueRoll
                     : RuleDefinitions.RollContext.MagicDamageValueRoll,
                 damageForm.DiceNumber + addDice,
-                rolledValues, canRerollDice);
+                rolledValues, canRerollDice, maximumDamage);
 
-            // duplicates the rolled dices as well
+            // duplicates the rolled dices
             rolledValues.AddRange(rolledValues.ToList());
+
+            // doubles the rolled damage
+            damageForm.bonusDamage *= 2;
 
             return Mathf.FloorToInt(
                 damageMultiplier *
-                (DOUBLE * (totalDamage + damageForm.BonusDamage) - damageRollReduction + additionalDamage));
+                ((2 * totalDamage) + damageForm.BonusDamage - damageRollReduction + additionalDamage));
         }
 
         private static int RollDamage(
@@ -218,8 +221,15 @@ public static class RulesetImplementationManagerPatcher
             List<int> rolledValues,
             bool canRerollDice)
         {
-            var hero = rulesetActor as RulesetCharacterHero ??
-                       (rulesetActor as RulesetCharacter)?.OriginalFormCharacter as RulesetCharacterHero;
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return rulesetActor.RollDamage(
+                    damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction, damageMultiplier,
+                    maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+            }
+
+            var hero = rulesetCharacter as RulesetCharacterHero ??
+                       rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
             //TODO: make this a proper interface in case we need to support other use cases
             if (hero != null &&
@@ -229,51 +239,39 @@ public static class RulesetImplementationManagerPatcher
                 canRerollDice = true;
             }
 
-            if (!criticalSuccess || hero == null)
+            //PATCH: supports different critical damage algorithms
+            if (!criticalSuccess)
             {
                 return rulesetActor.RollDamage(
-                    damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
-                    damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+                    damageForm, addDice, false, additionalDamage, damageRollReduction, damageMultiplier,
+                    maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
-            return hero.Side switch
+            var rollDamageOption = rulesetActor.Side switch
             {
-                RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
-                {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice),
-                    2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice),
-                    3 => RollDamageOption3(rulesetActor, damageForm, addDice, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice),
-                    _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
-                        damageRollReduction, damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage,
-                        rolledValues,
-                        canRerollDice)
-                },
-                RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
-                {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice),
-                    2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice),
-                    3 => RollDamageOption3(rulesetActor, damageForm, addDice, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice),
-                    _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
-                        damageRollReduction, damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage,
-                        rolledValues,
-                        canRerollDice)
-                },
-                _ => rulesetActor.RollDamage(
-                    damageForm, addDice, true, additionalDamage, damageRollReduction,
-                    damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
+                RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies,
+                RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies,
+                RuleDefinitions.Side.Neutral => Main.Settings.CriticalHitModeNeutral,
+                _ => 0
             };
+
+            var damage = rollDamageOption switch
+            {
+                1 => RollDamageOption1(
+                    rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
+                    maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                2 => RollDamageOption2(
+                    rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
+                    useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                3 => RollDamageOption3(
+                    rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
+                    maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                _ => rulesetActor.RollDamage(
+                    damageForm, addDice, true, additionalDamage, damageRollReduction, damageMultiplier, maximumDamage,
+                    useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
+            };
+
+            return damage;
         }
 
         [NotNull]
