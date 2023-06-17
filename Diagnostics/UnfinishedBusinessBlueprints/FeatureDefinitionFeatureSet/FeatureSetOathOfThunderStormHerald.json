@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
+    "Definition:DamageAffinityLightningImmunity:9acb6e13145079c40a27012146696746",
+    "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58",
+    "Definition:PowerOathOfThunderStormHerald:d5896d58-8f48-5e56-acfe-07b8870f5c5d"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetOathOfThunderStormHeraldTitle",
+    "description": "Feature/&FeatureSetOathOfThunderStormHeraldDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "549e20a6-3a45-57f5-8d06-de20d0bee905",
+  "contentPack": 9999,
+  "name": "FeatureSetOathOfThunderStormHerald"
+}
