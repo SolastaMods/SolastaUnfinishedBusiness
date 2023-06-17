@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureOathOfThunderAxesBoon:e6fb9b46-0cb3-5027-b909-c424f204cb6e",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfThunderBifrost:0331b9ac-d640-5e87-8abf-7a93a998d695",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

@@ -151,7 +151,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             .SetNotificationTag("GodOfThunder")
             .SetDamageDice(DieType.D4, 1)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 7)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 7)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
@@ -160,6 +160,31 @@ internal sealed class OathOfThunder : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new CustomAdditionalDamageGodOfThunder(additionalDamageGodOfThunder))
             .AddToDB();
+
+        // LEVEL 15
+
+        // Bifrost
+
+        var powerBifrost = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Bifrost")
+            .SetUsesProficiencyBonus(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .InviteOptionalAlly()
+                    .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 12)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -172,7 +197,8 @@ internal sealed class OathOfThunder : AbstractSubclass
             .AddFeaturesAtLevel(7,
                 featureAxesBoon,
                 featureGodOfThunder)
-            .AddFeaturesAtLevel(15)
+            .AddFeaturesAtLevel(15,
+                powerBifrost)
             .AddFeaturesAtLevel(20)
             .AddToDB();
     }
@@ -201,7 +227,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (IsValidWeapon(attackMode, null, myself))
+            if (!IsValidWeapon(attackMode, null, myself))
             {
                 return;
             }
@@ -264,7 +290,7 @@ internal sealed class OathOfThunder : AbstractSubclass
         {
             reactionParams = null;
 
-            return IsValidWeapon(attackMode, null, attacker.RulesetCharacter);
+            return IsValidWeapon(attackMode, null, null);
         }
     }
 }
