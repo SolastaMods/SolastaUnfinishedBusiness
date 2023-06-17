@@ -406,7 +406,7 @@ You may use a Channel Divinity usage to restore a spent spell slot, up to the ma
 
 # 88. - Squat Nimbleness
 
-You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics or Acrobatics skill.
+You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
 # 89. - Steady Aim
 

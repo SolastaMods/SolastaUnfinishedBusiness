@@ -26,11 +26,11 @@ Size: *Large*
 * Condition Affinity Poison Immunity
 * Condition Affinity Protected From Evil Charm Immunity
 * Damage Affinity Acid Immunity Clay Golem
-* Damage Affinity Bludgeoning Immunity Except Magical
-* Damage Affinity Piercing Immunity Except Magical
+* Damage Affinity Bludgeoning Immunity _except _magical
+* Damage Affinity Piercing Immunity _except _magical
 * Damage Affinity Poison Immunity
 * Damage Affinity Psychic Immunity
-* Damage Affinity Slashing Immunity Except Magical
+* Damage Affinity Slashing Immunity _except _magical
 * Walk 4
 * Haste
 * Advantage on saving throws against spells
@@ -125,12 +125,12 @@ Size: *Large*
 * Resistant to cold weather.
 * Resistant to cold weather.
 * Condition Affinity Weather Frozen Immunity
-* Damage Affinity Bludgeoning Immunity Except Magical
+* Damage Affinity Bludgeoning Immunity _except _magical
 * Damage Affinity Cold Immunity
-* Damage Affinity Piercing Immunity Except Magical
+* Damage Affinity Piercing Immunity _except _magical
 * Damage Affinity Poison Immunity
 * Damage Affinity Psychic Immunity
-* Damage Affinity Slashing Immunity Except Magical
+* Damage Affinity Slashing Immunity _except _magical
 * Walk 8
 * Icy Breath
 * Advantage on saving throws against spells
@@ -170,12 +170,12 @@ Size: *Large*
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Protected From Evil Charm Immunity
-* Damage Affinity Bludgeoning Immunity Except Magical
+* Damage Affinity Bludgeoning Immunity _except _magical
 * Damage Affinity Fire Immunity Iron Golem
-* Damage Affinity Piercing Immunity Except Magical
+* Damage Affinity Piercing Immunity _except _magical
 * Damage Affinity Poison Immunity
 * Damage Affinity Psychic Immunity
-* Damage Affinity Slashing Immunity Except Magical
+* Damage Affinity Slashing Immunity _except _magical
 * Walk 6
 * Poison Breath
 * Advantage on saving throws against spells
@@ -244,11 +244,11 @@ Size: *Large*
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Protected From Evil Charm Immunity
-* Damage Affinity Bludgeoning Immunity Except Magical
-* Damage Affinity Piercing Immunity Except Magical
+* Damage Affinity Bludgeoning Immunity _except _magical
+* Damage Affinity Piercing Immunity _except _magical
 * Damage Affinity Poison Immunity
 * Damage Affinity Psychic Immunity
-* Damage Affinity Slashing Immunity Except Magical
+* Damage Affinity Slashing Immunity _except _magical
 * Walk 6
 * Slow
 * Advantage on saving throws against spells
@@ -288,11 +288,11 @@ Size: *Large*
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Protected From Evil Charm Immunity
-* Damage Affinity Bludgeoning Immunity Except Magical
-* Damage Affinity Piercing Immunity Except Magical
+* Damage Affinity Bludgeoning Immunity _except _magical
+* Damage Affinity Piercing Immunity _except _magical
 * Damage Affinity Poison Immunity
 * Damage Affinity Psychic Immunity
-* Damage Affinity Slashing Immunity Except Magical
+* Damage Affinity Slashing Immunity _except _magical
 * Walk 6
 * Slow
 * Advantage on saving throws against spells

@@ -363,7 +363,7 @@ Whenever you grant a Bardic Inspiration to an ally, the closest enemy within 12 
 
 * At Road's End
 
-When an ally you can see within 12 cells is reduced to 0 hit points, you can use your reaction to make them fall to 1 hit point instead. You can use this feature once per short or long rest.
+When an ally you can see within 12 cells is reduced to 0 hit points, you can use your reaction to instantly heal them for 4d12 + CHA mod HP. You can use this feature once per short or long rest.
 
 
 
@@ -465,7 +465,7 @@ As a reaction, after a creature you can see within 12 cells damages you, you can
 
 * Manacalon Perfection
 
-Once per long rest, as a bonus action, grant yourself and an ally the benefits of a bardic inspiration die without spending one of its uses. It will always roll its maximum value.
+Once per short rest, as a bonus action, grant yourself and an ally the benefits of a bardic inspiration die without spending one of its uses. It will always roll its maximum value.
 
 
 
@@ -487,14 +487,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ## Level 7
 
-* Coordinated Defense
+* Coordinated Defense​​​​​​​
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ## Level 10
 
-* Invigorating Shout
+* Invigorating Shout​​​​​​​
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -869,7 +869,7 @@ Spells from the Green Magic list are considered wizard spells for you:
 
 	VII	Fire Storm, Regenerate, Resurrection
 
-	VIII	Earthquake, Sunburst, Thunderstorm
+	VIII	Earthquake
 
 * Smithing
 
@@ -1369,7 +1369,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
 
 * Mischief Domain Spells
 
@@ -1403,7 +1403,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
 
 
 ## Level 8
@@ -1849,7 +1849,7 @@ Advantage on saving throws against spells
 
 * Spell Crusher
 
-When raging, you can dispel a magical effect on a creature or object as an action, as if you were casting Dispel Magic with Constitution as the spellcasting ability. You can use this feature a number of times equal to your proficiency bonus. It is restored when you take a short rest.
+When raging, you can dispel a magical effect on a creature or object as a bonus action, as if you were casting Dispel Magic with Constitution as the spellcasting ability. You can use this feature a number of times equal to your proficiency bonus per long rest.
 
 
 
@@ -2044,7 +2044,7 @@ Target a creature and move it one cell in any direction if it fails a STR save.
 
 * Arcane Escape
 
-Whenever you cast a spell on your turn, your speed increases by 3 cells until the end of the current turn.
+Whenever you cast a spell, you gain the benefit of the Dodge action until the start of your next turn.
 
 
 ## Level 18

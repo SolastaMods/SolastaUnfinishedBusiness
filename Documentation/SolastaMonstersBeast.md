@@ -512,7 +512,6 @@ Size: *Large*
 
 *Features:*
 * Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
 * Pack Tactics
 * Movement Affinity No Climb
 * Movement Affinity No Vault
@@ -751,7 +750,7 @@ Alignment: *Neutral*
 
 Dungeon Maker: *NO* 
 
-Size: *Large* 
+Size: *Medium* 
 |  AC  |   HD   |  CR  |
 | ---- | ------ | ---- |
 |  15  | 08 D12 | 03.0 |
@@ -987,7 +986,7 @@ Alignment: *Unaligned*
 
 Dungeon Maker: *NO* 
 
-Size: *Large* 
+Size: *Medium* 
 |  AC  |   HD   |  CR  |
 | ---- | ------ | ---- |
 |  15  | 08 D12 | 04.0 |
