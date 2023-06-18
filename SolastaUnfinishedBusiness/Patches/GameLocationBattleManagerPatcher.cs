@@ -1197,8 +1197,10 @@ public static class GameLocationBattleManagerPatcher
             }
 
             foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .SelectMany(x =>
-                             x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>()))
+                             x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
+                         .ToList()) // avoid changing enumerator
             {
                 yield return attackInitiated.OnAttackInitiatedOnMeOrAlly(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
