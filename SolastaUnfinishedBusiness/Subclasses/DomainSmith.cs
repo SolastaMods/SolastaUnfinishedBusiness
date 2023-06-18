@@ -340,19 +340,40 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeBlessedMetal(conditionBlessedMetal))
             .AddToDB();
 
+        // MAIN
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.DomainSmithReinforceArmor,
+            powerReinforceArmor1,
+            powerReinforceArmor6,
+            powerReinforceArmor11,
+            powerReinforceArmor16);
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainSmith, 256))
-            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainSmith, bonusProficiencyArmorDomainForge,
-                bonusProficiencyArtisanToolTypeDomainForge, powerReinforceArmor1)
-            .AddFeaturesAtLevel(2, powerAdamantBenediction)
-            .AddFeaturesAtLevel(6, additionalDamageDivineStrike6, powerReinforceArmor6)
-            .AddFeaturesAtLevel(8, attributeModifierForgeMastery, damageAffinityForgeMastery)
-            .AddFeaturesAtLevel(10, PowerClericDivineInterventionPaladin)
-            .AddFeaturesAtLevel(11, powerReinforceArmor11)
-            .AddFeaturesAtLevel(14, additionalDamageDivineStrike14)
-            .AddFeaturesAtLevel(16, powerReinforceArmor16)
-            .AddFeaturesAtLevel(17, featureBlessedMetal)
+            .AddFeaturesAtLevel(1,
+                autoPreparedSpellsDomainSmith,
+                bonusProficiencyArmorDomainForge,
+                bonusProficiencyArtisanToolTypeDomainForge,
+                powerReinforceArmor1)
+            .AddFeaturesAtLevel(2,
+                powerAdamantBenediction)
+            .AddFeaturesAtLevel(6,
+                additionalDamageDivineStrike6,
+                powerReinforceArmor6)
+            .AddFeaturesAtLevel(8,
+                attributeModifierForgeMastery,
+                damageAffinityForgeMastery)
+            .AddFeaturesAtLevel(10,
+                PowerClericDivineInterventionPaladin)
+            .AddFeaturesAtLevel(11,
+                powerReinforceArmor11)
+            .AddFeaturesAtLevel(14,
+                additionalDamageDivineStrike14)
+            .AddFeaturesAtLevel(16,
+                powerReinforceArmor16)
+            .AddFeaturesAtLevel(17,
+                featureBlessedMetal)
             .AddToDB();
     }
 
