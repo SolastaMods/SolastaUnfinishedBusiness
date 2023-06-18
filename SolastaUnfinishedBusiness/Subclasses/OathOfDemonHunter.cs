@@ -34,6 +34,8 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
 
     internal static FeatureDefinition DemonHunter { get; } = BuildDemonHunter();
     internal static ConditionDefinition TrialMark { get; } = BuildTrialMark();
+    internal static FeatureDefinitionAdditionalDamage AdditionalDamageTrialMark { get; } = BuildAdditionalDamageTrialMark();
+
     internal static FeatureDefinitionPower PowerTrialMark { get; } = BuildPowerTrialMark();
 
     internal static IsWeaponValidHandler IsCrossbowWeapon { get; } = 
@@ -69,24 +71,84 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
         
         // Light Energy Crossbow Bolt
 
-        var lightEnergyCrossbowBolt = FeatureDefinitionFeatureSetBuilder
+        var lightEnergyCrossbowBolt = FeatureDefinitionBuilder
             .Create($"Feature{Name}LightEnergyCrossbowBolt")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new RangedAttackInMeleeDisadvantageRemover(IsCrossbowWeapon),
                 new CustomReactionLightEnergyCrossbowBolt())
-            .AddFeatureSet()
             .AddToDB();
         
+        //
+        // LEVEL 15
+        //
+        
+        // Divine Crossbow
+        // Extra Attack (3)
+        
+        var divineCrossbow = FeatureDefinitionAttributeModifierBuilder
+            .Create($"Feature{Name}DivineCrossbow")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(
+                new ModifyCrossbowAttackModeDivineCrossbow())
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.CriticalThreshold, -1)
+            .AddToDB();
+        
+        var extraAttackForce3 = FeatureDefinitionAttributeModifierBuilder
+            .Create($"Feature{Name}ExtraAttack")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeDefinitions.AttacksNumber, 3)
+            .AddToDB();
+        
+        //
+        // LEVEL 20
+        //
+        
+        // Demon Slayer
+        var demonSlayerGuiPresentation = new GuiPresentationBuilder(
+            $"Feature/&Feature{Name}DemonSlayerTitle",
+            $"Feature/&Feature{Name}DemonSlayerTitleDescription")
+            .Build();
+
+        var demonSlayerPhysics = FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+            .Create($"Feature{Name}DemonSlayerPhysics")
+            .SetGuiPresentation(demonSlayerGuiPresentation)
+            .SetModifiers(RollContext.AttackDamageValueRoll,50, 3, 2,
+                $"Feature/&DieRollModifier{Name}DemonSlayer", DamageTypeRadiant)
+            .AddToDB();
+        
+        var demonSlayerMagic = FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+            .Create($"Feature{Name}DemonSlayerMagic")
+            .SetGuiPresentation(demonSlayerGuiPresentation)
+            .SetModifiers(RollContext.MagicDamageValueRoll,50, 3, 2,
+                $"Feature/&DieRollModifier{Name}DemonSlayer", DamageTypeRadiant)
+            .AddToDB();
+        
+        var demonSlayerSet = FeatureDefinitionFeatureSetBuilder
+            .Create($"Feature{Name}DemonSlayer")
+            .SetGuiPresentation(demonSlayerGuiPresentation)
+            .SetCustomSubFeatures(
+                new ModifyAdditionalDamageFormDivineSmite())
+            .AddFeatureSet(
+                demonSlayerPhysics,
+                demonSlayerMagic
+            )
+            .AddToDB();
         
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDread, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDemonHunter, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells,
                 DemonHunter,
                 PowerTrialMark)
             .AddFeaturesAtLevel(7, lightEnergyCrossbowBolt)
+            .AddFeaturesAtLevel(15, 
+                divineCrossbow,
+                extraAttackForce3)
+            .AddFeaturesAtLevel(20, demonSlayerSet)
             .AddToDB();
     }
 
@@ -102,33 +164,32 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
     {
         return ConditionDefinitionBuilder
             .Create(ConditionMarkedByHunter, $"Condition{Name}TrialMark")
-            .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+            .SetGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 10)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .AddToDB();
     }
     
-    private static FeatureDefinitionPower BuildPowerTrialMark()
+    private static FeatureDefinitionAdditionalDamage BuildAdditionalDamageTrialMark()
     {
-        // Trial Mark
-        var damageAffinityTrialMark = FeatureDefinitionAdditionalDamageBuilder
+        return FeatureDefinitionAdditionalDamageBuilder
             .Create("DamageAffinityTrialMark")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("TrialMark")
-            .SetTargetSide(Side.Ally)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypeRadiant)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.None)
-            .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddToDB();
-        
+    }
+    
+    private static FeatureDefinitionPower BuildPowerTrialMark()
+    {
         return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TrialMark")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerTrialMark", Resources.PowerTrialMark, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -144,7 +205,8 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new CustomAdditionalDamagePowerTrialMark(damageAffinityTrialMark))
+                new CustomAdditionalDamagePowerTrialMark(AdditionalDamageTrialMark),
+                new ModifyAdditionalDamageFormTrialMark())
             .AddToDB();
     }
     
@@ -206,8 +268,16 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
             
+            var rulesetDefender = defender.RulesetCharacter;
+            if (rulesetDefender.HasConditionOfType(TrialMark))
+            {
+                yield break;
+            }
+            
             var rulesetAttacker = attacker.RulesetCharacter;
-            if (!rulesetAttacker.CanUsePower(PowerTrialMark))
+            var rulesetUsablePower = rulesetAttacker.UsablePowers.Find(x => x.PowerDefinition == PowerTrialMark);
+            
+            if (rulesetUsablePower == null || rulesetAttacker.GetRemainingUsesOfPower(rulesetUsablePower) <= 0)
             {
                 yield break;
             }
@@ -215,7 +285,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
             var usablePower = UsablePowersProvider.Get(PowerTrialMark, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
             {
-                StringParameter = $"CustomReactionLightEnergyCrossbowBoltDescription",
+                StringParameter = $"Reaction/&CustomReactionLightEnergyCrossbowBoltDescription",
                 UsablePower = usablePower
             };
             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
@@ -230,7 +300,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
             
-            var rulesetDefender = defender.RulesetCharacter;
+            
             rulesetAttacker.UsePower(usablePower);
             rulesetDefender.InflictCondition(
                 TrialMark.Name,
@@ -246,6 +316,55 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                 0,
                 0);
             
+        }
+    }
+    
+    private sealed class ModifyCrossbowAttackModeDivineCrossbow : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!IsCrossbowWeapon(attackMode, null, null))
+            {
+                return;
+            }
+            
+            attackMode.maxRange += 6;
+        }
+    }
+    
+    private sealed class ModifyAdditionalDamageFormDivineSmite : IModifyAdditionalDamageForm
+    {
+        public void OnModifyAdditionalDamageForm(FeatureDefinition featureDefinition, DamageForm additionalDamageForm,
+            RulesetAttackMode attackMode, GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            if (featureDefinition != AdditionalDamagePaladinDivineSmite)
+            {
+                return;
+            }
+
+            additionalDamageForm.diceNumber += 1;
+        }
+    }
+    
+    // Because of the CustomAdditionalDamage not in the character's feature,
+    // I need to add level growth separately
+    private sealed class ModifyAdditionalDamageFormTrialMark : IModifyAdditionalDamageForm
+    {
+        public void OnModifyAdditionalDamageForm(FeatureDefinition featureDefinition, DamageForm additionalDamageForm,
+            RulesetAttackMode attackMode, GameLocationCharacter attacker, GameLocationCharacter defender)
+        {
+            if (featureDefinition != AdditionalDamageTrialMark)
+            {
+                return;
+            }
+
+            var classLevel = attacker.RulesetCharacter.GetClassLevel(PaladinClass);
+            if (classLevel <= 3)
+            {
+                return;
+            }
+
+            additionalDamageForm.diceNumber += (classLevel - 3) / 4;
         }
     }
 }
