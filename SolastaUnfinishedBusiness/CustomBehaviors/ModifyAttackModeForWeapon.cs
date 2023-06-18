@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -102,17 +103,32 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
 {
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly IsCharacterValidHandler[] validators;
+    private readonly string unicityTag;
 
     protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : this(isWeaponValid, null, validators)
+    {
+    }
+    
+    protected ModifyWeaponAttackModeBase(
+        IsWeaponValidHandler isWeaponValid,
+        string unicityTag,
         params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;
         this.validators = validators;
+        this.unicityTag = unicityTag;
     }
 
     public void ModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode)
     {
+        //Doing this check at the very start since this one is least computation intensive
+        if (unicityTag != null && attackMode.AttackTags.Contains(unicityTag))
+        {
+            return;
+        }
+        
         if (!character.IsValid(validators))
         {
             return;
@@ -123,6 +139,11 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
             return;
         }
 
+        if (unicityTag != null)
+        {
+            attackMode.AttackTags.TryAdd(unicityTag);
+        }
+
         TryModifyAttackMode(character, attackMode, null);
     }
 
@@ -131,6 +152,12 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
         [NotNull] RulesetAttackMode attackMode,
         //TODO: remove weapon - it is always null
         RulesetItem weapon);
+
+    protected static void IncreaseReach(RulesetAttackMode mode, int increase = 1)
+    {
+        mode.reach = true;
+        mode.reachRange = Math.Max(mode.reachRange, 1) + increase;
+    }
 }
 
 internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
