@@ -4,9 +4,9 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
@@ -136,24 +136,16 @@ internal static class RaceWendigoBuilder
         }
     }
 
-    private class ModifyWeaponAttackModeWendigoNaturalLunger : IModifyWeaponAttackMode
+    private class ModifyWeaponAttackModeWendigoNaturalLunger : ModifyWeaponAttackModeBase
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public ModifyWeaponAttackModeWendigoNaturalLunger() : base(ValidatorsWeapon.IsMelee, Lunger.Name)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode))
-            {
-                return;
-            }
+        }
 
-            if (attackMode.reach)
-            {
-                attackMode.reachRange = 3;
-            }
-            else
-            {
-                attackMode.reach = true;
-                attackMode.reachRange = 2;
-            }
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+            RulesetItem weapon)
+        {
+            IncreaseReach(attackMode);
         }
     }
 }

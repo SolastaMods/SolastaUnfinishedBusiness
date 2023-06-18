@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -12,7 +11,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Lunger : AbstractFightingStyle
 {
-    private const string Name = "Lunger";
+    internal const string Name = "Lunger";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(Name)
@@ -30,23 +29,23 @@ internal sealed class Lunger : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class ModifyWeaponAttackModeLunger : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeLunger : ModifyWeaponAttackModeBase
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public ModifyWeaponAttackModeLunger() : base(IsWeaponValid, Name, ValidatorsCharacter.HasFreeHand)
         {
-            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
-            var offHandWeapon = character.GetOffhandWeapon();
+        }
 
-            if (offHandWeapon?.ItemDefinition != null ||
-                attackMode == null ||
-                !ValidatorsWeapon.IsMelee(itemDefinition) ||
-                ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy))
-            {
-                return;
-            }
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+           IncreaseReach(attackMode);
+        }
 
-            attackMode.reach = true;
-            attackMode.reachRange = 2;
+        private static bool IsWeaponValid(RulesetAttackMode attackMode, RulesetItem rulesetItem,
+            RulesetCharacter rulesetCharacter)
+        {
+            var item = attackMode?.SourceObject as RulesetItem ?? rulesetItem;
+            return ValidatorsWeapon.IsMelee(item) &&
+                   !ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagHeavy);
         }
     }
 }

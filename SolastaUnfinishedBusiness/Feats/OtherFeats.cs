@@ -487,26 +487,23 @@ internal static class OtherFeats
                 {
                     AllowRange = false,
                     WeaponValidator = (mode, _, character) =>
-                        ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(character, mode)
+                        ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(mode, null, character)
                 },
                 new ModifyWeaponAttackModeFeatAstralArms())
             .AddToDB();
     }
 
-    private sealed class ModifyWeaponAttackModeFeatAstralArms : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeFeatAstralArms : ModifyWeaponAttackModeBase
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public ModifyWeaponAttackModeFeatAstralArms() : base(ValidWeapon)
         {
-            if (!ValidWeapon(character, attackMode))
-            {
-                return;
-            }
-
-            attackMode.reach = true;
-            attackMode.reachRange = 2;
+        }
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            IncreaseReach(attackMode);
         }
 
-        public static bool ValidWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
+        public static bool ValidWeapon( RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
         {
             return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
         }
