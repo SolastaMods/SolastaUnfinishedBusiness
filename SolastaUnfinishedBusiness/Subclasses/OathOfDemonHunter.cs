@@ -34,17 +34,21 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
 
     internal static FeatureDefinition DemonHunter { get; } = BuildDemonHunter();
     internal static ConditionDefinition TrialMark { get; } = BuildTrialMark();
+    internal static FeatureDefinitionPower PowerTrialMark { get; } = BuildPowerTrialMark();
 
-    internal static IsWeaponValidHandler IsValidWeapon { get; } = (mode, item, character) =>
-        character.HasAnyFeature(DemonHunter) && 
+    internal static IsWeaponValidHandler IsCrossbowWeapon { get; } = 
         ValidatorsWeapon
-            .IsOfWeaponType(LightCrossbowType, HeavyCrossbowType, CustomWeaponsContext.HandXbowWeaponType)(mode, item, character);
+            .IsOfWeaponType(LightCrossbowType, HeavyCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
 
     internal OathOfDemonHunter()
     {
         //
         // LEVEL 03
         //
+        
+        // auto prepared spells
+        // demon hunter
+        // trial mark
         
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
@@ -59,22 +63,70 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
-        // Trial Mark
+        //
+        // LEVEL 07
+        //
         
+        // Light Energy Crossbow Bolt
+
+        var lightEnergyCrossbowBolt = FeatureDefinitionFeatureSetBuilder
+            .Create($"Feature{Name}LightEnergyCrossbowBolt")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(
+                new RangedAttackInMeleeDisadvantageRemover(IsCrossbowWeapon),
+                new CustomReactionLightEnergyCrossbowBolt())
+            .AddFeatureSet()
+            .AddToDB();
+        
+        
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDread, 256))
+            .AddFeaturesAtLevel(3,
+                autoPreparedSpells,
+                DemonHunter,
+                PowerTrialMark)
+            .AddFeaturesAtLevel(7, lightEnergyCrossbowBolt)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildDemonHunter()
+    {
+        return FeatureDefinitionBuilder
+            .Create($"Feature{Name}DemonHunter")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+    }
+    
+    private static ConditionDefinition BuildTrialMark()
+    {
+        return ConditionDefinitionBuilder
+            .Create(ConditionMarkedByHunter, $"Condition{Name}TrialMark")
+            .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
+            .SetSpecialDuration(DurationType.Round, 10)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .AddToDB();
+    }
+    
+    private static FeatureDefinitionPower BuildPowerTrialMark()
+    {
+        // Trial Mark
         var damageAffinityTrialMark = FeatureDefinitionAdditionalDamageBuilder
             .Create("DamageAffinityTrialMark")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("TrialMark")
             .SetTargetSide(Side.Ally)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetDamageDice(DieType.D4, 2)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetRequiredProperty(RestrictedContextRequiredProperty.None)
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddToDB();
-
-        var powerTrialMark = FeatureDefinitionPowerBuilder
+        
+        return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TrialMark")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ChannelDivinity)
@@ -93,35 +145,6 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new CustomAdditionalDamagePowerTrialMark(damageAffinityTrialMark))
-            .AddToDB();
-        
-        
-        Subclass = CharacterSubclassDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDread, 256))
-            .AddFeaturesAtLevel(3,
-                autoPreparedSpells,
-                DemonHunter,
-                powerTrialMark)
-            .AddToDB();
-    }
-    
-    private static FeatureDefinition BuildDemonHunter()
-    {
-        return FeatureDefinitionBuilder
-            .Create($"Feature{Name}DemonHunter")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-    }
-    
-    private static ConditionDefinition BuildTrialMark()
-    {
-        return ConditionDefinitionBuilder
-            .Create(ConditionMarkedByHunter, $"Condition{Name}TrialMark")
-            .SetGuiPresentation(Category.Condition, ConditionMarkedByHunter)
-            .SetSpecialDuration(DurationType.Round, 10)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetPossessive()
             .AddToDB();
     }
     
@@ -151,6 +174,78 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             return attackMode.sourceDefinition is ItemDefinition { IsWeapon: true } && rulesetDefender.HasConditionOfType(TrialMark);
+        }
+    }
+    
+    private sealed class CustomReactionLightEnergyCrossbowBolt : IPhysicalAttackFinished
+    {
+        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome, int damageAmount)
+        {
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
+            
+            if (!IsCrossbowWeapon(attackerAttackMode, null, null))
+            {
+                yield break;
+            }
+            
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            if (battleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+            
+            var actionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            if (actionService == null)
+            {
+                yield break;
+            }
+            
+            var rulesetAttacker = attacker.RulesetCharacter;
+            if (!rulesetAttacker.CanUsePower(PowerTrialMark))
+            {
+                yield break;
+            }
+            
+            var usablePower = UsablePowersProvider.Get(PowerTrialMark, rulesetAttacker);
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            {
+                StringParameter = $"CustomReactionLightEnergyCrossbowBoltDescription",
+                UsablePower = usablePower
+            };
+            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("LightEnergyCrossbowBolt", reactionParams);
+
+            actionService.AddInterruptRequest(reactionRequest);
+
+            yield return battleService.WaitForReactions(attacker, actionService, previousReactionCount);
+            
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+            
+            var rulesetDefender = defender.RulesetCharacter;
+            rulesetAttacker.UsePower(usablePower);
+            rulesetDefender.InflictCondition(
+                TrialMark.Name,
+                TrialMark.DurationType,
+                TrialMark.DurationParameter,
+                TrialMark.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+            
         }
     }
 }
