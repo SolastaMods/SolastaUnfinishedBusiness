@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -476,6 +477,9 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildAstralArms()
     {
+        bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
+            => ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
+
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
@@ -485,30 +489,10 @@ internal static class OtherFeats
                 new CanMakeAoOOnReachEntered
                 {
                     AllowRange = false,
-                    WeaponValidator = (mode, _, character) =>
-                        ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(character, mode)
+                    WeaponValidator = ValidWeapon
                 },
-                new ModifyWeaponAttackModeFeatAstralArms())
+                new IncreaseWeaponReach(1, ValidWeapon))
             .AddToDB();
-    }
-
-    private sealed class ModifyWeaponAttackModeFeatAstralArms : IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            if (!ValidWeapon(character, attackMode))
-            {
-                return;
-            }
-
-            attackMode.reach = true;
-            attackMode.reachRange = 2;
-        }
-
-        public static bool ValidWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
-        }
     }
 
     #endregion
@@ -831,7 +815,9 @@ internal static class OtherFeats
                 saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
             };
 
-            return new RulesetEffectPower(rulesetCharacter, usablePower);
+            return ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
         }
 
         private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)

@@ -221,8 +221,10 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             return;
         }
 
-        var rulesetPower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
-        var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
+        var usablePower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
+        var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+            .AddAsActivePowerToSource();
 
         effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
     }
@@ -308,7 +310,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
                 // setup explosion power and increase damage dice based on Monk progression
                 var usablePower = UsablePowersProvider.Get(_powerDiscordanceDamage, rulesetAttacker);
-                var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+                var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .AddAsActivePowerToSource();
                 var damageForm = effectPower.EffectDescription.FindFirstDamageForm();
                 var monkLevel = GetMonkLevel(rulesetAttacker);
 

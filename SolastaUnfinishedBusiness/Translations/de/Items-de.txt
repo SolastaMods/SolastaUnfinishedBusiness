@@ -1,3 +1,5 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Kann nicht überrascht sein.
+Feature/&PerceptionAffinityHelmOfAwarenessTitle=LEER
 Feature/&PowerHandwrapsOfPullingDescription=Als Bonusaktion kannst du eine Kreatur im Umkreis von 15 Fuß näher an dich heranziehen.
 Feature/&PowerHandwrapsOfPullingTitle=Spulen Sie ein
 Feedback/&ExtraDamageDescription=Zusätzlicher Schaden durch Blitzspeer.
@@ -202,6 +204,7 @@ Item/&Club_Power_Description=Diese verzauberte Waffe wurde mit dem alten Wissen 
 Item/&Club_Power_Title=Club der Macht
 Item/&Club_Punisher_Description=Diese verzauberte Waffe wurde mithilfe des alten Wissens der Meisterschmiede von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verleiht dieser Axt eine unglaubliche Durchschlagskraft.
 Item/&Club_Punisher_Title=Punisher-Club
+Item/&ConjuredWeaponTypeTitle=Beschworene Waffen
 Item/&Dart_Acuteness_Description=Diese verzauberte Waffe wurde mithilfe des alten Wissens der Meisterschmiede von Manacalon hergestellt. Sein Entwurf war eines der frühen Werke von Elgador Keenspirit, dem Magierschmied des Arkanums.
 Item/&Dart_Acuteness_Title=Pfeil der Schärfe
 Item/&Dart_Frostburn_Description=Diese verzauberte Waffe wurde mithilfe des alten Wissens der Meisterschmiede von Manacalon hergestellt. Sie wurde von Keliandir Moltenheart entworfen, der diese Waffe zur Bekämpfung von Salamandern schmiedete, nachdem eine Erkundung der Elementarebenen fehlgeschlagen war.

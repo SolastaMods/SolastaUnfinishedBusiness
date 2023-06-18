@@ -524,7 +524,7 @@ An ally you touch gains the ability to fly for a limited time.
 
 # 132. - Fog Cloud
 
-Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight.
+Generate a sphere of thick fog for a limited time. The area is heavily obscured, penalizing creatures inside it that rely on sight.
 
 # 133. - Fox's Cunning
 

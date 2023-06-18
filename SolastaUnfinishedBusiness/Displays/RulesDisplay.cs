@@ -304,6 +304,17 @@ internal static class RulesDisplay
             }
         }
 
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("Action/&NeutralCreatureTitle"), UI.Width((float)100));
+
+            intValue = Main.Settings.CriticalHitModeNeutral;
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width((float)220)))
+            {
+                Main.Settings.CriticalHitModeNeutral = intValue;
+            }
+        }
+
         UI.Label();
     }
 }

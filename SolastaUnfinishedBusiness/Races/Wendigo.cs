@@ -4,9 +4,9 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
@@ -72,13 +72,14 @@ internal static class RaceWendigoBuilder
                 ))
             .AddToDB();
 
-
         var featureWendigoNaturalLunger = FeatureDefinitionBuilder
             .Create("FeatureWendigoNaturalLunger")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyWeaponAttackModeWendigoNaturalLunger())
+            .SetCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee, Lunger.Name))
             .AddToDB();
+
         var racePresentation = Tiefling.RacePresentation.DeepCopy();
+
         racePresentation.preferedSkinColors = new RangedInt(28, 47);
 
         var raceWendigo = CharacterRaceDefinitionBuilder
@@ -103,8 +104,8 @@ internal static class RaceWendigoBuilder
                 proficiencyWendigoLanguages)
             .AddToDB();
 
-
         RacesContext.RaceScaleMap[raceWendigo] = 7.8f / 6.4f;
+
         return raceWendigo;
     }
 
@@ -132,31 +133,6 @@ internal static class RaceWendigoBuilder
             return battleManager.Battle.CurrentRound == 1 &&
                    battleManager.Battle.InitiativeSortedContenders.IndexOf(attacker)
                    < battleManager.Battle.InitiativeSortedContenders.IndexOf(defender);
-        }
-    }
-
-    private class ModifyWeaponAttackModeWendigoNaturalLunger :
-        IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
-
-            if (attackMode == null ||
-                !ValidatorsWeapon.IsMelee(itemDefinition))
-            {
-                return;
-            }
-
-            if (attackMode.reach)
-            {
-                attackMode.reachRange = 3;
-            }
-            else
-            {
-                attackMode.reach = true;
-                attackMode.reachRange = 2;
-            }
         }
     }
 }

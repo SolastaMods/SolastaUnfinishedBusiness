@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Ne peut pas être surpris.
 Feature/&PowerHandwrapsOfPullingDescription=Par une action bonus, vous pouvez rapprocher de vous une créature située dans un rayon de 4,50 mètres.
 Feature/&PowerHandwrapsOfPullingTitle=Ramener
 Feedback/&ExtraDamageDescription=Dégâts supplémentaires de Lightning Spear.
@@ -202,6 +203,7 @@ Item/&Club_Power_Description=Cette arme enchantée a été forgée en utilisant 
 Item/&Club_Power_Title=Club du pouvoir
 Item/&Club_Punisher_Description=Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. La combinaison du meilleur métal et de Slavestone a donné à cette hache un pouvoir de perçage incroyable.
 Item/&Club_Punisher_Title=Club des punisseurs
+Item/&ConjuredWeaponTypeTitle=Armes invoquées
 Item/&Dart_Acuteness_Description=Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith de l'Arcaneum.
 Item/&Dart_Acuteness_Title=Fléchette d'acuité
 Item/&Dart_Frostburn_Description=Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Keliandir Moltenheart, qui a forgé cette arme pour combattre les salamandres après qu'une exploration des plans élémentaires ait mal tourné.

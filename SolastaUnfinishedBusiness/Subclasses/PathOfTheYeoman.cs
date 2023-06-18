@@ -336,7 +336,9 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
                 _ => 2
             };
             var usablePower = UsablePowersProvider.Get(_powerMightyShot, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
             var damageForm = effectPower.EffectDescription.FindFirstDamageForm();
 
             damageForm.bonusDamage = rageBonus +

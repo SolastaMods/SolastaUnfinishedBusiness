@@ -1,21 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageRangerFavoredEnemyAberration:b530d1b42a948204997d810a963e2490",
-    "Definition:AdditionalDamageRangerFavoredEnemyBeast:89dd93a7d53fb934a8bfa9a3d71045de",
-    "Definition:AdditionalDamageRangerFavoredEnemyCelestial:edcb0cf4d49d3634687ec11a4c745180",
-    "Definition:AdditionalDamageRangerFavoredEnemyConstruct:4421e4271811cde439d9903c08d35db1",
-    "Definition:AdditionalDamageRangerFavoredEnemyDragon:e0fdd73bfdbd8d9478a7dbe75ea3a6e8",
-    "Definition:AdditionalDamageRangerFavoredEnemyElemental:9f36ca7f1b0b26c4d806fbdb759cfb42",
-    "Definition:AdditionalDamageRangerFavoredEnemyFey:4fb0b8bcd73ee9547883f56f1a39e2a1",
-    "Definition:AdditionalDamageRangerFavoredEnemyFiend:711dbba70806e154b8c37fd2662b1d26",
-    "Definition:AdditionalDamageRangerFavoredEnemyGiant:1daa09da93242854b87610533c5f88b7",
-    "Definition:AdditionalDamageMarshalFavoredEnemyHumanoid:81d35585-a7df-5c94-828b-a29d68cde0b1",
-    "Definition:AdditionalDamageRangerFavoredEnemyMonstrosity:a168863b41a8ba042ad0d2d5c315f1de",
     "Definition:OnComputeAttackModifierMarshalKnowYourEnemy:8568df89-5da5-55f6-8c7c-0c2df2427cb3",
-    "Definition:AdditionalDamageRangerFavoredEnemyOoze:b33301aba68b1db4d8355871a8d41f8f",
-    "Definition:AdditionalDamageRangerFavoredEnemyPlant:5165b54009a616844b575cbe0485cad8",
-    "Definition:AdditionalDamageRangerFavoredEnemyUndead:97c1aa3907924a147b9dbbbd99f752bb"
+    "Definition:AdditionalDamageMarshalKnowYourEnemy:60eba812-39b8-56eb-a0b1-a62643176cf3"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

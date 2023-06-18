@@ -17,7 +17,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
@@ -95,20 +94,13 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 onComputeAttackModifierMarshalKnowYourEnemy,
-                AdditionalDamageRangerFavoredEnemyAberration,
-                AdditionalDamageRangerFavoredEnemyBeast,
-                AdditionalDamageRangerFavoredEnemyCelestial,
-                AdditionalDamageRangerFavoredEnemyConstruct,
-                AdditionalDamageRangerFavoredEnemyDragon,
-                AdditionalDamageRangerFavoredEnemyElemental,
-                AdditionalDamageRangerFavoredEnemyFey,
-                AdditionalDamageRangerFavoredEnemyFiend,
-                AdditionalDamageRangerFavoredEnemyGiant,
-                AdditionalDamageRangerFavoredEnemyMonstrosity,
-                AdditionalDamageRangerFavoredEnemyOoze,
-                AdditionalDamageRangerFavoredEnemyPlant,
-                AdditionalDamageRangerFavoredEnemyUndead,
-                CommonBuilders.AdditionalDamageMarshalFavoredEnemyHumanoid
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageMarshalKnowYourEnemy")
+                    .SetGuiPresentationNoContent()
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
+                    .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+                    .SetNotificationTag("KnowYourEnemy")
+                    .AddToDB()
             )
             .AddToDB();
     }
@@ -377,7 +369,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         var featureMarshalKnowledgeableDefense = FeatureDefinitionBuilder
             .Create("FeatureMarshalKnowledgeableDefense")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new DefenderBeforeAttackHitConfirmedKnowledgeableDefense())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeKnowledgeableDefense())
             .AddToDB();
 
         return featureMarshalKnowledgeableDefense;
@@ -469,7 +461,8 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode != null
+                    StringParameter2 = MarshalCoordinatedAttackName,
+                    BoolParameter4 = mode == null //true means no attack
                 };
                 reactionParams.targetCharacters.Add(defender);
                 reactionParams.actionModifiers.Add(modifier ?? new ActionModifier());
@@ -596,7 +589,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private class DefenderBeforeAttackHitConfirmedKnowledgeableDefense : IPhysicalAttackInitiatedOnMe
+    private class PhysicalAttackInitiatedOnMeKnowledgeableDefense : IPhysicalAttackInitiatedOnMe
     {
         public IEnumerator OnAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
@@ -616,7 +609,8 @@ internal sealed class MartialMarshal : AbstractSubclass
             var rulesetMe = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetMe == null || rulesetAttacker == null || rulesetAttacker.IsDeadOrDying)
+            if (rulesetMe is not { IsDeadOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

@@ -166,7 +166,7 @@ internal static class MulticlassContext
             Warlock,
             new List<FeatureDefinition>
             {
-                PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow, ProficiencyWarlockWeapon
+                PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow
             }
         },
         {

@@ -434,7 +434,9 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetCharacter = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerEyeOfTheStormLeap, rulesetCharacter);
-            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
 
             foreach (var defender in battleService.Battle.AllContenders
                          .Where(x =>

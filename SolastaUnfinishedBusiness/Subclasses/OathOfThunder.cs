@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,7 +16,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -119,7 +120,7 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(CallLightning)
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -151,7 +152,9 @@ internal sealed class OathOfThunder : AbstractSubclass
             .SetNotificationTag("GodOfThunder")
             .SetDamageDice(DieType.D4, 1)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 7)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
+            .SetImpactParticleReference(
+                ShockingGrasp.EffectDescription.effectParticleParameters.effectParticleReference)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
@@ -167,16 +170,17 @@ internal sealed class OathOfThunder : AbstractSubclass
 
         var powerBifrost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bifrost")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerSorcererManaPainterTap)
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
                     .InviteOptionalAlly()
-                    .HasSavingThrow(AttributeDefinitions.Constitution,
+                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(DimensionDoor)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -184,6 +188,63 @@ internal sealed class OathOfThunder : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
+            .AddToDB();
+
+        var powerBifrostDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BifrostDamage")
+            .SetGuiPresentation($"Power{Name}Bifrost", Category.Feature, hidden: true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(Thunderwave)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerBifrost.SetCustomSubFeatures(new ActionFinishedBifrost(powerBifrost, powerBifrostDamage));
+
+        // LEVEL 20
+
+        // Storm Herald
+
+        var powerStormHerald = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}StormHerald")
+            .SetGuiPresentation(Category.Feature, ChainLightning)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 5)
+                    .SetSavingThrowData(true, AttributeDefinitions.Dexterity, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeLightning, 3, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var featureSetStormHerald = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}StormHerald")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionMoveModes.MoveModeFly12,
+                FeatureDefinitionDamageAffinitys.DamageAffinityLightningImmunity,
+                FeatureDefinitionDamageAffinitys.DamageAffinityThunderImmunity,
+                powerStormHerald)
             .AddToDB();
 
         // MAIN
@@ -201,7 +262,8 @@ internal sealed class OathOfThunder : AbstractSubclass
                 featureGodOfThunder)
             .AddFeaturesAtLevel(15,
                 powerBifrost)
-            .AddFeaturesAtLevel(20)
+            .AddFeaturesAtLevel(20,
+                featureSetStormHerald)
             .AddToDB();
     }
 
@@ -229,7 +291,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (!IsValidWeapon(attackMode, null, myself))
+            if (IsValidWeapon(attackMode, null, myself))
             {
                 return;
             }
@@ -293,6 +355,52 @@ internal sealed class OathOfThunder : AbstractSubclass
             reactionParams = null;
 
             return IsValidWeapon(attackMode, null, null);
+        }
+    }
+
+    private sealed class ActionFinishedBifrost : IActionFinished
+    {
+        private readonly FeatureDefinitionPower _powerBifrost;
+        private readonly FeatureDefinitionPower _powerBifrostDamage;
+
+        public ActionFinishedBifrost(
+            FeatureDefinitionPower powerBifrost,
+            FeatureDefinitionPower powerBifrostDamage)
+        {
+            _powerBifrost = powerBifrost;
+            _powerBifrostDamage = powerBifrostDamage;
+        }
+
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _powerBifrost)
+            {
+                yield break;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var attacker = characterAction.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
+
+            foreach (var defender in gameLocationBattleService.Battle.AllContenders
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                     x.Side != attacker.Side &&
+                                     gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+                         .ToList()) // avoid enumerator changes
+            {
+                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            }
         }
     }
 }

@@ -58,6 +58,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .AllowMultipleInstances()
         .SetFeatures(FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionWarDanceMomentum")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
             .SetActionType(ActionType.Main)
             .SetMaxAttacksNumber(1)
@@ -350,8 +351,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         {
         }
 
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
-            RulesetItem weapon)
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             var momentum = GetMomentumStacks(character);
 

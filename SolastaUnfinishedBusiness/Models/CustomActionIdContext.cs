@@ -5,8 +5,10 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -18,33 +20,30 @@ public static class CustomActionIdContext
     {
         BuildCustomInvocationActions();
         BuildCustomPushedAction();
-        BuildFarStepAction();
+        BuildCustomRageStartAction();
+        BuildCustomToggleActions();
         BuildDoNothingActions();
+        BuildFarStepAction();
     }
 
     private static void BuildCustomInvocationActions()
     {
-        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("CastInvocation", out var baseAction))
-        {
-            return;
-        }
-
         ActionDefinitionBuilder
-            .Create(baseAction, "CastInvocationBonus")
+            .Create(CastInvocation, "CastInvocationBonus")
             .SetActionId(ExtraActionId.CastInvocationBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "CastInvocationNoCost")
+            .Create(CastInvocation, "CastInvocationNoCost")
             .SetActionId(ExtraActionId.CastInvocationNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "CastPlaneMagicMain")
+            .Create(CastInvocation, "CastPlaneMagicMain")
             .SetGuiPresentation("CastPlaneMagic", Category.Action, Sprites.ActionPlaneMagic, 10)
             .SetActionId(ExtraActionId.CastPlaneMagicMain)
             .SetActionType(ActionType.Main)
@@ -52,7 +51,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "CastPlaneMagicBonus")
+            .Create(CastInvocation, "CastPlaneMagicBonus")
             .SetGuiPresentation("CastPlaneMagic", Category.Action, Sprites.ActionPlaneMagic, 41)
             .SetActionId(ExtraActionId.CastPlaneMagicBonus)
             .SetActionType(ActionType.Bonus)
@@ -60,7 +59,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "InventorInfusion")
+            .Create(CastInvocation, "InventorInfusion")
             .SetGuiPresentation(Category.Action, Sprites.ActionInfuse, 20)
             .SetActionId(ExtraActionId.InventorInfusion)
             .SetActionType(ActionType.Main)
@@ -68,7 +67,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "TacticianGambitMain")
+            .Create(CastInvocation, "TacticianGambitMain")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
             .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitMain)
@@ -77,7 +76,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "TacticianGambitBonus")
+            .Create(CastInvocation, "TacticianGambitBonus")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
             .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitBonus)
@@ -86,7 +85,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "TacticianGambitNoCost")
+            .Create(CastInvocation, "TacticianGambitNoCost")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
             .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitNoCost)
@@ -95,7 +94,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "CastSpellMasteryMain")
+            .Create(CastInvocation, "CastSpellMasteryMain")
             .SetGuiPresentation("CastSpellMastery", Category.Action, Sprites.ActionPlaneMagic, 10)
             .SetActionId(ExtraActionId.CastSpellMasteryMain)
             .SetActionType(ActionType.Main)
@@ -103,7 +102,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "CastSignatureSpellsMain")
+            .Create(CastInvocation, "CastSignatureSpellsMain")
             .SetGuiPresentation("CastSignatureSpells", Category.Action, Sprites.ActionPlaneMagic, 10)
             .SetActionId(ExtraActionId.CastSignatureSpellsMain)
             .SetActionType(ActionType.Main)
@@ -113,14 +112,43 @@ public static class CustomActionIdContext
 
     private static void BuildCustomPushedAction()
     {
-        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("Pushed", out var baseAction))
-        {
-            return;
-        }
+        ActionDefinitionBuilder
+            .Create(Pushed, "PushedCustom")
+            .SetActionId(ExtraActionId.PushedCustom)
+            .AddToDB();
+    }
+
+    private static void BuildCustomRageStartAction()
+    {
+        ActionDefinitionBuilder
+            .Create(RageStart, "CombatRageStart")
+            .SetActionId(ExtraActionId.CombatRageStart)
+            .SetActionType(ActionType.NoCost)
+            .SetActivatedPower(PathOfTheSavagery.PowerPrimalInstinct)
+            .AddToDB();
+    }
+
+    private static void BuildCustomToggleActions()
+    {
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "FeatCrusherToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.FeatCrusherToggle)
+            .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "PushedCustom")
-            .SetActionId(ExtraActionId.PushedCustom)
+            .Create(MetamagicToggle, "MonkKiPointsToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MonkKiPointsToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "PaladinSmiteToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PaladinSmiteToggle)
             .AddToDB();
     }
 
@@ -158,13 +186,8 @@ public static class CustomActionIdContext
 
     private static void BuildDoNothingActions()
     {
-        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("UseBardicInspiration", out var baseAction))
-        {
-            return;
-        }
-
         ActionDefinitionBuilder
-            .Create(baseAction, "DoNothingFree")
+            .Create(UseBardicInspiration, "DoNothingFree")
             .SetGuiPresentationNoContent()
             .SetActionId(ExtraActionId.DoNothingFree)
             .SetActionType(ActionType.NoCost)
@@ -173,7 +196,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "DoNothingReaction")
+            .Create(UseBardicInspiration, "DoNothingReaction")
             .SetGuiPresentationNoContent()
             .SetActionId(ExtraActionId.DoNothingReaction)
             .SetActionType(ActionType.Reaction)
@@ -236,6 +259,7 @@ public static class CustomActionIdContext
         if (action.ActionScope != ActionScope.All && action.ActionScope != scope)
         {
             result = ActionStatus.Unavailable;
+
             return;
         }
 
@@ -260,12 +284,14 @@ public static class CustomActionIdContext
                 || !actionPerformanceFilters[index].AuthorizedActions.Contains(actionId))
             {
                 result = ActionStatus.Unavailable;
+
                 return;
             }
         }
         else if (index >= actionPerformanceFilters.Count)
         {
             result = ActionStatus.Unavailable;
+
             return;
         }
 

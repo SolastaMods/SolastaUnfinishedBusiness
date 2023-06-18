@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Cannot be surprised.
 Feature/&PowerHandwrapsOfPullingDescription=As a bonus action, you can pull a creature within 15 ft closer to you.
 Feature/&PowerHandwrapsOfPullingTitle=Reel In
 Feedback/&ExtraDamageDescription=Extra damage from Lighting Spear.
@@ -202,6 +203,7 @@ Item/&Club_Power_Description=This enchanted weapon was forged using the ancient 
 Item/&Club_Power_Title=Club of Power
 Item/&Club_Punisher_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 Item/&Club_Punisher_Title=Punisher Club
+Item/&ConjuredWeaponTypeTitle=Conjured Weapons
 Item/&Dart_Acuteness_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Item/&Dart_Acuteness_Title=Dart of Acuteness
 Item/&Dart_Frostburn_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
