@@ -42,13 +42,13 @@ internal static class EffectHelpers
     }
 
     internal static int CalculateSaveDc(RulesetCharacter character, EffectDescription effectDescription,
-        string className, int def = 10)
+        CharacterClassDefinition classDefinition, int def = 10)
     {
         switch (effectDescription.DifficultyClassComputation)
         {
             case RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature:
             {
-                var rulesetSpellRepertoire = character.GetClassSpellRepertoire(className);
+                var rulesetSpellRepertoire = character.GetClassSpellRepertoire(classDefinition);
 
                 if (rulesetSpellRepertoire != null)
                 {

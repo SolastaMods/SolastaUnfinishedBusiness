@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
@@ -332,6 +333,22 @@ internal class EffectFormBuilder
         effectForm.lightSourceForm = lightSourceForm;
         effectForm.FormType = EffectForm.EffectFormType.LightSource;
         return this;
+    }
+
+    [UsedImplicitly]
+    internal static EffectForm MotionForm(MotionForm.MotionType motionType, int motionDistance = 0)
+    {
+        return Create()
+            .SetMotionForm(motionType, motionDistance)
+            .Build();
+    }
+
+    [UsedImplicitly]
+    internal static EffectForm MotionForm(ExtraMotionType motionType, int motionDistance = 0)
+    {
+        return Create()
+            .SetMotionForm(motionType, motionDistance)
+            .Build();
     }
 
     internal EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance = 0)
