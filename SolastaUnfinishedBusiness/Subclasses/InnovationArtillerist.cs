@@ -452,7 +452,10 @@ public static class InnovationArtillerist
                 powerDetonateSelf,
                 powerFlamethrower09,
                 powerForceBallista09,
-                powerProtector09)
+                powerProtector09,
+                powerTinyFlamethrower09,
+                powerTinyForceBallista09,
+                powerTinyProtector09)
             .AddToDB();
 
         #endregion
@@ -516,7 +519,10 @@ public static class InnovationArtillerist
                 powerFortifiedPositionTiny,
                 powerFlamethrower15,
                 powerForceBallista15,
-                powerProtector15)
+                powerProtector15,
+                powerTinyFlamethrower15,
+                powerTinyForceBallista15,
+                powerTinyProtector15)
             .AddToDB();
 
         #endregion
@@ -536,14 +542,6 @@ public static class InnovationArtillerist
             powerTinyFlamethrower09, powerTinyForceBallista09, powerTinyProtector09);
 
         PowerBundle.RegisterPowerBundle(powerFortifiedPositionPool, true,
-            powerFlamethrower15, powerForceBallista15, powerProtector15,
-            powerTinyFlamethrower15, powerTinyForceBallista15, powerTinyProtector15);
-
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.ArtilleristCannon,
-            powerFlamethrower03, powerForceBallista03, powerProtector03,
-            powerTinyFlamethrower03, powerTinyForceBallista03, powerTinyProtector03,
-            powerFlamethrower09, powerForceBallista09, powerProtector09,
-            powerTinyFlamethrower09, powerTinyForceBallista09, powerTinyProtector09,
             powerFlamethrower15, powerForceBallista15, powerProtector15,
             powerTinyFlamethrower15, powerTinyForceBallista15, powerTinyProtector15);
 
@@ -663,7 +661,6 @@ public static class InnovationArtillerist
         .Create($"Condition{Name}{Flamethrower}")
         .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityFlamethrower)
         .AddToDB();
 
@@ -678,7 +675,6 @@ public static class InnovationArtillerist
         .Create($"Condition{Name}{ForceBallista}")
         .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityForceBallista)
         .AddToDB();
 
@@ -693,7 +689,6 @@ public static class InnovationArtillerist
         .Create($"Condition{Name}{Protector}")
         .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityProtector)
         .AddToDB();
 
@@ -710,7 +705,6 @@ public static class InnovationArtillerist
         .Create($"Condition{Name}{Flamethrower}Tiny")
         .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityFlamethrowerTiny)
         .AddToDB();
 
@@ -725,7 +719,6 @@ public static class InnovationArtillerist
         .Create($"Condition{Name}{ForceBallista}Tiny")
         .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityForceBallistaTiny)
         .AddToDB();
 
@@ -740,7 +733,6 @@ public static class InnovationArtillerist
         .Create($"Condition{Name}{Protector}Tiny")
         .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityProtectorTiny)
         .AddToDB();
 
@@ -809,6 +801,8 @@ public static class InnovationArtillerist
 
         if (level < 15)
         {
+            power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 1));
+
             return power;
         }
 
@@ -946,6 +940,8 @@ public static class InnovationArtillerist
 
         if (level < 15)
         {
+            power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 1));
+
             return power;
         }
 
