@@ -75,7 +75,7 @@ internal static class RaceWendigoBuilder
         var featureWendigoNaturalLunger = FeatureDefinitionBuilder
             .Create("FeatureWendigoNaturalLunger")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyWeaponAttackModeWendigoNaturalLunger())
+            .SetCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee, Lunger.Name))
             .AddToDB();
 
         var racePresentation = Tiefling.RacePresentation.DeepCopy();
@@ -133,18 +133,6 @@ internal static class RaceWendigoBuilder
             return battleManager.Battle.CurrentRound == 1 &&
                    battleManager.Battle.InitiativeSortedContenders.IndexOf(attacker)
                    < battleManager.Battle.InitiativeSortedContenders.IndexOf(defender);
-        }
-    }
-
-    private class ModifyWeaponAttackModeWendigoNaturalLunger : ModifyWeaponAttackModeBase
-    {
-        public ModifyWeaponAttackModeWendigoNaturalLunger() : base(ValidatorsWeapon.IsMelee, Lunger.Name)
-        {
-        }
-
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            IncreaseReach(attackMode);
         }
     }
 }

@@ -213,7 +213,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(FeatureDefinitionBuilder
                 .Create($"Feature{NAME}Reach")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseMeleeWeaponAttackReach(1, validWeapon,
+                .SetCustomSubFeatures(new IncreaseWeaponReach(1, validWeapon,
                     ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
                 .AddToDB())
             .AddToDB();

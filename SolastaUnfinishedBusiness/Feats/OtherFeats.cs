@@ -477,6 +477,9 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildAstralArms()
     {
+        bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
+            => ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
+
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
@@ -486,27 +489,10 @@ internal static class OtherFeats
                 new CanMakeAoOOnReachEntered
                 {
                     AllowRange = false,
-                    WeaponValidator = (mode, _, character) =>
-                        ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(mode, null, character)
+                    WeaponValidator = ValidWeapon
                 },
-                new ModifyWeaponAttackModeFeatAstralArms())
+                new IncreaseWeaponReach(1, ValidWeapon))
             .AddToDB();
-    }
-
-    private sealed class ModifyWeaponAttackModeFeatAstralArms : ModifyWeaponAttackModeBase
-    {
-        public ModifyWeaponAttackModeFeatAstralArms() : base(ValidWeapon)
-        {
-        }
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            IncreaseReach(attackMode);
-        }
-
-        public static bool ValidWeapon( RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-        {
-            return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
-        }
     }
 
     #endregion

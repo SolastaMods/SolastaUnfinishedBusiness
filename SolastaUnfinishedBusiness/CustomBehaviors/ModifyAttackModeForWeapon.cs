@@ -150,12 +150,6 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
     protected abstract void TryModifyAttackMode(
         [NotNull] RulesetCharacter character,
         [NotNull] RulesetAttackMode attackMode);
-
-    protected static void IncreaseReach(RulesetAttackMode mode, int increase = 1)
-    {
-        mode.reach = true;
-        mode.reachRange = Math.Max(mode.reachRange, 1) + increase;
-    }
 }
 
 internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
@@ -259,28 +253,27 @@ internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeB
     }
 }
 
-internal sealed class IncreaseMeleeWeaponAttackReach : ModifyWeaponAttackModeBase
+internal sealed class IncreaseWeaponReach : ModifyWeaponAttackModeBase
 {
-    private readonly int _bonus;
+    private readonly int bonus;
 
-    internal IncreaseMeleeWeaponAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
-        params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
+    internal IncreaseWeaponReach(int bonus, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : this(bonus, isWeaponValid, null, validators)
     {
-        _bonus = bonus;
+    }
+
+    internal IncreaseWeaponReach(int bonus, IsWeaponValidHandler isWeaponValid, string unicityTag,
+        params IsCharacterValidHandler[] validators) : base(isWeaponValid, unicityTag, validators)
+    {
+        this.bonus = bonus;
     }
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
         RulesetAttackMode attackMode)
     {
-        var weapon = attackMode.SourceObject as RulesetItem;
-        //this getter also checks is this is not thrown/ranged mode
-        if (weapon != null && !ValidatorsWeapon.HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagMelee))
-        {
-            return;
-        }
-
-        attackMode.reachRange += _bonus;
+        //maybe I'm paranoid, but I think I saw reach being 0 in some cases, hence the Math.Max
+        attackMode.reachRange = Math.Max(attackMode.reachRange, 1) + bonus;
         attackMode.reach = true;
     }
 }

@@ -20,7 +20,12 @@ internal sealed class Lunger : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("FeatureLunger")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new ModifyWeaponAttackModeLunger())
+                .SetCustomSubFeatures(new IncreaseWeaponReach(1, (mode, rulesetItem, _) =>
+                {
+                    var item = mode?.SourceObject as RulesetItem ?? rulesetItem;
+                    return ValidatorsWeapon.IsMelee(item) &&
+                           !ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagHeavy);
+                }, Name))
                 .AddToDB())
         .AddToDB();
 
@@ -28,24 +33,4 @@ internal sealed class Lunger : AbstractFightingStyle
     {
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
-
-    private sealed class ModifyWeaponAttackModeLunger : ModifyWeaponAttackModeBase
-    {
-        public ModifyWeaponAttackModeLunger() : base(IsWeaponValid, Name, ValidatorsCharacter.HasFreeHand)
-        {
-        }
-
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-           IncreaseReach(attackMode);
-        }
-
-        private static bool IsWeaponValid(RulesetAttackMode attackMode, RulesetItem rulesetItem,
-            RulesetCharacter rulesetCharacter)
-        {
-            var item = attackMode?.SourceObject as RulesetItem ?? rulesetItem;
-            return ValidatorsWeapon.IsMelee(item) &&
-                   !ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagHeavy);
-        }
-    }
 }
