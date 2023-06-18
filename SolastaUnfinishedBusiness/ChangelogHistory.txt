@@ -5,8 +5,12 @@
 - added tags and unidentified filters to inventory sorting feature UI
 - fixed Cleaving Attack loosing extra attack if power were used
 - fixed Domain Smith allowing reinforce armor stacking after level up
+- fixed Merciless fighting style to last until end of your next turn
 - fixed multiclass into Warlock not gaining proficiency in simple weapons
 - fixed potential enumeration change issues across the codebase
+- improved Sunlit Blade reach increase handling
+- improved Thorny Vines description to state it can attack at range
+- reworked Astral Reach feat, Lunger fighting style, and Wendigo race interactions
 
 1.5.74.2:
 
