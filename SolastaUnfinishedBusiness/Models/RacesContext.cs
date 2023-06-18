@@ -25,6 +25,7 @@ internal static class RacesContext
         LoadRace(FairyRaceBuilder.RaceFairy);
         LoadRace(RaceOligathBuilder.RaceOligath);
         LoadRace(RaceWendigoBuilder.RaceWendigo);
+        LoadRace(WyrmkinRaceBuilder.RaceWyrmkin);
         LoadRace(TieflingRaceBuilder.RaceTiefling);
 
         // sorting
