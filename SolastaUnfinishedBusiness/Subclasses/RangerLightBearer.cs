@@ -401,7 +401,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
             rulesetAttacker.LogCharacterUsedPower(_featureDefinitionPower);
 
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
@@ -465,16 +467,15 @@ internal sealed class RangerLightBearer : AbstractSubclass
             yield return __instance.battle
                 .GetOpposingContenders(attacker.Side)
                 .Where(opposingContender =>
-                    opposingContender != defender && opposingContender.RulesetCharacter is
-                    {
-                        IsDeadOrDyingOrUnconscious: false
-                    } && opposingContender.CanReact() &&
+                    opposingContender != defender &&
+                    opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&
                     opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
                     ActionStatus.Available)
-                .Select(opposingContender => __instance
-                    .PrepareAndReact(opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
-                        additionalTargetCharacter: defender))
+                .ToList() // avoid enumerator changes
+                .Select(opposingContender => __instance.PrepareAndReact(
+                    opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
+                    additionalTargetCharacter: defender))
                 .GetEnumerator();
         }
     }

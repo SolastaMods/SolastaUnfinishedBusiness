@@ -616,11 +616,11 @@ A legendary shield forged in lava lakes found deep under the ice of the Snow All
 
 # 155. - Javelin +1
 
-
+A typical weapon forged by the dwarven smiths of the Snow Alliance.
 
 # 156. - Javelin +2
 
-
+A typical weapon forged by the dwarven smiths of the Snow Alliance.
 
 # 157. - Javelin +3
 

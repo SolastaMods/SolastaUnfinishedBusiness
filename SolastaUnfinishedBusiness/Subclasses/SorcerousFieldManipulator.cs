@@ -363,7 +363,9 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerApply, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
 
             foreach (var gameLocationTarget in gameLocationBattleService.Battle.EnemyContenders
                          .Where(x =>

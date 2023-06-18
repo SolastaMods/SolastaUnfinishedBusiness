@@ -58,6 +58,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .AllowMultipleInstances()
         .SetFeatures(FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionWarDanceMomentum")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
             .SetActionType(ActionType.Main)
             .SetMaxAttacksNumber(1)

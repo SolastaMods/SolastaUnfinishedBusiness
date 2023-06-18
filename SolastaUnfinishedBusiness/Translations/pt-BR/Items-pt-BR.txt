@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=Não pode ser surpreendido.
 Feature/&PowerHandwrapsOfPullingDescription=Com uma ação bônus, você pode puxar uma criatura a até 4,5 metros para mais perto de você.
 Feature/&PowerHandwrapsOfPullingTitle=Reel In
 Feedback/&ExtraDamageDescription=Dano extra de Lighting Spear.
@@ -202,6 +203,7 @@ Item/&Club_Power_Description=Esta arma encantada foi forjada usando o antigo con
 Item/&Club_Power_Title=Clube do poder
 Item/&Club_Punisher_Description=Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. A combinação do melhor metal e Slavestone deu a este machado um incrível poder de perfuração.
 Item/&Club_Punisher_Title=Clube do Justiceiro
+Item/&ConjuredWeaponTypeTitle=Armas conjuradas
 Item/&Dart_Acuteness_Description=Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Item/&Dart_Acuteness_Title=Dardo da Agilidade
 Item/&Dart_Frostburn_Description=Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.

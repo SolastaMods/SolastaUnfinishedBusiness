@@ -8,10 +8,15 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+        internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
+        internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
+        internal static ActionDefinition UseBardicInspiration { get; } = GetDefinition<ActionDefinition>("UseBardicInspiration");
+        internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
     internal static class CharacterBackgroundDefinitions
     {
@@ -352,19 +357,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinDivineSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinDivineSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinImprovedDivineSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinImprovedDivineSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePoison_GhoulsCaress { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePoison_GhoulsCaress");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyAberration { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyAberration");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyBeast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyBeast");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyCelestial { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyCelestial");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyConstruct { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyConstruct");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyDragon { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyDragon");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyElemental { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyElemental");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyFey { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyFey");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyFiend { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyFiend");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyGiant { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyGiant");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyMonstrosity { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyMonstrosity");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyOoze { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyOoze");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyPlant { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyPlant");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyUndead { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyUndead");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerSwiftBladeBattleFocus { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerSwiftBladeBattleFocus");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
         internal static FeatureDefinitionAdditionalDamage  AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
@@ -491,6 +484,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityFireResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityForceDamageResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityForceDamageResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityHalfOrcRelentlessEndurance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityHalfOrcRelentlessEndurance");
+        internal static FeatureDefinitionDamageAffinity DamageAffinityLightningImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityLightningImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityLightningResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityLightningResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticResistance");
@@ -697,6 +691,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyClericWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyClericWeapon");
         internal static FeatureDefinitionProficiency ProficiencyDruidArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidArmor");
         internal static FeatureDefinitionProficiency ProficiencyDruidSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidSavingThrow");
+        internal static FeatureDefinitionProficiency ProficiencyDruidWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidWeapon");
         internal static FeatureDefinitionProficiency ProficiencyDwarfLanguages { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDwarfLanguages");
         internal static FeatureDefinitionProficiency ProficiencyFeatLockbreaker { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatLockbreaker");
         internal static FeatureDefinitionProficiency ProficiencyFighterArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterArmor");
@@ -723,7 +718,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyWandererSkills { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererSkills");
         internal static FeatureDefinitionProficiency ProficiencyWandererTools { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererTools");
         internal static FeatureDefinitionProficiency ProficiencyWarlockSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockSavingThrow");
-        internal static FeatureDefinitionProficiency ProficiencyWarlockWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockWeapon");
         internal static FeatureDefinitionProficiency ProficiencyWizardSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardSavingThrow");
         internal static FeatureDefinitionProficiency ProficiencyWizardWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardWeapon");
     }

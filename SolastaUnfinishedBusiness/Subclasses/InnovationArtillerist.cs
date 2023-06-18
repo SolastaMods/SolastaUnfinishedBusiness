@@ -1118,7 +1118,9 @@ public static class InnovationArtillerist
                 return null;
             }
 
-            var effectPower = new RulesetEffectPower(rulesetCaster, usablePower);
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCaster, usablePower, false)
+                .AddAsActivePowerToSource();
             var targets = new List<GameLocationCharacter>();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(

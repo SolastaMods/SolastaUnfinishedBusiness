@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=不能惊讶。
 Feature/&PowerHandwrapsOfPullingDescription=作为一个附赠动作，你可以将 15 尺内的一个生物拉近你。
 Feature/&PowerHandwrapsOfPullingTitle=卷入
 Feedback/&ExtraDamageDescription=闪电矛的额外伤害。
@@ -202,6 +203,7 @@ Item/&Club_Power_Description=这把附魔武器是使用魔纳卡隆的铁匠大
 Item/&Club_Power_Title=权能 木棍
 Item/&Club_Punisher_Description=这把附魔武器是使用魔纳卡隆的铁匠大师的古老知识制造的。最好的金属和奴隶石的结合赋予了这把斧头难以置信的穿透力。
 Item/&Club_Punisher_Title=惩罚者 木棍
+Item/&ConjuredWeaponTypeTitle=魔法武器
 Item/&Dart_Acuteness_Description=这把附魔武器是使用魔纳卡隆的铁匠大师的古老知识制造的。它的设计是奥术师艾尔戈多·神锐的早期作品之一。
 Item/&Dart_Acuteness_Title=敏锐之镖
 Item/&Dart_Frostburn_Description=这把附魔武器是使用魔纳卡隆的铁匠大师的古老知识制造的。它是由 Keliandir Moltenheart 设计的，他在对元素位面的探索出错后锻造了这把武器来对抗火蜥蜴。

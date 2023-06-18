@@ -1,3 +1,4 @@
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=놀라지 않을 수 없습니다.
 Feature/&PowerHandwrapsOfPullingDescription=보너스 액션으로 15피트 이내의 생명체를 자신에게 더 가까이 끌어당길 수 있습니다.
 Feature/&PowerHandwrapsOfPullingTitle=릴 인
 Feedback/&ExtraDamageDescription=라이트닝 스피어의 추가 데미지.
@@ -202,6 +203,7 @@ Item/&Club_Power_Description=이 마법이 부여된 무기는 마나칼론 대�
 Item/&Club_Power_Title=권력의 클럽
 Item/&Club_Punisher_Description=이 마법이 부여된 무기는 마나칼론 대장장이의 고대 지식을 바탕으로 만들어졌습니다. 최고의 금속과 노예석의 조합은 이 도끼에 놀라운 관통력을 부여했습니다.
 Item/&Club_Punisher_Title=퍼니셔 클럽
+Item/&ConjuredWeaponTypeTitle=창조된 무기
 Item/&Dart_Acuteness_Description=이 마법이 부여된 무기는 마나칼론 대장장이의 고대 지식을 바탕으로 만들어졌습니다. 그것의 디자인은 Arcaneum의 Magesmith 인 Elgador Keenspirit의 초기 작품 중 하나였습니다.
 Item/&Dart_Acuteness_Title=예리함의 다트
 Item/&Dart_Frostburn_Description=이 마법이 부여된 무기는 마나칼론 대장장이의 고대 지식을 바탕으로 만들어졌습니다. 켈리안디르 몰튼하트(Keliandir Moltenheart)가 설계한 이 무기는 정령 차원의 탐사가 실패한 후 도롱뇽과 싸우기 위해 이 무기를 제작했습니다.

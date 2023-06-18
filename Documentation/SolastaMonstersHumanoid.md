@@ -781,7 +781,7 @@ Size: *Medium*
 | 0 | Poison Spray | Fire a poison spray at an enemy you can see, within range. |
 | 0 | Acid Splash | Launch an acid bolt. |
 | 1 | False Life | Gain a few temporary hit points for a limited time. |
-| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight. |
+| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time. The area is heavily obscured, penalizing creatures inside it that rely on sight. |
 | 1 | Sleep | Put a number of creatures to sleep for a limited time. Roll 5d8: the total is how many hit points of creatures this spell can affect. |
 | 2 | Ray of Enfeeblement | Weaken an enemy so they deal less damage for one minute. |
 | 2 | Blindness | Blind an enemy for one minute. |
@@ -1099,7 +1099,7 @@ Size: *Medium*
 | 0 | Resistance | Grant an ally a one-time bonus to saving throws. |
 | 1 | Charm Person | Makes an ally of an enemy. |
 | 1 | Healing Word | Heal an ally you can see. |
-| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight. |
+| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time. The area is heavily obscured, penalizing creatures inside it that rely on sight. |
 | 2 | Hold Person | Paralyze a humanoid you can see for a limited time. |
 | 2 | Barkskin | Gives you or an ally you can touch an AC of at least 16. |
 | 2 | Silence | Creates a sphere four cells in radius, inside which sound cannot exist. Stops thunder damage and prevents spellcasting using verbal components. |
@@ -1911,7 +1911,7 @@ Size: *Medium*
 | 0 | Shillelagh | Conjures a magical club whose attacks are magical and use your spellcasting ability instead of strength. |
 | 0 | Resistance | Grant an ally a one-time bonus to saving throws. |
 | 1 | Entangle | Creatures in a four-cell square area are restrained if they fail a STR saving throw |
-| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight. |
+| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time. The area is heavily obscured, penalizing creatures inside it that rely on sight. |
 | 1 | Thunderwave | Emit a wave of force that causes damage and pushes creatures and objects away. |
 | 2 | Hold Person | Paralyze a humanoid you can see for a limited time. |
 | 2 | Barkskin | Gives you or an ally you can touch an AC of at least 16. |
