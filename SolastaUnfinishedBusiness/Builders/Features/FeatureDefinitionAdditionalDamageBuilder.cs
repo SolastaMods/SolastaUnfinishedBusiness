@@ -139,12 +139,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.triggerCondition = trigger;
         return this;
     }
-    
-    internal FeatureDefinitionAdditionalDamageBuilder SetTargetSide(RuleDefinitions.Side targetSide)
-    {
-        Definition.targetSide = targetSide;
-        return this;
-    }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
     {

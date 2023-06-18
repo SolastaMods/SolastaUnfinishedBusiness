@@ -40,7 +40,8 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
     {
         return validator(definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
     }
-    
+
+#if false
     public static RestrictedContextValidator And(OperationType type, params IRestrictedContextValidator[] validators)
     {
         return new RestrictedContextValidator(
@@ -61,7 +62,8 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
                 return (type, true);
             });
     }
-    
+#endif
+
     public static RestrictedContextValidator Or(OperationType type, params IRestrictedContextValidator[] validators)
     {
         return new RestrictedContextValidator(
