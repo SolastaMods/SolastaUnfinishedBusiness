@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfDemonHunterTrialMark:93548671-e789-5eb7-bff2-ff4f1d72b214",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureOathOfDemonHunterDemonHunter:d9c0fcbe-242e-5017-8034-2dbd520f052f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageOathOfDemonHunterTrialMark:fe89691b-e8d4-531b-b3cb-9da56bbb4f49",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfDemonHunter:a8585c0c-4758-5b60-bd14-82cec3db5aa3",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureOathOfDemonHunterLightEnergyCrossbowBolt:a2ce90d5-4589-56bb-b16f-e5c1f1a13a54",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierOathOfDemonHunterDivineCrossbow:8548ef4f-dbc7-56d9-a485-a85d65ed6994",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierThirdExtraAttack:7cd137e1-0ef0-5827-a90b-15d8793e4914",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetOathOfDemonHunterDemonSlayer:68a091be-1372-59f6-b800-7f1ac4a78718",
+      "level": 20
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&OathOfDemonHunterTitle",
+    "description": "Subclass/&OathOfDemonHunterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cbcd05a0-478c-52ec-a3f3-9e6be60b1297",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b0d2dad8-e842-5f71-b914-2dcd067568ba",
+  "contentPack": 9999,
+  "name": "OathOfDemonHunter"
+}

@@ -38,6 +38,7 @@ internal static class CreditsDisplay
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
+        ("magicSword", "chinese translations, asian languages support, Oath of Demon Hunter"),
         ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
@@ -51,7 +52,6 @@ internal static class CreditsDisplay
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
-        ("magicSword", "chinese translations, asian languages support"),
         ("team-waldo", "korean font")
     };
 
