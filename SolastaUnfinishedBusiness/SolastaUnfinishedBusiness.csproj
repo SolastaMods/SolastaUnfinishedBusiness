@@ -58,6 +58,9 @@
 
   <ItemGroup>
     <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\lib\Assembly-CSharp_public.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -102,10 +105,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>$(SolutionDir)lib/Assembly-CSharp_public.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Newtonsoft.Json.dll</HintPath>
       <Private>false</Private>

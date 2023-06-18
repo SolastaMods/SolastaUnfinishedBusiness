@@ -10,6 +10,21 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GuiPatcher
 {
+    [HarmonyPatch(typeof(Gui), nameof(Gui.FormatEffectRange))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FormatEffectRange_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(ref string __result, RuleDefinitions.RangeType rangeType, int rangeValue)
+        {
+            if (rangeValue > 1 && rangeType is RuleDefinitions.RangeType.Touch or RuleDefinitions.RangeType.MeleeHit)
+            {
+                __result += " " + Gui.FormatDistance(rangeValue);
+            }
+        }
+    }
+
     //PATCH: always displays a sign on attribute modifiers
     [HarmonyPatch(typeof(Gui), nameof(Gui.FormatTrendsList))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -467,16 +467,15 @@ internal sealed class RangerLightBearer : AbstractSubclass
             yield return __instance.battle
                 .GetOpposingContenders(attacker.Side)
                 .Where(opposingContender =>
-                    opposingContender != defender && opposingContender.RulesetCharacter is
-                    {
-                        IsDeadOrDyingOrUnconscious: false
-                    } && opposingContender.CanReact() &&
+                    opposingContender != defender &&
+                    opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&
                     opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
                     ActionStatus.Available)
-                .Select(opposingContender => __instance
-                    .PrepareAndReact(opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
-                        additionalTargetCharacter: defender))
+                .ToList() // avoid enumerator changes
+                .Select(opposingContender => __instance.PrepareAndReact(
+                    opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
+                    additionalTargetCharacter: defender))
                 .GetEnumerator();
         }
     }

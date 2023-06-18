@@ -123,21 +123,9 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
-            foreach (var magicalEffectInitiated in __instance.ActingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicalEffectInitiated>())
-            {
-                yield return magicalEffectInitiated.OnMagicalEffectInitiated(__instance);
-            }
-
             while (values.MoveNext())
             {
                 yield return values.Current;
-            }
-
-            foreach (var magicalEffectInitiated in __instance.ActingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicalEffectFinished>())
-            {
-                yield return magicalEffectInitiated.OnMagicalEffectFinished(__instance);
             }
 
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature

@@ -33,6 +33,10 @@ internal static class InventoryManagementContext
 
     private static GuiDropdown SortGuiDropdown { get; set; }
 
+    private static GuiDropdown TaggedGuiDropdown { get; set; }
+
+    private static Toggle UnidentifiedToggle { get; set; }
+
     internal static Action SelectionChanged { get; private set; }
 
     internal static void Load()
@@ -40,6 +44,7 @@ internal static class InventoryManagementContext
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
         var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
+        containerPanel.rectTransform.anchoredPosition += new Vector2(0, -80);
 
         // ReSharper disable once Unity.UnknownResource
         var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
@@ -60,6 +65,21 @@ internal static class InventoryManagementContext
         var sortRect = sort.GetComponent<RectTransform>();
 
         SortGuiDropdown = sort.GetComponent<GuiDropdown>();
+
+        var tagged = Object.Instantiate(dropdownPrefab, rightGroup);
+        var taggedRect = tagged.GetComponent<RectTransform>();
+
+        TaggedGuiDropdown = tagged.GetComponent<GuiDropdown>();
+
+        // ReSharper disable once Unity.UnknownResource
+        var checkboxPrefab = Resources.Load<GameObject>("Gui/Prefabs/Modal/Setting/SettingCheckboxItem");
+        var smallToggleNoFrame = checkboxPrefab.transform.Find("SmallToggleNoFrame");
+
+        UnidentifiedToggle = Object.Instantiate(smallToggleNoFrame, rightGroup).GetComponentInChildren<Toggle>();
+        UnidentifiedToggle.name = "IdentifiedToggle";
+        UnidentifiedToggle.gameObject.SetActive(true);
+        UnidentifiedToggle.onValueChanged.RemoveAllListeners();
+        var unidentified = Object.Instantiate(byTextMesh.gameObject, rightGroup);
 
         //
         // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
@@ -147,7 +167,7 @@ internal static class InventoryManagementContext
             SelectionChanged();
         };
 
-        byTextMesh.SetText("by");
+        byTextMesh.SetText(Gui.Localize("UI/&InventoryFilterBy"));
 
         // adds the sort dropdown
 
@@ -165,6 +185,46 @@ internal static class InventoryManagementContext
 
         SortGuiDropdown.AddOptions(sortOptions);
         SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+
+        // adds the tagged dropdown
+
+        var taggedOptions = new List<TMP_Dropdown.OptionData>();
+
+        tagged.name = "TaggedDropdown";
+        tagged.transform.localPosition = new Vector3(-422f, 330f, 0f);
+        taggedRect.sizeDelta = new Vector2(150f, 28f);
+
+        TaggedGuiDropdown.ClearOptions();
+        taggedOptions.AddRange(new OptionDataAdvanced[]
+        {
+            new() { text = TagsDefinitions.Document }, new() { text = TagsDefinitions.SpellFocus },
+            new() { text = TagsDefinitions.Food }, new() { text = TagsDefinitions.CarryingCapacity },
+            new() { text = TagsDefinitions.ItemTagMetal }, new() { text = TagsDefinitions.ItemTagSilver },
+            new() { text = TagsDefinitions.ItemTagGold }, new() { text = TagsDefinitions.ItemTagWood },
+            new() { text = TagsDefinitions.ItemTagLeather }, new() { text = TagsDefinitions.ItemTagGlass },
+            new() { text = TagsDefinitions.ItemTagPaper }, new() { text = TagsDefinitions.ItemTagFlamable },
+            new() { text = TagsDefinitions.ItemTagQuest }, new() { text = TagsDefinitions.ItemTagIngredient },
+            new() { text = TagsDefinitions.ItemTagGem }, new() { text = TagsDefinitions.ArcaneFocus },
+            new() { text = TagsDefinitions.DruidicFocus }, new() { text = TagsDefinitions.ItemTagMonk },
+            new() { text = TagsDefinitions.MusicalInstrument }, new() { text = TagsDefinitions.LightSource },
+            new() { text = TagsDefinitions.WeaponTagAmmunition }, new() { text = CeContentPackContext.CeTag }
+        });
+
+        taggedOptions.Sort((x, y) => String.Compare(x.text, y.text, StringComparison.Ordinal));
+        taggedOptions.Insert(0, new OptionDataAdvanced { text = Gui.Localize("UI/&InventoryFilterAnyTags") });
+
+        TaggedGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
+        TaggedGuiDropdown.AddOptions(taggedOptions);
+        TaggedGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+
+        UnidentifiedToggle.transform.localPosition = new Vector3(-162f, 330f, 0f);
+        UnidentifiedToggle.onValueChanged = new Toggle.ToggleEvent();
+        UnidentifiedToggle.isOn = false;
+        UnidentifiedToggle.onValueChanged.AddListener(delegate { SelectionChanged(); });
+
+        unidentified.GetComponentInChildren<TextMeshProUGUI>()
+            .SetText(Gui.Localize("UI/&InventoryFilterUnidentifiedMagical"));
+        unidentified.transform.localPosition = new Vector3(-332f, 340f, 0f);
     }
 
     internal static void ResetControls()
@@ -178,6 +238,8 @@ internal static class InventoryManagementContext
         SortGuiDropdown.value = 0;
         BySortGroup.Inverted = false;
         BySortGroup.Refresh();
+        TaggedGuiDropdown.value = 0;
+        UnidentifiedToggle.isOn = false;
     }
 
     internal static void RefreshControlsVisibility()
@@ -187,6 +249,8 @@ internal static class InventoryManagementContext
         FilterGuiDropdown.gameObject.SetActive(active);
         BySortGroup.gameObject.SetActive(active);
         SortGuiDropdown.gameObject.SetActive(active);
+        TaggedGuiDropdown.gameObject.SetActive(active);
+        UnidentifiedToggle.gameObject.SetActive(active);
     }
 
     private static void Sort(List<RulesetItem> items)
@@ -305,9 +369,7 @@ internal static class InventoryManagementContext
 
         allItems.ForEach(item =>
         {
-            var value = FilterGuiDropdown.value;
-
-            if (value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[value].Name)
+            if (FilterItem(item, container))
             {
                 container.AddSubItem(item, true);
             }
@@ -316,6 +378,34 @@ internal static class InventoryManagementContext
                 FilteredItems.Add(item);
             }
         });
+    }
+
+    private static bool FilterItem(RulesetItem item, [CanBeNull] ISerializable container)
+    {
+        if (UnidentifiedToggle.isOn && item.KnowledgeLevel != EquipmentDefinitions.ItemKnowledge.MagicDetected)
+        {
+            return false;
+        }
+
+        var filterIndex = FilterGuiDropdown.value;
+
+        if (filterIndex != 0 && item.ItemDefinition.MerchantCategory != ItemCategories[filterIndex].Name)
+        {
+            return false;
+        }
+
+        var taggedIndex = TaggedGuiDropdown.value;
+
+        if (taggedIndex == 0)
+        {
+            return true;
+        }
+
+        Dictionary<string, TagsDefinitions.Criticity> tagsMap = new();
+
+        item.FillTags(tagsMap, container);
+        
+        return tagsMap.Keys.ToArray().Contains(TaggedGuiDropdown.options[taggedIndex].text);
     }
 
     internal static void Flush([CanBeNull] RulesetContainer container)

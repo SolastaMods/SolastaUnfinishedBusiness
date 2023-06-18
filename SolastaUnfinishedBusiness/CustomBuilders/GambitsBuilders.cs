@@ -582,7 +582,7 @@ internal static class GambitsBuilders
                                     .Create($"Feature{name}")
                                     .SetGuiPresentationNoContent(true)
                                     .SetCustomSubFeatures(
-                                        new IncreaseMeleeWeaponAttackReach(1, ValidatorsWeapon.AlwaysValid),
+                                        new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
                                         new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                                     .AddToDB())
                                 .AddToDB(), ConditionForm.ConditionOperation.Add)
