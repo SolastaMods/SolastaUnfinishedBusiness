@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -363,6 +364,15 @@ internal static class Level20SubclassesContext
             new ActionFinishedQuiveringPalm(
                 powerTraditionOpenHandQuiveringPalm,
                 conditionTraditionOpenHandQuiveringPalm));
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetActionId(ExtraActionId.QuiveringPalmToggle)
+            .SetActivatedPower(
+                powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower, false)
+            .RequiresAuthorization()
+            .AddToDB();
 
         _ = DamageDefinitionBuilder
             .Create("DamagePure")

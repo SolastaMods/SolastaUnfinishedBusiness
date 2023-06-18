@@ -183,12 +183,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         power.SetCustomSubFeatures(new ActionFinishedWildShape(power));
 
-        var wildshape = DatabaseHelper.ActionDefinitions.WildShape;
-
         ActionDefinitionBuilder
-            .Create(wildshape, "CombatWildShape")
-            .SetGuiPresentation(NAME, Category.Feature, DatabaseHelper.ActionDefinitions.WildShape,
-                DatabaseHelper.ActionDefinitions.WildShape.GuiPresentation.SortOrder)
+            .Create(DatabaseHelper.ActionDefinitions.WildShape, "CombatWildShape")
             .OverrideClassName("WildShape")
             .SetActionId(ExtraActionId.CombatWildShape)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
