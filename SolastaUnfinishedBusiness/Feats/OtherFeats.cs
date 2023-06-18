@@ -459,6 +459,28 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Astral Arms
+
+    private static FeatDefinition BuildAstralArms()
+    {
+        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
+        {
+            return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
+        }
+
+        return FeatDefinitionBuilder
+            .Create("FeatAstralArms")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike)
+            .SetCustomSubFeatures(
+                new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
+                new IncreaseWeaponReach(1, ValidWeapon))
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Common Helpers
 
     internal sealed class SpellTag
@@ -469,30 +491,6 @@ internal static class OtherFeats
         }
 
         internal string Name { get; }
-    }
-
-    #endregion
-
-    #region Astral Arms
-
-    private static FeatDefinition BuildAstralArms()
-    {
-        bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-            => ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
-
-        return FeatDefinitionBuilder
-            .Create("FeatAstralArms")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Maraike)
-            .SetCustomSubFeatures(
-                new CanMakeAoOOnReachEntered
-                {
-                    AllowRange = false,
-                    WeaponValidator = ValidWeapon
-                },
-                new IncreaseWeaponReach(1, ValidWeapon))
-            .AddToDB();
     }
 
     #endregion

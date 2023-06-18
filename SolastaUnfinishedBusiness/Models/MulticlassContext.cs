@@ -162,13 +162,7 @@ internal static class MulticlassContext
                 ProficiencySorcererWeapon, PointPoolSorcererSkillPoints, ProficiencySorcererSavingThrow
             }
         },
-        {
-            Warlock,
-            new List<FeatureDefinition>
-            {
-                PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow
-            }
-        },
+        { Warlock, new List<FeatureDefinition> { PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow } },
         {
             Wizard,
             new List<FeatureDefinition>

@@ -102,15 +102,15 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
 internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
 {
     private readonly IsWeaponValidHandler isWeaponValid;
-    private readonly IsCharacterValidHandler[] validators;
     private readonly string unicityTag;
+    private readonly IsCharacterValidHandler[] validators;
 
     protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : this(isWeaponValid, null, validators)
     {
     }
-    
+
     protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
         string unicityTag,
@@ -128,7 +128,7 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
         {
             return;
         }
-        
+
         if (!character.IsValid(validators))
         {
             return;
