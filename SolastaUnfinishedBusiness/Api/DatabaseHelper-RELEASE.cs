@@ -691,6 +691,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyClericWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyClericWeapon");
         internal static FeatureDefinitionProficiency ProficiencyDruidArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidArmor");
         internal static FeatureDefinitionProficiency ProficiencyDruidSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidSavingThrow");
+        internal static FeatureDefinitionProficiency ProficiencyDruidWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidWeapon");
         internal static FeatureDefinitionProficiency ProficiencyDwarfLanguages { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDwarfLanguages");
         internal static FeatureDefinitionProficiency ProficiencyFeatLockbreaker { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatLockbreaker");
         internal static FeatureDefinitionProficiency ProficiencyFighterArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterArmor");

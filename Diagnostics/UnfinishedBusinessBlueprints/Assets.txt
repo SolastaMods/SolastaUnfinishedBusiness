@@ -9746,3 +9746,4 @@ CELightningLauncherType	WeaponTypeDefinition	WeaponTypeDefinition	a946de82-1443-
 CELongMaceType	WeaponTypeDefinition	WeaponTypeDefinition	e164d40d-f08e-531c-9762-1e91988a1da0
 CEPikeType	WeaponTypeDefinition	WeaponTypeDefinition	3714fe69-4866-57f6-8411-230db35674ba
 CEThunderGauntletType	WeaponTypeDefinition	WeaponTypeDefinition	56a0c9f4-a9b5-52e7-a534-ab14037c4730
+ConjuredWeaponType	WeaponTypeDefinition	WeaponTypeDefinition	b21be188-50d3-5f48-9089-f09e94834650

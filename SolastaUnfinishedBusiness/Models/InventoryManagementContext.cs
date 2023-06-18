@@ -71,14 +71,15 @@ internal static class InventoryManagementContext
 
         TaggedGuiDropdown = tagged.GetComponent<GuiDropdown>();
 
+        // ReSharper disable once Unity.UnknownResource
         var checkboxPrefab = Resources.Load<GameObject>("Gui/Prefabs/Modal/Setting/SettingCheckboxItem");
         var smallToggleNoFrame = checkboxPrefab.transform.Find("SmallToggleNoFrame");
+
         UnidentifiedToggle = Object.Instantiate(smallToggleNoFrame, rightGroup).GetComponentInChildren<Toggle>();
-        var identifiedRect = UnidentifiedToggle.GetComponent<RectTransform>();
         UnidentifiedToggle.name = "IdentifiedToggle";
         UnidentifiedToggle.gameObject.SetActive(true);
         UnidentifiedToggle.onValueChanged.RemoveAllListeners();
-        var unid = Object.Instantiate(byTextMesh.gameObject, rightGroup);
+        var unidentified = Object.Instantiate(byTextMesh.gameObject, rightGroup);
 
         //
         // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
@@ -166,7 +167,7 @@ internal static class InventoryManagementContext
             SelectionChanged();
         };
 
-        byTextMesh.SetText("by");
+        byTextMesh.SetText(Gui.Localize("UI/&InventoryFilterBy"));
 
         // adds the sort dropdown
 
@@ -196,32 +197,22 @@ internal static class InventoryManagementContext
         TaggedGuiDropdown.ClearOptions();
         taggedOptions.AddRange(new OptionDataAdvanced[]
         {
-            new OptionDataAdvanced { text = TagsDefinitions.Document },
-            new OptionDataAdvanced { text = TagsDefinitions.SpellFocus },
-            new OptionDataAdvanced { text = TagsDefinitions.Food },
-            new OptionDataAdvanced { text = TagsDefinitions.CarryingCapacity },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagMetal },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagSilver },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagGold },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagWood },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagLeather },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagGlass },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagPaper },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagFlamable },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagQuest },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagIngredient },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagGem },
-            new OptionDataAdvanced { text = TagsDefinitions.ArcaneFocus },
-            new OptionDataAdvanced { text = TagsDefinitions.DruidicFocus },
-            new OptionDataAdvanced { text = TagsDefinitions.ItemTagMonk },
-            new OptionDataAdvanced { text = TagsDefinitions.WeaponTagAmmunition },
-            new OptionDataAdvanced { text = TagsDefinitions.MusicalInstrument },
-            new OptionDataAdvanced { text = TagsDefinitions.LightSource },
+            new() { text = TagsDefinitions.Document }, new() { text = TagsDefinitions.SpellFocus },
+            new() { text = TagsDefinitions.Food }, new() { text = TagsDefinitions.CarryingCapacity },
+            new() { text = TagsDefinitions.ItemTagMetal }, new() { text = TagsDefinitions.ItemTagSilver },
+            new() { text = TagsDefinitions.ItemTagGold }, new() { text = TagsDefinitions.ItemTagWood },
+            new() { text = TagsDefinitions.ItemTagLeather }, new() { text = TagsDefinitions.ItemTagGlass },
+            new() { text = TagsDefinitions.ItemTagPaper }, new() { text = TagsDefinitions.ItemTagFlamable },
+            new() { text = TagsDefinitions.ItemTagQuest }, new() { text = TagsDefinitions.ItemTagIngredient },
+            new() { text = TagsDefinitions.ItemTagGem }, new() { text = TagsDefinitions.ArcaneFocus },
+            new() { text = TagsDefinitions.DruidicFocus }, new() { text = TagsDefinitions.ItemTagMonk },
+            new() { text = TagsDefinitions.MusicalInstrument }, new() { text = TagsDefinitions.LightSource },
+            new() { text = TagsDefinitions.WeaponTagAmmunition }, new() { text = CeContentPackContext.CeTag }
         });
 
-        taggedOptions.Sort((x,y) => { return x.text.CompareTo(y.text); });
+        taggedOptions.Sort((x, y) => String.Compare(x.text, y.text, StringComparison.Ordinal));
+        taggedOptions.Insert(0, new OptionDataAdvanced { text = Gui.Localize("UI/&InventoryFilterAnyTags") });
 
-        taggedOptions.Insert(0, new OptionDataAdvanced { text = "Any Tags" });
         TaggedGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
         TaggedGuiDropdown.AddOptions(taggedOptions);
         TaggedGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
@@ -231,8 +222,9 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.isOn = false;
         UnidentifiedToggle.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-        unid.GetComponentInChildren<TextMeshProUGUI>().SetText("Unidentified Magical");
-        unid.transform.localPosition = new Vector3(-332f, 340f, 0f);
+        unidentified.GetComponentInChildren<TextMeshProUGUI>()
+            .SetText(Gui.Localize("UI/&InventoryFilterUnidentifiedMagical"));
+        unidentified.transform.localPosition = new Vector3(-332f, 340f, 0f);
     }
 
     internal static void ResetControls()
@@ -385,13 +377,11 @@ internal static class InventoryManagementContext
             {
                 FilteredItems.Add(item);
             }
-
         });
     }
 
     internal static bool FilterItem(RulesetItem item, [CanBeNull] RulesetContainer container)
     {
-
         if (UnidentifiedToggle.isOn && item.KnowledgeLevel != EquipmentDefinitions.ItemKnowledge.MagicDetected)
         {
             return false;

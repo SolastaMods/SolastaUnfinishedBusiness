@@ -89,18 +89,20 @@ internal static class FixesContext
     private static void FixDivineBlade()
     {
         //BUGFIX: allows clerics to actually wield divine blade
-        var conjuredSword = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.LongswordType, "ConjuredSwordType")
+        const string ConjuredWeaponTypeName = "ConjuredWeaponType";
+
+        WeaponTypeDefinitionBuilder
+            .Create(WeaponTypeDefinitions.LongswordType, ConjuredWeaponTypeName)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.NoContentTitle)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
 
-        var divineBladeWeaponDefinition = ItemDefinitions.DivineBladeWeapon.weaponDefinition;
-        divineBladeWeaponDefinition.weaponType = "ConjuredSwordType";
+        ItemDefinitions.DivineBladeWeapon.weaponDefinition.weaponType = ConjuredWeaponTypeName;
 
-        ItemDefinitions.DivineBladeWeapon.weaponDefinition = divineBladeWeaponDefinition;
-
-        //BUGFIX: allows divine heart sorcerer to wield divine blade
-        FeatureDefinitionProficiencys.ProficiencySorcererWeapon.proficiencies.Add("ConjuredSwordType");
+        //BUGFIX: allows classes without simple weapon proficiency to wield divine blade
+        FeatureDefinitionProficiencys.ProficiencyDruidWeapon.proficiencies.Add(ConjuredWeaponTypeName);
+        FeatureDefinitionProficiencys.ProficiencySorcererWeapon.proficiencies.Add(ConjuredWeaponTypeName);
+        FeatureDefinitionProficiencys.ProficiencyWizardWeapon.proficiencies.Add(ConjuredWeaponTypeName);
     }
 
     private static void FixFightingStyleArchery()
@@ -164,9 +166,6 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
-        //BUGFIX: allow divine blade to be wielded
-        ItemDefinitions.DivineBladeWeapon.WeaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
-
         //BUGFIX: add an effect to Counterspell
         Counterspell.EffectDescription.effectParticleParameters =
             DreadfulOmen.EffectDescription.effectParticleParameters;

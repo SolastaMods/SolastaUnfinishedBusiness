@@ -203,6 +203,7 @@ Item/&Club_Power_Description=この魔法の武器は、マナカロンの鍛冶
 Item/&Club_Power_Title=クラブ・オブ・パワー
 Item/&Club_Punisher_Description=この魔法の武器は、マナカロンの鍛冶職人の古代の知識を使用して作成されました。最高の金属と奴隷石の組み合わせにより、この斧に信じられないほどの貫通力が与えられました。
 Item/&Club_Punisher_Title=パニッシャークラブ
+Item/&ConjuredWeaponTypeTitle=召喚された武器
 Item/&Dart_Acuteness_Description=この魔法の武器は、マナカロンの鍛冶職人の古代の知識を使用して作成されました。そのデザインは、秘術の魔術師、エルガドール・キーンスピリットの初期の作品の 1 つです。
 Item/&Dart_Acuteness_Title=鋭敏のダーツ
 Item/&Dart_Frostburn_Description=この魔法の武器は、マナカロンの鍛冶職人の古代の知識を使用して作成されました。これはケリアンディル・モルテンハートによって設計され、元素次元の探索が失敗した後、サラマンダーと戦うためにこの武器を鍛造した。
