@@ -46,29 +46,6 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    // PATCH: provide damage type for RollDie_Patch
-    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplyDamageForm))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public sealed class ApplyEffectForm_Patch
-    {
-        public static EffectForm CurrentEffectForm { get; private set; }
-        
-        [UsedImplicitly]
-        [HarmonyPrefix]
-        private static void Prefix(EffectForm effectForm)
-        {
-            CurrentEffectForm = effectForm;
-        }
-        
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        private static void Postfix()
-        {
-            CurrentEffectForm = null;
-        }
-    }
-    
     //PATCH: allow different algorithms to calculate critical damage
     [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplyDamageForm))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -703,6 +703,8 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollMagicAttack_Patch
     {
+        internal static RulesetEffect CurrentMagicEffect;
+
         [UsedImplicitly]
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
@@ -711,6 +713,8 @@ public static class RulesetCharacterPatcher
             List<RuleDefinitions.TrendInfo> toHitTrends,
             bool testMode)
         {
+            CurrentMagicEffect = activeEffect;
+
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
             MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
 
@@ -731,6 +735,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: support for Elven Precision - reset flag after magic attack is finished
             ElvenPrecisionLogic.Active = false;
+            CurrentMagicEffect = null;
         }
     }
 

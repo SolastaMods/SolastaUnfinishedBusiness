@@ -296,8 +296,6 @@ public static class RulesetActorPatcher
     [UsedImplicitly]
     public static class RollDie_Patch
     {
-        private static List<FeatureDefinition> RawFeatureToBrowse = new();
-
         //PATCH: supports DieRollModifierDamageTypeDependent
         private static void EnumerateIDieRollModificationProvider(
             RulesetCharacter __instance,
@@ -305,58 +303,40 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse, featuresOrigin);
-            RawFeatureToBrowse.Clear();
-            RawFeatureToBrowse.AddRange(featuresToBrowse);
 
-            FilterFeatures(featuresToBrowse);
-        }
+            var effectForms =
+                RulesetCharacterPatcher.RollMagicAttack_Patch.CurrentMagicEffect?.EffectDescription.EffectForms;
 
-        private static void FilterFeatures(List<FeatureDefinition> featuresToBrowse)
-        {
-            if(featuresToBrowse.Count == 0)
+            if (effectForms == null)
             {
                 return;
             }
-            
-            // Support for physics and it's additional damage
-            var effectForm =
-                RulesetImplementationManagerPatcher.ApplyEffectForm_Patch.CurrentEffectForm;
 
-            if (effectForm == null)
-            {
-                return;
-            }
-            
-            var damageTypes = new List<string>();
+            var damageTypes = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType)
+                .ToList();
 
-            switch (effectForm.FormType)
-            {
-                case EffectForm.EffectFormType.Damage:
-                    damageTypes.Add(effectForm.DamageForm.DamageType);
-                    break;
-                case EffectForm.EffectFormType.Summon when
-                    effectForm.SummonForm.SummonType == SummonForm.Type.EffectProxy:
-                {
-                    var proxy =
-                        DatabaseHelper.GetDefinition<EffectProxyDefinition>(effectForm.SummonForm
-                            .EffectProxyDefinitionName);
-                
-                    if (proxy.canAttack && proxy.attackMethod == RuleDefinitions.ProxyAttackMethod.CasterSpellAbility)
-                    {
-                        damageTypes.Add(proxy.DamageType);
-                    }
-                
-                    if(proxy.attackPower != null)
-                    {
-                        damageTypes.AddRange(proxy.attackPower.EffectDescription.EffectForms
-                            .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-                            .Select(x => x.DamageForm.DamageType));
-                    }
-                    break;
-                }
-                default:
-                    return;
-            }
+            var proxies = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Summon &&
+                            x.SummonForm.SummonType == SummonForm.Type.EffectProxy)
+                .Select(x =>
+                    DatabaseHelper.GetDefinition<EffectProxyDefinition>(x.SummonForm.EffectProxyDefinitionName))
+                .ToList();
+
+            var damageTypesFromProxyAttacks = proxies
+                .Where(x => x.canAttack && x.attackMethod == RuleDefinitions.ProxyAttackMethod.CasterSpellAbility)
+                .Select(x => x.DamageType).ToList();
+
+            var damageTypesFromProxyAttackPowers = proxies
+                .Where(x => x.attackPower != null)
+                .Select(x => x.attackPower)
+                .SelectMany(x => x.EffectDescription.EffectForms)
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType).ToList();
+
+            damageTypes.AddRange(damageTypesFromProxyAttacks);
+            damageTypes.AddRange(damageTypesFromProxyAttackPowers);
 
             featuresToBrowse.RemoveAll(x =>
                 x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
@@ -485,12 +465,6 @@ public static class RulesetActorPatcher
             ref bool enumerateFeatures,
             ref bool canRerollDice)
         {
-            // record raw feature list
-            RawFeatureToBrowse.Clear();
-            RawFeatureToBrowse.AddRange(__instance.featuresToBrowse);
-
-            FilterFeatures(__instance.featuresToBrowse);
-            
             if (dieType == RuleDefinitions.DieType.D1)
             {
                 canRerollDice = false;
@@ -506,15 +480,6 @@ public static class RulesetActorPatcher
 
             enumerateFeatures = true;
             canRerollDice = true;
-        }
-
-        [UsedImplicitly]
-        public static void Postfix(RulesetActor __instance)
-        {
-            // recover raw feature list
-            __instance.featuresToBrowse.Clear();
-            __instance.featuresToBrowse.AddRange(RawFeatureToBrowse);
-            RawFeatureToBrowse.Clear();
         }
     }
 
