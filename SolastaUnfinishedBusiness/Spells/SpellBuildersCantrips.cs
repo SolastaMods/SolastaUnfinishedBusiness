@@ -625,19 +625,26 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (character is not RulesetCharacterHero hero)
+            var caster = GameLocationCharacter.GetFromActor(character);
+            //Should we try making it compatible with Monsters? Like enemies with custom spell lists, or potential casting while wild-shaped?
+            if (caster == null || character is not RulesetCharacterHero)
             {
                 return effectDescription;
             }
 
-            var weapon = hero.GetMainWeapon();
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-            if (weapon == null || !weapon.itemDefinition.IsWeapon)
+            if (attackMode is not {SourceObject: RulesetItem})
+            {
+                return effectDescription;
+            }
+            
+            if (attackMode.Ranged || !attackMode.Reach)
             {
                 return effectDescription;
             }
 
-            var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
+            var reach = attackMode.reachRange;
 
             if (reach <= 1)
             {
@@ -700,38 +707,16 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
                 .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                        .Build())
-                .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectThornyVines())
+                    EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D6),
+                    EffectFormBuilder.MotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                ).Build())
             .AddToDB();
-    }
-
-    internal sealed class ModifyMagicEffectThornyVines : IModifyMagicEffect
-    {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            effectDescription.rangeParameter = 6;
-
-            return effectDescription;
-        }
     }
 
     internal static SpellDefinition BuildThunderStrike()
