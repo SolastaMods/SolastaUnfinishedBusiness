@@ -351,8 +351,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         {
         }
 
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
-            RulesetItem weapon)
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             var momentum = GetMomentumStacks(character);
 

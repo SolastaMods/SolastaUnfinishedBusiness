@@ -144,14 +144,12 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
             attackMode.AttackTags.TryAdd(unicityTag);
         }
 
-        TryModifyAttackMode(character, attackMode, null);
+        TryModifyAttackMode(character, attackMode);
     }
 
     protected abstract void TryModifyAttackMode(
         [NotNull] RulesetCharacter character,
-        [NotNull] RulesetAttackMode attackMode,
-        //TODO: remove weapon - it is always null
-        RulesetItem weapon);
+        [NotNull] RulesetAttackMode attackMode);
 
     protected static void IncreaseReach(RulesetAttackMode mode, int increase = 1)
     {
@@ -174,8 +172,7 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        RulesetAttackMode attackMode,
-        RulesetItem weapon)
+        RulesetAttackMode attackMode)
     {
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
@@ -224,7 +221,7 @@ internal sealed class AddTagToWeaponWeaponAttack : ModifyWeaponAttackModeBase
     }
 
     protected override void TryModifyAttackMode(
-        RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        RulesetCharacter character, RulesetAttackMode attackMode)
     {
         attackMode.AddAttackTagAsNeeded(tag);
     }
@@ -256,7 +253,7 @@ internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeB
     }
 
     protected override void TryModifyAttackMode(
-        RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        RulesetCharacter character, RulesetAttackMode attackMode)
     {
         attackMode.closeRange = attackMode.maxRange;
     }
@@ -274,9 +271,9 @@ internal sealed class IncreaseMeleeWeaponAttackReach : ModifyWeaponAttackModeBas
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        RulesetAttackMode attackMode,
-        RulesetItem weapon)
+        RulesetAttackMode attackMode)
     {
+        var weapon = attackMode.SourceObject as RulesetItem;
         //this getter also checks is this is not thrown/ranged mode
         if (weapon != null && !ValidatorsWeapon.HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagMelee))
         {

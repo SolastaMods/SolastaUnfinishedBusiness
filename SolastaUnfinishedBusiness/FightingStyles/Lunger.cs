@@ -35,7 +35,7 @@ internal sealed class Lunger : AbstractFightingStyle
         {
         }
 
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
            IncreaseReach(attackMode);
         }
