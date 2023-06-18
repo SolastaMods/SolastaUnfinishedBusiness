@@ -2,7 +2,11 @@
 
 1.5.74.3:
 
+- added tags and unidentified filters to inventory sorting feature UI
+- fixed Cleaving Attack loosing extra attack if power were used
+- fixed Domain Smith allowing reinforce armor stacking after level up
 - fixed multiclass into Warlock not gaining proficiency in simple weapons
+- fixed potential enumeration change issues across the codebase
 
 1.5.74.2:
 
