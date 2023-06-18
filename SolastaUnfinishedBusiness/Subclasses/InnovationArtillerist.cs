@@ -41,6 +41,9 @@ public static class InnovationArtillerist
     private const string Protector = "Protector";
     private const string ArcaneFirearm = "ArcaneFirearm";
 
+    private static readonly LimitEffectInstances CannonLimiter =
+        new(CreatureTag, character => character.GetSubclassLevel(InventorClass.Class, Name) < 15 ? 1 : 2);
+
     public static CharacterSubclassDefinition Build()
     {
         #region COMMON
@@ -796,17 +799,8 @@ public static class InnovationArtillerist
                 .SetParticleEffectParameters(ConjureGoblinoids)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
             .AddToDB();
-
-        if (level < 15)
-        {
-            power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 1));
-
-            return power;
-        }
-
-        power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
 
         return power;
     }
@@ -935,17 +929,8 @@ public static class InnovationArtillerist
                 .SetParticleEffectParameters(ConjureGoblinoids)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
             .AddToDB();
-
-        if (level < 15)
-        {
-            power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 1));
-
-            return power;
-        }
-
-        power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
 
         return power;
     }
