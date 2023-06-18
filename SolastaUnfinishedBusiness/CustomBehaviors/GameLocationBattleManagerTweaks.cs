@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
@@ -244,6 +245,25 @@ internal static class GameLocationBattleManagerTweaks
              * ######################################
              */
             additionalDamageForm.DiceNumber = diceNumber;
+            
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for ModifyAdditionalDamageForm
+             */
+
+            var modifyAdditionalDamageForm = rulesetCharacter.GetSubFeaturesByType<IModifyAdditionalDamageForm>();
+            foreach (var modifyAdditionalDamageFormFeature in modifyAdditionalDamageForm)
+            {
+                modifyAdditionalDamageFormFeature.OnModifyAdditionalDamageForm(featureDefinition as FeatureDefinitionAdditionalDamage, 
+                    additionalDamageForm, attackMode, attacker, defender);
+            }
+
+            /*
+             * Support for ModifyAdditionalDamageForm
+             * [CE] EDIT END
+             * ######################################
+             */
         }
         /*
          * ######################################

@@ -1313,6 +1313,11 @@
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>
+  <data name="PowerTrialMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerTrialMark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
     <data name="PowerEldritchCannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>..\Resources\Powers\PowerEldritchCannon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
@@ -1428,6 +1433,11 @@
     </data>
     <data name="OathOfAncients" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>..\Resources\Subclasses\OathOfAncients.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a
+        </value>
+    </data>
+    <data name="OathOfDemonHunter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+        <value>..\Resources\Subclasses\OathOfDemonHunter.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>

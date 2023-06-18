@@ -52,13 +52,23 @@ internal static class FixesContext
 
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
-        AdditionalDamagePaladinDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
+        AdditionalDamagePaladinDivineSmite.AddCustomSubFeatures(
+            RestrictedContextValidator.Or(
+                OperationType.Set,
+                ValidatorsRestrictedContext.MeleeWeaponAttack,
+                ValidatorsRestrictedContext.IsOathOfThunder,
+                ValidatorsRestrictedContext.UseDemonHunterWeapon
+                ));
 
         AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
-        AdditionalDamagePaladinImprovedDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
+        AdditionalDamagePaladinImprovedDivineSmite.AddCustomSubFeatures(
+            RestrictedContextValidator.Or(
+                OperationType.Set,
+                ValidatorsRestrictedContext.MeleeWeaponAttack,
+                ValidatorsRestrictedContext.IsOathOfThunder,
+                ValidatorsRestrictedContext.UseDemonHunterWeapon
+            ));
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
         AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
