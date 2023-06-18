@@ -700,38 +700,16 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
                 .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                        .Build())
-                .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectThornyVines())
+                    EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D6),
+                    EffectFormBuilder.MotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                ).Build())
             .AddToDB();
-    }
-
-    internal sealed class ModifyMagicEffectThornyVines : IModifyMagicEffect
-    {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            effectDescription.rangeParameter = 6;
-
-            return effectDescription;
-        }
     }
 
     internal static SpellDefinition BuildThunderStrike()
