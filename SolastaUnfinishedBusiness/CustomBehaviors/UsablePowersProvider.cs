@@ -74,18 +74,11 @@ internal static class UsablePowersProvider
             return;
         }
 
-        string className = null;
-
         if (classDefinition == null)
         {
             classDefinition = actor.FindClassHoldingFeature(power);
         }
 
-        if (classDefinition != null)
-        {
-            className = classDefinition.Name;
-        }
-
-        usablePower.saveDC = EffectHelpers.CalculateSaveDc(actor, effectDescription, className, usablePower.saveDC);
+        usablePower.saveDC = EffectHelpers.CalculateSaveDc(actor, effectDescription, classDefinition, usablePower.saveDC);
     }
 }

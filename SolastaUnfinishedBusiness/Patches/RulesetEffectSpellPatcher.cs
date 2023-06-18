@@ -48,7 +48,6 @@ public static class RulesetEffectSpellPatcher
             }
 
             var caster = __instance.Caster;
-            string className = null;
 
             if (__result == EffectHelpers.BasedOnItemSummoner)
             {
@@ -57,12 +56,7 @@ public static class RulesetEffectSpellPatcher
 
             var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
 
-            if (classHolder != null)
-            {
-                className = classHolder.Class.Name;
-            }
-
-            __result = EffectHelpers.CalculateSaveDc(caster, __instance.spellDefinition.effectDescription, className);
+            __result = EffectHelpers.CalculateSaveDc(caster, __instance.spellDefinition.effectDescription, classHolder?.Class);
         }
     }
 
