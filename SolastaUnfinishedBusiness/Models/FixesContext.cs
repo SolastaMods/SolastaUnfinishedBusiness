@@ -24,6 +24,7 @@ internal static class FixesContext
         FixAdditionalDamageRestrictions();
         FixAttackBuffsAffectingSpellDamage();
         FixColorTables();
+        FixDivineBlade();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
         FixMartialArtsProgression();
@@ -83,6 +84,23 @@ internal static class FixesContext
             Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
             Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
         }
+    }
+
+    private static void FixDivineBlade()
+    {
+        //BUGFIX: allows clerics to actually wield divine blade
+        var conjuredSword = WeaponTypeDefinitionBuilder
+            .Create(WeaponTypeDefinitions.LongswordType, "ConjuredSwordType")
+            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
+            .AddToDB();
+
+        var divineBladeWeaponDefinition = ItemDefinitions.DivineBladeWeapon.weaponDefinition;
+        divineBladeWeaponDefinition.weaponType = "ConjuredSwordType";
+
+        ItemDefinitions.DivineBladeWeapon.weaponDefinition = divineBladeWeaponDefinition;
+
+        //BUGFIX: allows divine heart sorcerer to wield divine blade
+        FeatureDefinitionProficiencys.ProficiencySorcererWeapon.proficiencies.Add("ConjuredSwordType");
     }
 
     private static void FixFightingStyleArchery()
