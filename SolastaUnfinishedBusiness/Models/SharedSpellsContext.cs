@@ -156,6 +156,11 @@ internal static class SharedSpellsContext
         return warlockUsedSlots;
     }
 
+    internal static int GetWarlockRemainingSlots(RulesetCharacterHero rulesetCharacterHero)
+    {
+        return GetWarlockMaxSlots(rulesetCharacterHero) - GetWarlockUsedSlots(rulesetCharacterHero);
+    }
+
     [CanBeNull]
     internal static RulesetSpellRepertoire GetWarlockSpellRepertoire(
         [NotNull] RulesetCharacterHero rulesetCharacterHero)
