@@ -117,4 +117,14 @@ internal class PerformanceFilterExtraData
                 true);
         }
     }
+
+    public string FormatTitle()
+    {
+        if (feature == null)
+        {
+            return null;
+        }
+
+        return Gui.Format("UI/&AdditionalActionSource", feature.FormatTitle());
+    }
 }

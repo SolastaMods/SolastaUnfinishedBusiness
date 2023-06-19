@@ -1,4 +1,5 @@
 UI/&Add=Add
+UI/&AdditionalActionSource=Granted by: {0}
 UI/&Current Party=Current Party
 UI/&Experimental Preview:=Experimental Preview <i><color=Yellow>[backup save before using]</color></i>: 
 UI/&Expert=Expert

@@ -354,8 +354,12 @@ public static class CharacterActionPanelPatcher
                     ? PerformanceFilterExtraData.GetData(filters[k]) 
                     : null;
                 
-                var fn = f?.ToString() ?? "<NULL>";
-                item.Tooltip.Content += $"\n{fn}";
+                var featureName = f?.FormatTitle();
+                if (!string.IsNullOrEmpty(featureName))
+                {
+                    item.Tooltip.Content += $"\n{featureName}";
+                }
+
 
                 var btn = item.GetComponent<Button>();
                 if (btn != null)
