@@ -118,10 +118,7 @@
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
-  <DefaultPartyHeroes>
-    <string>Berden</string>
-    <string>Belhara</string>
-  </DefaultPartyHeroes>
+  <DefaultPartyHeroes />
   <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableCheatMenu>true</EnableCheatMenu>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
