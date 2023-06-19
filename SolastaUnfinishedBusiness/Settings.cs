@@ -203,7 +203,6 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }
-    public bool DontDisplayHelmets { get; set; }
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
     public int EmpressGarbAppearanceIndex { get; set; }
 
@@ -326,6 +325,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
+    public bool DontDisplayHelmets { get; set; }
     public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }
 
