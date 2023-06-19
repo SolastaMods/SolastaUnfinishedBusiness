@@ -16,11 +16,11 @@ public static class ValidatorsRestrictedContext
 
     public static readonly IRestrictedContextValidator IsOathOfThunder =
         new RestrictedContextValidator((_, _, character, _, _, mode, _) => (OperationType.Set,
-            character.GetSubclassLevel(Paladin, OathOfThunder.Name) > 0 &&
+            character.GetSubclassLevel(Paladin, OathOfThunder.Name) >= 3 &&
             OathOfThunder.IsOathOfThunderWeapon(mode, null, character)));
 
     public static readonly IRestrictedContextValidator IsOathOfDemonHunter =
         new RestrictedContextValidator((_, _, character, _, _, mode, _) => (OperationType.Set,
-            character.GetSubclassLevel(Paladin, OathOfDemonHunter.Name) > 0 &&
+            character.GetSubclassLevel(Paladin, OathOfDemonHunter.Name) >= 3 &&
             OathOfDemonHunter.IsOathOfDemonHunterWeapon(mode, null, character)));
 }
