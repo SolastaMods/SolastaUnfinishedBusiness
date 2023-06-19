@@ -232,7 +232,7 @@ internal static partial class SpellBuilders
                                     provider))
                             .Build()
                     }),
-                ValidatorsRestrictedContext.WeaponAttack)
+                ValidatorsRestrictedContext.IsWeaponAttack)
             .AddToDB();
 
         var conditionEnsnaringStrike = ConditionDefinitionBuilder
@@ -364,7 +364,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -425,7 +425,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -989,7 +989,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetSavingThrowData(

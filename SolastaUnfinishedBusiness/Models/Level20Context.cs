@@ -493,6 +493,12 @@ internal static class Level20Context
         pointPoolWarlockMysticArcanum9.minSpellLevel = 9;
         pointPoolWarlockMysticArcanum9.maxSpellLevel = 9;
 
+        var pointPoolWarlockInvocation18 = FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolWarlockInvocation18")
+            .SetGuiPresentation("PointPoolWarlockInvocationAdditional", Category.Feature)
+            .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
+            .AddToDB();
+
         var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
             .SetGuiPresentation(Category.Feature)
@@ -502,6 +508,7 @@ internal static class Level20Context
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(pointPoolWarlockMysticArcanum9, 17),
+            new(pointPoolWarlockInvocation18, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerWarlockEldritchMaster, 20)
         });

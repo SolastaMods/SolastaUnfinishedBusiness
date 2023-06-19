@@ -494,7 +494,7 @@ Choose 2 of these skills: Arcana,Animal Handling,Insight,Medicine,Nature,Percept
 
 * Druid Weapon Proficiencies
 
-Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Spear
+Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Spear,Conjured Weapons
 
 * Druidic
 
@@ -1383,7 +1383,7 @@ Choose 2 of these skills: Arcana,Deception,Insight,Intimidation,Persuasion,Relig
 
 * Sorcerer Weapon Proficiencies
 
-Dagger,Dart,Quarterstaff,Light Crossbow
+Dagger,Dart,Quarterstaff,Light Crossbow,Conjured Weapons
 
 * Sorcerous Origin
 
@@ -1640,7 +1640,7 @@ Choose 2 of these skills: Arcana,History,Insight,Investigation,Medicine,Religion
 
 * Wizard Weapon Proficiencies
 
-Dagger,Dart,Quarterstaff,Light Crossbow
+Dagger,Dart,Quarterstaff,Light Crossbow,Conjured Weapons
 
 * Wizard Spellcasting
 

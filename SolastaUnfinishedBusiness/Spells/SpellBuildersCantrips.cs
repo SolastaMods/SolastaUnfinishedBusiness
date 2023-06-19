@@ -626,6 +626,7 @@ internal static partial class SpellBuilders
             RulesetEffect rulesetEffect)
         {
             var caster = GameLocationCharacter.GetFromActor(character);
+
             //Should we try making it compatible with Monsters? Like enemies with custom spell lists, or potential casting while wild-shaped?
             if (caster == null || character is not RulesetCharacterHero)
             {
@@ -634,11 +635,11 @@ internal static partial class SpellBuilders
 
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-            if (attackMode is not {SourceObject: RulesetItem})
+            if (attackMode is not { SourceObject: RulesetItem })
             {
                 return effectDescription;
             }
-            
+
             if (attackMode.Ranged || !attackMode.Reach)
             {
                 return effectDescription;
@@ -652,6 +653,7 @@ internal static partial class SpellBuilders
             }
 
             effectDescription.rangeParameter = reach;
+
             return effectDescription;
         }
     }

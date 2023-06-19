@@ -1,5 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Vous gagnez une attaque supplémentaire et pouvez désormais attaquer jusqu'à 2 fois à votre tour.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Attaque supplémentaire
+Feature/&AttributeModifierThirdExtraAttackDescription=Vous gagnez une attaque supplémentaire et pouvez désormais attaquer jusqu'à 3 fois à votre tour.
+Feature/&AttributeModifierThirdExtraAttackTitle=Attaque supplémentaire
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Vous êtes immunisé contre les dégâts nécrotiques et votre maximum de points de vie ne peut pas être réduit.
 Feature/&DamageAffinityGenericHardenToNecroticTitle=Durcir à nécrotique
 Feature/&FeatureSetCasterFightingProficiencyDescription=Vous pouvez porter une armure légère, une armure moyenne et un bouclier et également maîtriser les armes martiales.

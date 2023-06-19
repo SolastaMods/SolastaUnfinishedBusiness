@@ -949,9 +949,14 @@ internal static class GameLocationBattleManagerTweaks
                         }
 
                         // This is used to only offer divine smites on critical hits
+                        var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage
+                        {
+                            NotificationTag: "DivineSmite"
+                        };
+
                         if (!criticalHit &&
                             Main.Settings.AddPaladinSmiteToggle &&
-                            featureDefinition is FeatureDefinitionAdditionalDamage { NotificationTag: "DivineSmite" } &&
+                            isDivineSmite &&
                             !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
                         {
                             break;
@@ -1012,6 +1017,25 @@ internal static class GameLocationBattleManagerTweaks
                                 selectedSpellRepertoire, provider.NotificationTag, reactionParams);
 
                             validTrigger = reactionParams.ReactionValidated;
+
+                            /*
+                             * ######################################
+                             * [CE] EDIT START
+                             * Support for Oath of Thunder level 20 feature
+                             */
+
+                            //TODO: convert this to a proper interface to change number of smite dice
+                            if (validTrigger && isDivineSmite &&
+                                hero.GetSubclassLevel(
+                                    DatabaseHelper.CharacterClassDefinitions.Paladin, OathOfDemonHunter.Name) == 20)
+                            {
+                                reactionParams.intParameter++;
+                            }
+                            /*
+                             * Support for Oath of Thunder level 20 feature
+                             * [CE] EDIT END
+                             * ######################################
+                             */
                         }
 
                         break;

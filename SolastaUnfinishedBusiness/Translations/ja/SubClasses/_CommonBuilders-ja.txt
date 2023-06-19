@@ -1,5 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=追加攻撃が追加され、自分のターンに最大 2 回攻撃できるようになります。
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=エクストラアタック
+Feature/&AttributeModifierThirdExtraAttackDescription=追加攻撃が追加され、自分のターンに最大 3 回攻撃できるようになります。
+Feature/&AttributeModifierThirdExtraAttackTitle=エクストラアタック
 Feature/&DamageAffinityGenericHardenToNecroticDescription=あなたは壊死性ダメージに対する耐性を持ち、ヒットポイントの最大値が減少することはありません。
 Feature/&DamageAffinityGenericHardenToNecroticTitle=硬化して壊死する
 Feature/&FeatureSetCasterFightingProficiencyDescription=軽装、中装、盾を着用し、武術の習熟度を高めることもできます。

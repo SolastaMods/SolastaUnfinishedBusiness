@@ -380,7 +380,7 @@ internal static class InventoryManagementContext
         });
     }
 
-    internal static bool FilterItem(RulesetItem item, [CanBeNull] RulesetContainer container)
+    private static bool FilterItem(RulesetItem item, [CanBeNull] ISerializable container)
     {
         if (UnidentifiedToggle.isOn && item.KnowledgeLevel != EquipmentDefinitions.ItemKnowledge.MagicDetected)
         {
@@ -396,18 +396,16 @@ internal static class InventoryManagementContext
 
         var taggedIndex = TaggedGuiDropdown.value;
 
-        if (taggedIndex != 0)
+        if (taggedIndex == 0)
         {
-            Dictionary<string, TagsDefinitions.Criticity> tagsMap = new();
-
-            item.FillTags(tagsMap, container);
-            if (!tagsMap.Keys.ToArray().Contains(TaggedGuiDropdown.options[taggedIndex].text))
-            {
-                return false;
-            }
+            return true;
         }
 
-        return true;
+        Dictionary<string, TagsDefinitions.Criticity> tagsMap = new();
+
+        item.FillTags(tagsMap, container);
+
+        return tagsMap.Keys.ToArray().Contains(TaggedGuiDropdown.options[taggedIndex].text);
     }
 
     internal static void Flush([CanBeNull] RulesetContainer container)

@@ -39,6 +39,15 @@ internal static class CommonBuilders
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
+    internal static readonly FeatureDefinitionAttributeModifier AttributeModifierThirdExtraAttack =
+        FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierThirdExtraAttack")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeDefinitions.AttacksNumber, 3)
+            .AddToDB();
+
     internal static readonly FeatureDefinitionDamageAffinity DamageAffinityGenericHardenToNecrotic =
         FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityNecroticImmunity, "DamageAffinityGenericHardenToNecrotic")

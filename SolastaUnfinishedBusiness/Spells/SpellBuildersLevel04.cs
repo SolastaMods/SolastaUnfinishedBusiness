@@ -53,7 +53,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 4)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(

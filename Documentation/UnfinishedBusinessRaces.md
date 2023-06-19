@@ -354,7 +354,53 @@ When you take damage, you can use your reaction to roll a d12. Add your Constitu
 
 
 
-# 15. - Zariel
+# 15. - Wendigo
+
+Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
+
+
+## Level 1
+
+* Attribute Increase
+
+Strength +2
+
+* Attribute Increase
+
+Dexterity +1
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Language
+
+Common and Goblin.
+
+* Move
+
+6◎
+
+* Natural Lunger
+
+Your melee attack increases by 5 feet. Should not stack with features that increase melee range.
+
+* Powerful Build
+
+You count your size as Large when determining your carrying capacity.
+
+* Stalker
+
+You have proficiency in Stealth skill.
+
+* Sucker Punch
+
+On the first round of combat, if you hit a creature with an attack roll and it's initiative is lower than you, the creature takes an extra 2d6 damage.
+
+
+
+
+# 16. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 

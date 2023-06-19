@@ -1,5 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Ottieni un attacco extra e ora puoi attaccare fino a 2 volte nel tuo turno.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Attacco extra
+Feature/&AttributeModifierThirdExtraAttackDescription=Ottieni un attacco extra e ora puoi attaccare fino a 3 volte nel tuo turno.
+Feature/&AttributeModifierThirdExtraAttackTitle=Attacco extra
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Hai immunità al danno necrotico e il tuo massimo punto ferita non può essere ridotto.
 Feature/&DamageAffinityGenericHardenToNecroticTitle=Indurisci a Necrotico
 Feature/&FeatureSetCasterFightingProficiencyDescription=Puoi indossare armature leggere, armature medie e scudi e acquisire competenza con le armi da guerra.

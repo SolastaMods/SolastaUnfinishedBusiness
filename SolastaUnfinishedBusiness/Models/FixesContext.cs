@@ -52,13 +52,23 @@ internal static class FixesContext
 
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
-        AdditionalDamagePaladinDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
+        AdditionalDamagePaladinDivineSmite.AddCustomSubFeatures(
+            RestrictedContextValidator.Or(
+                OperationType.Set,
+                ValidatorsRestrictedContext.IsMeleeWeaponAttack,
+                ValidatorsRestrictedContext.IsOathOfDemonHunter,
+                ValidatorsRestrictedContext.IsOathOfThunder
+            ));
 
         AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
-        AdditionalDamagePaladinImprovedDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
+        AdditionalDamagePaladinImprovedDivineSmite.AddCustomSubFeatures(
+            RestrictedContextValidator.Or(
+                OperationType.Set,
+                ValidatorsRestrictedContext.IsMeleeWeaponAttack,
+                ValidatorsRestrictedContext.IsOathOfDemonHunter,
+                ValidatorsRestrictedContext.IsOathOfThunder
+            ));
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
         AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
@@ -70,10 +80,10 @@ internal static class FixesContext
     private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
-        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
+        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack);
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
-        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
+        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack);
     }
 
     private static void FixColorTables()

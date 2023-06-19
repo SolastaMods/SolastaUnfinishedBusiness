@@ -79,6 +79,7 @@ internal static class UsablePowersProvider
             classDefinition = actor.FindClassHoldingFeature(power);
         }
 
-        usablePower.saveDC = EffectHelpers.CalculateSaveDc(actor, effectDescription, classDefinition, usablePower.saveDC);
+        usablePower.saveDC =
+            EffectHelpers.CalculateSaveDc(actor, effectDescription, classDefinition, usablePower.saveDC);
     }
 }

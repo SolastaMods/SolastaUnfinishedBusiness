@@ -1,5 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Du erhältst einen zusätzlichen Angriff und kannst nun bis zu 2 Mal in deinem Zug angreifen.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Zusätzlicher Angriff
+Feature/&AttributeModifierThirdExtraAttackDescription=Du erhältst einen zusätzlichen Angriff und kannst nun bis zu dreimal in deinem Zug angreifen.
+Feature/&AttributeModifierThirdExtraAttackTitle=Zusätzlicher Angriff
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Du bist immun gegen nekrotischen Schaden und dein Trefferpunktmaximum kann nicht reduziert werden.
 Feature/&DamageAffinityGenericHardenToNecroticTitle=Verhärtet sich zu nekrotisch
 Feature/&FeatureSetCasterFightingProficiencyDescription=Sie können leichte Rüstung, mittlere Rüstung und Schild tragen und sich auch mit Kampfwaffen auskennen.
