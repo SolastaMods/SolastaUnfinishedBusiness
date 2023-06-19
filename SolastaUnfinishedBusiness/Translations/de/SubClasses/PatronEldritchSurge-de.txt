@@ -1,0 +1,25 @@
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Sie ignorieren den Nachteil von Fernkampfzaubern, wenn sich Feinde in Nahkampfreichweite befinden, Sie addieren Ihren Fähigkeitsbonus zum Schaden von <b>Eldritch Blast</b> und die Reichweite Ihres <b>Eldritch Blast</b> wird um 30 Fuß verringert.
+Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Explosionsüberlastung
+Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=Du erhältst einen zusätzlichen Angriff, einen zusätzlichen Zauber, einen Sprint, einen Rückzug oder ein Ausweichen als Hauptaktion. Ein <b>Eldritch Blast</b>-Kill verlängert die Dauer um eine Runde. Die Reichweite Ihrer <b>Eldritch-Explosion</b> verringert sich um das 30-Fuß-fache der Anzahl zusätzlicher Explosionsverfolgungsaktionen, die Sie in dieser Runde erhalten haben.
+Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Explosionsverfolgung
+Condition/&ConditionPatronEldritchSurgeBlastReloadDescription=Du kannst Zaubertricks, die du in diesem Zug gewirkt hast, mit deiner Hauptaktion als Bonusaktion wirken.
+Condition/&ConditionPatronEldritchSurgeBlastReloadTitle=Explosionsnachladen
+Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=Du hast eine zusätzliche Hauptaktion, die durch <b>Blast Pursuit</b> gewährt wird.
+Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Extra-Action-Blast-Verfolgung
+Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=Du befindest dich ständig im Status <b>Blast Pursuit</b>, musst aber <b>Eldritch Blast</b> wirken, um bis zu zweimal pro Spielzug eine zusätzliche Hauptaktion wiederherzustellen.
+Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=Streben nach Dauerhaftigkeit
+Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Ihr Gönner verleiht Ihnen stärkere Schüsse, aber nur, wenn Sie seinem Weg die ganze Zeit folgen. <b>Eldritch Blast</b> hat jetzt eine Reichweite von 120 Fuß. Die Strahlzahl wird stattdessen durch Ihre Entschlossenheit abgeleitet und berechnet als [Hexenmeisterstufen] – 2 * [Stufen anderer Klassen]. Sie können 2 Strahlen werfen, wenn die Bestimmung >= 3, 3, wenn >= 7, 4, wenn >= 11, 5, wenn >= 15 und 6, wenn >= 19.
+Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=Exklusiv bei Blast
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Wenn du <b>Eldritch Blast</b> immer besser meisterst, kannst du dein Mana verbrennen, um deine Magie zu stärken.\nAls Bonusaktion kannst du einen Paktslot ausgeben und 1 Minute lang den Fernkampfzaubernachteil von Feinden ignorieren sich in Nahkampfreichweite befinden, addieren Sie Ihren Fähigkeitsbonus zum Schaden von <b>Eldritch Blast</b> und die Reichweite Ihres <b>Eldritch Blast</b> verringert sich um 30 Fuß.
+Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Explosionsüberlastung
+Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Du erhältst Schwung, wenn du Feinde mit deinen Explosionen tötest.\nAls Bonusaktion kannst du einen Paktplatz ausgeben und für eine Runde erhältst du eine zusätzliche Hauptaktion für Angriff, Zauber, Sprint, Loslösung oder Ausweichen. Ein Kill mit <b>Eldritch Blast</b> verlängert <b>Blast Pursuit</b> um eine Runde. Für jede zusätzliche Hauptaktion, die Sie durch diese Funktion erhalten, wird die Reichweite Ihres <b>Eldritch Blast</b> bis zum Beginn Ihres nächsten Zuges um 30 Fuß verringert.
+Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Explosionsverfolgung
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Deine Exzellenz in <b>Eldritch Blast</b> ermöglicht es dir, zweimal hintereinander zu wirken. Du kannst Zaubertricks, die du in diesem Zug gewirkt hast, mit deiner Hauptaktion als Bonusaktion wirken.
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Explosionsnachladen
+Feature/&PowerPatronEldritchSurgePermanentBlastPursuitDescription=Wenn du keine verbleibenden Paktslots mehr hast, befindest du dich ständig im Status „Blast Pursuit“, aber du musst „Eldritch Blast“ wirken, um eine zusätzliche Hauptaktion und bis zu zweimal pro Spielzug wiederzuerlangen.
+Feature/&PowerPatronEldritchSurgePermanentBlastPursuitTitle=Streben nach Dauerhaftigkeit
+Feedback/&AdditionalDamageBlastOverloadFormat=Explosionsüberlastung!
+Feedback/&AdditionalDamageBlastOverloadLine={0} verleiht {1} (+{2}) arkane Kraft!
+Feedback/&BlastPursuitExtraAction={1} gewährt {0} einen zusätzlichen Angriff!
+Subclass/&PatronEldritchSurgeDescription=Du hast einen Pakt mit einem mysteriösen Wesen geschlossen, der dir die Macht verleiht, die wilde arkane Energie von <b>Eldritch Blast</b> zu entfesseln. Dieser Schutzpatron ist kein bestimmtes Wesen, sondern vielmehr eine Manifestation der rohen Woge der Magie selbst. Als Auserwählter dieses Wesens konzentrieren Sie sich voll und ganz auf die Verbesserung Ihres Signaturzaubers und vernichten Ihre Feinde mit der verheerenden Kraft, um seine grenzenlose Macht zu beweisen. Und somit gewährt Ihnen Ihr Gönner nur <b>Eldritch Blast</b>.
+Subclass/&PatronEldritchSurgeTitle=Unheimliche Welle

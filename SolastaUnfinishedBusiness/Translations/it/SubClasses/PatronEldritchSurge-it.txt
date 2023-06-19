@@ -1,0 +1,25 @@
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Ignori lo svantaggio degli incantesimi a distanza se i nemici si trovano nel raggio di mischia, aggiungi il tuo bonus di competenza al danno di <b>Eldritch Blast</b> e la portata del tuo <b>Eldritch Blast</b> viene ridotta di 9 metri.
+Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sovraccarico esplosivo
+Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=Ottieni un'azione principale di attacco, lancio, scatto, disimpegno o schivata extra. Un'uccisione <b>Eldritch Blast</b> prolunga la durata di un round. La portata del tuo <b>Eldritch Blast</b> è diminuita di 9 metri per il numero di azioni extra di inseguimento dell'esplosione che hai ottenuto in questo turno.
+Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Inseguimento esplosivo
+Condition/&ConditionPatronEldritchSurgeBlastReloadDescription=Puoi lanciare trucchetti che hai lanciato in questo turno con la tua azione principale come azione bonus.
+Condition/&ConditionPatronEldritchSurgeBlastReloadTitle=Ricarica esplosiva
+Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=Hai un'azione principale extra concessa da <b>Blast Pursuit</b>.
+Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Azione extra Inseguimento esplosivo
+Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=Sei in costante stato di <b>Blast Pursuit</b>, ma devi lanciare <b>Eldritch Blast</b> per recuperare un'azione principale extra fino a due volte per turno.
+Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=Permanenza dell'inseguimento
+Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Il tuo mecenate ti dota di esplosioni più potenti, ma solo se segui il suo percorso per tutto il tempo. <b>Eldritch Blast</b> ora ha una portata di 120 piedi. Il numero del raggio è invece derivato dalla tua determinazione calcolata come [Livelli Stregone] - 2 * [Livelli Altre Classi]. Puoi lanciare 2 raggi se determinazione >= 3, 3 se >= 7, 4 se >= 11, 5 se >= 15 e 6 se >= 19.
+Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=Esplosione esclusiva
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Man mano che acquisisci ulteriore padronanza di <b>Eldritch Blast</b>, puoi bruciare il tuo mana per potenziare la tua magia.\nCome azione bonus, puoi spendere uno slot di patto e per 1 minuto, ignori lo svantaggio dell'incantesimo a distanza se i nemici sono nel raggio di mischia, aggiungi il tuo bonus di competenza al danno di <b>Eldritch Blast</b> e la portata del tuo <b>Eldritch Blast</b> viene ridotta di 9 metri.
+Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sovraccarico esplosivo
+Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Ottieni slancio quando uccidi i nemici con le tue esplosioni.\nCome azione bonus, puoi spendere uno slot di patto e per un round ottieni un'azione principale di attacco, lancio, scatto, disimpegno o schivata extra. Un'uccisione con <b>Eldritch Blast</b> prolunga <b>Blast Pursuit</b> di un round. Per ogni azione principale extra che ottieni da questa funzione, fino all'inizio del tuo prossimo turno, la portata del tuo <b>Eldritch Blast</b> viene ridotta di 9 metri.
+Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Inseguimento esplosivo
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=La tua eccellenza in <b>Eldritch Blast</b> ti consente di lanciare due volte di seguito. Puoi lanciare trucchetti che hai lanciato in questo turno con la tua azione principale come azione bonus.
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Ricarica esplosiva
+Feature/&PowerPatronEldritchSurgePermanentBlastPursuitDescription=Se non hai spazi di patto rimanenti, sei in costante stato di <b>Blast Pursuit</b>, ma devi lanciare <b>Eldritch Blast</b> per recuperare un'azione principale extra e fino a due volte per turno.
+Feature/&PowerPatronEldritchSurgePermanentBlastPursuitTitle=Permanenza dell'inseguimento
+Feedback/&AdditionalDamageBlastOverloadFormat=Sovraccarico esplosivo!
+Feedback/&AdditionalDamageBlastOverloadLine={0} riversa potere arcano in {1} (+{2})!
+Feedback/&BlastPursuitExtraAction={1} concede a {0} un attacco extra!
+Subclass/&PatronEldritchSurgeDescription=Hai stretto un patto con un'entità misteriosa che ti garantisce il potere di scatenare la feroce energia arcana di <b>Eldritch Blast</b>. Questo patrono non è un essere specifico, ma piuttosto una manifestazione della pura ondata di magia stessa. Scelto da questo essere, ti dedichi a concentrarti sul potenziamento del tuo incantesimo distintivo e distruggi i tuoi nemici con la forza devastante per dimostrare il suo potere sconfinato. E quindi, il tuo mecenate ti concede solo <b>Eldritch Blast</b>.
+Subclass/&PatronEldritchSurgeTitle=Impulso Eldritch

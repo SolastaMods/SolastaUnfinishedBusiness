@@ -39,6 +39,7 @@ internal static class CreditsDisplay
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
         ("magicSword", "chinese translations, asian languages support, Oath of Demon Hunter"),
+        ("HIEROT", "Patron Eldritch Surge"),
         ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
