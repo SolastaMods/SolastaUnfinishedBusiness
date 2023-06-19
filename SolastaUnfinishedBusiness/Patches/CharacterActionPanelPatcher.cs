@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -306,6 +307,77 @@ public static class CharacterActionPanelPatcher
                 .ExecuteAction(__instance.actionParams.Clone(), __instance.ActionExecuted, false);
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.RefreshActionPerformances))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshActionPerformances_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(CharacterActionPanel __instance)
+        {
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                return;
+            }
+
+            var table = __instance.actionPerformanceTable;
+            if (table == null)
+            {
+                return;
+            }
+            if (!table.gameObject.activeSelf)
+            {
+                return;
+            }
+            
+            var filters = __instance.GuiCharacter.GameLocationCharacter.ActionPerformancesByType[__instance.ActionType];
+
+            for (var i = 0; i < table.childCount; i++)
+            {
+                var child = table.GetChild(i);
+                if (!child.gameObject.activeSelf)
+                {
+                    continue;
+                }
+
+                var item = child.GetComponent<ActionTypePerformanceItem>();
+                if (item == null)
+                {
+                    continue;
+                }
+
+                var k = child.GetSiblingIndex();
+                var f = (k >= 0 && k < filters.Count) 
+                    ? PerformanceFilterExtraData.GetData(filters[k]) 
+                    : null;
+                
+                var fn = f?.ToString() ?? "<NULL>";
+                item.Tooltip.Content += $"\n{fn}";
+
+                var btn = item.GetComponent<Button>();
+                if (btn != null)
+                {
+                    continue;
+                }
+
+                btn = item.gameObject.AddComponent<Button>();
+                btn.enabled = true;
+                btn.interactable = true;
+
+                btn.onClick.AddListener(() =>
+                {
+                    var panel = item.GetComponentInParent<CharacterActionPanel>();
+                    if (item.availableSymbol.IsActive())
+                    {
+                        ActionSwitching.PrirotizeAction(panel.GuiCharacter.GameLocationCharacter, panel.ActionType,
+                            item.transform.GetSiblingIndex());
+                    }
+
+                });
+            }
         }
     }
 }

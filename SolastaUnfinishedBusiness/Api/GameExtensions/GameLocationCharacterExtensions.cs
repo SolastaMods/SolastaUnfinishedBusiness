@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using TA;
 using static ActionDefinitions;
@@ -232,38 +231,12 @@ public static class GameLocationCharacterExtensions
             return null;
         }
 
-        FeatureApplicationValidation.EnumerateAdditionalActionProviders(instance.RulesetCharacter);
-        var i = 0;
-        foreach (var feature in instance.RulesetCharacter.FeaturesToBrowse)
+        var filters = instance.ActionPerformancesByType[type];
+        if (rank >= filters.Count)
         {
-            //this condition should never trigger, this is just for Rider to not complain about types
-            if (feature is not IAdditionalActionsProvider provider) { continue; }
-
-            if (provider.ActionType != type) { continue; }
-
-            //Since non-triggered ones are removed on FeatureApplicationValidation.EnumerateAdditionalActionProviders
-            //we don't actually need these checks
-            /*
-            var valid = provider.TriggerCondition == RuleDefinitions.AdditionalActionTriggerCondition.None;
-            if (!valid && provider.TriggerCondition ==
-                RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
-            {
-                valid = instance.enemiesDownedByAttack > 0;
-            }
-
-            if (!valid)
-            {
-                continue;
-            }
-            */
-
-            i++;
-            if (i == rank)
-            {
-                return feature;
-            }
+            return null;
         }
 
-        return null;
+        return PerformanceFilterExtraData.GetData(filters[rank])?.feature;
     }
 }

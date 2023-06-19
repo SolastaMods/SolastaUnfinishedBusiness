@@ -224,6 +224,12 @@ public static class GameLocationCharacterPatcher
                     -1, "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
                     new CodeInstruction(OpCodes.Call, enumerate2));
         }
+        
+        public static void Postfix(GameLocationCharacter __instance)
+        {
+            //PATCH: support for action switching
+            ActionSwitching.ResortPerformances(__instance);
+        }
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.HandleActionExecution))]
@@ -231,6 +237,19 @@ public static class GameLocationCharacterPatcher
     [UsedImplicitly]
     public static class HandleActionExecution_Patch
     {
+        private static int mainAttacks, bonusAttacks, mainRank, bonusRank;
+        [UsedImplicitly]
+        public static void Prefix(
+            GameLocationCharacter __instance,
+            CharacterActionParams actionParams,
+            ActionDefinitions.ActionScope scope)
+        {
+            mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
+            bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
+            mainAttacks = __instance.UsedMainAttacks;
+            bonusAttacks = __instance.UsedBonusAttacks;
+        }
+        
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
@@ -248,6 +267,8 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
             rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
                 .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
+            //PATCH: support for action switching
+            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, mainRank, mainAttacks, bonusRank, bonusAttacks);
         }
     }
 
