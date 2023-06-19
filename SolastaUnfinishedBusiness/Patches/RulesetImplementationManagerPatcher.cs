@@ -228,8 +228,7 @@ public static class RulesetImplementationManagerPatcher
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
-            var hero = rulesetCharacter as RulesetCharacterHero ??
-                       rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+            var hero = rulesetCharacter.GetOriginalHero();
 
             //TODO: make this a proper interface in case we need to support other use cases
             if (hero != null &&

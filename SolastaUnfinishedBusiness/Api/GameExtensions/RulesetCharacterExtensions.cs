@@ -30,7 +30,7 @@ internal static class RulesetCharacterExtensions
     internal static int GetSubclassLevel(
         this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
     {
-        var hero = character as RulesetCharacterHero ?? character?.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = character.GetOriginalHero();
 
         if (hero == null ||
             (hero.ClassesAndSubclasses.TryGetValue(klass, out var characterSubclassDefinition) &&
@@ -313,14 +313,14 @@ internal static class RulesetCharacterExtensions
 
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
-        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance.GetOriginalHero();
 
         return hero?.GetClassLevel(classDefinition) ?? 0;
     }
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {
-        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance.GetOriginalHero();
 
         return hero?.GetClassLevel(className) ?? 0;
     }
@@ -588,5 +588,11 @@ internal static class RulesetCharacterExtensions
         }
 
         label.EnqueueCaption(new CharacterLabel.CaptionInfo { caption = text, colorString = color });
+    }
+
+    [CanBeNull]
+    internal static RulesetCharacterHero GetOriginalHero(this RulesetCharacter character)
+    {
+        return character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
     }
 }
