@@ -300,17 +300,18 @@ internal class PatronEldritchSurge : AbstractSubclass
             }
 
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionBlastPursuit.Name, out var activeCondition))
+                    AttributeDefinitions.TagEffect, ConditionBlastPursuit.Name, out var rulesetCondition))
             {
-                activeCondition.endOccurence = TurnOccurenceType.EndOfTurn;
-                activeCondition.remainingRounds += 1;
+                rulesetCondition.EndOccurence = TurnOccurenceType.EndOfTurn;
+                rulesetCondition.RemainingRounds += 1; // always use setter to avoid issues with game effects manager
             }
 
-            var power = attacker.RulesetCharacter.PowersUsedByMe.FirstOrDefault(x => x.Name == PowerBlastPursuitName);
+            var rulesetEffectPower =
+                attacker.RulesetCharacter.PowersUsedByMe.FirstOrDefault(x => x.Name == PowerBlastPursuitName);
 
-            if (power != null)
+            if (rulesetEffectPower != null)
             {
-                power.remainingRounds += 1;
+                rulesetEffectPower.RemainingRounds += 1; // always use setter to avoid issues with game effects manager
             }
         }
     }
@@ -322,10 +323,8 @@ internal class PatronEldritchSurge : AbstractSubclass
             CharacterActionParams actionParams,
             ActionScope scope)
         {
-            var actionDefinition = actionParams.ActionDefinition;
-
             // skip if wrong scope or action type
-            if (scope != ActionScope.Battle || actionDefinition.ActionType != ActionType.Main)
+            if (scope != ActionScope.Battle || actionParams.ActionDefinition.ActionType != ActionType.Main)
             {
                 return;
             }
@@ -426,17 +425,17 @@ internal class PatronEldritchSurge : AbstractSubclass
 
         public void QualifySpells(
             RulesetCharacter rulesetCharacter,
-            SpellRepertoireLine line,
+            SpellRepertoireLine spellRepertoireLine,
             IEnumerable<SpellDefinition> spells)
         {
             // _cantripsUsedThisTurn only has entries for Eldritch Surge of at least level 14
-            if (line.actionType != ActionType.Bonus ||
+            if (spellRepertoireLine.actionType != ActionType.Bonus ||
                 !_cantripsUsedThisTurn.TryGetValue(rulesetCharacter, out var cantrips))
             {
                 return;
             }
 
-            line.relevantSpells.AddRange(cantrips.Intersect(spells));
+            spellRepertoireLine.relevantSpells.AddRange(cantrips.Intersect(spells));
         }
     }
 }
