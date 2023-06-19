@@ -57,7 +57,7 @@ internal static class WyrmkinRaceBuilder
                 // ,
                 // BuildDarkWyrmkin(raceWyrmkin)
                 };
-        RacesContext.RaceScaleMap[raceWyrmkin] = 7.4f / 6.4f;
+        RacesContext.RaceScaleMap[raceWyrmkin] = 7.0f / 6.4f;
         return raceWyrmkin;
     }
 
@@ -73,13 +73,13 @@ internal static class WyrmkinRaceBuilder
         var attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 1)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 2)
             .AddToDB();
 
-        var attributeModifierHighWyrmkinConstitutionAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifierHighWyrmkinConstitutionAbilityScoreIncrease")
+        var attributeModifierHighWyrmkinStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifierHighWyrmkinStrengthAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 2)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
             .AddToDB();
 
         var powerHighWyrmkinReactiveRetribution = FeatureDefinitionPowerBuilder
@@ -100,7 +100,8 @@ internal static class WyrmkinRaceBuilder
                     false,
                     AttributeDefinitions.Intelligence,
                     true,
-                    EffectDifficultyClassComputation.BreathWeapon)
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(ColorSpray.EffectDescription.effectParticleParameters)
                 .SetEffectForms(
                 EffectFormBuilder
@@ -122,7 +123,7 @@ internal static class WyrmkinRaceBuilder
             .Create(characterRaceDefinition, "RaceHighWyrmkin")
             .SetGuiPresentation(Category.Race, koboldSpriteReference)
             .SetFeaturesAtLevel(1,
-            attributeModifierHighWyrmkinConstitutionAbilityScoreIncrease,
+            attributeModifierHighWyrmkinStrengthAbilityScoreIncrease,
             attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease,
             powerHighWyrmkinPsionicWave,
             powerHighWyrmkinReactiveRetribution

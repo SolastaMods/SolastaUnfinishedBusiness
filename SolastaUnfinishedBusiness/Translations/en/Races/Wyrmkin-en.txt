@@ -1,10 +1,10 @@
-Feature/&AttributeModifierHighWyrmkinConstitutionAbilityScoreIncreaseDescription=Constitution +2
-Feature/&AttributeModifierHighWyrmkinConstitutionAbilityScoreIncreaseTitle=Attribute Increase
-Feature/&AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncreaseDescription=Intelligence +1
+Feature/&AttributeModifierHighWyrmkinStrengthAbilityScoreIncreaseDescription=Strength +1
+Feature/&AttributeModifierHighWyrmkinStrengthAbilityScoreIncreaseTitle=Attribute Increase
+Feature/&AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncreaseDescription=Intelligence +2
 Feature/&AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncreaseTitle=Attribute Increase
 Feature/&PowerHighWyrmkinReactiveRetributionDescription=When a creature hits you with an attack, you can use your reaction to attack the creature using the weapon you are wielding if within range. Once you use this trait, you cannot use until a short or long rest.
 Feature/&PowerHighWyrmkinReactiveRetributionTitle=Reactive Retribution
-Feature/&PowerHighWyrmkinPsionicWaveDescription=You can use your action to unleash a psionic wave in a 15-foot cone. All creatures in the area must make an Intelligence saving throw. The DC for this saving throw is equal to 8 + your Constitution modifier + you proficiency bonus. A creature takes 2d6 Psychic damage on a failed save, and half as much damage on a successful one. The damage increases by 1d6 when you reach 6th, 11th and 16th levels. After you use this trait, you can't use it again until you finish a short or long rest.
+Feature/&PowerHighWyrmkinPsionicWaveDescription=You can use your action to unleash a psionic wave in a 15-foot cone. All creatures in the area must make an Intelligence saving throw. The DC for this saving throw is equal to 8 + your Intelligence modifier + you proficiency bonus. A creature takes 2d6 Psychic damage on a failed save, and half as much damage on a successful one. The damage increases by 1d6 when you reach 6th, 11th and 16th levels. After you use this trait, you can't use it again until you finish a short or long rest.
 Feature/&PowerHighWyrmkinPsionicWaveTitle=Psionic Wave
 Feature/&ProficiencyWyrmkinLanguagesDescription=Common, Draconic.
 Feature/&ProficiencyWyrmkinLanguagesTitle=Languages
