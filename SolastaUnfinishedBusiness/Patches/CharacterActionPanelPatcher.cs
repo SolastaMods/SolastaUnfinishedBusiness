@@ -12,7 +12,10 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
 using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -334,6 +337,35 @@ public static class CharacterActionPanelPatcher
             }
             
             var filters = __instance.GuiCharacter.GameLocationCharacter.ActionPerformancesByType[__instance.ActionType];
+
+            if (table.gameObject.TryGetComponent<HorizontalLayoutGroup>(out var group))
+            {
+                Object.DestroyImmediate(group);
+            }
+            
+            if (!table.gameObject.TryGetComponent<GridLayoutGroup>(out var grid))
+            {
+                grid = table.gameObject.AddComponent<GridLayoutGroup>();
+                grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+                grid.childAlignment = TextAnchor.MiddleCenter;
+                grid.startCorner = GridLayoutGroup.Corner.UpperLeft;
+                grid.startAxis = GridLayoutGroup.Axis.Horizontal;
+                grid.cellSize = new Vector2(32, 10);
+                grid.spacing = new Vector2(3, 5);
+            }
+
+            if (grid != null)
+            {
+                var width = (int)__instance.RectTransform.rect.width;
+                var constraint = width / 35;
+                
+                if (constraint > filters.Count)
+                {
+                    constraint = filters.Count;
+                }
+
+                grid.constraintCount = constraint;
+            }
 
             for (var i = 0; i < table.childCount; i++)
             {
