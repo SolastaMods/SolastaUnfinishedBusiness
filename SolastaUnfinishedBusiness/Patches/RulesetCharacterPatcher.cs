@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
@@ -500,6 +501,23 @@ public static class RulesetCharacterPatcher
             if (__instance.HasAnyConditionOfType(RuleDefinitions.ConditionRaging))
             {
                 __result = false;
+            }
+        }
+    }
+
+    //PATCH: ensures Blast Reload works eventhough the character knows no bonus action spells or used up all slots
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastSpellOfActionType
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ActionDefinitions.ActionType actionType, ref bool __result)
+        {
+            // raging
+            if (actionType == ActionType.Bonus && __instance.HasAnyConditionOfType("ConditionBlastReload"))
+            {
+                __result = true;
             }
         }
     }

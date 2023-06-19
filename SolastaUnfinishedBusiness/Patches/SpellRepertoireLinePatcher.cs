@@ -2,6 +2,10 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -18,6 +22,15 @@ public static class SpellRepertoireLinePatcher
         {
             //PATCH: hide reaction spells from spell panel
             spellDefinitions.RemoveAll(x => x.ActivationTime == RuleDefinitions.ActivationTime.Reaction);
+
+        }
+        public static void Postfix([NotNull] List<SpellDefinition> spellDefinitions, SpellRepertoireLine __instance)
+        {
+            //PATCH: Enable Blast Reload feature
+            var hero = __instance.caster.rulesetCharacter;
+            hero?.GetSubFeaturesByType<IQualifySpellToRepertoireLine>()
+            .ForEach(f => f.QualifySpells(hero, __instance, spellDefinitions));
+
         }
     }
 }

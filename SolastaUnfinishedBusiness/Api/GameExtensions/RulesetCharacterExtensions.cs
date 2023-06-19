@@ -32,12 +32,15 @@ internal static class RulesetCharacterExtensions
     {
         var hero = character as RulesetCharacterHero ?? character?.OriginalFormCharacter as RulesetCharacterHero;
 
+        
         // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
         if (hero == null ||
             (hero.ClassesAndSubclasses.TryGetValue(klass, out var characterSubclassDefinition) &&
              characterSubclassDefinition.Name != subclass))
         {
+            // Return 1 is very bad practice here! Making function name semantics different from actual effect!
             return 1;
+
         }
 
         return hero.GetClassLevel(klass);
