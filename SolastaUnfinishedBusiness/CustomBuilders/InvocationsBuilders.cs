@@ -660,7 +660,7 @@ internal static class InvocationsBuilders
             {
                 yield break;
             }
-            
+
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             foreach (var power in rulesetCharacter.usablePowers
