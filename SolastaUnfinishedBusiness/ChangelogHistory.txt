@@ -2,18 +2,18 @@
 
 1.5.74.3:
 
-- added Feral Tiefling subrace [CHA+2, DEX+1, Burning Hands, Demonic Wings]
+- added Feral Tiefling subrace [DEX+1, Burning Hands, Demonic Wings]
 - added Oath of Demon Hunter subclass [by @magicSkySword]
 - added tags and unidentified filters to inventory sorting feature UI [by @Kiloku]
 - fixed Artillerist allowing more than 1 tiny cannon at lower levels
-- fixed Cleaving Attack loosing extra attack if power were used
+- fixed Cleaving Attack loosing extra attack if any power used
 - fixed Domain Smith allowing reinforce armor stacking after level up
 - fixed Merciless fighting style to last until end of your next turn
 - fixed multiclass into Warlock not gaining proficiency in simple weapons
 - fixed potential enumeration change issues across the codebase
 - improved Sunlit Blade reach increase handling
 - improved Thorny Vines description to state it can attack at range
-- reworked Astral Reach feat, Lunger fighting style, and Wendigo race interactions
+- reworked Acrobat, Lunger, and Wendigo so they don't stack on reach bonus [Astral Reach and Wendigo still do]
 
 1.5.74.2:
 
