@@ -8,12 +8,19 @@ namespace SolastaUnfinishedBusiness.CustomValidators;
 
 public static class ValidatorsRestrictedContext
 {
-    public static readonly IRestrictedContextValidator WeaponAttack =
+    public static readonly IRestrictedContextValidator IsWeaponAttack =
         new RestrictedContextValidator((_, _, _, _, _, mode, _) => (OperationType.Set, mode != null));
 
-    public static readonly IRestrictedContextValidator MeleeWeaponAttackOrOathOfThunder =
+    public static readonly IRestrictedContextValidator IsMeleeWeaponAttack =
+        new RestrictedContextValidator((_, _, _, _, _, mode, _) => (OperationType.Set, ValidatorsWeapon.IsMelee(mode)));
+
+    public static readonly IRestrictedContextValidator IsOathOfThunder =
         new RestrictedContextValidator((_, _, character, _, _, mode, _) => (OperationType.Set,
-            mode != null && (ValidatorsWeapon.IsMelee(mode) ||
-                             (character.GetSubclassLevel(Paladin, OathOfThunder.Name) > 0 &&
-                              OathOfThunder.IsValidWeapon(mode, null, null)))));
+            character.GetSubclassLevel(Paladin, OathOfThunder.Name) > 0 &&
+            OathOfThunder.IsOathOfThunderWeapon(mode, null, character)));
+
+    public static readonly IRestrictedContextValidator IsOathOfDemonHunter =
+        new RestrictedContextValidator((_, _, character, _, _, mode, _) => (OperationType.Set,
+            character.GetSubclassLevel(Paladin, OathOfDemonHunter.Name) > 0 &&
+            OathOfDemonHunter.IsOathOfDemonHunterWeapon(mode, null, character)));
 }

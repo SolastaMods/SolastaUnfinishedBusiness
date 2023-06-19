@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -50,7 +51,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetCustomSubFeatures(
                 new AddPolearmFollowUpAttack(QuarterstaffType),
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
-                new ModifyWeaponAttackModeTypeQuarterstaff(validWeapon))
+                new IncreaseWeaponReach(1, validWeapon, Lunger.Name)) // should not stack with Lunger or Wendigo
             .AddToDB();
 
         // LEVEL 09 - Swift as the Wind
@@ -172,27 +173,6 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    private sealed class ModifyWeaponAttackModeTypeQuarterstaff : IModifyWeaponAttackMode
-    {
-        private readonly IsWeaponValidHandler _isWeaponValid;
-
-        public ModifyWeaponAttackModeTypeQuarterstaff(IsWeaponValidHandler isWeaponValid)
-        {
-            _isWeaponValid = isWeaponValid;
-        }
-
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            if (!_isWeaponValid(attackMode, null, character))
-            {
-                return;
-            }
-
-            attackMode.reach = true;
-            attackMode.reachRange = 2;
-        }
-    }
 
     private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge : IAttackBeforeHitConfirmedOnMe
     {

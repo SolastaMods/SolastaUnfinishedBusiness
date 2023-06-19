@@ -203,6 +203,7 @@ Item/&Club_Power_Description=Esta arma encantada fue forjada usando el antiguo c
 Item/&Club_Power_Title=Club de poder
 Item/&Club_Punisher_Description=Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. La combinación del mejor metal y Slavestone le dio a este hacha un increíble poder de perforación.
 Item/&Club_Punisher_Title=Club del castigador
+Item/&ConjuredWeaponTypeTitle=Armas Conjuradas
 Item/&Dart_Acuteness_Description=Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Item/&Dart_Acuteness_Title=Dardo de agudeza
 Item/&Dart_Frostburn_Description=Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.

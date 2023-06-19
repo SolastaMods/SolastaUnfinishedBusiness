@@ -8,10 +8,15 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+        internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
+        internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
+        internal static ActionDefinition UseBardicInspiration { get; } = GetDefinition<ActionDefinition>("UseBardicInspiration");
+        internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
     internal static class CharacterBackgroundDefinitions
     {
@@ -686,6 +691,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyClericWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyClericWeapon");
         internal static FeatureDefinitionProficiency ProficiencyDruidArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidArmor");
         internal static FeatureDefinitionProficiency ProficiencyDruidSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidSavingThrow");
+        internal static FeatureDefinitionProficiency ProficiencyDruidWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDruidWeapon");
         internal static FeatureDefinitionProficiency ProficiencyDwarfLanguages { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyDwarfLanguages");
         internal static FeatureDefinitionProficiency ProficiencyFeatLockbreaker { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatLockbreaker");
         internal static FeatureDefinitionProficiency ProficiencyFighterArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterArmor");
@@ -712,7 +718,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyWandererSkills { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererSkills");
         internal static FeatureDefinitionProficiency ProficiencyWandererTools { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererTools");
         internal static FeatureDefinitionProficiency ProficiencyWarlockSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockSavingThrow");
-        internal static FeatureDefinitionProficiency ProficiencyWarlockWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockWeapon");
         internal static FeatureDefinitionProficiency ProficiencyWizardSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardSavingThrow");
         internal static FeatureDefinitionProficiency ProficiencyWizardWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardWeapon");
     }

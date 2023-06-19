@@ -9,7 +9,7 @@ internal static class CeContentPackContext
 {
     internal const GamingPlatformDefinitions.ContentPack CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
-    private const string CeTag = "UnfinishedBusiness";
+    internal const string CeTag = "UnfinishedBusiness";
 
     internal static void Load()
     {

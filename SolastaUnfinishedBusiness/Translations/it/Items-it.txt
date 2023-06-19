@@ -203,6 +203,7 @@ Item/&Club_Power_Description=Quest'arma incantata è stata forgiata utilizzando 
 Item/&Club_Power_Title=Circolo del Potere
 Item/&Club_Punisher_Description=Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. La combinazione del miglior metallo e Slavestone ha conferito a quest'ascia un incredibile potere penetrante.
 Item/&Club_Punisher_Title=Club dei Punitori
+Item/&ConjuredWeaponTypeTitle=Armi evocate
 Item/&Dart_Acuteness_Description=Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. Il suo design è stato uno dei primi lavori di Elgador Keenspirit, Magesmith of the Arcaneum.
 Item/&Dart_Acuteness_Title=Dardo dell'acutezza
 Item/&Dart_Frostburn_Description=Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. È stato progettato da Keliandir Moltenheart, che ha forgiato quest'arma per combattere le salamandre dopo che un'esplorazione dei piani elementali è andata storta.

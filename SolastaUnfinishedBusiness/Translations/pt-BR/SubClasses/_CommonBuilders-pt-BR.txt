@@ -1,5 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Você ganha um ataque extra e agora pode atacar até 2 vezes no seu turno.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Ataque Extra
+Feature/&AttributeModifierThirdExtraAttackDescription=Você ganha um ataque extra e agora pode atacar até 3 vezes no seu turno.
+Feature/&AttributeModifierThirdExtraAttackTitle=Ataque extra
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Você tem imunidade a dano necrótico e seu máximo de pontos de vida não pode ser reduzido.
 Feature/&DamageAffinityGenericHardenToNecroticTitle=Endurecer para necrótico
 Feature/&FeatureSetCasterFightingProficiencyDescription=Você pode usar armadura leve, armadura média e escudo e também ganhar proficiência com armas marciais.

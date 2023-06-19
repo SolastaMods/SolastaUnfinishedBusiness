@@ -213,7 +213,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(FeatureDefinitionBuilder
                 .Create($"Feature{NAME}Reach")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseMeleeWeaponAttackReach(1, validWeapon,
+                .SetCustomSubFeatures(new IncreaseWeaponReach(1, validWeapon,
                     ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
                 .AddToDB())
             .AddToDB();
@@ -548,7 +548,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd, ConditionInterruption.UsePower)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Finish")

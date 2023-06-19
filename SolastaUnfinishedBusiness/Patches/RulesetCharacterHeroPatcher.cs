@@ -898,8 +898,9 @@ public static class RulesetCharacterHeroPatcher
         public static void Postfix(RulesetCharacterHero __instance)
         {
             //TODO: convert this to an interface
-            WizardBladeDancer.OnItemEquipped(__instance);
             FairyRaceBuilder.OnItemEquipped(__instance);
+            TieflingRaceBuilder.OnItemEquipped(__instance);
+            WizardBladeDancer.OnItemEquipped(__instance);
         }
     }
 

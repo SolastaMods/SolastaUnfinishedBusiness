@@ -38,19 +38,20 @@ internal static class CreditsDisplay
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
+        ("magicSword", "chinese translations, asian languages support, Oath of Demon Hunter"),
         ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Holic75", "spells, Bolgrif"),
-        ("Otearaisu", "Oligath"),
+        ("Otearaisu", "Oligath, Wendigo"),
+        ("Kiloku", "quality of life"),
         ("Earandil", "homebrew design [Path of the Savagery, Path of the Yeoman]"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
-        ("magicSword", "chinese translations, asian languages support"),
         ("team-waldo", "korean font")
     };
 

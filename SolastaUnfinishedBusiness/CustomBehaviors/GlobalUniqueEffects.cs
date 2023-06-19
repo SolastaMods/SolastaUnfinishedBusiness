@@ -155,5 +155,12 @@ internal static class GlobalUniqueEffects
         }
     }
 
-    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon }
+    internal enum Group
+    {
+        DomainSmithReinforceArmor,
+        Familiar,
+        GrenadierGrenadeMode,
+        InventorSpellStoringItem,
+        WildMasterBeast
+    }
 }

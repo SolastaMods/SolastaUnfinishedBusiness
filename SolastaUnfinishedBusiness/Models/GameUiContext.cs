@@ -731,13 +731,6 @@ internal static class GameUiContext
 
     private static void LoadFeatCrusherToggle()
     {
-        _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "FeatCrusherToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.FeatCrusherToggle)
-            .AddToDB();
-
         ActionAffinityFeatCrusherToggle = FeatureDefinitionActionAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityFeatCrusherToggle")
@@ -750,13 +743,6 @@ internal static class GameUiContext
 
     private static void LoadMonkKiPointsToggle()
     {
-        _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "MonkKiPointsToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.MonkKiPointsToggle)
-            .AddToDB();
-
         ActionAffinityMonkKiPointsToggle = FeatureDefinitionActionAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityMonkKiPointsToggle")
@@ -769,13 +755,6 @@ internal static class GameUiContext
 
     private static void LoadPaladinSmiteToggle()
     {
-        _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "PaladinSmiteToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.PaladinSmiteToggle)
-            .AddToDB();
-
         ActionAffinityPaladinSmiteToggle = FeatureDefinitionActionAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityPaladinSmiteToggle")
@@ -783,39 +762,6 @@ internal static class GameUiContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)
             .AddToDB();
     }
-
-#if false
-    private static FeatureDefinitionActionAffinity ActionAffinityMonsterSwapAttackToggle { get; set; }
-
-    private static void LoadMonsterSwapAttackToggle()
-    {
-        _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "MonsterSwapAttackToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.MonsterSwapAttackToggle)
-            .AddToDB();
-
-        ActionAffinityMonsterSwapAttackToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
-                "ActionAffinityMonsterSwapAttackToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle)
-            .AddToDB();
-    }
-
-    internal static void AddMonsterSwapAttackToggle(RulesetCharacterMonster monster)
-    {
-        var monsterDefinition = monster.MonsterDefinition;
-
-        if (Main.Settings.AddMonsterSwapAttackToggle &&
-            monsterDefinition.AttackIterations.Count > 1 &&
-            monsterDefinition.AttackIterations[0] != monsterDefinition.AttackIterations[1])
-        {
-            monster.ActiveFeatures.Add(ActionAffinityMonsterSwapAttackToggle);
-        }
-    }
-#endif
 
     internal static void ResetFormationGrid(int selectedSet)
     {
@@ -903,7 +849,6 @@ internal static class GameUiContext
         LoadFeatCrusherToggle();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
-        //LoadMonsterSwapAttackToggle();
         LoadFormationGrid();
 
         var inputService = ServiceRepository.GetService<IInputService>();

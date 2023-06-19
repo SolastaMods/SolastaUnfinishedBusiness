@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -101,18 +102,33 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
 internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
 {
     private readonly IsWeaponValidHandler isWeaponValid;
+    private readonly string unicityTag;
     private readonly IsCharacterValidHandler[] validators;
 
     protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : this(isWeaponValid, null, validators)
+    {
+    }
+
+    protected ModifyWeaponAttackModeBase(
+        IsWeaponValidHandler isWeaponValid,
+        string unicityTag,
         params IsCharacterValidHandler[] validators)
     {
         this.isWeaponValid = isWeaponValid;
         this.validators = validators;
+        this.unicityTag = unicityTag;
     }
 
     public void ModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode)
     {
+        //Doing this check at the very start since this one is least computation intensive
+        if (unicityTag != null && attackMode.AttackTags.Contains(unicityTag))
+        {
+            return;
+        }
+
         if (!character.IsValid(validators))
         {
             return;
@@ -123,14 +139,17 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
             return;
         }
 
-        TryModifyAttackMode(character, attackMode, null);
+        if (unicityTag != null)
+        {
+            attackMode.AttackTags.TryAdd(unicityTag);
+        }
+
+        TryModifyAttackMode(character, attackMode);
     }
 
     protected abstract void TryModifyAttackMode(
         [NotNull] RulesetCharacter character,
-        [NotNull] RulesetAttackMode attackMode,
-        //TODO: remove weapon - it is always null
-        RulesetItem weapon);
+        [NotNull] RulesetAttackMode attackMode);
 }
 
 internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
@@ -147,8 +166,7 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        RulesetAttackMode attackMode,
-        RulesetItem weapon)
+        RulesetAttackMode attackMode)
     {
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
@@ -197,7 +215,7 @@ internal sealed class AddTagToWeaponWeaponAttack : ModifyWeaponAttackModeBase
     }
 
     protected override void TryModifyAttackMode(
-        RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        RulesetCharacter character, RulesetAttackMode attackMode)
     {
         attackMode.AddAttackTagAsNeeded(tag);
     }
@@ -229,34 +247,33 @@ internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeB
     }
 
     protected override void TryModifyAttackMode(
-        RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        RulesetCharacter character, RulesetAttackMode attackMode)
     {
         attackMode.closeRange = attackMode.maxRange;
     }
 }
 
-internal sealed class IncreaseMeleeWeaponAttackReach : ModifyWeaponAttackModeBase
+internal sealed class IncreaseWeaponReach : ModifyWeaponAttackModeBase
 {
-    private readonly int _bonus;
+    private readonly int bonus;
 
-    internal IncreaseMeleeWeaponAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
-        params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
+    internal IncreaseWeaponReach(int bonus, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : this(bonus, isWeaponValid, null, validators)
     {
-        _bonus = bonus;
+    }
+
+    internal IncreaseWeaponReach(int bonus, IsWeaponValidHandler isWeaponValid, string unicityTag,
+        params IsCharacterValidHandler[] validators) : base(isWeaponValid, unicityTag, validators)
+    {
+        this.bonus = bonus;
     }
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        RulesetAttackMode attackMode,
-        RulesetItem weapon)
+        RulesetAttackMode attackMode)
     {
-        //this getter also checks is this is not thrown/ranged mode
-        if (weapon != null && !ValidatorsWeapon.HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagMelee))
-        {
-            return;
-        }
-
-        attackMode.reachRange += _bonus;
+        //maybe I'm paranoid, but I think I saw reach being 0 in some cases, hence the Math.Max
+        attackMode.reachRange = Math.Max(attackMode.reachRange, 1) + bonus;
         attackMode.reach = true;
     }
 }

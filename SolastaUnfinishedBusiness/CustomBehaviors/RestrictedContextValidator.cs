@@ -40,6 +40,50 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
     {
         return validator(definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
     }
+
+#if false
+    public static RestrictedContextValidator And(OperationType type, params IRestrictedContextValidator[] validators)
+    {
+        return new RestrictedContextValidator(
+            (definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect) =>
+            {
+                foreach (var validator in validators)
+                {
+                    // Ignore sub validator operation type
+                    var (_, result) = validator.ValidateContext(
+                        definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+
+                    if (!result)
+                    {
+                        return (type, false);
+                    }
+                }
+
+                return (type, true);
+            });
+    }
+#endif
+
+    public static RestrictedContextValidator Or(OperationType type, params IRestrictedContextValidator[] validators)
+    {
+        return new RestrictedContextValidator(
+            (definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect) =>
+            {
+                foreach (var validator in validators)
+                {
+                    // Ignore sub validator operation type
+                    var (_, result) = validator.ValidateContext(
+                        definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+
+                    if (result)
+                    {
+                        return (type, true);
+                    }
+                }
+
+                return (type, false);
+            });
+    }
 }
 
 public static class RestrictedContextValidatorPatch

@@ -1,8 +1,14 @@
-﻿using JetBrains.Annotations;
+﻿using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
+using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -18,10 +24,35 @@ internal static class TieflingRaceBuilder
 {
     internal static CharacterRaceDefinition RaceTiefling { get; } = BuildTiefling();
 
+    private static bool IsFlightValid(RulesetCharacter character)
+    {
+        return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor();
+    }
+
+    internal static void OnItemEquipped([NotNull] RulesetCharacter character)
+    {
+        if (IsFlightValid(character))
+        {
+            return;
+        }
+
+        var rulesetCondition = character.AllConditions.FirstOrDefault(x =>
+            x.ConditionDefinition == ConditionDefinitions.ConditionFlyingAdaptive);
+
+        if (rulesetCondition != null)
+        {
+            character.RemoveCondition(rulesetCondition);
+        }
+    }
+
     [NotNull]
     private static CharacterRaceDefinition BuildTiefling()
     {
         #region subraces
+
+        //
+        // Devil's Tongue
+        //
 
         var attributeModifierTieflingIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingIntelligenceAbilityScoreIncrease")
@@ -33,15 +64,16 @@ internal static class TieflingRaceBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingDevilTongue")
             .SetGuiPresentation(Category.Feature)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListTieflingDevilTongue")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellDefinitions.ViciousMockery)
-                .SetSpellsAtLevel(1, SpellDefinitions.CharmPerson)
-                .SetSpellsAtLevel(2, SpellDefinitions.CalmEmotions)
-                .FinalizeSpells(true, 2)
-                .AddToDB())
+            .SetSpellList(
+                SpellListDefinitionBuilder
+                    .Create("SpellListTieflingDevilTongue")
+                    .SetGuiPresentationNoContent(true)
+                    .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellDefinitions.ViciousMockery)
+                    .SetSpellsAtLevel(1, SpellDefinitions.CharmPerson)
+                    .SetSpellsAtLevel(2, SpellDefinitions.CalmEmotions)
+                    .FinalizeSpells(true, 2)
+                    .AddToDB())
             .AddToDB();
 
         var raceTieflingDevilTongue = CharacterRaceDefinitionBuilder
@@ -55,7 +87,7 @@ internal static class TieflingRaceBuilder
         raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
 
         //
-        // Mephistopheles
+        // Feral
         //
 
         var attributeModifierTieflingDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
@@ -64,19 +96,103 @@ internal static class TieflingRaceBuilder
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1)
             .AddToDB();
 
+        // Hellfire
+
+        var castSpellTieflingFeral = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingFeral")
+            .SetGuiPresentation(Category.Feature)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetSpellList(
+                SpellListDefinitionBuilder
+                    .Create("SpellListTieflingFeral")
+                    .SetGuiPresentationNoContent(true)
+                    .ClearSpells()
+                    .SetSpellsAtLevel(1, SpellDefinitions.BurningHands)
+                    .FinalizeSpells(false, 1)
+                    .AddToDB())
+            .AddToDB();
+
+        // Demonic Wings
+
+        var sprite = Sprites.GetSprite("PowerDragonWings", Resources.PowerDragonWings, 256, 128);
+
+        var powerDemonicWingsSprout = FeatureDefinitionPowerBuilder
+            .Create("PowerTieflingFeralDemonicWingsSprout")
+            .SetGuiPresentation(Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var powerDemonicWingsDismiss = FeatureDefinitionPowerBuilder
+            .Create("PowerTieflingFeralDemonicWingsDismiss")
+            .SetGuiPresentation(Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var featureSetDemonicWings = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTieflingFeralDemonicWings")
+            .SetGuiPresentation("PowerTieflingFeralDemonicWingsSprout", Category.Feature)
+            .AddFeatureSet(powerDemonicWingsSprout, powerDemonicWingsDismiss)
+            .AddToDB();
+
+        var raceTieflingFeral = CharacterRaceDefinitionBuilder
+            .Create(Tiefling, "RaceTieflingFeral")
+            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetFeaturesAtLevel(1,
+                attributeModifierTieflingDexterityAbilityScoreIncrease,
+                castSpellTieflingFeral,
+                featureSetDemonicWings)
+            .AddToDB();
+
+        raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+
+        //
+        // Mephistopheles
+        //
+
         var castSpellTieflingMephistopheles = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingMephistopheles")
             .SetGuiPresentation(Category.Feature)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListTieflingMephistopheles")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellDefinitions.FireBolt)
-                .SetSpellsAtLevel(1, SpellDefinitions.BurningHands)
-                .SetSpellsAtLevel(2, SpellDefinitions.FlameBlade)
-                .FinalizeSpells(true, 2)
-                .AddToDB())
+            .SetSpellList(
+                SpellListDefinitionBuilder
+                    .Create("SpellListTieflingMephistopheles")
+                    .SetGuiPresentationNoContent(true)
+                    .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellDefinitions.FireBolt)
+                    .SetSpellsAtLevel(1, SpellDefinitions.BurningHands)
+                    .SetSpellsAtLevel(2, SpellDefinitions.FlameBlade)
+                    .FinalizeSpells(true, 2)
+                    .AddToDB())
             .AddToDB();
 
         var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
@@ -103,15 +219,16 @@ internal static class TieflingRaceBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingZariel")
             .SetGuiPresentation(Category.Feature)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListTieflingZariel")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellsContext.SunlightBlade)
-                .SetSpellsAtLevel(1, SpellsContext.SearingSmite)
-                .SetSpellsAtLevel(2, SpellDefinitions.BrandingSmite)
-                .FinalizeSpells(true, 2)
-                .AddToDB())
+            .SetSpellList(
+                SpellListDefinitionBuilder
+                    .Create("SpellListTieflingZariel")
+                    .SetGuiPresentationNoContent(true)
+                    .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellsContext.SunlightBlade)
+                    .SetSpellsAtLevel(1, SpellsContext.SearingSmite)
+                    .SetSpellsAtLevel(2, SpellDefinitions.BrandingSmite)
+                    .FinalizeSpells(true, 2)
+                    .AddToDB())
             .AddToDB();
 
         var raceTieflingZariel = CharacterRaceDefinitionBuilder
@@ -125,6 +242,15 @@ internal static class TieflingRaceBuilder
         raceTieflingZariel.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
 
         #endregion
+
+        castSpellTieflingFeral.slotsPerLevels.RemoveAll(x => x.Level > 4);
+        for (var level = 5; level <= 20; level++)
+        {
+            castSpellTieflingFeral.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = castSpellTieflingFeral.slotsPerLevels[3].slots
+            });
+        }
 
         for (var level = 17; level <= 20; level++)
         {
@@ -156,8 +282,12 @@ internal static class TieflingRaceBuilder
                 ProficiencyTieflingStaticLanguages)
             .AddToDB();
 
-        raceTiefling.subRaces.SetRange(raceTieflingMephistopheles, raceTieflingZariel, raceTieflingDevilTongue);
         raceTiefling.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTiefling.subRaces.SetRange(
+            raceTieflingDevilTongue,
+            raceTieflingFeral,
+            raceTieflingMephistopheles,
+            raceTieflingZariel);
 
         return raceTiefling;
     }
