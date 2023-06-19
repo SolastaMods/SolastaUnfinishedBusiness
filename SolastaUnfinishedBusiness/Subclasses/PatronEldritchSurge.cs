@@ -451,7 +451,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             usedCantrips.Clear();
         }
 
-        public void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, List<SpellDefinition> spells)
+        public void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, IEnumerable<SpellDefinition> spells)
         {
             if (!character.HasConditionOfType(ConditionBlastReload) || line.actionType != ActionType.Bonus)
             {

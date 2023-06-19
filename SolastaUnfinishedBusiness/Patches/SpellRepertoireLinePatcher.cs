@@ -22,6 +22,7 @@ public static class SpellRepertoireLinePatcher
             spellDefinitions.RemoveAll(x => x.ActivationTime == RuleDefinitions.ActivationTime.Reaction);
         }
 
+        [UsedImplicitly]
         public static void Postfix([NotNull] List<SpellDefinition> spellDefinitions, SpellRepertoireLine __instance)
         {
             //PATCH: Enable Blast Reload feature

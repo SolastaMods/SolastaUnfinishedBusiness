@@ -4,5 +4,5 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 internal interface IQualifySpellToRepertoireLine
 {
-    void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, List<SpellDefinition> spells);
+    void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, IEnumerable<SpellDefinition> spells);
 }

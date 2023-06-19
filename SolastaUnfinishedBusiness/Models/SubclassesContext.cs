@@ -58,7 +58,7 @@ internal static class SubclassesContext
         // Paladin
         LoadSubclass(new OathOfAltruism());
         LoadSubclass(new OathOfAncients());
-        LoadSubclass(new OathOfDemonHunter(), true);
+        LoadSubclass(new OathOfDemonHunter());
         LoadSubclass(new OathOfDread());
         LoadSubclass(new OathOfHatred());
         LoadSubclass(new OathOfThunder());
@@ -92,11 +92,11 @@ internal static class SubclassesContext
         LoadSubclass(new WayOfTheTempest());
 
         // Warlock
+        LoadSubclass(new PatronEldritchSurge());
         LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
-        LoadSubclass(new PatronEldritchSurge());
 
         // Wizard
         LoadSubclass(new WizardArcaneFighter());
