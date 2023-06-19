@@ -39,9 +39,8 @@ internal static class RulesetCharacterExtensions
              characterSubclassDefinition.Name != subclass))
         {
             // Return 1 is very bad practice here! Making function name semantics different from actual effect!
-            // return 1;
+            return 1;
 
-            return 0;
         }
 
         return hero.GetClassLevel(klass);

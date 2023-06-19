@@ -589,7 +589,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolSorcererSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolWarlockSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolWizardSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWizardSkillPoints");
-        internal static FeatureDefinitionPointPool PointPoolWarlockInvocation15 { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockInvocation15");
     }
     internal static class FeatureDefinitionPowers
     {

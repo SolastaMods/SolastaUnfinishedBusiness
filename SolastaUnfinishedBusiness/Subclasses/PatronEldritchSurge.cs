@@ -146,8 +146,13 @@ internal class PatronEldritchSurge : AbstractSubclass
         {
             var characterHero = GetOriginalHero(character);
             var WarlockClass = CharacterClassDefinitions.Warlock;
-            if (characterHero is null) return effectDescription;
-            if (characterHero.GetSubclassLevel(WarlockClass, "PatronEldritchSurge") == 0) return effectDescription;
+            if (characterHero == null || 
+                !characterHero.ClassesAndSubclasses.TryGetValue(WarlockClass, out var characterSubclassDefinition) ||
+                 characterSubclassDefinition.Name != "PatronEldritchSurge")
+            {
+                return effectDescription;
+
+            }
             var warlockClassLevel = characterHero.GetClassLevel(WarlockClass);
             var totalLevel = characterHero.classesHistory.Count();
             var determinant = warlockClassLevel - 2 * (totalLevel - warlockClassLevel);
