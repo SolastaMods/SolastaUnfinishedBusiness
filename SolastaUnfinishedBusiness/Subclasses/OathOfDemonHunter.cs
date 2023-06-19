@@ -54,7 +54,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
 
         var conditionTrialMark = ConditionDefinitionBuilder
             .Create(ConditionMarkedByHunter, $"Condition{Name}TrialMark")
-            .SetGuiPresentation(Category.Condition)
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 10)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
