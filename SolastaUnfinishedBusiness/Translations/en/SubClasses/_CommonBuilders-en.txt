@@ -1,5 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=You gain an extra attack and can now attack up to 2 times in your turn.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Extra Attack
+Feature/&AttributeModifierThirdExtraAttackDescription=You gain an extra attack and can now attack up to 3 times in your turn.
+Feature/&AttributeModifierThirdExtraAttackTitle=Extra Attack
 Feature/&DamageAffinityGenericHardenToNecroticDescription=You have immunity to necrotic damage, and your hit point maximum can't be reduced.
 Feature/&DamageAffinityGenericHardenToNecroticTitle=Harden to Necrotic
 Feature/&FeatureSetCasterFightingProficiencyDescription=You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.

@@ -157,7 +157,6 @@ internal static class GlobalUniqueEffects
 
     internal enum Group
     {
-        ArtilleristCannon,
         DomainSmithReinforceArmor,
         Familiar,
         GrenadierGrenadeMode,

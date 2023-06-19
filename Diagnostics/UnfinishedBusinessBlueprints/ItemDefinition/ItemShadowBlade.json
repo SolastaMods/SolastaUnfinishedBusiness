@@ -40,9 +40,9 @@
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
     "weaponType": "DaggerType",
-    "reachRange": 12,
+    "reachRange": 1,
     "closeRange": 4,
-    "maxRange": 5,
+    "maxRange": 12,
     "weaponTags": [
       "Finesse",
       "Light",

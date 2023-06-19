@@ -361,7 +361,7 @@ internal static partial class SpellBuilders
         var weaponDescription = itemShadowBlade.WeaponDescription;
 
         weaponDescription.closeRange = 4;
-        weaponDescription.reachRange = 12;
+        weaponDescription.maxRange = 12;
         weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
         weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
 

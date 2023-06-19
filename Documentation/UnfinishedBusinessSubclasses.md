@@ -1495,7 +1495,67 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 29. - Oath of Dread
+# 29. - Oath of Demon Hunter
+
+Paladins of the Oath of Demon Hunter are dedicated to eradicating the evil creatures that lurk in the darkness, and maintaining peace in the world.
+
+
+## Level 3
+
+* Channel Divinity: Trial Mark
+
+As a bonus action, you channel divine power to mark an enemy creature within 60 feet that you can see for 1 minute. When you deal weapon damage to an enemy with the Trial Mark, you deal an extra 1d6 radiant damage. This damage increases to 2d6 at 7th level, 3d6 at 11th level, 4d6 at 15th level, and 5d6 at 19th level.
+
+* Demon Hunter
+
+Starting at 3rd level, You can apply your Divine Smite ability when you hit an enemy with a Light Crossbow, a Hand Crossbow or a Heavy Crossbow.
+
+* Oath of Demon Hunter
+
+In your list and always prepared: 
+ 
+	I	Hunter's Mark, Protect vs Evil & Good
+
+	II	Magic Weapon, Misty Step
+
+	III	Haste, Dispel Magic
+
+	IV	Guardian of Faith, Greater Invisibility
+
+	V	Hold Monster, Dispel Evil and Good
+
+
+## Level 7
+
+* Light Energy Crossbow Bolt
+
+Starting at 7th level, you do not have disadvantage when using crossbow weapons to attack enemies nearby. When you hit a creature without the Trial Mark, you can channel divine power and apply the Trial Mark to it.
+
+
+## Level 15
+
+* Divine Crossbow
+
+Starting at 15th level, you infuse your crossbow with divine power. You gain the following benefits:
+· The range of your crossbow weapons increases by 30 feet.
+· Your critical hit threat range increases by 1 point.
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 3 times in your turn.
+
+
+## Level 20
+
+* Demon Slayer
+
+Starting at 20th level, you slay evil and purify demons. You gain the following benefits:
+· When you use your Divine Smite, treat it as using a higher spell slot.
+· When you roll dice for radiant damage, any dice have a minimum value of 3.
+
+
+
+# 30. - Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -1559,7 +1619,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 30. - Oath of Hatred
+# 31. - Oath of Hatred
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 
@@ -1620,7 +1680,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 31. - Oath of Thunder
+# 32. - Oath of Thunder
 
 Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
 
@@ -1680,7 +1740,7 @@ You gain a flying speed of 12 cells, and are immune to Thunder and Lightning dam
 
 
 
-# 32. - Opportunist
+# 33. - Opportunist
 
 Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 
@@ -1714,7 +1774,7 @@ Starting at 17th level, any attack against a creature that fails the saving thro
 
 
 
-# 33. - Path of the Elements
+# 34. - Path of the Elements
 
 Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 
@@ -1757,7 +1817,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-# 34. - Path of the Light
+# 35. - Path of the Light
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 
@@ -1799,7 +1859,7 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-# 35. - Path of the Reaver
+# 36. - Path of the Reaver
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -1833,7 +1893,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-# 36. - Path of the Savagery
+# 37. - Path of the Savagery
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -1871,7 +1931,7 @@ Starting at 14th level, while you are raging, whenever you roll a Dexterity savi
 
 
 
-# 37. - Path Of the Spirits
+# 38. - Path Of the Spirits
 
 Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -1909,7 +1969,7 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-# 38. - Path of the Yeoman
+# 39. - Path of the Yeoman
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
@@ -1954,7 +2014,7 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 
 
-# 39. - Raven
+# 40. - Raven
 
 Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 
@@ -1996,7 +2056,7 @@ You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
 
 
 
-# 40. - Royal Knight
+# 41. - Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -2037,7 +2097,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-# 41. - Slayer
+# 42. - Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -2071,7 +2131,7 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-# 42. - Smith
+# 43. - Smith
 
 Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 
@@ -2173,7 +2233,7 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 
 
 
-# 43. - Sorr-Akkath
+# 44. - Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 
@@ -2232,7 +2292,7 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 
 
-# 44. - Spell Shield
+# 45. - Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -2281,7 +2341,7 @@ When an attacker that you can see hits you with a ranged attack or spell, you ca
 
 
 
-# 45. - Spellmaster
+# 46. - Spellmaster
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
@@ -2327,7 +2387,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-# 46. - Survivalist
+# 47. - Survivalist
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2385,7 +2445,7 @@ Gain proficiency in Wisdom saving throws.
 
 
 
-# 47. - Tactician
+# 48. - Tactician
 
 The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 
@@ -2469,7 +2529,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-# 48. - The Elementalist
+# 49. - The Elementalist
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -2520,7 +2580,7 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-# 49. - The Moonlit
+# 50. - The Moonlit
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -2585,7 +2645,7 @@ Your control of moon light has increased to a new level. You can cast the spells
 
 
 
-# 50. - The Riftwalker
+# 51. - The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -2646,7 +2706,7 @@ Your control of rift portals has increased to the point than you can now grant t
 
 
 
-# 51. - The Soulblade
+# 52. - The Soulblade
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -2706,7 +2766,7 @@ You can use Soul Hex twice times per short rest now.
 
 
 
-# 52. - Vivisectionist
+# 53. - Vivisectionist
 
 A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist’s goals are not always related to healing, but rather to experimentation and knowledge with body parts.
 
@@ -2772,7 +2832,7 @@ You can take a free action to use Lesser Restoration or Remove Curse on an ally 
 
 
 
-# 53. - Way of Discordance
+# 54. - Way of Discordance
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -2806,7 +2866,7 @@ Starting at 17th level, when a creature receives damage from your Discordance fe
 
 
 
-# 54. - Way of Distant Hand
+# 55. - Way of Distant Hand
 
 Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 
@@ -2854,7 +2914,7 @@ Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Addi
 
 
 
-# 55. - Way of Dragon
+# 56. - Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -2896,7 +2956,7 @@ Spend 4 Ki points to take flight. Gain the abilities of the fly spell without co
 
 
 
-# 56. - Way of Silhouette
+# 57. - Way of Silhouette
 
 Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -2938,7 +2998,7 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-# 57. - Way of Tempest
+# 58. - Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -2972,7 +3032,7 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-# 58. - Weapon Master
+# 59. - Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -3026,7 +3086,7 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 
 
-# 59. - Weaponsmith
+# 60. - Weaponsmith
 
 Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 
@@ -3084,7 +3144,7 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-# 60. - Wildmaster
+# 61. - Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 

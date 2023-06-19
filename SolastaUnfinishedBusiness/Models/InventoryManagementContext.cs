@@ -404,7 +404,7 @@ internal static class InventoryManagementContext
         Dictionary<string, TagsDefinitions.Criticity> tagsMap = new();
 
         item.FillTags(tagsMap, container);
-        
+
         return tagsMap.Keys.ToArray().Contains(TaggedGuiDropdown.options[taggedIndex].text);
     }
 
