@@ -16,7 +16,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionEquipmentAffinitys;
 
-
 namespace SolastaUnfinishedBusiness.Races;
 
 internal static class RaceWendigoBuilder

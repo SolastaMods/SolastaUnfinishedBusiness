@@ -2,7 +2,7 @@
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <enumerateOriginSubFeatures>true</enumerateOriginSubFeatures>
   <showButtonWithControlledMonsterInfo>true</showButtonWithControlledMonsterInfo>
-  <SelectedTab>0</SelectedTab>
+  <SelectedTab>4</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -100,6 +100,7 @@
       </value>
     </item>
   </DisplaySpellListsToggle>
+  <UseExperimentalFlankingRules>false</UseExperimentalFlankingRules>
   <EnableCtrlClickOnlySwapsMainHand>true</EnableCtrlClickOnlySwapsMainHand>
   <EnableDisplaySorceryPointBoxSorcererOnly>true</EnableDisplaySorceryPointBoxSorcererOnly>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
@@ -117,7 +118,10 @@
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
-  <DefaultPartyHeroes />
+  <DefaultPartyHeroes>
+    <string>Berden</string>
+    <string>Belhara</string>
+  </DefaultPartyHeroes>
   <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableCheatMenu>true</EnableCheatMenu>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
@@ -168,8 +172,10 @@
   <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
   <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
+  <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
   <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
   <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
+  <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
   <IdentifyAfterRest>true</IdentifyAfterRest>
   <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
   <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
@@ -186,6 +192,7 @@
   <EnableHigherGroundRules>false</EnableHigherGroundRules>
   <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <AllowHasteCasting>false</AllowHasteCasting>
   <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
@@ -198,6 +205,7 @@
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
   <CriticalHitModeAllies>2</CriticalHitModeAllies>
   <CriticalHitModeEnemies>2</CriticalHitModeEnemies>
+  <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
   <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
   <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
   <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
@@ -395,6 +403,7 @@
     <string>WizardGraviturgist</string>
     <string>WizardSpellMaster</string>
     <string>OathOfThunder</string>
+    <string>OathOfDemonHunter</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
