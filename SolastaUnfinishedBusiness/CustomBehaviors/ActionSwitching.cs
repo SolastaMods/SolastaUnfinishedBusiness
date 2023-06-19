@@ -179,14 +179,15 @@ public static class ActionSwitching
         }
 
         var rank = character.CurrentActionRankByType[type];
-        var newData = PerformanceFilterExtraData.GetData(character.ActionPerformancesByType[type][rank]);
+        var filters = character.ActionPerformancesByType[type];
+        var newData = rank < filters.Count ? PerformanceFilterExtraData.GetData(filters[rank]) : null;
         if (rank == wasRank)
         {
             newData?.StoreAttacks(character, type);
             return;
         }
 
-        var wasData = PerformanceFilterExtraData.GetData(character.ActionPerformancesByType[type][wasRank]);
+        var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
 
         wasData?.StoreAttacks(character, type, wasAttacks + 1);
         newData?.LoadAttacks(character, type);
