@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -50,7 +51,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetCustomSubFeatures(
                 new AddPolearmFollowUpAttack(QuarterstaffType),
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
-                new IncreaseWeaponReach(1, validWeapon, Name)) // should stack with Lunger or Wendigo
+                new IncreaseWeaponReach(1, validWeapon, Lunger.Name)) // should not stack with Lunger or Wendigo
             .AddToDB();
 
         // LEVEL 09 - Swift as the Wind
