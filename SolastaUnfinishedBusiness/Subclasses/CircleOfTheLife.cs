@@ -160,7 +160,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     private static int GetDruidLevel(ulong guid)
     {
         var caster = EffectHelpers.GetCharacterByGuid(guid);
-        var hero = caster as RulesetCharacterHero ?? caster.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = caster.GetOriginalHero();
 
         return hero?.GetClassLevel(DruidClass) ?? 0;
     }

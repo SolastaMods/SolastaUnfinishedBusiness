@@ -301,8 +301,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
         private static bool IsWeaponMaster(RulesetCharacter rulesetCharacter)
         {
-            var hero = rulesetCharacter as RulesetCharacterHero ??
-                       rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+            var hero = rulesetCharacter.GetOriginalHero();
 
             if (hero == null)
             {

@@ -655,7 +655,8 @@ internal static class InvocationsBuilders
             }
 
             if (action.ActionType != ActionDefinitions.ActionType.Bonus &&
-                action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard)
+                //action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard
+                action.ActionDefinition.ActionScope == ActionDefinitions.ActionScope.Battle)
             {
                 yield break;
             }

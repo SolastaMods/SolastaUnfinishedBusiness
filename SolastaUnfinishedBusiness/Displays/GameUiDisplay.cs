@@ -326,6 +326,13 @@ internal static class GameUiDisplay
             GameUiContext.SwitchCrownOfTheMagister();
         }
 
+        toggle = Main.Settings.DontDisplayHelmets;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontDisplayHelmets"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontDisplayHelmets = toggle;
+            ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
+        }
+
         toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
         {
