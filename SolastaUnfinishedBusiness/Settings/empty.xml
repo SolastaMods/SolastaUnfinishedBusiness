@@ -212,7 +212,6 @@
   <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
   <RecipeCost>200</RecipeCost>
   <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
-  <DontDisplayHelmets>false</DontDisplayHelmets>
   <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
   <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
   <CraftingInStore />
@@ -622,6 +621,7 @@
   <EnableInventoryTaintNonProficientItemsRed>false</EnableInventoryTaintNonProficientItemsRed>
   <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
   <EnableInvisibleCrownOfTheMagister>false</EnableInvisibleCrownOfTheMagister>
+  <DontDisplayHelmets>false</DontDisplayHelmets>
   <ShowCraftedItemOnRecipeIcon>false</ShowCraftedItemOnRecipeIcon>
   <SwapCraftedItemAndRecipeIcons>false</SwapCraftedItemAndRecipeIcons>
   <HideMonsterHitPoints>false</HideMonsterHitPoints>

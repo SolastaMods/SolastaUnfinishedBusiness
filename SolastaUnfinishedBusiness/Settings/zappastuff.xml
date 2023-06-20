@@ -2,7 +2,7 @@
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <enumerateOriginSubFeatures>true</enumerateOriginSubFeatures>
   <showButtonWithControlledMonsterInfo>true</showButtonWithControlledMonsterInfo>
-  <SelectedTab>4</SelectedTab>
+  <SelectedTab>1</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -212,7 +212,6 @@
   <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
   <RecipeCost>200</RecipeCost>
   <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
-  <DontDisplayHelmets>false</DontDisplayHelmets>
   <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
   <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
   <CraftingInStore>
@@ -401,6 +400,7 @@
     <string>WizardSpellMaster</string>
     <string>OathOfThunder</string>
     <string>OathOfDemonHunter</string>
+    <string>PatronEldritchSurge</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -505,6 +505,7 @@
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
+    <string>FeatMediumArmorMaster</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -1106,6 +1107,7 @@
   <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
   <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
   <EnableInvisibleCrownOfTheMagister>true</EnableInvisibleCrownOfTheMagister>
+  <DontDisplayHelmets>false</DontDisplayHelmets>
   <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
   <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
   <HideMonsterHitPoints>true</HideMonsterHitPoints>
