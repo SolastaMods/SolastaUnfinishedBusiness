@@ -131,6 +131,7 @@ public static class ActionSwitching
         //Store current action attacks
         var data = PerformanceFilterExtraData.GetData(filters[rank]);
         data?.StoreAttacks(character, type);
+        data?.StoreSpellcasting(character, type);
 
         list.RemoveAt(index);
         list.Insert(rank, k);
@@ -142,6 +143,7 @@ public static class ActionSwitching
         //Load new action attacks, do not reuse `filters` list, because it is changed after refresh
         data = PerformanceFilterExtraData.GetData(character.ActionPerformancesByType[type][rank]);
         data?.LoadAttacks(character, type);
+        data?.LoadSpellcasting(character, type);
         
         character.RulesetCharacter?.RefreshAttackModes();
     }
@@ -186,13 +188,16 @@ public static class ActionSwitching
         if (rank == wasRank)
         {
             newData?.StoreAttacks(character, type);
+            newData?.StoreSpellcasting(character, type);
             return;
         }
 
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
 
         wasData?.StoreAttacks(character, type, wasAttacks + 1);
+        wasData?.StoreSpellcasting(character, type);
         newData?.LoadAttacks(character, type);
+        newData?.LoadSpellcasting(character, type);
     }
 
     private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type, int max)
