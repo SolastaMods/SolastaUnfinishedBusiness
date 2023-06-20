@@ -174,6 +174,12 @@ internal class PerformanceFilterExtraData
             return null;
         }
 
-        return Gui.Format("UI/&AdditionalActionSource", feature.FormatTitle());
+        var title = feature.FormatTitle();
+        if (string.IsNullOrEmpty(title))
+        {
+            title = feature.Name + " (NO TITLE!)";
+        }
+
+        return Gui.Format("UI/&AdditionalActionSource", title);
     }
 }
