@@ -5,7 +5,7 @@
 - added Medium Armor Master feat
 - added Patron Eldritch Surge subclass [by @HIEROT]
 - fixed Warlock class missing invocation learn step at 18th
-- fixed Tiefling subraces and flexible races interaction
+- fixed Tiefling subraces attributes selection with flexible races on
 
 1.5.74.3:
 
