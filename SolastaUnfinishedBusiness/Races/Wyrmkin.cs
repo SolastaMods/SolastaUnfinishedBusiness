@@ -28,8 +28,6 @@ internal static class WyrmkinRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildWyrmkin()
     {
-        var WyrmkinSpriteReference = Sprites.GetSprite("Wyrmkin", Resources.Kobold, 1024, 512);
-
         var proficiencyWyrmkinLanguages = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyWyrmkinLanguages")
             .SetGuiPresentation(Category.Feature)
@@ -38,7 +36,7 @@ internal static class WyrmkinRaceBuilder
 
         var raceWyrmkin = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceWyrmkin")
-            .SetGuiPresentation(Category.Race, WyrmkinSpriteReference)
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetBaseWeight(35)
             .SetBaseHeight(3)
@@ -121,7 +119,7 @@ internal static class WyrmkinRaceBuilder
 
         var raceHighWyrmkin = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, "RaceHighWyrmkin")
-            .SetGuiPresentation(Category.Race, koboldSpriteReference)
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
             attributeModifierHighWyrmkinStrengthAbilityScoreIncrease,
             attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease,
