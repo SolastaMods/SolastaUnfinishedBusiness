@@ -20,11 +20,6 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeaturePatronEldritchSurgeBlastReload:963bd94b-ab57-581b-958b-51f6f57ff331",
       "level": 14
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetPatronEldritchSurgePermanentBlastPursuit:09aa3f91-0824-5590-a207-aacea3bad146",
-      "level": 18
     }
   ],
   "personalityFlagOccurences": [],

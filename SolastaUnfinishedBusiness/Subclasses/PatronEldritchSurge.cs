@@ -115,7 +115,6 @@ internal class PatronEldritchSurge : AbstractSubclass
         powerBlastPursuit.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit),
             new ExtraActionBlastPursuit());
-            
 
         // LEVEL 10
 
@@ -166,6 +165,12 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private static bool IsEldritchBlast(RulesetEffect rulesetEffect)
+    {
+        return rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+               rulesetEffectSpell.SpellDefinition == EldritchBlast;
+    }
 
     private static int GetBlastPursuitExtraActionCount(RulesetActor rulesetActor, int additionalCount = 0)
     {
@@ -229,7 +234,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             }
 
             var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
-            var rulesetHero = rulesetCharacter?.GetOriginalHero();
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
 
             if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -269,19 +274,15 @@ internal class PatronEldritchSurge : AbstractSubclass
                 yield break;
             }
 
-            if (activeEffect is not RulesetEffectSpell spell ||
-                spell.spellDefinition != EldritchBlast ||
-                !rulesetAttacker.HasConditionOfType(ConditionBlastPursuit))
+            if (!IsEldritchBlast(activeEffect) ||
+                !rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionBlastPursuit.Name, out var rulesetCondition))
             {
                 yield break;
             }
 
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionBlastPursuit.Name, out var rulesetCondition))
-            {
-                rulesetCondition.EndOccurence = TurnOccurenceType.EndOfTurn;
-                rulesetCondition.RemainingRounds += 1; // always use setter to avoid issues with game effects manager
-            }
+            rulesetCondition.EndOccurence = TurnOccurenceType.EndOfTurn;
+            rulesetCondition.RemainingRounds += 1; // always use setter to avoid issues with game effects manager
 
             var rulesetEffectPower =
                 attacker.RulesetCharacter.PowersUsedByMe.FirstOrDefault(x => x.Name == PowerBlastPursuitName);
@@ -313,7 +314,27 @@ internal class PatronEldritchSurge : AbstractSubclass
             }
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-            var rulesetHero = rulesetCharacter?.GetOriginalHero();
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var blastPursuitExtraActionCount =
+                GetBlastPursuitExtraActionCount(rulesetCharacter);
+
+            var isValidBlastPursuit =
+                rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) &&
+                blastPursuitExtraActionCount == 0;
+
+            if (isValidBlastPursuit)
+            {
+                InflictCondition(rulesetCharacter);
+
+                return;
+            }
+
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
 
             if (rulesetHero == null)
             {
@@ -322,44 +343,42 @@ internal class PatronEldritchSurge : AbstractSubclass
 
             var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
             var warlockRemainingSlots = SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero);
-            var blastPursuitExtraActionCount =
-                GetBlastPursuitExtraActionCount(rulesetCharacter);
-
-            var isValidBlastPursuit =
-                rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) &&
-                blastPursuitExtraActionCount == 0;
-
-            var isEldritchBlast =
-                actionParams.activeEffect is RulesetEffectSpell spell && spell.spellDefinition == EldritchBlast;
 
             var isValidPermanentBlastPursuit =
-                isEldritchBlast &&
+                IsEldritchBlast(actionParams.activeEffect) &&
                 eldritchSurgeLevel >= 18 &&
                 blastPursuitExtraActionCount <= 1 &&
                 warlockRemainingSlots <= 0;
 
-            if (isValidPermanentBlastPursuit || isValidBlastPursuit)
+            if (!isValidPermanentBlastPursuit)
             {
-                rulesetCharacter.InflictCondition(
-                    ConditionExtraActionBlastPursuit.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0
-                );
-
-                var title = ConditionExtraActionBlastPursuit.GuiPresentation.Title;
-
-                rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
-                rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
+                return;
             }
+
+            InflictCondition(rulesetCharacter);
+        }
+
+        private static void InflictCondition(RulesetCharacter rulesetCharacter)
+        {
+            rulesetCharacter.InflictCondition(
+                ConditionExtraActionBlastPursuit.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0
+            );
+
+            var title = ConditionExtraActionBlastPursuit.GuiPresentation.Title;
+
+            rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
+            rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
         }
     }
 
@@ -383,9 +402,9 @@ internal class PatronEldritchSurge : AbstractSubclass
 
             // only collect cantrips if an Eldritch Surge of at least level 14
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-            var eldritchSurgeLevel = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } || eldritchSurgeLevel < 14)
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) < 14)
             {
                 return;
             }
