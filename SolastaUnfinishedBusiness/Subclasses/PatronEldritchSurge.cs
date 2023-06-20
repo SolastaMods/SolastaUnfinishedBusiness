@@ -217,7 +217,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             var totalLevel = rulesetHero.classesHistory.Count;
             var warlockClassLevel = rulesetHero.GetClassLevel(CharacterClassDefinitions.Warlock);
             var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
-            var increaseLevels = new[] { 3, 7, 11, 15, 19 };
+            var increaseLevels = new[] { 3, 8, 13, 18 };
             var additionalBeamCount = increaseLevels.Count(level => determinantLevel >= level);
             var blastPursuitExtraActionCount = GetBlastPursuitExtraActionCount(rulesetHero);
             var overloadStatus = rulesetHero.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;

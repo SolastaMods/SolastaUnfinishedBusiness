@@ -6,7 +6,7 @@ Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=<b>Bla
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=엑스트라 액션 블래스트 추격
 Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=당신은 지속적인 <b>Blast Pursuit</b> 상태에 있지만 <b>Eldritch Blast</b>를 시전하여 턴당 최대 두 번 추가 주요 행동 하나를 되찾아야 합니다.
 Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=추구의 영속성
-Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=당신의 후원자는 당신에게 더 강력한 폭발을 부여하지만 당신이 그 길을 따라가는 경우에만 가능합니다. <b>Eldritch Blast</b>의 범위는 이제 120피트입니다. 대신 빔 번호는 [워록 레벨] - 2 * [기타 클래스 레벨]로 계산된 결정에 따라 결정됩니다. 결정 >= 3인 경우 2개의 빔, >= 7인 경우 3, >= 11인 경우 4, >= 15인 경우 5, >= 19인 경우 6을 캐스팅할 수 있습니다.
+Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=당신의 후원자는 당신에게 더 강력한 폭발을 부여하지만 당신이 그 길을 따라가는 경우에만 가능합니다. <b>Eldritch Blast</b>의 범위는 이제 120피트입니다. 대신 빔 번호는 [워록 레벨] - 2 * [기타 클래스 레벨]로 계산된 결정에 따라 결정됩니다. 결정 >= 3인 경우 2개의 빔, >= 8인 경우 3, >= 13인 경우 4, >= 18인 경우 5를 캐스팅할 수 있습니다.
 Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=블래스트 독점
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=<b>Eldritch Blast</b>의 탁월함을 통해 연속으로 두 번 시전할 수 있습니다. 보너스 액션으로 메인 액션과 함께 이번 턴에 캐스팅한 캔트립을 캐스팅할 수 있습니다.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=블래스트 리로드

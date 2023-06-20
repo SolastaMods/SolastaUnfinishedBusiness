@@ -6,7 +6,7 @@ Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=Você 
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Perseguição Explosiva de Ação Extra
 Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=Você está em estado constante de <b>Blast Pursuit</b>, mas deve lançar <b>Eldritch Blast</b> para recuperar uma ação principal extra até duas vezes por turno.
 Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=Permanência de Perseguição
-Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Seu patrono concede a você explosões mais poderosas, mas apenas se você seguir seu caminho o tempo todo. <b>Eldritch Blast</b> agora tem um alcance de 120 pés. Em vez disso, o número do feixe é derivado por sua determinação calculada como [Warlock Levels] - 2 * [Other Classes Levels]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 7, 4 se >= 11, 5 se >= 15 e 6 se >= 19.
+Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Seu patrono concede a você explosões mais poderosas, mas apenas se você seguir seu caminho o tempo todo. <b>Eldritch Blast</b> agora tem um alcance de 120 pés. Em vez disso, o número do feixe é derivado por sua determinação calculada como [Warlock Levels] - 2 * [Other Classes Levels]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 8, 4 se >= 13 e 5 se >= 18.
 Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=Explosão Exclusiva
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Sua excelência em <b>Eldritch Blast</b> permite que você lance duas vezes seguidas. Você pode conjurar truques que conjurou neste turno com sua ação principal como uma ação bônus.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
