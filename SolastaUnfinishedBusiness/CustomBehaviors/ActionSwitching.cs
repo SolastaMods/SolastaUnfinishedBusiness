@@ -127,6 +127,7 @@ public static class ActionSwitching
         {
             return EnumerateHeroFeatures<T>(hero);
         }
+
         if (actor is RulesetCharacterMonster monster)
         {
             return EnumerateMonsterFeatures<T>(monster);
@@ -135,7 +136,8 @@ public static class ActionSwitching
         return null;
     }
 
-    private static List<(FeatureDefinition feature, string origin)> EnumerateHeroFeatures<T>(RulesetCharacterHero hero, bool skipConditions = false)
+    private static List<(FeatureDefinition feature, string origin)> EnumerateHeroFeatures<T>(RulesetCharacterHero hero,
+        bool skipConditions = false)
     {
         List<(FeatureDefinition feature, string origin)> features = new();
 
@@ -201,10 +203,11 @@ public static class ActionSwitching
         return features;
     }
 
-    private static List<(FeatureDefinition feature, string origin)> EnumerateMonsterFeatures<T>(RulesetCharacterMonster monster)
+    private static List<(FeatureDefinition feature, string origin)> EnumerateMonsterFeatures<T>(
+        RulesetCharacterMonster monster)
     {
         List<(FeatureDefinition feature, string origin)> features = new();
-        
+
         //Monster features
         EnumerateFeaturesHierarchicaly<T>(features, monster.activeFeatures, monster.monsterDefinition.Name);
 
@@ -256,12 +259,12 @@ public static class ActionSwitching
         data = PerformanceFilterExtraData.GetData(character.ActionPerformancesByType[type][rank]);
         data?.LoadAttacks(character, type);
         data?.LoadSpellcasting(character, type);
-        
+
         character.RulesetCharacter?.RefreshAttackModes();
     }
 
-    internal static void CheckIfActionSwitched(GameLocationCharacter __instance, 
-        CharacterActionParams actionParams, 
+    internal static void CheckIfActionSwitched(GameLocationCharacter __instance,
+        CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope,
         int mainRank, int mainAttacks, int bonusRank, int bonusAttacks)
     {
@@ -269,7 +272,7 @@ public static class ActionSwitching
         {
             return;
         }
-            
+
         if (scope != ActionDefinitions.ActionScope.Battle)
         {
             return;
@@ -280,12 +283,12 @@ public static class ActionSwitching
         {
             CheckIfActionSwitched(__instance, type, mainRank, mainAttacks);
         }
-        else if(type == ActionDefinitions.ActionType.Bonus)
+        else if (type == ActionDefinitions.ActionType.Bonus)
         {
             CheckIfActionSwitched(__instance, type, bonusRank, bonusAttacks);
         }
     }
-    
+
     private static void CheckIfActionSwitched(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int wasRank, int wasAttacks)
     {
@@ -379,15 +382,14 @@ public static class ActionSwitching
             (x.feature as IAdditionalActionsProvider)?.TriggerCondition ==
             RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
 
-        Main.Log2(
-            $"ACTIONS: [{character.Name}] {string.Join(", ", features.Select(x => $"<{x.feature.Name}:{x.origin}>"))}",
-            true);
+        Main.Info(
+            $"ACTIONS: [{character.Name}] {string.Join(", ", features.Select(x => $"<{x.feature.Name}:{x.origin}>"))}");
 
         var type = ActionDefinitions.ActionType.Main;
 
         var filtered = features.Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type).ToList();
         var filters = character.ActionPerformancesByType[type];
-        Main.Log2($"FILTERS: {filters.Count} datas: {filtered.Count}", true);
+        Main.Info($"FILTERS: {filters.Count} datas: {filtered.Count}");
         for (var i = 0; i < filters.Count; i++)
         {
             if (i == 0)
@@ -405,7 +407,7 @@ public static class ActionSwitching
         var sorted = new List<ActionPerformanceFilter>();
         var list = LoadIndexes(character.UsedSpecialFeatures, type, max);
 
-        Main.Log2($"ResortPerformances [{character.Name}] : [{string.Join(", ", list)}]", true);
+        Main.Info($"ResortPerformances [{character.Name}] : [{string.Join(", ", list)}]");
 
         foreach (var k in list)
         {
@@ -413,7 +415,7 @@ public static class ActionSwitching
         }
 
         character.ActionPerformancesByType[type] = sorted;
-        
+
         character.dirtyActions = true;
         character.ActionsRefreshed?.Invoke(character);
     }
@@ -424,11 +426,11 @@ public static class ActionSwitching
         {
             return;
         }
-        
+
         var locCharacter = GameLocationCharacter.GetFromActor(character);
         if (locCharacter == null)
         {
-            Main.Log2($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO LOC CHAR", true);
+            Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO LOC CHAR");
             return;
         }
 
@@ -436,7 +438,7 @@ public static class ActionSwitching
         condition.ConditionDefinition.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(conditionFeatures);
         if (conditionFeatures.Empty())
         {
-            Main.Log2($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS", true);
+            Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS");
             return;
         }
 
@@ -444,7 +446,7 @@ public static class ActionSwitching
 
         if (features == null)
         {
-            Main.Log2($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO FEATURES", true);
+            Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO FEATURES");
             return;
         }
 
@@ -462,8 +464,8 @@ public static class ActionSwitching
             var filters = locCharacter.ActionPerformancesByType[type];
             var max = filters.Count;
             var list = LoadIndexes(locCharacter.UsedSpecialFeatures, type, max);
-            Main.Log2($"AccountRemovedCondition [{character.Name}] '{conditionFeature.Name}' from '{origin}'", true);
-            Main.Log2($"AccountRemovedCondition [{character.Name}] WAS: [{string.Join(", ", list)}]", true);
+            Main.Info($"AccountRemovedCondition [{character.Name}] '{conditionFeature.Name}' from '{origin}'");
+            Main.Info($"AccountRemovedCondition [{character.Name}] WAS: [{string.Join(", ", list)}]");
 
             var k = -1;
             for (var i = 0; i < max; i++)
@@ -484,7 +486,7 @@ public static class ActionSwitching
             if (k < 0) { continue; }
 
             var rank = locCharacter.CurrentActionRankByType[type];
-            Main.Log2($"AccountRemovedCondition [{character.Name}] remove at: {k} rank was: {rank}", true);
+            Main.Info($"AccountRemovedCondition [{character.Name}] remove at: {k} rank was: {rank}");
 
             if (rank > k)
             {
@@ -503,7 +505,7 @@ public static class ActionSwitching
                 }
             }
 
-            Main.Log2($"AccountRemovedCondition [{character.Name}] BECAME: [{string.Join(", ", list)}]", true);
+            Main.Info($"AccountRemovedCondition [{character.Name}] BECAME: [{string.Join(", ", list)}]");
 
             SaveIndexes(locCharacter.UsedSpecialFeatures, type, list);
         }
@@ -515,7 +517,7 @@ public static class ActionSwitching
         {
             return;
         }
-        
+
         if (type is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus))
         {
             return;
@@ -534,7 +536,7 @@ public static class ActionSwitching
             return;
         }
 
-        Main.Log2($"SpendActionType [{character.Name}] {type} rank: {rank}, filters: {filters.Count}", true);
+        Main.Info($"SpendActionType [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         data.StoreAttacks(character, type);
         data.StoreSpellcasting(character, type);
@@ -560,7 +562,7 @@ public static class ActionSwitching
         {
             return;
         }
-        
+
         if (type is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus))
         {
             return;
@@ -573,7 +575,7 @@ public static class ActionSwitching
         }
 
         var filters = character.actionPerformancesByType[type];
-        Main.Log2($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}", true);
+        Main.Info($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         var data = PerformanceFilterExtraData.GetData(filters[rank]);
         if (data != null)
