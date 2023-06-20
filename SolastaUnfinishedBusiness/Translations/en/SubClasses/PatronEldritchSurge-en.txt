@@ -8,12 +8,12 @@ Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=You are 
 Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=Pursuit Permanency
 Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Your patron endows you with more powerful blasts but only if you follow its path all along. <b>Eldritch Blast</b> now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock Levels] - 2 * [Other Classes Levels]. You can cast 2 beams if determination >= 3, 3 if >= 7, 4 if >= 11, 5 if >= 15 and 6 if >= 19.
 Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
+Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Your excellence in <b>Eldritch Blast</b> allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
+Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=As you further master <b>Eldritch Blast</b>, you can burn your mana to empower your magic.\nAs a bonus action, you can expend a pact slot and for 1 minute, you ignore ranged spell disadvantage if enemies are within melee range, you add your proficiency bonus to the <b>Eldritch Blast</b> damage, and the range of your <b>Eldritch Blast</b> is decreased by 30 ft.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Blast Overload
 Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=You gain momentum when killing enemies with your blasts.\nAs a bonus action, You can expend a pact slot and for one round, you gain an extra attack, cast, dash, disengage, or dodge main action. A kill with <b>Eldritch Blast</b> prolongs <b>Blast Pursuit</b> by one round. For every extra main action you get from this feature, until your next turn start, the range of your <b>Eldritch Blast</b> is decreased by 30 ft.
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
-Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Your excellence in <b>Eldritch Blast</b> allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
-Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&PowerPatronEldritchSurgePermanentBlastPursuitDescription=If you have no remaining pact slot uses, you are in constant <b>Blast Pursuit</b> state, but you must cast <b>Eldritch Blast</b> to regain one extra main action and up to twice per turn.
 Feature/&PowerPatronEldritchSurgePermanentBlastPursuitTitle=Pursuit Permanency
 Feedback/&AdditionalDamageBlastOverloadFormat=Blast Overload!

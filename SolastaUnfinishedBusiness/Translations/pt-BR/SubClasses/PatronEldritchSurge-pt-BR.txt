@@ -8,12 +8,12 @@ Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=Você es
 Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=Permanência de Perseguição
 Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Seu patrono concede a você explosões mais poderosas, mas apenas se você seguir seu caminho o tempo todo. <b>Eldritch Blast</b> agora tem um alcance de 120 pés. Em vez disso, o número do feixe é derivado por sua determinação calculada como [Warlock Levels] - 2 * [Other Classes Levels]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 7, 4 se >= 11, 5 se >= 15 e 6 se >= 19.
 Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=Explosão Exclusiva
+Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Sua excelência em <b>Eldritch Blast</b> permite que você lance duas vezes seguidas. Você pode conjurar truques que conjurou neste turno com sua ação principal como uma ação bônus.
+Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Conforme você domina <b>Eldritch Blast</b>, você pode queimar sua mana para fortalecer sua magia.\nComo uma ação bônus, você pode gastar um espaço de pacto e por 1 minuto, você ignora a desvantagem de feitiços à distância se inimigos estão dentro do alcance corpo a corpo, você adiciona seu bônus de proficiência ao dano de <b>Eldritch Blast</b> e o alcance de seu <b>Eldritch Blast</b> é reduzido em 30 pés.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sobrecarga Explosiva
 Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Você ganha ímpeto ao matar inimigos com suas explosões.\nComo ação bônus, você pode gastar um espaço de pacto e, por uma rodada, ganha uma ação extra de ataque, conjuração, investida, desengajamento ou esquiva. Uma morte com <b>Eldritch Blast</b> prolonga <b>Blast Pursuit</b> em uma rodada. Para cada ação principal extra que você obtém com esse recurso, até o início do próximo turno, o alcance do seu <b>Eldritch Blast</b> é reduzido em 30 pés.
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Perseguição Explosiva
-Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Sua excelência em <b>Eldritch Blast</b> permite que você lance duas vezes seguidas. Você pode conjurar truques que conjurou neste turno com sua ação principal como uma ação bônus.
-Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&PowerPatronEldritchSurgePermanentBlastPursuitDescription=Se você não tiver nenhum slot de pacto restante, você estará em estado constante de <b>Blast Pursuit</b>, mas você deve lançar <b>Eldritch Blast</b> para recuperar uma ação principal extra e até duas vezes por turno.
 Feature/&PowerPatronEldritchSurgePermanentBlastPursuitTitle=Permanência de Perseguição
 Feedback/&AdditionalDamageBlastOverloadFormat=Sobrecarga Explosiva!
