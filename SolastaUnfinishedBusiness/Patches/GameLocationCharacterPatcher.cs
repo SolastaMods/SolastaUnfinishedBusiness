@@ -232,6 +232,32 @@ public static class GameLocationCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.SpendActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpendActionType_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType)
+        {
+            //PATCH: support for action switching
+            ActionSwitching.SpendActionType(__instance, actionType);
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.RefundActionUse))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefundActionUse_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType)
+        {
+            //PATCH: support for action switching
+            ActionSwitching.RefundActionUse(__instance, actionType);
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.HandleActionExecution))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

@@ -194,6 +194,7 @@ public static class ActionSwitching
 
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
 
+        //TODO: has potential to spend extra attack for sorcs who initiate Flexible Casting (slot-sorc point conversion) and then cancel it.
         wasData?.StoreAttacks(character, type, wasAttacks + 1);
         wasData?.StoreSpellcasting(character, type);
         newData?.LoadAttacks(character, type);
@@ -404,6 +405,87 @@ public static class ActionSwitching
             Main.Log2($"AccountRemovedCondition [{character.Name}] BECAME: [{string.Join(", ", list)}]", true);
 
             SaveIndexes(locCharacter.UsedSpecialFeatures, type, list);
+        }
+    }
+
+    public static void SpendActionType(GameLocationCharacter character, ActionDefinitions.ActionType type)
+    {
+        if (!Main.Settings.EnableActionSwitching)
+        {
+            return;
+        }
+        
+        if (type is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus))
+        {
+            return;
+        }
+
+        var filters = character.actionPerformancesByType[type];
+        var rank = character.currentActionRankByType[type];
+        if (rank >= filters.Count)
+        {
+            return;
+        }
+
+        var data = PerformanceFilterExtraData.GetData(filters[rank]);
+        if (data == null)
+        {
+            return;
+        }
+
+        Main.Log2($"SpendActionType [{character.Name}] {type} rank: {rank}, filters: {filters.Count}", true);
+
+        data.StoreAttacks(character, type);
+        data.StoreSpellcasting(character, type);
+
+        if (rank + 1 >= filters.Count)
+        {
+            return;
+        }
+
+        data = PerformanceFilterExtraData.GetData(filters[rank + 1]);
+        if (data == null)
+        {
+            return;
+        }
+
+        data.LoadAttacks(character, type);
+        data.LoadSpellcasting(character, type);
+    }
+
+    public static void RefundActionUse(GameLocationCharacter character, ActionDefinitions.ActionType type)
+    {
+        if (!Main.Settings.EnableActionSwitching)
+        {
+            return;
+        }
+        
+        if (type is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus))
+        {
+            return;
+        }
+
+        var rank = character.currentActionRankByType[type];
+        if (rank <= 0)
+        {
+            return;
+        }
+
+        var filters = character.actionPerformancesByType[type];
+        Main.Log2($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}", true);
+
+        var data = PerformanceFilterExtraData.GetData(filters[rank]);
+        if (data != null)
+        {
+            data.StoreAttacks(character, type);
+            data.StoreSpellcasting(character, type);
+        }
+
+        data = PerformanceFilterExtraData.GetData(filters[rank - 1]);
+        if (data != null)
+        {
+            data.LoadAttacks(character, type);
+            data.LoadSpellcasting(character, type);
         }
     }
 }
