@@ -4,8 +4,8 @@ Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=You gain an extra
 Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=You have one extra main action granted by <b>Blast Pursuit</b>.
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Extra Action Blast Pursuit
-Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveDescription=Your patron endows you with more powerful blasts but only if you follow its path all along. You gain <b>Eldritch Blast</b> as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
-Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Your patron endows you with more powerful blasts but only if you follow its path all along. You gain <b>Eldritch Blast</b> as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Your excellence in <b>Eldritch Blast</b> allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitDescription=If you have no remaining pact slot uses, you are in constant <b>Blast Pursuit</b> state, but you must cast <b>Eldritch Blast</b> to regain one extra main action up to 2 per turn.

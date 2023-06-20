@@ -4,8 +4,8 @@ Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=Você ganha uma a
 Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Perseguição Explosiva
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=Você tem uma ação principal extra concedida por <b>Blast Pursuit</b>.
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Perseguição Explosiva de Ação Extra
-Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveDescription=Seu patrono concede a você explosões mais poderosas, mas apenas se você seguir seu caminho o tempo todo. Você ganha <b>Eldritch Blast</b> como um truque de bônus e agora tem um alcance de 120 pés. O número do feixe é derivado de sua determinação calculada como [Níveis de bruxo] - 2 * [Níveis de outras classes]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 8, 4 se >= 13 e 5 se >= 18.
-Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveTitle=Explosão Exclusiva
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Seu patrono concede a você explosões mais poderosas, mas apenas se você seguir seu caminho o tempo todo. Você ganha <b>Eldritch Blast</b> como um truque de bônus e agora tem um alcance de 120 pés. O número do feixe é derivado de sua determinação calculada como [Níveis de bruxo] - 2 * [Níveis de outras classes]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 8, 4 se >= 13 e 5 se >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosão Exclusiva
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Sua excelência em <b>Eldritch Blast</b> permite que você lance duas vezes seguidas. Você pode conjurar truques que conjurou neste turno com sua ação principal como uma ação bônus.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitDescription=Se você não tiver nenhum slot de pacto restante, você estará em estado constante de <b>Blast Pursuit</b>, mas você deve lançar <b>Eldritch Blast</b> para recuperar uma ação principal extra até 2 por turno.

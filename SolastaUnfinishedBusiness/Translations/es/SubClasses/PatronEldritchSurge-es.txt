@@ -4,8 +4,8 @@ Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=Obtienes una acci
 Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Persecución explosiva
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=Tienes una acción principal adicional otorgada por <b>Blast Pursuit</b>.
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Persecución explosiva de acción adicional
-Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveDescription=Tu patrón te otorga explosiones más poderosas, pero solo si sigues su camino todo el tiempo. Obtienes <b>Explosión sobrenatural</b> como cantrip adicional y ahora tiene un alcance de 120 pies. En cambio, el número de haz se deriva de tu determinación calculada como [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 haces si la determinación >= 3, 3 si >= 8, 4 si >= 13 y 5 si >= 18.
-Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveTitle=Explosión exclusiva
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Tu patrón te otorga explosiones más poderosas, pero solo si sigues su camino todo el tiempo. Obtienes <b>Explosión sobrenatural</b> como cantrip adicional y ahora tiene un alcance de 120 pies. En cambio, el número de haz se deriva de tu determinación calculada como [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 haces si la determinación >= 3, 3 si >= 8, 4 si >= 13 y 5 si >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosión exclusiva
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Tu excelencia en <b>Explosión sobrenatural</b> te permite lanzar dos veces seguidas. Puedes lanzar cantrips que hayas lanzado este turno con tu acción principal como acción adicional.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Recarga explosiva
 Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitDescription=Si no te quedan usos de espacios de pacto, estás en un estado constante de <b>Blast Pursuit</b>, pero debes lanzar <b>Eldritch Blast</b> para recuperar una acción principal adicional hasta 2 por turno.
