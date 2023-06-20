@@ -959,6 +959,7 @@ FeatMagicInitiateSorcerer	FeatDefinition	FeatDefinition	5a211c30-4d42-5d0c-b3fc-
 FeatMagicInitiateWarlock	FeatDefinition	FeatDefinition	71d4c33c-052c-5122-a4bb-c0ae6cdbe57d
 FeatMagicInitiateWizard	FeatDefinition	FeatDefinition	5c8dc78a-288b-5544-be4c-fe8bf14d4143
 FeatMediumArmorDex	FeatDefinition	FeatDefinition	5cf08c9e-126a-5d79-b085-21952bb07102
+FeatMediumArmorMaster	FeatDefinition	FeatDefinition	54856802-e69c-52bc-969b-79089adfbd67
 FeatMediumArmorStr	FeatDefinition	FeatDefinition	80edeffa-2a0e-55d2-bb69-54bb1c21366e
 FeatMerciless	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	f91e4faa-6d59-5cf1-964e-9dd2943ed8e8
 FeatMetamagicAdept	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	2f81cb57-a32f-515e-8a8d-a75c96ef957d

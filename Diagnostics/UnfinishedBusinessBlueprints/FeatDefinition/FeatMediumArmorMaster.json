@@ -6,8 +6,8 @@
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
   "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": false,
-  "armorProficiencyCategory": "",
+  "armorProficiencyPrerequisite": true,
+  "armorProficiencyCategory": "MediumArmorCategory",
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupArmorTitle",
-    "description": "Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor, Medium Armor Master, Might of the Iron Legion, Sturdiness of the Tundra",
+    "title": "Feat/&FeatMediumArmorMasterTitle",
+    "description": "Feat/&FeatMediumArmorMasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb002d8a-4f64-5057-b205-1479683055e7",
+  "guid": "54856802-e69c-52bc-969b-79089adfbd67",
   "contentPack": 9999,
-  "name": "FeatGroupArmor"
+  "name": "FeatMediumArmorMaster"
 }
