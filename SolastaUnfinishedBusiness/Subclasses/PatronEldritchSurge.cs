@@ -100,7 +100,6 @@ internal class PatronEldritchSurge : AbstractSubclass
 
         // Blast Pursuit
 
-
         var powerBlastPursuit = FeatureDefinitionPowerBuilder
             .Create(PowerBlastPursuitName)
             .SetUsesFixed(ActivationTime.BonusAction)
@@ -157,6 +156,8 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddFeatureSet(AdditionalActionBlastPursuit)
             .AddToDB();
 
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronEldritchSurge, 256))
@@ -176,10 +177,10 @@ internal class PatronEldritchSurge : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static int GetBlastPursuitExtraActionCount(RulesetCharacter rulesetCharacter, int additionalCount = 0)
+    private static int GetBlastPursuitExtraActionCount(RulesetActor rulesetActor, int additionalCount = 0)
     {
         return additionalCount +
-               rulesetCharacter.ConditionsByCategory
+               rulesetActor.ConditionsByCategory
                    .SelectMany(x => x.Value)
                    .Count(x => x.conditionDefinition == ConditionExtraActionBlastPursuit);
     }
@@ -193,9 +194,9 @@ internal class PatronEldritchSurge : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHero = rulesetCharacter.GetOriginalHero();
-            var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
 
-            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false } || eldritchSurgeLevel == 0)
+            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) == 0)
             {
                 return effectDescription;
             }
