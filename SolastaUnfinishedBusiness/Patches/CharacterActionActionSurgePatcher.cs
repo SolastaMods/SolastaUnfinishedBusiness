@@ -27,6 +27,7 @@ public static class CharacterActionActionSurgePatcher
             if (!Main.Settings.EnableActionSwitching)
             {
                 yield return values;
+                yield break;
             }
             
             var service = ServiceRepository.GetService<IGameLocationActionService>();
