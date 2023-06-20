@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 0,
   "requiredPact": null,
   "grantedFeature": "Definition:FeatureGambitBrace:658fc369-f155-5aea-aa29-b8b92f31c36f",
   "grantedSpell": null,

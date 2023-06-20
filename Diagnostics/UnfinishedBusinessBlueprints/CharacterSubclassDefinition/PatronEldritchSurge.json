@@ -1,0 +1,54 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripsPatronEldritchSurgeBlastExclusive:f1943338-589e-5f77-991e-9ad973ba1b06",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPatronEldritchSurgeBlastPursuit:775ce0a9-2660-5382-bb96-e1fa94fe036c",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPatronEldritchSurgeBlastOverload:25cade8b-5a01-55b8-b16a-aa1211b15bd1",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeaturePatronEldritchSurgeBlastReload:963bd94b-ab57-581b-958b-51f6f57ff331",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PatronEldritchSurgeTitle",
+    "description": "Subclass/&PatronEldritchSurgeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "58e7a061-e7f6-53a7-9ff8-ce743eadb663",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "44b58949-e390-5943-9e06-9a3ae4c97062",
+  "contentPack": 9999,
+  "name": "PatronEldritchSurge"
+}

@@ -1,0 +1,33 @@
+{
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle",
+    "description": "Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f1943338-589e-5f77-991e-9ad973ba1b06",
+  "contentPack": 9999,
+  "name": "BonusCantripsPatronEldritchSurgeBlastExclusive"
+}

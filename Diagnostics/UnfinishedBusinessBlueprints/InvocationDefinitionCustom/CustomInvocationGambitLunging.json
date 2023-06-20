@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 0,
   "requiredPact": null,
   "grantedFeature": "Definition:PowerGambitLungingActivate:e521e169-9c1a-554a-a161-1576932bb66d",
   "grantedSpell": null,

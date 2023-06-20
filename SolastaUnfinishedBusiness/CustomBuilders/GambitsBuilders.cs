@@ -785,7 +785,7 @@ internal static class GambitsBuilders
         string name,
         AssetReferenceSprite sprite,
         FeatureDefinition feature,
-        int level = 1)
+        int level = 0)
     {
         CustomInvocationDefinitionBuilder
             .Create($"CustomInvocation{name}")
