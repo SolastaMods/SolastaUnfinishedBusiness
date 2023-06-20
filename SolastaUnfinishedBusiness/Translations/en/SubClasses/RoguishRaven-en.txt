@@ -1,4 +1,4 @@
-Feature/&AdditionalActionRavenKillingSpreeDescription=You can make an extra attack the first time you kill an enemy on your turn. In addition, each time you kill an enemy, your sneak attack can be reused on same turn.
+Feature/&AdditionalActionRavenKillingSpreeDescription=You can make extra 2-handed ranged attack the first time you kill an enemy on your turn with 2-handed ranged weapon. In addition, each time you kill an enemy, your sneak attack can be reused on same turn.
 Feature/&AdditionalActionRavenKillingSpreeTitle=Killing Spree
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Your attack suffers a -4 penalty to hit.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Heart Seeking Shot
