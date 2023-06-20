@@ -58,7 +58,7 @@ public static class ActionSwitching
                 yield break;
             }
 
-            if (Global.ControlledLocationCharacter.Guid != attacker.Guid)
+            if (Global.ControlledLocationCharacter?.Guid != attacker.Guid)
             {
                 yield break;
             }

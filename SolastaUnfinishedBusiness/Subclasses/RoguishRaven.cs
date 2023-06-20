@@ -296,7 +296,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            if (Global.ControlledLocationCharacter.Guid != attacker.Guid)
+            if (Global.ControlledLocationCharacter?.Guid != attacker.Guid)
             {
                 yield break;
             }
