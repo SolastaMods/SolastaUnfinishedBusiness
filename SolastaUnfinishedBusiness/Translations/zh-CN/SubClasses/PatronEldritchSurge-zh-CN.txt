@@ -16,4 +16,4 @@ Feedback/&AdditionalDamageBlastOverloadFormat=魔爆超限！
 Feedback/&AdditionalDamageBlastOverloadLine={0}向{1}倾泻奥能 (+{2})！
 Feedback/&BlastPursuitExtraAction={1}给予{0}额外动作！
 Subclass/&PatronEldritchSurgeDescription=你与一神秘存在缔结契约，受赋解放魔爆汹涌奥能之力。此宗主并无定形，乃纯粹魔力之具现。受选之人须精进招牌法术，为敌人带去毁灭，以夸示宗主之无边威能。因此，祂仅授予你增强的<b>魔能爆</b>。
-Subclass/&PatronEldritchSurgeTitle=魔能涌动
+Subclass/&PatronEldritchSurgeTitle=魔能狂涌
