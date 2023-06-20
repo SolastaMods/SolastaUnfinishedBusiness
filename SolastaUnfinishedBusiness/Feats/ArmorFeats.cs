@@ -13,7 +13,8 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ArmorFeats
 {
-    // this is entirely implemented on rulesetCharacterHero transpilers using context validations below
+    // this is entirely implemented on rulesetCharacterHero transpiler using context validations below
+    // they change max dexterity to 3 and remove any instance of Stealth Disadvantage checks
     private static readonly FeatDefinition FeatMediumArmorMaster = FeatDefinitionBuilder
         .Create("FeatMediumArmorMaster")
         .SetGuiPresentation(Category.Feat)
@@ -33,7 +34,7 @@ internal static class ArmorFeats
         RulesetCharacterHero rulesetCharacterHero)
     {
         return armorDescription.ArmorTypeDefinition.ArmorCategory == MediumArmorCategory &&
-               !rulesetCharacterHero.TrainedFeats.Contains(FeatMediumArmorMaster);
+               rulesetCharacterHero.TrainedFeats.Contains(FeatMediumArmorMaster);
     }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
