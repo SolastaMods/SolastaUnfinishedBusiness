@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -9,6 +13,70 @@ public static class ActionSwitching
 {
     internal static void Load()
     {
+        //Mark Action Surge to track spell flags separately
+        FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain
+            .AddCustomSubFeatures(ActionWithCustomSpellTracking.Mark);
+
+        //Make Horde Breaker add condition instead of using trigger
+        var hordeBreaker = FeatureDefinitionAdditionalActions.AdditionalActionHunterHordeBreaker;
+        hordeBreaker.AddCustomSubFeatures(new HordeBreaker(ConditionDefinitionBuilder
+            .Create("ConditionHunterHordeBreaker")
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                .Create("AdditionalActionHunterHordeBreaker2")
+                .SetGuiPresentation(hordeBreaker.GuiPresentation)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                .SetMaxAttacksNumber(1)
+                .AddToDB())
+            .AddToDB()));
+    }
+
+    private sealed class HordeBreaker : ITargetReducedToZeroHp
+    {
+        private readonly ConditionDefinition condition;
+
+        public HordeBreaker(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                yield break;
+            }
+
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            {
+                yield break;
+            }
+
+            if (Global.ControlledLocationCharacter.Guid != attacker.Guid)
+            {
+                yield break;
+            }
+
+            attacker.RulesetCharacter.InflictCondition(
+                condition.Name,
+                RuleDefinitions.DurationType.Round,
+                0,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                attacker.RulesetCharacter.guid,
+                attacker.RulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
     }
 
     private static void EnumerateFeaturesHierarchicaly<T>(List<(FeatureDefinition feature, string origin)> features,

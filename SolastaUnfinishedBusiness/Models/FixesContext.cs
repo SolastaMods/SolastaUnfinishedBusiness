@@ -285,9 +285,6 @@ internal static class FixesContext
         FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
             = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
         
-        //TODO: move to better place?
-        FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.AddCustomSubFeatures(ActionWithCustomSpellTracking.Mark);
-        
         //Bonus Action
         // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
         //     = ExpeditiousRetreat.GuiPresentation.Title;
