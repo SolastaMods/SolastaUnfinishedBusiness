@@ -121,7 +121,21 @@ public static class ActionSwitching
         return list;
     }
 
-    private static List<(FeatureDefinition feature, string origin)> EnumerateHeroFeatures<T>(RulesetCharacterHero hero)
+    internal static List<(FeatureDefinition feature, string origin)> EnumerateActorFeatures<T>(RulesetActor actor)
+    {
+        if (actor is RulesetCharacterHero hero)
+        {
+            return EnumerateHeroFeatures<T>(hero);
+        }
+        if (actor is RulesetCharacterMonster monster)
+        {
+            return EnumerateMonsterFeatures<T>(monster);
+        }
+
+        return null;
+    }
+
+    private static List<(FeatureDefinition feature, string origin)> EnumerateHeroFeatures<T>(RulesetCharacterHero hero, bool skipConditions = false)
     {
         List<(FeatureDefinition feature, string origin)> features = new();
 
@@ -150,11 +164,16 @@ public static class ActionSwitching
         }
 
         //Conditions
-        hero.GetAllConditions(hero.AllConditionsForEnumeration);
-        foreach (var rulesetCondition in hero.AllConditionsForEnumeration)
+        if (!skipConditions)
         {
-            EnumerateFeaturesHierarchicaly<T>(features, GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
-                $"{rulesetCondition.Name}:{rulesetCondition.Guid}");
+            hero.GetAllConditions(hero.AllConditionsForEnumeration);
+            hero.AllConditionsForEnumeration.Sort((a, b) => a.Guid.CompareTo(b.Guid));
+            foreach (var rulesetCondition in hero.AllConditionsForEnumeration)
+            {
+                EnumerateFeaturesHierarchicaly<T>(features,
+                    GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
+                    $"{rulesetCondition.Name}:{rulesetCondition.Guid}");
+            }
         }
 
         //Metamagic
@@ -177,6 +196,31 @@ public static class ActionSwitching
             {
                 EnumerateFeaturesHierarchicaly<T>(features, set.FeatureSet, invocation.InvocationDefinition.Name);
             }
+        }
+
+        return features;
+    }
+
+    private static List<(FeatureDefinition feature, string origin)> EnumerateMonsterFeatures<T>(RulesetCharacterMonster monster)
+    {
+        List<(FeatureDefinition feature, string origin)> features = new();
+        
+        //Monster features
+        EnumerateFeaturesHierarchicaly<T>(features, monster.activeFeatures, monster.monsterDefinition.Name);
+
+        //Original hero features
+        if (Main.Settings.EnumerateOriginSubFeatures && monster.originalFormCharacter is RulesetCharacterHero hero)
+        {
+            features.AddRange(EnumerateHeroFeatures<T>(hero, true));
+        }
+
+        //Conditions
+        monster.GetAllConditions(monster.AllConditionsForEnumeration);
+        monster.AllConditionsForEnumeration.Sort((a, b) => a.Guid.CompareTo(b.Guid));
+        foreach (var rulesetCondition in monster.AllConditionsForEnumeration)
+        {
+            EnumerateFeaturesHierarchicaly<T>(features, GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
+                $"{rulesetCondition.Name}:{rulesetCondition.Guid}");
         }
 
         return features;
@@ -305,11 +349,7 @@ public static class ActionSwitching
             return;
         }
 
-        List<(FeatureDefinition feature, string origin)> features = null;
-        if (character.RulesetCharacter is RulesetCharacterHero hero)
-        {
-            features = EnumerateHeroFeatures<IAdditionalActionsProvider>(hero);
-        }
+        var features = EnumerateActorFeatures<IAdditionalActionsProvider>(character.RulesetCharacter);
 
         if (features == null)
         {
@@ -334,13 +374,10 @@ public static class ActionSwitching
             return validator != null && !validator.IsValid(x.feature, character.RulesetCharacter);
         });
 
-        //remove non-triggered features to have only one place that requires those checks
-        if (character.enemiesDownedByAttack <= 0)
-        {
-            features.RemoveAll(x =>
-                (x.feature as IAdditionalActionsProvider)?.TriggerCondition ==
-                RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
-        }
+        //remove triggered features - all such features are reworked to grant conditions
+        features.RemoveAll(x =>
+            (x.feature as IAdditionalActionsProvider)?.TriggerCondition ==
+            RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
 
         Main.Log2(
             $"ACTIONS: [{character.Name}] {string.Join(", ", features.Select(x => $"<{x.feature.Name}:{x.origin}>"))}",
@@ -403,11 +440,7 @@ public static class ActionSwitching
             return;
         }
 
-        List<(FeatureDefinition feature, string origin)> features = null;
-        if (character is RulesetCharacterHero hero)
-        {
-            features = EnumerateHeroFeatures<IAdditionalActionsProvider>(hero);
-        }
+        var features = EnumerateActorFeatures<IAdditionalActionsProvider>(character);
 
         if (features == null)
         {
