@@ -107,8 +107,10 @@ internal static class FlexibleRacesContext
             }
         },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },
-        { "RaceTieflingAsmodeus", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
-        { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } }
+        { "RaceTieflingDevilTongue", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
+        { "RaceTieflingFeral", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },
+        { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },
+        { "RaceTieflingZariel", new List<string> { "AttributeModifierTieflingStrengthAbilityScoreIncrease" } }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)

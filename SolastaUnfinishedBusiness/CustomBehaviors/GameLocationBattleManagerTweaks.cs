@@ -942,11 +942,7 @@ internal static class GameLocationBattleManagerTweaks
                         //TODO: implement wild-shape, MC and warlock spell slot tweaks 
                         // This is used for Divine Smite
                         // Look for the spellcasting feature holding the smite
-                        var hero = attacker.RulesetCharacter as RulesetCharacterHero;
-                        if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
-                        {
-                            hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-                        }
+                        var hero = attacker.RulesetCharacter.GetOriginalHero();
 
                         // This is used to only offer divine smites on critical hits
                         var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage

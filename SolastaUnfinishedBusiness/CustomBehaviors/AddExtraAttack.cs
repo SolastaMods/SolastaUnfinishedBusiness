@@ -156,7 +156,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
         var hero = character as RulesetCharacterHero;
-        var originalHero = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var originalHero = character.GetOriginalHero();
         var monster = character as RulesetCharacterMonster;
 
         if (hero == null && monster == null)
