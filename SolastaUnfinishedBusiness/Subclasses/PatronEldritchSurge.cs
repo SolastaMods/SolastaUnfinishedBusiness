@@ -58,7 +58,6 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create($"Feature{Name}BlastPursuit")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new ExtraActionBlastPursuit(),
                     new TargetReducedToZeroHpBlastPursuit())
                 .AddToDB())
         .AddToDB();
@@ -84,7 +83,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     internal PatronEldritchSurge()
     {
-        // LEVEL 03
+        // LEVEL 01
 
         // Blast Exclusive
 
@@ -114,7 +113,9 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddToDB();
 
         powerBlastPursuit.SetCustomSubFeatures(
-            new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit));
+            new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit),
+            new ExtraActionBlastPursuit());
+            
 
         // LEVEL 10
 
@@ -146,16 +147,6 @@ internal class PatronEldritchSurge : AbstractSubclass
             .SetCustomSubFeatures(new CustomBehaviorBlastReload())
             .AddToDB();
 
-        // LEVEL 18
-
-        // Permanent Blast Pursuit
-
-        var featureSetPermanentBlastPursuit = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PermanentBlastPursuit")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(AdditionalActionBlastPursuit)
-            .AddToDB();
-
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -165,7 +156,6 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddFeaturesAtLevel(6, powerBlastPursuit)
             .AddFeaturesAtLevel(10, powerBlastOverload)
             .AddFeaturesAtLevel(14, featureBlastReload)
-            .AddFeaturesAtLevel(18, featureSetPermanentBlastPursuit)
             .AddToDB();
     }
 
@@ -333,44 +323,43 @@ internal class PatronEldritchSurge : AbstractSubclass
             var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
             var warlockRemainingSlots = SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero);
             var blastPursuitExtraActionCount =
-                GetBlastPursuitExtraActionCount(rulesetCharacter, eldritchSurgeLevel >= 18 ? 1 : 0);
+                GetBlastPursuitExtraActionCount(rulesetCharacter);
 
             var isValidBlastPursuit =
                 rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) &&
                 blastPursuitExtraActionCount == 0;
 
+            var isEldritchBlast =
+                actionParams.activeEffect is RulesetEffectSpell spell && spell.spellDefinition == EldritchBlast;
+
             var isValidPermanentBlastPursuit =
+                isEldritchBlast &&
                 eldritchSurgeLevel >= 18 &&
                 blastPursuitExtraActionCount <= 1 &&
                 warlockRemainingSlots <= 0;
 
-            var isEldritchBlast =
-                actionParams.activeEffect is RulesetEffectSpell spell && spell.spellDefinition == EldritchBlast;
-
-            if (!isValidBlastPursuit && (!isValidPermanentBlastPursuit || !isEldritchBlast))
+            if (isValidPermanentBlastPursuit || isValidBlastPursuit)
             {
-                return;
+                rulesetCharacter.InflictCondition(
+                    ConditionExtraActionBlastPursuit.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0
+                );
+
+                var title = ConditionExtraActionBlastPursuit.GuiPresentation.Title;
+
+                rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
+                rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
             }
-
-            rulesetCharacter.InflictCondition(
-                ConditionExtraActionBlastPursuit.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0
-            );
-
-            var title = ConditionExtraActionBlastPursuit.GuiPresentation.Title;
-
-            rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
-            rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
         }
     }
 
