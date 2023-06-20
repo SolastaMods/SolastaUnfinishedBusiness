@@ -1,10 +1,13 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle",
+    "description": "Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b033f58f-92d0-5390-9dc1-d8630512db13",
+  "guid": "f1943338-589e-5f77-991e-9ad973ba1b06",
   "contentPack": 9999,
-  "name": "FeaturePatronEldritchSurgePermanentBlastPursuit"
+  "name": "BonusCantripsPatronEldritchSurgeBlastExclusive"
 }

@@ -1,21 +1,19 @@
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=적이 근접 범위 내에 있으면 원거리 주문 불이익을 무시하고 <b>Eldritch Blast</b> 피해에 숙련도 보너스를 추가하고 <b>Eldritch Blast</b>의 범위가 30피트 감소합니다.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=폭발 과부하
-Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=추가 공격, 시전, 돌진, 해제 또는 주요 행동 회피를 얻습니다. <b>Eldritch Blast</b> 킬은 지속 시간을 한 라운드 연장합니다. <b>Eldritch Blast</b>의 범위가 이번 턴에 획득한 추가 폭발 추격 행동 수의 30피트만큼 감소합니다.
+Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=추가 공격, 시전, 돌진, 해제 또는 주요 행동 회피를 얻습니다. <b>Eldritch Blast</b> 킬은 ​​지속 시간을 한 라운드 연장합니다. <b>Eldritch Blast</b>의 범위가 이번 턴에 획득한 추가 폭발 추격 행동 수의 30피트만큼 감소합니다.
 Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=폭발 추격
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=<b>Blast Pursuit</b>에 의해 부여된 하나의 추가 메인 액션이 있습니다.
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=엑스트라 액션 블래스트 추격
-Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=당신은 지속적인 <b>Blast Pursuit</b> 상태에 있지만 <b>Eldritch Blast</b>를 시전하여 턴당 최대 두 번 추가 주요 행동 하나를 되찾아야 합니다.
-Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=추구의 영속성
-Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=당신의 후원자는 당신에게 더 강력한 폭발을 부여하지만 당신이 그 길을 따라가는 경우에만 가능합니다. <b>Eldritch Blast</b>의 범위는 이제 120피트입니다. 대신 빔 번호는 [워록 레벨] - 2 * [기타 클래스 레벨]로 계산된 결정에 따라 결정됩니다. 결정 >= 3인 경우 2개의 빔, >= 8인 경우 3, >= 13인 경우 4, >= 18인 경우 5를 캐스팅할 수 있습니다.
-Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=블래스트 독점
+Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveDescription=당신의 후원자는 당신에게 더 강력한 폭발을 부여하지만 당신이 그 길을 따라가는 경우에만 가능합니다. 보너스 캔트립으로 <b>Eldritch Blast</b>를 얻었고 이제 범위는 120피트입니다. 빔 수는 대신 [Warlock 레벨] - 2 * [Other Classes 레벨]로 계산된 결정에 따라 파생됩니다. 결정 >= 3인 경우 2개의 빔, >= 8인 경우 3, >= 13인 경우 4, >= 18인 경우 5를 캐스팅할 수 있습니다.
+Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveTitle=블래스트 독점
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=<b>Eldritch Blast</b>의 탁월함을 통해 연속으로 두 번 시전할 수 있습니다. 보너스 액션으로 메인 액션과 함께 이번 턴에 캐스팅한 캔트립을 캐스팅할 수 있습니다.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=블래스트 리로드
+Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitDescription=남은 협정 슬롯 사용이 없는 경우 지속적인 <b>Blast Pursuit</b> 상태에 있지만 <b>Eldritch Blast</b>를 시전하여 턴당 최대 2개의 추가 기본 동작을 되찾아야 합니다.
+Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitTitle=추구의 영속성
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=<b>Eldritch Blast</b>를 더 마스터하면 마나를 태워 마법을 강화할 수 있습니다.\n보너스 액션으로 협정 슬롯을 사용할 수 있으며 1분 동안 적이 있으면 원거리 주문 불이익을 무시합니다. 근접 범위 내에 있으면 <b>Eldritch Blast</b> 손상에 숙련도 보너스를 추가하고 <b>Eldritch Blast</b>의 범위가 30피트 감소합니다.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=폭발 과부하
 Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=폭발로 적을 죽일 때 추진력을 얻습니다.\n보너스 액션으로 서약 슬롯을 사용할 수 있으며 한 라운드 동안 추가 공격, 시전, 돌진, 해제 또는 주요 액션 회피를 얻을 수 있습니다. <b>Eldritch Blast</b>로 처치하면 <b>Blast Pursuit</b>가 한 라운드 연장됩니다. 이 기능에서 얻을 수 있는 모든 추가 기본 작업에 대해 다음 차례가 시작될 때까지 <b>Eldritch Blast</b>의 범위가 30피트 감소합니다.
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=폭발 추격
-Feature/&PowerPatronEldritchSurgePermanentBlastPursuitDescription=남은 협정 슬롯 사용이 없는 경우 지속적인 <b>Blast Pursuit</b> 상태에 있지만 <b>Eldritch Blast</b>를 시전하여 하나의 추가 기본 행동을 회복하고 턴당 최대 두 번을 회복해야 합니다.
-Feature/&PowerPatronEldritchSurgePermanentBlastPursuitTitle=추구의 영속성
 Feedback/&AdditionalDamageBlastOverloadFormat=폭발 과부하!
 Feedback/&AdditionalDamageBlastOverloadLine={0}이(가) {1}(+{2})에 불가사의한 힘을 쏟아 부었습니다!
 Feedback/&BlastPursuitExtraAction={1}은(는) {0}에게 추가 공격을 부여합니다!

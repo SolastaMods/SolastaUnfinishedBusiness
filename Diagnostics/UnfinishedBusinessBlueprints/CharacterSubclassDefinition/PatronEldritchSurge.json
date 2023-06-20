@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeaturePatronEldritchSurgeBlastExclusive:3cf24503-b471-5faa-bb72-9acca9364e70",
+      "featureDefinition": "Definition:BonusCantripsPatronEldritchSurgeBlastExclusive:f1943338-589e-5f77-991e-9ad973ba1b06",
       "level": 1
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPatronEldritchSurgePermanentBlastPursuit:7ec0c9d8-6683-5a2a-9238-ba62ba1e2589",
+      "featureDefinition": "Definition:FeatureSetPatronEldritchSurgePermanentBlastPursuit:09aa3f91-0824-5590-a207-aacea3bad146",
       "level": 18
     }
   ],

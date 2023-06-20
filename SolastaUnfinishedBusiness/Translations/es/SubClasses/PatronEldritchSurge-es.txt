@@ -4,18 +4,16 @@ Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=Obtienes una acci
 Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Persecución explosiva
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=Tienes una acción principal adicional otorgada por <b>Blast Pursuit</b>.
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Persecución explosiva de acción adicional
-Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitDescription=Estás en un estado constante de <b>Blast Pursuit</b>, pero debes lanzar <b>Eldritch Blast</b> para recuperar una acción principal adicional hasta dos veces por turno.
-Condition/&ConditionPatronEldritchSurgePermanentBlastPursuitTitle=Permanencia de la persecución
-Feature/&FeaturePatronEldritchSurgeBlastExclusiveDescription=Tu patrón te otorga explosiones más poderosas, pero solo si sigues su camino todo el tiempo. <b>Explosión sobrenatural</b> ahora tiene un alcance de 120 pies. En cambio, el número de haz se deriva de tu determinación calculada como [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 haces si la determinación >= 3, 3 si >= 8, 4 si >= 13 y 5 si >= 18.
-Feature/&FeaturePatronEldritchSurgeBlastExclusiveTitle=Explosión exclusiva
+Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveDescription=Tu patrón te otorga explosiones más poderosas, pero solo si sigues su camino todo el tiempo. Obtienes <b>Explosión sobrenatural</b> como cantrip adicional y ahora tiene un alcance de 120 pies. En cambio, el número de haz se deriva de tu determinación calculada como [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 haces si la determinación >= 3, 3 si >= 8, 4 si >= 13 y 5 si >= 18.
+Feature/&BonusCantripPatronEldritchSurgeBlastExclusiveTitle=Explosión exclusiva
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Tu excelencia en <b>Explosión sobrenatural</b> te permite lanzar dos veces seguidas. Puedes lanzar cantrips que hayas lanzado este turno con tu acción principal como acción adicional.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Recarga explosiva
+Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitDescription=Si no te quedan usos de espacios de pacto, estás en un estado constante de <b>Blast Pursuit</b>, pero debes lanzar <b>Eldritch Blast</b> para recuperar una acción principal adicional hasta 2 por turno.
+Feature/&FeatureSetPatronEldritchSurgePermanentBlastPursuitTitle=Permanencia de la persecución
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=A medida que domines <b>Explosión sobrenatural</b>, puedes quemar tu maná para potenciar tu magia.\nComo acción adicional, puedes gastar un espacio de pacto y durante 1 minuto, ignoras la desventaja de hechizos a distancia si los enemigos están dentro del rango cuerpo a cuerpo, agregas tu bonificación de competencia al daño de <b>Explosión sobrenatural</b>, y el alcance de tu <b>Explosión sobrenatural</b> se reduce en 30 pies.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sobrecarga de explosión
 Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Obtienes impulso cuando matas enemigos con tus explosiones.\nComo acción adicional, puedes gastar un espacio de pacto y, durante una ronda, obtienes una acción principal adicional de ataque, lanzamiento, carrera, desactivación o esquivar. Una muerte con <b>Eldritch Blast</b> prolonga <b>Blast Pursuit</b> en una ronda. Por cada acción principal adicional que obtienes de esta función, hasta que comience tu próximo turno, el alcance de tu <b>Explosión sobrenatural</b> se reduce en 30 pies.
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Persecución explosiva
-Feature/&PowerPatronEldritchSurgePermanentBlastPursuitDescription=Si no te quedan usos de espacio de pacto, estás en un estado constante de <b>Blast Pursuit</b>, pero debes lanzar <b>Eldritch Blast</b> para recuperar una acción principal adicional y hasta dos veces por turno.
-Feature/&PowerPatronEldritchSurgePermanentBlastPursuitTitle=Permanencia de la persecución
 Feedback/&AdditionalDamageBlastOverloadFormat=¡Sobrecarga de explosión!
 Feedback/&AdditionalDamageBlastOverloadLine=¡{0} vierte poder arcano en {1} (+{2})!
 Feedback/&BlastPursuitExtraAction=¡{1} otorga a {0} un ataque adicional!
