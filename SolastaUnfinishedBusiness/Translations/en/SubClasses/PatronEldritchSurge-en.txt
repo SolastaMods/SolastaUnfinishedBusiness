@@ -2,7 +2,7 @@ Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=You ignore range
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Blast Overload
 Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=You gain an extra attack, cast, dash, disengage, or dodge main action. An <b>Eldritch Blast</b> kill prolongs the duration by one round.
 Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
-Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=You have one extra main action granted by <b>Blast Pursuit</b>.
+Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=You have one extra main action granted by <b>Blast Pursuit</b>. The range of your <b>Eldritch Blast</b> is decreased by 30 ft.
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Extra Action Blast Pursuit
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Your patron endows you with more powerful blasts but only if you follow its path all along. You gain <b>Eldritch Blast</b> as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
