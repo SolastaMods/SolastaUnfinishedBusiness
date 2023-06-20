@@ -142,6 +142,8 @@ public static class ActionSwitching
         //Load new action attacks, do not reuse `filters` list, because it is changed after refresh
         data = PerformanceFilterExtraData.GetData(character.ActionPerformancesByType[type][rank]);
         data?.LoadAttacks(character, type);
+        
+        character.RulesetCharacter?.RefreshAttackModes();
     }
 
     internal static void CheckIfActionSwitched(GameLocationCharacter __instance, 

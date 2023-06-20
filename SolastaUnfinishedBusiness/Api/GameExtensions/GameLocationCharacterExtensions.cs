@@ -223,20 +223,10 @@ public static class GameLocationCharacterExtensions
     {
         if (!instance.currentActionRankByType.TryGetValue(type, out var rank))
         {
-            rank = 0;
-        }
-
-        if (rank <= 0)
-        {
             return null;
         }
 
         var filters = instance.ActionPerformancesByType[type];
-        if (rank >= filters.Count)
-        {
-            return null;
-        }
-
-        return PerformanceFilterExtraData.GetData(filters[rank])?.feature;
+        return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.feature;
     }
 }
