@@ -14,9 +14,11 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -38,13 +40,34 @@ public static class RulesetCharacterHeroPatcher
     [UsedImplicitly]
     public static class RefreshArmorClass_Patch
     {
+        private static int MaxDexterityBonus(
+            ArmorDescription armorDescription,
+            RulesetCharacterHero rulesetCharacterHero)
+        {
+            return ArmorFeats.IsFeatMediumArmorMasterContextValid(armorDescription, rulesetCharacterHero)
+                ? 3
+                : armorDescription.MaxDexterityBonus;
+        }
+
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
+            //PATCH: supports Medium Armor Master Feat by allowing a max dexterity bonus of 3
+            //TODO: make this an interface if we ever need similar behavior on other places
+            var maxDexterityBonusMethod = typeof(ArmorDescription).GetMethod("get_MaxDexterityBonus");
+            var myMaxDexterityBonusMethod =
+                new Func<ArmorDescription, RulesetCharacterHero, int>(MaxDexterityBonus).Method;
+
+            var codes = instructions.ReplaceCalls(
+                    maxDexterityBonusMethod,
+                    "RulesetCharacterHero.RefreshActiveItemFeatures",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, myMaxDexterityBonusMethod))
+                .ToList();
+
             //PATCH: pass condition amount to `RefreshArmorClassInFeatures` - allows AC modification by Condition Amount for heroes
             //in vanilla this only works on monsters, but for heroes only default 0 is passed
 
-            var codes = instructions.ToList();
             object rulesetConditionVar = null;
             var found = false;
 
@@ -972,6 +995,38 @@ public static class RulesetCharacterHeroPatcher
             return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
                 -1, "RulesetCharacterHero.ComputeBaseSavingThrowBonus",
                 new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    //PATCH: supports Medium Armor Master feat by removing disadvantage on medium armors stealth checks
+    //TODO: make this an interface if we ever need similar behavior on other places
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshActiveItemFeatures))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshActiveItemFeatures_Patch
+    {
+        private static List<ItemPropertyDescription> StaticProperties(
+            ItemDefinition itemDefinition,
+            RulesetCharacterHero rulesetCharacterHero)
+        {
+            return ArmorFeats.IsFeatMediumArmorMasterContextValid(itemDefinition, rulesetCharacterHero)
+                ? itemDefinition.StaticProperties
+                    .Where(x => x.FeatureDefinition != AbilityCheckAffinityStealthDisadvantage)
+                    .ToList()
+                : itemDefinition.StaticProperties;
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var staticPropertiesMethod = typeof(ItemDefinition).GetMethod("get_StaticProperties");
+            var myStaticPropertiesMethod =
+                new Func<ItemDefinition, RulesetCharacterHero, List<ItemPropertyDescription>>(StaticProperties).Method;
+
+            return instructions.ReplaceCalls(staticPropertiesMethod,
+                "RulesetCharacterHero.RefreshActiveItemFeatures",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myStaticPropertiesMethod));
         }
     }
 }

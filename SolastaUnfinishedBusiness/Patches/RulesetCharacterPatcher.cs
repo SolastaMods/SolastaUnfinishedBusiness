@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
@@ -500,6 +501,22 @@ public static class RulesetCharacterPatcher
             if (__instance.HasAnyConditionOfType(RuleDefinitions.ConditionRaging))
             {
                 __result = false;
+            }
+        }
+    }
+
+    //PATCH: ensures Blast Reload works even though the character knows no bonus action spells or used up all slots
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastSpellOfActionType
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ActionType actionType, ref bool __result)
+        {
+            if (actionType == ActionType.Bonus && __instance.HasAnyConditionOfType("ConditionBlastReload"))
+            {
+                __result = true;
             }
         }
     }
@@ -1195,7 +1212,7 @@ public static class RulesetCharacterPatcher
 
             var power = function.DeviceFunctionDescription.FeatureDefinitionPower;
 
-            if (PowerVisibilityModifier.IsPowerHidden(character, power, ActionDefinitions.ActionType.Main)
+            if (PowerVisibilityModifier.IsPowerHidden(character, power, ActionType.Main)
                 || !character.CanUsePower(power, false))
             {
                 return false;
@@ -1287,7 +1304,7 @@ public static class RulesetCharacterPatcher
                         if (!hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
                         {
                             hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
-                            hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                            hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);
                         }
 
                         break;
@@ -1297,7 +1314,7 @@ public static class RulesetCharacterPatcher
                             hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
                         }
 
-                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                        hero.EnableToggle((Id)ExtraActionId.PaladinSmiteToggle);
                         break;
                 }
             }

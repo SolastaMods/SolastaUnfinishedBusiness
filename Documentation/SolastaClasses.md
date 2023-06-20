@@ -1600,6 +1600,13 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
+## Level 18
+
+* Eldritch Invocation
+
+Learn an additional Eldritch Invocation
+
+
 ## Level 19
 
 * Ability Score Choice

@@ -379,7 +379,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                 return effectDescription;
             }
 
-            var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+            var hero = character.GetOriginalHero();
 
             if (hero == null)
             {

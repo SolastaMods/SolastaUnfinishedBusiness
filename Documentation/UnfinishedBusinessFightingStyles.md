@@ -16,7 +16,7 @@ You gain +1 to AC, +1 to hit, and +1 to damage rolls when you use a versatile we
 
 # 5. - Lunger
 
-While wielding only one melee weapon without the heavy tag and a free offhand, that weapon's range increases to 10 ft.
+While wielding only one melee weapon without the heavy tag and a free offhand, that weapon's range increases by 5 ft.
 
 # 6. - Merciless
 
