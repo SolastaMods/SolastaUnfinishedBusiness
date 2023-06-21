@@ -5,6 +5,7 @@
 - fixed action bar powers' getting disabled under certain scenarios
 - fixed Domain Smith's reinforce armor stating long rest on description
 - fixed Fighter Weapon Specialization granting +1 strength
+- fixed Oath of Thunder causing a soft lock under certain scenarios
 
 1.5.74.4:
 
