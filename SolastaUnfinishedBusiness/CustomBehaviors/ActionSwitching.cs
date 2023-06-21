@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -255,15 +256,14 @@ public static class ActionSwitching
 
         character.RefreshActionPerformances();
 
-        //Load new action attacks, do not reuse `filters` list, because it is changed after refresh
-        data = PerformanceFilterExtraData.GetData(character.ActionPerformancesByType[type][rank]);
+        data = PerformanceFilterExtraData.GetData(filters[rank]);
         data?.LoadAttacks(character, type);
         data?.LoadSpellcasting(character, type);
 
         character.RulesetCharacter?.RefreshAttackModes();
     }
 
-    internal static void CheckIfActionSwitched(GameLocationCharacter __instance,
+    internal static void CheckIfActionSwitched(GameLocationCharacter character,
         CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope,
         int mainRank, int mainAttacks, int bonusRank, int bonusAttacks)
@@ -277,35 +277,37 @@ public static class ActionSwitching
         {
             return;
         }
+        
+        if (character.Side != RuleDefinitions.Side.Ally)
+        {
+            return;
+        }
 
         var type = actionParams.ActionDefinition.ActionType;
         if (type == ActionDefinitions.ActionType.Main)
         {
-            CheckIfActionSwitched(__instance, type, mainRank, mainAttacks);
+            CheckIfActionSwitched(character, type, mainRank, mainAttacks);
         }
         else if (type == ActionDefinitions.ActionType.Bonus)
         {
-            CheckIfActionSwitched(__instance, type, bonusRank, bonusAttacks);
+            CheckIfActionSwitched(character, type, bonusRank, bonusAttacks);
         }
     }
 
     private static void CheckIfActionSwitched(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int wasRank, int wasAttacks)
     {
-        if (character.Side != RuleDefinitions.Side.Ally)
-        {
-            return;
-        }
-
         var rank = character.CurrentActionRankByType[type];
         var filters = character.ActionPerformancesByType[type];
         var newData = rank < filters.Count ? PerformanceFilterExtraData.GetData(filters[rank]) : null;
         if (rank == wasRank)
         {
+            Main.Info($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
             newData?.StoreAttacks(character, type);
             newData?.StoreSpellcasting(character, type);
             return;
         }
+        Main.Info($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
 
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
 
@@ -403,18 +405,25 @@ public static class ActionSwitching
             }
         }
 
+        var rank = character.CurrentActionRankByType[type];
         var max = filters.Count;
         var sorted = new List<ActionPerformanceFilter>();
         var list = LoadIndexes(character.UsedSpecialFeatures, type, max);
 
-        Main.Info($"ResortPerformances [{character.Name}] : [{string.Join(", ", list)}]");
+        Main.Info($"ResortPerformances [{character.Name}] : [{string.Join(", ", list)}] rank: {rank}");
 
         foreach (var k in list)
         {
             sorted.Add(filters[k]);
         }
 
-        character.ActionPerformancesByType[type] = sorted;
+        if (rank < sorted.Count)
+        {
+            var data = PerformanceFilterExtraData.GetData(sorted[rank]);
+            data?.LoadSpellcasting(character, type);
+        }
+
+        filters.SetRange(sorted);
 
         character.dirtyActions = true;
         character.ActionsRefreshed?.Invoke(character);
