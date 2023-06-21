@@ -232,6 +232,22 @@ public static class ActionSwitching
 
     internal static void PrirotizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type, int index)
     {
+        Main.Info($"PrirotizeAction [{character.Name}] {type}");
+        var service = ServiceRepository.GetService<IGameLocationActionService>();
+        var actionParams = new CharacterActionParams
+        {
+            ActingCharacter = character,
+            ActionDefinition = service.AllActionDefinitions[(ActionDefinitions.Id)ExtraActionId.PrioritizeAction],
+            IntParameter = (int)type,
+            IntParameter2 = index
+        };
+        service.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static void DoPrirotizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
+        int index)
+    {
+        Main.Info($"DoPrirotizeAction [{character.Name}] {type}");
         var rank = character.CurrentActionRankByType[type];
         if (index <= rank)
         {

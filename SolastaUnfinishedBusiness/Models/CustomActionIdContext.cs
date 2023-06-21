@@ -23,6 +23,7 @@ public static class CustomActionIdContext
         BuildCustomRageStartAction();
         BuildCustomToggleActions();
         BuildDoNothingActions();
+        BuildPrioritizeAction();
         BuildFarStepAction();
     }
 
@@ -202,6 +203,18 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Reaction)
             .SetActionScope(ActionScope.All)
             .OverrideClassName("DoNothing")
+            .AddToDB();
+    }
+
+    private static void BuildPrioritizeAction()
+    {
+        ActionDefinitionBuilder
+            .Create(UseBardicInspiration, "PrioritizeAction")
+            .SetGuiPresentationNoContent()
+            .SetActionId(ExtraActionId.PrioritizeAction)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.All)
+            .OverrideClassName("PrioritizeAction")
             .AddToDB();
     }
 
