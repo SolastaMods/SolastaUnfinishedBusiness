@@ -34,52 +34,6 @@ public static class ActionSwitching
             .AddToDB()));
     }
 
-    private sealed class HordeBreaker : ITargetReducedToZeroHp
-    {
-        private readonly ConditionDefinition condition;
-
-        public HordeBreaker(ConditionDefinition condition)
-        {
-            this.condition = condition;
-        }
-
-        public IEnumerator HandleCharacterReducedToZeroHp(
-            GameLocationCharacter attacker,
-            GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode,
-            RulesetEffect activeEffect)
-        {
-            if (!Main.Settings.EnableActionSwitching)
-            {
-                yield break;
-            }
-
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
-            {
-                yield break;
-            }
-
-            if (Global.ControlledLocationCharacter?.Guid != attacker.Guid)
-            {
-                yield break;
-            }
-
-            attacker.RulesetCharacter.InflictCondition(
-                condition.Name,
-                RuleDefinitions.DurationType.Round,
-                0,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
-                attacker.RulesetCharacter.guid,
-                attacker.RulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
-    }
-
     private static void EnumerateFeaturesHierarchicaly<T>(List<(FeatureDefinition feature, string origin)> features,
         List<FeatureDefinition> parentList, string origin)
     {
@@ -411,7 +365,9 @@ public static class ActionSwitching
     private static void ResortPerformancesOfType(GameLocationCharacter character,
         List<(FeatureDefinition feature, string origin)> allFeatures, ActionDefinitions.ActionType type)
     {
-        var features = allFeatures.Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type).ToList();
+        var features = allFeatures
+            .Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type)
+            .ToList();
         var filters = character.ActionPerformancesByType[type];
         var filtersCount = filters.Count;
 
@@ -620,6 +576,52 @@ public static class ActionSwitching
         {
             data.LoadAttacks(character, type);
             data.LoadSpellcasting(character, type);
+        }
+    }
+
+    private sealed class HordeBreaker : ITargetReducedToZeroHp
+    {
+        private readonly ConditionDefinition condition;
+
+        public HordeBreaker(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                yield break;
+            }
+
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            {
+                yield break;
+            }
+
+            if (Global.ControlledLocationCharacter?.Guid != attacker.Guid)
+            {
+                yield break;
+            }
+
+            attacker.RulesetCharacter.InflictCondition(
+                condition.Name,
+                RuleDefinitions.DurationType.Round,
+                0,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                attacker.RulesetCharacter.guid,
+                attacker.RulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }
