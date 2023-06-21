@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using TA;
 using static ActionDefinitions;
@@ -228,5 +230,87 @@ public static class GameLocationCharacterExtensions
 
         var filters = instance.ActionPerformancesByType[type];
         return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.feature;
+    }
+
+    internal static bool CanCastAnyInvocationOfActionId(this GameLocationCharacter instance,
+        Id actionId,
+        ActionScope scope,
+        bool canCastSpells,
+        bool canOnlyUseCantrips)
+    {
+        var character = instance.RulesetCharacter;
+
+        if (character.Invocations.Empty())
+        {
+            return false;
+        }
+
+        ActionStatus? mainSpell = null;
+        ActionStatus? bonusSpell = null;
+
+        foreach (var invocation in character.Invocations)
+        {
+            var definition = invocation.InvocationDefinition;
+            var isValid = definition
+                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                .All(v => v(character, definition));
+
+            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+            {
+                continue;
+            }
+
+            if (scope == ActionScope.Battle)
+            {
+                isValid = definition.GetActionId() == actionId;
+            }
+            else
+            {
+                isValid = definition.GetMainActionId() == actionId;
+            }
+
+            var grantedSpell = definition.GrantedSpell;
+            if (isValid && grantedSpell != null)
+            {
+                if (!canCastSpells)
+                {
+                    isValid = false;
+                }
+                else if (canOnlyUseCantrips && grantedSpell.SpellLevel > 0)
+                {
+                    isValid = false;
+                }
+                else
+                {
+                    var spellActionId = grantedSpell.BattleActionId;
+                    switch (spellActionId)
+                    {
+                        case Id.CastMain:
+                            mainSpell ??= instance.GetActionStatus(spellActionId, scope);
+                            if (mainSpell != ActionStatus.Available)
+                            {
+                                isValid = false;
+                            }
+
+                            break;
+                        case Id.CastBonus:
+                            bonusSpell ??= instance.GetActionStatus(spellActionId, scope);
+                            if (bonusSpell != ActionStatus.Available)
+                            {
+                                isValid = false;
+                            }
+
+                            break;
+                    }
+                }
+            }
+
+            if (isValid)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
