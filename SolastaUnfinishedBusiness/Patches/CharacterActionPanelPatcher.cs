@@ -405,6 +405,11 @@ public static class CharacterActionPanelPatcher
 
                 btn.onClick.AddListener(() =>
                 {
+                    if (!Main.Settings.EnableActionSwitching)
+                    {
+                        return;
+                    }
+
                     var panel = item.GetComponentInParent<CharacterActionPanel>();
                     if (item.availableSymbol.IsActive())
                     {
