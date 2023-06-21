@@ -325,23 +325,28 @@ internal static class RulesetCharacterExtensions
         return hero?.GetClassLevel(className) ?? 0;
     }
 
-    internal static bool CanCastAnyInvocationOfActionId(this RulesetCharacter instance,
+    internal static bool CanCastAnyInvocationOfActionId(this GameLocationCharacter locationCharacter,
         Id actionId,
         ActionScope scope,
         bool canCastSpells,
         bool canOnlyUseCantrips)
     {
-        if (instance.Invocations.Empty())
+        var character = locationCharacter.RulesetCharacter;
+        
+        if (character.Invocations.Empty())
         {
             return false;
         }
 
-        foreach (var invocation in instance.Invocations)
+        ActionStatus? mainSpell = null;
+        ActionStatus? bonusSpell = null;
+        
+        foreach (var invocation in character.Invocations)
         {
             var definition = invocation.InvocationDefinition;
             var isValid = definition
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
-                .All(v => v(instance, definition));
+                .All(v => v(character, definition));
 
             if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
@@ -357,15 +362,37 @@ internal static class RulesetCharacterExtensions
                 isValid = definition.GetMainActionId() == actionId;
             }
 
-            if (isValid && definition.GrantedSpell != null)
+            var grantedSpell = definition.GrantedSpell;
+            if (isValid && grantedSpell != null)
             {
                 if (!canCastSpells)
                 {
                     isValid = false;
                 }
-                else if (canOnlyUseCantrips && definition.GrantedSpell.SpellLevel > 0)
+                else if (canOnlyUseCantrips && grantedSpell.SpellLevel > 0)
                 {
                     isValid = false;
+                }
+                else
+                {
+                    var spellActionId = grantedSpell.BattleActionId;
+                    switch (spellActionId)
+                    {
+                        case Id.CastMain:
+                            mainSpell ??= locationCharacter.GetActionStatus(spellActionId, scope);
+                            if (mainSpell != ActionStatus.Available)
+                            {
+                                isValid = false;
+                            }
+                            break;
+                        case Id.CastBonus:
+                            bonusSpell ??= locationCharacter.GetActionStatus(spellActionId, scope);
+                            if (bonusSpell != ActionStatus.Available)
+                            {
+                                isValid = false;
+                            }
+                            break;
+                    }
                 }
             }
 
