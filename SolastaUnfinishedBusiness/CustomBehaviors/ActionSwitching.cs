@@ -277,7 +277,7 @@ public static class ActionSwitching
         {
             return;
         }
-        
+
         if (character.Side != RuleDefinitions.Side.Ally)
         {
             return;
@@ -307,6 +307,7 @@ public static class ActionSwitching
             newData?.StoreSpellcasting(character, type);
             return;
         }
+
         Main.Info($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
 
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
@@ -384,15 +385,24 @@ public static class ActionSwitching
             (x.feature as IAdditionalActionsProvider)?.TriggerCondition ==
             RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
 
-        Main.Info(
-            $"ACTIONS: [{character.Name}] {string.Join(", ", features.Select(x => $"<{x.feature.Name}:{x.origin}>"))}");
+        ResortPerformancesOfType(character, features, ActionDefinitions.ActionType.Main);
+        ResortPerformancesOfType(character, features, ActionDefinitions.ActionType.Bonus);
 
-        var type = ActionDefinitions.ActionType.Main;
+        character.dirtyActions = true;
+        character.ActionsRefreshed?.Invoke(character);
+    }
 
-        var filtered = features.Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type).ToList();
+    private static void ResortPerformancesOfType(GameLocationCharacter character,
+        List<(FeatureDefinition feature, string origin)> allFeatures, ActionDefinitions.ActionType type)
+    {
+        var features = allFeatures.Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type).ToList();
         var filters = character.ActionPerformancesByType[type];
-        Main.Info($"FILTERS: {filters.Count} datas: {filtered.Count}");
-        for (var i = 0; i < filters.Count; i++)
+        var filtersCount = filters.Count;
+
+        Main.Info(
+            $"ResortPerformancesOfType [{character.Name}] {type} filters: {filtersCount} features: [{string.Join(", ", features.Select(x => $"<{x.feature.Name}|{x.origin}>"))}]");
+
+        for (var i = 0; i < filtersCount; i++)
         {
             if (i == 0)
             {
@@ -400,17 +410,16 @@ public static class ActionSwitching
             }
             else
             {
-                var x = filtered[i - 1];
-                PerformanceFilterExtraData.AddData(filters[i], x.feature, x.origin);
+                var (feature, origin) = features[i - 1];
+                PerformanceFilterExtraData.AddData(filters[i], feature, origin);
             }
         }
 
         var rank = character.CurrentActionRankByType[type];
-        var max = filters.Count;
         var sorted = new List<ActionPerformanceFilter>();
-        var list = LoadIndexes(character.UsedSpecialFeatures, type, max);
+        var list = LoadIndexes(character.UsedSpecialFeatures, type, filtersCount);
 
-        Main.Info($"ResortPerformances [{character.Name}] : [{string.Join(", ", list)}] rank: {rank}");
+        Main.Info($"ResortPerformancesOfType [{character.Name}] {type} : [{string.Join(", ", list)}] rank: {rank}");
 
         foreach (var k in list)
         {
@@ -424,9 +433,6 @@ public static class ActionSwitching
         }
 
         filters.SetRange(sorted);
-
-        character.dirtyActions = true;
-        character.ActionsRefreshed?.Invoke(character);
     }
 
     public static void AccountRemovedCondition(RulesetCharacter character, RulesetCondition condition)
