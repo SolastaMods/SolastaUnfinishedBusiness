@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.5.74.5:
+
+- fixed action bar powers' getting disabled under certain scenarios
+- fixed Domain Smith's reinforce armor stating long rest on description
+- fixed Fighter Weapon Specialization granting +1 strength
+
 1.5.74.4:
 
 - added Medium Armor Master feat
