@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1ea84cea-da16-5067-9e9b-b8fb53f13d50",
+  "guid": "d4e34602-1623-5937-aa2b-61ed8d135cc3",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationShortswordType"
+  "name": "FeatureMartialWeaponMasterSpecializationMaulType"
 }

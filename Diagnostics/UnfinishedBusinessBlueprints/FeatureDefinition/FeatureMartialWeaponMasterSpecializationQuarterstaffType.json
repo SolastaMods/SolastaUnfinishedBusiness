@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e05d61d-7600-5819-8fb6-7d53a2eaf30d",
+  "guid": "27a982d5-c4a2-574e-8b95-81e9c0bb1e29",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationLongbowType"
+  "name": "FeatureMartialWeaponMasterSpecializationQuarterstaffType"
 }
