@@ -6,12 +6,18 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public static class ActionSwitching
 {
+    internal static readonly TutorialStepDefinition Tutorial = TutorialStepDefinitionBuilder
+        .Create("TutorialActionSwitching")
+        .SetGuiPresentation(Category.Tutorial, Sprites.TutorialActionSwitching)
+        .AddToDB();
+    
     internal static void Load()
     {
         //Mark Action Surge to track spell flags separately

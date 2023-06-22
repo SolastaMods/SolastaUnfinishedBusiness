@@ -367,6 +367,7 @@ public static class CharacterActionPanelPatcher
                 grid.constraintCount = constraint;
             }
 
+            var activeCount = 0;
             for (var i = 0; i < table.childCount; i++)
             {
                 var child = table.GetChild(i);
@@ -380,6 +381,8 @@ public static class CharacterActionPanelPatcher
                 {
                     continue;
                 }
+
+                activeCount++;
 
                 var k = child.GetSiblingIndex();
                 var f = (k >= 0 && k < filters.Count) 
@@ -418,6 +421,13 @@ public static class CharacterActionPanelPatcher
                     }
 
                 });
+            }
+
+            var rank = __instance.GuiCharacter.GameLocationCharacter.CurrentActionRankByType[__instance.ActionType];
+            if (activeCount - rank >= 2) //at least 2 non-spent actions
+            {
+                ServiceRepository.GetService<IGuiService>()
+                    .ShowTutorial(ActionSwitching.Tutorial);
             }
         }
     }
