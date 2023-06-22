@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -323,59 +322,6 @@ internal static class RulesetCharacterExtensions
         var hero = instance.GetOriginalHero();
 
         return hero?.GetClassLevel(className) ?? 0;
-    }
-
-    internal static bool CanCastAnyInvocationOfActionId(this RulesetCharacter instance,
-        Id actionId,
-        ActionScope scope,
-        bool canCastSpells,
-        bool canOnlyUseCantrips)
-    {
-        if (instance.Invocations.Empty())
-        {
-            return false;
-        }
-
-        foreach (var invocation in instance.Invocations)
-        {
-            var definition = invocation.InvocationDefinition;
-            var isValid = definition
-                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
-                .All(v => v(instance, definition));
-
-            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
-            {
-                continue;
-            }
-
-            if (scope == ActionScope.Battle)
-            {
-                isValid = definition.GetActionId() == actionId;
-            }
-            else
-            {
-                isValid = definition.GetMainActionId() == actionId;
-            }
-
-            if (isValid && definition.GrantedSpell != null)
-            {
-                if (!canCastSpells)
-                {
-                    isValid = false;
-                }
-                else if (canOnlyUseCantrips && definition.GrantedSpell.SpellLevel > 0)
-                {
-                    isValid = false;
-                }
-            }
-
-            if (isValid)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     internal static bool KnowsAnyInvocationOfActionId(this RulesetCharacter instance,

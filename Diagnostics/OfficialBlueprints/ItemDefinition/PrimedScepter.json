@@ -36,16 +36,7 @@
   "requiredAttunementClasses": [],
   "itemRarity": "VeryRare",
   "incompatibleWithMonkReturnMissile": false,
-  "staticProperties": [
-    {
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": false,
-      "type": "Feature",
-      "featureDefinition": "Definition:ProficiencyPhilosopherTools:f13375cbf47cb7e409c1c6daa3613af0",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
-    }
-  ],
+  "staticProperties": [],
   "isArmor": false,
   "isWeapon": false,
   "isAmmunition": false,

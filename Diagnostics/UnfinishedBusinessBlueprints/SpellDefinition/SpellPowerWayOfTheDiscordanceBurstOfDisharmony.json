@@ -9,6 +9,7 @@
     "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony2:d31d3aca-9add-5bd2-9bfd-9c29a97ea762",
     "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony1:7a4a4ea4-0c4a-5faf-b75c-5d18c1770bcb"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -120,6 +121,7 @@
       "activeEffectSurfaceParticleReference": null,
       "activeEffectSurfaceEndParticleReference": null,
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": null,
       "emissiveBorderCellParticleReference": null,
       "emissiveBorderCellEndParticleReference": null,
@@ -150,7 +152,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

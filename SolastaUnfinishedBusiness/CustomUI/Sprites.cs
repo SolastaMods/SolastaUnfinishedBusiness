@@ -18,6 +18,13 @@ public static class Sprites
 
     #endregion
 
+    #region Tutorial
+
+    internal static AssetReferenceSprite TutorialActionSwitching =>
+        GetSprite("TutorialActionSwitching", Resources.TutorialActionSwitching, 512, 256);
+
+    #endregion
+
     #region Misc
 
     internal static AssetReferenceSprite GambitResourceIcon =>

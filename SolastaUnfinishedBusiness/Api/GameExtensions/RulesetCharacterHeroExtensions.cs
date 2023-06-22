@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 

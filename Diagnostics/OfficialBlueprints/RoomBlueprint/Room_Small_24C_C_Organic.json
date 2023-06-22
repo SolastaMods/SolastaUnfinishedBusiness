@@ -1448,26 +1448,26 @@
   ],
   "wallAndOpeningSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "ab39eb24b8dbcd04893e3583bd7783fa",
-    "m_SubObjectName": "Room_Small_24C_B_Organic_WallOpening",
+    "m_AssetGUID": "078a539459f30dd43a989f41742b413c",
+    "m_SubObjectName": "Room_Small_24C_C_Organic_WallOpening",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "wallSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "b481c0d93f3f7ee41ac90e85581c75a3",
-    "m_SubObjectName": "Room_Small_24C_B_Organic_Wall",
+    "m_AssetGUID": "d0ac80244e471b4418b8e5e82afcfad9",
+    "m_SubObjectName": "Room_Small_24C_C_Organic_Wall",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundElevationSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "220dbdca369684e43b25e470c9623c87",
-    "m_SubObjectName": "Room_Small_24C_B_Organic_GroundElevation",
+    "m_AssetGUID": "e1db1ed2c1a616941b6213da7b343144",
+    "m_SubObjectName": "Room_Small_24C_C_Organic_GroundElevation",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundMaskSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "55c66ddfecfcd224ba3329f07e139655",
-    "m_SubObjectName": "Room_Small_24C_B_Organic_GroundMask",
+    "m_AssetGUID": "b34c1e1a9dd85db4db6c566cf3ded594",
+    "m_SubObjectName": "Room_Small_24C_C_Organic_GroundMask",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "category": "EmptyRooms",

@@ -1,4 +1,7 @@
+Tutorial/&TutorialActionSwitchingDescription=Quando hai a disposizione più di un'azione principale o bonus, puoi fare clic sul simbolo dello stato dell'azione per renderla l'azione attualmente attiva. Ciò consente di attaccare usando l'azione Haste o Horde Breaker e quindi lanciare incantesimi con l'azione predefinita. O qualsiasi altra combinazione di cui potresti aver bisogno.\nPassando il mouse sopra il simbolo di stato dell'azione viene visualizzata una descrizione comando con il nome della funzione o della condizione che ha concesso l'azione.
+Tutorial/&TutorialActionSwitchingTitle=Molteplici azioni
 UI/&Add=Add
+UI/&AdditionalActionSource=Concesso da: {0}
 UI/&Current Party=Partito attuale
 UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
 UI/&Expert=Esperto

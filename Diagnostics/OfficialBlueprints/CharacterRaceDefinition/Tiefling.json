@@ -166,6 +166,7 @@
       "FaceShape_E"
     ],
     "dontSortFaceShapes": true,
+    "maxRandomFaceShapeIndex": 5,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",

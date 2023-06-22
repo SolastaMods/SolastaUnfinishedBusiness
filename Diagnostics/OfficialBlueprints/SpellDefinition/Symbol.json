@@ -10,6 +10,7 @@
     "Definition:SymbolOfSleep:ffdbff0fe0cf027419bda05435356858",
     "Definition:SymbolOfStun:d7c7ab38ff4e0624ab9633eb208f6766"
   ],
+  "compactSubspellsTooltip": true,
   "implemented": true,
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 7,
@@ -201,6 +202,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -276,7 +278,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

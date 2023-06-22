@@ -22,7 +22,7 @@ internal static class Global
     // inspected hero on both location and pool
     [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
 
-    private static GameLocationCharacter ControlledLocationCharacter
+    internal static GameLocationCharacter ControlledLocationCharacter
     {
         get
         {

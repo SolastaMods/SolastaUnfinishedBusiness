@@ -1,4 +1,7 @@
+Tutorial/&TutorialActionSwitchingDescription=Cuando tenga más de una acción principal o de bonificación disponible, puede hacer clic en el símbolo de estado de la acción para convertirla en su acción actualmente activa. Esto permite atacar usando la acción Haste o Horde Breaker y luego lanzar hechizos con la acción predeterminada. O cualquier otra combinación que pueda necesitar.\nAl pasar el cursor sobre el símbolo de estado de la acción, se muestra información sobre herramientas con el nombre de la característica o condición que otorgó la acción.
+Tutorial/&TutorialActionSwitchingTitle=Acciones múltiples
 UI/&Add=Add
+UI/&AdditionalActionSource=Otorgado por: {0}
 UI/&Current Party=Partido actual
 UI/&Experimental Preview:=Vista previa experimental <i><color=Yellow>[guardar copia de seguridad antes de usar]</color></i>:
 UI/&Expert=Experto

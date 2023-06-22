@@ -4,6 +4,7 @@ AttributeModifierDaggerSoulHuntingWisLower	Description='Your Strength is now equ
 AttributeModifierDazzled	Title='Daaaaal'.
 AttributeModifierDazzled	Description='Daaaaal'.
 CharacterPresentationBeltOfDwarvenKind	Description='50% chances to grow a glorious beard!'.
+CombatAffinityEagerForBattle	Description='You have advantage on your initiative rolls.'.
 CompletedInvestigation1	Title='CompletedInvestigation1'.
 CompletedInvestigation1	Description='CompletedInvestigation1 Desc'.
 CompletedInvestigation2	Title='CompletedInvestigation2'.

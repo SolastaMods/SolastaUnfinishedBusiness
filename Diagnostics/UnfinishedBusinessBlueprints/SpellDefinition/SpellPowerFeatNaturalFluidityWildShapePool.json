@@ -9,6 +9,7 @@
     "Definition:SpellPowerFeatNaturalFluidityGainWildShapeFromSlot4:28c2a91b-a1ff-50e3-9062-9c8ccba7a724",
     "Definition:SpellPowerFeatNaturalFluidityGainWildShapeFromSlot3:68a82c4f-94f3-5b7e-b09e-dae89f0f327a"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -120,6 +121,7 @@
       "activeEffectSurfaceParticleReference": null,
       "activeEffectSurfaceEndParticleReference": null,
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": null,
       "emissiveBorderCellParticleReference": null,
       "emissiveBorderCellEndParticleReference": null,
@@ -150,7 +152,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

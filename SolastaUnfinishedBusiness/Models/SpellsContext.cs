@@ -28,15 +28,17 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
 
+    private static readonly SpellDefinition AirBlast = BuildAirBlast();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
-    internal static readonly SpellDefinition EarthTremor = BuildEarthTremor();
+    private static readonly SpellDefinition EarthTremor = BuildEarthTremor();
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    private static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
@@ -196,8 +198,7 @@ internal static class SpellsContext
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
-        RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer,
-            SpellListWizard);
+        RegisterSpell(AirBlast, 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
@@ -237,7 +238,7 @@ internal static class SpellsContext
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
-        RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 

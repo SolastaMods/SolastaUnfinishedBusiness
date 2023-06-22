@@ -73,6 +73,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가�
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.
 ModUi/&DungeonMakerMenu=던전메이커
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 의복</color> 모습
+ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> 작업 전환 막대 사용
 ModUi/&EnableAdditionalBackstoryDisplay=백그라운드 검사 시 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘 활성화
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Dungeon Maker에 새 항목 추가</i>

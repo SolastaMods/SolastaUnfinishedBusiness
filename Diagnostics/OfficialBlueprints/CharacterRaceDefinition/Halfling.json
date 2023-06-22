@@ -148,6 +148,7 @@
       "FaceShape_NPC_VioletGoodCheer"
     ],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",

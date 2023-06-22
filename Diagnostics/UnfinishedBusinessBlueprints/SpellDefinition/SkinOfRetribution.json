@@ -9,6 +9,7 @@
     "Definition:SkinOfRetributionDamagePoison:432c80f7-716e-50d5-88d0-3cdf3ca185cb",
     "Definition:SkinOfRetributionDamageThunder:63008b6d-6a03-5f82-9630-0249dfb61bac"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 1,
@@ -200,6 +201,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -275,7 +277,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

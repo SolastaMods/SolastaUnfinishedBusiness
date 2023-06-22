@@ -73,6 +73,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à mo
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
 ModUi/&DungeonMakerMenu=Créateur de donjon
 ModUi/&EmpressGarbAppearance=Apparence <color=#D89555>Tenue d'impératrice</color>
+ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> Activer la barre de changement d'action
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage de l'arrière-plan supplémentaire lors de l'inspection en arrière-plan
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux éléments à Dungeon Maker</i>

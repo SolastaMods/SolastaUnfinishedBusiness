@@ -49,10 +49,21 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsTwoHandedRanged(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
+    {
+        return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsTwoHandedRanged([CanBeNull] RulesetAttackMode attackMode)
     {
-        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
-               IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
+        return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool IsTwoHandedRanged([CanBeNull] ItemDefinition itemDefinition)
+    {
+        return IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
