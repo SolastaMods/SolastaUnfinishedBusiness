@@ -8,6 +8,7 @@
     "Definition:CommandGrovel:1d22184350bf4ca4e85b98afdd5494fd",
     "Definition:CommandHalt:ad5862c705e02b24e89aa689203a155e"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": false,
   "schoolOfMagic": "SchoolEnchantment",
   "spellLevel": 1,

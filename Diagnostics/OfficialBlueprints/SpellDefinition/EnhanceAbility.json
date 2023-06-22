@@ -9,6 +9,7 @@
     "Definition:EnhanceAbilityFoxsCunning:998141c982251174a8553253f66553cf",
     "Definition:EnhanceAbilityOwlsWisdom:2ee432693a5fd0344bad3ff57af2413b"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolTransmutation",
   "spellLevel": 2,

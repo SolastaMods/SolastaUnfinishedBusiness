@@ -6,6 +6,7 @@
     "Definition:ConjureElementalEarth:b543056f87b2ce6448bc69d1aa794e62",
     "Definition:ConjureElementalFire:1c764a26cb5545040b30e8e059675d61"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
   "spellLevel": 5,

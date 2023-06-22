@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionUnconscious:2d543b2740ecddd4a977d8a706a8a2c9",
-  "conditionType": "Neutral",
+  "conditionType": "Detrimental",
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

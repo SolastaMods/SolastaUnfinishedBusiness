@@ -5,6 +5,7 @@
     "Definition:FireShieldCold:806fcfbdce4846e46b74920a4e07e0c7",
     "Definition:FireShieldWarm:1f5bceed5b876f14eb2be0f6642db628"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 4,

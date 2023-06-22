@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "None",
   "costPerUse": 0,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",

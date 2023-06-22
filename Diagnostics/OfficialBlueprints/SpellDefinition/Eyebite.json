@@ -6,6 +6,7 @@
     "Definition:EyebitePanicked:8da3371ad40d8ef40a077c8cdb448e5e",
     "Definition:EyebiteSickened:fa295cfa9708f2f4f83b38e8e917e2c5"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
   "spellLevel": 6,

@@ -2,6 +2,7 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
   "spellLevel": 0,

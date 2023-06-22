@@ -117,8 +117,8 @@
           "conditionDefinition": "Definition:ConditionTraditionShockArcanistGreaterArcaneShocked:a9f2d08d5baac0840aa5847ccb4fbe05",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

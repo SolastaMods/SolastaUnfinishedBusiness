@@ -5,6 +5,7 @@
     "Definition:CalmEmotionsOnAlly:c9f207be91400754d81771a737559ea2",
     "Definition:CalmEmotionsOnEnemy:62de388719576ab4ea2aba2cada27a55"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEnchantment",
   "spellLevel": 2,

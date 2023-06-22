@@ -5,6 +5,7 @@
     "Definition:WallOfThornsWallLine:da0042cf422378a4e8ebd4413be5312d",
     "Definition:WallOfThornsWallRing:1ffc32b6eca12f743aab74154b06440d"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
   "spellLevel": 6,

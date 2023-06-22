@@ -12,6 +12,7 @@
     "Definition:BestowCurseAbilityWisdom:fdcb303f681a0094c9570b2dd09d6256",
     "Definition:BestowCurseAbilityCharisma:6c6f1ded10287504f86fdb148e4e511a"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
   "spellLevel": 3,

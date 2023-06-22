@@ -5,6 +5,7 @@
     "Definition:BladeBarrierWallLine:fa31d9c4f5b43d449a2d811e6ab3038d",
     "Definition:BladeBarrierWallRing:d2283110490a1aa489cd31d8683790fe"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 6,

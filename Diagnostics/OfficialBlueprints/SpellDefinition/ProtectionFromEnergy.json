@@ -8,6 +8,7 @@
     "Definition:ProtectionFromEnergyLightning:e83d092289cddc14fa0ca208bc18bc0a",
     "Definition:ProtectionFromEnergyThunder:b84692fdc256b2e4697e77af7c6d11e7"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 3,

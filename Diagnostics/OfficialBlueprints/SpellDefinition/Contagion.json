@@ -9,6 +9,7 @@
     "Definition:ContagionSeizure:1a78279ca24b51e47896fda724d5d0a8",
     "Definition:ContagionSlimyDoom:b638a002e8fbad245bc051fa9c7fabc1"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
   "spellLevel": 5,
