@@ -3,8 +3,8 @@
 1.5.92.0:
 
 - added BETA setting "Interface > Game UI > Enable Action switching"
-- added Critical Virtuoso feat with -1 additive to threshold
-- changed Champion's superior critical to set threshold at 18
+- fixed Martial Champion's superior critical to set threshold to 18
+- changed Critical Virtuoso feat to be -1 additive to threshold
 - updated codebase to game version 1.5.92
 
 1.5.74.5:
