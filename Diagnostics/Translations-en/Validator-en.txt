@@ -41,5 +41,5 @@ Validator/&ParameterVariableTestValueStringDescription=The string value to compa
 Validator/&ParameterMonsterorNPCTitle=Monster or NPC
 Validator/&ParameterFromDeviceTitle=From Device
 Validator/&ParameterFromDeviceDescription=Was the spell cast from a magical device (1) such as a scroll or magical item or from a standard spell casting ability (0)
-Validator/&ParameterMonsterOrNpcTitle=Monster or Npc
-Validator/&ParameterMonsterOrNpcDescription=Select a Monster or Npc for this validator
+Validator/&ParameterMonsterOrNpcTitle=Monster or NPC
+Validator/&ParameterMonsterOrNpcDescription=Select a monster or NPC for this validator.
