@@ -36,6 +36,7 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixChampionCriticalThresholdModifiers();
         FixEagerForBattleTexts();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
@@ -262,6 +263,14 @@ internal static class FixesContext
         ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
+    }
+
+    private static void FixChampionCriticalThresholdModifiers()
+    {
+        //Changes Champion's Superior Critical to work as described - set crit threshold to 18, instead of lowering by 1
+        var modifier = FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical;
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+        modifier.modifierValue = 18;
     }
 
     private static void FixEagerForBattleTexts()
