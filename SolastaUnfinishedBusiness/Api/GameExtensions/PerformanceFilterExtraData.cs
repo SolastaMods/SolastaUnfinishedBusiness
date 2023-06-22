@@ -175,9 +175,9 @@ internal class PerformanceFilterExtraData
         }
 
         var title = feature.FormatTitle();
-        if (string.IsNullOrEmpty(title))
+        if (string.IsNullOrEmpty(title) || feature.GuiPresentation.Title == Gui.NoLocalization)
         {
-            title = feature.Name + " (NO TITLE!)";
+            title = ToString() + " (NO TITLE!)";
         }
 
         return Gui.Format("UI/&AdditionalActionSource", title);
