@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿#if false
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
@@ -68,3 +69,4 @@ internal class PatronMountain : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }
+#endif
