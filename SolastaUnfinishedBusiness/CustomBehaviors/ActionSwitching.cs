@@ -254,17 +254,23 @@ public static class ActionSwitching
         }
 
         var type = actionParams.ActionDefinition.ActionType;
+        var switched = false;
         if (type == ActionDefinitions.ActionType.Main)
         {
-            CheckIfActionSwitched(character, type, mainRank, mainAttacks);
+            switched = CheckIfActionSwitched(character, type, mainRank, mainAttacks);
         }
         else if (type == ActionDefinitions.ActionType.Bonus)
         {
-            CheckIfActionSwitched(character, type, bonusRank, bonusAttacks);
+            switched = CheckIfActionSwitched(character, type, bonusRank, bonusAttacks);
+        }
+
+        if (switched)
+        {
+            character.RulesetCharacter.RefreshAttackModes();
         }
     }
 
-    private static void CheckIfActionSwitched(GameLocationCharacter character, ActionDefinitions.ActionType type,
+    private static bool CheckIfActionSwitched(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int wasRank, int wasAttacks)
     {
         var rank = character.CurrentActionRankByType[type];
@@ -275,7 +281,7 @@ public static class ActionSwitching
             Main.Info($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
             newData?.StoreAttacks(character, type);
             newData?.StoreSpellcasting(character, type);
-            return;
+            return false;
         }
 
         Main.Info($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
@@ -287,6 +293,7 @@ public static class ActionSwitching
         wasData?.StoreSpellcasting(character, type);
         newData?.LoadAttacks(character, type);
         newData?.LoadSpellcasting(character, type);
+        return true;
     }
 
     private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type, int max)
