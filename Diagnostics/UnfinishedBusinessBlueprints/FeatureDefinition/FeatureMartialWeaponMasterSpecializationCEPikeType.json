@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "211d628f-3f57-575d-b315-3d93943c16f8",
+  "guid": "0e05742b-e756-5849-bc35-ccaced9d029c",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationDaggerType"
+  "name": "FeatureMartialWeaponMasterSpecializationCEPikeType"
 }

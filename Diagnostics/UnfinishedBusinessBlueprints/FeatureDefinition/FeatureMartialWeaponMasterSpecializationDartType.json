@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "515c8c47-3778-5f1f-92cb-779130bd720e",
+  "guid": "353e85f7-2e08-5c6d-b7e4-1f84b9388a56",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationLightCrossbowType"
+  "name": "FeatureMartialWeaponMasterSpecializationDartType"
 }

@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e0c159b0-2ee8-5505-94bd-aca386769b9a",
+  "guid": "ffcf390a-44f9-5327-8f6e-4445164a6dbd",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationGreatswordType"
+  "name": "FeatureMartialWeaponMasterSpecializationScimitarType"
 }

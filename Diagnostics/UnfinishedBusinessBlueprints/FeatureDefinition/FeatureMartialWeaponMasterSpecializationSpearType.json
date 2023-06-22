@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3b57586e-79cb-5c9d-beed-c991ef308acf",
+  "guid": "b4c15e8d-94ac-5f1e-9173-af98a4ea63a9",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationLongswordType"
+  "name": "FeatureMartialWeaponMasterSpecializationSpearType"
 }
