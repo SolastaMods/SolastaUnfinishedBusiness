@@ -20,12 +20,14 @@ internal class FeatureDefinitionAdditionalActionBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(
         RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
     {
         Definition.triggerCondition = triggerCondition;
         return this;
     }
+#endif
 
     internal FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
         params ActionDefinitions.Id[] restrictedActions)

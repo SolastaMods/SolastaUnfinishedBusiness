@@ -302,13 +302,9 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            foreach (var rulesetCondition in character.conditionsByCategory[category])
+            foreach (var rulesetCondition in character.conditionsByCategory[category]
+                         .Where(rulesetCondition => !sources.Contains(rulesetCondition.SourceGuid)))
             {
-                if (sources.Contains(rulesetCondition.SourceGuid))
-                {
-                    continue;
-                }
-
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
         }
@@ -338,14 +334,10 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            foreach (var rulesetCondition in character.conditionsByCategory[category])
+            foreach (var rulesetCondition in character.conditionsByCategory[category]
+                         .Where(rulesetCondition => rulesetCondition.ConditionDefinition.Name == type ||
+                                                    rulesetCondition.ConditionDefinition.IsSubtypeOf(type)))
             {
-                if (rulesetCondition.ConditionDefinition.Name != type &&
-                    !rulesetCondition.ConditionDefinition.IsSubtypeOf(type))
-                {
-                    continue;
-                }
-
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
         }

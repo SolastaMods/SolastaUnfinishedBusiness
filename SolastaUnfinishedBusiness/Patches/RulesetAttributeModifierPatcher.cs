@@ -16,7 +16,7 @@ public static class RulesetAttributeModifierPatcher
         public static void Postfix(RulesetAttributeModifier __instance, ref int __result,
             RulesetAttributeModifier other)
         {
-            //PATCH: fixes Critical Threshold SET opertions to apply lowest value
+            //PATCH: fixes Critical Threshold SET operations to apply lowest value
             if (other == null)
             {
                 return;

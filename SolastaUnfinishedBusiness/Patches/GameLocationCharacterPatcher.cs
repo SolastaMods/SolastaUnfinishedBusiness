@@ -262,7 +262,7 @@ public static class GameLocationCharacterPatcher
     [UsedImplicitly]
     public static class HandleActionExecution_Patch
     {
-        private static int mainAttacks, bonusAttacks, mainRank, bonusRank;
+        private static int _mainAttacks, _bonusAttacks, _mainRank, _bonusRank;
 
         [UsedImplicitly]
         public static void Prefix(
@@ -270,10 +270,10 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
-            bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
-            mainAttacks = __instance.UsedMainAttacks;
-            bonusAttacks = __instance.UsedBonusAttacks;
+            _mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
+            _bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
+            _mainAttacks = __instance.UsedMainAttacks;
+            _bonusAttacks = __instance.UsedBonusAttacks;
         }
 
         [UsedImplicitly]
@@ -294,8 +294,8 @@ public static class GameLocationCharacterPatcher
             rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
                 .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
             //PATCH: support for action switching
-            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, mainRank, mainAttacks, bonusRank,
-                bonusAttacks);
+            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank,
+                _bonusAttacks);
         }
     }
 

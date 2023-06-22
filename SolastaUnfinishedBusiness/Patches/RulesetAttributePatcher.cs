@@ -15,7 +15,7 @@ public static class RulesetAttributePatcher
         [UsedImplicitly]
         public static void Postfix(RulesetAttribute __instance, RulesetAttributeModifier modifier)
         {
-            //PATCH: fixes Critical Threshold SET opertions to apply lowest value
+            //PATCH: fixes Critical Threshold SET operations to apply lowest value
             if (__instance.Name == AttributeDefinitions.CriticalThreshold
                 && modifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set)
             {

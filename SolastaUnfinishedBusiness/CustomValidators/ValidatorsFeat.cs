@@ -141,6 +141,7 @@ internal static class ValidatorsFeat
         };
     }
 
+#if false
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFeature(
@@ -154,6 +155,7 @@ internal static class ValidatorsFeat
             return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };
     }
+#endif
 
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

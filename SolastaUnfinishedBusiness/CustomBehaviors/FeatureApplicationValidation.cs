@@ -50,11 +50,13 @@ internal static class FeatureApplicationValidation
                 TriggerCondition: AdditionalActionTriggerCondition.HasDownedAnEnemy
             });
 
-            if (!onKill.Empty())
+            if (onKill.Empty())
             {
-                features.RemoveAll(x => onKill.Contains(x));
-                features.AddRange(onKill);
+                return;
             }
+
+            features.RemoveAll(x => onKill.Contains(x));
+            features.AddRange(onKill);
         }
         else
         {

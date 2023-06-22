@@ -70,6 +70,7 @@ public static class ActionSwitching
             GetConditionFeatures<T>(condition.parentCondition, list);
         }
 
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var f in condition.features)
         {
             if (f is T)
@@ -288,7 +289,7 @@ public static class ActionSwitching
 
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
 
-        //TODO: has potential to spend extra attack for sorcs who initiate Flexible Casting (slot-sorc point conversion) and then cancel it.
+        //TODO: has potential to spend extra attack for sorcerers who initiate Flexible Casting (slot-sorcerer point conversion) and then cancel it.
         wasData?.StoreAttacks(character, type, wasAttacks + 1);
         wasData?.StoreSpellcasting(character, type);
         newData?.LoadAttacks(character, type);
@@ -296,7 +297,8 @@ public static class ActionSwitching
         return true;
     }
 
-    private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type, int max)
+    private static List<int> LoadIndexes(IReadOnlyDictionary<string, int> map, ActionDefinitions.ActionType type,
+        int max)
     {
         var list = new List<int>();
 
@@ -308,7 +310,10 @@ public static class ActionSwitching
         return list;
     }
 
-    private static void SaveIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type, List<int> list)
+    private static void SaveIndexes(
+        IDictionary<string, int> map,
+        ActionDefinitions.ActionType type,
+        IReadOnlyList<int> list)
     {
         for (var i = 0; i < list.Count; i++)
         {
@@ -473,7 +478,7 @@ public static class ActionSwitching
 
                 if (data == null) { continue; }
 
-                if (data.feature != conditionFeature || data.origin != origin)
+                if (data.Feature != conditionFeature || data.Origin != origin)
                 {
                     continue;
                 }

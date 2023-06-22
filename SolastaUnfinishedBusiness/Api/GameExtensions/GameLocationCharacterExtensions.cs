@@ -229,7 +229,7 @@ public static class GameLocationCharacterExtensions
         }
 
         var filters = instance.ActionPerformancesByType[type];
-        return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.feature;
+        return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.Feature;
     }
 
     internal static bool CanCastAnyInvocationOfActionId(this GameLocationCharacter instance,
@@ -283,6 +283,8 @@ public static class GameLocationCharacterExtensions
                 else
                 {
                     var spellActionId = grantedSpell.BattleActionId;
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (spellActionId)
                     {
                         case Id.CastMain:

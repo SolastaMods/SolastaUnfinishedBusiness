@@ -14,21 +14,21 @@ internal class ActionWithCustomSpellTracking
 
 internal class PerformanceFilterExtraData
 {
-    private const string MAIN_ATTACKS = "MAIN_ATTACKS";
-    private const string BONUS_ATTACKS = "BONUS_ATTACKS";
-    private const string SPELL_FLAGS = "SPELL_FLAGS";
-    private const string DEFAULT_SPELL_FLAGS = "DEFAULT_SPELL_FLAGS";
-    private const int MAIN_SPELL = 1; //001
-    private const int MAIN_CANTRIP = 2; //010
-    private const int BONUS_SPELL = 4; //100
+    private const string MainAttacks = "MAIN_ATTACKS";
+    private const string BonusAttacks = "BONUS_ATTACKS";
+    private const string SpellFlags = "SPELL_FLAGS";
+    private const string DefaultSpellFlags = "DEFAULT_SPELL_FLAGS";
+    private const int MainSpell = 1; //001
+    private const int MainCantrip = 2; //010
+    private const int BonusSpell = 4; //100
 
     private static readonly Dictionary<ActionPerformanceFilter, PerformanceFilterExtraData> DataMap = new();
     private static readonly Stack<PerformanceFilterExtraData> Pool = new();
     private bool customSpellcasting;
 
-    public FeatureDefinition feature;
+    public FeatureDefinition Feature;
     private string name;
-    public string origin;
+    public string Origin;
 
     private static PerformanceFilterExtraData GetOrMakeData([NotNull] ActionPerformanceFilter filter)
     {
@@ -68,16 +68,16 @@ internal class PerformanceFilterExtraData
     internal static void AddData(ActionPerformanceFilter filter, FeatureDefinition feature, string origin)
     {
         var data = GetOrMakeData(filter);
-        data.feature = feature;
-        data.origin = origin;
+        data.Feature = feature;
+        data.Origin = origin;
         data.name = feature != null ? feature.Name : null;
         data.customSpellcasting = feature != null && feature.HasSubFeatureOfType<ActionWithCustomSpellTracking>();
     }
 
     private void Clear()
     {
-        feature = null;
-        origin = null;
+        Feature = null;
+        Origin = null;
         name = null;
     }
 
@@ -88,46 +88,53 @@ internal class PerformanceFilterExtraData
 
     private string Key(string type)
     {
-        return $"PFD|{name}|{origin}|{type}";
+        return $"PFD|{name}|{Origin}|{type}";
     }
 
     public override string ToString()
     {
-        return $"<{name}|{origin}>";
+        return $"<{name}|{Origin}>";
     }
 
     public void StoreAttacks(GameLocationCharacter character, ActionDefinitions.ActionType type, int? number = null)
     {
-        if (type == ActionDefinitions.ActionType.Main)
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (type)
         {
-            Main.Info(
-                $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedMainAttacks} {ToString()}");
-            character.UsedSpecialFeatures[Key(MAIN_ATTACKS)] = number ?? character.UsedMainAttacks;
-        }
-        else if (type == ActionDefinitions.ActionType.Bonus)
-        {
-            Main.Info(
-                $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedBonusAttacks} {ToString()}");
-            character.UsedSpecialFeatures[Key(BONUS_ATTACKS)] = number ?? character.UsedBonusAttacks;
+            case ActionDefinitions.ActionType.Main:
+                Main.Info(
+                    $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedMainAttacks} {ToString()}");
+                character.UsedSpecialFeatures[Key(MainAttacks)] = number ?? character.UsedMainAttacks;
+                break;
+            case ActionDefinitions.ActionType.Bonus:
+                Main.Info(
+                    $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedBonusAttacks} {ToString()}");
+                character.UsedSpecialFeatures[Key(BonusAttacks)] = number ?? character.UsedBonusAttacks;
+                break;
         }
     }
 
     public void LoadAttacks(GameLocationCharacter character, ActionDefinitions.ActionType type)
     {
         int number;
-        if (type == ActionDefinitions.ActionType.Main)
+
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (type)
         {
-            character.UsedMainAttacks = character.UsedSpecialFeatures.TryGetValue(Key(MAIN_ATTACKS), out number)
-                ? number
-                : 0;
-            Main.Info($"LoadAttacks [{character.Name}] type: {type} number: {character.UsedMainAttacks} {ToString()}");
-        }
-        else if (type == ActionDefinitions.ActionType.Bonus)
-        {
-            character.UsedBonusAttacks = character.UsedSpecialFeatures.TryGetValue(Key(BONUS_ATTACKS), out number)
-                ? number
-                : 0;
-            Main.Info($"LoadAttacks [{character.Name}] type: {type} number: {character.UsedBonusAttacks} {ToString()}");
+            case ActionDefinitions.ActionType.Main:
+                character.UsedMainAttacks = character.UsedSpecialFeatures.TryGetValue(Key(MainAttacks), out number)
+                    ? number
+                    : 0;
+                Main.Info(
+                    $"LoadAttacks [{character.Name}] type: {type} number: {character.UsedMainAttacks} {ToString()}");
+                break;
+            case ActionDefinitions.ActionType.Bonus:
+                character.UsedBonusAttacks = character.UsedSpecialFeatures.TryGetValue(Key(BonusAttacks), out number)
+                    ? number
+                    : 0;
+                Main.Info(
+                    $"LoadAttacks [{character.Name}] type: {type} number: {character.UsedBonusAttacks} {ToString()}");
+                break;
         }
     }
 
@@ -138,10 +145,10 @@ internal class PerformanceFilterExtraData
             return;
         }
 
-        var key = customSpellcasting ? Key(SPELL_FLAGS) : DEFAULT_SPELL_FLAGS;
-        character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MAIN_SPELL : 0)
-                                             + (character.UsedMainCantrip ? MAIN_CANTRIP : 0)
-                                             + (character.UsedBonusSpell ? BONUS_SPELL : 0);
+        var key = customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
+        character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MainSpell : 0)
+                                             + (character.UsedMainCantrip ? MainCantrip : 0)
+                                             + (character.UsedBonusSpell ? BonusSpell : 0);
         Main.Info(
             $"StoreSpellcasting [{character.Name}] type: {type} '{key}' flags: {character.UsedSpecialFeatures[key]} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
     }
@@ -153,15 +160,15 @@ internal class PerformanceFilterExtraData
             return;
         }
 
-        var key = customSpellcasting ? Key(SPELL_FLAGS) : DEFAULT_SPELL_FLAGS;
+        var key = customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
         if (!character.UsedSpecialFeatures.TryGetValue(key, out var flags))
         {
             flags = 0;
         }
 
-        character.usedMainSpell = (flags & MAIN_SPELL) > 0;
-        character.usedMainCantrip = (flags & MAIN_CANTRIP) > 0;
-        character.usedBonusSpell = (flags & BONUS_SPELL) > 0;
+        character.usedMainSpell = (flags & MainSpell) > 0;
+        character.usedMainCantrip = (flags & MainCantrip) > 0;
+        character.usedBonusSpell = (flags & BonusSpell) > 0;
 
         Main.Info(
             $"LoadSpellcasting [{character.Name}] type: {type} '{key}' flags: {flags} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
@@ -169,13 +176,13 @@ internal class PerformanceFilterExtraData
 
     public string FormatTitle()
     {
-        if (feature == null)
+        if (Feature == null)
         {
             return null;
         }
 
-        var title = feature.FormatTitle();
-        if (string.IsNullOrEmpty(title) || feature.GuiPresentation.Title == Gui.NoLocalization)
+        var title = Feature.FormatTitle();
+        if (string.IsNullOrEmpty(title) || Feature.GuiPresentation.Title == Gui.NoLocalization)
         {
             title = ToString() + " (NO TITLE!)";
         }
