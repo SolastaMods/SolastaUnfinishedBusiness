@@ -2,6 +2,7 @@ Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restriç�
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
 Feat/&FeatAstralArmsDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nQuando você faz um ataque desarmado em seu turno, seu alcance é de 3 metros. Outras criaturas provocam um ataque de oportunidade quando entram no alcance que você tem com desarmado .
 Feat/&FeatAstralArmsTitle=Alcance astral
+Feat/&FeatCriticalVirtuosoDescription=Seu limite crítico é reduzido em 1.
 Feat/&FeatEldritchAdeptDescription=Você aprende uma opção de Invocação Eldritch de sua escolha na classe do feiticeiro. Se a invocação tiver um pré-requisito, você pode escolher essa invocação apenas se for um feiticeiro e somente se atender ao pré-requisito. Sempre que você ganha um nível, você pode substituir a invocação por outra da classe warlock.
 Feat/&FeatEldritchAdeptTitle=Adepto Eldritch
 Feat/&FeatElementalAdeptDescription={0} feitiços de tipo de dano que você lança ignoram a resistência do alvo ao dano. Além disso, ao rolar o dano para esses feitiços, você pode rolar novamente quaisquer 1s.

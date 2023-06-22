@@ -21,6 +21,7 @@
     "Definition:SpellPowerCreateSpellStoringWandOfSeeInvisibility:013ae371-c645-5d7f-86a8-c29edea9de61",
     "Definition:SpellPowerCreateSpellStoringWandOfSpiderClimb:afc50e93-bfce-5358-9e57-63e8738ec40e"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

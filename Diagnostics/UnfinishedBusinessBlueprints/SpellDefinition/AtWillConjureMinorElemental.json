@@ -6,6 +6,7 @@
     "Definition:ConjureMinorElementalsOne_b:5aedc8a0f2211e64cb75743104f855c7",
     "Definition:ConjureMinorElementalsTwo:8854a8865eb35654b99f4800ea65ee01"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
   "spellLevel": 0,

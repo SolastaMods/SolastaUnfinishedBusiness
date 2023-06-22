@@ -2,6 +2,7 @@ Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegenübe
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
 Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 auf maximal 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, beträgt deine Reichweite dafür 10 Fuß. Andere Kreaturen provozieren einen Gelegenheitsangriff von dir, wenn sie in die Reichweite gelangen, die du mit unbewaffnetem Angriff hast .
 Feat/&FeatAstralArmsTitle=Astralreichweite
+Feat/&FeatCriticalVirtuosoDescription=Ihr kritischer Schwellenwert wird um 1 gesenkt.
 Feat/&FeatEldritchAdeptDescription=Sie lernen eine Eldritch-Anrufungsoption Ihrer Wahl von der Hexenmeisterklasse. Wenn für den Aufruf eine Voraussetzung erforderlich ist, können Sie diesen Aufruf nur auswählen, wenn Sie ein Hexenmeister sind und die Voraussetzung erfüllen. Immer wenn Sie eine Stufe aufsteigen, können Sie den Aufruf durch einen anderen aus der Hexenmeisterklasse ersetzen.
 Feat/&FeatEldritchAdeptTitle=Eldritch-Adept
 Feat/&FeatElementalAdeptDescription={0} Schadenszauber, die du wirkst, ignorieren die Schadensresistenz des Ziels. Wenn Sie für diese Zauber den Schaden würfeln, können Sie außerdem jede Eins erneut würfeln.

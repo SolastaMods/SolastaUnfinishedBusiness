@@ -6,6 +6,7 @@
     "Definition:SpellPowerWildMasterSummonSpiritBeastKindredSpiritEagle7:23e7e1f3-1e25-5e62-ab4e-fa81d4da3c59",
     "Definition:SpellPowerWildMasterSummonSpiritBeastKindredSpiritWolf7:41c61ab8-fe27-5dba-b162-a0e48c2813b6"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

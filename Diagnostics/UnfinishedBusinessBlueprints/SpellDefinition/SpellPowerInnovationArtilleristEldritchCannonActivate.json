@@ -9,6 +9,7 @@
     "Definition:SpellPowerInnovationArtilleristSummonForceBallistaTiny3:a355cf5f-7848-53ce-8337-ffcc889111d4",
     "Definition:SpellPowerInnovationArtilleristSummonProtectorTiny3:086b9f44-fffe-514c-bd00-54097498d7d9"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

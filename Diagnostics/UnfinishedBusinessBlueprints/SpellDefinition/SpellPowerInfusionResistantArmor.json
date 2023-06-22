@@ -13,6 +13,7 @@
     "Definition:SpellPowerInfusionResistantArmorDamageRadiant:5a419d21-e946-50a5-a150-ff4ae2b34c52",
     "Definition:SpellPowerInfusionResistantArmorDamageThunder:dec4750e-24d6-55a8-ad58-573e5d7da89e"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

@@ -1,18 +1,17 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackMain"
-  ],
-  "maxAttacksNumber": 1,
-  "triggerCondition": "HasDownedAnEnemy",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "CriticalThreshold",
+  "modifierOperation": "Additive",
+  "modifierValue": -1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalActionRavenKillingSpreeTitle",
-    "description": "Feature/&AdditionalActionRavenKillingSpreeDescription",
+    "title": "Feature/&MartialChampionImprovedCriticalTitle",
+    "description": "Feat/&FeatCriticalVirtuosoDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a3576270-8a8e-5ceb-a688-aaa8b4a9c745",
+  "guid": "26272f91-3c5e-516d-b5bf-b8cf359eb2e0",
   "contentPack": 9999,
-  "name": "AdditionalActionRavenKillingSpree"
+  "name": "AttributeModifierFeatImprovedCritical"
 }

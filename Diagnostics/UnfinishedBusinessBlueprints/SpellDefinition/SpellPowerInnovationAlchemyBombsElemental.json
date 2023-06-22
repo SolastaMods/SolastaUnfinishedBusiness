@@ -8,6 +8,7 @@
     "Definition:SpellPowerInnovationAlchemyMarkerDamageAcid:2ba78126-087a-59db-9e55-a218a7af29a2",
     "Definition:SpellPowerInnovationAlchemyMarkerDamagePoison:ef23638d-51df-5fe5-8448-70c6d73ea8ce"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

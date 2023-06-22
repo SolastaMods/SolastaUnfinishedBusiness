@@ -2,6 +2,7 @@ Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle r
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
 Feat/&FeatAstralArmsDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nQuando effettui un colpo senz'armi nel tuo turno, la tua portata è di 3 metri. Altre creature provocano un tuo attacco di opportunità quando entrano nella portata che hai con .
 Feat/&FeatAstralArmsTitle=Portata Astrale
+Feat/&FeatCriticalVirtuosoDescription=La tua soglia critica è abbassata di 1.
 Feat/&FeatEldritchAdeptDescription=Apprendi un'opzione Invocazione Spettrale a tua scelta dalla classe Stregone. Se l'invocazione ha un prerequisito, puoi scegliere quell'invocazione solo se sei uno stregone e solo se soddisfi il prerequisito. Ogni volta che guadagni un livello, puoi sostituire l'invocazione con un'altra della classe warlock.
 Feat/&FeatEldritchAdeptTitle=Adepto Eldritch
 Feat/&FeatElementalAdeptDescription={0} incantesimi del tipo di danno che lanci ignorano la resistenza del bersaglio al danno. Inoltre, quando tiri i danni per questi incantesimi, puoi ritirare qualsiasi 1.

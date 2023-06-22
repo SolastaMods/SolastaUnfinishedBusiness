@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackMain"
+  ],
+  "maxAttacksNumber": 1,
+  "triggerCondition": "None",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AdditionalActionHunterHordeBreakerTitle",
+    "description": "Feature/&AdditionalActionHunterHordeBreakerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "adefa8db-187f-57a3-8a86-f603dca8b863",
+  "contentPack": 9999,
+  "name": "AdditionalActionHunterHordeBreaker2"
+}

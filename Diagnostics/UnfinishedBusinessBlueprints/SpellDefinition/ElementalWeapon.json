@@ -8,6 +8,7 @@
     "Definition:ElementalWeaponDamageLightning:cb81afa7-86c5-5bec-99ec-60ff5ee2fff7",
     "Definition:ElementalWeaponDamageThunder:286c3937-6260-5e91-afef-65cc0fac3ddd"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolTransmutation",
   "spellLevel": 3,

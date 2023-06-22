@@ -2,6 +2,7 @@ Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restr
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
 Feat/&FeatAstralArmsDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nLorsque vous portez une frappe à mains nues à votre tour, votre portée est de 3 mètres. Les autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez à mains nues. .
 Feat/&FeatAstralArmsTitle=Portée astrale
+Feat/&FeatCriticalVirtuosoDescription=Votre seuil critique est abaissé de 1.
 Feat/&FeatEldritchAdeptDescription=Vous apprenez une option d'invocation Eldritch de votre choix de la classe démoniste. Si l'invocation a une condition préalable, vous ne pouvez choisir cette invocation que si vous êtes un sorcier et uniquement si vous remplissez la condition préalable. Chaque fois que vous gagnez un niveau, vous pouvez remplacer l'invocation par une autre de la classe démoniste.
 Feat/&FeatEldritchAdeptTitle=Adepte occulte
 Feat/&FeatElementalAdeptDescription={0} sorts de type dégâts que vous lancez ignorent la résistance de la cible aux dégâts. De plus, lorsque vous lancez des dégâts pour ces sorts, vous pouvez relancer n'importe quel 1.

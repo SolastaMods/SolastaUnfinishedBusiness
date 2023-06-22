@@ -10,6 +10,7 @@
     "Definition:SpellPowerAncientForestHerbalBrewDamageAffinityPoisonResistance:35e313b0-3ba5-5499-bd92-3fb33672d066",
     "Definition:SpellPowerAncientForestHerbalBrewDamageAffinityRadiantResistance:4c7e7d8d-bec0-5a61-b51d-bfd5c8691d9b"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

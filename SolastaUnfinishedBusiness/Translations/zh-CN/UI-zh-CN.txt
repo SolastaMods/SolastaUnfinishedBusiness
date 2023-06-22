@@ -1,4 +1,7 @@
+Tutorial/&TutorialActionSwitchingDescription=当您有多个主要或奖励操作可用时，您可以单击操作状态符号将其设为当前活动的操作。这允许使用急速或部落破坏者动作进行攻击，然后使用默认动作施放法术。或者您可能需要的任何其他组合。\n将鼠标悬停在操作状态符号上会显示工具提示，其中包含授予该操作的功能或条件的名称。
+Tutorial/&TutorialActionSwitchingTitle=多重行动
 UI/&Add=添加
+UI/&AdditionalActionSource=授予者：{0}
 UI/&Current Party=当前队伍
 UI/&Experimental Preview:=实验预览<i><color=Yellow>[使用前备份保存]</color></i>：
 UI/&Expert=专家

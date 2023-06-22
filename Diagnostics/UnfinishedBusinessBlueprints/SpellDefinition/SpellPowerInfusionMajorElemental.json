@@ -8,6 +8,7 @@
     "Definition:SpellPowerInfusionMajorElementalDamageLightning:24552148-d819-5adb-a22c-2cc1fce3a748",
     "Definition:SpellPowerInfusionMajorElementalDamageThunder:1db7a51f-b781-5032-9fd7-b0e552dbad11"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

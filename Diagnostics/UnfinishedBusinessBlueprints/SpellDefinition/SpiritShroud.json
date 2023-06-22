@@ -6,6 +6,7 @@
     "Definition:SpiritShroudDamageNecrotic:4c95d0f5-67ae-5955-bcfe-5926e58332ef",
     "Definition:SpiritShroudDamageCold:fcadd10d-12c8-5264-ac1c-8a6d0894b9f8"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 3,

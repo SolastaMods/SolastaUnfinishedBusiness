@@ -7,6 +7,7 @@
     "Definition:SpellPowerSharedPoolElementalistEnhancedIce:e36b6f4a-fbc8-5142-bae4-a1f1e79999b9",
     "Definition:SpellPowerSharedPoolElementalistEnhancedAir:4715d54b-8241-5dd4-8b96-0df5988e68ec"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

@@ -6,6 +6,7 @@
     "Definition:SpellPowerWayOfTheDistantHandZenArrowPush:bffbcbf4-5594-5125-b1d1-c9296d3c33a9",
     "Definition:SpellPowerWayOfTheDistantHandZenArrowDistract:09f3f3bc-c008-5cfa-b4c8-5bed68182e7e"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

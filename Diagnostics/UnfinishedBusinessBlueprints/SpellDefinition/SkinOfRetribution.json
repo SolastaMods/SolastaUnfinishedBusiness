@@ -9,6 +9,7 @@
     "Definition:SkinOfRetributionDamagePoison:432c80f7-716e-50d5-88d0-3cdf3ca185cb",
     "Definition:SkinOfRetributionDamageThunder:63008b6d-6a03-5f82-9630-0249dfb61bac"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 1,

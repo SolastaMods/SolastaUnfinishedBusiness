@@ -2,6 +2,7 @@ Condition/&ConditionFeatMobileAfterDashDescription=免疫移动限制以及被�
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
 Feat/&FeatAstralArmsDescription=将你的感知提高 1，最大为 20。\n当你在你的回合进行攻击时，你的攻击范围为 10 尺。其他生物进入你的徒手攻击范围时会引发你的借机攻击.
 Feat/&FeatAstralArmsTitle=星灵延伸
+Feat/&FeatCriticalVirtuosoDescription=您的临界阈值降低了 1。
 Feat/&FeatEldritchAdeptDescription=你可以从邪术士职业中选择一种祈唤。如果祈唤有先决条件，则只有当你是邪术士并且满足先决条件时才能选择该祈唤。每当你获得一个等级时，你就可以用另一个来自邪术士职业的祈唤来替换该祈唤。
 Feat/&FeatEldritchAdeptTitle=祈唤专家
 Feat/&FeatElementalAdeptDescription=你施放的 {0} 种伤害类型法术无视目标的伤害抗性。此外，当你为这些法术投掷伤害时，你可以重掷其中任何一个骰子。

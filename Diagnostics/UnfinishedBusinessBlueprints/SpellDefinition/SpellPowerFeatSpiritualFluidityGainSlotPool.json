@@ -6,6 +6,7 @@
     "Definition:SpellPowerFeatSpiritualFluidityGainSlot2:efcacda5-a7bd-5bd1-94e2-c8d9cf6ccf42",
     "Definition:SpellPowerFeatSpiritualFluidityGainSlot1:71f66cee-620d-5550-9c55-1f13b780c530"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

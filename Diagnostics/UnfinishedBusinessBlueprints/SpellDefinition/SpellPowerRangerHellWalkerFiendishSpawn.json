@@ -5,6 +5,7 @@
     "Definition:SpellPowerRangerHellWalkerFiendishSpawnHezrou:98e42447-710c-51f1-94db-b5137dd733cf",
     "Definition:SpellPowerRangerHellWalkerFiendishSpawnMarilith:d4aa7662-bc6c-5de0-8064-5434743b4b9d"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

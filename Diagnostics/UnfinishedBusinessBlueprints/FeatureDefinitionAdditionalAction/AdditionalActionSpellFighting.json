@@ -7,7 +7,7 @@
     "CastMain"
   ],
   "maxAttacksNumber": -1,
-  "triggerCondition": "HasDownedAnEnemy",
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0d60d541-d5cc-57be-a95d-2fe38e53298c",
+  "guid": "2504bfe9-888d-52f3-98f1-cc8a54f7fd20",
   "contentPack": 9999,
-  "name": "AdditionalActionArcaneFighter"
+  "name": "AdditionalActionSpellFighting"
 }

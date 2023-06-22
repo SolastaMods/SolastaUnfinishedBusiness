@@ -5,6 +5,7 @@
     "Definition:SpellPowerInnovationVivisectionistEmergencyCureLesserRestoration:0015419d-c1a4-5932-89f8-6b208e3c59df",
     "Definition:SpellPowerInnovationVivisectionistEmergencyCureRemoveCurse:84e9fd4a-aab5-50f9-a481-b268b0c7947d"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,

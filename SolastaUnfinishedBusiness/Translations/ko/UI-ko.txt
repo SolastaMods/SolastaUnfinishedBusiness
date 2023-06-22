@@ -1,4 +1,7 @@
+Tutorial/&TutorialActionSwitchingDescription=사용 가능한 기본 또는 보너스 작업이 두 개 이상인 경우 작업 상태 기호를 클릭하여 현재 활성 작업으로 만들 수 있습니다. 이를 통해 Haste 또는 Horde Breaker 동작을 사용하여 공격한 다음 기본 동작으로 주문을 시전할 수 있습니다. 또는 다른 조합이 필요할 수도 있습니다.\n작업 상태 기호 위로 마우스를 가져가면 작업을 부여한 기능 또는 조건의 이름이 포함된 도움말이 표시됩니다.
+Tutorial/&TutorialActionSwitchingTitle=여러 작업
 UI/&Add=Add
+UI/&AdditionalActionSource=부여자: {0}
 UI/&Current Party=현재 파티
 UI/&Experimental Preview:=실험적 미리보기 <i><color=Yellow>[사용하기 전에 백업 저장]</color></i>:
 UI/&Expert=전문가
