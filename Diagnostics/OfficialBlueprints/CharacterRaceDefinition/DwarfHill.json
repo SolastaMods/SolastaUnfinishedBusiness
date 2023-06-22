@@ -75,6 +75,7 @@
     "maleFaceShapeOptions": [],
     "femaleFaceShapeOptions": [],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [],
     "femaleHairShapeOptions": [],
     "maleHornsOptions": [],

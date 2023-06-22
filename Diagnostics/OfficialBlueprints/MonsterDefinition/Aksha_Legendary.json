@@ -211,7 +211,8 @@
     "Definition:PowerDefilerMistyFormEscape:327b24f39c0894a49be64a1a3c973c34",
     "Definition:LightAffinity_Defiler_Darkness:902accce294ba2f46a32c6dd76296eff",
     "Definition:ConditionAffinityResistanceToShine:ccba3756c041c0e4692516926740e8f8",
-    "Definition:ConditionAffinityVeilImmunity:b4378ac746dd4ed46b2b0ec63f910629"
+    "Definition:ConditionAffinityVeilImmunity:b4378ac746dd4ed46b2b0ec63f910629",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

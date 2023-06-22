@@ -4684,6 +4684,7 @@ FallingChandelier~Necropolis~MOD	GadgetBlueprint	GadgetBlueprint	be933280-4b4d-5
 FallingChandelier~Stronghold~MOD	GadgetBlueprint	GadgetBlueprint	55df6de1-6e34-586b-a415-17d6eceba192
 FallingChandelier~TownInterior~MOD	GadgetBlueprint	GadgetBlueprint	3412ad2c-7224-538d-b10f-a4085d12a7e3
 FallingStalactite~LavaCaves~MOD	GadgetBlueprint	GadgetBlueprint	08dcd1a8-bf34-5b8e-9e23-72d9f8c2a728
+FallingStalactite~MountainCave~MOD	GadgetBlueprint	GadgetBlueprint	a49e4e53-8c71-5857-8d90-0f3f081fe859
 FallingTrunk~Jungle~MOD	GadgetBlueprint	GadgetBlueprint	fb15dfc9-0239-5272-9a5a-16de89402497
 FallingTrunk~SnowyForest~MOD	GadgetBlueprint	GadgetBlueprint	c34ce043-473e-57f9-8f8e-11943be207dd
 FallingTrunk~Swamp~MOD	GadgetBlueprint	GadgetBlueprint	a64bb983-8b87-52f5-9120-9c6d52ef222b
@@ -9325,10 +9326,12 @@ Building_Cabin_12C~SnowyForest~MOD	RoomBlueprint	RoomBlueprint	23f87928-fcf3-532
 Building_Cabin_12C~WoodLand~MOD	RoomBlueprint	RoomBlueprint	1bbf9ede-da2c-5114-92a1-a02d5ce1b078
 Building_Lodge_24C~SnowyForest~MOD	RoomBlueprint	RoomBlueprint	5ec4cdd0-89a4-585e-892a-1f5f23498cb2
 Building_Lodge_24C~WoodLand~MOD	RoomBlueprint	RoomBlueprint	c5809706-4bd7-5505-ab1d-074c2aa6052a
+Clearing_Large_24C~DwarfOutdoor~MOD	RoomBlueprint	RoomBlueprint	07938efb-73fc-5056-8667-b1b81efc5979
 Clearing_Large_24C~Jungle~MOD	RoomBlueprint	RoomBlueprint	87a83af0-4d02-5ee4-af8a-180848f2ed51
 Clearing_Large_24C~SnowyForest~MOD	RoomBlueprint	RoomBlueprint	524533a1-cbb9-5566-862b-3cf304fff08b
 Clearing_Large_24C~Swamp~MOD	RoomBlueprint	RoomBlueprint	a0418647-da08-5e79-86a1-f29b3e1a94a4
 Clearing_Large_24C~WoodLand~MOD	RoomBlueprint	RoomBlueprint	f36dc51f-bbfc-54e9-9fd9-550fbb7d1221
+Clearing_Small_12C~DwarfOutdoor~MOD	RoomBlueprint	RoomBlueprint	49ad9b75-0bd4-52e5-b6ed-0f130597de06
 Clearing_Small_12C~Jungle~MOD	RoomBlueprint	RoomBlueprint	b1a35270-eb73-5308-a072-04bde4cb16ab
 Clearing_Small_12C~SnowyForest~MOD	RoomBlueprint	RoomBlueprint	5bdf2007-d4f4-5c2e-9459-ffd47a944eb9
 Clearing_Small_12C~Swamp~MOD	RoomBlueprint	RoomBlueprint	649a6998-2d37-5443-ba47-aced37d0dc9f

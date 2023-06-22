@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ForceApplyConditionOnSelf))]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ForceApplyConditionOrLightOnSelf))]
     [UsedImplicitly]
     public static class ForceApplyConditionOnSelf_Patch
     {
@@ -66,7 +66,7 @@ public static class CharacterActionMagicEffectPatcher
                 formsParams,
                 null,
                 out _,
-                forceSelfConditionOnly: true,
+                forceSelfConditionOrLightOnly: true,
                 effectApplication: effectDescription.EffectApplication,
                 filters: effectDescription.EffectFormFilters,
                 terminateEffectOnTarget: out _);

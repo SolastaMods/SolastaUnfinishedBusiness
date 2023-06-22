@@ -53,7 +53,8 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "applyToSelf": false
+    "applyToSelf": false,
+    "forceOnSelf": false
   },
   "lightSourceOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

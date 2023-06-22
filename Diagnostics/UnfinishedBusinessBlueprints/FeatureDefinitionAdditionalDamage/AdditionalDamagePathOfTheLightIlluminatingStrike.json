@@ -195,7 +195,8 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "applyToSelf": false
+    "applyToSelf": false,
+    "forceOnSelf": false
   },
   "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,

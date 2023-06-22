@@ -151,7 +151,8 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:PowerDragonFrightfulPresence:afa9d44eb9c7a1b479e4caa0bb92111c",
-    "Definition:PowerDragonBreath_Poison:112665ec4f34243459b17e7484c87280"
+    "Definition:PowerDragonBreath_Poison:112665ec4f34243459b17e7484c87280",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

@@ -156,6 +156,7 @@
       "FaceShape_NPC_LeralynGhost"
     ],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",

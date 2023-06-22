@@ -50,7 +50,8 @@
     "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44"
+    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {
