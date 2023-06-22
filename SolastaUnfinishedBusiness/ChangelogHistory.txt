@@ -2,6 +2,7 @@
 
 1.5.74.5:
 
+- demoted setting "Use Elf face models on tieflings"
 - fixed action bar powers' getting disabled under certain scenarios
 - fixed Domain Smith's reinforce armor stating long rest on description
 - fixed Fighter Weapon Specialization granting +1 strength
