@@ -53,7 +53,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         {
             var weaponTypeName = weaponTypeDefinition.Name;
 
-            var featureSpecialization = FeatureDefinitionAttributeModifierBuilder
+            var featureSpecialization = FeatureDefinitionBuilder
                 .Create($"Feature{Name}{Specialization}{weaponTypeName}")
                 .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature)
                 .AddToDB();
