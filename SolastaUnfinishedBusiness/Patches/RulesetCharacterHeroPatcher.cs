@@ -1029,4 +1029,25 @@ public static class RulesetCharacterHeroPatcher
                 new CodeInstruction(OpCodes.Call, myStaticPropertiesMethod));
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsDualWieldingMeleeWeapons))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GIsDualWieldingMeleeWeapons_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacterHero __instance, ref bool __result)
+        {
+            //PATCH: allows using features that require dual-wielding melee if in Guardian mode with both hands empty
+            if (__result)
+            {
+                return;
+            }
+
+            if (InnovationArmor.InGuardianMode(__instance))
+            {
+                __result = __instance.HasEmptyMainHand() && __instance.HasEmptyOffHand();
+            }
+        }
+    }
 }
