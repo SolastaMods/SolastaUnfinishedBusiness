@@ -2,6 +2,7 @@ Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement r
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
 Feat/&FeatAstralArmsDescription=Increase your Wisdom by 1, to a maximum of 20.\nWhen you make an unarmed strike on your turn, your reach for it is 10 ft. Other creatures provoke an opportunity attack from you when they enter the reach you have with unarmed.
 Feat/&FeatAstralArmsTitle=Astral Reach
+Feat/&FeatCriticalVirtuosoDescription=Your critical threshold is lowered by 1.
 Feat/&FeatEldritchAdeptDescription=You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.
 Feat/&FeatEldritchAdeptTitle=Eldritch Adept
 Feat/&FeatElementalAdeptDescription={0} damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.
