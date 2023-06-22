@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomValidators;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -11,25 +12,40 @@ internal static class CriticalVirtuosoFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        const string Description = "Feat/&FeatCriticalVirtuosoDescription";
+        var nameImproved = DatabaseHelper.FeatureDefinitionAttributeModifiers
+            .AttributeModifierMartialChampionImprovedCritical.GuiPresentation.Title;
+        var nameSuperior = DatabaseHelper.FeatureDefinitionAttributeModifiers
+            .AttributeModifierMartialChampionSuperiorCritical.GuiPresentation.Title;
+        
+        var improved = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierFeatImprovedCritical")
+            .SetGuiPresentation(nameImproved, Description)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.CriticalThreshold, -1)
+            .AddToDB();
+        
+        var superior = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierFeatSuperiorCritical")
+            .SetGuiPresentation(nameSuperior, Description)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.CriticalThreshold, -1)
+            .AddToDB();
+        
         // Improved Critical
         var featImprovedCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatImprovedCritical")
-            .SetGuiPresentation("MartialChampionImprovedCritical", Category.Feature)
-            .SetFeatures(AttributeModifierMartialChampionImprovedCritical)
-            .SetValidators(
-                ValidatorsFeat.IsLevel4,
-                ValidatorsFeat.ValidateNotFeature(AttributeModifierMartialChampionImprovedCritical))
+            .SetGuiPresentation(nameImproved, Description)
+            .SetFeatures(improved)
+            .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
 
         // Superior Critical
         var featSuperiorCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSuperiorCritical")
-            .SetGuiPresentation("MartialChampionSuperiorCritical", Category.Feature)
-            .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
-            .SetValidators(
-                ValidatorsFeat.IsLevel16,
-                ValidatorsFeat.ValidateHasFeature(AttributeModifierMartialChampionImprovedCritical),
-                ValidatorsFeat.ValidateNotFeature(AttributeModifierMartialChampionSuperiorCritical))
+            .SetGuiPresentation(nameSuperior, Description)
+            .SetFeatures(superior)
+            .SetValidators(ValidatorsFeat.IsLevel16, ValidatorsFeat.ValidateHasFeature(improved))
             .AddToDB();
 
         feats.AddRange(featImprovedCritical, featSuperiorCritical);

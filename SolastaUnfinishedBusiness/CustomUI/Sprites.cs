@@ -230,4 +230,11 @@ public static class Sprites
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
 
     #endregion
+
+    #region Tutorial
+
+    internal static AssetReferenceSprite TutorialActionSwitching =>
+        GetSprite("TutorialActionSwitching", Resources.TutorialActionSwitching, 512, 256);
+
+    #endregion
 }

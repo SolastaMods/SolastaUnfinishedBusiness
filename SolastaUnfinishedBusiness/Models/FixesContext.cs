@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -36,7 +37,9 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixChampionCriticalThresholdModifiers();
         FixEagerForBattleTexts();
+        AddAdditionalActionTitles();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -264,6 +267,14 @@ internal static class FixesContext
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }
 
+    private static void FixChampionCriticalThresholdModifiers()
+    {
+        //Changes Champion's Superior Critical to work as described - set crit threshold to 18, instead of lowering by 1
+        var modifier = FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical;
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+        modifier.modifierValue = 18;
+    }
+
     private static void FixEagerForBattleTexts()
     {
         var feat = FeatDefinitions.EagerForBattle.GuiPresentation;
@@ -273,5 +284,18 @@ internal static class FixesContext
         var parts = Gui.Localize(feat.description).Split('\n');
         //last line of feat description
         feature.description = parts[parts.Length - 1].Trim();
+    }
+
+    private static void AddAdditionalActionTitles()
+    {
+        //Main Action
+        FeatureDefinitionAdditionalActions.AdditionalActionHasted.GuiPresentation.Title
+            = Haste.GuiPresentation.Title;
+        FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
+            = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+        
+        //Bonus Action
+        // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
+        //     = ExpeditiousRetreat.GuiPresentation.Title;
     }
 }
