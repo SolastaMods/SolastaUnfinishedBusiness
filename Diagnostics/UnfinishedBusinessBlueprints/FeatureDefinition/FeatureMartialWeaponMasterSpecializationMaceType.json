@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cf31696e-d724-5fd6-bc48-16c5c4ff7468",
+  "guid": "4cf9696d-28db-5a89-8451-56dee51fe5b8",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationCEHalberdType"
+  "name": "FeatureMartialWeaponMasterSpecializationMaceType"
 }

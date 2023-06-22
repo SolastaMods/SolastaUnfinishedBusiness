@@ -354,7 +354,7 @@ internal sealed class OathOfThunder : AbstractSubclass
         {
             reactionParams = null;
 
-            return IsOathOfThunderWeapon(attackMode, null, null);
+            return IsOathOfThunderWeapon(attackMode, null, attacker.RulesetCharacter);
         }
     }
 

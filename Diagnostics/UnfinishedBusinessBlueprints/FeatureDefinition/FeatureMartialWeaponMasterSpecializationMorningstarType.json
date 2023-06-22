@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6c3abc1a-1069-5527-b8dd-6e8580ada042",
+  "guid": "779337eb-a921-52ae-a056-ce4a6b96e647",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationHeavyCrossbowType"
+  "name": "FeatureMartialWeaponMasterSpecializationMorningstarType"
 }

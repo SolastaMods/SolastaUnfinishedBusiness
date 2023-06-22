@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4cf9696d-28db-5a89-8451-56dee51fe5b8",
+  "guid": "1da80230-329b-518d-b4c3-0b8db84ace34",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationMaceType"
+  "name": "FeatureMartialWeaponMasterSpecializationClubType"
 }

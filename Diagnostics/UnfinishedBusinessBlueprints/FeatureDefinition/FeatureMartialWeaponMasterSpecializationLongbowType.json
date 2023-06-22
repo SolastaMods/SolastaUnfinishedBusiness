@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Strength",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "353e85f7-2e08-5c6d-b7e4-1f84b9388a56",
+  "guid": "9e05d61d-7600-5819-8fb6-7d53a2eaf30d",
   "contentPack": 9999,
-  "name": "FeatureMartialWeaponMasterSpecializationDartType"
+  "name": "FeatureMartialWeaponMasterSpecializationLongbowType"
 }
