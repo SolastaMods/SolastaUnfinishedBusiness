@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -38,6 +39,7 @@ internal static class FixesContext
         FixUncannyDodgeForRoguishDuelist();
         FixChampionCriticalThresholdModifiers();
         FixEagerForBattleTexts();
+        AddAdditionalActionTitles();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -282,5 +284,18 @@ internal static class FixesContext
         var parts = Gui.Localize(feat.description).Split('\n');
         //last line of feat description
         feature.description = parts[parts.Length - 1].Trim();
+    }
+
+    private static void AddAdditionalActionTitles()
+    {
+        //Main Action
+        FeatureDefinitionAdditionalActions.AdditionalActionHasted.GuiPresentation.Title
+            = Haste.GuiPresentation.Title;
+        FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
+            = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+        
+        //Bonus Action
+        // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
+        //     = ExpeditiousRetreat.GuiPresentation.Title;
     }
 }

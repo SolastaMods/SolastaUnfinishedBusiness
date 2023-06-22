@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -9,7 +12,7 @@ internal static class FeatureApplicationValidation
     internal static void EnumerateActionPerformanceProviders(
         RulesetActor actor,
         List<FeatureDefinition> features,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin = null)
     {
         actor.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(features);
 
@@ -28,49 +31,37 @@ internal static class FeatureApplicationValidation
 
     internal static void EnumerateAdditionalActionProviders(
         RulesetActor actor,
-        List<FeatureDefinition> features = null,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+        List<FeatureDefinition> features,
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
-        features ??= actor.FeaturesToBrowse;
+        var customFeatures = Main.Settings.EnableActionSwitching
+            ? ActionSwitching.EnumerateActorFeatures<IAdditionalActionsProvider>(actor)
+            : null;
 
-        actor.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(features);
-
-        //PATCH: move on `HasDownedAnEnemy` bonus actions to the end of the list, preserving order
-        //fixes main attacks stopping working if Horde Breaker's extra action on kill is triggered after Action Surge
-        var onKill = features.FindAll(x => x is IAdditionalActionsProvider
+        if (customFeatures == null)
         {
-            TriggerCondition: RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy
-        });
+            actor.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(features);
 
-        if (!onKill.Empty())
-        {
-            features.RemoveAll(x => onKill.Contains(x));
-            features.AddRange(onKill);
+            //This extra code is needed here only for cases when actions witching is disabled
+            //PATCH: move on `HasDownedAnEnemy` bonus actions to the end of the list, preserving order
+            //fixes main attacks stopping working if Horde Breaker's extra action on kill is triggered after Action Surge
+            var onKill = features.FindAll(x => x is IAdditionalActionsProvider
+            {
+                TriggerCondition: AdditionalActionTriggerCondition.HasDownedAnEnemy
+            });
+
+            if (!onKill.Empty())
+            {
+                features.RemoveAll(x => onKill.Contains(x));
+                features.AddRange(onKill);
+            }
         }
-
-        if (actor is not RulesetCharacter character)
+        else
         {
-            return;
+            features.SetRange(customFeatures.Select(x => x.feature).Where(x =>
+                //leave only non-triggered features - all triggered features are reworked to grant conditions
+                x is IAdditionalActionsProvider {TriggerCondition: AdditionalActionTriggerCondition.None}));
         }
-
-        features.RemoveAll(f =>
-        {
-            var validator = f.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
-
-            return validator != null && !validator.IsValid(f, character);
-        });
-
-        //remove non-triggered features to have only one place that requires those checks
-        var locChar = GameLocationCharacter.GetFromActor(actor);
-        if (locChar == null || locChar.enemiesDownedByAttack > 0)
-        {
-            return;
-        }
-
-        features.RemoveAll(f =>
-            locChar.enemiesDownedByAttack <= 0
-            && (f as IAdditionalActionsProvider)?.TriggerCondition ==
-            RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
     }
 
     internal static FeatureDefinition ValidateAttributeModifier(FeatureDefinition feature,

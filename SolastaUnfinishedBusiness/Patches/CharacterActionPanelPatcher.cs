@@ -12,6 +12,10 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -306,6 +310,125 @@ public static class CharacterActionPanelPatcher
                 .ExecuteAction(__instance.actionParams.Clone(), __instance.ActionExecuted, false);
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.RefreshActionPerformances))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshActionPerformances_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(CharacterActionPanel __instance)
+        {
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                return;
+            }
+
+            var table = __instance.actionPerformanceTable;
+            if (table == null)
+            {
+                return;
+            }
+            if (!table.gameObject.activeSelf)
+            {
+                return;
+            }
+            
+            var filters = __instance.GuiCharacter.GameLocationCharacter.ActionPerformancesByType[__instance.ActionType];
+
+            if (table.gameObject.TryGetComponent<HorizontalLayoutGroup>(out var group))
+            {
+                Object.DestroyImmediate(group);
+            }
+            
+            if (!table.gameObject.TryGetComponent<GridLayoutGroup>(out var grid))
+            {
+                grid = table.gameObject.AddComponent<GridLayoutGroup>();
+                grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+                grid.childAlignment = TextAnchor.MiddleCenter;
+                grid.startCorner = GridLayoutGroup.Corner.UpperLeft;
+                grid.startAxis = GridLayoutGroup.Axis.Horizontal;
+                grid.cellSize = new Vector2(32, 10);
+                grid.spacing = new Vector2(3, 5);
+            }
+
+            if (grid != null)
+            {
+                var width = (int)__instance.RectTransform.rect.width;
+                var constraint = width / 35;
+                
+                if (constraint > filters.Count)
+                {
+                    constraint = filters.Count;
+                }
+
+                grid.constraintCount = constraint;
+            }
+
+            var activeCount = 0;
+            for (var i = 0; i < table.childCount; i++)
+            {
+                var child = table.GetChild(i);
+                if (!child.gameObject.activeSelf)
+                {
+                    continue;
+                }
+
+                var item = child.GetComponent<ActionTypePerformanceItem>();
+                if (item == null)
+                {
+                    continue;
+                }
+
+                activeCount++;
+
+                var k = child.GetSiblingIndex();
+                var f = (k >= 0 && k < filters.Count) 
+                    ? PerformanceFilterExtraData.GetData(filters[k]) 
+                    : null;
+                
+                var featureName = f?.FormatTitle();
+                if (!string.IsNullOrEmpty(featureName))
+                {
+                    item.Tooltip.Content += $"\n{featureName}";
+                }
+
+
+                var btn = item.GetComponent<Button>();
+                if (btn != null)
+                {
+                    continue;
+                }
+
+                btn = item.gameObject.AddComponent<Button>();
+                btn.enabled = true;
+                btn.interactable = true;
+
+                btn.onClick.AddListener(() =>
+                {
+                    if (!Main.Settings.EnableActionSwitching)
+                    {
+                        return;
+                    }
+
+                    var panel = item.GetComponentInParent<CharacterActionPanel>();
+                    if (item.availableSymbol.IsActive())
+                    {
+                        ActionSwitching.PrirotizeAction(panel.GuiCharacter.GameLocationCharacter, panel.ActionType,
+                            item.transform.GetSiblingIndex());
+                    }
+
+                });
+            }
+
+            var rank = __instance.GuiCharacter.GameLocationCharacter.CurrentActionRankByType[__instance.ActionType];
+            if (activeCount - rank >= 2) //at least 2 non-spent actions
+            {
+                ServiceRepository.GetService<IGuiService>()
+                    .ShowTutorial(ActionSwitching.Tutorial);
+            }
         }
     }
 }

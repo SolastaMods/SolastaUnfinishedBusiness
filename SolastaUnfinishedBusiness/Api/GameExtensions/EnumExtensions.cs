@@ -220,7 +220,8 @@ internal enum ExtraActionId
     CannonFlamethrowerBonus = 9025,
     CannonForceBallistaBonus = 9026,
     CannonProtectorBonus = 9027,
-    TempestFury = 9028
+    TempestFury = 9028,
+    PrioritizeAction,
 }
 
 #if false
