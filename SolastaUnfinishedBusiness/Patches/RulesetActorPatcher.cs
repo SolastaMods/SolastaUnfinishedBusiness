@@ -218,7 +218,7 @@ public static class RulesetActorPatcher
         }
     }
 #endif
-    
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -232,7 +232,7 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             if (__instance is not RulesetCharacter character)
             {
                 return;
@@ -242,11 +242,11 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -260,7 +260,7 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             if (__instance is not RulesetCharacter character)
             {
                 return;
@@ -270,14 +270,14 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             foreach (var rulesetCondition in character.conditionsByCategory[category])
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategoryExcludingSources))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -291,7 +291,7 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             if (__instance is not RulesetCharacter character)
             {
                 return;
@@ -301,7 +301,7 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             foreach (var rulesetCondition in character.conditionsByCategory[category])
             {
                 if (sources.Contains(rulesetCondition.SourceGuid))
@@ -313,7 +313,7 @@ public static class RulesetActorPatcher
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategoryAndType))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -337,7 +337,7 @@ public static class RulesetActorPatcher
             {
                 return;
             }
-            
+
             foreach (var rulesetCondition in character.conditionsByCategory[category])
             {
                 if (rulesetCondition.ConditionDefinition.Name != type &&

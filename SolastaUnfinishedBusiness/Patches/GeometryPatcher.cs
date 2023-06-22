@@ -158,7 +158,8 @@ public static class CursorLocationGeometricShapePatcher
             Vector3 point,
             float height)
         {
-            var result = GeometryUtils.CubeContainsPoint_Regular(cubeOrigin, edgeSize, targetSize, hasMagneticTargeting, point);
+            var result =
+                GeometryUtils.CubeContainsPoint_Regular(cubeOrigin, edgeSize, targetSize, hasMagneticTargeting, point);
 
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 
 //This should have default namespace so that it can be properly created by `CharacterActionPatcher`
@@ -16,8 +15,8 @@ public class CharacterActionPrioritizeAction : CharacterAction
 
     public override IEnumerator ExecuteImpl()
     {
-        ActionSwitching.DoPrirotizeAction(actionParams.ActingCharacter,
-            (ActionDefinitions.ActionType)actionParams.IntParameter, 
+        ActionSwitching.DoPrioritizeAction(actionParams.ActingCharacter,
+            (ActionDefinitions.ActionType)actionParams.IntParameter,
             actionParams.IntParameter2);
         yield break;
     }

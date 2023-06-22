@@ -14,7 +14,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
-using Button = UnityEngine.UI.Button;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -331,18 +330,19 @@ public static class CharacterActionPanelPatcher
             {
                 return;
             }
+
             if (!table.gameObject.activeSelf)
             {
                 return;
             }
-            
+
             var filters = __instance.GuiCharacter.GameLocationCharacter.ActionPerformancesByType[__instance.ActionType];
 
             if (table.gameObject.TryGetComponent<HorizontalLayoutGroup>(out var group))
             {
                 Object.DestroyImmediate(group);
             }
-            
+
             if (!table.gameObject.TryGetComponent<GridLayoutGroup>(out var grid))
             {
                 grid = table.gameObject.AddComponent<GridLayoutGroup>();
@@ -358,7 +358,7 @@ public static class CharacterActionPanelPatcher
             {
                 var width = (int)__instance.RectTransform.rect.width;
                 var constraint = width / 35;
-                
+
                 if (constraint > filters.Count)
                 {
                     constraint = filters.Count;
@@ -385,10 +385,10 @@ public static class CharacterActionPanelPatcher
                 activeCount++;
 
                 var k = child.GetSiblingIndex();
-                var f = (k >= 0 && k < filters.Count) 
-                    ? PerformanceFilterExtraData.GetData(filters[k]) 
+                var f = k >= 0 && k < filters.Count
+                    ? PerformanceFilterExtraData.GetData(filters[k])
                     : null;
-                
+
                 var featureName = f?.FormatTitle();
                 if (!string.IsNullOrEmpty(featureName))
                 {
@@ -416,10 +416,9 @@ public static class CharacterActionPanelPatcher
                     var panel = item.GetComponentInParent<CharacterActionPanel>();
                     if (item.availableSymbol.IsActive())
                     {
-                        ActionSwitching.PrirotizeAction(panel.GuiCharacter.GameLocationCharacter, panel.ActionType,
+                        ActionSwitching.PrioritizeAction(panel.GuiCharacter.GameLocationCharacter, panel.ActionType,
                             item.transform.GetSiblingIndex());
                     }
-
                 });
             }
 

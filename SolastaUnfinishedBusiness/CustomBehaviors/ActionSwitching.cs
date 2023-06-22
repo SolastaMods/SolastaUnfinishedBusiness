@@ -17,7 +17,7 @@ public static class ActionSwitching
         .Create("TutorialActionSwitching")
         .SetGuiPresentation(Category.Tutorial, Sprites.TutorialActionSwitching)
         .AddToDB();
-    
+
     internal static void Load()
     {
         //Mark Action Surge to track spell flags separately
@@ -40,28 +40,27 @@ public static class ActionSwitching
             .AddToDB()));
     }
 
-    private static void EnumerateFeaturesHierarchicaly<T>(List<(FeatureDefinition feature, string origin)> features,
-        List<FeatureDefinition> parentList, string origin)
+    private static void EnumerateFeaturesHierarchically<T>(
+        ICollection<(FeatureDefinition feature, string origin)> features,
+        IEnumerable<FeatureDefinition> parentList, string origin)
     {
-        foreach (var feature in parentList)
+        foreach (var feature in parentList
+                     .Where(feature => feature.AllowsDuplicate || features.All(x => x.feature != feature)))
         {
-            if (!feature.AllowsDuplicate && features.Any(x => x.feature == feature))
+            switch (feature)
             {
-                continue;
-            }
-
-            if (feature is FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set)
-            {
-                EnumerateFeaturesHierarchicaly<T>(features, set.FeatureSet, origin);
-            }
-            else if (feature is T)
-            {
-                features.Add((feature, origin));
+                case FeatureDefinitionFeatureSet { Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union } set:
+                    EnumerateFeaturesHierarchically<T>(features, set.FeatureSet, origin);
+                    break;
+                case T:
+                    features.Add((feature, origin));
+                    break;
             }
         }
     }
 
-    private static List<FeatureDefinition> GetConditionFeatures<T>(ConditionDefinition condition,
+    private static List<FeatureDefinition> GetConditionFeatures<T>(
+        ConditionDefinition condition,
         List<FeatureDefinition> list = null)
     {
         list ??= new List<FeatureDefinition>();
@@ -84,20 +83,16 @@ public static class ActionSwitching
 
     internal static List<(FeatureDefinition feature, string origin)> EnumerateActorFeatures<T>(RulesetActor actor)
     {
-        if (actor is RulesetCharacterHero hero)
+        return actor switch
         {
-            return EnumerateHeroFeatures<T>(hero);
-        }
-
-        if (actor is RulesetCharacterMonster monster)
-        {
-            return EnumerateMonsterFeatures<T>(monster);
-        }
-
-        return null;
+            RulesetCharacterHero hero => EnumerateHeroFeatures<T>(hero),
+            RulesetCharacterMonster monster => EnumerateMonsterFeatures<T>(monster),
+            _ => null
+        };
     }
 
-    private static List<(FeatureDefinition feature, string origin)> EnumerateHeroFeatures<T>(RulesetCharacterHero hero,
+    private static List<(FeatureDefinition feature, string origin)> EnumerateHeroFeatures<T>(
+        RulesetCharacterHero hero,
         bool skipConditions = false)
     {
         List<(FeatureDefinition feature, string origin)> features = new();
@@ -105,25 +100,25 @@ public static class ActionSwitching
         //Character features
         foreach (var activeFeature in hero.activeFeatures)
         {
-            EnumerateFeaturesHierarchicaly<T>(features, activeFeature.Value, activeFeature.Key);
+            EnumerateFeaturesHierarchically<T>(features, activeFeature.Value, activeFeature.Key);
         }
 
         //Equipment
         foreach (var activeItemFeature in hero.activeItemFeatures)
         {
-            EnumerateFeaturesHierarchicaly<T>(features, activeItemFeature.Value, activeItemFeature.Key.Name);
+            EnumerateFeaturesHierarchically<T>(features, activeItemFeature.Value, activeItemFeature.Key.Name);
         }
 
         //Fighting Styles
         foreach (var activeFightingStyle in hero.activeFightingStyles)
         {
-            EnumerateFeaturesHierarchicaly<T>(features, activeFightingStyle.Features, activeFightingStyle.Name);
+            EnumerateFeaturesHierarchically<T>(features, activeFightingStyle.Features, activeFightingStyle.Name);
         }
 
         //Feats
         foreach (var trainedFeat in hero.trainedFeats)
         {
-            EnumerateFeaturesHierarchicaly<T>(features, trainedFeat.Features, trainedFeat.Name);
+            EnumerateFeaturesHierarchically<T>(features, trainedFeat.Features, trainedFeat.Name);
         }
 
         //Conditions
@@ -133,7 +128,7 @@ public static class ActionSwitching
             hero.AllConditionsForEnumeration.Sort((a, b) => a.Guid.CompareTo(b.Guid));
             foreach (var rulesetCondition in hero.AllConditionsForEnumeration)
             {
-                EnumerateFeaturesHierarchicaly<T>(features,
+                EnumerateFeaturesHierarchically<T>(features,
                     GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
                     $"{rulesetCondition.Name}:{rulesetCondition.Guid}");
             }
@@ -157,7 +152,7 @@ public static class ActionSwitching
             else if (grantedFeature != null &&
                      grantedFeature is FeatureDefinitionFeatureSet set)
             {
-                EnumerateFeaturesHierarchicaly<T>(features, set.FeatureSet, invocation.InvocationDefinition.Name);
+                EnumerateFeaturesHierarchically<T>(features, set.FeatureSet, invocation.InvocationDefinition.Name);
             }
         }
 
@@ -170,7 +165,7 @@ public static class ActionSwitching
         List<(FeatureDefinition feature, string origin)> features = new();
 
         //Monster features
-        EnumerateFeaturesHierarchicaly<T>(features, monster.activeFeatures, monster.monsterDefinition.Name);
+        EnumerateFeaturesHierarchically<T>(features, monster.activeFeatures, monster.monsterDefinition.Name);
 
         //Original hero features
         if (Main.Settings.EnumerateOriginSubFeatures && monster.originalFormCharacter is RulesetCharacterHero hero)
@@ -183,16 +178,16 @@ public static class ActionSwitching
         monster.AllConditionsForEnumeration.Sort((a, b) => a.Guid.CompareTo(b.Guid));
         foreach (var rulesetCondition in monster.AllConditionsForEnumeration)
         {
-            EnumerateFeaturesHierarchicaly<T>(features, GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
+            EnumerateFeaturesHierarchically<T>(features, GetConditionFeatures<T>(rulesetCondition.ConditionDefinition),
                 $"{rulesetCondition.Name}:{rulesetCondition.Guid}");
         }
 
         return features;
     }
 
-    internal static void PrirotizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type, int index)
+    internal static void PrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type, int index)
     {
-        Main.Info($"PrirotizeAction [{character.Name}] {type}");
+        Main.Info($"PrioritizeAction [{character.Name}] {type}");
         var service = ServiceRepository.GetService<IGameLocationActionService>();
         var actionParams = new CharacterActionParams
         {
@@ -204,10 +199,10 @@ public static class ActionSwitching
         service.ExecuteAction(actionParams, null, true);
     }
 
-    internal static void DoPrirotizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
+    internal static void DoPrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int index)
     {
-        Main.Info($"DoPrirotizeAction [{character.Name}] {type}");
+        Main.Info($"DoPrioritizeAction [{character.Name}] {type}");
         var rank = character.CurrentActionRankByType[type];
         if (index <= rank)
         {
@@ -260,15 +255,13 @@ public static class ActionSwitching
         }
 
         var type = actionParams.ActionDefinition.ActionType;
-        var switched = false;
-        if (type == ActionDefinitions.ActionType.Main)
+
+        var switched = type switch
         {
-            switched = CheckIfActionSwitched(character, type, mainRank, mainAttacks);
-        }
-        else if (type == ActionDefinitions.ActionType.Bonus)
-        {
-            switched = CheckIfActionSwitched(character, type, bonusRank, bonusAttacks);
-        }
+            ActionDefinitions.ActionType.Main => CheckIfActionSwitched(character, type, mainRank, mainAttacks),
+            ActionDefinitions.ActionType.Bonus => CheckIfActionSwitched(character, type, bonusRank, bonusAttacks),
+            _ => false
+        };
 
         if (switched)
         {
@@ -282,6 +275,7 @@ public static class ActionSwitching
         var rank = character.CurrentActionRankByType[type];
         var filters = character.ActionPerformancesByType[type];
         var newData = rank < filters.Count ? PerformanceFilterExtraData.GetData(filters[rank]) : null;
+
         if (rank == wasRank)
         {
             Main.Info($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
@@ -305,6 +299,7 @@ public static class ActionSwitching
     private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type, int max)
     {
         var list = new List<int>();
+
         for (var i = 0; i < max; i++)
         {
             list.Add(map.TryGetValue($"ActionIndex{type}:{i}", out var k) ? k : i);
@@ -365,8 +360,10 @@ public static class ActionSwitching
 
         //remove triggered features - all such features are reworked to grant conditions
         features.RemoveAll(x =>
-            (x.feature as IAdditionalActionsProvider)?.TriggerCondition ==
-            RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
+            x.feature is IAdditionalActionsProvider
+            {
+                TriggerCondition: RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy
+            });
 
         ResortPerformancesOfType(character, features, ActionDefinitions.ActionType.Main);
         ResortPerformancesOfType(character, features, ActionDefinitions.ActionType.Bonus);
@@ -376,7 +373,7 @@ public static class ActionSwitching
     }
 
     private static void ResortPerformancesOfType(GameLocationCharacter character,
-        List<(FeatureDefinition feature, string origin)> allFeatures, ActionDefinitions.ActionType type)
+        IEnumerable<(FeatureDefinition feature, string origin)> allFeatures, ActionDefinitions.ActionType type)
     {
         var features = allFeatures
             .Where(x => x.feature is IAdditionalActionsProvider f && f.ActionType == type)
@@ -401,15 +398,11 @@ public static class ActionSwitching
         }
 
         var rank = character.CurrentActionRankByType[type];
-        var sorted = new List<ActionPerformanceFilter>();
         var list = LoadIndexes(character.UsedSpecialFeatures, type, filtersCount);
 
         Main.Info($"ResortPerformancesOfType [{character.Name}] {type} : [{string.Join(", ", list)}] rank: {rank}");
 
-        foreach (var k in list)
-        {
-            sorted.Add(filters[k]);
-        }
+        var sorted = list.Select(k => filters[k]).ToList();
 
         if (rank < sorted.Count)
         {
@@ -428,6 +421,7 @@ public static class ActionSwitching
         }
 
         var locCharacter = GameLocationCharacter.GetFromActor(character);
+
         if (locCharacter == null)
         {
             Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO LOC CHAR");
@@ -435,7 +429,9 @@ public static class ActionSwitching
         }
 
         var conditionFeatures = new List<FeatureDefinition>();
+
         condition.ConditionDefinition.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(conditionFeatures);
+
         if (conditionFeatures.Empty())
         {
             Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS");
@@ -464,14 +460,17 @@ public static class ActionSwitching
             var filters = locCharacter.ActionPerformancesByType[type];
             var max = filters.Count;
             var list = LoadIndexes(locCharacter.UsedSpecialFeatures, type, max);
+
             Main.Info($"AccountRemovedCondition [{character.Name}] '{conditionFeature.Name}' from '{origin}'");
             Main.Info($"AccountRemovedCondition [{character.Name}] WAS: [{string.Join(", ", list)}]");
 
             var k = -1;
+
             for (var i = 0; i < max; i++)
             {
                 var filter = filters[i];
                 var data = PerformanceFilterExtraData.GetData(filter);
+
                 if (data == null) { continue; }
 
                 if (data.feature != conditionFeature || data.origin != origin)
@@ -486,6 +485,7 @@ public static class ActionSwitching
             if (k < 0) { continue; }
 
             var rank = locCharacter.CurrentActionRankByType[type];
+
             Main.Info($"AccountRemovedCondition [{character.Name}] remove at: {k} rank was: {rank}");
 
             if (rank > k)
@@ -525,12 +525,14 @@ public static class ActionSwitching
 
         var filters = character.actionPerformancesByType[type];
         var rank = character.currentActionRankByType[type];
+
         if (rank >= filters.Count)
         {
             return;
         }
 
         var data = PerformanceFilterExtraData.GetData(filters[rank]);
+
         if (data == null)
         {
             return;
@@ -569,15 +571,18 @@ public static class ActionSwitching
         }
 
         var rank = character.currentActionRankByType[type];
+
         if (rank <= 0)
         {
             return;
         }
 
         var filters = character.actionPerformancesByType[type];
+
         Main.Info($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         var data = PerformanceFilterExtraData.GetData(filters[rank]);
+
         if (data != null)
         {
             data.StoreAttacks(character, type);
@@ -585,11 +590,14 @@ public static class ActionSwitching
         }
 
         data = PerformanceFilterExtraData.GetData(filters[rank - 1]);
-        if (data != null)
+
+        if (data == null)
         {
-            data.LoadAttacks(character, type);
-            data.LoadSpellcasting(character, type);
+            return;
         }
+
+        data.LoadAttacks(character, type);
+        data.LoadSpellcasting(character, type);
     }
 
     private sealed class HordeBreaker : ITargetReducedToZeroHp

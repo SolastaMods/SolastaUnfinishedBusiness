@@ -221,7 +221,7 @@ internal enum ExtraActionId
     CannonForceBallistaBonus = 9026,
     CannonProtectorBonus = 9027,
     TempestFury = 9028,
-    PrioritizeAction,
+    PrioritizeAction
 }
 
 #if false

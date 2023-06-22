@@ -43,9 +43,9 @@ internal sealed class RoguishRaven : AbstractSubclass
         // killing spree 
         // bonus range attack from main and can sneak attack after killing an enemies
         var additionalActionRavenKillingSpree = FeatureDefinitionBuilder
-            .Create("AdditionalActionRavenKillingSpree")//keeping old name for compatibility
+            .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new RefreshSneakAttackOnKill(), 
+            .SetCustomSubFeatures(new RefreshSneakAttackOnKill(),
                 new KillingSpree(ConditionDefinitionBuilder
                     .Create("ConditionRavenKillingSpree")
                     .SetGuiPresentationNoContent()

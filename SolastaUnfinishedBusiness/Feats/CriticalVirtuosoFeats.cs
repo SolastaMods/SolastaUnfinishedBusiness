@@ -17,21 +17,21 @@ internal static class CriticalVirtuosoFeats
             .AttributeModifierMartialChampionImprovedCritical.GuiPresentation.Title;
         var nameSuperior = DatabaseHelper.FeatureDefinitionAttributeModifiers
             .AttributeModifierMartialChampionSuperiorCritical.GuiPresentation.Title;
-        
+
         var improved = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatImprovedCritical")
             .SetGuiPresentation(nameImproved, Description)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.CriticalThreshold, -1)
             .AddToDB();
-        
+
         var superior = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatSuperiorCritical")
             .SetGuiPresentation(nameSuperior, Description)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.CriticalThreshold, -1)
             .AddToDB();
-        
+
         // Improved Critical
         var featImprovedCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatImprovedCritical")

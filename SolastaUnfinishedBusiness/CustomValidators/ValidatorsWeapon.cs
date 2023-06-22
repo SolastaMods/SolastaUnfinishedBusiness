@@ -47,7 +47,7 @@ internal static class ValidatorsWeapon
         return attackMode.Magical || (rulesetItem != null &&
                                       (rulesetItem.IsMagicalWeapon() || ShieldAttack.IsMagicalShield(rulesetItem)));
     }
-    
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsTwoHandedRanged(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
     {
@@ -59,7 +59,7 @@ internal static class ValidatorsWeapon
     {
         return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition);
     }
-    
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsTwoHandedRanged([CanBeNull] ItemDefinition itemDefinition)
     {

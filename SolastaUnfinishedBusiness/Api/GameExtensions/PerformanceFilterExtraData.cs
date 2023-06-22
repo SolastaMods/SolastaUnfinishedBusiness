@@ -24,11 +24,11 @@ internal class PerformanceFilterExtraData
 
     private static readonly Dictionary<ActionPerformanceFilter, PerformanceFilterExtraData> DataMap = new();
     private static readonly Stack<PerformanceFilterExtraData> Pool = new();
+    private bool customSpellcasting;
 
     public FeatureDefinition feature;
     private string name;
     public string origin;
-    private bool customSpellcasting;
 
     private static PerformanceFilterExtraData GetOrMakeData([NotNull] ActionPerformanceFilter filter)
     {

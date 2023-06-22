@@ -2,6 +2,7 @@
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
+
 using TA.AI;
 
 namespace SolastaUnfinishedBusiness.Api;

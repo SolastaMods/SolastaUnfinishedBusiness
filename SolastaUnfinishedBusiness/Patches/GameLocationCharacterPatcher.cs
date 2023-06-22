@@ -222,7 +222,7 @@ public static class GameLocationCharacterPatcher
                     -1, "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
                     new CodeInstruction(OpCodes.Call, enumerate2));
         }
-        
+
         [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance)
         {
@@ -243,7 +243,7 @@ public static class GameLocationCharacterPatcher
             ActionSwitching.SpendActionType(__instance, actionType);
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.RefundActionUse))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -263,6 +263,7 @@ public static class GameLocationCharacterPatcher
     public static class HandleActionExecution_Patch
     {
         private static int mainAttacks, bonusAttacks, mainRank, bonusRank;
+
         [UsedImplicitly]
         public static void Prefix(
             GameLocationCharacter __instance,
@@ -274,7 +275,7 @@ public static class GameLocationCharacterPatcher
             mainAttacks = __instance.UsedMainAttacks;
             bonusAttacks = __instance.UsedBonusAttacks;
         }
-        
+
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
@@ -293,7 +294,8 @@ public static class GameLocationCharacterPatcher
             rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
                 .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
             //PATCH: support for action switching
-            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, mainRank, mainAttacks, bonusRank, bonusAttacks);
+            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, mainRank, mainAttacks, bonusRank,
+                bonusAttacks);
         }
     }
 

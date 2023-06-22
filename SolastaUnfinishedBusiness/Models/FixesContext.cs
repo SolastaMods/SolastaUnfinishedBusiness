@@ -293,7 +293,7 @@ internal static class FixesContext
             = Haste.GuiPresentation.Title;
         FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
             = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
-        
+
         //Bonus Action
         // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
         //     = ExpeditiousRetreat.GuiPresentation.Title;

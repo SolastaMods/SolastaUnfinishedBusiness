@@ -60,7 +60,7 @@ internal static class FeatureApplicationValidation
         {
             features.SetRange(customFeatures.Select(x => x.feature).Where(x =>
                 //leave only non-triggered features - all triggered features are reworked to grant conditions
-                x is IAdditionalActionsProvider {TriggerCondition: AdditionalActionTriggerCondition.None}));
+                x is IAdditionalActionsProvider { TriggerCondition: AdditionalActionTriggerCondition.None }));
         }
     }
 

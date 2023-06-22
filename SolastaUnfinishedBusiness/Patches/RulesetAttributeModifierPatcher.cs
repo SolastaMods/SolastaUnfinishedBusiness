@@ -26,7 +26,7 @@ public static class RulesetAttributeModifierPatcher
             {
                 return;
             }
-            
+
             var priorityCache = RulesetAttributeModifier.AttributeModifierOperationPriorityCache;
             if (priorityCache[(int)__instance.Operation] != priorityCache[(int)other.Operation])
             {
@@ -37,7 +37,6 @@ public static class RulesetAttributeModifierPatcher
             {
                 __result = -__instance.Value.CompareTo(other.Value);
             }
-
         }
     }
 }

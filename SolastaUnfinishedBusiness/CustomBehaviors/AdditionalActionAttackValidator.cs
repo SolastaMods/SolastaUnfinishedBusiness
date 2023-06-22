@@ -15,7 +15,7 @@ internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidato
 {
     internal static readonly IAdditionalActionAttackValidator MeleeOnly =
         new AdditionalActionAttackValidator(ValidatorsWeapon.IsMelee);
-    
+
     internal static readonly IAdditionalActionAttackValidator TwoHandedRanged =
         new AdditionalActionAttackValidator(ValidatorsWeapon.IsTwoHandedRanged);
 
@@ -35,6 +35,7 @@ internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidato
     {
         //TODO: Implement for wild shapes? Currently only RulesetCharacterHero calls this
         var locCharacter = GameLocationCharacter.GetFromActor(character);
+        
         if (locCharacter == null)
         {
             return;
@@ -48,12 +49,14 @@ internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidato
     private static void ValidateActionType(GameLocationCharacter character, ActionDefinitions.ActionType type)
     {
         var feature = character.GetCurrentAdditionalActionFeature(type);
+        
         if (feature == null)
         {
             return;
         }
 
         var validator = feature.GetFirstSubFeatureOfType<IAdditionalActionAttackValidator>();
+        
         if (validator == null)
         {
             return;
