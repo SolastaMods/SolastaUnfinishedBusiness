@@ -23,6 +23,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     private const string ConditionRevitalizingBoon = $"Condition{Name}RevitalizingBoon";
     private const string ConditionSeedOfLife = $"Condition{Name}SeedOfLife";
     private const string ConditionVerdancy = $"Condition{Name}Verdancy";
+    private const string ConditionVerdancy14 = $"Condition{Name}Verdancy14";
 
     private static readonly FeatureDefinitionMagicAffinity MagicAffinityHarmoniousBloom =
         FeatureDefinitionMagicAffinityBuilder
@@ -65,10 +66,27 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetCustomSubFeatures(new CustomBehaviorConditionVerdancy())
             .AddToDB();
 
+        var conditionVerdancy14 = ConditionDefinitionBuilder
+            .Create(ConditionVerdancy14)
+            .SetGuiPresentation(Category.Condition, ConditionChildOfDarkness_DimLight)
+            // uses 4 but it will trigger 5 times as required because of the time we add it
+            .SetSpecialDuration(DurationType.Round, 4, TurnOccurenceType.EndOfSourceTurn)
+            .SetPossessive()
+            .CopyParticleReferences(ConditionAided)
+            .AllowMultipleInstances()
+            .SetCancellingConditions(DatabaseHelper.ConditionDefinitions.ConditionDying)
+            .SetRecurrentEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetHealingForm(HealingComputation.Dice, 1, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
+                    .Build())
+            .SetCustomSubFeatures(new CustomBehaviorConditionVerdancy())
+            .AddToDB();
+
         var featureVerdancy = FeatureDefinitionBuilder
             .Create($"Feature{Name}Verdancy")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyMagicEffectVerdancy(conditionVerdancy))
+            .SetCustomSubFeatures(new ModifyMagicEffectVerdancy(conditionVerdancy, conditionVerdancy14))
             .AddToDB();
 
         // Seed of Life
@@ -182,7 +200,10 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy))
+            var hasVerdancy = removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy) ||
+                              removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy14);
+
+            if (!hasVerdancy)
             {
                 removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                     ConditionRevitalizingBoon);
@@ -198,10 +219,12 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     private sealed class ModifyMagicEffectVerdancy : IModifyMagicEffect
     {
         private readonly ConditionDefinition _conditionVerdancy;
+        private readonly ConditionDefinition _conditionVerdancy14;
 
-        public ModifyMagicEffectVerdancy(ConditionDefinition conditionVerdancy)
+        public ModifyMagicEffectVerdancy(ConditionDefinition conditionVerdancy, ConditionDefinition conditionVerdancy14)
         {
             _conditionVerdancy = conditionVerdancy;
+            _conditionVerdancy14 = conditionVerdancy14;
         }
 
         public EffectDescription ModifyEffect(
@@ -223,10 +246,13 @@ internal sealed class CircleOfTheLife : AbstractSubclass
                 return effectDescription;
             }
 
+            var levels = character.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid, Name);
+            var condition = levels >= 14 ? _conditionVerdancy14 : _conditionVerdancy;
+
             effectDescription.EffectForms.Add(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(_conditionVerdancy, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                     .Build());
 
             return effectDescription;
@@ -237,10 +263,13 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     {
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy))
+            var hasVerdancy = removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy) ||
+                              removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy14);
+
+            if (!hasVerdancy)
             {
-                removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    ConditionRevitalizingBoon);
+                removedFrom.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionRevitalizingBoon);
             }
 
             var druidLevel = GetDruidLevel(rulesetCondition.sourceGuid);
