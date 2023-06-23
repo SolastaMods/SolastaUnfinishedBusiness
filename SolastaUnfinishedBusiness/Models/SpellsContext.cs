@@ -369,9 +369,9 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+        // var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
-        if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
+        if (spellDefinition.contentPack != CeContentPackContext.CeContentPack)
         {
             return;
         }
