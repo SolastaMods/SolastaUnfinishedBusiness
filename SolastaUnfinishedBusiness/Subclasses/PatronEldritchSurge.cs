@@ -183,15 +183,11 @@ internal class PatronEldritchSurge : AbstractSubclass
                rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
-    private static int GetBlastPursuitExtraActionCount(RulesetActor rulesetActor, int additionalCount = 0)
+    private static int GetBlastPursuitExtraActionCount(RulesetCharacter rulesetCharacter)
     {
-        return additionalCount +
-               rulesetActor.ConditionsByCategory
-                   .SelectMany(x => x.Value)
-                   .Count(x => x.conditionDefinition == ConditionExtraActionBlastPursuit) +
-               rulesetActor.ConditionsByCategory
-                   .SelectMany(x => x.Value)
-                   .Count(x => x.conditionDefinition == ConditionExtraActionBlastPursuitOff);
+        return 
+               (rulesetCharacter.HasConditionOfType(ConditionExtraActionBlastPursuit.Name)?1:0) +
+               (rulesetCharacter.HasConditionOfType(ConditionExtraActionBlastPursuitOff.Name)?1:0);
     }
 
     private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
@@ -215,7 +211,11 @@ internal class PatronEldritchSurge : AbstractSubclass
             var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
             var increaseLevels = new[] { 3, 8, 13, 18 };
             var additionalBeamCount = increaseLevels.Count(level => determinantLevel >= level);
-            var blastPursuitExtraActionCount = GetBlastPursuitExtraActionCount(rulesetHero);
+            var blastPursuitExtraActionCount = GetBlastPursuitExtraActionCount(rulesetCharacter);
+            if(warlockClassLevel < 16)
+            { 
+                blastPursuitExtraActionCount = Math.Min(0, blastPursuitExtraActionCount);
+            }
             var overloadStatus = rulesetHero.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
 
             effectDescription.effectAdvancement.Clear();
