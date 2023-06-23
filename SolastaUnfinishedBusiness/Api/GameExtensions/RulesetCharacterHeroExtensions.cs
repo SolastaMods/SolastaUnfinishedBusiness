@@ -97,7 +97,7 @@ internal static class RulesetCharacterHeroExtensions
     {
         return hero.GetMainWeapon() == null;
     }
-    
+
     internal static bool HasEmptyOffHand([NotNull] this RulesetCharacterHero hero)
     {
         return hero.GetOffhandWeapon() == null;

@@ -57,6 +57,7 @@ internal static class RulesetCharacterExtensions
         {
             return false;
         }
+
         var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
