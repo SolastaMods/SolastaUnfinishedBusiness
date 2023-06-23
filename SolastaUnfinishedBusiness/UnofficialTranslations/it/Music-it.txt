@@ -19,3 +19,4 @@ Music/&ValleyTitle=Valle
 Music/&PactClawTitle=Patto dell'Artiglio
 Music/&DemonsTitle=Demoni
 Music/&GreatColdTitle=Il Grande Freddo
+Music/&TavernTitle=Taverna

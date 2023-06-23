@@ -180,3 +180,4 @@ MainMenu/&CharactersImportedMultiplayerTitle=Salva file importato con successo. 
 MainMenu/&CharactersImportFailedTitle=Impossibile importare il file di salvataggio.
 MainMenu/&ReservedCharacterSlotTitle=Riservato
 MainMenu/&ReservedCharacterSlotDescription=Questo slot è riservato agli altri giocatori che si uniscono alla sessione.
+MainMenu/&BuiltInCharacterDescription=Questo è un personaggio pregen (predefinito) di Solasta.
