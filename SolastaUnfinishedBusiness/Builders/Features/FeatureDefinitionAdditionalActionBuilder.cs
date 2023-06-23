@@ -37,7 +37,7 @@ internal class FeatureDefinitionAdditionalActionBuilder
         return this;
     }
 
-#if false
+#if true
     internal FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
         params ActionDefinitions.Id[] forbiddenActions)
     {
