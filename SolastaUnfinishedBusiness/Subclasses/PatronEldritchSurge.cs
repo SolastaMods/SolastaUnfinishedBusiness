@@ -216,7 +216,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             { 
                 blastPursuitExtraActionCount = Math.Min(0, blastPursuitExtraActionCount);
             }
-            var overloadStatus = rulesetHero.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
+            var overloadStatus = rulesetCharacter.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
 
             effectDescription.effectAdvancement.Clear();
             effectDescription.targetParameter = 1 + additionalBeamCount;
