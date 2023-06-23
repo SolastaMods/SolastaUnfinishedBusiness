@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.5.92.1:
+
+- fixed medium armor validator [Fairy, Feral, Bladedancer]
+- fixed HasKnowledgeOfSpell validator [consume slots on reaction]
+- fixed IsMelee validator [Marshal]
+- fixed Thunder Gauntlet interaction with Dual Flurry
+
 1.5.92.0:
 
 - added BETA setting "Interface > Game UI > Enable Action switching"
