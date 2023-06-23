@@ -51,10 +51,25 @@ internal static class RulesetCharacterExtensions
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
     }
 
-    // ReSharper disable once UnusedParameter.Global
-    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
+    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter character)
     {
-        return false;
+        if (character is not RulesetCharacterHero hero)
+        {
+            return false;
+        }
+        var equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>()
+                   .GetElement(element.ArmorCategory).IsPhysicalArmor
+               && element.ArmorCategory == EquipmentDefinitions.MediumArmorCategory;
     }
 
     internal static bool IsValid(this RulesetCharacter instance, [NotNull] params IsCharacterValidHandler[] validators)
