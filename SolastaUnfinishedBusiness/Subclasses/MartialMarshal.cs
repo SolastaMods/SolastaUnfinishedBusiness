@@ -413,11 +413,9 @@ internal sealed class MartialMarshal : AbstractSubclass
                     continue;
                 }
 
-                var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
-
-                if (gameLocationMonster.CanReact())
+                if (guestCharacter.CanReact())
                 {
-                    allies.Add(gameLocationMonster);
+                    allies.Add(guestCharacter);
                 }
             }
 
