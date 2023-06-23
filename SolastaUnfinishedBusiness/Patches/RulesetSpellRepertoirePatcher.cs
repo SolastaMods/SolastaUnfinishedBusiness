@@ -348,4 +348,29 @@ public static class RulesetSpellRepertoirePatcher
             return __result == 0;
         }
     }
+
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.HasKnowledgeOfSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HasKnowledgeOfSpell_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetSpellRepertoire __instance, ref bool __result,
+            SpellDefinition consideredSpellDefinition)
+        {
+            if (__result)
+            {
+                return;
+            }
+
+            var castingFeature = __instance.spellCastingFeature;
+
+            //PATCH: fix case when whole list prepared casters learn spell that's not in their spell list because it was enabled for them through mod options, but then that option is disabled 
+            if (castingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList
+                && castingFeature.spellReadyness == RuleDefinitions.SpellReadyness.Prepared)
+            {
+                __result = __instance.PreparedSpells.Contains(consideredSpellDefinition);
+            }
+        }
+    }
 }
