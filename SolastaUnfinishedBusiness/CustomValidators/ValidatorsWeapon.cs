@@ -170,7 +170,8 @@ internal static class ValidatorsWeapon
         [CanBeNull] RulesetCharacter rulesetCharacter,
         [CanBeNull] RulesetAttackMode attackMode)
     {
-        return rulesetCharacter is RulesetCharacterMonster || IsUnarmed((ItemDefinition)null, attackMode);
+        return (rulesetCharacter is RulesetCharacterMonster && IsMelee(attackMode)) 
+               || IsUnarmed((ItemDefinition)null, attackMode);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
