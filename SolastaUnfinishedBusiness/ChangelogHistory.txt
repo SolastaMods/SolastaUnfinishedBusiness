@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.5.92.2:
+
+- fixed Skin of Retribution applying poison to caster
+- rebalanced Patron Eldritch Surge's blast pursuit progression
+- updated Korean unofficial translations to game version 1.5.92
+
 1.5.92.1:
 
 - added half-attribute feat groups and sub groups by ability score

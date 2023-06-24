@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionPatronEldritchSurgeBlastPursuit:1090d24a-e956-590d-969b-70ad57affefd"
+    "Definition:AdditionalActionPatronEldritchSurgeBlastPursuitOff:76d8f712-c8ac-504b-8a58-d42d9b40b08d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -130,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle",
-    "description": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription",
+    "title": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffTitle",
+    "description": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b49b121f-2c8f-5344-b36e-c0a27acdc2d9",
+  "guid": "7f8e5b95-3caf-53bf-9507-7c201eb7a36c",
   "contentPack": 9999,
-  "name": "ConditionPatronEldritchSurgeExtraActionBlastPursuit"
+  "name": "ConditionPatronEldritchSurgeExtraActionBlastPursuitOff"
 }
