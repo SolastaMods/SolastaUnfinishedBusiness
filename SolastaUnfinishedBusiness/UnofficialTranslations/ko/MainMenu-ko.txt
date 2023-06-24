@@ -1,7 +1,7 @@
 MainMenu/&ChangeCampaignTitle=캠페인 변경
 MainMenu/&ChangeCharacterSlotTitle=변화
 MainMenu/&ContinueTitle=계속하다
-MainMenu/&EmptySlotTitle=비어 있는
+MainMenu/&EmptySlotTitle=
 MainMenu/&ExportPdfDescription=선택한 문자를 인쇄용 PDF 파일로 내보냅니다.
 MainMenu/&ExportPdfTitle=PDF 내보내기
 MainMenu/&InspectCharacterDescription=캐릭터의 인벤토리와 캐릭터 시트를 엽니다.

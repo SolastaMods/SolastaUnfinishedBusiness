@@ -1,7 +1,7 @@
-Voice/&Female1Title=비어 있는
-Voice/&Female2Title=비어 있는
-Voice/&Male1Title=비어 있는
-Voice/&Male2Title=비어 있는
+Voice/&Female1Title=
+Voice/&Female2Title=
+Voice/&Male1Title=
+Voice/&Male2Title=
 Voice/&Voice1Title=목소리 1
 Voice/&Voice2Title=보이스 2
 Voice/&Voice3Title=보이스 3

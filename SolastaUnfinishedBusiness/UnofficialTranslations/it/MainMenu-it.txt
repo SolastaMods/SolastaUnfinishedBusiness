@@ -1,7 +1,7 @@
 MainMenu/&ChangeCampaignTitle=Cambia campagna
 MainMenu/&ChangeCharacterSlotTitle=Modifica
 MainMenu/&ContinueTitle=Continua
-MainMenu/&EmptySlotTitle=Vuoto
+MainMenu/&EmptySlotTitle=
 MainMenu/&ExportPdfDescription=Esporta il carattere selezionato in un file pdf stampabile
 MainMenu/&ExportPdfTitle=Esporta PDF
 MainMenu/&InspectCharacterDescription=Apri l'inventario e la scheda del personaggio.

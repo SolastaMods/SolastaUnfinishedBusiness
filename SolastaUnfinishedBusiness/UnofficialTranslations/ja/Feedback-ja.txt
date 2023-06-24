@@ -141,7 +141,7 @@ Feedback/&ItemUsedLine={0} は {1} アイテムを使用します
 Feedback/&ItemUsedSpellCastLine={0} は {1} アイテムを使用し、{2} の呪文を唱えます
 Feedback/&LongRestCompletedLine=長い休みが終わりました。消費された食料の単位: {0}
 Feedback/&MagicalHitPointsPoolRolledLine={0} は、{2} の {1} ヒット ポイントのプールをロールします。
-Feedback/&MoneyGainedLine=空
+Feedback/&MoneyGainedLine=
 Feedback/&NeedFlamingTagFormat=燃えるアイテムが必要です
 Feedback/&ObservationFailedFormat=観測に失敗しました
 Feedback/&ObservationSuccessfulFormat=観測成功
@@ -196,10 +196,8 @@ Feedback/&SpellDissipatedFormat=解消されました！
 Feedback/&SpellDissipatedOnTargetFailureLine={0} は、{2} に対する {1} の呪文の効果を解除できませんでした
 Feedback/&SpellDissipatedOnTargetSuccessLine={0}は、{2}に対する{1}の呪文の効果を無効にします。
 Feedback/&SpellDissipatedSuccessLine={0}は{1}の呪文の効果を無効にします
-Feedback/&SpellScribedFailure=空
-Feedback/&SpellScribedLine={0} は {1} の呪文を呪文書 {2} にコピーしようとしています
-Feedback/&SpellScribedSuccess=空
-Feedback/&SpellSlotsRecoveredLine={0} は呪文スロットを回復します: {1}
+Feedback/&SpellScribedFailure=Feedback/&SpellScribedLine={0} は {1} の呪文を呪文書 {2} にコピーしようとしています
+Feedback/&SpellScribedSuccess=Feedback/&SpellSlotsRecoveredLine={0} は呪文スロットを回復します: {1}
 Feedback/&SuccessOddsLine=成功の確率: {0}
 Feedback/&TrackDetectedFormat=発見された足跡
 Feedback/&TrapDetectedFormat=トラップを検出しました

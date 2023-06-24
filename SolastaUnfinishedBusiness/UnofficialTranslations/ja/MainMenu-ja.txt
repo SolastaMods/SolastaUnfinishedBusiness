@@ -1,7 +1,7 @@
 MainMenu/&ChangeCampaignTitle=変更キャンペーン
 MainMenu/&ChangeCharacterSlotTitle=変化
 MainMenu/&ContinueTitle=続く
-MainMenu/&EmptySlotTitle=空
+MainMenu/&EmptySlotTitle=
 MainMenu/&ExportPdfDescription=選択した文字を印刷用の PDF ファイルにエクスポートします
 MainMenu/&ExportPdfTitle=PDFをエクスポート
 MainMenu/&InspectCharacterDescription=キャラクターのインベントリとキャラクターシートを開きます。
