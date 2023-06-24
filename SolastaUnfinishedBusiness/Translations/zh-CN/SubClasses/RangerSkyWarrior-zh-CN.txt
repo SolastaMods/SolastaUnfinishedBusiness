@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=戴着盾牌时，你可�
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=风的礼物
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=熟练掌握杂技。
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=空中敏捷性
+Feedback/&FeatureSwiftStrikeLine={0} 触发 {1} 并向计划添加额外的 {2}
 Subclass/&RangerSkyWarriorDescription=天空战士们被狂风吹拂的贫瘠土地上挥之不去的力量所感动，那里除了海市蜃楼和幽灵之外什么也没有。他们将优雅的剑刃和盾牌动作与幻象魔法结合起来，在战斗中茁壮成长。
 Subclass/&RangerSkyWarriorTitle=天空战士

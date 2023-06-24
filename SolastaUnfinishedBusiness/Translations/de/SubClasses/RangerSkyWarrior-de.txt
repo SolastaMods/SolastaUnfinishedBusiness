@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=Während Sie einen Schild
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=Geschenk des Windes
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=Erwerben Sie Kenntnisse in Akrobatik.
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=Luftagilität
+Feedback/&FeatureSwiftStrikeLine={0} löst {1} aus und fügt der Initiative ein zusätzliches {2} hinzu
 Subclass/&RangerSkyWarriorDescription=Himmelskrieger wurden von der anhaltenden Macht karger, windgepeitschter Landschaften berührt, in denen nichts außer Trugbildern und Geistern lebt. Sie kombinieren elegante Manöver von Klinge und Schild mit Illusionsmagie, um im Kampf erfolgreich zu sein.
 Subclass/&RangerSkyWarriorTitle=Himmelskrieger

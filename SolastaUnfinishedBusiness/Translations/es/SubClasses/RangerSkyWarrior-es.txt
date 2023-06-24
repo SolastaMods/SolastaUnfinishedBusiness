@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=Mientras usa un escudo, p
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=Regalo del viento
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=Gana competencia en acrobacias.
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=Agilidad Aérea
+Feedback/&FeatureSwiftStrikeLine={0} activa {1} y agrega un {2} adicional a la iniciativa
 Subclass/&RangerSkyWarriorDescription=Sky Warriors ha sido tocado por el poder persistente de los áridos paisajes azotados por el viento habitados por nada más que espejismos y fantasmas. Combinan elegantes maniobras de espada y escudo con magia de ilusión para prosperar en el combate.
 Subclass/&RangerSkyWarriorTitle=Guerrero del cielo

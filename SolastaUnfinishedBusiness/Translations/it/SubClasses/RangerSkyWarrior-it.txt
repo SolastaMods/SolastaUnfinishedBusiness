@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=Mentre indossi uno scudo,
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=Dono del vento
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=Acquisisci competenza in Acrobazia.
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=Agilità aerea
+Feedback/&FeatureSwiftStrikeLine={0} attiva {1} e aggiunge un ulteriore {2} all'iniziativa
 Subclass/&RangerSkyWarriorDescription=Sky Warriors è stato toccato dal potere persistente di paesaggi aridi spazzati dal vento abitati da nient'altro che miraggi e fantasmi. Combinano eleganti manovre di lama e scudo con la magia dell'illusione per prosperare in combattimento.
 Subclass/&RangerSkyWarriorTitle=Guerriero del Cielo

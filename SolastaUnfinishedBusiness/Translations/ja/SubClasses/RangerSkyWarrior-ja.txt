@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=シールドを着用し�
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=風の贈り物
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=アクロバットの熟練度を高めます。
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=空中の敏捷性
+Feedback/&FeatureSwiftStrikeLine={0} は {1} をトリガーし、追加の {2} をイニシアチブに追加します
 Subclass/&RangerSkyWarriorDescription=スカイウォリアーは、蜃気楼と幽霊だけが生息する不毛の風吹きさらしの風景の残存する力に感動してきました。彼らはブレードとシールドのエレガントな操作と幻想魔法を組み合わせて戦闘で成功します。
 Subclass/&RangerSkyWarriorTitle=空の戦士

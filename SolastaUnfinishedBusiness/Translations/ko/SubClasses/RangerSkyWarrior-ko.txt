@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=방패를 착용하는 �
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=바람의 선물
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=곡예에 숙달하십시오.
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=공중 민첩성
+Feedback/&FeatureSwiftStrikeLine={0}는 {1}을(를) 트리거하고 이니셔티브에 추가 {2}를 추가합니다.
 Subclass/&RangerSkyWarriorDescription=Sky Warriors는 신기루와 유령만이 서식하는 황량하고 바람이 많이 부는 풍경의 여운에 감동을 받았습니다. 그들은 칼날과 방패의 우아한 기동과 환영 마법을 결합하여 전투에서 성공합니다.
 Subclass/&RangerSkyWarriorTitle=스카이 워리어

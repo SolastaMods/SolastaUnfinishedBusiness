@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=While wearing a shield, y
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=Gift of the Wind
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=Gain proficiency in Acrobatics.
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=Aerial Agility
+Feedback/&FeatureSwiftStrikeLine={0} triggers {1} and adds an additional {2} to initiative
 Subclass/&RangerSkyWarriorDescription=Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 Subclass/&RangerSkyWarriorTitle=Sky Warrior

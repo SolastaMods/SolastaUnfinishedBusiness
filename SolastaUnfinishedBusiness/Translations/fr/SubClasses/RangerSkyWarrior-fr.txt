@@ -16,5 +16,6 @@ Feature/&PowerRangerSkyWarriorGiftOfTheWindDescription=Tant que vous portez un b
 Feature/&PowerRangerSkyWarriorGiftOfTheWindTitle=Don du vent
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityDescription=Maîtriser l'acrobatie.
 Feature/&ProficiencyRangerSkyWarriorAerialAgilityTitle=Agilité aérienne
+Feedback/&FeatureSwiftStrikeLine={0} déclenche {1} et ajoute un {2} supplémentaire à l'initiative
 Subclass/&RangerSkyWarriorDescription=Les guerriers du ciel ont été touchés par la puissance persistante de paysages arides balayés par les vents habités par rien d'autre que des mirages et des fantômes. Ils combinent des manœuvres élégantes de lame et de bouclier avec une magie d'illusion pour prospérer au combat.
 Subclass/&RangerSkyWarriorTitle=Guerrier du ciel
