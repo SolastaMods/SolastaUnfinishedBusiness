@@ -194,7 +194,7 @@ internal static class SpellsContext
         AllowAssigningOfficialSpells();
 
         // Dead Master Spells
-        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x));
+        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
@@ -369,9 +369,10 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        // var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+        var isActiveInAtLeastOneRepertoire = suggestedStartsAt == -1 ||
+                                             SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
-        if (spellDefinition.contentPack != CeContentPackContext.CeContentPack)
+        if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
         {
             return;
         }
