@@ -115,9 +115,8 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         // Swift Strike
 
-        // keep name for backward compatibility
-        var featureSwiftStrike = FeatureDefinitionAttributeModifierBuilder
-            .Create($"Feature{Name}SwiftStrike")
+        var attributeModifierSwiftStrike = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}SwiftStrike")
             .SetGuiPresentation(Category.Feature)
             .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Wisdom)
             .AddToDB();
@@ -214,7 +213,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                 powerGiftOfTheWind,
                 proficiencyAerialAgility)
             .AddFeaturesAtLevel(7,
-                featureSwiftStrike,
+                attributeModifierSwiftStrike,
                 damageAffinityIntangibleForm)
             .AddFeaturesAtLevel(11,
                 featureDeathFromAbove)
