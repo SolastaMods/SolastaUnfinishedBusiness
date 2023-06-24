@@ -2,6 +2,7 @@
 
 1.5.92.2:
 
+- fixed importing saves with active infusions or other effects
 - fixed Skin of Retribution applying poison to caster
 - rebalanced Patron Eldritch Surge's blast pursuit progression
 - promoted Ranger Sky Warrior subclass off beta

@@ -102,10 +102,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Round, 5)
-                    .SetRestrictedCreatureFamilies(
-                        CharacterFamilyDefinitions.Fey.Name,
-                        CharacterFamilyDefinitions.Fiend.Name,
-                        CharacterFamilyDefinitions.Elemental.Name)
+                    .SetRestrictedCreatureFamilies("Fey", "Fiend", "Elemental")
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,

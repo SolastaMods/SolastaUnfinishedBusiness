@@ -19,6 +19,7 @@ internal class ExtraCarefulTrackedItem
         }
 
         var entityService = ServiceRepository.GetService<IRulesetEntityService>();
+
         if (entityService == null)
         {
             return;
@@ -41,6 +42,7 @@ internal class ExtraCarefulTrackedItem
         foreach (var property in properties)
         {
             var item = EffectHelpers.GetItemByGuid(property.TargetItemGuid);
+
             if (item == null)
             {
                 continue;

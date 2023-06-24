@@ -921,7 +921,7 @@ internal static partial class SpellBuilders
             .SetStandardHitPoints(5)
             .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
             .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+            .SetCharacterFamily("Fey")
             .SetChallengeRating(0)
             .SetDroppedLootDefinition(null)
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)

@@ -52,9 +52,6 @@ internal static partial class DatabaseHelper
     internal static class CharacterFamilyDefinitions
     {
         internal static CharacterFamilyDefinition Construct { get; } = GetDefinition<CharacterFamilyDefinition>("Construct");
-        internal static CharacterFamilyDefinition Elemental { get; } = GetDefinition<CharacterFamilyDefinition>("Elemental");
-        internal static CharacterFamilyDefinition Fey { get; } = GetDefinition<CharacterFamilyDefinition>("Fey");
-        internal static CharacterFamilyDefinition Fiend { get; } = GetDefinition<CharacterFamilyDefinition>("Fiend");
         internal static CharacterFamilyDefinition Humanoid { get; } = GetDefinition<CharacterFamilyDefinition>("Humanoid");
         internal static CharacterFamilyDefinition Undead { get; } = GetDefinition<CharacterFamilyDefinition>("Undead");
     }
