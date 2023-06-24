@@ -2,10 +2,13 @@
 
 1.5.92.1:
 
+- added Ranger Sky Warrior subclass [beta]
+- changed Circle of the Eternal Groove's verdancy duration to 5 rounds at 14th
 - fixed medium armor validator [Fairy, Feral, Bladedancer]
 - fixed HasKnowledgeOfSpell validator [consume slots on reaction]
 - fixed IsMelee validator [Marshal]
 - fixed Thunder Gauntlet interaction with Dual Flurry
+- updated Japanese, Italian, and Spanish unofficial translations
 
 1.5.92.0:
 
