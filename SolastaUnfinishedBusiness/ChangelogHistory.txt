@@ -4,6 +4,7 @@
 
 - fixed Skin of Retribution applying poison to caster
 - rebalanced Patron Eldritch Surge's blast pursuit progression
+- promoted Ranger Sky Warrior subclass off beta
 - updated Korean unofficial translations to game version 1.5.92
 
 1.5.92.1:

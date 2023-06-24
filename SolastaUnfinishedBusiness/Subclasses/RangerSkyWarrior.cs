@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -16,6 +15,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -48,8 +48,8 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         var conditionGiftOfTheWindAttacked = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWindAttacked")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -58,6 +58,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             .Create($"AdditionalDamage{Name}GiftOfTheWind")
             .SetGuiPresentationNoContent(true)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionGiftOfTheWindAttacked)
             .AddToDB();
 
@@ -71,7 +72,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             .Create($"CombatAffinity{Name}GiftOfTheWind")
             .SetGuiPresentationNoContent(true)
             .SetAttackOfOpportunityImmunity(true)
-            .SetSituationalContext(SituationalContext.TargetHasCondition, conditionGiftOfTheWindAttacked)
+            .SetSituationalContext(SituationalContext.SourceHasCondition, conditionGiftOfTheWindAttacked)
             .AddToDB();
 
         _conditionGiftOfTheWind = ConditionDefinitionBuilder
@@ -114,12 +115,12 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         // Swift Strike
 
-        var featureSwiftStrike = FeatureDefinitionBuilder
+        // keep name for backward compatibility
+        var featureSwiftStrike = FeatureDefinitionAttributeModifierBuilder
             .Create($"Feature{Name}SwiftStrike")
             .SetGuiPresentation(Category.Feature)
+            .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Wisdom)
             .AddToDB();
-
-        featureSwiftStrike.SetCustomSubFeatures(new InitiativeEndListenerSwiftStrike(featureSwiftStrike));
 
         // Intangible Form
 
@@ -138,8 +139,10 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
         var featureDeathFromAbove = FeatureDefinitionBuilder
             .Create($"Feature{Name}DeathFromAbove")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyDeathFromAbove())
             .AddToDB();
+
+        featureDeathFromAbove.SetCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnEnemyDeathFromAbove(featureDeathFromAbove, conditionGiftOfTheWindAttacked));
 
         //
         // LEVEL 15
@@ -167,7 +170,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(
                 ValidatorsCharacter.HasShield,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+                ValidatorsCharacter.HasNoneOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -189,7 +192,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder
@@ -252,48 +255,19 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
         }
     }
 
-    private sealed class InitiativeEndListenerSwiftStrike : IInitiativeEndListener
-    {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public InitiativeEndListenerSwiftStrike(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
-        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
-        {
-            const string TEXT = "Feedback/&FeatureSwiftStrikeLine";
-
-            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-
-            if (Gui.Battle == null || gameLocationScreenBattle == null)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var wisdomModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom)));
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Remove, false, false);
-
-            locationCharacter.LastInitiative += wisdomModifier;
-            Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
-
-            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
-                GameLocationBattle.ContenderModificationMode.Add, false, false);
-
-            locationCharacter.RulesetCharacter.LogCharacterUsedFeature(_featureDefinition,
-                TEXT,
-                false,
-                (ConsoleStyleDuplet.ParameterType.Initiative, wisdomModifier.ToString()));
-        }
-    }
-
     private sealed class AttackBeforeHitConfirmedOnEnemyDeathFromAbove : IAttackBeforeHitConfirmedOnEnemy
     {
+        private readonly ConditionDefinition _conditionGiftOfTheWindAttacked;
+        private readonly FeatureDefinition _featureDefinition;
+
+        public AttackBeforeHitConfirmedOnEnemyDeathFromAbove(
+            FeatureDefinition featureDefinition,
+            ConditionDefinition conditionGiftOfTheWindAttacked)
+        {
+            _featureDefinition = featureDefinition;
+            _conditionGiftOfTheWindAttacked = conditionGiftOfTheWindAttacked;
+        }
+
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -324,9 +298,16 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                 yield break;
             }
 
+            if (!rulesetAttacker.HasAnyConditionOfType(_conditionGiftOfTheWind.Name))
+            {
+                yield break;
+            }
+
             var rolls = new List<int>();
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+
+            rulesetAttacker.LogCharacterUsedFeature(_featureDefinition);
 
             foreach (var gameLocationDefender in battle.Battle.AllContenders
                          .Where(x => x.Side != attacker.Side &&
@@ -356,6 +337,31 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                     new RollInfo(damage.DieType, rolls, bonusDamage),
                     false,
                     out _);
+
+                if (!criticalHit)
+                {
+                    continue;
+                }
+
+                var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(
+                    x => x.ConditionDefinition == _conditionGiftOfTheWindAttacked);
+
+                if (rulesetCondition == null)
+                {
+                    rulesetDefender.InflictCondition(
+                        _conditionGiftOfTheWindAttacked.Name,
+                        _conditionGiftOfTheWindAttacked.DurationType,
+                        _conditionGiftOfTheWindAttacked.DurationParameter,
+                        _conditionGiftOfTheWindAttacked.TurnOccurence,
+                        AttributeDefinitions.TagCombat,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        null,
+                        0,
+                        0,
+                        0);
+                }
             }
         }
     }

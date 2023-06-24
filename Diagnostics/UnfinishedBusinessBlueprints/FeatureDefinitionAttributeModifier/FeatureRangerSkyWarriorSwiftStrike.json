@@ -1,5 +1,12 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "Initiative",
+  "modifierOperation": "AddAbilityScoreBonus",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Wisdom",
+  "situationalContext": "None",
+  "minimum1": true,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

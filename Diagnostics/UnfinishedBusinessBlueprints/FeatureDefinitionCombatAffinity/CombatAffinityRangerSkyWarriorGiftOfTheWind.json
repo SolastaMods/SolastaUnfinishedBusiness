@@ -21,7 +21,7 @@
   "myDamageReductionValueDetermination": "None",
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
-  "situationalContext": "TargetHasCondition",
+  "situationalContext": "SourceHasCondition",
   "requiredCondition": "Definition:ConditionRangerSkyWarriorGiftOfTheWindAttacked:7953fd87-6bf6-5a6c-abca-6bd37fbaab05",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
