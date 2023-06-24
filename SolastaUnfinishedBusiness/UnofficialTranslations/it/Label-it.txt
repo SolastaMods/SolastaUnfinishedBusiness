@@ -1,7 +1,7 @@
-Label/&CampfireLocationRestDescription=VUOTO
-Label/&CampfireLocationRestTitle=VUOTO
-Label/&CampfireResumeTravelRestDescription=VUOTO
-Label/&CampfireResumeTravelRestTitle=VUOTO
+Label/&CampfireLocationRestDescription=
+Label/&CampfireLocationRestTitle=
+Label/&CampfireResumeTravelRestDescription=
+Label/&CampfireResumeTravelRestTitle=
 Label/&EnterLocationDescription=Chiedi al gruppo di entrare in questo luogo.
 Label/&EnterLocationTitle=accedere
 Label/&TravelToLocationDescription=Preparati a viaggiare in questa posizione.

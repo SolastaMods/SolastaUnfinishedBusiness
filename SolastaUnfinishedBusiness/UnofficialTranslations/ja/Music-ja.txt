@@ -19,3 +19,4 @@ Music/&ValleyTitle=谷
 Music/&PactClawTitle=爪の協定
 Music/&DemonsTitle=悪魔
 Music/&GreatColdTitle=大寒波
+Music/&TavernTitle=肩掛け

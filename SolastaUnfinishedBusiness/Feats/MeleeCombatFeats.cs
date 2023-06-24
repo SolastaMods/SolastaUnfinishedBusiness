@@ -746,7 +746,7 @@ internal static class MeleeCombatFeats
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityFeatCrusher")
-                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition)
+                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition, Gui.NoLocalization)
                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                         .AddToDB())
                 .AddToDB()))

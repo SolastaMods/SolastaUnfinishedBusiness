@@ -67,6 +67,7 @@ internal static class SubclassesContext
         LoadSubclass(new RangerArcanist());
         LoadSubclass(new RangerLightBearer());
         LoadSubclass(new RangerHellWalker());
+        LoadSubclass(new RangerSkyWarrior(), true);
         LoadSubclass(new RangerSurvivalist());
         LoadSubclass(new RangerWildMaster());
 

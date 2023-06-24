@@ -922,6 +922,7 @@ public static class RulesetCharacterHeroPatcher
         {
             //TODO: convert this to an interface
             FairyRaceBuilder.OnItemEquipped(__instance);
+            RangerSkyWarrior.OnItemEquipped(__instance);
             TieflingRaceBuilder.OnItemEquipped(__instance);
             WizardBladeDancer.OnItemEquipped(__instance);
         }

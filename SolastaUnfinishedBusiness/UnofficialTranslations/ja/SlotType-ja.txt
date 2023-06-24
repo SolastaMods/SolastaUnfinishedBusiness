@@ -32,5 +32,5 @@ SlotType/&UtilitySlotDescription=ここにはユーティリティアイテム�
 SlotType/&UtilitySlotTitle=効用
 SlotType/&WristsSlotDescription=ここでブレイサーを装備できます。
 SlotType/&WristsSlotTitle=手首
-SlotType/&ShouldersSlotDescription=ここではマントや肩甲を装備することができます。
+SlotType/&ShouldersSlotDescription=ここではマントや肩甲を装備できます。
 SlotType/&ShouldersSlotTitle=肩

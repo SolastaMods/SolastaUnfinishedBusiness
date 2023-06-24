@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRangerSkyWarriorCloudDanceSprout:49620ed0-a7e0-5192-86dd-30a1e5b16bba",
+    "Definition:PowerRangerSkyWarriorCloudDanceDismiss:f81812a6-6290-5075-855f-d9e5f97949ab"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerRangerSkyWarriorCloudDanceSproutTitle",
+    "description": "Feature/&PowerRangerSkyWarriorCloudDanceSproutDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "77be2520-f920-58ec-8c4e-5eb78f961427",
+  "contentPack": 9999,
+  "name": "FeatureSetRangerSkyWarriorCloudDance"
+}

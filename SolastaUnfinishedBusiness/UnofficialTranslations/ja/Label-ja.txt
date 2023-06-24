@@ -1,7 +1,7 @@
-Label/&CampfireLocationRestDescription=空
-Label/&CampfireLocationRestTitle=空
-Label/&CampfireResumeTravelRestDescription=空
-Label/&CampfireResumeTravelRestTitle=空
+Label/&CampfireLocationRestDescription=
+Label/&CampfireLocationRestTitle=
+Label/&CampfireResumeTravelRestDescription=
+Label/&CampfireResumeTravelRestTitle=
 Label/&EnterLocationDescription=パーティーにこの場所に入ってもらいます。
 Label/&EnterLocationTitle=入力
 Label/&TravelToLocationDescription=この場所への旅行の準備をしてください。
