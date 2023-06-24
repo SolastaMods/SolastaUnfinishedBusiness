@@ -1,4 +1,4 @@
-InputBinding/&LeftAlt=左Alt+
+InputBinding/&LeftAlt=LeftAlt+
 InputBinding/&LeftControl=左Ctrl +
 InputBinding/&LeftShift=左シフト +
 InputBinding/&MainFormat=ショートカット: {0}

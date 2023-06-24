@@ -1,7 +1,7 @@
 NamedPlace/&AerElai_Title=アエルエライ
 NamedPlace/&BADLANDS_Title=バッドランズ
 NamedPlace/&CopperheadRoad_Title=カッパーヘッド\nロード
-NamedPlace/&DUCHY_caercyflen_Title=\nチェスター公国 コンテンツ
+NamedPlace/&DUCHY_caercyflen_Title=\nチェスター公国 内容
 NamedPlace/&DUCHY_easternforests_Title=東森林公国\n
 NamedPlace/&DUCHY_northernhills_Title=ノーザン ヒルズ公国\n
 NamedPlace/&DUCHY_northernplains_Title=北平原公国\n

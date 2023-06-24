@@ -180,3 +180,4 @@ MainMenu/&CharactersImportedMultiplayerTitle=保存ファイルは正常にイ�
 MainMenu/&CharactersImportFailedTitle=保存ファイルをインポートできませんでした。
 MainMenu/&ReservedCharacterSlotTitle=予約済み
 MainMenu/&ReservedCharacterSlotDescription=このスロットは、セッションに参加する他のプレイヤーのために予約されています。
+MainMenu/&BuiltInCharacterDescription=ソラスタのプリジェネ（デフォルト）キャラです。

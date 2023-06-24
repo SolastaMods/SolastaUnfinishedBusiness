@@ -22,5 +22,5 @@ DialogFlags/&SelfPreservation_Description=何よりも自分自身の安全に�
 DialogFlags/&SelfPreservation_Title=注意
 DialogFlags/&Slang_Description=このキャラクターはスラングを多用しており、時には下品で下品な言葉も含まれます。
 DialogFlags/&Slang_Title=スラング
-DialogFlags/&Violence_Description=たとえ他の選択肢がある場合でも、暴力で問題を解決しようとする傾向。
+DialogFlags/&Violence_Description=たとえ他の選択肢がある場合でも、暴力で問題を解決する傾向。
 DialogFlags/&Violence_Title=暴力
