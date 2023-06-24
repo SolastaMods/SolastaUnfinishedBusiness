@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Ne peut pas faire d'attaques d'opportunité contre la source.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Don du vent
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription=Don du vent
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle=Don du vent
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Vous gagnez des sorts bonus qui sont considérés comme des sorts de Ranger pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de Ranger que vous connaissez :\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Sorts bonus du Guerrier céleste
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Gagne une résistance aux dégâts contondants.

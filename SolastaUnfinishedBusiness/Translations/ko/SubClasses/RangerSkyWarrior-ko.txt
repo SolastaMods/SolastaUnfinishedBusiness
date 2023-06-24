@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=소스에 대해 기회 공격을 할 수 없습니다.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=바람의 선물
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription=바람의 선물
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle=바람의 선물
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=레인저 주문으로 간주되는 보너스 주문을 얻습니다. 이 주문은 항상 준비되어 있으며 알고 있는 레인저 주문 수에 포함되지 않습니다.\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=스카이 워리어 보너스 주문
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=타격 피해에 대한 저항력을 얻습니다.

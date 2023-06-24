@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Não é possível fazer ataques de oportunidade contra a fonte.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Presente do vento
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription=Presente do vento
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle=Presente do vento
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Você ganha feitiços de bônus que são considerados feitiços de Ranger para você, eles estão sempre preparados e não contam para o número de feitiços de Ranger que você conhece:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Feitiços Bônus do Guerreiro do Céu
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Ganhe resistência a dano de concussão.

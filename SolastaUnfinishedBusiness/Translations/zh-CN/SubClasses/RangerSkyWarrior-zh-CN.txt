@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=无法对源进行借机攻击。
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=风的礼物
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription=风的礼物
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle=风的礼物
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=您获得的额外法术被视为游侠法术，它们始终是准备好的，并且不计入您所知道的游侠法术数量：\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=天空战士奖励法术
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=获得对钝击伤害的抵抗力。

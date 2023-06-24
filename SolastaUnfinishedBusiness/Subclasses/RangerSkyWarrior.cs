@@ -77,7 +77,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         _conditionGiftOfTheWind = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWind")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Gui.NoLocalization)
             .SetPossessive()
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();

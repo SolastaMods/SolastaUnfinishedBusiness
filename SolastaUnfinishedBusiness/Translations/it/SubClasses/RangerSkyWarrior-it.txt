@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Non può eseguire attacchi di opportunità contro la fonte.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Dono del vento
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription=Dono del vento
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle=Dono del vento
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Ottieni incantesimi bonus che per te sono considerati incantesimi da Ranger, sono sempre preparati e non contano per il numero di incantesimi da Ranger che conosci:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Incantesimi Bonus Guerriero del Cielo
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Ottieni resistenza ai danni contundenti.

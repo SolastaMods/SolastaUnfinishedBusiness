@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Cannot do opportunity attacks against the source.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Gift of the Wind
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription=Gift of the Wind
-Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle=Gift of the Wind
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Sky Warrior Bonus Spells
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Gain resistance to bludgeoning damage.
