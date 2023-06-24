@@ -12,15 +12,16 @@ public static class ValidatorsRestrictedContext
         new RestrictedContextValidator((_, _, _, _, _, mode, _) => (OperationType.Set, mode != null));
 
     public static readonly IRestrictedContextValidator IsMeleeWeaponAttack =
-        new RestrictedContextValidator((_, _, _, _, _, mode, _) => (OperationType.Set, ValidatorsWeapon.IsMelee(mode)));
+        new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+            (OperationType.Set, ValidatorsWeapon.IsMelee(mode)));
 
     public static readonly IRestrictedContextValidator IsOathOfThunder =
-        new RestrictedContextValidator((_, _, character, _, _, mode, _) => (OperationType.Set,
-            character.GetSubclassLevel(Paladin, OathOfThunder.Name) >= 3 &&
-            OathOfThunder.IsOathOfThunderWeapon(mode, null, character)));
+        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+            (OperationType.Set, character.GetSubclassLevel(Paladin, OathOfThunder.Name) >= 3 &&
+                                OathOfThunder.IsOathOfThunderWeapon(mode, null, character)));
 
     public static readonly IRestrictedContextValidator IsOathOfDemonHunter =
-        new RestrictedContextValidator((_, _, character, _, _, mode, _) => (OperationType.Set,
-            character.GetSubclassLevel(Paladin, OathOfDemonHunter.Name) >= 3 &&
-            OathOfDemonHunter.IsOathOfDemonHunterWeapon(mode, null, character)));
+        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+            (OperationType.Set, character.GetSubclassLevel(Paladin, OathOfDemonHunter.Name) >= 3 &&
+                                OathOfDemonHunter.IsOathOfDemonHunterWeapon(mode, null, character)));
 }

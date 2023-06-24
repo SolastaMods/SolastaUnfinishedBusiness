@@ -20,12 +20,11 @@ internal sealed class Crippling : AbstractFightingStyle
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Crippling", Resources.Crippling, 256))
         .SetFeatures(
             FeatureDefinitionAdditionalDamageBuilder
-                .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
+                .Create("AdditionalDamageCrippling")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(Name)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                .SetDamageDice(DieType.D1, 0)
+                .SetAttackModeOnly()
                 .SetConditionOperations(
                     new ConditionOperationDescription
                     {
