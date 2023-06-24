@@ -129,7 +129,7 @@ public static class CharacterActionPatcher
                 {
                     var character = target?.RulesetCharacter;
 
-                    if (character is not {IsDeadOrDyingOrUnconscious: false})
+                    if (character is not { IsDeadOrDyingOrUnconscious: false })
                     {
                         continue;
                     }

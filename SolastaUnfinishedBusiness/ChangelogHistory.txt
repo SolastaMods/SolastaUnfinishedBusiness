@@ -3,8 +3,10 @@
 1.5.92.2:
 
 - fixed importing saves with active infusions or other effects
+- fixed multiplayer desyncs caused by Killing Spree, Spell Fighting, and Horde Breaker
 - fixed Path of the Elements' conduit storm not cancelling flying on rage stop
 - fixed Skin of Retribution applying poison to caster
+- fixed vanilla nerf on Dwarf Dagger critical threshold [back to 18 with proper stacking]
 - rebalanced Patron Eldritch Surge's blast pursuit progression
 - promoted Ranger Sky Warrior subclass off beta
 - updated Korean unofficial translations to game version 1.5.92
