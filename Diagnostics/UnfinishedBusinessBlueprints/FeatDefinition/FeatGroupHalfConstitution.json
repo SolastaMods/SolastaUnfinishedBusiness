@@ -14,7 +14,7 @@
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatGroupHalfConstitutionTitle",
     "description": "Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Sturdiness of the Tundra",
     "spriteReference": {

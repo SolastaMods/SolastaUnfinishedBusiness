@@ -14,7 +14,7 @@
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatGroupHalfStrengthTitle",
     "description": "Awaken the Beast [Str], Close Quarters [Int], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Medium Armor [Str], Might of the Iron Legion, Piercer [Str], Primal Rage [Str], Revenant Great Sword [Str], Slasher [Str], Squat Nimbleness [Str]",
     "spriteReference": {

@@ -14,7 +14,7 @@
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatGroupHalfDexterityTitle",
     "description": "Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Precision [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Medium Armor [Dex], Piercer [Dex], Revenant Great Sword [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy",
     "spriteReference": {
