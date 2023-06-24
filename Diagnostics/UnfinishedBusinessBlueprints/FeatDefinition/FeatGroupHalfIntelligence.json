@@ -1,0 +1,42 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&FeatGroupHalfIntelligenceTitle",
+    "description": "Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Creed of Pakri, Elven Precision [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "39fe162a-6661-5683-8ddb-dee9d5deed01",
+  "contentPack": 9999,
+  "name": "FeatGroupHalfIntelligence"
+}

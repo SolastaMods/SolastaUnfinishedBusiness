@@ -915,6 +915,13 @@ FeatGroupFadeAway	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWith
 FeatGroupFightingStyle	FeatDefinition	FeatDefinition	a9395b1c-83fc-5649-9eb2-508ed6e87571
 FeatGroupFlameTouched	FeatDefinition	FeatDefinition	d56829e9-dad7-5512-a8e3-7a221bcc5774
 FeatGroupGeneralAdept	FeatDefinition	FeatDefinition	9677216f-edab-5910-a6bb-0296ce05203b
+FeatGroupHalfAttributes	FeatDefinition	FeatDefinition	1f0775a5-2716-5e54-b59e-6c5bae3c0ae6
+FeatGroupHalfCharisma	FeatDefinition	FeatDefinition	9bdeb488-e5f4-5530-90cf-f4877940651d
+FeatGroupHalfConstitution	FeatDefinition	FeatDefinition	d0acb623-d0e3-5abb-a409-4c3dc88d470d
+FeatGroupHalfDexterity	FeatDefinition	FeatDefinition	beb9378e-da32-503f-8faf-5d4e08b14a05
+FeatGroupHalfIntelligence	FeatDefinition	FeatDefinition	39fe162a-6661-5683-8ddb-dee9d5deed01
+FeatGroupHalfStrength	FeatDefinition	FeatDefinition	70f5f340-191c-5c60-acbc-b303295d1095
+FeatGroupHalfWisdom	FeatDefinition	FeatDefinition	9cfc6b10-0263-5957-b060-2d4b6b901933
 FeatGroupHardy	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	43734d1c-ff07-5ffc-8895-7c9b356cb46d
 FeatGroupIridescentTouched	FeatDefinition	FeatDefinition	b71cd7fa-35e9-5a58-9f46-290c363220bd
 FeatGroupMagicInitiate	FeatDefinition	FeatDefinition	c9eb9385-67a0-5edb-8e5f-f87b91ab96c1

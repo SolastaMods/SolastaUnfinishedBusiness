@@ -5,7 +5,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -17,23 +18,23 @@ internal static class GroupFeats
     private static readonly List<FeatDefinition> Groups = new();
 
     internal static FeatDefinition FeatGroupAgilityCombat { get; } = MakeGroup("FeatGroupAgilityCombat", null,
-        FeatDefinitions.EagerForBattle,
-        FeatDefinitions.ForestRunner,
-        FeatDefinitions.ReadyOrNot,
-        FeatDefinitions.RushToBattle);
+        EagerForBattle,
+        ForestRunner,
+        ReadyOrNot,
+        RushToBattle);
 
     internal static FeatDefinition FeatGroupDefenseCombat { get; } = MakeGroup("FeatGroupDefenseCombat", null,
-        FeatDefinitions.CloakAndDagger,
-        FeatDefinitions.RaiseShield,
-        FeatDefinitions.TwinBlade);
+        CloakAndDagger,
+        RaiseShield,
+        TwinBlade);
 
     internal static FeatDefinition FeatGroupElementalTouch { get; } = MakeGroup("FeatGroupElementalTouch",
         "Touch",
-        FeatDefinitions.BurningTouch,
-        FeatDefinitions.ToxicTouch,
-        FeatDefinitions.ElectrifyingTouch,
-        FeatDefinitions.IcyTouch,
-        FeatDefinitions.MeltingTouch);
+        BurningTouch,
+        ToxicTouch,
+        ElectrifyingTouch,
+        IcyTouch,
+        MeltingTouch);
 
     internal static FeatDefinition FeatGroupFightingStyle { get; } = MakeGroup("FeatGroupFightingStyle", null);
 
@@ -44,16 +45,16 @@ internal static class GroupFeats
     internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
 
     internal static FeatDefinition FeatGroupSpellCombat { get; } = MakeGroup("FeatGroupSpellCombat", null,
-        FeatDefinitions.FlawlessConcentration,
-        FeatDefinitions.PowerfulCantrip);
+        FlawlessConcentration,
+        PowerfulCantrip);
 
     internal static FeatDefinition FeatGroupSupportCombat { get; } = MakeGroup("FeatGroupSupportCombat", null,
-        FeatDefinitions.Mender);
+        Mender);
 
     internal static FeatDefinition FeatGroupTwoHandedCombat { get; } = MakeGroup("FeatGroupTwoHandedCombat", null,
-        FeatDefinitions.MightyBlow,
-        FeatDefinitions.ForestallingStrength,
-        FeatDefinitions.FollowUpStrike);
+        MightyBlow,
+        ForestallingStrength,
+        FollowUpStrike);
 
     internal static FeatDefinition FeatGroupUnarmoredCombat { get; } = MakeGroup("FeatGroupUnarmoredCombat", null,
         FeatGroupElementalTouch);
@@ -79,15 +80,78 @@ internal static class GroupFeats
     internal static void Load(Action<FeatDefinition> loader)
     {
         MakeGroup("FeatGroupCreed", null,
-            FeatDefinitions.Creed_Of_Arun,
-            FeatDefinitions.Creed_Of_Einar,
-            FeatDefinitions.Creed_Of_Maraike,
-            FeatDefinitions.Creed_Of_Misaye,
-            FeatDefinitions.Creed_Of_Pakri,
-            FeatDefinitions.Creed_Of_Solasta);
+            Creed_Of_Einar,
+            Creed_Of_Misaye,
+            Creed_Of_Arun,
+            Creed_Of_Pakri,
+            Creed_Of_Maraike,
+            Creed_Of_Solasta);
+
+        MakeFeatGroupHalfAttributes();
 
         Groups.ForEach(ApplyDynamicDescription);
         Groups.ForEach(loader);
+    }
+
+    private static void MakeFeatGroupHalfAttributes()
+    {
+        var featGroupHalfStrength = MakeGroup("FeatGroupHalfStrength", null);
+        var featGroupHalfDexterity = MakeGroup("FeatGroupHalfDexterity", null);
+        var featGroupHalfConstitution = MakeGroup("FeatGroupHalfConstitution", null);
+        var featGroupHalfIntelligence = MakeGroup("FeatGroupHalfIntelligence", null);
+        var featGroupHalfWisdom = MakeGroup("FeatGroupHalfWisdom", null);
+        var featGroupHalfCharisma = MakeGroup("FeatGroupHalfCharisma", null);
+
+        foreach (var featDefinition in DatabaseRepository.GetDatabase<FeatDefinition>())
+        {
+            var attributeModifiers = featDefinition.Features
+                .OfType<FeatureDefinitionAttributeModifier>()
+                .Where(y =>
+                    AttributeDefinitions.AbilityScoreNames.Contains(y.ModifiedAttribute) &&
+                    y.ModifierOperation == AttributeModifierOperation.Additive &&
+                    y.ModifierValue == 1)
+                .ToList();
+
+            if (attributeModifiers.Count != 1)
+            {
+                continue;
+            }
+
+            switch (attributeModifiers[0].ModifiedAttribute)
+            {
+                case AttributeDefinitions.Strength:
+                    featGroupHalfStrength.AddFeats(featDefinition);
+                    break;
+
+                case AttributeDefinitions.Dexterity:
+                    featGroupHalfDexterity.AddFeats(featDefinition);
+                    break;
+
+                case AttributeDefinitions.Constitution:
+                    featGroupHalfConstitution.AddFeats(featDefinition);
+                    break;
+
+                case AttributeDefinitions.Intelligence:
+                    featGroupHalfIntelligence.AddFeats(featDefinition);
+                    break;
+
+                case AttributeDefinitions.Wisdom:
+                    featGroupHalfWisdom.AddFeats(featDefinition);
+                    break;
+
+                case AttributeDefinitions.Charisma:
+                    featGroupHalfCharisma.AddFeats(featDefinition);
+                    break;
+            }
+        }
+
+        MakeGroup("FeatGroupHalfAttributes", null,
+            featGroupHalfStrength,
+            featGroupHalfDexterity,
+            featGroupHalfConstitution,
+            featGroupHalfIntelligence,
+            featGroupHalfWisdom,
+            featGroupHalfCharisma);
     }
 
     internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
