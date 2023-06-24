@@ -131,7 +131,6 @@ public static class InnovationArmor
                 ValidatorsPowerUse.NotInCombat,
                 new AddGauntletAttack(),
                 DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
@@ -153,7 +152,6 @@ public static class InnovationArmor
                 ValidatorsPowerUse.NotInCombat,
                 new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
                 DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)

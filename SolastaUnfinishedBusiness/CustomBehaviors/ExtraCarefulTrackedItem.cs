@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -17,8 +18,16 @@ internal class ExtraCarefulTrackedItem
             return;
         }
 
-        ProcessSummonedItems(activeEffect);
-        ProcessItemProperties(activeEffect);
+        var entityService = ServiceRepository.GetService<IRulesetEntityService>();
+        if (entityService == null)
+        {
+            return;
+        }
+
+        var allEntities = entityService.RulesetEntities.Values;
+
+        ProcessSummonedItems(activeEffect, allEntities);
+        ProcessItemProperties(activeEffect, allEntities);
     }
 
     internal static void FixDynamicPropertiesWithoutEffect()
@@ -49,12 +58,9 @@ internal class ExtraCarefulTrackedItem
                && EffectHelpers.GetEffectByGuid(p.SourceEffectGuid) == null;
     }
 
-    private static void ProcessSummonedItems(RulesetEffect activeEffect)
+    private static void ProcessSummonedItems(RulesetEffect activeEffect,
+        Dictionary<ulong, RulesetEntity>.ValueCollection allEntities)
     {
-        var allEntities = ServiceRepository
-            .GetService<IRulesetEntityService>()
-            .RulesetEntities.Values;
-
         var characters = allEntities
             .Select(e => e as RulesetCharacter)
             .Where(e => e != null)
@@ -99,16 +105,14 @@ internal class ExtraCarefulTrackedItem
         activeEffect.TrackedSummonedItemGuids.Clear();
     }
 
-    private static void ProcessItemProperties(RulesetEffect activeEffect)
+    private static void ProcessItemProperties(RulesetEffect activeEffect, IEnumerable<RulesetEntity> allEntities)
     {
         if (activeEffect.TrackedItemPropertyGuids.Empty())
         {
             return;
         }
 
-        var items = ServiceRepository
-            .GetService<IRulesetEntityService>()
-            .RulesetEntities.Values.OfType<RulesetItem>().ToList();
+        var items = allEntities.OfType<RulesetItem>().ToList();
 
         foreach (var item in items)
         {
