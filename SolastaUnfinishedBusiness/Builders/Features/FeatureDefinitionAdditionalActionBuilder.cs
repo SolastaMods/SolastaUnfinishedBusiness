@@ -20,15 +20,6 @@ internal class FeatureDefinitionAdditionalActionBuilder
         return this;
     }
 
-#if false
-    internal FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(
-        RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
-    {
-        Definition.triggerCondition = triggerCondition;
-        return this;
-    }
-#endif
-
     internal FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
         params ActionDefinitions.Id[] restrictedActions)
     {
@@ -37,7 +28,6 @@ internal class FeatureDefinitionAdditionalActionBuilder
         return this;
     }
 
-#if true
     internal FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
         params ActionDefinitions.Id[] forbiddenActions)
     {
@@ -45,7 +35,6 @@ internal class FeatureDefinitionAdditionalActionBuilder
         Definition.ForbiddenActions.Sort();
         return this;
     }
-#endif
 
     #region Constructors
 

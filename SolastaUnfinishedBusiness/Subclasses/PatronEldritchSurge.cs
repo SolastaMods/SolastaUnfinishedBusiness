@@ -37,13 +37,13 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddToDB();
 
     private static readonly FeatureDefinitionAdditionalAction AdditionalActionBlastPursuitOff =
-    FeatureDefinitionAdditionalActionBuilder
-        .Create($"AdditionalAction{Name}BlastPursuitOff")
-        .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(AllowDuplicates.Mark)
-        .SetActionType(ActionType.Bonus)
-        .SetForbiddenActions(Id.AttackOff)
-        .AddToDB();
+        FeatureDefinitionAdditionalActionBuilder
+            .Create($"AdditionalAction{Name}BlastPursuitOff")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(AllowDuplicates.Mark)
+            .SetActionType(ActionType.Bonus)
+            .SetForbiddenActions(Id.AttackOff)
+            .AddToDB();
 
     private static readonly ConditionDefinition ConditionExtraActionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}ExtraActionBlastPursuit")
@@ -53,11 +53,11 @@ internal class PatronEldritchSurge : AbstractSubclass
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionExtraActionBlastPursuitOff = ConditionDefinitionBuilder
-    .Create($"Condition{Name}ExtraActionBlastPursuitOff")
-    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-    .SetSilent(Silent.WhenAddedOrRemoved)
-    .SetFeatures(AdditionalActionBlastPursuitOff)
-    .AddToDB();
+        .Create($"Condition{Name}ExtraActionBlastPursuitOff")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(AdditionalActionBlastPursuitOff)
+        .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastPursuit")
@@ -118,9 +118,9 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
                 .SetEffectForms(
-                EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
-                EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
-                EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuitOff))
+                    EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
+                    EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
+                    EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuitOff))
                 .Build())
             .AddToDB();
 
@@ -205,7 +205,9 @@ internal class PatronEldritchSurge : AbstractSubclass
             var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
             var increaseLevels = new[] { 3, 8, 13, 18 };
             var additionalBeamCount = increaseLevels.Count(level => determinantLevel >= level);
-            var pursuitStatus = rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) ? (1 + warlockClassLevel >= 16 ? 1 : 0) : 0;
+            var pursuitStatus = rulesetCharacter.HasConditionOfType(ConditionBlastPursuit)
+                ? 1 + warlockClassLevel >= 16 ? 1 : 0
+                : 0;
             var overloadStatus = rulesetCharacter.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
 
             effectDescription.effectAdvancement.Clear();
@@ -313,7 +315,8 @@ internal class PatronEldritchSurge : AbstractSubclass
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } || !rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
             {
                 return;
             }
@@ -346,46 +349,19 @@ internal class PatronEldritchSurge : AbstractSubclass
                 _ => null
             };
 
-            if (featureToCheck is not null)
-            {
-                var filters = gameLocationCharacter.ActionPerformancesByType[actionType];
-                var k = gameLocationCharacter.CurrentActionRankByType[actionType] - 1;
-                var f = k >= 0 && k < filters.Count ? PerformanceFilterExtraData.GetData(filters[k]) : null;
-                var feature = f?.Feature;
-                if (feature == featureToCheck)
-                {
-                    rulesetCharacter.RemoveAllConditionsOfType(conditionToRemove);
-                }
-            }
-        }
-
-        private static void InflictCondition(RulesetCharacter rulesetCharacter,ConditionDefinition condition)
-        {
-            if (rulesetCharacter.HasConditionOfType(condition))
+            if (featureToCheck == null)
             {
                 return;
             }
 
-            rulesetCharacter.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0
-            );
+            var filters = gameLocationCharacter.ActionPerformancesByType[actionType];
+            var k = gameLocationCharacter.CurrentActionRankByType[actionType] - 1;
+            var f = k >= 0 && k < filters.Count ? PerformanceFilterExtraData.GetData(filters[k]) : null;
+            var feature = f?.Feature;
 
-            if (condition == ConditionBlastPursuit)
+            if (feature == featureToCheck)
             {
-                var title = condition.GuiPresentation.Title;
-                rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
-                rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
+                rulesetCharacter.RemoveAllConditionsOfType(conditionToRemove);
             }
         }
 
@@ -412,12 +388,46 @@ internal class PatronEldritchSurge : AbstractSubclass
                 InflictCondition(rulesetCharacter, ConditionBlastPursuit);
             }
 
-            if (rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
+            if (!rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
             {
-                InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuit);
-                InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuitOff);
+                return;
             }
 
+            InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuit);
+            InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuitOff);
+        }
+
+        private static void InflictCondition(RulesetCharacter rulesetCharacter, ConditionDefinition condition)
+        {
+            if (rulesetCharacter.HasConditionOfType(condition))
+            {
+                return;
+            }
+
+            rulesetCharacter.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0
+            );
+
+            if (condition != ConditionBlastPursuit)
+            {
+                return;
+            }
+
+            var title = condition.GuiPresentation.Title;
+
+            rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
+            rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
         }
     }
 
