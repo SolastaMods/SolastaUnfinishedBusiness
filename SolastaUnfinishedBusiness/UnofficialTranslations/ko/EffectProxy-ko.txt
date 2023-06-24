@@ -25,4 +25,4 @@ EffectProxy/&ProxyCallLightningTitle=전화 번개
 EffectProxy/&ProxyCallLightningDescription=번개 피해로 충격 지점 1칸 내의 모든 대상을 타격합니다.
 EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription=Vengeful Spirits를 다른 위치로 이동합니다.
 EffectProxy/&DelayedBlastFireballTitle=지연 폭발 화염구
-EffectProxy/&DelayedBlastFireballDefinition=당신의 명령에 따라 또는 주문이 종료되거나 중단될 때마다 폭발하는 불덩어리입니다.
+EffectProxy/&DelayedBlastFireballDefinition=명령에 따라 또는 주문이 종료되거나 중단될 때마다 폭발하는 불덩어리입니다.

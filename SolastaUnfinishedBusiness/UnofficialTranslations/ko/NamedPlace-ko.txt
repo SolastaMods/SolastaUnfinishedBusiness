@@ -1,6 +1,6 @@
 NamedPlace/&AerElai_Title=더 에어-엘라이
 NamedPlace/&BADLANDS_Title=황무지
-NamedPlace/&CopperheadRoad_Title=코퍼헤드\n도로
+NamedPlace/&CopperheadRoad_Title=COPPERHEAD\n로드
 NamedPlace/&DUCHY_caercyflen_Title=\n체스터 공국 콘텐츠
 NamedPlace/&DUCHY_easternforests_Title=동부 숲\n공국
 NamedPlace/&DUCHY_northernhills_Title=북부 언덕\n공국

@@ -1,5 +1,13 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Bonus",
+  "forbiddenActions": [
+    "AttackOff"
+  ],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "maxAttacksNumber": -1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "96d71670-85c0-50d0-bb43-68e3f760a5dd",
+  "guid": "76d8f712-c8ac-504b-8a58-d42d9b40b08d",
   "contentPack": 9999,
-  "name": "FeatureSoulBladeHex"
+  "name": "AdditionalActionPatronEldritchSurgeBlastPursuitOff"
 }

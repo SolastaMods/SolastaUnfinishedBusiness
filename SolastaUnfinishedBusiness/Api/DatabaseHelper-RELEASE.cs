@@ -52,9 +52,6 @@ internal static partial class DatabaseHelper
     internal static class CharacterFamilyDefinitions
     {
         internal static CharacterFamilyDefinition Construct { get; } = GetDefinition<CharacterFamilyDefinition>("Construct");
-        internal static CharacterFamilyDefinition Elemental { get; } = GetDefinition<CharacterFamilyDefinition>("Elemental");
-        internal static CharacterFamilyDefinition Fey { get; } = GetDefinition<CharacterFamilyDefinition>("Fey");
-        internal static CharacterFamilyDefinition Fiend { get; } = GetDefinition<CharacterFamilyDefinition>("Fiend");
         internal static CharacterFamilyDefinition Humanoid { get; } = GetDefinition<CharacterFamilyDefinition>("Humanoid");
         internal static CharacterFamilyDefinition Undead { get; } = GetDefinition<CharacterFamilyDefinition>("Undead");
     }
@@ -393,6 +390,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Misaye { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Misaye");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Pakri { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Pakri");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Solasta { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta");
+        internal static FeatureDefinitionAttributeModifier AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_Dagger+3");
         internal static FeatureDefinitionAttributeModifier AttributeModifierElfAbilityScoreIncrease { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierElfAbilityScoreIncrease");
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack");
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");

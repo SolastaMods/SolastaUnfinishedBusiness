@@ -32,5 +32,5 @@ Skill/&SleightOfHandDescription=다른 사람에게 무언가를 심거나 자�
 Skill/&SleightOfHandTitle=손의 속임수
 Skill/&StealthDescription=감지되지 않은 상태로 적 근처에 있는 동안 행동을 시도할 때 민첩(은신) 확인을 합니다. 당신의 점수는 또한 적 주위를 잠입할 때 탐지 게이지가 얼마나 빨리 채워지는지를 결정하는 데 사용됩니다.
 Skill/&StealthTitle=몰래 하기
-Skill/&SurvivalDescription=지혜(생존) 체크를 통해 트랙을 따라가거나, 야생 사냥감을 사냥하거나, 얼어붙은 황무지를 통해 그룹을 안내하거나, 올빼미곰이 근처에 살고 있다는 신호를 식별하거나, 날씨를 예측하거나, 유사 및 기타 자연적 위험을 피할 수 있습니다.
+Skill/&SurvivalDescription=지혜(생존) 체크를 통해 트랙을 따라가거나, 야생 사냥감을 사냥하거나, 얼어붙은 황무지를 통해 그룹을 안내하거나, 근처에 부엉이곰이 살고 있다는 신호를 식별하거나, 날씨를 예측하거나, 유사 및 기타 자연적 위험을 피할 수 있습니다.
 Skill/&SurvivalTitle=활착

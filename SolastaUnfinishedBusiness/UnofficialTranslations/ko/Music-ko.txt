@@ -19,3 +19,4 @@ Music/&ValleyTitle=골짜기
 Music/&PactClawTitle=발톱의 조약
 Music/&DemonsTitle=악마
 Music/&GreatColdTitle=그레이트 콜드
+Music/&TavernTitle=선술집

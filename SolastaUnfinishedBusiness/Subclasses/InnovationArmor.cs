@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static ConditionForm;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -26,14 +25,6 @@ public static class InnovationArmor
 
     public static CharacterSubclassDefinition Build()
     {
-        // BEGIN BACKWARD COMPATIBILITY
-        _ = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierInnovationArmorExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
-            .AddToDB();
-        // END BACKWARD COMPATIBILITY
-
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationArmor")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorArmor", Resources.InventorArmor, 256))
@@ -131,7 +122,6 @@ public static class InnovationArmor
                 ValidatorsPowerUse.NotInCombat,
                 new AddGauntletAttack(),
                 DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
@@ -153,7 +143,6 @@ public static class InnovationArmor
                 ValidatorsPowerUse.NotInCombat,
                 new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
                 DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)

@@ -76,26 +76,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     internal CollegeOfWarDancer()
     {
-        #region BACKWARD COMPATIBILITY
-
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionWarDanceMomentumExtraAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures()
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionImprovedWarDanceMomentumExtraAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures()
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        #endregion
-
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)

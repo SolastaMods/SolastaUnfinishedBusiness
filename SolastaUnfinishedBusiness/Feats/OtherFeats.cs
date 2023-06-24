@@ -744,10 +744,10 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatPoisonousSkin :
-        IAttackEffectAfterDamage, ICustomConditionFeature, IActionFinished
+    private class CustomBehaviorFeatPoisonousSkin : IPhysicalAttackFinished, IPhysicalAttackFinishedOnMe,
+        IActionFinished, IActionFinishedOnMe
     {
-        // handle Shove scenario
+        //Poison characters that I shove
         public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionShove)
@@ -759,89 +759,76 @@ internal static class OtherFeats
 
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                ApplyPower(rulesetAttacker, target);
+                PoisonTarget(rulesetAttacker, target);
             }
         }
 
-        // handle standard attack scenario
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+        //Poison character that shoves me
+        public IEnumerator OnActionFinishedOnMe(GameLocationCharacter me, CharacterAction action)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            if (action is not CharacterActionShove)
+            {
+                yield break;
+            }
 
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
-                !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode))
+            PoisonTarget(me.RulesetCharacter, action.ActingCharacter);
+        }
+
+        //Poison target if I attack with unarmed
+        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter me, GameLocationCharacter target, RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome, int damageAmount)
+        {
+            //Missed: skipping
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
+
+            //Not unarmed attack: skipping
+            if (!ValidatorsWeapon.IsUnarmed(me.RulesetCharacter, attackMode))
+            {
+                yield break;
+            }
+
+            PoisonTarget(me.RulesetCharacter, target);
+        }
+
+        //Poison melee attacker
+        public IEnumerator OnAttackFinishedOnMe(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter attacker, GameLocationCharacter me, RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome, int damageAmount)
+        {
+            //Missed: skipping
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
+
+            //Not melee attack: skipping
+            if (!ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield break;
+            }
+
+            PoisonTarget(me.RulesetCharacter, attacker);
+        }
+
+        private static void PoisonTarget(RulesetCharacter me, GameLocationCharacter target)
+        {
+            var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget == null || rulesetTarget.IsDeadOrDying)
             {
                 return;
             }
 
-            ApplyPower(attacker.RulesetCharacter, defender);
-        }
+            var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, me);
 
-        // handle Grappled scenario
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            var conditionDefinition = rulesetCondition.ConditionDefinition;
-
-            if (!conditionDefinition.Name.Contains("Grappled"))
-            {
-                return;
-            }
-
-            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var grappler))
-            {
-                return;
-            }
-
-            var grapplerLocationCharacter = GameLocationCharacter.GetFromActor(grappler);
-
-            ApplyPower(target, grapplerLocationCharacter);
-        }
-
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
-        }
-
-        private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
-        {
-            var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
-            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, rulesetCharacter);
-
-            usablePower.saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus);
-
-            return ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
-        }
-
-        private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
-        {
-            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
-                x is RulesetEffectPower rulesetEffectPower &&
-                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
-
-            if (hasEffect)
-            {
-                return;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
-            {
-                return;
-            }
-
-            var effectPower = GetUsablePower(attacker);
-
-            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
+            ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(me, usablePower, false)
+                .AddAsActivePowerToSource()
+                .ApplyEffectOnCharacter(rulesetTarget, true, target.LocationPosition);
         }
     }
 

@@ -109,7 +109,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 yield break;
             }
 
-            if (Global.ControlledLocationCharacter?.Guid != attacker.Guid)
+            if (Gui.Battle?.ActiveContender != attacker)
             {
                 yield break;
             }

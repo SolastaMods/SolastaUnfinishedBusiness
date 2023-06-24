@@ -154,7 +154,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 06
         //
 
-        //ideally this should be simple feature, but leaving as Power for compatibility
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature)

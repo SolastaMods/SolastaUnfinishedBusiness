@@ -131,8 +131,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRangerSkyWarriorGiftOfTheWindTitle",
-    "description": "Condition/&ConditionRangerSkyWarriorGiftOfTheWindDescription",
+    "title": "Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

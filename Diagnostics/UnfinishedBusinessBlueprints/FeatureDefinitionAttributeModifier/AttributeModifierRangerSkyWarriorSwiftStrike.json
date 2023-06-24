@@ -1,17 +1,17 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "AttacksNumber",
-  "modifierOperation": "ForceIfBetter",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
+  "modifiedAttribute": "Initiative",
+  "modifierOperation": "AddAbilityScoreBonus",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Wisdom",
   "situationalContext": "None",
-  "minimum1": false,
+  "minimum1": true,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierInnovationWeaponExtraAttackTitle",
-    "description": "Feature/&AttributeModifierInnovationWeaponExtraAttackDescription",
+    "title": "Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle",
+    "description": "Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1da02c4c-236a-5f08-9eed-eb63d5f9dcb3",
+  "guid": "c4fe236e-9228-54a8-b4af-278511de7b52",
   "contentPack": 9999,
-  "name": "AttributeModifierInnovationWeaponExtraAttack"
+  "name": "AttributeModifierRangerSkyWarriorSwiftStrike"
 }
