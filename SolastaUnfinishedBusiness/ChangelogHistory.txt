@@ -2,21 +2,25 @@
 
 1.5.92.2:
 
+TIP:
+
+- game effects are a bit odd so avoid saving with a battle in progress. both UB and vanilla
+
 ATTENTION: 
 
-- Reinstall mod if Japanese, Korean, Italian or Spanish in use for latest translations
-- RESPEC might be required on Innovation Armor and Weapon on older heroes and saves
+- Reinstall mod if Japanese, Korean, Italian or Spanish in use for latest translation files
+- RESPEC might be required on Innovation Armor, and Innovation Weapon if extra attack misbehaves
+- RESPEC is required on Ranger Sky Warrior subclass promoted off beta on this release
 
 CHANGES:
 
 - fixed importing saves with active infusions or other effects
-- fixed multiplayer desyncs caused by Killing Spree, Spell Fighting, and Horde Breaker
+- fixed multiplayer de-syncs caused by Killing Spree, Spell Fighting, and Horde Breaker
 - fixed Path of the Elements' conduit storm not cancelling flying on rage stop
 - fixed Skin of Retribution applying poison to caster
-- fixed vanilla nerf on Dwarf Dagger critical threshold [back to 18 with proper stacking]
 - improved Patron Eldritch Surge's blast pursuit progression
-- improved Way of the Dragon's features descriptions
-- promoted Ranger Sky Warrior subclass off beta
+- improved Way of the Dragon's features descriptions, and changed ascension duration to permanent
+- reverted vanilla nerf on Dwarf Dagger critical threshold [back to 18 with proper stacking]
 - updated Korean unofficial translations to game version 1.5.92
 
 1.5.92.1:
