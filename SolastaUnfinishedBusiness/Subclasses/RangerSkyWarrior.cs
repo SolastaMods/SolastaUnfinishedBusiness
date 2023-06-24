@@ -49,6 +49,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
         var conditionGiftOfTheWindAttacked = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWindAttacked")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -139,8 +140,6 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyDeathFromAbove())
             .AddToDB();
-
-        // 
 
         //
         // LEVEL 15
