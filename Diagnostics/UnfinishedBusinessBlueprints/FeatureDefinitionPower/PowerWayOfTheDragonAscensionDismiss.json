@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Minute",
-    "durationParameter": 1,
+    "durationType": "Instantaneous",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -80,7 +80,7 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionFlyingAdaptive",
           "conditionDefinition": "Definition:ConditionFlyingAdaptive:cdef2a25e10345349a181ccf2b03cd97",
-          "operation": "Add",
+          "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -107,7 +107,7 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionWayOfTheDragonAscension",
           "conditionDefinition": "Definition:ConditionWayOfTheDragonAscension:edf3ee2c-3d3d-5bea-a250-8f3dce6eb407",
-          "operation": "Add",
+          "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -319,7 +319,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -355,11 +355,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfTheDragonAscensionTitle",
-    "description": "Feature/&PowerWayOfTheDragonAscensionDescription",
+    "title": "Feature/&PowerWayOfTheDragonAscensionDismissTitle",
+    "description": "Feature/&PowerWayOfTheDragonAscensionDismissDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa6bed47-7b43-51d5-a765-5f5219cfce7b",
+      "m_AssetGUID": "71efec9c-a64a-5cf6-9a16-0e8b008c74ad",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -376,7 +376,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9178a214-cb9e-5432-a7a6-e510f5bc1e0a",
+  "guid": "df954458-c105-5ba5-b4d4-ed5848264522",
   "contentPack": 9999,
-  "name": "PowerWayOfTheDragonAscension"
+  "name": "PowerWayOfTheDragonAscensionDismiss"
 }

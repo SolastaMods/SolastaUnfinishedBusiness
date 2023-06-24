@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=飛行能力と +2 AC を獲得します。
-Condition/&ConditionWayOfTheDragonAscensionTitle=竜の昇天
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=素手攻撃は 2d6 の酸ダメージを与えます。
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=ドラゴンフューリー - アシッド
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=非武装の攻撃は 2d6 冷気ダメージを与えます。
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=長い休息ごとに熟練�
 Feature/&FeatureSetWayOfTheDragonBreathTitle=エレメンタルブレス
 Feature/&FeatureSetWayOfTheDragonFuryDescription=素手攻撃にドラゴンダメージを与える能力を獲得します。
 Feature/&FeatureSetWayOfTheDragonFuryTitle=ドラゴンの怒り
-Feature/&PowerWayOfTheDragonAscensionDescription=飛行するには 4 Ki ポイントを消費します。集中力を持たずに飛行呪文の能力を獲得し、1 分間 AC を +2 します。
+Feature/&PowerWayOfTheDragonAscensionDescription=ボーナスアクションとして、1分間自分の歩行速度と同じ飛行速度を与えることができます。
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=ドラコニック・アセンションを却下します。
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=ドラコニック・アセンション [却下]
 Feature/&PowerWayOfTheDragonAscensionTitle=竜の昇天
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=2 気ポイントを消費して、ターン終了時まで素手攻撃に 2d6 の酸ダメージを与える。
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=ドラゴンフューリー - アシッド
