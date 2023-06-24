@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Gain the ability to fly and +2 AC.
-Condition/&ConditionWayOfTheDragonAscensionTitle=Draconic Ascension
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Unarmed strikes deal 2d6 acid damage.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Dragon Fury - Acid
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=Unarmed strikes deal 2d6 cold damage.
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=Gain the ability to breath yo
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Elemental Breath
 Feature/&FeatureSetWayOfTheDragonFuryDescription=Gain the ability to imbue your unarmed strikes with your draconic damage.
 Feature/&FeatureSetWayOfTheDragonFuryTitle=Dragon's Fury
-Feature/&PowerWayOfTheDragonAscensionDescription=Spend 4 Ki points to take flight. Gain the abilities of the fly spell without concentration and +2 AC for 1 minute.
+Feature/&PowerWayOfTheDragonAscensionDescription=As an bonus action, you can give yourself a flying speed equal to your walking speed for 1 minute.
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=Dismiss Draconic Ascension.
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=Draconic Ascension [Dismiss]
 Feature/&PowerWayOfTheDragonAscensionTitle=Draconic Ascension
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=Spend 2 Ki points to imbue 2d6 acid damage on unarmed strikes until the end of your turn.
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=Dragon Fury - Acid

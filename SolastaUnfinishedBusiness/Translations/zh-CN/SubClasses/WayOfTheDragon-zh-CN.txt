@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=获得飞行能力和+2 护甲等级(AC)。
-Condition/&ConditionWayOfTheDragonAscensionTitle=飞龙在天
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=徒手攻击造成 2d6 强酸伤害。
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=巨龙之怒 - 强酸
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=徒手攻击造成 2d6 寒冷伤害。
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=每次长休获得与你的�
 Feature/&FeatureSetWayOfTheDragonBreathTitle=元素吐息
 Feature/&FeatureSetWayOfTheDragonFuryDescription=获得用你的龙类伤害灌注你的徒手攻击的能力。
 Feature/&FeatureSetWayOfTheDragonFuryTitle=巨龙之怒
-Feature/&PowerWayOfTheDragonAscensionDescription=花费 4 气点进行飞行。获得无需专注的飞行法术能力和 +2 护甲等级(AC)，持续 1 分钟。
+Feature/&PowerWayOfTheDragonAscensionDescription=作为奖励动作，你可以让自己的飞行速度等于你的步行速度，持续 1 分钟。
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=解散龙之飞升。
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=龙之飞升[解散]
 Feature/&PowerWayOfTheDragonAscensionTitle=飞龙在天
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=花费 2 点气在你的徒手攻击中造成 2d6 强酸伤害，直到你的回合结束。
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=巨龙之怒 - 强酸

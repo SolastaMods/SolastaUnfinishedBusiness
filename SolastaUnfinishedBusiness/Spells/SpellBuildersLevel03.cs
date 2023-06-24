@@ -436,49 +436,55 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Cube, 5)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-                //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
-                .SetRecurrentEffect(RecurrentEffect.OnActivation
-                                    | RecurrentEffect.OnTurnStart
-                                    | RecurrentEffect.OnEnter)
-                .SetParticleEffectParameters(SpiritGuardians)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create($"ConditionSpiritShroud{damage}")
-                            // .SetGuiPresentation(Category.Condition, ConditionSpiritGuardiansSelf)
-                            .SetGuiPresentationNoContent()
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .CopyParticleReferences(ConditionSpiritGuardiansSelf)
-                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create($"AdditionalDamageSpiritShroud{damage}")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Cube, 5)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
+                        additionalDicePerIncrement: 1)
+                    //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation
+                                        | RecurrentEffect.OnTurnStart
+                                        | RecurrentEffect.OnEnter)
+                    .SetParticleEffectParameters(SpiritGuardians)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"ConditionSpiritShroud{damage}")
                                 .SetGuiPresentationNoContent(true)
-                                .SetNotificationTag($"SpiritShroud{damage}")
-                                .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
-                                .SetAttackOnly()
-                                .SetConditionOperations(
-                                    new ConditionOperationDescription
-                                    {
-                                        conditionDefinition = noHeal,
-                                        operation = ConditionOperationDescription.ConditionOperation.Add
-                                    })
-                                .SetDamageDice(DieType.D8, 1)
-                                .SetSpecificDamageType(damage)
-                                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
-                                .AddToDB())
-                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
-                        .Build())
-                .Build())
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .CopyParticleReferences(ConditionSpiritGuardiansSelf)
+                                .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                                    .Create($"AdditionalDamageSpiritShroud{damage}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetNotificationTag($"SpiritShroud{damage}")
+                                    .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
+                                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                                    .SetAttackModeOnly()
+                                    .SetDamageDice(DieType.D8, 1)
+                                    .SetSpecificDamageType(damage)
+                                    .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
+                                    .SetConditionOperations(
+                                        new ConditionOperationDescription
+                                        {
+                                            conditionDefinition = noHeal,
+                                            operation = ConditionOperationDescription.ConditionOperation.Add
+                                        })
+                                    .SetCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeWeaponAttack)
+                                    .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
+                            .Build(),
+                        EffectFormBuilder.Create()
+                            .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
+                            .Build())
+                    .Build())
             .AddToDB();
     }
 

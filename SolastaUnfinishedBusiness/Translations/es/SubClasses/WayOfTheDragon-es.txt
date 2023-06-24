@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Gana la habilidad de volar y +2 CA.
-Condition/&ConditionWayOfTheDragonAscensionTitle=Ascensión dracónica
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Los golpes sin armas infligen 2d6 de daño por ácido.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Furia del Dragón - Ácido
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=Los golpes sin armas infligen 2d6 de daño por frío.
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=Obtenga la capacidad de respi
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Aliento elemental
 Feature/&FeatureSetWayOfTheDragonFuryDescription=Obtén la habilidad de imbuir tus golpes desarmados con tu daño dracónico.
 Feature/&FeatureSetWayOfTheDragonFuryTitle=Furia del dragón
-Feature/&PowerWayOfTheDragonAscensionDescription=Gasta 4 puntos de Ki para emprender el vuelo. Gana las habilidades del hechizo de volar sin concentración y +2 CA durante 1 minuto.
+Feature/&PowerWayOfTheDragonAscensionDescription=Como acción adicional, puedes darte una velocidad de vuelo igual a tu velocidad al caminar durante 1 minuto.
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=Descartar Ascensión dracónica.
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=Ascensión dracónica [Descartar]
 Feature/&PowerWayOfTheDragonAscensionTitle=Ascensión dracónica
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=Gasta 2 puntos de Ki para imbuir 2d6 de daño por ácido en golpes sin armas hasta el final de tu turno.
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=Furia del Dragón - Ácido

@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Ottieni la capacità di volare e +2 CA.
-Condition/&ConditionWayOfTheDragonAscensionTitle=Ascensione Draconica
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=I colpi senz'armi infliggono 2d6 danni da acido.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Dragon Fury - Acido
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=I colpi senz'armi infliggono 2d6 danni da freddo.
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=Ottieni la capacità di soffi
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Respiro Elementale
 Feature/&FeatureSetWayOfTheDragonFuryDescription=Ottieni la capacità di infondere i tuoi colpi senz'armi con il tuo danno draconico.
 Feature/&FeatureSetWayOfTheDragonFuryTitle=Furia del drago
-Feature/&PowerWayOfTheDragonAscensionDescription=Spendi 4 punti Ki per prendere il volo. Ottieni le capacità dell'incantesimo volare senza concentrazione e +2 CA per 1 minuto.
+Feature/&PowerWayOfTheDragonAscensionDescription=Come azione bonus, puoi darti una velocità di volo pari alla tua velocità di camminata per 1 minuto.
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=Congedare Ascensione Draconica.
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=Ascensione Draconica [Rifiuta]
 Feature/&PowerWayOfTheDragonAscensionTitle=Ascensione Draconica
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=Spendi 2 punti Ki per infliggere 2d6 danni da acido a colpi senz'armi fino alla fine del tuo turno.
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=Dragon Fury - Acido

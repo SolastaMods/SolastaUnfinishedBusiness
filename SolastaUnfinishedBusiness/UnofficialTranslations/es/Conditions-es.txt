@@ -1,0 +1,2 @@
+Conditions/&ConditionPOI_Title=Efecto Guarida del Palacio de Hielo
+Conditions/&ConditionPOI_Description=Mientras están en el Palacio de Hielo y los Reinos Demoníacos, los no demonios sufren múltiples penalizaciones.

@@ -152,12 +152,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetAttackOnly()
-    {
-        Definition.attackOnly = true;
-        return this;
-    }
-
     internal FeatureDefinitionAdditionalDamageBuilder SetImpactParticleReference(AssetReference asset)
     {
         Definition.impactParticleReference = asset;

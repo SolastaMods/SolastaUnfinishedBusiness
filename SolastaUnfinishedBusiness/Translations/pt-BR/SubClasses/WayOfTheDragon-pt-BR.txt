@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Ganhe a habilidade de voar e +2 AC.
-Condition/&ConditionWayOfTheDragonAscensionTitle=Ascensão Dracônica
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Ataques desarmados causam 2d6 de dano de ácido.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Fúria do Dragão - Ácido
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=Ataques desarmados causam 2d6 de dano de frio.
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=Ganhe a habilidade de respira
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Sopro Elemental
 Feature/&FeatureSetWayOfTheDragonFuryDescription=Ganhe a habilidade de imbuir seus ataques desarmados com seu dano dracônico.
 Feature/&FeatureSetWayOfTheDragonFuryTitle=Fúria do Dragão
-Feature/&PowerWayOfTheDragonAscensionDescription=Gaste 4 pontos de Ki para voar. Ganhe as habilidades do feitiço voar sem concentração e +2 CA por 1 minuto.
+Feature/&PowerWayOfTheDragonAscensionDescription=Como uma ação bônus, você pode adquirir um deslocamento de voo igual ao seu deslocamento de caminhada por 1 minuto.
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=Dispensar Ascensão Dracônica.
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=Ascensão Dracônica [Dispensar]
 Feature/&PowerWayOfTheDragonAscensionTitle=Ascensão Dracônica
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=Gaste 2 pontos de Ki para imbuir 2d6 de dano de ácido em ataques desarmados até o final do seu turno.
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=Fúria do Dragão - Ácido

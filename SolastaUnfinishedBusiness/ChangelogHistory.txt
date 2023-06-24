@@ -1,5 +1,18 @@
 ﻿CHANGES:
 
+1.5.92.1:
+
+- added half-attribute feat groups and sub groups by ability score
+- added Ranger Sky Warrior subclass [beta, design by @MarinerEarendil]
+- changed Circle of the Eternal Groove's verdancy duration to 5 rounds at 14th
+- changed Way of the Dragon's ascension to behave similar to Fairy, Feral, etc.
+- fixed IsWearingMediumArmor validator always returning false [Fairy, Feral, Bladedancer]
+- fixed HasKnowledgeOfSpell validator interaction with mod spells selection
+- fixed IsMelee validator to consider monsters [Marshal]
+- fixed Thunder Gauntlet interaction with Dual Flurry
+- fixed Way of the Dragon's reactive hide prompting on every damage
+- updated Japanese, Italian, and Spanish unofficial translations to game version 1.5.92
+
 1.5.92.0:
 
 - added BETA setting "Interface > Game UI > Enable Action switching"

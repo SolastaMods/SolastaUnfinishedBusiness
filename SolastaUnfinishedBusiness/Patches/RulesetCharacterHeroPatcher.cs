@@ -922,6 +922,7 @@ public static class RulesetCharacterHeroPatcher
         {
             //TODO: convert this to an interface
             FairyRaceBuilder.OnItemEquipped(__instance);
+            RangerSkyWarrior.OnItemEquipped(__instance);
             TieflingRaceBuilder.OnItemEquipped(__instance);
             WizardBladeDancer.OnItemEquipped(__instance);
         }
@@ -1027,6 +1028,27 @@ public static class RulesetCharacterHeroPatcher
                 "RulesetCharacterHero.RefreshActiveItemFeatures",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, myStaticPropertiesMethod));
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsDualWieldingMeleeWeapons))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GIsDualWieldingMeleeWeapons_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacterHero __instance, ref bool __result)
+        {
+            //PATCH: allows using features that require dual-wielding melee if in Guardian mode with both hands empty
+            if (__result)
+            {
+                return;
+            }
+
+            if (InnovationArmor.InGuardianMode(__instance))
+            {
+                __result = __instance.HasEmptyMainHand() && __instance.HasEmptyOffHand();
+            }
         }
     }
 }

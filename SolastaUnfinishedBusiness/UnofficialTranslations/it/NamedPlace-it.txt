@@ -1,7 +1,7 @@
 NamedPlace/&AerElai_Title=L'AER-ELAI
 NamedPlace/&BADLANDS_Title=I CALANI
 NamedPlace/&CopperheadRoad_Title=COPPERHEAD\nSTRADA
-NamedPlace/&DUCHY_caercyflen_Title=Contenuto del Ducato di \nChester
+NamedPlace/&DUCHY_caercyflen_Title=Contenuto del Ducato di\nChester
 NamedPlace/&DUCHY_easternforests_Title=Ducato delle\nForeste Orientali
 NamedPlace/&DUCHY_northernhills_Title=Ducato delle\ncolline settentrionali
 NamedPlace/&DUCHY_northernplains_Title=Ducato delle\npianure settentrionali

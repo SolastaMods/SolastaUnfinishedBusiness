@@ -28,7 +28,7 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
 
-    private static readonly SpellDefinition AirBlast = BuildAirBlast();
+    internal static readonly SpellDefinition AirBlast = BuildAirBlast();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
@@ -38,7 +38,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
-    private static readonly SpellDefinition MirrorImage = BuildMirrorImage();
+    internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
@@ -194,7 +194,7 @@ internal static class SpellsContext
         AllowAssigningOfficialSpells();
 
         // Dead Master Spells
-        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x));
+        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
@@ -369,7 +369,8 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+        var isActiveInAtLeastOneRepertoire = suggestedStartsAt == -1 ||
+                                             SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
         if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
         {

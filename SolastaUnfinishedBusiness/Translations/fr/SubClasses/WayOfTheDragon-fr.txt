@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Gagnez la capacité de voler et +2 CA.
-Condition/&ConditionWayOfTheDragonAscensionTitle=Ascension draconique
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Les frappes à mains nues infligent 2d6 dégâts d'acide.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Dragon Fury - Acide
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=Les frappes à mains nues infligent 2d6 dégâts de froid.
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=Gagnez la capacité de respir
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Souffle élémentaire
 Feature/&FeatureSetWayOfTheDragonFuryDescription=Gagnez la capacité d'imprégner vos frappes à mains nues de vos dégâts draconiques.
 Feature/&FeatureSetWayOfTheDragonFuryTitle=Fureur du dragon
-Feature/&PowerWayOfTheDragonAscensionDescription=Dépensez 4 points Ki pour prendre votre envol. Gagne les capacités du sort vol sans concentration et +2 CA pendant 1 minute.
+Feature/&PowerWayOfTheDragonAscensionDescription=Par une action bonus, vous pouvez vous donner une vitesse de vol égale à votre vitesse de marche pendant 1 minute.
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=Annulez l'Ascension draconique.
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=Ascension draconique [Rejeter]
 Feature/&PowerWayOfTheDragonAscensionTitle=Ascension draconique
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=Dépensez 2 points de Ki pour infliger 2d6 dégâts d'acide lors de frappes à mains nues jusqu'à la fin de votre tour.
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=Dragon Fury - Acide

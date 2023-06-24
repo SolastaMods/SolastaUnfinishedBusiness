@@ -1,7 +1,7 @@
 NamedPlace/&AerElai_Title=LA AER-ELAI
 NamedPlace/&BADLANDS_Title=LOS MALÍOS
 NamedPlace/&CopperheadRoad_Title=CABEZA DE COBRE\nCARRETERA
-NamedPlace/&DUCHY_caercyflen_Title=Ducado de \nChester Contenido
+NamedPlace/&DUCHY_caercyflen_Title=Ducado de\nChester Contenido
 NamedPlace/&DUCHY_easternforests_Title=Ducado de\nlos Bosques del Este
 NamedPlace/&DUCHY_northernhills_Title=Ducado de\nlas Colinas del Norte
 NamedPlace/&DUCHY_northernplains_Title=Ducado de\nlas Llanuras del Norte

@@ -33,7 +33,7 @@ public static class CharacterActionActionSurgePatcher
 
             var service = ServiceRepository.GetService<IGameLocationActionService>();
             var actionParams = action.ActionParams.Clone();
-            
+
             actionParams.ActionDefinition = service.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
             //directly instantiate UsePower action instead of using CharacterAction.InstantiateAction - that one seems to fail here for some reason
             action.ResultingActions.Add(new CharacterActionUsePower(actionParams));

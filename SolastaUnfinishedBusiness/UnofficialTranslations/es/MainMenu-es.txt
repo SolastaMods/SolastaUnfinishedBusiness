@@ -1,7 +1,7 @@
 MainMenu/&ChangeCampaignTitle=Cambiar campaña
 MainMenu/&ChangeCharacterSlotTitle=Cambiar
 MainMenu/&ContinueTitle=Continuar
-MainMenu/&EmptySlotTitle=Vacío
+MainMenu/&EmptySlotTitle=
 MainMenu/&ExportPdfDescription=Exporta el carácter seleccionado a un archivo pdf fácil de imprimir
 MainMenu/&ExportPdfTitle=Exportar PDF
 MainMenu/&InspectCharacterDescription=Abre el inventario del personaje y la hoja de personaje.
@@ -180,3 +180,4 @@ MainMenu/&CharactersImportedMultiplayerTitle=Guardar archivo importado con éxit
 MainMenu/&CharactersImportFailedTitle=No se pudo importar el archivo guardado.
 MainMenu/&ReservedCharacterSlotTitle=Reservado
 MainMenu/&ReservedCharacterSlotDescription=Este espacio está reservado para otros jugadores que se unan a la sesión.
+MainMenu/&BuiltInCharacterDescription=Este es un personaje pregen (predeterminado) de Solasta.

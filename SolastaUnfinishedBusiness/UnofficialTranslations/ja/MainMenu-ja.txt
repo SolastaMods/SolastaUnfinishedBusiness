@@ -1,7 +1,7 @@
 MainMenu/&ChangeCampaignTitle=変更キャンペーン
 MainMenu/&ChangeCharacterSlotTitle=変化
 MainMenu/&ContinueTitle=続く
-MainMenu/&EmptySlotTitle=空
+MainMenu/&EmptySlotTitle=
 MainMenu/&ExportPdfDescription=選択した文字を印刷用の PDF ファイルにエクスポートします
 MainMenu/&ExportPdfTitle=PDFをエクスポート
 MainMenu/&InspectCharacterDescription=キャラクターのインベントリとキャラクターシートを開きます。
@@ -180,3 +180,4 @@ MainMenu/&CharactersImportedMultiplayerTitle=保存ファイルは正常にイ�
 MainMenu/&CharactersImportFailedTitle=保存ファイルをインポートできませんでした。
 MainMenu/&ReservedCharacterSlotTitle=予約済み
 MainMenu/&ReservedCharacterSlotDescription=このスロットは、セッションに参加する他のプレイヤーのために予約されています。
+MainMenu/&BuiltInCharacterDescription=ソラスタのプリジェネ（デフォルト）キャラです。

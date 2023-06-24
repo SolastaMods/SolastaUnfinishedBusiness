@@ -715,19 +715,23 @@ internal static class OtherFeats
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
         .SetGuiPresentation(Category.Feature)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetSavingThrowData(false,
-                AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Constitution)
-            .SetEffectForms(EffectFormBuilder
+        .SetEffectDescription(
+            EffectDescriptionBuilder
                 .Create()
-                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                .ExcludeCaster()
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Constitution)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                    .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                 .Build())
-            .SetDurationData(DurationType.Minute, 1)
-            .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
-            .Build())
         .AddToDB();
 
     private static FeatDefinition BuildPoisonousSkin()
@@ -770,8 +774,8 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) || attackMode.ranged ||
-                outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode))
             {
                 return;
             }
@@ -808,10 +812,9 @@ internal static class OtherFeats
         {
             var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
-            {
-                saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
-            };
+            var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, rulesetCharacter);
+
+            usablePower.saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus);
 
             return ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)

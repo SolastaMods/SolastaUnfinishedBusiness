@@ -19,3 +19,4 @@ Music/&ValleyTitle=Valle
 Music/&PactClawTitle=pacto de la garra
 Music/&DemonsTitle=demonios
 Music/&GreatColdTitle=el gran frio
+Music/&TavernTitle=Taberna

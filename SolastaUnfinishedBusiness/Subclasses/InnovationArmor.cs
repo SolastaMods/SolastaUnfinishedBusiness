@@ -285,7 +285,7 @@ public static class InnovationArmor
             .AddToDB();
     }
 
-    private static bool InGuardianMode(RulesetCharacter character)
+    internal static bool InGuardianMode(RulesetCharacter character)
     {
         return character.HasConditionOfType(GuardianMarkerName);
     }

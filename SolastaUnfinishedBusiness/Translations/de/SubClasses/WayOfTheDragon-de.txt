@@ -1,5 +1,3 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Erhalte die Fähigkeit zu fliegen und +2 AC.
-Condition/&ConditionWayOfTheDragonAscensionTitle=Drakonischer Aufstieg
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Unbewaffnete Angriffe verursachen 2W6 Säureschaden.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Drachenwut – Säure
 Condition/&ConditionWayOfTheDragonDragonFuryColdDescription=Unbewaffnete Schläge verursachen 2W6 Kälteschaden.
@@ -26,7 +24,9 @@ Feature/&FeatureSetWayOfTheDragonBreathDescription=Erhalten Sie die Fähigkeit, 
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Elementarer Atem
 Feature/&FeatureSetWayOfTheDragonFuryDescription=Erhalten Sie die Fähigkeit, Ihren unbewaffneten Angriffen Ihren drakonischen Schaden zu verleihen.
 Feature/&FeatureSetWayOfTheDragonFuryTitle=Drachenwut
-Feature/&PowerWayOfTheDragonAscensionDescription=Gib 4 Ki-Punkte aus, um zu fliegen. Erhalte 1 Minute lang die Fähigkeiten des Flugzaubers ohne Konzentration und +2 AC.
+Feature/&PowerWayOfTheDragonAscensionDescription=Als Bonusaktion kannst du dir für 1 Minute eine Fluggeschwindigkeit geben, die deiner Gehgeschwindigkeit entspricht.
+Feature/&PowerWayOfTheDragonAscensionDismissDescription=Drakonischer Aufstieg ablehnen.
+Feature/&PowerWayOfTheDragonAscensionDismissTitle=Drakonischer Aufstieg [Entlassen]
 Feature/&PowerWayOfTheDragonAscensionTitle=Drakonischer Aufstieg
 Feature/&PowerWayOfTheDragonDragonFuryAcidDescription=Geben Sie 2 Ki-Punkte aus, um unbewaffneten Angriffen bis zum Ende Ihres Zuges 2W6 Säureschaden zuzufügen.
 Feature/&PowerWayOfTheDragonDragonFuryAcidTitle=Drachenwut – Säure
