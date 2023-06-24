@@ -38,7 +38,7 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
-        FixChampionCriticalThresholdModifiers();
+        FixCriticalThresholdModifiers();
         FixEagerForBattleTexts();
         AddAdditionalActionTitles();
 
@@ -278,12 +278,27 @@ internal static class FixesContext
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }
 
-    private static void FixChampionCriticalThresholdModifiers()
+    private static void FixCriticalThresholdModifiers()
     {
-        //Changes Champion's Superior Critical to work as described - set crit threshold to 18, instead of lowering by 1
-        var modifier = FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical;
+        //Changes Champion's Improved Critical to set crit threshold to 19, instead of forcing if worse - fixes stacking with feats
+        var modifier = FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionImprovedCritical;
         modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
-        modifier.modifierValue = 18;
+
+        //Changes Champion's Superior Critical to set crit threshold to 18, instead of forcing if worse - fixes stacking with feats
+        modifier = FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical;
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+
+        //Changes critical threshold of Sudden Death dagger to set
+        modifier = FeatureDefinitionAttributeModifiers
+            .AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3;
+
+        //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues, but introducing new onbes
+        //in UB we fixed those original issues, so making it to SET to not break stacking
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+
+        //v1.5.92 changed threshold from 18 to 19 as part of a 'fix'
+        //we no loner need it to be 19, but changing it back to 18 will require localization updates
+        //modifier.modifierValue = 18;
     }
 
     private static void FixEagerForBattleTexts()
