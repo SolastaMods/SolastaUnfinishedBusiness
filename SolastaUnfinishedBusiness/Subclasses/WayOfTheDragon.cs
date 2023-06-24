@@ -68,8 +68,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(powerReactiveHide,
-            conditionReactiveHide));
+        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(
+            powerReactiveHide, conditionReactiveHide));
 
         // LEVEL 17
 
@@ -92,7 +92,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -564,7 +564,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanReact())
+            if (!me.CanAct())
             {
                 yield break;
             }
@@ -784,12 +784,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         private IEnumerator HandleReaction(GameLocationCharacter defender)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (!defender.CanReact())
             {
                 yield break;
             }
@@ -801,9 +796,19 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = $"{Name}ReactiveHide", UsablePower = usablePower
                 };
