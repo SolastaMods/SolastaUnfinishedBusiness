@@ -83,12 +83,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender));
 
-        //leaving for compatibility
-        FeatureDefinitionBuilder
-            .Create("FeatureSoulBladeHex")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
         var effectDescriptionHex = EffectDescriptionBuilder.Create()

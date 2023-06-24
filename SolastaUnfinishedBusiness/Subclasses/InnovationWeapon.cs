@@ -28,14 +28,6 @@ public static class InnovationWeapon
 
     public static CharacterSubclassDefinition Build()
     {
-        // BEGIN BACKWARD COMPATIBILITY
-        _ = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierInnovationWeaponExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
-            .AddToDB();
-        // END BACKWARD COMPATIBILITY
-
         var steelDefenderFeatureSet =
             BuildSteelDefenderFeatureSet(out var steelDefenderPower, out var steelDefenderMonster);
 
