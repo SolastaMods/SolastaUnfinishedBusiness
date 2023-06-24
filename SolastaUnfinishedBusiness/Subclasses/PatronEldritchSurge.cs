@@ -49,7 +49,6 @@ internal class PatronEldritchSurge : AbstractSubclass
         .Create($"Condition{Name}ExtraActionBlastPursuit")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .AllowMultipleInstances()
         .SetFeatures(AdditionalActionBlastPursuit)
         .AddToDB();
 
@@ -57,7 +56,6 @@ internal class PatronEldritchSurge : AbstractSubclass
     .Create($"Condition{Name}ExtraActionBlastPursuitOff")
     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
     .SetSilent(Silent.WhenAddedOrRemoved)
-    .AllowMultipleInstances()
     .SetFeatures(AdditionalActionBlastPursuitOff)
     .AddToDB();
 
@@ -119,7 +117,10 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBlastPursuit))
+                .SetEffectForms(
+                EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
+                EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
+                EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuitOff))
                 .Build())
             .AddToDB();
 
@@ -183,13 +184,6 @@ internal class PatronEldritchSurge : AbstractSubclass
                rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
-    private static int GetBlastPursuitExtraActionCount(RulesetCharacter rulesetCharacter)
-    {
-        return 
-               (rulesetCharacter.HasConditionOfType(ConditionExtraActionBlastPursuit.Name)?1:0) +
-               (rulesetCharacter.HasConditionOfType(ConditionExtraActionBlastPursuitOff.Name)?1:0);
-    }
-
     private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
     {
         public EffectDescription ModifyEffect(
@@ -211,16 +205,12 @@ internal class PatronEldritchSurge : AbstractSubclass
             var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
             var increaseLevels = new[] { 3, 8, 13, 18 };
             var additionalBeamCount = increaseLevels.Count(level => determinantLevel >= level);
-            var blastPursuitExtraActionCount = GetBlastPursuitExtraActionCount(rulesetCharacter);
-            if(warlockClassLevel < 16)
-            { 
-                blastPursuitExtraActionCount = Math.Min(0, blastPursuitExtraActionCount);
-            }
+            var pursuitStatus = rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) ? (1 + warlockClassLevel >= 16 ? 1 : 0) : 0;
             var overloadStatus = rulesetCharacter.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
 
             effectDescription.effectAdvancement.Clear();
             effectDescription.targetParameter = 1 + additionalBeamCount;
-            effectDescription.rangeParameter = Math.Max(1, 24 - (6 * (blastPursuitExtraActionCount + overloadStatus)));
+            effectDescription.rangeParameter = Math.Max(1, 24 - (6 * (pursuitStatus + overloadStatus)));
 
             return effectDescription;
         }
@@ -269,7 +259,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 return false;
             }
 
-            return !rulesetHero.HasConditionOfType(_conditionDefinition.Name) &&
+            return !rulesetCharacter.HasConditionOfType(_conditionDefinition) &&
                    SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) >= 1;
         }
     }
@@ -308,7 +298,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class ExtraActionBlastPursuit : IActionExecutionHandled
+    private sealed class ExtraActionBlastPursuit : IActionExecutionHandled, ICharacterTurnStartListener
     {
         public void OnActionExecutionHandled(
             GameLocationCharacter gameLocationCharacter,
@@ -323,7 +313,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } || !rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
             {
                 return;
             }
@@ -335,55 +325,47 @@ internal class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            var warlockLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
+            var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
 
-            var actionType = actionParams.ActionDefinition.ActionType;
-
-            switch(actionType)
+            if (eldritchSurgeLevel >= 16)
             {
-                case ActionType.Main:
-                    if(gameLocationCharacter.GetActionAvailableIterations(Id.AttackMain) > 0)
-                    {
-                        return;
-                    }
-                    if(rulesetCharacter.HasConditionOfType(ConditionExtraActionBlastPursuit))
-                    {
-                        if(warlockLevel < 16)
-                        {
-                            rulesetCharacter.RemoveAllConditionsOfType(ConditionExtraActionBlastPursuitOff.Name);
-                        }
-                        return;
-                    }
-                    
-                    break;
-                case ActionType.Bonus:
-                    if (rulesetCharacter.HasConditionOfType(ConditionExtraActionBlastPursuitOff))
-                    {
-                        if (warlockLevel < 16)
-                        {
-                            rulesetCharacter.RemoveAllConditionsOfType(ConditionExtraActionBlastPursuit.Name);
-                        }
-                        return;
-                    }
-                    break;
-                default:
-                    return;
+                return;
             }
 
-            var isValidBlastPursuit =
-                rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) ||
-                (rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) >= 16 &&
-                SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) <= 0);
-
-            if (isValidBlastPursuit)
+            var actionType = actionParams.ActionDefinition.ActionType;
+            var featureToCheck = actionType switch
             {
-                InflictCondition(rulesetCharacter, actionType);
-            }  
+                ActionType.Main => AdditionalActionBlastPursuit,
+                ActionType.Bonus => AdditionalActionBlastPursuitOff,
+                _ => null
+            };
+            var conditionToRemove = actionType switch
+            {
+                ActionType.Main => ConditionExtraActionBlastPursuitOff.Name,
+                ActionType.Bonus => ConditionExtraActionBlastPursuit.Name,
+                _ => null
+            };
+
+            if (featureToCheck is not null)
+            {
+                var filters = gameLocationCharacter.ActionPerformancesByType[actionType];
+                var k = gameLocationCharacter.CurrentActionRankByType[actionType] - 1;
+                var f = k >= 0 && k < filters.Count ? PerformanceFilterExtraData.GetData(filters[k]) : null;
+                var feature = f?.Feature;
+                if (feature == featureToCheck)
+                {
+                    rulesetCharacter.RemoveAllConditionsOfType(conditionToRemove);
+                }
+            }
         }
 
-        private static void InflictCondition(RulesetCharacter rulesetCharacter,ActionType actionType)
+        private static void InflictCondition(RulesetCharacter rulesetCharacter,ConditionDefinition condition)
         {
-            var condition = actionType == ActionType.Main ? ConditionExtraActionBlastPursuit : ConditionExtraActionBlastPursuitOff;
+            if (rulesetCharacter.HasConditionOfType(condition))
+            {
+                return;
+            }
+
             rulesetCharacter.InflictCondition(
                 condition.Name,
                 DurationType.Round,
@@ -399,10 +381,43 @@ internal class PatronEldritchSurge : AbstractSubclass
                 0
             );
 
-            var title = ConditionBlastPursuit.GuiPresentation.Title;
+            if (condition == ConditionBlastPursuit)
+            {
+                var title = condition.GuiPresentation.Title;
+                rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
+                rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
+            }
+        }
 
-            rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
-            rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
+
+            if (rulesetHero == null)
+            {
+                return;
+            }
+
+            var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
+
+            if (eldritchSurgeLevel == 20 && SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) <= 0)
+            {
+                InflictCondition(rulesetCharacter, ConditionBlastPursuit);
+            }
+
+            if (rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
+            {
+                InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuit);
+                InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuitOff);
+            }
+
         }
     }
 
