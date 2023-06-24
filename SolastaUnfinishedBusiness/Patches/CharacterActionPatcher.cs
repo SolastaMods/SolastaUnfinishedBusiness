@@ -123,6 +123,19 @@ public static class CharacterActionPatcher
                 {
                     yield return iActionFinished.OnActionFinished(__instance);
                 }
+                
+                //PATCH: duport for IActionFinishedOnMe
+                foreach (var target in __instance.ActionParams.TargetCharacters)
+                {
+                    var character = target?.RulesetCharacter;
+                    if (character == null) { continue;}
+
+                    var features = character.GetSubFeaturesByType<IActionFinishedOnMe>();
+                    foreach (var feature in features)
+                    {
+                        yield return feature.OnActionFinishedOnMe(target, __instance);
+                    }
+                }
             }
 
             //PATCH: support for character action tracking
