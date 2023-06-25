@@ -369,7 +369,11 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        var isActiveInAtLeastOneRepertoire = suggestedStartsAt == -1 ||
+        //this is really an exception on how Dead Master handles no concentration
+        //but so far it's the only one passing -1 to register spells
+        var isDeadMasterSpell = suggestedStartsAt == -1;
+
+        var isActiveInAtLeastOneRepertoire = isDeadMasterSpell ||
                                              SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
         if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
@@ -385,6 +389,16 @@ internal static class SpellsContext
 
         //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
         SpellListAllSpells.AddSpell(spellDefinition);
+
+        //Handle the particular case of hidden NoConcentration spells we swap on CharacterActionPanel.SpellcastEngaged
+        //We need to register them otherwise the combo College of Life / Deadmaster becomes odd when upcasting
+        if (isDeadMasterSpell)
+        {
+            var spellDefinitionNoConcentration =
+                DatabaseHelper.GetDefinition<SpellDefinition>($"{spellDefinition.Name}NoConcentration");
+
+            SpellListAllSpells.AddSpell(spellDefinitionNoConcentration);
+        }
 
         //Add spells to Snipers lists
         var spellSniperClasses = new List<CharacterClassDefinition>
