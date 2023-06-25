@@ -288,7 +288,9 @@ public static class GameLocationCharacterExtensions
                     switch (spellActionId)
                     {
                         case Id.CastMain:
-                            mainSpell ??= instance.GetActionStatus(spellActionId, scope);
+                            mainSpell ??= scope == ActionScope.Battle
+                                ? instance.GetActionStatus(spellActionId, scope)
+                                : ActionStatus.Available;
                             if (mainSpell != ActionStatus.Available)
                             {
                                 isValid = false;
@@ -296,7 +298,9 @@ public static class GameLocationCharacterExtensions
 
                             break;
                         case Id.CastBonus:
-                            bonusSpell ??= instance.GetActionStatus(spellActionId, scope);
+                            bonusSpell ??= scope == ActionScope.Battle
+                                ? instance.GetActionStatus(spellActionId, scope)
+                                : ActionStatus.Available;
                             if (bonusSpell != ActionStatus.Available)
                             {
                                 isValid = false;

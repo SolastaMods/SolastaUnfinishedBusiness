@@ -9,7 +9,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -942,6 +944,77 @@ public static class RulesetCharacterPatcher
             {
                 spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastSpellOfActionType_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref bool __result,
+            ActionType actionType, bool canOnlyUseCantrips)
+        {
+            if (__result) { return; }
+
+            //PATCH: update usage for power pools
+            foreach (var invocation in __instance.Invocations)
+            {
+                var definition = invocation.InvocationDefinition;
+                if (definition is not InvocationDefinitionCustom)
+                {
+                    continue;
+                }
+
+                var spell = definition.GrantedSpell;
+                if (spell == null)
+                {
+                    continue;
+                }
+
+                if (canOnlyUseCantrips && spell.spellLevel > 0)
+                {
+                    continue;
+                }
+
+                var isValid = definition
+                    .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                    .All(v => v(__instance, definition));
+
+                if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+                {
+                    continue;
+                }
+
+                var battleActionId = spell.BattleActionId;
+
+                switch (actionType)
+                {
+                    case ActionType.Main:
+                        if (battleActionId != Id.CastMain)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    case ActionType.Bonus:
+                        if (battleActionId != Id.CastBonus)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    default:
+                        continue;
+                }
+
+                if (invocation.IsAvailable(__instance))
+                {
+                    __result = true;
+                    return;
+                }
             }
         }
     }
