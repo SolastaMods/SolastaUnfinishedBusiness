@@ -145,7 +145,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
         // Cloud Dance
 
         var flying = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionTieflingFeralWings")
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}CloudDance")
             .AddToDB();
 
         flying.AddCustomSubFeatures(new CheckConditionValidity(flying));
