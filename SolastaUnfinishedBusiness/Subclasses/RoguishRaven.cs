@@ -336,7 +336,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false} ||
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker.GetRemainingPowerCharges(_power) <= 0 ||
                 !attackMode.ranged)
             {

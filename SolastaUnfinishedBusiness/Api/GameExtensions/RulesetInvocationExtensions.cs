@@ -8,8 +8,8 @@ public static class RulesetInvocationExtensions
     {
         var definition = invocation.invocationDefinition;
         return definition.GrantedSpell != null &&
-               (!definition.ConsumesSpellSlot && !definition.LongRestRecharge ||
-                (!definition.LongRestRecharge || !invocation.used) &&
-                (!definition.ConsumesSpellSlot || user.spellRepertoires.Any(invocation.IsSpellSlotAvailableToUse)));
+               ((!definition.ConsumesSpellSlot && !definition.LongRestRecharge) ||
+                ((!definition.LongRestRecharge || !invocation.used) &&
+                 (!definition.ConsumesSpellSlot || user.spellRepertoires.Any(invocation.IsSpellSlotAvailableToUse))));
     }
 }

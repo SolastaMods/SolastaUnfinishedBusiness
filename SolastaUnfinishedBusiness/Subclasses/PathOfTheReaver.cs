@@ -220,7 +220,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false})
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -340,8 +340,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender is not {IsDeadOrDyingOrUnconscious: false} ||
-                rulesetAttacker is not {IsDeadOrDyingOrUnconscious: false})
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

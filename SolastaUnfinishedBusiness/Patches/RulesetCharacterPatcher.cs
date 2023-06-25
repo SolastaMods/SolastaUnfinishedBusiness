@@ -990,6 +990,7 @@ public static class RulesetCharacterPatcher
 
                 var battleActionId = spell.BattleActionId;
 
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (actionType)
                 {
                     case ActionType.Main:
@@ -1010,11 +1011,14 @@ public static class RulesetCharacterPatcher
                         continue;
                 }
 
-                if (invocation.IsAvailable(__instance))
+                if (!invocation.IsAvailable(__instance))
                 {
-                    __result = true;
-                    return;
+                    continue;
                 }
+
+                __result = true;
+
+                return;
             }
         }
     }

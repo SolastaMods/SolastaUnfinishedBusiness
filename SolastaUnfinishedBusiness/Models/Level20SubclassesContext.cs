@@ -661,7 +661,7 @@ internal static class Level20SubclassesContext
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

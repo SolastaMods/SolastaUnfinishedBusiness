@@ -259,7 +259,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false})
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

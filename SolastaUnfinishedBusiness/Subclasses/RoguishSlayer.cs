@@ -269,8 +269,8 @@ internal sealed class RoguishSlayer : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetDefender is not {IsDeadOrDyingOrUnconscious: false} ||
-                rulesetAttacker is not {IsDeadOrDyingOrUnconscious: false})
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

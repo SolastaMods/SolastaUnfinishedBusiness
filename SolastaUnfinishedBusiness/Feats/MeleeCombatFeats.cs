@@ -347,6 +347,42 @@ internal static class MeleeCombatFeats
 
     #endregion
 
+    #region Longsword Finesse
+
+    private static FeatDefinition BuildLongswordFinesse()
+    {
+        const string Name = "FeatLongswordFinesse";
+
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongswordType);
+
+        var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}ArmorClass")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.ArmorClass, 1)
+            .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
+            .AddToDB();
+
+        var modifyAttackModeFinesse = FeatureDefinitionBuilder
+            .Create($"ModifyAttackMode{Name}Finesse")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(
+                new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                attributeModifierArmorClass,
+                modifyAttackModeFinesse)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Hammer the Point
 
     private static FeatDefinition BuildHammerThePoint()
@@ -433,42 +469,6 @@ internal static class MeleeCombatFeats
             damage.BonusDamage += attackedThisTurnCount;
             damage.DamageBonusTrends.Add(trendInfo);
         }
-    }
-
-    #endregion
-
-    #region Longsword Finesse
-
-    private static FeatDefinition BuildLongswordFinesse()
-    {
-        const string Name = "FeatLongswordFinesse";
-
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongswordType);
-
-        var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}ArmorClass")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
-            .AddToDB();
-
-        var modifyAttackModeFinesse = FeatureDefinitionBuilder
-            .Create($"ModifyAttackMode{Name}Finesse")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
-            .AddToDB();
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Misaye,
-                attributeModifierArmorClass,
-                modifyAttackModeFinesse)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .AddToDB();
     }
 
     #endregion
