@@ -106,7 +106,7 @@ internal static class FairyRaceBuilder
         var flying = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionFairyWings")
             .AddToDB();
-        
+
         flying.AddCustomSubFeatures(new CheckFairyFlying(flying));
 
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
@@ -175,8 +175,8 @@ internal static class FairyRaceBuilder
 
         return raceFairy;
     }
-    
-    private sealed class CheckFairyFlying: IOnItemEquipped
+
+    private sealed class CheckFairyFlying : IOnItemEquipped
     {
         private readonly ConditionDefinition condition;
 

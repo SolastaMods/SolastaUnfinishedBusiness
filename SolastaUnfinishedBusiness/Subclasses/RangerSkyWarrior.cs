@@ -80,7 +80,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             .SetPossessive()
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();
-        
+
         _conditionGiftOfTheWind.AddCustomSubFeatures(new CheckConditionValidity(_conditionGiftOfTheWind));
 
         var powerGiftOfTheWind = FeatureDefinitionPowerBuilder
@@ -143,7 +143,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
         //
 
         // Cloud Dance
-        
+
         var flying = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionTieflingFeralWings")
             .AddToDB();
@@ -187,10 +187,11 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                         EffectFormBuilder.ConditionForm(flying, ConditionForm.ConditionOperation.Remove),
                         //Leaving this for compatibility
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Remove))
+                            ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive, flying.Name)))
+                new ValidatorsPowerUse(
+                    ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive, flying.Name)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder
