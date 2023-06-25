@@ -24,7 +24,6 @@ internal static class FixesContext
     internal static void LateLoad()
     {
         FixAdditionalDamageRestrictions();
-        FixAdditionalDamageForThunderGauntlets();
         FixAttackBuffsAffectingSpellDamage();
         FixColorTables();
         FixDivineBlade();
@@ -81,16 +80,6 @@ internal static class FixesContext
 
         AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
         AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
-    }
-
-    private static void FixAdditionalDamageForThunderGauntlets()
-    {
-        foreach (var featureDefinitionAdditionalDamage in DatabaseRepository
-                     .GetDatabase<FeatureDefinitionAdditionalDamage>()
-                     .Where(x => x.RequiredProperty == RestrictedContextRequiredProperty.MeleeWeapon))
-        {
-            featureDefinitionAdditionalDamage.SetCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeWeaponAttack);
-        }
     }
 
     private static void FixAttackBuffsAffectingSpellDamage()

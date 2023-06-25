@@ -101,6 +101,9 @@ internal static class BootContext
             // SRD rules switches
             SrdAndHouseRulesContext.LateLoad();
 
+            // Vanilla Fixes
+            FixesContext.LateLoad();
+
             // Level 20 - patching and final configs
             Level20Context.LateLoad();
 
@@ -116,9 +119,6 @@ internal static class BootContext
             // Set anything on subs that depends on spells and others
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
-
-            // Vanilla Fixes
-            FixesContext.LateLoad();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
