@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -102,6 +103,11 @@ internal static class FairyRaceBuilder
             .AddToDB();
 
         // Flight
+        var flying = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionFairyWings")
+            .AddToDB();
+        
+        flying.AddCustomSubFeatures(new CheckFairyFlying(flying));
 
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}FlightSprout")
@@ -113,16 +119,10 @@ internal static class FairyRaceBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(flying))
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, flying.Name)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -136,15 +136,14 @@ internal static class FairyRaceBuilder
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Remove)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(flying, ConditionForm.ConditionOperation.Remove),
+                        //Leaving this for compatibility
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                            ConditionForm.ConditionOperation.Remove)
+                    )
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, flying.Name)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder
@@ -175,5 +174,31 @@ internal static class FairyRaceBuilder
         RacesContext.RaceScaleMap[raceFairy] = 6f / 9.4f;
 
         return raceFairy;
+    }
+    
+    private sealed class CheckFairyFlying: IOnItemEquipped
+    {
+        private readonly ConditionDefinition condition;
+
+        public CheckFairyFlying(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (IsFlightValid(hero))
+            {
+                return;
+            }
+
+            var rulesetCondition = hero.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
+
+            if (rulesetCondition != null)
+            {
+                hero.RemoveCondition(rulesetCondition);
+            }
+        }
     }
 }
