@@ -101,11 +101,11 @@ internal static class TieflingRaceBuilder
 
         var sprite = Sprites.GetSprite("PowerDragonWings", Resources.PowerDragonWings, 256, 128);
 
-        var flying = ConditionDefinitionBuilder
+        var conditionTieflingFeralWings = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionTieflingFeralWings")
             .AddToDB();
 
-        flying.AddCustomSubFeatures(new CheckTieflingFeralFlying(flying));
+        conditionTieflingFeralWings.AddCustomSubFeatures(new CheckTieflingFeralFlying(conditionTieflingFeralWings));
 
         var powerDemonicWingsSprout = FeatureDefinitionPowerBuilder
             .Create("PowerTieflingFeralDemonicWingsSprout")
@@ -116,10 +116,10 @@ internal static class TieflingRaceBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(flying))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTieflingFeralWings))
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, flying.Name)))
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionTieflingFeralWings.Name)))
             .AddToDB();
 
         var powerDemonicWingsDismiss = FeatureDefinitionPowerBuilder
@@ -132,13 +132,15 @@ internal static class TieflingRaceBuilder
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(flying, ConditionForm.ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(conditionTieflingFeralWings,
+                            ConditionForm.ConditionOperation.Remove),
                         //Leaving this for compatibility
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
                             ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, flying.Name)))
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
+                    conditionTieflingFeralWings.Name)))
             .AddToDB();
 
         var featureSetDemonicWings = FeatureDefinitionFeatureSetBuilder

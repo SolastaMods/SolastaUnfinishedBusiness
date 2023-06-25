@@ -14,7 +14,6 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -47,7 +46,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         var conditionGiftOfTheWindAttacked = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWindAttacked")
-            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -144,11 +143,11 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         // Cloud Dance
 
-        var flying = ConditionDefinitionBuilder
+        var conditionCloudDance = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}CloudDance")
             .AddToDB();
 
-        flying.AddCustomSubFeatures(new CheckConditionValidity(flying));
+        conditionCloudDance.AddCustomSubFeatures(new CheckConditionValidity(conditionCloudDance));
 
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CloudDanceSprout")
@@ -163,14 +162,12 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(
                 ValidatorsCharacter.HasShield,
-                ValidatorsCharacter.HasNoneOfConditions(RuleDefinitions.ConditionFlyingAdaptive, flying.Name)))
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionCloudDance.Name)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -184,14 +181,14 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(flying, ConditionForm.ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Remove),
                         //Leaving this for compatibility
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
                             ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(
-                    ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive, flying.Name)))
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, conditionCloudDance.Name)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder

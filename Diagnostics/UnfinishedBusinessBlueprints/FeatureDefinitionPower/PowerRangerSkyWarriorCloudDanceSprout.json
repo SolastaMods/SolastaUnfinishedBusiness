@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFlyingAdaptive",
-          "conditionDefinition": "Definition:ConditionFlyingAdaptive:cdef2a25e10345349a181ccf2b03cd97",
+          "conditionDefinitionName": "ConditionRangerSkyWarriorCloudDance",
+          "conditionDefinition": "Definition:ConditionRangerSkyWarriorCloudDance:cffb0a76-36fc-57fa-b711-178e04add971",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
