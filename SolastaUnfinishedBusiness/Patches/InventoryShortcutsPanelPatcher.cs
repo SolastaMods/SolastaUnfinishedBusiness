@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -29,17 +27,6 @@ public static class InventoryShortcutsPanelPatcher
         [UsedImplicitly]
         public static void Postfix(InventoryShortcutsPanel __instance, int rank)
         {
-            var gameLocationCharacter = __instance.GuiCharacter.gameLocationCharacter;
-
-            if (gameLocationCharacter != null && gameLocationCharacter.RulesetCharacter
-                    .HasSubFeatureOfType<IUnlimitedFreeAction>())
-            {
-                if (gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce] > 0)
-                {
-                    gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce]--;
-                }
-            }
-
             if (rank < 100)
             {
                 return;
