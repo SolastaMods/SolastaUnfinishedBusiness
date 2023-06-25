@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -35,6 +36,7 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
+        var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
@@ -54,6 +56,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featHammerThePoint,
             featLongSwordFinesse,
             featPiercerDex,
             featPiercerStr,
@@ -95,6 +98,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
@@ -339,6 +343,90 @@ internal static class MeleeCombatFeats
                         new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Hammer the Point
+
+    private static FeatDefinition BuildHammerThePoint()
+    {
+        const string Name = "FeatHammerThePoint";
+
+        var conditionHammerThePoint = ConditionDefinitionBuilder
+            .Create($"Condition{Name}HammerThePoint")
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var additionalDamageHammerThePoint = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}HammerThePoint")
+            .SetGuiPresentationNoContent(true)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionHammerThePoint)
+            .AddToDB();
+
+        var featHammerThePoint = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(additionalDamageHammerThePoint)
+            .AddToDB();
+
+        additionalDamageHammerThePoint.SetCustomSubFeatures(
+            new PhysicalAttackInitiatedFeatHammerThePoint(conditionHammerThePoint, featHammerThePoint));
+
+        return featHammerThePoint;
+    }
+
+    private sealed class PhysicalAttackInitiatedFeatHammerThePoint : IPhysicalAttackInitiated
+    {
+        private readonly ConditionDefinition _conditionHammerThePoint;
+        private readonly FeatDefinition _featHammerThePoint;
+
+        public PhysicalAttackInitiatedFeatHammerThePoint(
+            ConditionDefinition conditionHammerThePoint,
+            FeatDefinition featHammerThePoint)
+        {
+            _conditionHammerThePoint = conditionHammerThePoint;
+            _featHammerThePoint = featHammerThePoint;
+        }
+
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            var battle = Gui.Battle;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (battle == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var attackedThisTurnCount = rulesetDefender.AllConditions
+                .Count(x => x.ConditionDefinition == _conditionHammerThePoint);
+            var trendInfo = new TrendInfo(
+                attackedThisTurnCount, FeatureSourceType.Feat, _featHammerThePoint.Name, _featHammerThePoint);
+
+            attackModifier.AttackRollModifier += attackedThisTurnCount;
+            attackModifier.AttacktoHitTrends.Add(trendInfo);
+
+            var damage = attackerAttackMode?.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                yield break;
+            }
+
+            damage.BonusDamage += attackedThisTurnCount;
+            damage.DamageBonusTrends.Add(trendInfo);
+        }
     }
 
     #endregion
