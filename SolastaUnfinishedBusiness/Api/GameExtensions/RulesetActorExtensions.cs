@@ -122,7 +122,7 @@ internal static class RulesetActorExtensions
         return features.SelectMany(f =>
             f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
-                : new List<FeatureDefinition> { f });
+                : new List<FeatureDefinition> {f});
     }
 
     [NotNull]
@@ -133,14 +133,23 @@ internal static class RulesetActorExtensions
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
 
+        list.AddRange(actor.AllConditions.SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>()));
+
         return list;
     }
 
     internal static bool HasSubFeatureOfType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
     {
-        return AllActiveDefinitions(actor)
-            .Where(f => !typesToSkip.Contains(f.GetType()))
-            .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+        if (AllActiveDefinitions(actor)
+                .Where(f => !typesToSkip.Contains(f.GetType()))
+                .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+                .FirstOrDefault() != null)
+        {
+            return true;
+        }
+
+        return actor.AllConditions
+            .SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;
     }
 
