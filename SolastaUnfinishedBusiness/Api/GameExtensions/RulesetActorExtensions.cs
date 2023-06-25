@@ -126,19 +126,24 @@ internal static class RulesetActorExtensions
     }
 
     [NotNull]
-    internal static List<T> GetSubFeaturesByType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
+    internal static List<T> GetSubFeaturesByType<T>([CanBeNull] this RulesetActor actor, params Type[] typesToSkip)
+        where T : class
     {
         var list = AllActiveDefinitions(actor)
             .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
 
-        list.AddRange(actor.AllConditions.SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>()));
+        if (actor != null)
+        {
+            list.AddRange(actor.AllConditions.SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>()));
+        }
 
         return list;
     }
 
-    internal static bool HasSubFeatureOfType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
+    internal static bool HasSubFeatureOfType<T>([CanBeNull] this RulesetActor actor, params Type[] typesToSkip)
+        where T : class
     {
         if (AllActiveDefinitions(actor)
                 .Where(f => !typesToSkip.Contains(f.GetType()))
@@ -148,7 +153,7 @@ internal static class RulesetActorExtensions
             return true;
         }
 
-        return actor.AllConditions
+        return actor?.AllConditions
             .SelectMany(x => x.ConditionDefinition.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;
     }
