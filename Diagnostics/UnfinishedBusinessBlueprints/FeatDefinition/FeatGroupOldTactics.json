@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "OldTactics",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfDexterityTitle",
-    "description": "Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Precision [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Medium Armor [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Great Sword [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy",
+    "title": "Feat/&FeatGroupOldTacticsTitle",
+    "description": "Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of you melee weapon stands up you may make an attack of opportunity against the target.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "beb9378e-da32-503f-8faf-5d4e08b14a05",
+  "guid": "d342abc3-7b52-5741-a845-3e40e699a5ce",
   "contentPack": 9999,
-  "name": "FeatGroupHalfDexterity"
+  "name": "FeatGroupOldTactics"
 }

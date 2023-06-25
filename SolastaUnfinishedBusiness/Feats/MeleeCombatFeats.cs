@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -38,6 +39,8 @@ internal static class MeleeCombatFeats
         var featFellHanded = BuildFellHanded();
         var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
+        var featOldTacticsDex = BuildOldTacticsDex();
+        var featOldTacticsStr = BuildOldTacticsStr();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
@@ -58,6 +61,8 @@ internal static class MeleeCombatFeats
             featFellHanded,
             featHammerThePoint,
             featLongSwordFinesse,
+            featOldTacticsDex,
+            featOldTacticsStr,
             featPiercerDex,
             featPiercerStr,
             featPowerAttack,
@@ -70,6 +75,10 @@ internal static class MeleeCombatFeats
         var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", GroupFeats.Crusher,
             featCrusherStr,
             featCrusherCon);
+
+        var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
+            featSlasherDex,
+            featSlasherStr);
 
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
@@ -105,6 +114,7 @@ internal static class MeleeCombatFeats
             featSavageAttack,
             featSpearMastery,
             featGroupCrusher,
+            featGroupOldTactics,
             featGroupSlasher);
     }
 
@@ -468,6 +478,96 @@ internal static class MeleeCombatFeats
 
             damage.BonusDamage += attackedThisTurnCount;
             damage.DamageBonusTrends.Add(trendInfo);
+        }
+    }
+
+    #endregion
+
+    #region Old Tactics
+
+    private static FeatDefinition BuildOldTacticsStr()
+    {
+        const string Name = "FeatOldTacticsStr";
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar)
+            .SetCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildOldTacticsDex()
+    {
+        const string Name = "FeatOldTacticsDex";
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .SetCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddToDB();
+    }
+
+    private sealed class ActionFinishedByEnemyOldTactics : IActionFinishedByEnemy
+    {
+        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.StandUp;
+
+        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        {
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var enemy = characterAction.ActingCharacter;
+
+            if (!battle.IsWithin1Cell(target, enemy))
+            {
+                yield break;
+            }
+
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
+            {
+                yield break;
+            }
+
+            if (!target.CanReact())
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy);
+
+            if (retaliationMode == null)
+            {
+                (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy);
+
+                if (retaliationMode == null)
+                {
+                    yield break;
+                }
+            }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            var reactionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(enemy);
+            reactionParams.StringParameter = target.Name;
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(target, manager, previousReactionCount);
         }
     }
 

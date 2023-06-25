@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfDexterityTitle",
-    "description": "Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Precision [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Medium Armor [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Great Sword [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy",
+    "title": "Feat/&FeatOldTacticsDexTitle",
+    "description": "Feat/&FeatOldTacticsDexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "beb9378e-da32-503f-8faf-5d4e08b14a05",
+  "guid": "6431e575-edf1-54b8-a5f6-802e190b9385",
   "contentPack": 9999,
-  "name": "FeatGroupHalfDexterity"
+  "name": "FeatOldTacticsDex"
 }
