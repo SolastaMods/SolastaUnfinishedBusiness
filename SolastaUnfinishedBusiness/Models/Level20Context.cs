@@ -819,7 +819,7 @@ internal static class Level20Context
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }

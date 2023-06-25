@@ -237,7 +237,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             RollOutcome attackRollOutcome, int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
-            if (rulesetCharacter == null || attackerAttackMode == null)
+            
+            if (attackerAttackMode == null || rulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }
