@@ -1,13 +1,13 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Cannot do opportunity attacks against the source.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Gift of the Wind
+Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Gain a bonus to your initiative rolls equal to your Wisdom modifier (minimum 1).
+Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Swift Strike
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Sky Warrior Bonus Spells
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Gain resistance to bludgeoning damage.
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormTitle=Intangible Form
 Feature/&FeatureRangerSkyWarriorDeathFromAboveDescription=While active, Gift of the Wind causes your melee weapon attacks to deal additional bludgeoning damage equal to your proficiency bonus to every enemy within 5 feet of the target, including the target itself. On a critical hit, you also become immune to opportunity attacks from all of them.
 Feature/&FeatureRangerSkyWarriorDeathFromAboveTitle=Death from Above
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Gain a bonus to your initiative rolls equal to your Wisdom modifier (minimum 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Swift Strike
 Feature/&PowerRangerSkyWarriorCloudDanceDismissDescription=While wearing a shield, gain a flying speed equal to your walking speed.
 Feature/&PowerRangerSkyWarriorCloudDanceDismissTitle=Dismiss Cloud Dance
 Feature/&PowerRangerSkyWarriorCloudDanceSproutDescription=While wearing a shield, gain a flying speed equal to your walking speed.

@@ -1,13 +1,13 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Não é possível fazer ataques de oportunidade contra a fonte.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Presente do vento
+Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Ganhe um bônus em suas jogadas de iniciativa igual ao seu modificador de Sabedoria (mínimo 1).
+Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Golpe Rápido
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Você ganha feitiços de bônus que são considerados feitiços de Ranger para você, eles estão sempre preparados e não contam para o número de feitiços de Ranger que você conhece:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Feitiços Bônus do Guerreiro do Céu
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Ganhe resistência a dano de concussão.
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormTitle=Forma Intangível
 Feature/&FeatureRangerSkyWarriorDeathFromAboveDescription=Enquanto ativo, Gift of the Wind faz com que seus ataques de arma corpo a corpo causem dano de concussão adicional igual ao seu bônus de proficiência a todos os inimigos a até 1,5 metro do alvo, incluindo o próprio alvo. Em um acerto crítico, você também se torna imune a ataques de oportunidade de todos eles.
 Feature/&FeatureRangerSkyWarriorDeathFromAboveTitle=Morte de cima
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Ganhe um bônus em suas jogadas de iniciativa igual ao seu modificador de Sabedoria (mínimo 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Golpe Rápido
 Feature/&PowerRangerSkyWarriorCloudDanceDismissDescription=Enquanto estiver usando um escudo, ganhe uma velocidade de voo igual à sua velocidade de caminhada.
 Feature/&PowerRangerSkyWarriorCloudDanceDismissTitle=Dispensar Dança da Nuvem
 Feature/&PowerRangerSkyWarriorCloudDanceSproutDescription=Enquanto estiver usando um escudo, ganhe uma velocidade de voo igual à sua velocidade de caminhada.
