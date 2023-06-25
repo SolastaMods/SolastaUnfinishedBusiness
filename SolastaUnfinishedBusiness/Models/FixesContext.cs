@@ -42,6 +42,7 @@ internal static class FixesContext
         FixCriticalThresholdModifiers();
         FixEagerForBattleTexts();
         AddAdditionalActionTitles();
+        FixRageActionSpending();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -319,5 +320,12 @@ internal static class FixesContext
         //Bonus Action
         // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
         //     = ExpeditiousRetreat.GuiPresentation.Title;
+    }
+
+    private static void FixRageActionSpending()
+    {
+        //TA's implementation of Rage Start spends Bonus Action twice - not a big problem in vanilla, but breaks action switching code
+        //use our custom rage start class that doesn't have this issue
+        DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
     }
 }
