@@ -583,7 +583,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false})
             {
                 yield break;
             }

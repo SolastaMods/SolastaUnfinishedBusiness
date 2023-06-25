@@ -822,7 +822,7 @@ internal static class Level20SubclassesContext
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -1160,7 +1160,7 @@ internal static class Level20SubclassesContext
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (attackMode == null || rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (attackMode == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return false;
             }

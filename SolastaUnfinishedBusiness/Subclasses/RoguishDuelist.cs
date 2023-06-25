@@ -150,8 +150,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDyingOrUnconscious ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.HasAnyConditionOfType(
                     _conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
@@ -224,7 +223,8 @@ internal sealed class RoguishDuelist : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0)
+            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false} ||
+                rulesetAttacker.GetRemainingPowerCharges(_power) <= 0)
             {
                 yield break;
             }

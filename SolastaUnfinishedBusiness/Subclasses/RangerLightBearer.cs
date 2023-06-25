@@ -306,8 +306,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDying ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 yield break;
