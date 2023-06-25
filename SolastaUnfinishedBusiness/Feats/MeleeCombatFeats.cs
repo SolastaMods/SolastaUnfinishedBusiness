@@ -411,6 +411,12 @@ internal static class MeleeCombatFeats
 
             var attackedThisTurnCount = rulesetDefender.AllConditions
                 .Count(x => x.ConditionDefinition == _conditionHammerThePoint);
+
+            if (attackedThisTurnCount == 0)
+            {
+                yield break;
+            }
+
             var trendInfo = new TrendInfo(
                 attackedThisTurnCount, FeatureSourceType.Feat, _featHammerThePoint.Name, _featHammerThePoint);
 
