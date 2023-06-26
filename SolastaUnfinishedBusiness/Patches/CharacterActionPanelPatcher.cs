@@ -21,6 +21,12 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionPanelPatcher
 {
+    private static bool HasShapeChangeForm(RulesetEffectSpell rulesetEffectSpell)
+    {
+        return rulesetEffectSpell.SpellDefinition.EffectDescription.EffectForms.Any(
+            x => x.FormType == EffectForm.EffectFormType.ShapeChange);
+    }
+
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ReadyActionEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -428,6 +434,68 @@ public static class CharacterActionPanelPatcher
                 ServiceRepository.GetService<IGuiService>()
                     .ShowTutorial(ActionSwitching.Tutorial);
             }
+        }
+    }
+
+    //BUGFIX: allows shape change spells to correctly interact with metamagic
+    //it displays a shape prompt and avoid the delegate to call ExecuteEffectOfAction
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.MetamagicIgnored))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class MetamagicIgnored_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(CharacterActionPanel __instance)
+        {
+            var hasShapeChangeForm = HasShapeChangeForm(__instance.actionParams.RulesetEffect as RulesetEffectSpell);
+
+            if (!hasShapeChangeForm)
+            {
+                return true;
+            }
+
+            // SelectShape will call ExecuteEffectOfAction
+            __instance.SelectShape(__instance.actionParams.RulesetEffect);
+
+            return false;
+        }
+    }
+
+    //BUGFIX: allows shape change spells to correctly interact with metamagic
+    //it displays a shape prompt and avoid the delegate to call ExecuteEffectOfAction
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.MetamagicSelected))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class MetamagicSelected_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            CharacterActionPanel __instance,
+            GameLocationCharacter caster,
+            RulesetEffectSpell spellEffect,
+            MetamagicOptionDefinition metamagicOption)
+        {
+            var hasShapeChangeForm = HasShapeChangeForm(spellEffect);
+
+            if (!hasShapeChangeForm)
+            {
+                return true;
+            }
+
+            // BEGIN VANILLA CODE
+            spellEffect.MetamagicOption = metamagicOption;
+
+            if (metamagicOption.Type == RuleDefinitions.MetamagicType.QuickenedSpell)
+            {
+                __instance.actionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
+                    .AllActionDefinitions[ActionDefinitions.Id.CastBonus];
+            }
+            // END VANILLA CODE
+
+            // SelectShape will call ExecuteEffectOfAction
+            __instance.SelectShape(spellEffect);
+
+            return false;
         }
     }
 }
