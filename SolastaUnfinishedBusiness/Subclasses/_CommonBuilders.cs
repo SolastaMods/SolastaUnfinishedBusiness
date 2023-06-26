@@ -189,7 +189,8 @@ internal static class CommonBuilders
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetAttacker.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 yield break;
             }

@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 
@@ -920,11 +919,9 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterHero __instance)
         {
-            //TODO: convert this to an interface
-            FairyRaceBuilder.OnItemEquipped(__instance);
-            RangerSkyWarrior.OnItemEquipped(__instance);
-            TieflingRaceBuilder.OnItemEquipped(__instance);
-            WizardBladeDancer.OnItemEquipped(__instance);
+            //TODO: add slot and item to the interface?
+            __instance.GetSubFeaturesByType<IOnItemEquipped>()
+                .ForEach(f => f.OnItemEquipped(__instance));
         }
     }
 

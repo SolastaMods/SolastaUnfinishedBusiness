@@ -57,7 +57,6 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .SetCancellingConditions(DatabaseHelper.ConditionDefinitions.ConditionDying)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -74,7 +73,6 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .SetCancellingConditions(DatabaseHelper.ConditionDefinitions.ConditionDying)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -96,7 +94,6 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBlessed)
             .SetPossessive()
             .CopyParticleReferences(ConditionGuided)
-            .SetCancellingConditions(DatabaseHelper.ConditionDefinitions.ConditionDying)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -134,7 +131,6 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetSpecialDuration(DurationType.Dispelled)
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
-            .SetCancellingConditions(DatabaseHelper.ConditionDefinitions.ConditionDying)
             .SetFeatures(DamageAffinityNecroticResistance, SavingThrowAffinityDwarvenPlate)
             .AddToDB();
 

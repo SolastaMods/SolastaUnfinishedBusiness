@@ -1,13 +1,13 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Non può eseguire attacchi di opportunità contro la fonte.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Dono del vento
+Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Ottieni un bonus ai tuoi tiri di iniziativa pari al tuo modificatore di Saggezza (minimo 1).
+Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Colpo Rapido
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Ottieni incantesimi bonus che per te sono considerati incantesimi da Ranger, sono sempre preparati e non contano per il numero di incantesimi da Ranger che conosci:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Incantesimi Bonus Guerriero del Cielo
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Ottieni resistenza ai danni contundenti.
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormTitle=Forma immateriale
 Feature/&FeatureRangerSkyWarriorDeathFromAboveDescription=Mentre è attivo, Dono del Vento fa in modo che gli attacchi con le tue armi da mischia infliggano danni contundenti aggiuntivi pari al tuo bonus di competenza a ogni nemico entro 1,5 metri dal bersaglio, incluso il bersaglio stesso. Con un colpo critico, diventi anche immune agli attacchi di opportunità di tutti loro.
 Feature/&FeatureRangerSkyWarriorDeathFromAboveTitle=Morte dal cielo
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Ottieni un bonus ai tuoi tiri di iniziativa pari al tuo modificatore di Saggezza (minimo 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Colpo Rapido
 Feature/&PowerRangerSkyWarriorCloudDanceDismissDescription=Mentre indossi uno scudo, ottieni una velocità di volo pari alla tua velocità di camminata.
 Feature/&PowerRangerSkyWarriorCloudDanceDismissTitle=Ignora Cloud Dance
 Feature/&PowerRangerSkyWarriorCloudDanceSproutDescription=Mentre indossi uno scudo, ottieni una velocità di volo pari alla tua velocità di camminata.

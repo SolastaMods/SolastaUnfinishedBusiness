@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -744,8 +745,8 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatPoisonousSkin : IPhysicalAttackFinished, IPhysicalAttackFinishedOnMe,
-        IActionFinished, IActionFinishedOnMe
+    private class CustomBehaviorFeatPoisonousSkin :
+        IPhysicalAttackFinished, IPhysicalAttackFinishedOnMe, IActionFinished, IActionFinishedByEnemy
     {
         //Poison characters that I shove
         public IEnumerator OnActionFinished(CharacterAction action)
@@ -764,14 +765,17 @@ internal static class OtherFeats
         }
 
         //Poison character that shoves me
-        public IEnumerator OnActionFinishedOnMe(GameLocationCharacter me, CharacterAction action)
+        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
+
+        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
         {
-            if (action is not CharacterActionShove)
+            if (characterAction.ActionParams.TargetCharacters == null ||
+                !characterAction.ActionParams.TargetCharacters.Contains(target))
             {
                 yield break;
             }
 
-            PoisonTarget(me.RulesetCharacter, action.ActingCharacter);
+            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
         }
 
         //Poison target if I attack with unarmed

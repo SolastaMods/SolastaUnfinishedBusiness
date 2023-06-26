@@ -210,8 +210,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             // only on critical hits
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDying ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 outcome is not RollOutcome.CriticalSuccess)
             {
                 return;
@@ -219,7 +218,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false})
             {
                 return;
             }
@@ -260,7 +259,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

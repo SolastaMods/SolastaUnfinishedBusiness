@@ -1,5 +1,17 @@
 ﻿CHANGES:
 
+1.5.92.3:
+
+- added Hammer the Point, and Old Tactics feats [need QA]
+- fixed Fairy, and Feral Tiefling on equipment change notification
+- fixed Plane Magic invocations availability checks
+- fixed Rage action interaction with action switch setting
+- fixed Ranger Sky Warrior, and Wizard Bladedancer on equipment change notification
+- fixed Shapechange spell interaction with metamagic selection panel
+- fixed Thorn Vines melee range back to original 30 ft
+- fixed Wardancer free weapon switch interaction with multiplayer
+- fixed Wizard Dead Master and College of Life interaction on raise dead spells without concentration
+
 1.5.92.2:
 
 TIP:

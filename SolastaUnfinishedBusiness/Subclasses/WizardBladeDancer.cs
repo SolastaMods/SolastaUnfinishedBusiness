@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -60,6 +60,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        ConditionBladeDancerBladeDance.AddCustomSubFeatures(new CheckDanceValidity());
+
         var effectBladeDance = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -95,16 +97,14 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        ConditionBladeDancerDanceOfDefense.AddCustomSubFeatures(new CheckDanceValidity());
+
         var powerBladeDancerDanceOfDefense = FeatureDefinitionPowerBuilder
             .Create(powerBladeDancerBladeDance, "PowerBladeDancerDanceOfDefense")
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(effectBladeDance)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(ConditionBladeDancerDanceOfDefense, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBladeDancerDanceOfDefense))
                     .Build())
             .SetOverriddenPower(powerBladeDancerBladeDance)
             .AddToDB();
@@ -120,17 +120,14 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        ConditionBladeDancerDanceOfVictory.AddCustomSubFeatures(new CheckDanceValidity());
+
         var powerBladeDancerDanceOfVictory = FeatureDefinitionPowerBuilder
             .Create(powerBladeDancerBladeDance, "PowerBladeDancerDanceOfVictory")
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(effectBladeDance)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(ConditionBladeDancerDanceOfVictory, ConditionForm.ConditionOperation.Add)
-                            .Build()
-                    )
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBladeDancerDanceOfVictory))
                     .Build())
             .SetOverriddenPower(powerBladeDancerDanceOfDefense)
             .AddToDB();
@@ -195,20 +192,24 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                && !hero.IsWieldingTwoHandedWeapon();
     }
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacter hero)
-    {
-        if (IsBladeDanceValid(hero))
-        {
-            return;
-        }
 
-        foreach (var rulesetCondition in hero.allConditions
-                     .Where(x => x.ConditionDefinition == ConditionBladeDancerBladeDance ||
-                                 x.ConditionDefinition == ConditionBladeDancerDanceOfDefense ||
-                                 x.ConditionDefinition == ConditionBladeDancerDanceOfVictory)
-                     .ToList())
+    private sealed class CheckDanceValidity : IOnItemEquipped
+    {
+        public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            hero.RemoveCondition(rulesetCondition);
+            if (IsBladeDanceValid(hero))
+            {
+                return;
+            }
+
+            foreach (var rulesetCondition in hero.allConditions
+                         .Where(x => x.ConditionDefinition == ConditionBladeDancerBladeDance ||
+                                     x.ConditionDefinition == ConditionBladeDancerDanceOfDefense ||
+                                     x.ConditionDefinition == ConditionBladeDancerDanceOfVictory)
+                         .ToList())
+            {
+                hero.RemoveCondition(rulesetCondition);
+            }
         }
     }
 }

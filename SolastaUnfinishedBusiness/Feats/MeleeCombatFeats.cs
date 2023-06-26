@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -35,7 +37,10 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
+        var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
+        var featOldTacticsDex = BuildOldTacticsDex();
+        var featOldTacticsStr = BuildOldTacticsStr();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
@@ -49,12 +54,15 @@ internal static class MeleeCombatFeats
             featAlwaysReady,
             featBladeMastery,
             featCleavingAttack,
-            featCrusherStr,
             featCrusherCon,
+            featCrusherStr,
             featDefensiveDuelist,
-            featLongSwordFinesse,
             featDevastatingStrikes,
             featFellHanded,
+            featHammerThePoint,
+            featLongSwordFinesse,
+            featOldTacticsDex,
+            featOldTacticsStr,
             featPiercerDex,
             featPiercerStr,
             featPowerAttack,
@@ -67,6 +75,10 @@ internal static class MeleeCombatFeats
         var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", GroupFeats.Crusher,
             featCrusherStr,
             featCrusherCon);
+
+        var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
+            featSlasherDex,
+            featSlasherStr);
 
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
@@ -95,12 +107,14 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
             featSpearMastery,
             featGroupCrusher,
+            featGroupOldTactics,
             featGroupSlasher);
     }
 
@@ -375,6 +389,186 @@ internal static class MeleeCombatFeats
                 modifyAttackModeFinesse)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Hammer the Point
+
+    private static FeatDefinition BuildHammerThePoint()
+    {
+        const string Name = "FeatHammerThePoint";
+
+        var conditionHammerThePoint = ConditionDefinitionBuilder
+            .Create($"Condition{Name}HammerThePoint")
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var additionalDamageHammerThePoint = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}HammerThePoint")
+            .SetGuiPresentationNoContent(true)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionHammerThePoint)
+            .AddToDB();
+
+        var featHammerThePoint = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(additionalDamageHammerThePoint)
+            .AddToDB();
+
+        additionalDamageHammerThePoint.SetCustomSubFeatures(
+            new PhysicalAttackInitiatedFeatHammerThePoint(conditionHammerThePoint, featHammerThePoint));
+
+        return featHammerThePoint;
+    }
+
+    private sealed class PhysicalAttackInitiatedFeatHammerThePoint : IPhysicalAttackInitiated
+    {
+        private readonly ConditionDefinition _conditionHammerThePoint;
+        private readonly FeatDefinition _featHammerThePoint;
+
+        public PhysicalAttackInitiatedFeatHammerThePoint(
+            ConditionDefinition conditionHammerThePoint,
+            FeatDefinition featHammerThePoint)
+        {
+            _conditionHammerThePoint = conditionHammerThePoint;
+            _featHammerThePoint = featHammerThePoint;
+        }
+
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            var battle = Gui.Battle;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (battle == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var attackedThisTurnCount = rulesetDefender.AllConditions
+                .Count(x => x.ConditionDefinition == _conditionHammerThePoint);
+
+            if (attackedThisTurnCount == 0)
+            {
+                yield break;
+            }
+
+            var trendInfo = new TrendInfo(
+                attackedThisTurnCount, FeatureSourceType.Feat, _featHammerThePoint.Name, _featHammerThePoint);
+
+            attackModifier.AttackRollModifier += attackedThisTurnCount;
+            attackModifier.AttacktoHitTrends.Add(trendInfo);
+
+            var damage = attackerAttackMode?.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                yield break;
+            }
+
+            damage.BonusDamage += attackedThisTurnCount;
+            damage.DamageBonusTrends.Add(trendInfo);
+        }
+    }
+
+    #endregion
+
+    #region Old Tactics
+
+    private static FeatDefinition BuildOldTacticsStr()
+    {
+        const string Name = "FeatOldTacticsStr";
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar)
+            .SetCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildOldTacticsDex()
+    {
+        const string Name = "FeatOldTacticsDex";
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .SetCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddToDB();
+    }
+
+    private sealed class ActionFinishedByEnemyOldTactics : IActionFinishedByEnemy
+    {
+        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.StandUp;
+
+        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        {
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var enemy = characterAction.ActingCharacter;
+
+            if (!battle.IsWithin1Cell(target, enemy))
+            {
+                yield break;
+            }
+
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
+            {
+                yield break;
+            }
+
+            if (!target.CanReact())
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy);
+
+            if (retaliationMode == null)
+            {
+                (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy);
+
+                if (retaliationMode == null)
+                {
+                    yield break;
+                }
+            }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            var reactionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(enemy);
+            reactionParams.StringParameter = target.Name;
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(target, manager, previousReactionCount);
+        }
     }
 
     #endregion
@@ -802,7 +996,7 @@ internal static class MeleeCombatFeats
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -1019,7 +1213,8 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -1184,7 +1379,8 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -1615,7 +1811,8 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

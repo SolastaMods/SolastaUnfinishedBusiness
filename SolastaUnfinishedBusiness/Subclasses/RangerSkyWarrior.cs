@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,7 +14,6 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -48,7 +46,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         var conditionGiftOfTheWindAttacked = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWindAttacked")
-            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -82,22 +80,18 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();
 
+        _conditionGiftOfTheWind.AddCustomSubFeatures(new CheckConditionValidity(_conditionGiftOfTheWind));
+
         var powerGiftOfTheWind = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GiftOfTheWind")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerFighterSecondWind)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFighterSecondWind)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(_conditionGiftOfTheWind, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFighterSecondWind)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(_conditionGiftOfTheWind))
+                .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasShield))
             .AddToDB();
 
@@ -149,6 +143,12 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
         // Cloud Dance
 
+        var conditionCloudDance = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}CloudDance")
+            .AddToDB();
+
+        conditionCloudDance.AddCustomSubFeatures(new CheckConditionValidity(conditionCloudDance));
+
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CloudDanceSprout")
             .SetGuiPresentation(Category.Feature,
@@ -162,14 +162,12 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(
                 ValidatorsCharacter.HasShield,
-                ValidatorsCharacter.HasNoneOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionCloudDance.Name)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -183,15 +181,14 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Remove)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Remove),
+                        //Leaving this for compatibility
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                            ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
+                new ValidatorsPowerUse(
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, conditionCloudDance.Name)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder
@@ -230,27 +227,29 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacter hero)
+    private sealed class CheckConditionValidity : IOnItemEquipped
     {
-        if (ValidatorsCharacter.HasShield(hero))
+        private readonly ConditionDefinition condition;
+
+        public CheckConditionValidity(ConditionDefinition condition)
         {
-            return;
+            this.condition = condition;
         }
 
-        var rulesetConditionGiftOfTheWind = hero.AllConditions.FirstOrDefault(x =>
-            x.ConditionDefinition == _conditionGiftOfTheWind);
-
-        if (rulesetConditionGiftOfTheWind != null)
+        public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            hero.RemoveCondition(rulesetConditionGiftOfTheWind);
-        }
+            if (ValidatorsCharacter.HasShield(hero))
+            {
+                return;
+            }
 
-        var rulesetConditionFlyingAdaptive = hero.AllConditions.FirstOrDefault(x =>
-            x.ConditionDefinition == ConditionDefinitions.ConditionFlyingAdaptive);
+            var rulesetCondition = hero.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
 
-        if (rulesetConditionFlyingAdaptive != null)
-        {
-            hero.RemoveCondition(rulesetConditionFlyingAdaptive);
+            if (rulesetCondition != null)
+            {
+                hero.RemoveCondition(rulesetCondition);
+            }
         }
     }
 

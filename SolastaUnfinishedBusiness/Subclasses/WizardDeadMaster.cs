@@ -25,6 +25,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
+
+    internal const string DeadMasterNoConcentration = "NoConcentration";
     internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
     internal WizardDeadMaster()
@@ -238,7 +240,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
                 // create non concentration versions to be used whenever upcast
                 _ = SpellDefinitionBuilder
-                    .Create(createDeadSpell, $"CreateDead{monster.name}NoConcentration")
+                    .Create(createDeadSpell, $"CreateDead{monster.name}{DeadMasterNoConcentration}")
                     .SetRequiresConcentration(false)
                     .AddToDB();
 

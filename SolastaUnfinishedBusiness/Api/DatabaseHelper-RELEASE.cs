@@ -15,6 +15,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
+        internal static ActionDefinition StandUp { get; } = GetDefinition<ActionDefinition>("StandUp");
         internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
         internal static ActionDefinition UseBardicInspiration { get; } = GetDefinition<ActionDefinition>("UseBardicInspiration");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
@@ -150,7 +151,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDivineFavor { get; } = GetDefinition<ConditionDefinition>("ConditionDivineFavor");
         internal static ConditionDefinition ConditionDodging { get; } = GetDefinition<ConditionDefinition>("ConditionDodging");
         internal static ConditionDefinition ConditionDoomLaughter { get; } = GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
-        internal static ConditionDefinition ConditionDying { get; } = GetDefinition<ConditionDefinition>("ConditionDying");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
         internal static ConditionDefinition ConditionFlying12 { get; } = GetDefinition<ConditionDefinition>("ConditionFlying12");

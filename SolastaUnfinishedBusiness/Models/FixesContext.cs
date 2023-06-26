@@ -24,7 +24,6 @@ internal static class FixesContext
     internal static void LateLoad()
     {
         FixAdditionalDamageRestrictions();
-        FixAdditionalDamageForThunderGauntlets();
         FixAttackBuffsAffectingSpellDamage();
         FixColorTables();
         FixDivineBlade();
@@ -42,6 +41,7 @@ internal static class FixesContext
         FixCriticalThresholdModifiers();
         FixEagerForBattleTexts();
         AddAdditionalActionTitles();
+        FixRageActionSpending();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -80,16 +80,6 @@ internal static class FixesContext
 
         AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
         AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
-    }
-
-    private static void FixAdditionalDamageForThunderGauntlets()
-    {
-        foreach (var featureDefinitionAdditionalDamage in DatabaseRepository
-                     .GetDatabase<FeatureDefinitionAdditionalDamage>()
-                     .Where(x => x.RequiredProperty == RestrictedContextRequiredProperty.MeleeWeapon))
-        {
-            featureDefinitionAdditionalDamage.SetCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeWeaponAttack);
-        }
     }
 
     private static void FixAttackBuffsAffectingSpellDamage()
@@ -319,5 +309,12 @@ internal static class FixesContext
         //Bonus Action
         // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
         //     = ExpeditiousRetreat.GuiPresentation.Title;
+    }
+
+    private static void FixRageActionSpending()
+    {
+        //TA's implementation of Rage Start spends Bonus Action twice - not a big problem in vanilla, but breaks action switching code
+        //use our custom rage start class that doesn't have this issue
+        DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
     }
 }

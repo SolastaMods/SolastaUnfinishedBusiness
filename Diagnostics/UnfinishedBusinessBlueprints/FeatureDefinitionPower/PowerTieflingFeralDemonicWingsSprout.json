@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFlyingAdaptive",
-          "conditionDefinition": "Definition:ConditionFlyingAdaptive:cdef2a25e10345349a181ccf2b03cd97",
+          "conditionDefinitionName": "ConditionTieflingFeralWings",
+          "conditionDefinition": "Definition:ConditionTieflingFeralWings:061f2f99-72c6-5208-aecb-d4661c750c49",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
