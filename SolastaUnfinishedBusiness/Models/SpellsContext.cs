@@ -394,8 +394,8 @@ internal static class SpellsContext
         //We need to register them otherwise the combo College of Life / Deadmaster becomes odd when upcasting
         if (isDeadMasterSpell)
         {
-            var spellDefinitionNoConcentration =
-                DatabaseHelper.GetDefinition<SpellDefinition>($"{spellDefinition.Name}NoConcentration");
+            var spellDefinitionNoConcentration = DatabaseHelper.GetDefinition<SpellDefinition>(
+                $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
 
             SpellListAllSpells.AddSpell(spellDefinitionNoConcentration);
         }

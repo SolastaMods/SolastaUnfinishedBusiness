@@ -273,8 +273,8 @@ public static class CharacterActionPanelPatcher
 
             if (!requiresConcentration)
             {
-                spellDefinition =
-                    DatabaseHelper.GetDefinition<SpellDefinition>($"{spellDefinition.Name}NoConcentration");
+                spellDefinition = DatabaseHelper.GetDefinition<SpellDefinition>(
+                    $"{spellDefinition.Name}{Subclasses.WizardDeadMaster.DeadMasterNoConcentration}");
             }
         }
     }
