@@ -99,12 +99,6 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         return this;
     }
 
-    internal SpellDefinitionBuilder SetAiParameters(SpellAIParameters aiParameters)
-    {
-        Definition.aiParameters = aiParameters;
-        return this;
-    }
-
     internal SpellDefinitionBuilder SetUniqueInstance()
     {
         Definition.uniqueInstance = true;
