@@ -10,124 +10,145 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardBladeDancer : AbstractSubclass
 {
+    private const string Name = "BladeDancer";
+    private const string BladeDanceTitle = $"Feature/&FeatureSet{Name}BladeDanceTitle";
+
     internal WizardBladeDancer()
     {
+        // LEVEL 02
+
+        // Caster Fighting
+
         var proficiencyBladeDancerLightArmor = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyBladeDancerLightArmor")
+            .Create($"Proficiency{Name}LightArmor")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
             .AddToDB();
 
         var proficiencyBladeDancerMartialWeapon = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyBladeDancerMartialWeapon")
+            .Create($"Proficiency{Name}MartialWeapon")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
         var featureSetCasterBladeDancerFighting = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetCasterBladeDancerFighting")
+            .Create($"FeatureSetCaster{Name}Fighting")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(proficiencyBladeDancerLightArmor, proficiencyBladeDancerMartialWeapon)
             .AddToDB();
 
+        // Blade Dance
+
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
-            .Create("ConditionBladeDancerBladeDance")
-            .SetGuiPresentation(Category.Condition, ConditionHeroism)
+            .Create($"Condition{Name}BladeDance")
+            .SetGuiPresentation(BladeDanceTitle, Gui.NoLocalization, ConditionHeroism)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierBladeDancerBladeDance")
+                    .Create($"AttributeModifier{Name}BladeDance")
                     .SetGuiPresentation(Category.Feature)
                     .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
                     .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
-                        "AbilityCheckAffinityBladeDancerBladeDanceAcrobatics")
-                    .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition)
+                    .Create(AbilityCheckAffinityIslandHalflingAcrobatics,
+                        $"AbilityCheckAffinity{Name}BladeDanceAcrobatics")
+                    .SetGuiPresentation(Category.Feature)
                     .AddToDB(),
                 // keep name for compatibility reasons
                 FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution")
-                    .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition)
+                    .Create($"AbilityCheckAffinity{Name}BladeDanceConstitution")
+                    .SetGuiPresentation(Category.Feature)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Constitution)
                     .AddToDB())
+            .SetCustomSubFeatures(new CheckDanceValidity())
             .AddToDB();
 
-        ConditionBladeDancerBladeDance.AddCustomSubFeatures(new CheckDanceValidity());
-
-        var effectBladeDance = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetDurationData(DurationType.Minute, 1)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionBladeDancerBladeDance, ConditionForm.ConditionOperation.Add)
-                    .Build())
-            .Build();
-
         var powerBladeDancerBladeDance = FeatureDefinitionPowerBuilder
-            .Create("PowerBladeDancerBladeDance")
-            .SetGuiPresentation(
-                "Feature/&FeatureBladeDanceTitle",
-                "Condition/&ConditionBladeDancerBladeDanceDescription",
-                FeatureDefinitionPowers.PowerClericDivineInterventionWizard)
+            .Create($"Power{Name}BladeDance")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerClericDivineInterventionWizard)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(effectBladeDance)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionBladeDancerBladeDance, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(new ValidatorsPowerUse(IsBladeDanceValid))
             .AddToDB();
 
+        // LEVEL 10
+
+        // Dance of Defense
+
         ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
-            .Create(ConditionBladeDancerBladeDance, "ConditionBladeDancerDanceOfDefense")
-            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition, ConditionHeroism)
+            .Create(ConditionBladeDancerBladeDance, $"Condition{Name}DanceOfDefense")
             .AddFeatures(
                 FeatureDefinitionReduceDamageBuilder
-                    .Create("ReduceDamageBladeDancerDanceOfDefense")
+                    .Create($"ReduceDamage{Name}DanceOfDefense")
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")
                     .SetConsumeSpellSlotsReducedDamage(CharacterClassDefinitions.Wizard, 5)
                     .AddToDB())
+            .SetCustomSubFeatures(new CheckDanceValidity())
             .AddToDB();
 
-        ConditionBladeDancerDanceOfDefense.AddCustomSubFeatures(new CheckDanceValidity());
-
         var powerBladeDancerDanceOfDefense = FeatureDefinitionPowerBuilder
-            .Create(powerBladeDancerBladeDance, "PowerBladeDancerDanceOfDefense")
+            .Create(powerBladeDancerBladeDance, $"Power{Name}DanceOfDefense")
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(effectBladeDance)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBladeDancerDanceOfDefense))
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionBladeDancerDanceOfDefense, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .SetOverriddenPower(powerBladeDancerBladeDance)
             .AddToDB();
 
+        // LEVEL 14
+
+        // Dance of Victory
+
         ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
-            .Create(ConditionBladeDancerDanceOfDefense, "ConditionBladeDancerDanceOfVictory")
-            .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition, ConditionHeroism)
+            .Create(ConditionBladeDancerDanceOfDefense, $"Condition{Name}DanceOfVictory")
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
-                    .Create("AttackModifierBladeDancerDanceOfVictory")
+                    .Create($"AttackModifier{Name}DanceOfVictory")
                     .SetGuiPresentation(Category.Feature)
                     .SetDamageRollModifier(5)
                     .AddToDB())
+            .SetCustomSubFeatures(new CheckDanceValidity())
             .AddToDB();
 
-        ConditionBladeDancerDanceOfVictory.AddCustomSubFeatures(new CheckDanceValidity());
-
         var powerBladeDancerDanceOfVictory = FeatureDefinitionPowerBuilder
-            .Create(powerBladeDancerBladeDance, "PowerBladeDancerDanceOfVictory")
+            .Create(powerBladeDancerBladeDance, $"Power{Name}DanceOfVictory")
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(effectBladeDance)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBladeDancerDanceOfVictory))
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionBladeDancerDanceOfVictory, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .SetOverriddenPower(powerBladeDancerDanceOfDefense)
             .AddToDB();
@@ -135,28 +156,29 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         //
         // use sets for better descriptions on level up
         //
+
         var featureSetBladeDancerBladeDance = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerBladeDance")
-            .SetGuiPresentation("FeatureBladeDance", Category.Feature)
+            .Create($"FeatureSet{Name}BladeDance")
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerBladeDancerBladeDance)
             .AddToDB();
 
         var featureSetBladeDancerDanceOfDefense = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerDanceOfDefense")
-            .SetGuiPresentation("ReduceDamageBladeDancerDanceOfDefense", Category.Feature)
+            .Create($"FeatureSet{Name}DanceOfDefense")
+            .SetGuiPresentation($"ReduceDamage{Name}DanceOfDefense", Category.Feature)
             .AddFeatureSet(powerBladeDancerDanceOfDefense)
             .AddToDB();
 
         var featureSetBladeDancerDanceOfVictory = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetBladeDancerDanceOfVictory")
-            .SetGuiPresentation("AttackModifierBladeDancerDanceOfVictory", Category.Feature)
+            .Create($"FeatureSet{Name}DanceOfVictory")
+            .SetGuiPresentation($"AttackModifier{Name}DanceOfVictory", Category.Feature)
             .AddFeatureSet(powerBladeDancerDanceOfVictory)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardBladeDancer")
+            .Create($"Wizard{Name}")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("WizardBladeDancer", Resources.WizardBladeDancer, 256))
+                Sprites.GetSprite(Name, Resources.WizardBladeDancer, 256))
             .AddFeaturesAtLevel(2,
                 featureSetCasterBladeDancerFighting,
                 featureSetBladeDancerBladeDance)
@@ -186,12 +208,14 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
     private static bool IsBladeDanceValid(RulesetCharacter hero)
     {
-        return !hero.IsWearingMediumArmor()
-               && !hero.IsWearingHeavyArmor()
-               && !hero.IsWearingShield()
-               && !hero.IsWieldingTwoHandedWeapon();
-    }
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(hero);
 
+        return (gameLocationCharacter == null || gameLocationCharacter.CanAct()) &&
+               !hero.IsWearingMediumArmor() &&
+               !hero.IsWearingHeavyArmor() &&
+               !hero.IsWearingShield() &&
+               !hero.IsWieldingTwoHandedWeapon();
+    }
 
     private sealed class CheckDanceValidity : IOnItemEquipped
     {
