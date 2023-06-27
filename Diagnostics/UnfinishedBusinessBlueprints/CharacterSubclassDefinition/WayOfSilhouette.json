@@ -46,7 +46,7 @@
     "description": "Subclass/&WayOfSilhouetteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "44016fda-05ad-5f44-a9a4-f2f36e7e0864",
+      "m_AssetGUID": "ad424728-a3fe-585c-853f-64859dfcd9e3",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

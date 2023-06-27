@@ -46,7 +46,7 @@
     "description": "Subclass/&WizardSpellMasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4d7745bc-47f0-5c9b-a779-21257093d1d1",
+      "m_AssetGUID": "2801e456-f293-5578-a300-16a14f4c8d83",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

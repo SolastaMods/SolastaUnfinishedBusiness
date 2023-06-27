@@ -16,6 +16,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfHarlequin : AbstractSubclass
 {
+    private const string Name = "CollegeOfHarlequin";
     private const string CombatInspirationCondition = "ConditionCollegeOfHarlequinFightingAbilityEnhanced";
 
     internal CollegeOfHarlequin()
@@ -30,122 +31,139 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddToDB();
 
         var powerTerrificPerformance = FeatureDefinitionPowerBuilder
-            .Create("PowerCollegeOfHarlequinTerrificPerformance")
+            .Create($"Power{Name}TerrificPerformance")
             .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                //actual targeting is happening in sub-feature, this is for proper tooltip
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
-                .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
-                .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    //actual targeting is happening in sub-feature, this is for proper tooltip
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerTerrificPerformanceImproved = FeatureDefinitionPowerBuilder
-            .Create("PowerCollegeOfHarlequinTerrificPerformanceImproved")
+            .Create($"Power{Name}TerrificPerformanceImproved")
             .SetGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerTerrificPerformance)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                //actual targeting is happening in sub-feature, this is for proper tooltip
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetDamageForm(DamageTypePsychic, 2, DieType.D8, 0, HealFromInflictedDamage.Never, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    //actual targeting is happening in sub-feature, this is for proper tooltip
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.Create()
+                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8, 0, HealFromInflictedDamage.Never, true)
+                            .Build(),
+                        EffectFormBuilder.Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         powerTerrificPerformance.SetCustomSubFeatures(
-            new TerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved),
-            PowerVisibilityModifier.Hidden
+            PowerVisibilityModifier.Hidden,
+            new TerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
 
-        const string FeatureName = "PowerCollegeOfHarlequinCombatInspiration";
+        const string PowerCombatInspirationName = $"Power{Name}CombatInspiration";
+
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
-            .Create(FeatureName)
+            .Create(PowerCombatInspirationName)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(CombatInspirationCondition))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
-                .UseQuickAnimations()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create(CombatInspirationCondition)
-                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-                            .AddFeatures(
-                                FeatureDefinitionMovementAffinityBuilder
-                                    .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
-                                    .SetGuiPresentation(Category.Feature)
-                                    .SetCustomSubFeatures(new AddConditionAmountToSpeedModifier())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
+                    .UseQuickAnimations()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create(CombatInspirationCondition)
+                                    .SetGuiPresentation(Category.Condition,
+                                        ConditionDefinitions.ConditionHeraldOfBattle)
+                                    .AddFeatures(
+                                        FeatureDefinitionMovementAffinityBuilder
+                                            .Create($"MovementAffinity{Name}CombatInspirationMovementEnhancement")
+                                            .SetGuiPresentation(Category.Feature)
+                                            .SetCustomSubFeatures(new AddConditionAmountToSpeedModifier())
+                                            .AddToDB(),
+                                        FeatureDefinitionAttackModifierBuilder
+                                            .Create($"AttackModifier{Name}CombatInspirationAttackEnhancement")
+                                            .SetGuiPresentation(Category.Feature)
+                                            .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
+                                            .AddToDB())
+                                    .SetCustomSubFeatures(new ConditionCombatInspired(PowerCombatInspirationName))
                                     .AddToDB(),
-                                FeatureDefinitionAttackModifierBuilder
-                                    .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
-                                    .SetGuiPresentation(Category.Feature)
-                                    .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
-                                    .AddToDB())
-                            .SetCustomSubFeatures(new ConditionCombatInspired(FeatureName))
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add)
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var proficiencyCollegeOfHarlequinMartialWeapon = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCollegeOfHarlequinMartialWeapon")
+            .Create($"Proficiency{Name}MartialWeapon")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
         var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCollegeOfHarlequinFightingStyle")
+            .Create($"Proficiency{Name}FightingStyle")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.FightingStyle, "TwoWeapon")
             .AddToDB();
 
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
-            .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
+            .Create($"Power{Name}ImprovedCombatInspiration")
             .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionCollegeOfHarlequinRegainBardicInspirationOnKill")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
-                .Build())
             .SetUsesFixed(ActivationTime.OnReduceCreatureToZeroHPAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                    .Create($"Condition{Name}RegainBardicInspirationOnKill")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .SetCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("CollegeOfHarlequin")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("CollegeOfHarlequin", Resources.CollegeOfHarlequin, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfHarlequin, 256))
             .AddFeaturesAtLevel(3,
+                CommonBuilders.MagicAffinityCasterFightingCombatMagic,
                 powerCombatInspiration,
                 powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
-                CommonBuilders.MagicAffinityCasterFightingCombatMagic,
                 proficiencyCollegeOfHarlequinFightingStyle)
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
@@ -237,10 +255,18 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode, RulesetEffect activeEffect)
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
         {
             // activeEffect != null means a magical attack
             if (attackMode == null || activeEffect != null)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -253,14 +279,9 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var power = power6;
             var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
-            if (level >= 14)
-            {
-                power = power14;
-            }
+            var power = level >= 14 ? power14 : power6;
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)

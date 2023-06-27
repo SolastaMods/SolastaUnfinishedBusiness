@@ -10,29 +10,31 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardSpellMaster : AbstractSubclass
 {
-    internal const string PowerSpellMasterBonusRecoveryName = "PowerSpellMasterBonusRecovery";
+    private const string Name = "SpellMaster";
+
+    internal const string PowerSpellMasterBonusRecoveryName = $"Power{Name}BonusRecovery";
 
     internal WizardSpellMaster()
     {
         // level 02
 
         var magicAffinitySpellMasterKnowledge = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterKnowledge")
+            .Create($"MagicAffinity{Name}Knowledge")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(1f, 1f, 1, AdvantageType.None,
-                PreparedSpellsModifier.None)
+            .SetSpellLearnAndPrepModifiers(
+                1f, 1f, 1, AdvantageType.None, PreparedSpellsModifier.None)
             .AddToDB();
 
         var magicAffinitySpellMasterPrepared = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterPrepared")
+            .Create($"MagicAffinity{Name}Prepared")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(1f, 1f, 0, AdvantageType.None,
                 PreparedSpellsModifier.ProficiencyBonus)
             .AddToDB();
 
-        var magicAffinitySpellMasterRecovery = FeatureDefinitionPowerBuilder
+        var powerBonusRecovery = FeatureDefinitionPowerBuilder
             .Create(PowerSpellMasterBonusRecoveryName)
-            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature, PowerWizardArcaneRecovery)
+            .SetGuiPresentation($"MagicAffinity{Name}Recovery", Category.Feature, PowerWizardArcaneRecovery)
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -51,14 +53,14 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         // level 06
 
         var magicAffinitySpellMasterScriber = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterScriber")
+            .Create($"MagicAffinity{Name}Scriber")
             .SetGuiPresentation(Category.Feature)
             .SetSpellLearnAndPrepModifiers(0.25f, 0.25f, 0, AdvantageType.Advantage,
                 PreparedSpellsModifier.None)
             .AddToDB();
 
         var pointPoolSpellMasterBonusCantrips = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolSpellMasterBonusCantrips")
+            .Create($"PointPool{Name}BonusCantrips")
             .SetGuiPresentation(Category.Feature)
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
             .OnlyUniqueChoices()
@@ -67,16 +69,16 @@ internal sealed class WizardSpellMaster : AbstractSubclass
         // level 10
 
         var magicAffinitySpellMasterExtraPrepared = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellMasterExtraPrepared")
+            .Create($"MagicAffinity{Name}ExtraPrepared")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellLearnAndPrepModifiers(1f, 1f, 0, AdvantageType.None,
-                PreparedSpellsModifier.SpellcastingAbilityBonus)
+            .SetSpellLearnAndPrepModifiers(
+                1f, 1f, 0, AdvantageType.None, PreparedSpellsModifier.SpellcastingAbilityBonus)
             .AddToDB();
 
         // level 14
 
         var savingThrowAffinitySpellMasterSpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SavingThrowAffinitySpellMasterSpellResistance")
+            .Create($"SavingThrowAffinity{Name}SpellResistance")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
                 CharacterSavingThrowAffinity.Advantage, true,
@@ -89,24 +91,24 @@ internal sealed class WizardSpellMaster : AbstractSubclass
             .AddToDB();
 
         _ = RestActivityDefinitionBuilder
-            .Create("RestActivitySpellMasterArcaneDepth")
-            .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Feature, PowerWizardArcaneRecovery)
+            .Create($"RestActivity{Name}ArcaneDepth")
+            .SetGuiPresentation($"MagicAffinity{Name}Recovery", Category.Feature, PowerWizardArcaneRecovery)
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
                 RestActivityDefinition.ActivityCondition.CanUsePower,
                 FunctorDefinitions.FunctorUsePower,
-                magicAffinitySpellMasterRecovery.Name)
+                PowerSpellMasterBonusRecoveryName)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardSpellMaster")
+            .Create($"Wizard{Name}")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("WizardSpellMaster", Resources.WizardSpellMaster, 256))
+                Sprites.GetSprite(Name, Resources.WizardSpellMaster, 256))
             .AddFeaturesAtLevel(2,
                 magicAffinitySpellMasterKnowledge,
                 magicAffinitySpellMasterPrepared,
-                magicAffinitySpellMasterRecovery)
+                powerBonusRecovery)
             .AddFeaturesAtLevel(6,
                 magicAffinitySpellMasterScriber,
                 pointPoolSpellMasterBonusCantrips)

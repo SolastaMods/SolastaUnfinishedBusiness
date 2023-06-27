@@ -15,17 +15,19 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardArcaneFighter : AbstractSubclass
 {
+    private const string Name = "ArcaneFighter";
+
     internal WizardArcaneFighter()
     {
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
+            .Create($"MagicAffinity{Name}ConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
         // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerArcaneFighterEnchantWeapon")
+            .Create($"Power{Name}EnchantWeapon")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(
@@ -34,15 +36,15 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var additionalActionArcaneFighter = FeatureDefinitionBuilder
-            .Create("AdditionalActionArcaneFighter") //left old name for compatibility
+            .Create($"AdditionalAction{Name}") //left old name for compatibility
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new SpellFighting(ConditionDefinitionBuilder
-                .Create("ConditionArcaneFighterSpellFighting")
-                .SetGuiPresentationNoContent()
+                .Create($"Condition{Name}SpellFighting")
+                .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetFeatures(FeatureDefinitionAdditionalActionBuilder
                     .Create("AdditionalActionSpellFighting")
-                    .SetGuiPresentation("AdditionalActionArcaneFighter", Category.Feature)
+                    .SetGuiPresentation($"AdditionalAction{Name}", Category.Feature)
                     .SetActionType(ActionDefinitions.ActionType.Main)
                     .SetRestrictedActions(ActionDefinitions.Id.CastMain)
                     .AddToDB())
@@ -50,18 +52,18 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageArcaneFighterBonusWeapon")
+            .Create($"AdditionalDamage{Name}BonusWeapon")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("ArcaneFighter")
+            .SetNotificationTag(Name)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetDamageDice(DieType.D8, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardArcaneFighter")
+            .Create($"Wizard{Name}")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("WizardArcaneFighter", Resources.WizardArcaneFighter, 256))
+                Sprites.GetSprite(Name, Resources.WizardArcaneFighter, 256))
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
@@ -109,6 +111,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 yield break;
             }
 
+            // only process in my own turn
             if (Gui.Battle?.ActiveContender != attacker)
             {
                 yield break;

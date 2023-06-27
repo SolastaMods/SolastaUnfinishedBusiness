@@ -56,7 +56,7 @@
     "description": "Subclass/&PatronMoonlitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dd6fa7d2-99ae-54f7-9f47-8614d2428b44",
+      "m_AssetGUID": "87fa4d28-8816-531a-9c26-0fc8b8b89b49",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
