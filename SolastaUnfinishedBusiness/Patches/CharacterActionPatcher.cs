@@ -129,7 +129,8 @@ public static class CharacterActionPatcher
                 if (Gui.Battle != null)
                 {
                     foreach (var target in Gui.Battle.AllContenders
-                                 .Where(x => x.Side != __instance.ActingCharacter.Side))
+                                 .Where(x => x.Side != __instance.ActingCharacter.Side)
+                                 .ToList()) // avoid changing enumerator
                     {
                         var character = target.RulesetCharacter;
 
