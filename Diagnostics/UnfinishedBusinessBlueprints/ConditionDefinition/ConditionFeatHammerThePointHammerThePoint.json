@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [],
-  "allowMultipleInstances": false,
+  "allowMultipleInstances": true,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,

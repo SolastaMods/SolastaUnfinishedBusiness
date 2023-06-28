@@ -209,8 +209,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
         public void AfterRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
-            ref int firstRoll,
-            ref int secondRoll)
+            ref int result)
         {
             if (rollContext != RollContext.AttackRoll)
             {
@@ -220,16 +219,17 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
             var conditionWealCount =
                 rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == _conditionWeal);
 
-            if (firstRoll != 1 && firstRoll - conditionWealCount <= 1)
+            if (result == 1 || result - conditionWealCount > 1)
             {
-                rulesetCharacter.LogCharacterUsedFeature(_featureWeal);
-                firstRoll = 1;
+                return;
             }
 
-            if (secondRoll != 1 && secondRoll - conditionWealCount <= 1)
-            {
-                secondRoll = 1;
-            }
+            rulesetCharacter.LogCharacterUsedFeature(_featureWeal, "Feedback/&WoeReroll", false,
+                (ConsoleStyleDuplet.ParameterType.Player, rulesetCharacter.Name),
+                (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
+
+            result = 1;
         }
 
         private static void InflictMartialArtDieDamage(

@@ -694,13 +694,13 @@ FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Ar
 FeatGroupHalfStrength	Description='Awaken the Beast [Str], Close Quarters [Int], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Medium Armor [Str], Might of the Iron Legion, Old Tactics [Str], Piercer [Str], Primal Rage [Str], Revenant Great Sword [Str], Slasher [Str], Squat Nimbleness [Str]'.
 FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Creed of Maraike, Elven Precision [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Defense, Wise Precision'.
 FeatGroupHardy	Description='Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
-FeatGroupIridescentTouched	Description='IIncrease one of your mental attributes by 1, to a maximum of 20.
+FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
 FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
-FeatGroupOldTactics	Description='Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of you melee weapon stands up you may make an attack of opportunity against the target.'.
+FeatGroupOldTactics	Description='Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupPeregrinationTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.

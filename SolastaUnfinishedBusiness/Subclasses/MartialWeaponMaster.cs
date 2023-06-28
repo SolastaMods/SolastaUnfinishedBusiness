@@ -514,8 +514,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         public void AfterRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
-            ref int firstRoll,
-            ref int secondRoll)
+            ref int result)
         {
             if (IsValid(rollContext, rulesetCharacter))
             {

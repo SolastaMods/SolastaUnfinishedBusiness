@@ -521,9 +521,10 @@ public static class RulesetActorPatcher
 
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {
-                    changeDiceRoll.AfterRoll(rollContext, actor as RulesetCharacter,
-                        ref firstRoll,
-                        ref secondRoll);
+                    changeDiceRoll.AfterRoll(
+                        rollContext,
+                        actor as RulesetCharacter,
+                        ref result);
                 }
             }
 

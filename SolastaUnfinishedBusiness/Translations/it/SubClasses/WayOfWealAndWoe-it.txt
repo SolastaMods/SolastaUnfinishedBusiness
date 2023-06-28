@@ -8,5 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=Dopo aver effettuato un tiro per 
 Feature/&FeatureWayOfWealAndWoeWealTitle=Bene
 Feature/&FeatureWayOfWealAndWoeWoeDescription=Dopo aver effettuato un tiro per colpire con un'arma da monaco o un attacco senz'armi, e fallire in modo critico, subisci danni pari a un tiro del tuo dado di arti marziali.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
+Feedback/&WoeReroll=A causa di {1} {2} ripete il tiro di attacco dado da {3} a {4}
 Subclass/&WayOfWealAndWoeDescription=I monaci della Via del benessere e del dolore si concentrano sia sulla prosperità che sulle avversità per ingaggiare i loro nemici in battaglia.
 Subclass/&WayOfWealAndWoeTitle=Via del bene e del male
