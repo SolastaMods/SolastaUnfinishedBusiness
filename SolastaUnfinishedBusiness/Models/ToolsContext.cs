@@ -51,11 +51,14 @@ internal static class ToolsContext
     {
         var gameBuiltInCharactersDirectory = TacticalAdventuresApplication.GameBuiltInCharactersDirectory;
 
-        BuiltInHeroNames.AddRange(Directory
-            .GetFiles(gameBuiltInCharactersDirectory)
-            .Select(x => Path
-                .GetFileName(x)
-                .Replace(".chr", "")));
+        if (Directory.Exists(gameBuiltInCharactersDirectory))
+        {
+            BuiltInHeroNames.AddRange(Directory
+                .GetFiles(gameBuiltInCharactersDirectory)
+                .Select(x => Path
+                    .GetFileName(x)
+                    .Replace(".chr", "")));
+        }
 
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
         SwitchRespec();
