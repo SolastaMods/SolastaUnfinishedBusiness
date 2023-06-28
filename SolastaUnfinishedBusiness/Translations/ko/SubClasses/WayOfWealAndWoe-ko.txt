@@ -8,5 +8,6 @@ Feature/&FeatureWayOfWealAndWoeWealDescription=몽크 무기나 비무장 공격
 Feature/&FeatureWayOfWealAndWoeWealTitle=복리
 Feature/&FeatureWayOfWealAndWoeWoeDescription=몽크 무기나 비무장 공격으로 명중 굴림을 하고 치명타를 맞힌 후 무술 주사위 한 굴림에 해당하는 피해를 입습니다.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
+Feedback/&WoeReroll={1} {2} 때문에 공격 롤 주사위가 {3}에서 {4}로 다시 굴립니다.
 Subclass/&WayOfWealAndWoeDescription=부와 비의 길의 승려들은 번영과 역경 모두에 집중하여 적과 전투를 벌입니다.
 Subclass/&WayOfWealAndWoeTitle=부와 비애의 길
