@@ -26,6 +26,7 @@ internal static class RacesContext
         LoadRace(RaceOligathBuilder.RaceOligath);
         LoadRace(RaceWendigoBuilder.RaceWendigo);
         LoadRace(TieflingRaceBuilder.RaceTiefling);
+		LoadRace(ObsidianDwarfSubraceBuilder.SubraceObsidianDwarf);														   
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
