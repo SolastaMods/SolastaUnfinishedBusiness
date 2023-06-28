@@ -30,6 +30,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
             .Create($"Condition{Name}Weal")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.UntilLongRest)
             .AllowMultipleInstances()
             .SetFeatures(attributeModifierWeal)
             .AddToDB();
