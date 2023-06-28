@@ -77,8 +77,8 @@ internal static class MeleeCombatFeats
             featCrusherCon);
 
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
-            featSlasherDex,
-            featSlasherStr);
+            featOldTacticsDex,
+            featOldTacticsStr);
 
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
@@ -404,6 +404,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AllowMultipleInstances()
             .AddToDB();
 
         var additionalDamageHammerThePoint = FeatureDefinitionAdditionalDamageBuilder
