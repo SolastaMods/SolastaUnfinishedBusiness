@@ -5,7 +5,16 @@
   "dungeonMakerPresence": false,
   "alwaysHidden": true,
   "registeredFactions": [],
-  "registeredVariables": [],
+  "registeredVariables": [
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC1_CF_LogicLink_Unlock_Elevator_Underground",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    }
+  ],
   "sceneFilePath": "",
   "sceneReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

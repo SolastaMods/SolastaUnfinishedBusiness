@@ -1,25 +1,26 @@
 ﻿using System;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using static AttributeDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
-using static AttributeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialSpellShield : AbstractSubclass
 {
-    internal const string Name = "MartialSpellShield";
+    internal const string Name = "SpellShield";
 
     internal MartialSpellShield()
     {
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellSpellShield")
+            .Create($"CastSpell{Name}")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(Intelligence)
@@ -34,17 +35,19 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .AddToDB();
 
         var magicAffinitySpellShieldCombatMagicVigor = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinitySpellShieldCombatMagicVigor")
+            .Create($"MagicAffinity{Name}CombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ComputeModifierMagicAffinityCombatMagicVigor())
             .AddToDB();
 
+        magicAffinitySpellShieldCombatMagicVigor.SetCustomSubFeatures(
+            new ComputeModifierMagicAffinityCombatMagicVigor(magicAffinitySpellShieldCombatMagicVigor));
+
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
-            .Create("ConditionSpellShieldArcaneDeflection")
-            .SetGuiPresentation("PowerSpellShieldArcaneDeflection", Category.Feature, ConditionShielded)
+            .Create($"Condition{Name}ArcaneDeflection")
+            .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature, ConditionShielded)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierSpellShieldArcaneDeflection")
-                .SetGuiPresentation("PowerSpellShieldArcaneDeflection", Category.Feature)
+                .Create($"AttributeModifier{Name}ArcaneDeflection")
+                .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     ArmorClass,
@@ -53,7 +56,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .AddToDB();
 
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
-            .Create("PowerSpellShieldArcaneDeflection")
+            .Create($"Power{Name}ArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(
@@ -74,14 +77,13 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales,
-                "ActionAffinitySpellShieldRangedDefense")
-            .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Feature)
+                $"ActionAffinity{Name}RangedDefense")
+            .SetGuiPresentation($"Power{Name}RangedDeflection", Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("MartialSpellShield", Resources.MartialSpellShield, 256))
+            .Create($"Martial{Name}")
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialSpellShield, 256))
             .AddFeaturesAtLevel(3,
                 MagicAffinityCasterFightingCombatMagicImproved,
                 castSpellSpellShield)
@@ -107,6 +109,14 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
     private sealed class ComputeModifierMagicAffinityCombatMagicVigor : IAttackComputeModifier, IIncreaseSpellDc
     {
+        private readonly FeatureDefinitionMagicAffinity _featureDefinitionMagicAffinity;
+
+        public ComputeModifierMagicAffinityCombatMagicVigor(
+            FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity)
+        {
+            _featureDefinitionMagicAffinity = featureDefinitionMagicAffinity;
+        }
+
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -124,8 +134,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
             var modifier = GetSpellModifier(myself);
 
             attackModifier.attackRollModifier += modifier;
-            attackModifier.attackToHitTrends.Add(new TrendInfo(modifier, FeatureSourceType.ExplicitFeature,
-                "Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle", null));
+            attackModifier.attackToHitTrends.Add(new TrendInfo(
+                modifier, FeatureSourceType.CharacterFeature, _featureDefinitionMagicAffinity.Name,
+                _featureDefinitionMagicAffinity));
         }
 
         public int GetSpellModifier(RulesetCharacter caster)

@@ -9,6 +9,7 @@
     "Definition:ConjureFey_Eagle:63ebe85712cafd841acedfe09bb0d9d7",
     "Definition:ConjureFey_Ape:72148c7d3939afd4b86b31cecdef5cda"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
   "spellLevel": 6,
@@ -231,6 +232,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -306,7 +308,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

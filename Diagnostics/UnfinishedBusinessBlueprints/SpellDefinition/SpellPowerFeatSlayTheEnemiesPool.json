@@ -6,6 +6,7 @@
     "Definition:SpellPowerFeatSlayTheEnemies2:7955acf8-a997-5c1a-a3fd-a92bb351c6e4",
     "Definition:SpellPowerFeatSlayTheEnemies1:9ccc5e72-fbd9-5914-b717-cb45bb4ae866"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -117,6 +118,7 @@
       "activeEffectSurfaceParticleReference": null,
       "activeEffectSurfaceEndParticleReference": null,
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": null,
       "emissiveBorderCellParticleReference": null,
       "emissiveBorderCellEndParticleReference": null,
@@ -147,7 +149,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

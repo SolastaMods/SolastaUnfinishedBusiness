@@ -42,14 +42,23 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         // killing spree 
         // bonus range attack from main and can sneak attack after killing an enemies
-        var additionalActionRavenKillingSpree = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionRavenKillingSpree")
+        var additionalActionRavenKillingSpree = FeatureDefinitionBuilder
+            .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetTriggerCondition(AdditionalActionTriggerCondition.HasDownedAnEnemy)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-            .SetMaxAttacksNumber(1)
-            .SetCustomSubFeatures(new RefreshSneakAttackOnKill())
+            .SetCustomSubFeatures(new RefreshSneakAttackOnKill(),
+                new KillingSpree(ConditionDefinitionBuilder
+                    .Create("ConditionRavenKillingSpree")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                        .Create("AdditionalActionRavenKillingSpree2")
+                        .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
+                        .SetActionType(ActionDefinitions.ActionType.Main)
+                        .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                        .SetMaxAttacksNumber(1)
+                        .SetCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                        .AddToDB())
+                    .AddToDB()))
             .AddToDB();
 
         // pain maker
@@ -262,6 +271,52 @@ internal sealed class RoguishRaven : AbstractSubclass
         public CharacterClassDefinition Class { get; }
     }
 
+    private sealed class KillingSpree : ITargetReducedToZeroHp
+    {
+        private readonly ConditionDefinition condition;
+
+        public KillingSpree(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (activeEffect != null || !ValidatorsWeapon.IsTwoHandedRanged(attackMode))
+            {
+                yield break;
+            }
+
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            {
+                yield break;
+            }
+
+            if (Gui.Battle?.ActiveContender != attacker)
+            {
+                yield break;
+            }
+
+            attacker.RulesetCharacter.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                attacker.RulesetCharacter.guid,
+                attacker.RulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
     private class PhysicalAttackTryAlterOutcomeDeadlyAim : IPhysicalAttackTryAlterOutcome
     {
         private readonly FeatureDefinitionPower _power;
@@ -281,7 +336,9 @@ internal sealed class RoguishRaven : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker.GetRemainingPowerCharges(_power) <= 0 ||
+                !attackMode.ranged)
             {
                 yield break;
             }

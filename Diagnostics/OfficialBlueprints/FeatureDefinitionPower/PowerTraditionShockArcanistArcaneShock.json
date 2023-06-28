@@ -117,8 +117,8 @@
           "conditionDefinition": "Definition:ConditionTraditionShockArcanistArcaneShocked:6bbdeb63818fd0c47a1daa0b88f8bebc",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -245,6 +245,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -320,7 +321,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,

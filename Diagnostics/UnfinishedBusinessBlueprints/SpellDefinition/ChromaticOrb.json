@@ -9,6 +9,7 @@
     "Definition:ChromaticOrbDamagePoison:f77471ae-c8a4-5ef1-9625-781c8ca8a3e0",
     "Definition:ChromaticOrbDamageThunder:65e7665c-05b4-5745-b527-2c4650d74b03"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 1,
@@ -200,6 +201,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -275,7 +277,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

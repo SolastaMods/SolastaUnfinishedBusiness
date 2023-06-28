@@ -178,7 +178,8 @@
     "Definition:ConditionAffinityBanishedByMazeImmunity:f192158f25f78554eb6ecea34ffcd2bd",
     "Definition:ConditionAffinityBanishedImmunity:0b99134d7c3aa244e9934683dd1722ff",
     "Definition:PowerSessrothTeleport:4816f4ef0617d01498a4f44ac6a6c680",
-    "Definition:PowerSessrothFireballRechargable:9b7ad432df70cc14096f29a4521cdb69"
+    "Definition:PowerSessrothFireballRechargable:9b7ad432df70cc14096f29a4521cdb69",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

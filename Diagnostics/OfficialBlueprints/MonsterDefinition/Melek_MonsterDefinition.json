@@ -104,7 +104,8 @@
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
     "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
-    "Definition:PowerMelekTeleport:447c8c72797d1fc47bffeca66656e4ea"
+    "Definition:PowerMelekTeleport:447c8c72797d1fc47bffeca66656e4ea",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

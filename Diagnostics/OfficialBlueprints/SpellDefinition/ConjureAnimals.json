@@ -6,6 +6,7 @@
     "Definition:ConjureAnimalsTwoBeasts:afb3edb4c026fb4428ade3393bb73c2f",
     "Definition:ConjureAnimalsFourBeasts:d9d225a904e37f442aa166ac71bc41d3"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolConjuration",
   "spellLevel": 3,
@@ -197,6 +198,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -272,7 +274,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

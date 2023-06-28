@@ -306,6 +306,6 @@ Campaign/&DLC3_Introduction_3=Después de una última noche en la carretera, se 
 Campaign/&DLC3_Outro_Movie_1=Finalmente, los Sorak han perdido.
 Campaign/&DLC3_Outro_Movie_2=Se revelan sus planes, sus aliados demonios no pueden ingresar a Solasta. Su dios oscuro ahora está confinado en Tirmar y no puede volver a amenazar a Solasta.
 Campaign/&DLC3_Outro_Movie_3=El Reino de Gallivan es restaurado, limpio de corrupción. Es una nueva era para los Reinos del Este, liderados por el Principado de Masgarth, ahora una potencia central en la región.
-Campaign/&DLC3_Outro_Movie_4=Aunque Solasta sigue siendo un vasto mundo de innumerables países y culturas, no hay duda de que surgirán más peligros, llamando a los héroes a dar un paso adelante.
+Campaign/&DLC3_Outro_Movie_4=Aunque Solasta sigue siendo un vasto mundo de muchos países y culturas, no hay duda de que aparecerán más peligros, lo que requerirá que los héroes estén a la altura de las circunstancias.
 Campaign/&PalaceOfIceWarning=¡Advertencia! Esta es una campaña de alto nivel para aventureros de nivel 10-12. Puedes importar personajes de nivel inferior, que pasarán por el proceso de subir de nivel al comienzo del juego. Esta es una secuela de Crown of the Magister, por lo que si lo has jugado, puedes importar tu guardado y ser testigo de las consecuencias de tus acciones. ¡Quédate en la luz!
 Campaign/&DLC3_Description_Alternate=En esta aventura que sigue a los eventos de Crown of the Magister, nuestros cuatro héroes del Principado de Masgarth persiguen su destino en las tierras heladas de Snow Alliance.

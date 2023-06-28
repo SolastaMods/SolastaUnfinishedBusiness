@@ -787,7 +787,7 @@ internal static partial class SpellBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -862,7 +862,7 @@ internal static partial class SpellBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -921,7 +921,7 @@ internal static partial class SpellBuilders
             .SetStandardHitPoints(5)
             .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
             .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+            .SetCharacterFamily("Fey")
             .SetChallengeRating(0)
             .SetDroppedLootDefinition(null)
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
@@ -1057,7 +1057,7 @@ internal static partial class SpellBuilders
             var defender = GameLocationCharacter.GetFromActor(target);
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-            if (rulesetAttacker == null || defender == null)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } || defender == null)
             {
                 return;
             }

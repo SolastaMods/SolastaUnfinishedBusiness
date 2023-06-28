@@ -66,6 +66,7 @@ public class Settings : UnityModManager.ModSettings
 
     //TA made level ups of more than 1 level at a time (like when starting PoI with low level party) disallow unlearning spells/invocations to streamline process. Setting this to true disables that.
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
+    public bool EnableActionSwitching { get; set; }
 
     //
     // Gameplay - Tools
@@ -142,7 +143,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
-    public bool UseElfFaceModelsOnTieflings { get; set; }
 
     //
     // Gameplay - Rules

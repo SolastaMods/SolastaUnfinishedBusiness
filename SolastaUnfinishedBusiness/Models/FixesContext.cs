@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,6 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -36,7 +38,10 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixCriticalThresholdModifiers();
         FixEagerForBattleTexts();
+        AddAdditionalActionTitles();
+        FixRageActionSpending();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -264,6 +269,24 @@ internal static class FixesContext
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }
 
+    private static void FixCriticalThresholdModifiers()
+    {
+        //Changes Champion's Improved Critical to set crit threshold to 19, instead of forcing if worse - fixes stacking with feats
+        var modifier = AttributeModifierMartialChampionImprovedCritical;
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+
+        //Changes Champion's Superior Critical to set crit threshold to 18, instead of forcing if worse - fixes stacking with feats
+        modifier = AttributeModifierMartialChampionSuperiorCritical;
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+
+        //Changes critical threshold of Sudden Death dagger to set
+        modifier = AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3;
+
+        //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues. in UB we fixed those original issues, so making it to SET to not break stacking
+        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+        modifier.modifierValue = 18;
+    }
+
     private static void FixEagerForBattleTexts()
     {
         var feat = FeatDefinitions.EagerForBattle.GuiPresentation;
@@ -273,5 +296,25 @@ internal static class FixesContext
         var parts = Gui.Localize(feat.description).Split('\n');
         //last line of feat description
         feature.description = parts[parts.Length - 1].Trim();
+    }
+
+    private static void AddAdditionalActionTitles()
+    {
+        //Main Action
+        FeatureDefinitionAdditionalActions.AdditionalActionHasted.GuiPresentation.Title
+            = Haste.GuiPresentation.Title;
+        FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
+            = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
+
+        //Bonus Action
+        // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
+        //     = ExpeditiousRetreat.GuiPresentation.Title;
+    }
+
+    private static void FixRageActionSpending()
+    {
+        //TA's implementation of Rage Start spends Bonus Action twice - not a big problem in vanilla, but breaks action switching code
+        //use our custom rage start class that doesn't have this issue
+        DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
     }
 }

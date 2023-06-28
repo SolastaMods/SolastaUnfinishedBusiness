@@ -16,10 +16,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PatronMoonlit : AbstractSubclass
 {
+    private const string Name = "Moonlit";
+
     internal PatronMoonlit()
     {
         var spellListMoonlit = SpellListDefinitionBuilder
-            .Create(SpellListWizard, "SpellListMoonlit")
+            .Create(SpellListWizard, $"SpellList{Name}")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, FaerieFire, Sleep)
@@ -31,13 +33,13 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var magicAffinityMoonlitExpandedSpells = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityMoonlitExpandedSpells")
+            .Create($"MagicAffinity{Name}ExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListMoonlit)
             .AddToDB();
 
         var lightAffinityMoonlitWeak = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityMoonlitWeak")
+            .Create($"LightAffinity{Name}Weak")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
@@ -47,7 +49,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var lightAffinityMoonlitStrong = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityMoonlitStrong")
+            .Create($"LightAffinity{Name}Strong")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
@@ -62,13 +64,13 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var featureSetMoonlitSuperiorSight = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetInvocationDevilsSight, "FeatureSetMoonlitSuperiorSight")
+            .Create(FeatureSetInvocationDevilsSight, $"FeatureSet{Name}SuperiorSight")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(SenseSuperiorDarkvision)
             .AddToDB();
 
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
-            .Create("PowerMoonlitDarkMoon")
+            .Create($"Power{Name}DarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness)
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -79,7 +81,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
-            .Create("PowerMoonlitFullMoon")
+            .Create($"Power{Name}FullMoon")
             .SetGuiPresentation(Category.Feature, Daylight)
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -90,7 +92,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var powerMoonlitDanceOfTheNightSky = FeatureDefinitionPowerBuilder
-            .Create("PowerMoonlitDanceOfTheNightSky")
+            .Create($"Power{Name}DanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -101,7 +103,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
-            .Create("PowerMoonlitMoonTouched")
+            .Create($"Power{Name}MoonTouched")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -121,7 +123,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                         .SetConditionForm(
                             ConditionDefinitionBuilder
                                 .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                                    "ConditionMoonlitMoonTouched")
+                                    $"Condition{Name}MoonTouched")
                                 .SetGuiPresentation(Category.Condition)
                                 .SetConditionType(ConditionType.Neutral)
                                 .SetFeatures(MoveModeFly2, MovementAffinityConditionLevitate)
@@ -140,7 +142,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         var bonusCantripsMoonlit = FeatureDefinitionBonusCantripsBuilder
-            .Create("BonusCantripsMoonlit")
+            .Create($"BonusCantrips{Name}")
             .SetGuiPresentation(Category.Feature)
             .SetBonusCantrips(
                 SpellDefinitionBuilder
@@ -154,8 +156,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("PatronMoonlit")
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PatronMoonlit", Resources.PatronMoonlit, 256))
+            .Create($"Patron{Name}")
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronMoonlit, 256))
             .AddFeaturesAtLevel(1,
                 lightAffinityMoonlitWeak,
                 magicAffinityMoonlitExpandedSpells,

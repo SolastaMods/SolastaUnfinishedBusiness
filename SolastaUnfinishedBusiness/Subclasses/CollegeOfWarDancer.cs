@@ -58,7 +58,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .AllowMultipleInstances()
         .SetFeatures(FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionWarDanceMomentum")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(ImproveWarDance.GuiPresentation)
             .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
             .SetActionType(ActionType.Main)
             .SetMaxAttacksNumber(1)
@@ -76,26 +76,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     internal CollegeOfWarDancer()
     {
-        #region BACKWARD COMPATIBILITY
-
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionWarDanceMomentumExtraAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures()
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionImprovedWarDanceMomentumExtraAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures()
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        #endregion
-
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
@@ -155,7 +135,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .SetCustomSubFeatures(
-                        new SwitchWeaponFreely(),
+                        FreeWeaponSwitching.Mark,
                         new StopMomentumAndAttacksWhenRemoved(),
                         new WarDanceFlurryPhysicalAttack(),
                         new WarDanceFlurryWeaponAttackModifier(),
@@ -257,7 +237,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             RollOutcome attackRollOutcome, int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
-            if (rulesetCharacter == null || attackerAttackMode == null)
+
+            if (attackerAttackMode == null || rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -384,10 +365,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             var trendInfo = new TrendInfo(toHit, FeatureSourceType.Condition, WarDanceMomentum.Name, character);
             attackMode.ToHitBonusTrends.Add(trendInfo);
         }
-    }
-
-    private sealed class SwitchWeaponFreely : IUnlimitedFreeAction
-    {
     }
 
     private sealed class StopMomentumAndAttacksWhenRemoved : ICustomConditionFeature

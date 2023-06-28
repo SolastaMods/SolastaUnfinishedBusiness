@@ -7,6 +7,7 @@
     "Definition:SpellPowerSharedPoolElementalistEnhancedIce:e36b6f4a-fbc8-5142-bae4-a1f1e79999b9",
     "Definition:SpellPowerSharedPoolElementalistEnhancedAir:4715d54b-8241-5dd4-8b96-0df5988e68ec"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -118,6 +119,7 @@
       "activeEffectSurfaceParticleReference": null,
       "activeEffectSurfaceEndParticleReference": null,
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": null,
       "emissiveBorderCellParticleReference": null,
       "emissiveBorderCellEndParticleReference": null,
@@ -148,7 +150,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

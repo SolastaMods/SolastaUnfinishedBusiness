@@ -212,8 +212,8 @@
     "description": "Equipment/&GenericCraftedShield+3_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9e65e5c94d5eba84cb6744e69759bdab",
-      "m_SubObjectName": "DLC3_Shield+3",
+      "m_AssetGUID": "196a851aa3325cb4b8f6008ceac8063f",
+      "m_SubObjectName": "BrightWall",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

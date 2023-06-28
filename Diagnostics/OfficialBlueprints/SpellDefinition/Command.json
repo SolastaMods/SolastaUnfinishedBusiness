@@ -8,6 +8,7 @@
     "Definition:CommandGrovel:1d22184350bf4ca4e85b98afdd5494fd",
     "Definition:CommandHalt:ad5862c705e02b24e89aa689203a155e"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": false,
   "schoolOfMagic": "SchoolEnchantment",
   "spellLevel": 1,
@@ -199,6 +200,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -274,7 +276,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

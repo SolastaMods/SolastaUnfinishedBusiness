@@ -1,6 +1,6 @@
 Class/&CharacterClassSubTitle=文字クラス
 Class/&CharacterRaceSubTitle=キャラクターの祖先
-Class/&ClericDescription=聖職者は彼らが選んだ神の召使いです。彼らは神の信条に従い、宗教の儀式を行うことを自らに課す限り、信仰と奉仕と引き換えに奇跡的な力を与えられる。
+Class/&ClericDescription=聖職者は彼らが選んだ神の召使です。彼らは、神の信条に従い、宗教の儀式を行うことを自らに課す限り、信仰と奉仕と引き換えに奇跡的な力を与えられる。
 Class/&ClericTitle=クレリック
 Class/&FighterDescription=戦闘員は戦闘芸術の訓練を受けています。彼らはほとんどの武器に熟達していますが、特化することを選択することもよくあります。すべての戦闘機は鎧、盾、遠距離武器を使用できます。
 Class/&FighterTitle=戦士

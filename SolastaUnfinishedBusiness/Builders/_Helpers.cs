@@ -25,6 +25,7 @@ public enum Category
     Spell,
     Subclass,
     Tooltip,
+    Tutorial,
     UI,
     Rules
 }

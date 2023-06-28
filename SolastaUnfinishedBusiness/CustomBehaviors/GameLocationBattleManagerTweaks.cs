@@ -806,6 +806,15 @@ internal static class GameLocationBattleManagerTweaks
                 continue;
             }
 
+            // Some additional damage works on enemies only
+            if ((provider.TargetSide == RuleDefinitions.Side.Enemy &&
+                 !attacker.RulesetCharacter.IsOppositeSide(defender.RulesetCharacter.Side))
+                || (provider.TargetSide == RuleDefinitions.Side.Ally &&
+                    attacker.RulesetCharacter.IsOppositeSide(defender.RulesetCharacter.Side)))
+            {
+                continue;
+            }
+
             // Trigger method
             var validTrigger = false;
             var validUses = true;

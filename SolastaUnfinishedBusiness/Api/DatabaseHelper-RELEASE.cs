@@ -8,12 +8,14 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
+        internal static ActionDefinition StandUp { get; } = GetDefinition<ActionDefinition>("StandUp");
         internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
         internal static ActionDefinition UseBardicInspiration { get; } = GetDefinition<ActionDefinition>("UseBardicInspiration");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
@@ -51,9 +53,6 @@ internal static partial class DatabaseHelper
     internal static class CharacterFamilyDefinitions
     {
         internal static CharacterFamilyDefinition Construct { get; } = GetDefinition<CharacterFamilyDefinition>("Construct");
-        internal static CharacterFamilyDefinition Elemental { get; } = GetDefinition<CharacterFamilyDefinition>("Elemental");
-        internal static CharacterFamilyDefinition Fey { get; } = GetDefinition<CharacterFamilyDefinition>("Fey");
-        internal static CharacterFamilyDefinition Fiend { get; } = GetDefinition<CharacterFamilyDefinition>("Fiend");
         internal static CharacterFamilyDefinition Humanoid { get; } = GetDefinition<CharacterFamilyDefinition>("Humanoid");
         internal static CharacterFamilyDefinition Undead { get; } = GetDefinition<CharacterFamilyDefinition>("Undead");
     }
@@ -152,7 +151,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDivineFavor { get; } = GetDefinition<ConditionDefinition>("ConditionDivineFavor");
         internal static ConditionDefinition ConditionDodging { get; } = GetDefinition<ConditionDefinition>("ConditionDodging");
         internal static ConditionDefinition ConditionDoomLaughter { get; } = GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
-        internal static ConditionDefinition ConditionDying { get; } = GetDefinition<ConditionDefinition>("ConditionDying");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
         internal static ConditionDefinition ConditionFlying12 { get; } = GetDefinition<ConditionDefinition>("ConditionFlying12");
@@ -341,12 +339,12 @@ internal static partial class DatabaseHelper
     internal static class FeatureDefinitionAdditionalActions
     {
         internal static FeatureDefinitionAdditionalAction AdditionalActionHasted { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionHasted");
+        internal static FeatureDefinitionAdditionalAction AdditionalActionHunterHordeBreaker { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionHunterHordeBreaker");
         internal static FeatureDefinitionAdditionalAction AdditionalActionSurgedMain { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionSurgedMain");
     }
     internal static class FeatureDefinitionAdditionalDamages
     {
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageCircleBalanceColdEmbrace { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageCircleBalanceColdEmbrace");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageDivineFavor { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDivineFavor");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageDomainLifeDivineStrike { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDomainLifeDivineStrike");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageDomainMischiefDivineStrike { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDomainMischiefDivineStrike");
@@ -392,10 +390,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Misaye { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Misaye");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Pakri { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Pakri");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Solasta { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta");
+        internal static FeatureDefinitionAttributeModifier AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_Dagger+3");
         internal static FeatureDefinitionAttributeModifier AttributeModifierElfAbilityScoreIncrease { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierElfAbilityScoreIncrease");
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack");
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
-        internal static FeatureDefinitionAttributeModifier AttributeModifierHasted { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHasted");
         internal static FeatureDefinitionAttributeModifier AttributeModifierHumanAbilityScoreIncrease { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionImprovedCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionImprovedCritical");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionSuperiorCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionSuperiorCritical");

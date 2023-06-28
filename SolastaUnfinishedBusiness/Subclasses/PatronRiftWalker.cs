@@ -14,10 +14,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal class PatronRiftWalker : AbstractSubclass
 {
+    private const string Name = "RiftWalker";
+
     internal PatronRiftWalker()
     {
         var spellListRiftWalker = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "SpellListRiftWalker")
+            .Create(SpellListDefinitions.SpellListWizard, $"SpellList{Name}")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(1, Jump, Longstrider)
@@ -29,13 +31,13 @@ internal class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         var magicAffinityRiftWalkerExpandedSpells = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityRiftWalkerExpandedSpells")
+            .Create($"MagicAffinity{Name}ExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListRiftWalker)
             .AddToDB();
 
         var powerRiftWalkerRiftWalk = FeatureDefinitionPowerBuilder
-            .Create("PowerRiftWalkerRiftWalk")
+            .Create($"Power{Name}RiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(MistyStep.EffectDescription)
@@ -43,7 +45,7 @@ internal class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
-            .Create("PowerRiftWalkerBlink")
+            .Create($"Power{Name}Blink")
             .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -56,12 +58,12 @@ internal class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create(ConditionAffinityRestrainedmmunity, "ConditionAffinityRiftWalkerRestrainedImmunity")
+            .Create(ConditionAffinityRestrainedmmunity, $"ConditionAffinity{Name}RestrainedImmunity")
             .SetGuiPresentation(Category.Condition)
             .AddToDB();
 
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
-            .Create("PowerRiftWalkerRiftStrike")
+            .Create($"Power{Name}RiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment)
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
@@ -74,7 +76,7 @@ internal class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
-            .Create("PowerRiftWalkerRiftControl")
+            .Create($"Power{Name}RiftControl")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -83,10 +85,11 @@ internal class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityRiftWalkerFadeIntoTheVoid")
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, $"DamageAffinity{Name}FadeIntoTheVoid")
             .SetGuiPresentation(Category.Feature, Blur)
             .AddToDB();
 
+        // kept name for backward compatibility
         var bonusCantripRiftWalkWardingBond = FeatureDefinitionBonusCantripsBuilder
             .Create("BonusCantripRiftWalkWardingBond")
             .SetGuiPresentation(Category.Feature)
@@ -98,9 +101,9 @@ internal class PatronRiftWalker : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("PatronRiftWalker")
+            .Create($"Patron{Name}")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("PatronRiftWalker", Resources.PatronRiftWalker, 256))
+                Sprites.GetSprite(Name, Resources.PatronRiftWalker, 256))
             .AddFeaturesAtLevel(1,
                 magicAffinityRiftWalkerExpandedSpells,
                 powerRiftWalkerRiftWalk,

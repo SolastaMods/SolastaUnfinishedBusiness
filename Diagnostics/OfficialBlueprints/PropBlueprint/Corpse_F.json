@@ -19,7 +19,7 @@
       "environment": "WoodLand",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "74fe7af25092e194bb46473f1bfc3660",
+        "m_AssetGUID": "f1e794a915c71dd41b12bec64919e441",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

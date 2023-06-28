@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyRangerSkyWarriorAerialAgility:db174a30-5dbb-5bd5-b562-41c1447f6ba1",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerSkyWarriorGiftOfTheWind:c50ce3a5-d5a0-5965-a5f6-4a9e1a0e3cfd",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerSkyWarriorGiftOfTheWind:990f02c2-8261-5213-a2b2-18669c9dedaf",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsRangerSkyWarrior:e233341b-cfd1-5588-99bf-17b60a16c62d",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityRangerSkyWarriorIntangibleForm:53057687-5db5-59b9-b02e-09df6647f07a",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierRangerSkyWarriorSwiftStrike:c4fe236e-9228-54a8-b4af-278511de7b52",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRangerSkyWarriorDeathFromAbove:5f75e606-8450-559c-bbb6-7cadecf089d3",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerSkyWarriorCloudDance:77be2520-f920-58ec-8c4e-5eb78f961427",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RangerSkyWarriorTitle",
+    "description": "Subclass/&RangerSkyWarriorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
+      "m_SubObjectName": "Cleric_Battler",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "dfa1f78f-7709-55bd-8901-e9b463fae709",
+  "contentPack": 9999,
+  "name": "RangerSkyWarrior"
+}

@@ -2,7 +2,7 @@
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <enumerateOriginSubFeatures>true</enumerateOriginSubFeatures>
   <showButtonWithControlledMonsterInfo>true</showButtonWithControlledMonsterInfo>
-  <SelectedTab>1</SelectedTab>
+  <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -110,6 +110,7 @@
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
   <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
+  <EnableActionSwitching>true</EnableActionSwitching>
   <DisableUpdateMessage>false</DisableUpdateMessage>
   <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
   <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -165,7 +166,6 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>true</UnlockSkinColors>
   <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
-  <UseElfFaceModelsOnTieflings>true</UseElfFaceModelsOnTieflings>
   <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
   <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
@@ -402,6 +402,7 @@
     <string>OathOfThunder</string>
     <string>OathOfDemonHunter</string>
     <string>PatronEldritchSurge</string>
+    <string>RangerSkyWarrior</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -532,6 +533,13 @@
     <string>FeatGroupRaceBound</string>
     <string>FeatGroupSkills</string>
     <string>FeatGroupTools</string>
+    <string>FeatGroupHalfAttributes</string>
+    <string>FeatGroupHalfCharisma</string>
+    <string>FeatGroupHalfConstitution</string>
+    <string>FeatGroupHalfDexterity</string>
+    <string>FeatGroupHalfIntelligence</string>
+    <string>FeatGroupHalfStrength</string>
+    <string>FeatGroupHalfWisdom</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>

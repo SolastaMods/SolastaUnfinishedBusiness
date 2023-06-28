@@ -16,38 +16,40 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WayOfTheSilhouette : AbstractSubclass
 {
+    private const string Name = "WayOfSilhouette";
+
     internal WayOfTheSilhouette()
     {
         var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouetteDarkness")
+            .Create($"Power{Name}Darkness")
             .SetGuiPresentation(Darkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Darkness.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouetteDarkvision = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouetteDarkvision")
+            .Create($"Power{Name}Darkvision")
             .SetGuiPresentation(Darkvision.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Darkvision.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouettePassWithoutTrace = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouettePassWithoutTrace")
+            .Create($"Power{Name}PassWithoutTrace")
             .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(PassWithoutTrace.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouetteSilence = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouetteSilence")
+            .Create($"Power{Name}Silence")
             .SetGuiPresentation(Silence.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Silence.EffectDescription)
             .AddToDB();
 
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWayOfSilhouetteSilhouetteArts")
+            .Create($"FeatureSet{Name}SilhouetteArts")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 powerWayOfSilhouetteDarkness,
@@ -57,7 +59,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouetteSilhouetteStep")
+            .Create($"Power{Name}SilhouetteStep")
             .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(MistyStep.EffectDescription)
@@ -65,7 +67,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak")
+            .Create($"LightAffinity{Name}CloakOfSilhouettesWeak")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
@@ -75,7 +77,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var lightAffinityWayOfSilhouetteStrong = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong")
+            .Create($"LightAffinity{Name}CloakOfSilhouettesStrong")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
@@ -90,7 +92,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var powerWayOfSilhouetteImprovedSilhouetteStep = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouetteImprovedSilhouetteStep")
+            .Create($"Power{Name}ImprovedSilhouetteStep")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerWayOfSilhouetteSilhouetteStep)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
@@ -99,7 +101,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var powerWayOfSilhouetteShadowySanctuary = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, "PowerWayOfSilhouetteShadowySanctuary")
+            .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, $"Power{Name}ShadowySanctuary")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints, 3)
             .SetReactionContext(ExtraReactionContext.Custom)
@@ -115,9 +117,9 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             new AttackBeforeHitConfirmedOnMeShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WayOfSilhouette")
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("WayOfTheSilhouette", Resources.WayOfTheSilhouette, 256))
+                Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
             .AddFeaturesAtLevel(3,
                 featureSetWayOfSilhouetteSilhouetteArts,
                 lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
@@ -162,23 +164,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             bool criticalHit,
             bool firstTarget)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
-            if (!me.CanAct())
-            {
-                yield break;
-            }
-
-            var rulesetMe = me.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
-
-            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (!me.CanReact())
             {
                 yield break;
             }
@@ -191,9 +177,23 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
             var rulesetEnemy = attacker.RulesetCharacter;
 
-            if (!me.CanReact() ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+            if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var rulesetMe = me.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }

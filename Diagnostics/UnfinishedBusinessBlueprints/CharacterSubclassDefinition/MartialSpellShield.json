@@ -46,7 +46,7 @@
     "description": "Subclass/&MartialSpellShieldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "703948bf-edf5-5dab-ab65-16fb6fa4cf8d",
+      "m_AssetGUID": "ca431bbf-d0ec-5098-89df-7a1c681f0f5b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

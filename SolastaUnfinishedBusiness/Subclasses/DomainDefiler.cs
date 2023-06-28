@@ -434,7 +434,7 @@ internal sealed class DomainDefiler : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

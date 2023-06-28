@@ -28,15 +28,17 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
 
+    internal static readonly SpellDefinition AirBlast = BuildAirBlast();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
-    internal static readonly SpellDefinition EarthTremor = BuildEarthTremor();
+    private static readonly SpellDefinition EarthTremor = BuildEarthTremor();
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
@@ -192,12 +194,11 @@ internal static class SpellsContext
         AllowAssigningOfficialSpells();
 
         // Dead Master Spells
-        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x));
+        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
-        RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer,
-            SpellListWizard);
+        RegisterSpell(AirBlast, 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
@@ -237,7 +238,7 @@ internal static class SpellsContext
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
-        RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
@@ -368,7 +369,12 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+        //this is really an exception on how Dead Master handles no concentration
+        //but so far it's the only one passing -1 to register spells
+        var isDeadMasterSpell = suggestedStartsAt == -1;
+
+        var isActiveInAtLeastOneRepertoire = isDeadMasterSpell ||
+                                             SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
         if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
         {
@@ -383,6 +389,16 @@ internal static class SpellsContext
 
         //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
         SpellListAllSpells.AddSpell(spellDefinition);
+
+        //Handle the particular case of hidden NoConcentration spells we swap on CharacterActionPanel.SpellcastEngaged
+        //We need to register them otherwise the combo College of Life / Deadmaster becomes odd when upcasting
+        if (isDeadMasterSpell)
+        {
+            var spellDefinitionNoConcentration = DatabaseHelper.GetDefinition<SpellDefinition>(
+                $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
+
+            SpellListAllSpells.AddSpell(spellDefinitionNoConcentration);
+        }
 
         //Add spells to Snipers lists
         var spellSniperClasses = new List<CharacterClassDefinition>

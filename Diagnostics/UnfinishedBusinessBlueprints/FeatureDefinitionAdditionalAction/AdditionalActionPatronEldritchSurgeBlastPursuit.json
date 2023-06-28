@@ -1,16 +1,12 @@
 {
   "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
   "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackMain",
-    "CastMain",
-    "DashMain",
-    "DisengageMain",
-    "Dodge"
+  "forbiddenActions": [
+    "AttackMain"
   ],
-  "maxAttacksNumber": 1,
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "maxAttacksNumber": -1,
   "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

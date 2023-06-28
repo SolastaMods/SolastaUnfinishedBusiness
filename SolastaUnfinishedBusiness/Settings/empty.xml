@@ -110,6 +110,7 @@
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
   <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
+  <EnableActionSwitching>false</EnableActionSwitching>
   <DisableUpdateMessage>false</DisableUpdateMessage>
   <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
   <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -165,7 +166,6 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>false</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>false</UnlockSkinColors>
   <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
-  <UseElfFaceModelsOnTieflings>false</UseElfFaceModelsOnTieflings>
   <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
   <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
   <UseOfficialFlankingRules>false</UseOfficialFlankingRules>

@@ -6,6 +6,7 @@
     "Definition:SpellPowerFeatNaturalFluidityGainSlot2:d2eb5df7-82e3-5262-8c53-0d4e74066a9b",
     "Definition:SpellPowerFeatNaturalFluidityGainSlot1:a993b0ed-8d9f-5931-9dda-202d353637db"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -117,6 +118,7 @@
       "activeEffectSurfaceParticleReference": null,
       "activeEffectSurfaceEndParticleReference": null,
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": null,
       "emissiveBorderCellParticleReference": null,
       "emissiveBorderCellEndParticleReference": null,
@@ -147,7 +149,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",

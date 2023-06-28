@@ -9,7 +9,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -946,6 +948,81 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastSpellOfActionType_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref bool __result,
+            ActionType actionType, bool canOnlyUseCantrips)
+        {
+            if (__result) { return; }
+
+            //PATCH: update usage for power pools
+            foreach (var invocation in __instance.Invocations)
+            {
+                var definition = invocation.InvocationDefinition;
+                if (definition is not InvocationDefinitionCustom)
+                {
+                    continue;
+                }
+
+                var spell = definition.GrantedSpell;
+                if (spell == null)
+                {
+                    continue;
+                }
+
+                if (canOnlyUseCantrips && spell.spellLevel > 0)
+                {
+                    continue;
+                }
+
+                var isValid = definition
+                    .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                    .All(v => v(__instance, definition));
+
+                if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+                {
+                    continue;
+                }
+
+                var battleActionId = spell.BattleActionId;
+
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                switch (actionType)
+                {
+                    case ActionType.Main:
+                        if (battleActionId != Id.CastMain)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    case ActionType.Bonus:
+                        if (battleActionId != Id.CastBonus)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    default:
+                        continue;
+                }
+
+                if (!invocation.IsAvailable(__instance))
+                {
+                    continue;
+                }
+
+                __result = true;
+
+                return;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RepayPowerUse))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1197,12 +1274,13 @@ public static class RulesetCharacterPatcher
             bool inCombat,
             bool usedMainSpell,
             bool usedBonusSpell,
+            bool ignoreActivationTimeChecks,
             out string failureFlag)
         {
             //PATCH: allow PowerVisibilityModifier to make power device functions visible even if not valid
             //used to make Grenadier's grenade functions not be be hidden when you have not enough charges
             var result = device.IsFunctionAvailable(function, character, inCombat, usedMainSpell, usedBonusSpell,
-                out failureFlag);
+                ignoreActivationTimeChecks, out failureFlag);
 
             if (result || function.DeviceFunctionDescription.type != DeviceFunctionDescription.FunctionType.Power)
             {

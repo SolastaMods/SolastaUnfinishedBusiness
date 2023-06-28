@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.FightingStyles;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -120,19 +117,7 @@ internal static class TwoWeaponCombatFeats
                 return;
             }
 
-            var hasWeaponInMainHand = ValidatorsCharacter.HasMeleeWeaponInMainHand(hero);
-            var hasWeaponInOffHand = ValidatorsCharacter.HasMeleeWeaponInOffHand(hero);
-            var hasShield = ValidatorsCharacter.HasShield(hero);
-            var hasShieldExpert =
-                hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
-                hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
-            var hasGauntlet =
-                ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.ThunderGauntletType)(attackMode, null, null);
-
-            var isValid = (hasWeaponInMainHand || hasGauntlet) &&
-                          ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
-
-            if (attackMode == null || !isValid)
+            if (attackMode == null || !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero))
             {
                 return;
             }

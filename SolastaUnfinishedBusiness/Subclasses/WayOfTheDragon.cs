@@ -9,11 +9,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -67,32 +68,82 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(powerReactiveHide,
-            conditionReactiveHide));
+        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(
+            powerReactiveHide, conditionReactiveHide));
 
-        /*
-        Level 17 - Ascension
-        As a free action, you may spend 4 Ki points to grow a pair of wings and gain the effects of Fly spell, without needing to concentrate for up to 1 minute. While this ability lasts, you gain +2 AC and access to Wing Sweep ability.
-        */
+        // LEVEL 17
+
         var conditionAscension = ConditionDefinitionBuilder
-            .Create(ConditionFlying12, $"Condition{Name}Ascension")
-            .SetGuiPresentation(Category.Condition, ConditionFlying12)
-            .AddFeatures(FeatureDefinitionAttributeModifiers.AttributeModifierHasted)
+            .Create($"Condition{Name}Ascension")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}Ascension")
+                    .SetGuiPresentation($"Power{Name}Ascension", Category.Feature)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                    .AddToDB())
             .AddToDB();
 
         var powerAscension = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Ascension")
-            .SetGuiPresentation(Category.Feature, Fly)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 4, 4)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .AddEffectForms(EffectFormBuilder
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionAscension,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .SetDurationData(DurationType.Minute, 1)
-                .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasNoneOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var powerAscensionDismiss = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}AscensionDismiss")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionAscension,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var featureSetAscension = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Ascension")
+            .SetGuiPresentation($"Power{Name}Ascension", Category.Feature)
+            .AddFeatureSet(powerAscension, powerAscensionDismiss)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -101,7 +152,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildDiscipleFeatureSet(), damageAffinityAncestry, powerReactiveHide)
             .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
             .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
-            .AddFeaturesAtLevel(17, powerAscension)
+            .AddFeaturesAtLevel(17, featureSetAscension)
             .AddToDB();
     }
 
@@ -532,7 +583,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -733,12 +784,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         private IEnumerator HandleReaction(GameLocationCharacter defender)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (!defender.CanReact())
             {
                 yield break;
             }
@@ -750,9 +796,19 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = $"{Name}ReactiveHide", UsablePower = usablePower
                 };

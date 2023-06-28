@@ -50,7 +50,8 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "applyToSelf": false
+    "applyToSelf": false,
+    "forceOnSelf": false
   },
   "lightSourceOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -127,12 +128,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&EntangleTitle",
-    "description": "Spell/&EntangleDescription",
+    "title": "Spell/&EarthquakeTitle",
+    "description": "Spell/&EarthquakeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c571f03ae5d85da49b693a0b987e42cf",
-      "m_SubObjectName": "SleetStorm",
+      "m_AssetGUID": "975e7d14964e2d0498b8c07d4111bca0",
+      "m_SubObjectName": "Earthquake",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

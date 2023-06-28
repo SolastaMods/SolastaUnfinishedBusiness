@@ -1,0 +1,2 @@
+Conditions/&ConditionPOI_Title=Effetto Covo del Palazzo di Ghiaccio
+Conditions/&ConditionPOI_Description=Mentre si trovano nel Palazzo di Ghiaccio e nei Regni Demoniaci, i non immondi subiscono molteplici penalità.

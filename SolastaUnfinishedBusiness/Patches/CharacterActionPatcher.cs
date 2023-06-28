@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -122,6 +123,29 @@ public static class CharacterActionPatcher
                 foreach (var iActionFinished in iActionsFinished)
                 {
                     yield return iActionFinished.OnActionFinished(__instance);
+                }
+
+                //PATCH: support for IActionFinishedByEnemy
+                if (Gui.Battle != null)
+                {
+                    foreach (var target in Gui.Battle.AllContenders
+                                 .Where(x => x.Side != __instance.ActingCharacter.Side))
+                    {
+                        var character = target.RulesetCharacter;
+
+                        if (character is not { IsDeadOrDyingOrUnconscious: false })
+                        {
+                            continue;
+                        }
+
+                        var features = character.GetSubFeaturesByType<IActionFinishedByEnemy>()
+                            .Where(x => x.ActionDefinition == __instance.ActionDefinition);
+
+                        foreach (var feature in features)
+                        {
+                            yield return feature.OnActionFinishedByEnemy(target, __instance);
+                        }
+                    }
                 }
             }
 

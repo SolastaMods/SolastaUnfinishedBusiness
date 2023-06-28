@@ -14,12 +14,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 {
-    private const string CircleOfTheForestGuardianName = "CircleOfTheForestGuardian";
+    private const string Name = "ForestGuardian";
 
     internal CircleOfTheForestGuardian()
     {
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsForestGuardian")
+            .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Circle")
             .SetPreparedSpellGroups(
@@ -32,7 +32,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         var attributeModifierForestGuardianSylvanDurability = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierForestGuardianSylvanDurability")
+            .Create($"AttributeModifier{Name}SylvanDurability")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
@@ -44,7 +44,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Build();
 
         var powerForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
-            .Create("PowerForestGuardianImprovedBarkWard")
+            .Create($"Power{Name}ImprovedBarkWard")
             .SetGuiPresentationNoContent()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -60,7 +60,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         var powerForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
-            .Create("PowerForestGuardianSuperiorBarkWard")
+            .Create($"Power{Name}SuperiorBarkWard")
             .SetGuiPresentationNoContent()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -76,7 +76,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerBuilder
-            .Create("PowerSharedPoolForestGuardianBarkWard")
+            .Create($"PowerSharedPool{Name}BarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -90,7 +90,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
-            .Create("PowerSharedPoolForestGuardianImprovedBarkWard")
+            .Create($"PowerSharedPool{Name}ImprovedBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -104,12 +104,11 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionBarkskin,
-                                        "ConditionForestGuardianImprovedBarkWard")
+                                    .Create(ConditionDefinitions.ConditionBarkskin, $"Condition{Name}ImprovedBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .SetFeatures(
                                         FeatureDefinitionDamageAffinityBuilder
-                                            .Create("DamageAffinityForestGuardianImprovedBarkWard")
+                                            .Create($"DamageAffinity{Name}ImprovedBarkWard")
                                             .SetGuiPresentationNoContent()
                                             .SetDamageAffinityType(DamageAffinityType.None)
                                             .SetDamageType(DamageTypePoison)
@@ -126,7 +125,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
-            .Create("PowerSharedPoolForestGuardianSuperiorBarkWard")
+            .Create($"PowerSharedPool{Name}SuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -140,12 +139,11 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionBarkskin,
-                                        "ConditionForestGuardianSuperiorBarkWard")
+                                    .Create(ConditionDefinitions.ConditionBarkskin, $"Condition{Name}SuperiorBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .SetFeatures(
                                         FeatureDefinitionDamageAffinityBuilder
-                                            .Create("DamageAffinityForestGuardianSuperiorBarkWard")
+                                            .Create($"DamageAffinity{Name}SuperiorBarkWard")
                                             .SetGuiPresentationNoContent()
                                             .SetDamageAffinityType(DamageAffinityType.Immunity)
                                             .SetDamageType(DamageTypePoison)
@@ -162,9 +160,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(CircleOfTheForestGuardianName)
+            .Create($"CircleOfThe{Name}")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("CircleOfTheForestGuardian", Resources.CircleOfTheForestGuardian, 256))
+                Sprites.GetSprite(Name, Resources.CircleOfTheForestGuardian, 256))
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsForestGuardian,
                 attributeModifierForestGuardianSylvanDurability,

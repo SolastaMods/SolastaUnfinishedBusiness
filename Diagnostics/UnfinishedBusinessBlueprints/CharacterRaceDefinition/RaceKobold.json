@@ -138,6 +138,7 @@
       "FaceShape_E"
     ],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [
       "HairShape_None"
     ],

@@ -142,8 +142,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily = new List<SaveAffinityByFamilyDescription>
         {
-            new() { advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Fiend.Name },
-            new() { advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Undead.Name }
+            new() { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
+            new() { advantageType = AdvantageType.Disadvantage, family = "Undead" }
         };
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
@@ -306,8 +306,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDying ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 yield break;

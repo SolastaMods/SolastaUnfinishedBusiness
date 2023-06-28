@@ -32,7 +32,7 @@
     "targetConditionAsset": null,
     "targetSide": "All",
     "durationType": "Round",
-    "durationParameter": 1,
+    "durationParameter": 2,
     "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -80,6 +80,60 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPatronEldritchSurgeBlastPursuit",
           "conditionDefinition": "Definition:ConditionPatronEldritchSurgeBlastPursuit:dfd58153-d432-5e08-b965-c8a23c18c41b",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionPatronEldritchSurgeExtraActionBlastPursuit",
+          "conditionDefinition": "Definition:ConditionPatronEldritchSurgeExtraActionBlastPursuit:b49b121f-2c8f-5344-b36e-c0a27acdc2d9",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionPatronEldritchSurgeExtraActionBlastPursuitOff",
+          "conditionDefinition": "Definition:ConditionPatronEldritchSurgeExtraActionBlastPursuitOff:7f8e5b95-3caf-53bf-9507-7c201eb7a36c",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -210,6 +264,7 @@
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -285,7 +340,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,

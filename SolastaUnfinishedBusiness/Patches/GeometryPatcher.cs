@@ -23,11 +23,12 @@ public static class CursorLocationGeometricShapePatcher
             [NotNull] GeometricShape __instance,
             Vector3 origin,
             float edgeSize,
+            int targetSize,
             bool adaptToGroundLevel,
             bool isValid,
             int height)
         {
-            __instance.UpdateCubePosition_Regular(origin, edgeSize, adaptToGroundLevel, isValid);
+            __instance.UpdateCubePosition_Regular(origin, edgeSize, targetSize, adaptToGroundLevel, isValid);
 
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {
@@ -152,11 +153,13 @@ public static class CursorLocationGeometricShapePatcher
         public static bool MyCubeContainsPoint_Regular(
             Vector3 cubeOrigin,
             float edgeSize,
+            int targetSize,
             bool hasMagneticTargeting,
             Vector3 point,
             float height)
         {
-            var result = GeometryUtils.CubeContainsPoint_Regular(cubeOrigin, edgeSize, hasMagneticTargeting, point);
+            var result =
+                GeometryUtils.CubeContainsPoint_Regular(cubeOrigin, edgeSize, targetSize, hasMagneticTargeting, point);
 
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {

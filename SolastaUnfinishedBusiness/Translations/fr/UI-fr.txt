@@ -1,4 +1,7 @@
+Tutorial/&TutorialActionSwitchingDescription=Lorsque vous avez plus d'une action principale ou bonus disponible, vous pouvez cliquer sur le symbole d'état de l'action pour en faire votre action actuellement active. Cela permet d'attaquer en utilisant l'action Haste ou Horde Breaker, puis de lancer un sort avec l'action par défaut. Ou toute autre combinaison dont vous pourriez avoir besoin.\nLe survol du symbole d'état de l'action affiche une info-bulle avec le nom de la fonctionnalité ou de la condition qui a accordé l'action.
+Tutorial/&TutorialActionSwitchingTitle=Actions multiples
 UI/&Add=Add
+UI/&AdditionalActionSource=Accordé par : {0}
 UI/&Current Party=Parti actuel
 UI/&Experimental Preview:=Aperçu expérimental <i><color=Yellow>[sauvegarder avant d'utiliser]</color></i> :
 UI/&Expert=Expert

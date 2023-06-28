@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -27,22 +28,6 @@ internal static class TieflingRaceBuilder
     private static bool IsFlightValid(RulesetCharacter character)
     {
         return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor();
-    }
-
-    internal static void OnItemEquipped([NotNull] RulesetCharacter character)
-    {
-        if (IsFlightValid(character))
-        {
-            return;
-        }
-
-        var rulesetCondition = character.AllConditions.FirstOrDefault(x =>
-            x.ConditionDefinition == ConditionDefinitions.ConditionFlyingAdaptive);
-
-        if (rulesetCondition != null)
-        {
-            character.RemoveCondition(rulesetCondition);
-        }
     }
 
     [NotNull]
@@ -116,6 +101,12 @@ internal static class TieflingRaceBuilder
 
         var sprite = Sprites.GetSprite("PowerDragonWings", Resources.PowerDragonWings, 256, 128);
 
+        var conditionTieflingFeralWings = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionTieflingFeralWings")
+            .AddToDB();
+
+        conditionTieflingFeralWings.AddCustomSubFeatures(new CheckTieflingFeralFlying(conditionTieflingFeralWings));
+
         var powerDemonicWingsSprout = FeatureDefinitionPowerBuilder
             .Create("PowerTieflingFeralDemonicWingsSprout")
             .SetGuiPresentation(Category.Feature, sprite)
@@ -125,16 +116,10 @@ internal static class TieflingRaceBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTieflingFeralWings))
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionTieflingFeralWings.Name)))
             .AddToDB();
 
         var powerDemonicWingsDismiss = FeatureDefinitionPowerBuilder
@@ -147,15 +132,15 @@ internal static class TieflingRaceBuilder
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Remove)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(conditionTieflingFeralWings,
+                            ConditionForm.ConditionOperation.Remove),
+                        //Leaving this for compatibility
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                            ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
+                    conditionTieflingFeralWings.Name)))
             .AddToDB();
 
         var featureSetDemonicWings = FeatureDefinitionFeatureSetBuilder
@@ -290,5 +275,31 @@ internal static class TieflingRaceBuilder
             raceTieflingZariel);
 
         return raceTiefling;
+    }
+
+    private sealed class CheckTieflingFeralFlying : IOnItemEquipped
+    {
+        private readonly ConditionDefinition condition;
+
+        public CheckTieflingFeralFlying(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (IsFlightValid(hero))
+            {
+                return;
+            }
+
+            var rulesetCondition = hero.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
+
+            if (rulesetCondition != null)
+            {
+                hero.RemoveCondition(rulesetCondition);
+            }
+        }
     }
 }

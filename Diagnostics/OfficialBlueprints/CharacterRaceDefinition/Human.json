@@ -187,6 +187,7 @@
       "FaceShape_CA_G"
     ],
     "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",

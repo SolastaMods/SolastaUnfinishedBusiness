@@ -9,6 +9,7 @@
     "Definition:SpellPowerFeatSpiritualFluidityGainChannelDivinityFromSlot4:6ae73e8c-a54e-5e64-a08d-c2575f8ff4a9",
     "Definition:SpellPowerFeatSpiritualFluidityGainChannelDivinityFromSlot3:23d7e4db-fdeb-544a-a9f3-5dbae54d5fba"
   ],
+  "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -120,6 +121,7 @@
       "activeEffectSurfaceParticleReference": null,
       "activeEffectSurfaceEndParticleReference": null,
       "activeEffectSurfaceParticlePerIndex": "",
+      "activeEffectSurfaceParticlePerIndexCount": 0,
       "emissiveBorderCellStartParticleReference": null,
       "emissiveBorderCellParticleReference": null,
       "emissiveBorderCellEndParticleReference": null,
@@ -150,7 +152,8 @@
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
-    "lightCounterDispellsEffect": false
+    "lightCounterDispellsEffect": false,
+    "hideSavingThrowAnimation": false
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",
