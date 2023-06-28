@@ -1,0 +1,12 @@
+Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=승려 무기 또는 비무장 공격으로 명중 굴림을 하고 치명타를 가한 후 무술 주사위 한 굴림에 해당하는 추가 피해를 입힙니다.
+Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=잔인한 부
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=몽크 무기나 비무장 공격으로 명중 굴림을 하고 치명타를 맞힌 후 1키 포인트를 반환합니다.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=추진된 부
+Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=몽크 무기나 비무장 공격으로 명중 굴림을 하고 치명타로 빗나간 후 대신 자신이 아닌 대상에게 Woe 피해를 입힙니다.
+Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=그들의 비애
+Feature/&FeatureWayOfWealAndWoeWealDescription=몽크 무기나 비무장 공격으로 명중 굴림을 한 후에는 치명타와 치명타 범위가 하나씩 증가합니다. 긴 휴식을 완료하거나 치명타를 맞거나 빗나가면 20과 1로 다시 재설정됩니다.
+Feature/&FeatureWayOfWealAndWoeWealTitle=복리
+Feature/&FeatureWayOfWealAndWoeWoeDescription=몽크 무기나 비무장 공격으로 명중 굴림을 하고 치명타를 맞힌 후 무술 주사위 한 굴림에 해당하는 피해를 입습니다.
+Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
+Subclass/&WayOfWealAndWoeDescription=부와 비의 길의 승려들은 번영과 역경 모두에 집중하여 적과 전투를 벌입니다.
+Subclass/&WayOfWealAndWoeTitle=부와 비애의 길

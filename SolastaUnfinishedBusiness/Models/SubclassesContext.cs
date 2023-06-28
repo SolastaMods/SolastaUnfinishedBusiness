@@ -91,6 +91,7 @@ internal static class SubclassesContext
         LoadSubclass(new WayOfTheDragon());
         LoadSubclass(new WayOfTheSilhouette());
         LoadSubclass(new WayOfTheTempest());
+        LoadSubclass(new WayOfTheWealAndWoe());
 
         // Warlock
         LoadSubclass(new PatronEldritchSurge());

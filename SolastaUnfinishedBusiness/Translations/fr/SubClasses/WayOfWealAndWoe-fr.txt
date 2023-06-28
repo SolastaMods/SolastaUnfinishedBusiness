@@ -1,0 +1,12 @@
+Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=Après avoir effectué un jet d'attaque avec une arme de moine ou une attaque à mains nues, et un coup critique, vous infligez des dégâts supplémentaires égaux à un jet de votre dé d'arts martiaux.
+Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=Bien-être brutal
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=Après avoir effectué un jet d'attaque avec une arme de moine ou une attaque à mains nues et avoir réussi un coup critique, vous restituez 1 point de ki.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=Bien propulsé
+Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=Après avoir effectué un jet d'attaque avec une arme de moine ou une attaque à mains nues et raté un coup critique, vous infligez à la place les dégâts Malheur à la cible au lieu de vous-même.
+Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=Leur malheur
+Feature/&FeatureWayOfWealAndWoeWealDescription=Après avoir effectué un jet d'attaque avec une arme de moine ou une attaque à mains nues, augmentez votre portée de coup critique et d'échec critique de un. Il se réinitialise à 20 et 1 lorsque vous terminez un repos long, un coup critique ou un échec.
+Feature/&FeatureWayOfWealAndWoeWealTitle=Bonheur
+Feature/&FeatureWayOfWealAndWoeWoeDescription=Après avoir effectué un jet d'attaque avec une arme de moine ou une attaque à mains nues et raté un coup critique, vous subissez des dégâts égaux à un jet de votre dé d'arts martiaux.
+Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
+Subclass/&WayOfWealAndWoeDescription=Les moines de la voie du bonheur et du malheur se concentrent à la fois sur la prospérité et l'adversité pour engager leurs ennemis dans la bataille.
+Subclass/&WayOfWealAndWoeTitle=Voie du bonheur et du malheur

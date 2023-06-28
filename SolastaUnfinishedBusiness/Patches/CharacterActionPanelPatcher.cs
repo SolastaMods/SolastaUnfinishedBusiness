@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -274,7 +275,7 @@ public static class CharacterActionPanelPatcher
             if (!requiresConcentration)
             {
                 spellDefinition = DatabaseHelper.GetDefinition<SpellDefinition>(
-                    $"{spellDefinition.Name}{Subclasses.WizardDeadMaster.DeadMasterNoConcentration}");
+                    $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
             }
         }
     }

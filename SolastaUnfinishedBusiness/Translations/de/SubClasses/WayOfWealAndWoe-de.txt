@@ -1,0 +1,12 @@
+Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=Nachdem Sie einen Angriffswurf mit einer Mönchswaffe oder einen unbewaffneten Angriff ausgeführt und einen kritischen Treffer erzielt haben, verursachen Sie zusätzlichen Schaden in Höhe eines Wurfs Ihres Kampfkunstwürfels.
+Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=Brutales Wohlergehen
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=Nachdem Sie einen Angriffswurf mit einer Mönchswaffe oder einen unbewaffneten Angriff durchgeführt und einen kritischen Treffer erzielt haben, erhalten Sie 1 Ki-Punkt zurück.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=Angetriebenes Wohl
+Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=Nachdem Sie einen Angriffswurf mit einer Mönchswaffe oder einen unbewaffneten Angriff durchgeführt und einen kritischen Treffer erzielt haben, fügen Sie den Woe-Schaden stattdessen dem Ziel und nicht sich selbst zu.
+Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=Ihr Leid
+Feature/&FeatureWayOfWealAndWoeWealDescription=Nachdem Sie einen Angriffswurf mit einer Mönchswaffe oder einen unbewaffneten Angriff ausgeführt haben, erhöhen Sie Ihre kritische Treffer- und kritische Fehlschussreichweite um eins. Es wird auf 20 und 1 zurückgesetzt, wenn Sie eine lange Pause machen, einen kritischen Treffer erzielen oder verfehlen.
+Feature/&FeatureWayOfWealAndWoeWealTitle=Wohl
+Feature/&FeatureWayOfWealAndWoeWoeDescription=Nachdem Sie einen Angriffswurf mit einer Mönchswaffe oder einen unbewaffneten Angriff ausgeführt und einen kritischen Treffer erzielt haben, erleiden Sie Schaden in Höhe eines Wurfs Ihres Kampfkunstwürfels.
+Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
+Subclass/&WayOfWealAndWoeDescription=Mönche des Weges von Wohl und Leid konzentrieren sich sowohl auf Wohlstand als auch auf Widrigkeiten, um ihre Feinde in den Kampf zu verwickeln.
+Subclass/&WayOfWealAndWoeTitle=Weg von Wohl und Wehe
