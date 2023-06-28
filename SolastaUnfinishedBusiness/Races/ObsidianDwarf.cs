@@ -3,9 +3,9 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 
@@ -57,7 +57,6 @@ internal static class ObsidianDwarfSubraceBuilder
                 proficiencyObsidianDwarfLanguages)
             .AddToDB();
 
-        raceObsidianDwarf.subRaces.Clear();
         Dwarf.SubRaces.Add(raceObsidianDwarf);
 
         return raceObsidianDwarf;

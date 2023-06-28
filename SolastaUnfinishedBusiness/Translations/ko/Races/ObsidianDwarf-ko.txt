@@ -1,0 +1,8 @@
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=힘 +1
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=배드랜드 힘
+Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=화염 피해에 대한 저항력이 있습니다.
+Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=불의 요람
+Feature/&ProficiencyObsidianDwarfLanguagesDescription=커먼, 드워프, 자이언트
+Feature/&ProficiencyObsidianDwarfLanguagesTitle=언어
+Race/&RaceObsidianDwarfDescription=과거에 한 무리의 난쟁이들이 광부와 장인으로 불의 거인에 의해 노예가 되었습니다. 대격변의 혼돈의 마법은 많은 드워프들에게 압제자의 힘과 저항력을 불어넣었습니다. 드워프들은 반란을 일으켜 자유를 얻었고 배드랜드로 후퇴했습니다. 스스로를 Obsidian Dwarves라고 부르는 그들은 성장하고 번영했습니다.
+Race/&RaceObsidianDwarfTitle=흑요석 드워프

@@ -156,7 +156,6 @@ internal static class GrayDwarfSubraceBuilder
                 powerGrayDwarfInvisibility)
             .AddToDB();
 
-        raceGrayDwarf.subRaces.Clear();
         Dwarf.SubRaces.Add(raceGrayDwarf);
 
         return raceGrayDwarf;
