@@ -264,12 +264,5 @@
     <None Update="UnofficialTranslations\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Remove="Translations\pt-BR\Settings-pt-BR.txt"/>
-    <None Remove="Translations\ko\Settings-ko.txt"/>
-    <None Remove="Translations\ja\Settings-ja.txt"/>
-    <None Remove="Translations\it\Settings-it.txt"/>
-    <None Remove="Translations\fr\Settings-fr.txt"/>
-    <None Remove="Translations\es\Settings-es.txt"/>
-    <None Remove="Translations\de\Settings-de.txt"/>
   </ItemGroup>
 </Project>
