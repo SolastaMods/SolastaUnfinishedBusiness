@@ -41,7 +41,7 @@
     "description": "Subclass/&WizardBladeDancerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "78ff5ee8-3769-58f4-8044-d741abd511be",
+      "m_AssetGUID": "d138e3c3-f2cd-5dd8-8438-363364ca0713",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

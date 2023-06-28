@@ -20,6 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static RuleDefinitions;
@@ -154,6 +155,7 @@ internal static class CharacterContext
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
+        SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
@@ -867,6 +869,23 @@ internal static class CharacterContext
             .ToList();
 
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    internal static void SwitchScimitarWeaponSpecialization()
+    {
+        var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
+
+        foreach (var proficiency in proficiencies)
+        {
+            if (Main.Settings.GrantScimitarSpecializationToBardRogue)
+            {
+                proficiency.Proficiencies.TryAdd(WeaponTypeDefinitions.ScimitarType.Name);
+            }
+            else
+            {
+                proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
+            }
+        }
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(

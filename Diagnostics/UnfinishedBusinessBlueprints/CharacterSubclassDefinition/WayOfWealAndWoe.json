@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfWealAndWoeWeal:39394ebb-c599-53ea-89fe-a89c7ccbf323",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfWealAndWoeWoe:84c5683c-69d2-5d3d-9b62-d2aca0d4f6f9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfWealAndWoeSelfPropelledWeal:5c47e5ad-336c-5d09-bb13-91a3645289ca",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfWealAndWoeBrutalWeal:25207523-f458-5827-b7fa-26f0420808e2",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfWealAndWoeTheirWoe:23df409a-d5ea-557f-b71c-0ac47d079862",
+      "level": 17
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WayOfWealAndWoeTitle",
+    "description": "Subclass/&WayOfWealAndWoeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5ce77ce9-7eb4-582b-bacc-428ffc2c9f32",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6255f54a-598c-5324-a651-29f4f63966ea",
+  "contentPack": 9999,
+  "name": "WayOfWealAndWoe"
+}

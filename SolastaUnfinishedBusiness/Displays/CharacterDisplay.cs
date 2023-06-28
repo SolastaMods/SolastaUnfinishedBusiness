@@ -158,6 +158,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkWeaponSpecialization();
         }
 
+        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
+            CharacterContext.SwitchScimitarWeaponSpecialization();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableLevel20;

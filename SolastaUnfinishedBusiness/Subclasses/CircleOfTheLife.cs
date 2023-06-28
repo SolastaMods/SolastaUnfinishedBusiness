@@ -9,11 +9,13 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -44,7 +46,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
                 BuildSpellGroup(5, BeaconOfHope, MassHealingWord),
                 BuildSpellGroup(7, FreedomOfMovement, Stoneskin),
                 BuildSpellGroup(9, GreaterRestoration, MassCureWounds))
-            .SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid)
+            .SetSpellcastingClass(Druid)
             .AddToDB();
 
         // Verdancy
@@ -162,9 +164,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
     internal static void LateLoad()
     {
-        MagicAffinityHarmoniousBloom.WarListSpells.SetRange(DatabaseHelper.SpellListDefinitions
-            .SpellListAllSpells
-            .SpellsByLevel
+        MagicAffinityHarmoniousBloom.WarListSpells.SetRange(SpellListAllSpells.SpellsByLevel
             .SelectMany(x => x.Spells)
             .Where(x => x.EffectDescription.EffectForms
                 .Any(y => y.FormType == EffectForm.EffectFormType.Healing))
@@ -177,6 +177,31 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var hero = caster.GetOriginalHero();
 
         return hero?.GetClassLevel(DruidClass) ?? 0;
+    }
+
+    private static bool IsAuthorizedSpell(EffectDescription effectDescription, BaseDefinition baseDefinition)
+    {
+        if (baseDefinition is not SpellDefinition spellDefinition)
+        {
+            return false;
+        }
+
+        var hasHealingForm =
+            effectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
+
+        return hasHealingForm || spellDefinition == LesserRestoration || spellDefinition == GreaterRestoration;
+    }
+
+    private static void RemoveRevitalizingBoonIfRequired(RulesetActor removedFrom)
+    {
+        var hasVerdancy =
+            removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy, ConditionVerdancy14);
+
+        if (!hasVerdancy)
+        {
+            removedFrom.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionRevitalizingBoon);
+        }
     }
 
     private sealed class CustomBehaviorConditionVerdancy : IModifyMagicEffectRecurrent, INotifyConditionRemoval
@@ -196,14 +221,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            var hasVerdancy = removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy) ||
-                              removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy14);
-
-            if (!hasVerdancy)
-            {
-                removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    ConditionRevitalizingBoon);
-            }
+            RemoveRevitalizingBoonIfRequired(removedFrom);
         }
 
         public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
@@ -229,20 +247,12 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spell)
+            if (!IsAuthorizedSpell(effectDescription, definition))
             {
                 return effectDescription;
             }
 
-            var hasHealingForm =
-                effectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
-
-            if (!hasHealingForm && spell != LesserRestoration && spell != GreaterRestoration)
-            {
-                return effectDescription;
-            }
-
-            var levels = character.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid, Name);
+            var levels = character.GetClassLevel(Druid);
             var condition = levels >= 14 ? _conditionVerdancy14 : _conditionVerdancy;
 
             effectDescription.EffectForms.Add(
@@ -259,14 +269,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     {
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            var hasVerdancy = removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy) ||
-                              removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy14);
-
-            if (!hasVerdancy)
-            {
-                removedFrom.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionRevitalizingBoon);
-            }
+            RemoveRevitalizingBoonIfRequired(removedFrom);
 
             var druidLevel = GetDruidLevel(rulesetCondition.sourceGuid);
 
@@ -291,39 +294,21 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             _conditionRevitalizingBoon = conditionRevitalizingBoon;
         }
 
-        public EffectDescription ModifyEffect(BaseDefinition definition,
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
             EffectDescription effectDescription,
-            RulesetCharacter character, RulesetEffect rulesetEffect)
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            if (definition is FeatureDefinitionPower { Name: $"Power{Name}SeedOfLife" })
+            if (definition is FeatureDefinitionPower { Name: $"Power{Name}SeedOfLife" } ||
+                IsAuthorizedSpell(effectDescription, definition))
             {
                 effectDescription.EffectForms.Add(
                     EffectFormBuilder
                         .Create()
                         .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
                         .Build());
-
-                return effectDescription;
             }
-
-            if (definition is not SpellDefinition spell)
-            {
-                return effectDescription;
-            }
-
-            var hasHealingForm =
-                effectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
-
-            if (!hasHealingForm && spell != LesserRestoration && spell != GreaterRestoration)
-            {
-                return effectDescription;
-            }
-
-            effectDescription.EffectForms.Add(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
-                    .Build());
 
             return effectDescription;
         }

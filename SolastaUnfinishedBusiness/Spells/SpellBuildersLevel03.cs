@@ -384,10 +384,14 @@ internal static partial class SpellBuilders
 
     #region Spirit Shroud
 
+    private const string SpiritShroudName = "SpiritShroud";
+
     internal static SpellDefinition BuildSpiritShroud()
     {
+        var sprite = Sprites.GetSprite(SpiritShroudName, Resources.SpiritShroud, 128);
+
         var hinder = ConditionDefinitionBuilder
-            .Create(ConditionHindered_By_Frost, "ConditionSpiritShroudHinder")
+            .Create(ConditionHindered_By_Frost, $"Condition{SpiritShroudName}Hinder")
             .SetSilent(Silent.None)
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionHindered)
@@ -396,26 +400,27 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var noHeal = ConditionDefinitionBuilder
-            .Create("ConditionSpiritShroudNoHeal")
+            .Create($"Condition{SpiritShroudName}NoHeal")
             .SetGuiPresentation(Category.Condition, ConditionChilledByTouch.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        var sprite = Sprites.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
-
         return SpellDefinitionBuilder
-            .Create("SpiritShroud")
+            .Create(SpiritShroudName)
             .SetGuiPresentation(Category.Spell, sprite)
             .SetSpellLevel(3)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectAdvancement(
+                        EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
+                    .Build())
             .SetSubSpells(
                 BuildSpiritShroudSubSpell(DamageTypeRadiant, hinder, noHeal, sprite),
                 BuildSpiritShroudSubSpell(DamageTypeNecrotic, hinder, noHeal, sprite),
@@ -430,7 +435,7 @@ internal static partial class SpellBuilders
         AssetReferenceSprite sprite)
     {
         return SpellDefinitionBuilder
-            .Create($"SpiritShroud{damage}")
+            .Create($"{SpiritShroudName}{damage}")
             .SetGuiPresentation(Category.Spell, sprite)
             .SetSpellLevel(3)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
@@ -445,9 +450,8 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
                         additionalDicePerIncrement: 1)
                     //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation
-                                        | RecurrentEffect.OnTurnStart
-                                        | RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetParticleEffectParameters(SpiritGuardians)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -457,17 +461,16 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"ConditionSpiritShroud{damage}")
+                                .Create($"Condition{SpiritShroudName}{damage}")
                                 .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .CopyParticleReferences(ConditionSpiritGuardiansSelf)
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                    .Create($"AdditionalDamageSpiritShroud{damage}")
+                                    .Create($"AdditionalDamage{SpiritShroudName}{damage}")
                                     .SetGuiPresentationNoContent(true)
-                                    .SetNotificationTag($"SpiritShroud{damage}")
+                                    .SetNotificationTag($"{SpiritShroudName}{damage}")
                                     .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
-                                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-                                    .SetAttackModeOnly()
+                                    .SetAttackOnly()
                                     .SetDamageDice(DieType.D8, 1)
                                     .SetSpecificDamageType(damage)
                                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
@@ -477,11 +480,11 @@ internal static partial class SpellBuilders
                                             conditionDefinition = noHeal,
                                             operation = ConditionOperationDescription.ConditionOperation.Add
                                         })
-                                    .SetCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeWeaponAttack)
                                     .AddToDB())
                                 .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
                             .Build(),
-                        EffectFormBuilder.Create()
+                        EffectFormBuilder
+                            .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
                             .Build())
                     .Build())

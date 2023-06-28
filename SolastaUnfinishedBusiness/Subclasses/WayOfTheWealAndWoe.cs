@@ -1,0 +1,282 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Properties;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static FeatureDefinitionAttributeModifier;
+
+namespace SolastaUnfinishedBusiness.Subclasses;
+
+internal sealed class WayOfTheWealAndWoe : AbstractSubclass
+{
+    private const string Name = "WayOfWealAndWoe";
+
+    internal WayOfTheWealAndWoe()
+    {
+        var attributeModifierWeal = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}Weal")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
+            .AddToDB();
+
+        var conditionWeal = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Weal")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.UntilLongRest)
+            .AllowMultipleInstances()
+            .SetFeatures(attributeModifierWeal)
+            .AddToDB();
+
+        var featureWeal = FeatureDefinitionBuilder
+            .Create($"Feature{Name}Weal")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var featureWoe = FeatureDefinitionBuilder
+            .Create($"Feature{Name}Woe")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var featureSelfPropelledWeal = FeatureDefinitionBuilder
+            .Create($"Feature{Name}SelfPropelledWeal")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var featureBrutalWeal = FeatureDefinitionBuilder
+            .Create($"Feature{Name}BrutalWeal")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var featureTheirWoe = FeatureDefinitionBuilder
+            .Create($"Feature{Name}TheirWoe")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureWeal.SetCustomSubFeatures(new CustomBehaviorWealAndWoe(
+            conditionWeal,
+            featureWeal,
+            featureWoe,
+            featureSelfPropelledWeal,
+            featureBrutalWeal,
+            featureTheirWoe));
+
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDemonHunter, 256))
+            .AddFeaturesAtLevel(3, featureWeal, featureWoe)
+            .AddFeaturesAtLevel(6, featureSelfPropelledWeal)
+            .AddFeaturesAtLevel(11, featureBrutalWeal)
+            .AddFeaturesAtLevel(17, featureTheirWoe)
+            .AddToDB();
+    }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class CustomBehaviorWealAndWoe : IAttackEffectAfterDamage, IChangeDiceRoll
+    {
+        private readonly ConditionDefinition _conditionWeal;
+        private readonly FeatureDefinition _featureBrutalWeal;
+        private readonly FeatureDefinition _featureSelfPropelledWeal;
+        private readonly FeatureDefinition _featureTheirWoe;
+        private readonly FeatureDefinition _featureWeal;
+        private readonly FeatureDefinition _featureWoe;
+
+        internal CustomBehaviorWealAndWoe(
+            ConditionDefinition conditionWeal,
+            FeatureDefinition featureWeal,
+            FeatureDefinition featureWoe,
+            FeatureDefinition featureSelfPropelledWeal,
+            FeatureDefinition featureBrutalWeal,
+            FeatureDefinition featureTheirWoe)
+        {
+            _conditionWeal = conditionWeal;
+            _featureWeal = featureWeal;
+            _featureWoe = featureWoe;
+            _featureSelfPropelledWeal = featureSelfPropelledWeal;
+            _featureBrutalWeal = featureBrutalWeal;
+            _featureTheirWoe = featureTheirWoe;
+        }
+
+        public void OnAttackEffectAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) &&
+                !rulesetAttacker.IsMonkWeapon(attackMode?.SourceDefinition as ItemDefinition))
+            {
+                return;
+            }
+
+            var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+            switch (outcome)
+            {
+                case RollOutcome.Failure:
+                case RollOutcome.Neutral:
+                case RollOutcome.Success:
+                    // Weal
+                    rulesetAttacker.InflictCondition(
+                        _conditionWeal.Name,
+                        _conditionWeal.DurationType,
+                        _conditionWeal.DurationParameter,
+                        _conditionWeal.TurnOccurence,
+                        AttributeDefinitions.TagCombat,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        null,
+                        0,
+                        0,
+                        0);
+                    break;
+
+                case RollOutcome.CriticalFailure:
+                    // Their Woe / Woe
+                    rulesetAttacker.LogCharacterUsedFeature(level >= 17 ? _featureTheirWoe : _featureWoe);
+                    InflictMartialArtDieDamage(
+                        rulesetAttacker,
+                        level >= 17 ? rulesetDefender : rulesetAttacker,
+                        attackMode,
+                        attackModifier);
+
+                    // Weal (RESET)
+                    rulesetAttacker.RemoveAllConditionsOfType(_conditionWeal.Name);
+                    break;
+
+                case RollOutcome.CriticalSuccess:
+                    // Self Propelled Weal
+                    if (level >= 6 && rulesetAttacker.UsedKiPoints > 0)
+                    {
+                        rulesetAttacker.LogCharacterUsedFeature(_featureSelfPropelledWeal);
+                        rulesetAttacker.ForceKiPointConsumption(-1);
+                        rulesetAttacker.KiPointsAltered?.Invoke(rulesetAttacker, rulesetAttacker.RemainingKiPoints);
+                    }
+
+                    // Brutal Weal
+                    if (level >= 11)
+                    {
+                        rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
+                        InflictMartialArtDieDamage(
+                            rulesetAttacker,
+                            rulesetDefender,
+                            attackMode,
+                            attackModifier);
+                    }
+
+                    // Weal (RESET)
+                    rulesetAttacker.RemoveAllConditionsOfType(_conditionWeal.Name);
+                    break;
+            }
+        }
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            // Empty
+        }
+
+        public void AfterRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll)
+        {
+            if (rollContext != RollContext.AttackRoll)
+            {
+                return;
+            }
+
+            var conditionWealCount =
+                rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == _conditionWeal);
+
+            if (firstRoll != 1 && firstRoll - conditionWealCount <= 1)
+            {
+                rulesetCharacter.LogCharacterUsedFeature(_featureWeal);
+                firstRoll = 1;
+            }
+
+            if (secondRoll != 1 && secondRoll - conditionWealCount <= 1)
+            {
+                secondRoll = 1;
+            }
+        }
+
+        private static void InflictMartialArtDieDamage(
+            RulesetCharacter rulesetAttacker,
+            RulesetActor rulesetDefender,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return;
+            }
+
+            var damageType = damageForm.DamageType;
+            var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+            var dieType = level switch
+            {
+                >= 17 => DieType.D10,
+                >= 11 => DieType.D8,
+                >= 5 => DieType.D6,
+                _ => DieType.D4
+            };
+            var advantage = attackModifier.AttackAdvantageTrend switch
+            {
+                > 0 => AdvantageType.Advantage,
+                < 0 => AdvantageType.Disadvantage,
+                _ => AdvantageType.None
+            };
+            var damage = new DamageForm { DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0 };
+            var dieRoll = RollDie(dieType, advantage, out _, out _);
+            var rolls = new List<int> { dieRoll };
+
+            RulesetActor.InflictDamage(
+                dieRoll,
+                damage,
+                damage.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                rulesetDefender,
+                false,
+                rulesetAttacker.Guid,
+                false,
+                attackMode.AttackTags,
+                new RollInfo(damage.DieType, rolls, 0),
+                false,
+                out _);
+        }
+    }
+}

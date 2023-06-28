@@ -144,6 +144,7 @@ ModUi/&GameUi=Interface utilisateur du jeu
 ModUi/&Gameplay=Jouabilité
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accordez la <b>spécialisation d'arme</b> de Cimeterre aux <color=#D89555>bardes</color> et aux <color=#D89555>voleurs</color>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
 ModUi/&House=<color=#F0DAA0>Maison :</color>

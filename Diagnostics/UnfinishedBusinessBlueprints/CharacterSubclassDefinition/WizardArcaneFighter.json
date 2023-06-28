@@ -46,7 +46,7 @@
     "description": "Subclass/&WizardArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1a0ddf2f-5a6c-5ff5-a342-c814c35e374f",
+      "m_AssetGUID": "8ef379ad-7633-59e0-83d1-791aac3d552c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

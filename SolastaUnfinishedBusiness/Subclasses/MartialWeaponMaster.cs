@@ -499,22 +499,16 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter)
-        {
-            return rollContext == RollContext.AttackDamageValueRoll &&
-                   HasSpecializedWeapon(rulesetCharacter) &&
-                   rulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
-        }
-
         public void BeforeRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
             ref DieType dieType,
             ref AdvantageType advantageType)
         {
-            advantageType = AdvantageType.Advantage;
+            if (IsValid(rollContext, rulesetCharacter))
+            {
+                advantageType = AdvantageType.Advantage;
+            }
         }
 
         public void AfterRoll(
@@ -523,7 +517,17 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             ref int firstRoll,
             ref int secondRoll)
         {
-            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+            if (IsValid(rollContext, rulesetCharacter))
+            {
+                rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+            }
+        }
+
+        private bool IsValid(RollContext rollContext, RulesetCharacter rulesetCharacter)
+        {
+            return rollContext == RollContext.AttackDamageValueRoll &&
+                   HasSpecializedWeapon(rulesetCharacter) &&
+                   rulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
         }
     }
 }

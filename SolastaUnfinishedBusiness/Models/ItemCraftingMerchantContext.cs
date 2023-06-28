@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
+using static EquipmentDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionStatusDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
@@ -300,6 +301,12 @@ internal static class ItemCraftingMerchantContext
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
                 item.requiresAttunement = false;
+
+                foreach (var staticProperty in item.StaticProperties
+                             .Where(x => x.KnowledgeAffinity == KnowledgeAffinity.InactiveAndHidden))
+                {
+                    staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;
+                }
             }
         }
     }
@@ -311,31 +318,31 @@ internal static class ItemCraftingMerchantContext
         internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
             "CEArcaneStaff",
             Quarterstaff,
-            EquipmentDefinitions.FocusType.Arcane,
+            FocusType.Arcane,
             QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
         internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
             "CEDruidicAmulet",
             ComponentPouch_ArcaneAmulet,
-            EquipmentDefinitions.FocusType.Druidic,
+            FocusType.Druidic,
             BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
 
         internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
             "CELivewoodClub",
             Club,
-            EquipmentDefinitions.FocusType.Druidic,
+            FocusType.Druidic,
             Sprites.GetSprite("LivewoodClub", Resources.LivewoodClub, 128, 128));
 
         internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
             "CELivewoodStaff",
             Quarterstaff,
-            EquipmentDefinitions.FocusType.Druidic,
+            FocusType.Druidic,
             StaffOfHealing.GuiPresentation.SpriteReference);
 
         private FocusDefinitionBuilder(
             string name,
             ItemDefinition original,
-            EquipmentDefinitions.FocusType type,
+            FocusType type,
             [CanBeNull] AssetReferenceSprite assetReferenceSprite,
             [NotNull] params string[] slotTypes) : base(original, name, CeNamespaceGuid)
         {
@@ -354,7 +361,7 @@ internal static class ItemCraftingMerchantContext
             if (slotTypes.Length > 0)
             {
                 Definition.SlotTypes.SetRange(slotTypes);
-                Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
+                Definition.SlotTypes.Add(SlotTypeContainer);
                 Definition.SlotsWhereActive.SetRange(slotTypes);
             }
 
@@ -378,7 +385,7 @@ internal static class ItemCraftingMerchantContext
         private static ItemDefinition CreateAndAddToDB(
             string name,
             ItemDefinition original,
-            EquipmentDefinitions.FocusType type,
+            FocusType type,
             AssetReferenceSprite assetReferenceSprite,
             [NotNull] params string[] slotTypes)
         {
