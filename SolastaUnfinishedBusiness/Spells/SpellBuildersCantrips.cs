@@ -18,10 +18,11 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region CANTRIPS
+    #region Acid Claws
 
-    private static ConditionDefinition _acidClawCondition;
     internal static ConditionDefinition AcidClawCondition => _acidClawCondition ??= BuildAcidClawCondition();
+    
+    private static ConditionDefinition _acidClawCondition;
 
     private static ConditionDefinition BuildAcidClawCondition()
     {
@@ -75,6 +76,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Air Blast
+
     internal static SpellDefinition BuildAirBlast()
     {
         const string NAME = "AirBlast";
@@ -120,6 +125,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Blade Ward
+
     internal static SpellDefinition BuildBladeWard()
     {
         const string NAME = "BladeWard";
@@ -163,6 +172,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Burst of Radiance
+
     internal static SpellDefinition BuildBurstOfRadiance()
     {
         const string NAME = "BurstOfRadiance";
@@ -203,6 +216,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Enduring Sting
 
     internal static SpellDefinition BuildEnduringSting()
     {
@@ -250,6 +267,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Illuminating Sphere
+
     internal static SpellDefinition BuildIlluminatingSphere()
     {
         const string NAME = "IlluminatingSphere";
@@ -267,6 +288,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Mind Spike
 
     internal static SpellDefinition BuildMindSpike()
     {
@@ -319,6 +344,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Minor Life Steal
+
     internal static SpellDefinition BuildMinorLifesteal()
     {
         var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
@@ -351,6 +380,8 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
     }
+
+    #endregion
 
     #region Resonating Strike
 
@@ -660,6 +691,8 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Sword Storm
+
     internal static SpellDefinition BuildSwordStorm()
     {
         const string NAME = "SwordStorm";
@@ -698,6 +731,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Thorny Vines
+
     internal static SpellDefinition BuildThornyVines()
     {
         var spriteReference = Sprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
@@ -720,6 +757,10 @@ internal static partial class SpellBuilders
                 ).Build())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Thunder Strike
 
     internal static SpellDefinition BuildThunderStrike()
     {
@@ -761,6 +802,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Wrack
 
     internal static SpellDefinition BuildWrack()
     {
@@ -820,6 +865,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Toll the Dead
 
     internal static SpellDefinition BuildTollTheDead()
     {
