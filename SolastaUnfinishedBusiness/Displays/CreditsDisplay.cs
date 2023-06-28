@@ -20,7 +20,7 @@ internal static class CreditsDisplay
             "Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, " +
             "Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Oath of Thunder, Path of the Elements, Path of the Reaver, " +
             "Path of the Savagery, Path of the Yeoman, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
-            "Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, " +
+            "Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Way of Weal and Woe, " +
             "Innovation Artillerist, Innovation Vivisectionist, Level 20, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
@@ -47,6 +47,7 @@ internal static class CreditsDisplay
         ("Bazou", "fighting styles, rules, spells"),
         ("Holic75", "spells, Bolgrif"),
         ("Otearaisu", "Oligath, Wendigo"),
+        ("Remunos", "Obsidian Dwarf"),
         ("Kiloku", "quality of life"),
         ("Earandil", "homebrew design [Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
         ("Taco",
