@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.5.92.5:
+
+- fixed Hammer the Point to stack modifiers
+- fixed incorrect feats under Old Tactics group
+- fixed messed up translations on last build
+- improved Way of the Weal and Woe combat log
+
 1.5.92.4:
 
 - added setting "Grant Scimitar Weapon Specialization to Bards and Rogues"
