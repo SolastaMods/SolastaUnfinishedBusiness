@@ -5,9 +5,6 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IChangeDiceRoll
 {
     [UsedImplicitly]
-    public bool IsValid(RuleDefinitions.RollContext rollContext, RulesetCharacter rulesetCharacter);
-
-    [UsedImplicitly]
     public void BeforeRoll(
         RuleDefinitions.RollContext rollContext,
         RulesetCharacter rulesetCharacter,
