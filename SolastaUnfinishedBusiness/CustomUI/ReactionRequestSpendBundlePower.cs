@@ -139,12 +139,41 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         }
         else
         {
+            // only College of Audacity requires Cube target type handling
+            if (!effectDescription.IsSingleTarget)
+            {
+                if (effectDescription.TargetType != RuleDefinitions.TargetType.Cube)
+                {
+                    return;
+                }
+
+                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                if (gameLocationBattleService == null)
+                {
+                    return;
+                }
+
+                var distance = (effectDescription.TargetParameter - 1) / 2;
+
+                foreach (var gameLocationCharacter in gameLocationBattleService.Battle.EnemyContenders
+                             .Where(x => gameLocationBattleService.IsWithinXCells(target, x, distance))
+                             .ToList())
+                {
+                    targetCharacters.Add(gameLocationCharacter);
+                    modifiers.Add(modifier);
+                }
+
+                return;
+            }
+
+            //TODO: is code from here really required?
             targetCharacters.Add(target);
             modifiers.Add(modifier);
 
             var targets = powerEffect.ComputeTargetParameter();
 
-            if (!effectDescription.IsSingleTarget || targets <= 1)
+            if (targets <= 1)
             {
                 return;
             }

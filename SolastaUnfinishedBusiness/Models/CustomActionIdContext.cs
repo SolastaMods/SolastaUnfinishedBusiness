@@ -132,6 +132,13 @@ public static class CustomActionIdContext
     private static void BuildCustomToggleActions()
     {
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "AudaciousWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "FeatCrusherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()

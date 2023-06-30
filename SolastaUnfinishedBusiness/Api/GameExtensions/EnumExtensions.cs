@@ -206,8 +206,7 @@ internal enum ExtraActionId
     DoNothingReaction = 9012,
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
-
-    // MonsterSwapAttackToggle = 9015,
+    AudaciousWhirlToggle = 9015,
     CombatWildShape = 9016,
     FeatCrusherToggle = 9017,
     CannonFlamethrower = 9018,
