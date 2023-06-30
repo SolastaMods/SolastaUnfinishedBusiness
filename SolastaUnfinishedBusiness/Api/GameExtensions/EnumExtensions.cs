@@ -220,6 +220,7 @@ internal enum ExtraActionId
     CannonForceBallistaBonus = 9026,
     CannonProtectorBonus = 9027,
     TempestFury = 9028,
+    MasterfulWhirlToggle = 9029,
     PrioritizeAction
 }
 

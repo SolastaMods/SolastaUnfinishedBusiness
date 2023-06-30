@@ -117,6 +117,11 @@ public static class CharacterActionPanelPatcher
                 DoReorder((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle);
             }
 
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle))
+            {
+                DoReorder((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle);
+            }
+
             //PATCH: hide power button on action panel if no valid powers to use or see
             actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
             return actions.Count;
