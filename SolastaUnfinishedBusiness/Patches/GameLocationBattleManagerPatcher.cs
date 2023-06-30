@@ -1080,7 +1080,7 @@ public static class GameLocationBattleManagerPatcher
                     StringParameter = feature.ReactionName,
                     StringParameter2 = feature.FormatReactionDescription(action, attacker, defender, locHelper,
                         saveModifier, hasHitVisual, hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta),
-                    RulesetEffect = rulesService.InstantiateEffectPower(helper, usablePower, false).AddAsActivePowerToSource()
+                    RulesetEffect = rulesService.InstantiateEffectPower(helper, usablePower, false)
                 };
 
                 var count = actionService.PendingReactionRequestGroups.Count;

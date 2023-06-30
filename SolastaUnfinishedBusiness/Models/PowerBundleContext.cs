@@ -61,8 +61,7 @@ internal static class PowerBundleContext
                     actionParams.TargetCharacters.Add(fromActor);
                     actionParams.ActionModifiers.Add(new ActionModifier());
                     actionParams.RulesetEffect =
-                        rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
-                            .AddAsActivePowerToSource();
+                        rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
                     actionParams.SkipAnimationsAndVFX = true;
 
                     ServiceRepository.GetService<ICommandService>()
@@ -78,9 +77,7 @@ internal static class PowerBundleContext
                     var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
                     formsParams.FillSourceAndTarget(ruleChar, ruleChar);
-                    formsParams.FillFromActiveEffect(rules
-                        .InstantiateEffectPower(ruleChar, usablePower, false)
-                        .AddAsActivePowerToSource());
+                    formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
                     formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
 
                     //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
