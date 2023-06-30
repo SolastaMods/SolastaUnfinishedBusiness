@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerCollegeOfAudacityDefensiveWhirl:f65588e2-f61c-5696-a8cc-37ae9b68d963",
+    "Definition:PowerCollegeOfAudacityMobileWhirl:d25f08e6-bf49-5263-a074-21f469070669",
+    "Definition:PowerCollegeOfAudacityAudaciousWhirl:6cbd417e-e3ae-591b-9a60-218423f41191",
+    "Definition:ActionAffinityAudaciousWhirlToggle:528ee0ec-2516-56eb-a1d8-addfd46d54ee",
+    "Definition:PowerCollegeOfAudacitySlashingWhirl:406a2915-7e83-5195-b545-989256071521"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlTitle",
+    "description": "Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5fadeec3-0f9b-56d8-9bae-042897333f9a",
+  "contentPack": 9999,
+  "name": "FeatureSetCollegeOfAudacityAudaciousWhirl"
+}
