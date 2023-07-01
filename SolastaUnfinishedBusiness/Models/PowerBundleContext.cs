@@ -61,8 +61,8 @@ internal static class PowerBundleContext
                     actionParams.TargetCharacters.Add(fromActor);
                     actionParams.ActionModifiers.Add(new ActionModifier());
                     actionParams.RulesetEffect = rules
-                            .InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
-                            .AddAsActivePowerToSource();
+                        .InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
+                        .AddAsActivePowerToSource();
                     actionParams.SkipAnimationsAndVFX = true;
 
                     ServiceRepository.GetService<ICommandService>()

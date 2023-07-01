@@ -754,53 +754,74 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManager),
-        nameof(RulesetImplementationManager.ApplyConditionForm))]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplyConditionForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ApplyConditionForm_Patch
     {
-        static readonly List<CodeInstruction> matchPattern = new List<CodeInstruction> {
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Ldfld, typeof(RulesetImplementationDefinitions.ApplyFormsParams).GetField("activeEffect")),
-                new CodeInstruction(OpCodes.Brtrue),
-                new CodeInstruction(OpCodes.Ldloc_1),
-                new CodeInstruction(OpCodes.Callvirt, typeof(ConditionDefinition).GetMethod("get_SpecialDuration")),
-                new CodeInstruction(OpCodes.Brfalse),
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Callvirt, typeof(OverrideSavingThrowInfo).GetMethod("get_OverrideSavingThrowInfo")),
-                new CodeInstruction(OpCodes.Brfalse_S)
-            };
-
-        static bool CompareInstructions(List<CodeInstruction> codes)
+        private static readonly List<CodeInstruction> MatchPattern = new()
         {
-            for(var i = 0; i < codes.Count; i++)
+            new CodeInstruction(OpCodes.Ldarg_2),
+            new CodeInstruction(OpCodes.Ldfld,
+                typeof(RulesetImplementationDefinitions.ApplyFormsParams).GetField("activeEffect")),
+            new CodeInstruction(OpCodes.Brtrue),
+            new CodeInstruction(OpCodes.Ldloc_1),
+            new CodeInstruction(OpCodes.Callvirt, typeof(ConditionDefinition).GetMethod("get_SpecialDuration")),
+            new CodeInstruction(OpCodes.Brfalse),
+            new CodeInstruction(OpCodes.Ldarg_1),
+            new CodeInstruction(OpCodes.Callvirt,
+                typeof(OverrideSavingThrowInfo).GetMethod("get_OverrideSavingThrowInfo")),
+            new CodeInstruction(OpCodes.Brfalse_S)
+        };
+
+        private static bool CompareInstructions(IReadOnlyList<CodeInstruction> codes)
+        {
+            for (var i = 0; i < codes.Count; i++)
             {
-                if (codes[i].opcode == matchPattern[i].opcode)
+                if (codes[i].opcode != MatchPattern[i].opcode)
                 {
-                    if (matchPattern[i].operand is null || codes[i].OperandIs(matchPattern[i].operand))
-                        continue;
+                    return false;
                 }
+
+                if (MatchPattern[i].operand is null || codes[i].OperandIs(MatchPattern[i].operand))
+                {
+                    continue;
+                }
+
                 return false;
             }
+
             return true;
         }
+
         // delete the first check of 
         // if (formsParams.activeEffect == null && conditionDefinition.SpecialDuration && effectForm.OverrideSavingThrowInfo != null)
-        static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [UsedImplicitly]
+        private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var flag = false;
 
             var codes = new List<CodeInstruction>(instructions);
-            for (var i = 0; i < codes.Count - matchPattern.Count + 1; i++)
+
+            for (var i = 0; i < codes.Count - MatchPattern.Count + 1; i++)
             {
-                if (CompareInstructions(codes.GetRange(i, matchPattern.Count)))
+                if (!CompareInstructions(codes.GetRange(i, MatchPattern.Count)))
                 {
-                    codes[i].opcode = OpCodes.Nop;
-                    codes.RemoveRange(i+1, 2);
-                    flag = true;
-                    break;
+                    continue;
                 }
+
+                codes[i].opcode = OpCodes.Nop;
+                codes.RemoveRange(i + 1, 2);
+                flag = true;
+
+                break;
             }
-            if (!flag) Main.Error($"Failed to apply transpiler patch [RulesetImplementationManager.ApplyConditionForm]!");
+
+            if (!flag)
+            {
+                Main.Error("Failed to apply transpiler patch [RulesetImplementationManager.ApplyConditionForm]!");
+            }
+
             return codes.AsEnumerable();
         }
     }

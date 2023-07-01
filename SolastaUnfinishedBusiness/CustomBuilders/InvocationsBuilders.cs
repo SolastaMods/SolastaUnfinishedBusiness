@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static RuleDefinitions;
@@ -524,13 +525,13 @@ internal static class InvocationsBuilders
             .Create(ConditionDefinitions.ConditionFlying12, "ConditionAbilityPseudo")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainPseudodragon)
             .AddFeatures(
-                FeatureDefinitionAdditionalDamageBuilder.Create(
-                    FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
-                    .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.HalfDamage, AttributeDefinitions.Constitution)
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create(AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
+                    .SetSavingThrowData(
+                        EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.HalfDamage)
                     .SetDamageDice(DieType.D8, 1)
                     .SetNotificationTag("Poison")
-                    .AddToDB()
-            )
+                    .AddToDB())
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
