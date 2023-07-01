@@ -24,6 +24,7 @@ internal static class RacesContext
         LoadRace(RaceOligathBuilder.RaceOligath);
         LoadRace(RaceTieflingBuilder.RaceTiefling);
         LoadRace(RaceWendigoBuilder.RaceWendigo);
+        LoadRace(WyrmkinRaceBuilder.RaceWyrmkin);
         LoadRace(SubraceDarkelfBuilder.SubraceDarkelf);
         LoadRace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
         LoadRace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);
