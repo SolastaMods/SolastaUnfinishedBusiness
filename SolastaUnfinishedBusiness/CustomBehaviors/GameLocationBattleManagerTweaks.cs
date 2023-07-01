@@ -234,8 +234,8 @@ internal static class GameLocationBattleManagerTweaks
                          .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
             {
                 additionalDamageForm.DieType =
-                    damageDieProviderFromCharacter.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
-                        additionalDamageForm, attackMode, attacker, defender);
+                    damageDieProviderFromCharacter?.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
+                        additionalDamageForm, attackMode, attacker, defender) ?? provider.DamageDieType;
             }
 
             /*

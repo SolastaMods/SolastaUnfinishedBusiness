@@ -14,7 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class DarkelfSubraceBuilder
+internal static class SubraceDarkelfBuilder
 {
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 

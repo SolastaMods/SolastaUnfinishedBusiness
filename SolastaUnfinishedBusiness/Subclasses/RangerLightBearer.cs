@@ -108,6 +108,11 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerLifeBringer", Resources.PowerLifeBringer, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.HealingPool, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands.EffectDescription)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .Build())
             .AddToDB();
 
         // LEVEL 07

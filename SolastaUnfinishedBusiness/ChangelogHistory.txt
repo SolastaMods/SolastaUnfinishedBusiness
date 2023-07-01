@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.5.92.6:
+
+- added College of Audacity
+- added Crossbow Mastery feat
+- fixed Old Tactics soft lock
+- fixed Lifebringer range type
+
 1.5.92.5:
 
 - fixed Hammer the Point to stack modifiers

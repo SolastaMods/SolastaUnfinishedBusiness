@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
+  "fightingStyles": [
+    "Dueling",
+    "TwoWeapon"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FightingStyleChoiceCollegeOfAudacityTitle",
+    "description": "Feature/&FightingStyleChoiceCollegeOfAudacityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ea186247-64a7-5ace-834e-d551f68a5b54",
+  "contentPack": 9999,
+  "name": "FightingStyleChoiceCollegeOfAudacity"
+}
