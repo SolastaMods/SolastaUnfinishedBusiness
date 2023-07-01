@@ -239,6 +239,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
 
         private string damageType;
+        private bool _criticalHit;
 
         public CustomBehaviorWhirl(
             ConditionDefinition conditionExtraMovement,
@@ -324,7 +325,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
                 var damage = new DamageForm
                 {
-                    DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
+                    DamageType = damageType, DieType = dieType, DiceNumber = _criticalHit ? 2 : 1, BonusDamage = 0
                 };
 
                 RulesetActor.InflictDamage(
@@ -370,6 +371,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
             damageType = damageForm.damageType;
+            _criticalHit = criticalHit;
 
             yield break;
         }
