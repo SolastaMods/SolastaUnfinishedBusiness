@@ -246,7 +246,8 @@ internal static class ClassFeats
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (attackMode.Ranged ||
+            if (attackMode == null ||
+                attackMode.Ranged ||
                 !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
                 gameLocationBattleService == null ||
                 !gameLocationBattleService.IsWithin1Cell(attacker, defender))
