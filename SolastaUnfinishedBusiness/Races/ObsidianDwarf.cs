@@ -11,7 +11,7 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class ObsidianDwarfSubraceBuilder
+internal static class SubraceObsidianDwarfBuilder
 {
     internal static CharacterRaceDefinition SubraceObsidianDwarf { get; } = BuildObsidianDwarf();
 

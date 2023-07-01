@@ -7,11 +7,11 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
-using static SolastaUnfinishedBusiness.Races.DarkelfSubraceBuilder;
+using static SolastaUnfinishedBusiness.Races.SubraceDarkelfBuilder;
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class RaceHalfElfVariantRaceBuilder
+internal static class RaceHalfElfBuilder
 {
     internal static CharacterRaceDefinition RaceHalfElfVariant { get; } = BuildRaceHalfElfVariant();
     internal static CharacterRaceDefinition RaceHalfElfHighVariant { get; private set; }
