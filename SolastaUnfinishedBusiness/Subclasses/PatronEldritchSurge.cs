@@ -206,7 +206,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             var increaseLevels = new[] { 3, 8, 13, 18 };
             var additionalBeamCount = increaseLevels.Count(level => determinantLevel >= level);
             var pursuitStatus = rulesetCharacter.HasConditionOfType(ConditionBlastPursuit)
-                ? 1 + warlockClassLevel >= 16 ? 1 : 0
+                ? (1 + (warlockClassLevel >= 16 ? 1 : 0))
                 : 0;
             var overloadStatus = rulesetCharacter.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
 
