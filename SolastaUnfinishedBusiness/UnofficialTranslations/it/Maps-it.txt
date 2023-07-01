@@ -1,6 +1,6 @@
-Maps/&Location_Presentation_DLC3_Undermountain_Title=Sicurezza
 Maps/&Location_Presentation_DLC3_Undermountain_Description=Una gigantesca fortezza scolpita nella roccia e nel ghiaccio, dove i vecchi clan di nani dell'Alleanza della Neve scavano e commerciano con altre città.
-Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=Tunnel di lava
 Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Description=Una complessa rete di tunnel e canali di lava, che ospita alcuni macchinari nanici per alimentare un sistema di riscaldamento per Turvaamalinn.
-Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=L'ingresso del tunnel
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=Tunnel di lava
 Maps/&Location_Presentation_DLC3_Undermountain_Outside_Description=L'accesso principale a Turvaamalinn generalmente utilizzato da viaggiatori e mercanti... quando non è bloccato da tonnellate di ghiaccio.
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=L'ingresso del tunnel
+Maps/&Location_Presentation_DLC3_Undermountain_Title=Sicurezza

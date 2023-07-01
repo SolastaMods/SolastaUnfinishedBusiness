@@ -1,7 +1,7 @@
-Tag/&PactTomeCantripSpecialTagTitle=팩트 캔트립
-Tag/&PactTomeSpellSpecialTagTitle=계약 주문
-Tag/&PactTomeRitualSpellSpecialTagTitle=협정 의식
-Tag/&MysticArcanumSpellSpecialTagTitle=신비한 영석
-Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=마법의 비밀 캔트립 또는 주문
-Tag/&BonusCantripsCantripSpecialTagTitle=보너스 캔트립
 Tag/&ArcaneProfessorCantripSpecialTagTitle=신비한 교수
+Tag/&BonusCantripsCantripSpecialTagTitle=보너스 캔트립
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=마법의 비밀 캔트립 또는 주문
+Tag/&MysticArcanumSpellSpecialTagTitle=신비한 영석
+Tag/&PactTomeCantripSpecialTagTitle=팩트 캔트립
+Tag/&PactTomeRitualSpellSpecialTagTitle=협정 의식
+Tag/&PactTomeSpellSpecialTagTitle=계약 주문

@@ -26,5 +26,5 @@ Reaction/&CustomReactionOrganDonationReactTitle=Organ Donation
 Reaction/&CustomReactionOrganDonationTitle=Organ Donation
 Screen/&InventorVivisectionistSpellDescription=This Vivisectionist spell is always considered prepared.\nIt does not count towards your spell preparation limit.
 Screen/&InventorVivisectionistSpellTitle=Vivisectionist
-Subclass/&InnovationVivisectionistDescription=A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist’s goals are not always related to healing, but rather to experimentation and knowledge with body parts.
+Subclass/&InnovationVivisectionistDescription=A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist's goals are not always related to healing, but rather to experimentation and knowledge with body parts.
 Subclass/&InnovationVivisectionistTitle=Vivisectionist

@@ -1,9 +1,9 @@
-Power/&PowerStoneGolemSlow_Title=Lento
+Power/&DemonicInfluence_Description=Affascina un nemico affinché combatta per te finché non si scrollerà di dosso la tua influenza demoniaca.
 Power/&PowerStoneGolemSlow_Description=I golem di pietra possono rallentare i nemici nelle vicinanze.
+Power/&PowerStoneGolemSlow_Title=Lento
+Power/&Vrock_Screech_Description=Il Vrock emette un potente urlo che può stordire i nemici che lo circondano.
+Power/&Vrock_Screech_Title=Stridio
+Power/&Vrock_Spores_Description=Il veleno di Vrock infligge 1d10 danni da veleno ogni turno.
+Power/&Vrock_Spores_Title=Spore
 Power/&WightLifeDrain_Description=Gli spettri possono risucchiare l'essenza vitale con un colpo in mischia andato a segno.
 Power/&WightLordCircleofDeath_Description=Un wight lord può assorbire l'essenza vitale dai nemici circostanti.
-Power/&Vrock_Screech_Title=Stridio
-Power/&Vrock_Screech_Description=Il Vrock emette un potente urlo che può stordire i nemici che lo circondano.
-Power/&Vrock_Spores_Title=Spore
-Power/&Vrock_Spores_Description=Il veleno di Vrock infligge 1d10 danni da veleno ogni turno.
-Power/&DemonicInfluence_Description=Affascina un nemico affinché combatta per te finché non si scrollerà di dosso la tua influenza demoniaca.

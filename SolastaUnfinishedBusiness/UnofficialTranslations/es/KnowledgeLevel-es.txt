@@ -1,9 +1,9 @@
 KnowledgeLevel/&KnownDescription=Conoces bien a esta criatura.
-KnowledgeLevel/&KnownTitle=conocido (3)
+KnowledgeLevel/&KnownTitle=Conocido (3)
 KnowledgeLevel/&MasteredDescription=Lo sabes todo sobre esta criatura.
 KnowledgeLevel/&MasteredTitle=Dominado (4)
 KnowledgeLevel/&ObservedDescription=Has observado a esta criatura brevemente.
-KnowledgeLevel/&ObservedTitle=observado (1)
+KnowledgeLevel/&ObservedTitle=Observado (1)
 KnowledgeLevel/&StudiedDescription=Has estudiado a esta criatura.
 KnowledgeLevel/&StudiedTitle=Estudió (2)
 KnowledgeLevel/&UnknownDescription=Nunca te has encontrado con esta criatura.

@@ -1,6 +1,6 @@
-Maps/&Location_Presentation_DLC3_Undermountain_Title=Seguridad
 Maps/&Location_Presentation_DLC3_Undermountain_Description=Una gigantesca fortaleza tallada en roca y hielo, donde los antiguos clanes enanos de la Alianza de la Nieve minan y comercian con otras ciudades.
-Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=Túneles de lava
 Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Description=Una compleja red de túneles y canales de lava que alberga maquinaria enana para alimentar un sistema de calefacción para Turvaamalinn.
-Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=La entrada del túnel
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=Túneles de lava
 Maps/&Location_Presentation_DLC3_Undermountain_Outside_Description=El acceso principal a Turvaamalinn generalmente utilizado por viajeros y comerciantes... cuando no está bloqueado por toneladas de hielo.
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=La entrada del túnel
+Maps/&Location_Presentation_DLC3_Undermountain_Title=Seguridad
