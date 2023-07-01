@@ -33,6 +33,11 @@ internal static class RaceTieflingBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildTiefling()
     {
+        var contentPack = ServiceRepository.GetService<IGamingPlatformService>()
+            .IsContentPackAvailable(GamingPlatformDefinitions.ContentPack.PalaceOfIce)
+            ? CeContentPackContext.CeContentPack
+            : GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+
         #region subraces
 
         //
@@ -69,7 +74,7 @@ internal static class RaceTieflingBuilder
                 castSpellTieflingDevilTongue)
             .AddToDB();
 
-        raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingDevilTongue.contentPack = contentPack;
 
         //
         // Feral
@@ -158,7 +163,7 @@ internal static class RaceTieflingBuilder
                 featureSetDemonicWings)
             .AddToDB();
 
-        raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingDevilTongue.contentPack = contentPack;
 
         //
         // Mephistopheles
@@ -188,7 +193,7 @@ internal static class RaceTieflingBuilder
                 castSpellTieflingMephistopheles)
             .AddToDB();
 
-        raceTieflingMephistopheles.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingMephistopheles.contentPack = contentPack;
 
         //
         // Zariel
@@ -224,7 +229,7 @@ internal static class RaceTieflingBuilder
                 castSpellTieflingZariel)
             .AddToDB();
 
-        raceTieflingZariel.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingZariel.contentPack = contentPack;
 
         #endregion
 
@@ -267,7 +272,7 @@ internal static class RaceTieflingBuilder
                 ProficiencyTieflingStaticLanguages)
             .AddToDB();
 
-        raceTiefling.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTiefling.contentPack = contentPack;
         raceTiefling.subRaces.SetRange(
             raceTieflingDevilTongue,
             raceTieflingFeral,
