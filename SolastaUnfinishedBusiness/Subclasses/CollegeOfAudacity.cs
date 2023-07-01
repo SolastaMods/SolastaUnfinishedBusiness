@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -229,8 +228,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     private sealed class CustomBehaviorWhirl :
         IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinished
     {
-        private readonly ConditionDefinition _conditionExtraMovement;
         private readonly ConditionDefinition _conditionDefensiveWhirl;
+        private readonly ConditionDefinition _conditionExtraMovement;
         private readonly FeatureDefinitionPower _powerDefensiveWhirl;
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
@@ -321,9 +320,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 {
                     DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                 };
-
-                EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
-                    FeatureDefinitionPowers.PowerRemorhazRetaliate, EffectHelpers.EffectType.Effect);
 
                 RulesetActor.InflictDamage(
                     damageRoll,
