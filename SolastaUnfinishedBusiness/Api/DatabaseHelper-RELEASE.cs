@@ -574,6 +574,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolBardSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolBardSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolBonusFeat { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolBonusFeat");
         internal static FeatureDefinitionPointPool PointPoolClericSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolClericSkillPoints");
+        internal static FeatureDefinitionPointPool PointPoolCollegeLoreAdditionalMagicalSecrets { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolCollegeLoreAdditionalMagicalSecrets");
         internal static FeatureDefinitionPointPool PointPoolDruidSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolDruidSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolFighterSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolFighterSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolHalfElfSkillPool { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolHalfElfSkillPool");
@@ -653,7 +654,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
         internal static FeatureDefinitionPower PowerRangerPrimevalAwareness { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerPrimevalAwareness");
         internal static FeatureDefinitionPower PowerRangerSwiftBladeBattleFocus { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerSwiftBladeBattleFocus");
-        internal static FeatureDefinitionPower PowerRemorhazRetaliate { get; } = GetDefinition<FeatureDefinitionPower>("PowerRemorhazRetaliate");
         internal static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } = GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting");
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
         internal static FeatureDefinitionPower PowerShadowTamerRopeGrapple { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowTamerRopeGrapple");

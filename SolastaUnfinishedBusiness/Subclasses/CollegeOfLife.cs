@@ -9,6 +9,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
@@ -163,7 +164,8 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 MagicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
                 damageAffinityCollegeOfLifeNecroticResistance,
-                powerSharedPoolCollegeOfLifeHealingPool)
+                powerSharedPoolCollegeOfLifeHealingPool,
+                PointPoolCollegeLoreAdditionalMagicalSecrets)
             .AddFeaturesAtLevel(14,
                 DamageAffinityGenericHardenToNecrotic,
                 PowerCasterCommandUndead)

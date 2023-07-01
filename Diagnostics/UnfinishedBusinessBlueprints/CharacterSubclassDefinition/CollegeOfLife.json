@@ -8,6 +8,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolCollegeLoreAdditionalMagicalSecrets:ad99f4051ed6b8e4b917a7c71a51542f",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityCollegeOfLifeNecroticResistance:6905cb79-96ab-5ccd-8b13-3f772741a763",
       "level": 6
     },
