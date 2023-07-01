@@ -523,7 +523,13 @@ internal static class InvocationsBuilders
         var conditionAbilityPseudo = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlying12, "ConditionAbilityPseudo")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainPseudodragon)
-            .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_GhoulsCaress)
+            .AddFeatures(
+                FeatureDefinitionAdditionalDamageBuilder.Create(
+                    FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
+                    .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.HalfDamage, AttributeDefinitions.Constitution)
+                    .SetDamageDice(DieType.D8, 1)
+                    .AddToDB()
+            )
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
