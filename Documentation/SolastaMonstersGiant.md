@@ -16,9 +16,9 @@ Size: *Huge*
 |  25 |  09 |  25 |  10 |  14 |  13 |
 
 *Features:*
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Fire Immunity
 * Walk 8
 * Normal Vision
@@ -48,9 +48,9 @@ Size: *Huge*
 |  25 |  09 |  25 |  10 |  14 |  13 |
 
 *Features:*
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Fire Immunity
 * Walk 8
 * Normal Vision
@@ -138,9 +138,9 @@ Size: *Huge*
 |  23 |  09 |  21 |  09 |  10 |  12 |
 
 *Features:*
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Walk 8
 * Normal Vision
@@ -226,8 +226,8 @@ Size: *Huge*
 |  29 |  14 |  20 |  16 |  18 |  18 |
 
 *Features:*
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Lightning Immunity
 * Damage Affinity Thunder Immunity
@@ -289,6 +289,7 @@ Size: *Large*
 |  19 |  11 |  16 |  14 |  12 |  15 |
 
 *Features:*
+* Condition Affinity Prone Immunity
 * Fly 6
 * Walk 6
 * Regeneration
@@ -348,9 +349,9 @@ Size: *Huge*
 |  29 |  14 |  20 |  16 |  18 |  18 |
 
 *Features:*
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Lightning Immunity
 * Damage Affinity Thunder Immunity
@@ -383,7 +384,7 @@ Size: *Large*
 |  18 |  13 |  20 |  07 |  09 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 6
 * Regeneration
 * Darkvision
@@ -415,7 +416,7 @@ Size: *Large*
 |  18 |  13 |  20 |  07 |  09 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 6
 * Regeneration
 * Darkvision

@@ -1739,6 +1739,13 @@ Mark a creature you see so it receives additional necrotic damage equal to your 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
 
 
+## Level 14
+
+* Mark of Fate
+
+Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power. Starting at level 14, you can use it twice before taking a rest.
+
+
 ## Level 20
 
 * Divine Intervention

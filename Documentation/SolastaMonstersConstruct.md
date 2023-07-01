@@ -122,9 +122,9 @@ Size: *Large*
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Protected From Evil Charm Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Immunity _except _magical
 * Damage Affinity Cold Immunity
 * Damage Affinity Piercing Immunity _except _magical

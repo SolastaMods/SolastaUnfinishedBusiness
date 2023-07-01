@@ -94,8 +94,8 @@ Size: *Medium*
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Condition Affinity Restrainedmmunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Acid Resistance
 * Damage Affinity Bludgeoning Resistance Except Silver
 * Damage Affinity Cold Resistance
@@ -319,9 +319,9 @@ Size: *Medium*
 * Condition Affinity Hindered By Frost Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Acid Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
@@ -362,8 +362,8 @@ Size: *Medium*
 |  18 |  18 |  18 |  04 |  08 |  12 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
+* Keen Smell
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Grappled Immunity
@@ -371,9 +371,9 @@ Size: *Medium*
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Necrotic Immunity
@@ -897,9 +897,9 @@ Size: *Medium*
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Condition Affinity Restrainedmmunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Acid Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
@@ -993,9 +993,9 @@ Size: *Large*
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity
 * Condition Affinity Restrainedmmunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Acid Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
@@ -1135,9 +1135,9 @@ Size: *Medium*
 *Features:*
 * Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Cold Resistance

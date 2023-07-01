@@ -17,13 +17,13 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Prone Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Fly 12
 * Walk 8
-* Poison Breath
+* Frost Breath
 * Frightful Presence
 * Blindsight
 * Normal Vision
@@ -204,6 +204,7 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
 * Fly 8
 * Walk 6
@@ -406,6 +407,7 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
 * Fly 12
 * Walk 6
@@ -441,6 +443,7 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
 * Fly 12
 * Walk 6
@@ -476,6 +479,7 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
 * Fly 12
 * Walk 6
@@ -511,6 +515,7 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
 * Fly 12
 * Walk 6
@@ -547,13 +552,13 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Prone Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Fly 12
 * Walk 8
-* Poison Breath
+* Frost Breath
 * Frightful Presence
 * Blindsight
 * Normal Vision

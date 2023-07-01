@@ -1,21 +1,4 @@
-# 1. - Asmodeus
-
-The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
-
-
-## Level 1
-
-* Devil's Tongue Attribute Increase
-
-Intelligence +1
-
-* Asmodeus Magic
-
-You know the Dancing Lights cantrip. At 3rd level you learn Hellish Rebuke and at 5th level, Darkness. Both can be used once per long rest.
-
-
-
-# 2. - Bolgrif
+# 1. - Bolgrif
 
 Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 
@@ -49,6 +32,35 @@ As a bonus action, you can magically turn invisible for 1 round. This invisibili
 * Druidic Magic
 
 You know one cantrip of your choice from the Druid spell list. Wisdom is your spellcasting ability for it.
+
+
+
+# 2. - Cave Wyrmkin
+
+Cave Wyrmkins are wyrms that have adapted living in vast underground network of caves. They are born with strong sense of direction in order to navigate skillfully, and use their powerful claws to dig tunnels.
+
+
+## Level 1
+
+* Attribute Increase
+
+Strength +2
+
+* Attribute Increase
+
+Constitution +1
+
+* Cave Senses
+
+You have advantage in Wisdom (Survival) ability checks.
+
+* Charging Strike
+
+If you use dash as an action, you can use unarmed strike as a bonus action.
+
+* Powerful Claws
+
+Your unarmed strike deal 1d6 damage instead of 1. When you hit a target with a melee attack, you can use shove as a bonus action.
 
 
 
@@ -185,7 +197,28 @@ You know the Burst of Radiance cantrip. At 3rd level you learn Faerie Fire and a
 
 
 
-# 8. - Gray Dwarf
+# 8. - Feral
+
+ These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hiding to avoid scrutiny or being hunted while others embrace this fiendish nature.
+
+
+## Level 1
+
+* Demonic Wings
+
+As an action, you can give yourself a flying speed equal to your walking speed. You can't use this if you're wearing medium or heavy armor.
+
+* Mephistopheles Attribute Increase
+
+Dexterity +1
+
+* Feral's Magic
+
+At 3rd level you learn Burning Hands. It can be used once per long rest.
+
+
+
+# 9. - Gray Dwarf
 
 The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 
@@ -228,7 +261,7 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 
 
 
-# 9. - Half-Dark Elf
+# 10. - Half-Dark Elf
 
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 
@@ -245,7 +278,33 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 10. - Half-High Elf
+# 11. - Half-Elf
+
+Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Charisma +2, increase 2 other scores by 1 point each.
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Fey Ancestry
+
+Saving throw advantage against Charm
+ Immunity to magical sleep
+
+* Languages
+
+Common, Elvish, and one language of your choice
+
+
+
+# 12. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
 
@@ -262,7 +321,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# 11. - Half-Sylvan Elf
+# 13. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
@@ -275,7 +334,32 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 
 
 
-# 12. - Kobold
+# 14. - High Wyrmkin
+
+High Wyrmkins descended from a race of wyrms that have psionic abilities. Instead of dragon's breath, they can use their psionic powers to deal damage.
+
+
+## Level 1
+
+* Attribute Increase
+
+Strength +1
+
+* Attribute Increase
+
+Intelligence +2
+
+* Psionic Wave
+
+You can use your action to unleash a psionic wave in a 15-foot cone. All creatures in the area must make an Intelligence saving throw. The DC for this saving throw is equal to 8 + your Intelligence modifier + you proficiency bonus. A creature takes 2d6 Psychic damage on a failed save, and half as much damage on a successful one. The damage increases by 1d6 when you reach 6th, 11th and 16th levels. After you use this trait, you can't use it again until you finish a short or long rest.
+
+* Reactive Retribution
+
+When a creature hits you with an attack, you can use your reaction to attack the creature using the weapon you are wielding if within range. Once you use this trait, you cannot use until a short or long rest.
+
+
+
+# 15. - Kobold
 
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -296,7 +380,7 @@ Common, Draconic.
 
 
 
-# 13. - Mephistopheles
+# 16. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
@@ -313,7 +397,28 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 
 
-# 14. - Oligath
+# 17. - Obsidian Dwarf
+
+In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen.  The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors.  The dwarves rebelled, won their freedom, and retreated to the Badlands.  Calling themselves the Obsidian Dwarves, they have grown and prospered.
+
+
+## Level 1
+
+* Badlands Brawn
+
+Strength +1
+
+* Cradled by Fire
+
+You have resistance to fire damage.
+
+* Languages
+
+Common, Dwarvish, and Giant
+
+
+
+# 18. - Oligath
 
 Oligaths share ancestry with the giants that live in the northern regions of Solasta.
 
@@ -354,7 +459,32 @@ When you take damage, you can use your reaction to roll a d12. Add your Constitu
 
 
 
-# 15. - Wendigo
+# 19. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Charisma + 2
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Hellish Resistance
+
+You have resistance to fire damage.
+
+* Move
+
+6◎
+
+
+
+# 20. - Wendigo
 
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
@@ -399,8 +529,28 @@ On the first round of combat, if you hit a creature with an attack roll and it's
 
 
 
+# 21. - Wyrmkin
 
-# 16. - Zariel
+Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
+
+
+## Level 1
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Languages
+
+Common, Draconic.
+
+* Move
+
+6◎
+
+
+
+# 22. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 
