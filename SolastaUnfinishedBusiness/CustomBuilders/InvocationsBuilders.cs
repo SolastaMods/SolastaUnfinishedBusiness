@@ -528,6 +528,7 @@ internal static class InvocationsBuilders
                     FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
                     .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.HalfDamage, AttributeDefinitions.Constitution)
                     .SetDamageDice(DieType.D8, 1)
+                    .SetNotificationTag("Poison")
                     .AddToDB()
             )
             .SetSilent(Silent.WhenAddedOrRemoved)
