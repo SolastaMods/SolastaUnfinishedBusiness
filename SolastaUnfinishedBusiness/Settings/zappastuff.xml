@@ -9,7 +9,7 @@
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
-  <DisplayFeatsToggle>false</DisplayFeatsToggle>
+  <DisplayFeatsToggle>true</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
@@ -149,6 +149,7 @@
   <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
+  <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -172,7 +173,7 @@
   <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
   <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
   <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
-  <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
+  <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
   <IdentifyAfterRest>true</IdentifyAfterRest>
   <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
   <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
@@ -186,11 +187,11 @@
   <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
   <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
-  <EnableHigherGroundRules>false</EnableHigherGroundRules>
-  <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
+  <EnableHigherGroundRules>true</EnableHigherGroundRules>
+  <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
-  <AllowHasteCasting>false</AllowHasteCasting>
-  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
+  <AllowHasteCasting>true</AllowHasteCasting>
+  <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
@@ -333,7 +334,7 @@
     <string>RaceTiefling</string>
     <string>RaceOligath</string>
     <string>RaceWendigo</string>
-    <string>RaceObsidianDwarf</string>									  
+    <string>RaceObsidianDwarf</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -403,6 +404,8 @@
     <string>OathOfDemonHunter</string>
     <string>PatronEldritchSurge</string>
     <string>RangerSkyWarrior</string>
+    <string>CollegeOfAudacity</string>
+    <string>WayOfWealAndWoe</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -508,6 +511,9 @@
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
     <string>FeatMediumArmorMaster</string>
+    <string>FeatHammerThePoint</string>
+    <string>FeatGroupOldTactics</string>
+    <string>FeatCrossbowMastery</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
