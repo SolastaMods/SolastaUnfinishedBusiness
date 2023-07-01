@@ -1,45 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using System.Collections;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using static FeatureDefinitionAttributeModifier;
-using SolastaUnfinishedBusiness.CustomValidators;
 using static ActionDefinitions;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
-using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using TA;
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class WyrmkinRaceBuilder
+internal static class RaceWyrmkinBuilder
 {
+    private const string RaceName = "RaceWyrmkin";
     internal static CharacterRaceDefinition RaceWyrmkin { get; } = BuildWyrmkin();
 
     [NotNull]
     private static CharacterRaceDefinition BuildWyrmkin()
     {
         var proficiencyWyrmkinLanguages = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyWyrmkinLanguages")
+            .Create($"Proficiency{RaceName}Languages")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Draconic")
             .AddToDB();
 
         var raceWyrmkin = CharacterRaceDefinitionBuilder
-            .Create(Dragonborn, "RaceWyrmkin")
-            .SetGuiPresentation(Category.Race, Sprites.GetSprite("Wyrmkin", Resources.Wyrmkin, 1024, 512))
+            .Create(Dragonborn, RaceName)
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wyrmkin, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetBaseWeight(35)
             .SetBaseHeight(3)
@@ -52,18 +53,17 @@ internal static class WyrmkinRaceBuilder
                 proficiencyWyrmkinLanguages)
             .AddToDB();
 
-        raceWyrmkin.subRaces =
-            new List<CharacterRaceDefinition> { 
-                BuildHighWyrmkin(raceWyrmkin),
-                BuildCaveWyrmkin(raceWyrmkin)
-                };
         RacesContext.RaceScaleMap[raceWyrmkin] = 7.0f / 6.4f;
+        raceWyrmkin.subRaces =
+            new List<CharacterRaceDefinition> { BuildHighWyrmkin(raceWyrmkin), BuildCaveWyrmkin(raceWyrmkin) };
+
         return raceWyrmkin;
     }
 
     private static CharacterRaceDefinition BuildCaveWyrmkin(CharacterRaceDefinition characterRaceDefinition)
     {
-        string Name = "CaveWyrmkin";
+        const string Name = "CaveWyrmkin";
+
         var attributeModifierCaveWyrmkinConstitutionAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ConstitutionAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
@@ -83,117 +83,229 @@ internal static class WyrmkinRaceBuilder
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
             .AddToDB();
 
+        var conditionCaveWyrmkinShovingAttack = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ShovingAttack")
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}BonusShove")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAuthorizedActions(Id.ShoveBonus)
+                    .AddToDB())
+            .AddToDB();
+
         var featureCaveWyrmkinPowerfulClaws = FeatureDefinitionBuilder
             .Create($"Feature{Name}PowerfulClaws")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
         featureCaveWyrmkinPowerfulClaws.SetCustomSubFeatures(
             new ModifyWeaponAttackModeCaveWyrmkinClaws(),
-            new CaveWyrmkinShovingAttack(featureCaveWyrmkinPowerfulClaws));
+            new CaveWyrmkinShovingAttack(featureCaveWyrmkinPowerfulClaws, conditionCaveWyrmkinShovingAttack));
+
+        var conditionChargingStrike = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ChargingStrike")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus))
+            .AddToDB();
 
         var featureCaveWyrmkinChargingStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}ChargingStrike")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
         featureCaveWyrmkinChargingStrike.SetCustomSubFeatures(
-            new AfterActionFinishedCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike));
+            new AfterActionFinishedCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike,
+                conditionChargingStrike));
+
         var caveWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
+
         caveWyrmkinRacePresentation.preferedSkinColors = new RangedInt(48, 53);
+
         var raceCaveWyrmkin = CharacterRaceDefinitionBuilder
-            .Create(characterRaceDefinition, "RaceCaveWyrmkin")
-            .SetGuiPresentation(Category.Race, Sprites.GetSprite("Wyrmkin", Resources.Wyrmkin, 1024, 512))
+            .Create(characterRaceDefinition, $"Race{Name}")
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wyrmkin, 1024, 512))
             .SetRacePresentation(caveWyrmkinRacePresentation)
             .SetFeaturesAtLevel(1,
                 attributeModifierCaveWyrmkinStrengthAbilityScoreIncrease,
                 attributeModifierCaveWyrmkinConstitutionAbilityScoreIncrease,
                 featureCaveWyrmkinPowerfulClaws,
                 featureCaveWyrmkinChargingStrike,
-                abilityCheckAffinityCaveWyrmkinCaveSenses
-            ).AddToDB();
+                abilityCheckAffinityCaveWyrmkinCaveSenses)
+            .AddToDB();
 
         return raceCaveWyrmkin;
     }
 
+    private static CharacterRaceDefinition BuildHighWyrmkin(CharacterRaceDefinition characterRaceDefinition)
+    {
+        const string Name = "HighWyrmkin";
+
+        var attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}IntelligenceAbilityScoreIncrease")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 2)
+            .AddToDB();
+
+        var attributeModifierHighWyrmkinStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}StrengthAbilityScoreIncrease")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
+            .AddToDB();
+
+        var powerHighWyrmkinReactiveRetribution = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ReactiveRetribution")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerHighWyrmkinReactiveRetribution.SetCustomSubFeatures(
+            new ReactToAttackOnMeReactiveRetribution(powerHighWyrmkinReactiveRetribution));
+
+        var effectPsionicWave = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
+            .ExcludeCaster()
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Intelligence,
+                true,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Intelligence)
+            .SetParticleEffectParameters(ColorSpray.EffectDescription.effectParticleParameters)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 5, 6)
+                    .Build())
+            .Build();
+
+        var powerHighWyrmkinPsionicWave = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}PsionicWave")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerDraconicCry", Resources.PowerDraconicCry, 256, 128))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+            .SetEffectDescription(effectPsionicWave)
+            .AddToDB();
+
+        var highWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
+
+        highWyrmkinRacePresentation.preferedSkinColors = new RangedInt(20, 25);
+
+        var raceHighWyrmkin = CharacterRaceDefinitionBuilder
+            .Create(characterRaceDefinition, $"Race{Name}")
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wyrmkin, 1024, 512))
+            .SetRacePresentation(highWyrmkinRacePresentation)
+            .SetFeaturesAtLevel(1,
+                attributeModifierHighWyrmkinStrengthAbilityScoreIncrease,
+                attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease,
+                powerHighWyrmkinPsionicWave,
+                powerHighWyrmkinReactiveRetribution
+            ).AddToDB();
+
+        return raceHighWyrmkin;
+    }
+
     private sealed class CaveWyrmkinShovingAttack : IPhysicalAttackFinished
     {
-        private ConditionDefinition conditionDefinition;
-        private FeatureDefinition parentFeature;
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinition _parentFeature;
 
-        public CaveWyrmkinShovingAttack(FeatureDefinition parentFeature)
+        public CaveWyrmkinShovingAttack(FeatureDefinition parentFeature, ConditionDefinition conditionShoveAttack)
         {
-            conditionDefinition = ConditionDefinitionBuilder
-                .Create("ConditionCaveWyrmkinShovingAttack")
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetGuiPresentationNoContent(true)
-                .SetFeatures(FeatureDefinitionActionAffinityBuilder
-                    .Create("ActionAffinityBonusShove")
-                    .SetAuthorizedActions(Id.ShoveBonus)
-                    .AddToDB())
-                .AddToDB();
-            this.parentFeature = parentFeature;
+            _conditionDefinition = conditionShoveAttack;
+            _parentFeature = parentFeature;
         }
+
         public IEnumerator OnAttackFinished(
-            GameLocationBattleManager battleManager, 
-            CharacterAction action, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            RulesetAttackMode attackerAttackMode, 
-            RollOutcome attackRollOutcome, 
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome != RollOutcome.Success && attackRollOutcome != RollOutcome.CriticalSuccess)
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
+
             if (attackerAttackMode.Ranged)
             {
                 yield break;
             }
+
             var character = attacker.RulesetCharacter;
-            character.AddConditionOfCategory(conditionDefinition.Name,
-                RulesetCondition.CreateActiveCondition(
-                    character.Guid,
-                    conditionDefinition,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    character.Guid,
-                    character.CurrentFaction.Name));
-            character.LogCharacterUsedFeature(parentFeature);
+
+            if (character is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            character.LogCharacterUsedFeature(_parentFeature);
+            character.InflictCondition(
+                _conditionDefinition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                character.guid,
+                character.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
+
     private sealed class AfterActionFinishedCaveWyrmkinChargingStrike : IActionFinished
     {
-        private ConditionDefinition ConditionAfterDash { get; }
-        private FeatureDefinition parentFeature;
-        
-        public AfterActionFinishedCaveWyrmkinChargingStrike(FeatureDefinition parentFeature)
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinition _parentFeature;
+
+        public AfterActionFinishedCaveWyrmkinChargingStrike(
+            FeatureDefinition parentFeature,
+            ConditionDefinition conditionChargingStrike)
         {
-            ConditionAfterDash = ConditionDefinitionBuilder
-                .Create("ConditionCaveWyrmChargingStrike")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus))
-                .AddToDB();
-            this.parentFeature = parentFeature;
+            _conditionDefinition = conditionChargingStrike;
+            _parentFeature = parentFeature;
         }
+
         public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action.ActionId != Id.DashMain)
             {
                 yield break;
             }
+
             var character = action.ActingCharacter.RulesetCharacter;
-            character.AddConditionOfCategory(ConditionAfterDash.Name,
-                RulesetCondition.CreateActiveCondition(
-                    character.Guid,
-                    ConditionAfterDash,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    character.Guid,
-                    character.CurrentFaction.Name));
-            character.LogCharacterUsedFeature(parentFeature);
+
+            if (character is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            character.LogCharacterUsedFeature(_parentFeature);
+            character.InflictCondition(
+                _conditionDefinition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                character.guid,
+                character.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -206,9 +318,6 @@ internal static class WyrmkinRaceBuilder
                 return;
             }
 
-            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var strengthModifier = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
-
             var effectDescription = attackMode.EffectDescription;
             var damage = effectDescription.FindFirstDamageForm();
             var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
@@ -217,94 +326,30 @@ internal static class WyrmkinRaceBuilder
             {
                 return;
             }
+
             if (damage.DieType < DieType.D6)
             {
                 damage.DieType = DieType.D6;
             }
+
             damage.DamageType = DamageTypeSlashing;
         }
-    }
-    private static CharacterRaceDefinition BuildHighWyrmkin(CharacterRaceDefinition characterRaceDefinition)
-    {
-        var attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 2)
-            .AddToDB();
-
-        var attributeModifierHighWyrmkinStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifierHighWyrmkinStrengthAbilityScoreIncrease")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
-            .AddToDB();
-
-        var powerHighWyrmkinReactiveRetribution = FeatureDefinitionPowerBuilder
-            .Create("PowerHighWyrmkinReactiveRetribution")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .AddToDB();
-
-        powerHighWyrmkinReactiveRetribution.SetCustomSubFeatures(
-            new ReactToAttackOnMeReactiveRetribution(powerHighWyrmkinReactiveRetribution));
-
-        var effectPsionicWave = EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-                .ExcludeCaster()
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Intelligence,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(ColorSpray.EffectDescription.effectParticleParameters)
-                .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 5, 6)
-                    .Build())
-                .Build();
-        var powerHighWyrmkinPsionicWave = FeatureDefinitionPowerBuilder
-            .Create("PowerHighWyrmkinPsionicWave")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerDraconicCry", Resources.PowerDraconicCry, 256, 128))
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetEffectDescription(effectPsionicWave)
-            .AddToDB();
-        var highWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
-        highWyrmkinRacePresentation.preferedSkinColors = new RangedInt(20, 25);
-
-        var raceHighWyrmkin = CharacterRaceDefinitionBuilder
-            .Create(characterRaceDefinition, "RaceHighWyrmkin")
-            .SetGuiPresentation(Category.Race, Sprites.GetSprite("Wyrmkin", Resources.Wyrmkin, 1024, 512))
-            .SetRacePresentation(highWyrmkinRacePresentation)
-            .SetFeaturesAtLevel(1,
-            attributeModifierHighWyrmkinStrengthAbilityScoreIncrease,
-            attributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease,
-            powerHighWyrmkinPsionicWave,
-            powerHighWyrmkinReactiveRetribution
-            ).AddToDB();
-
-        return raceHighWyrmkin;
     }
 
     private class ReactToAttackOnMeReactiveRetribution : IReactToAttackOnMeFinished
     {
-        private FeatureDefinitionPower pool;
+        private readonly FeatureDefinitionPower pool;
 
         public ReactToAttackOnMeReactiveRetribution(FeatureDefinitionPower powerHighWyrmkinSwiftRetribution)
         {
             pool = powerHighWyrmkinSwiftRetribution;
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(GameLocationCharacter attacker, 
+        public IEnumerator OnReactToAttackOnMeFinished(GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,
             CharacterActionParams actionParams,
-            RulesetAttackMode mode, 
+            RulesetAttackMode mode,
             ActionModifier modifier)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
@@ -312,16 +357,17 @@ internal static class WyrmkinRaceBuilder
             {
                 yield break;
             }
+
             // only trigger on a hit
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
+
             var rulesetEnemy = attacker.RulesetCharacter;
 
             if (!me.CanReact() ||
-            rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -353,17 +399,15 @@ internal static class WyrmkinRaceBuilder
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            var reactionParams = new CharacterActionParams(me, Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
             var rulesetCharacter = me.RulesetCharacter;
-
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var tag = "ReactiveRetribution";
-            var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams);
+            var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
@@ -373,7 +417,6 @@ internal static class WyrmkinRaceBuilder
             {
                 rulesetCharacter.UsePower(UsablePowersProvider.Get(pool, rulesetCharacter));
             }
-
         }
     }
 }
