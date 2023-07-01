@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Vortice
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Vortice
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Vortice
-Subclass/&CollegeOfAudacityDescription=I bardi del College of Guts si riuniscono nelle sale dell'idromele o attorno a grandi falò per cantare le gesta dei potenti, sia del passato che del presente. Percorrono la terra per assistere in prima persona a grandi eventi e per garantire che il ricordo di quegli eventi non scompaia dal mondo. Con le loro canzoni, ispirano gli altri a raggiungere le stesse vette di realizzazione degli eroi del passato.
+Subclass/&CollegeOfAudacityDescription=I bardi del Collegio dell'Audacia intrattengono con audaci imprese di abilità con le armi. Eseguono acrobazie come ingoiare spade, lancio di coltelli e giocoleria e finti combattimenti. Sebbene usino le loro armi per intrattenere, sono anche guerrieri altamente addestrati e abili a pieno titolo.
 Subclass/&CollegeOfAudacityTitle=Collegio di Audacia

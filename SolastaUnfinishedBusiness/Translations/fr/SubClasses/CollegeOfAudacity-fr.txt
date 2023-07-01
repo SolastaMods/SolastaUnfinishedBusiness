@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Tourbillon
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Tourbillon
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Tourbillon
-Subclass/&CollegeOfAudacityDescription=Les bardes du College of Guts se rassemblent dans les salles à hydromel ou autour de grands feux de joie pour chanter les exploits des puissants, passés et présents. Ils parcourent le pays pour assister de première main à de grands événements et pour s'assurer que la mémoire de ces événements ne passe pas du monde. Avec leurs chansons, ils inspirent les autres à atteindre les mêmes sommets d'accomplissement que les héros d'autrefois.
+Subclass/&CollegeOfAudacityDescription=Les bardes du College of Audacity divertissent à travers des exploits audacieux de prouesses d'armes. Ils exécutent des cascades telles que la déglutition d'épée, le lancer et la jonglerie de couteaux et des combats simulés. Bien qu'ils utilisent leurs armes pour se divertir, ils sont également des guerriers hautement qualifiés et hautement qualifiés.
 Subclass/&CollegeOfAudacityTitle=Collège de l'audace
