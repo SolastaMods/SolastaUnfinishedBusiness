@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:CustomFeatCrossbowMastery:a4ec8c17-b6fd-50b7-94db-fbc427328096"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feat/&FeatGroupRangedCombatTitle",
-    "description": "Bow Mastery, Crossbow Mastery, Deadeye, Discretion of the Coedymwarth, Piercer, Ranged Expert, Steady Aim, Take Aim, Uncanny Accuracy",
+    "hidden": false,
+    "title": "Feat/&FeatCrossbowMasteryTitle",
+    "description": "Feat/&FeatCrossbowMasteryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c478e23f-556b-5cd4-8540-6cac7a1b13d0",
+  "guid": "577fee09-10ff-5527-9969-494251fcbaea",
   "contentPack": 9999,
-  "name": "FeatGroupRangedCombat"
+  "name": "FeatCrossbowMastery"
 }

@@ -30,9 +30,9 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
         ("HiddenHax",
-            "homebrew design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, " +
-            "Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath," +
-            "Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
+            "homebrew design [Circle of the Eternal Grove, College of Audacity, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, " +
+            "Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, " +
+            "Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
@@ -50,6 +50,7 @@ internal static class CreditsDisplay
         ("Remunos", "Obsidian Dwarf"),
         ("Kiloku", "quality of life"),
         ("Earandil", "homebrew design [Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
+        ("DemonicDuck", "homebrew design [Innovation Vivisectionist, Oath of the Hammer, Way of Weal and Woe]"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
