@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Giro
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Giro
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Giro
-Subclass/&CollegeOfAudacityDescription=Los bardos del Colegio de las Tripas se reúnen en salones de hidromiel o alrededor de grandes hogueras para cantar las hazañas de los poderosos, tanto del pasado como del presente. Viajan por la tierra para presenciar grandes eventos de primera mano y para asegurarse de que la memoria de esos eventos no pase del mundo. Con sus canciones, inspiran a otros a alcanzar las mismas alturas de logros que los héroes de antaño.
+Subclass/&CollegeOfAudacityDescription=Los bardos del Colegio de la Audacia entretienen a través de atrevidas hazañas de destreza con las armas. Realizan acrobacias como tragar espadas, lanzar cuchillos y hacer malabarismos, y simulacros de combate. Aunque usan sus armas para entretener, también son guerreros altamente capacitados y hábiles por derecho propio.
 Subclass/&CollegeOfAudacityTitle=Colegio de la audacia

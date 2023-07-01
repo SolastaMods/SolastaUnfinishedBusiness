@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Wirbeln
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Wirbeln
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Wirbeln
-Subclass/&CollegeOfAudacityDescription=Barden des College of Guts versammeln sich in Methallen oder um große Freudenfeuer, um die Taten der Mächtigen der Vergangenheit und Gegenwart zu besingen. Sie bereisen das Land, um große Ereignisse aus erster Hand mitzuerleben und sicherzustellen, dass die Erinnerung an diese Ereignisse nicht aus der Welt verschwindet. Mit ihren Liedern inspirieren sie andere dazu, die gleichen Erfolge zu erreichen wie die Helden von einst.
+Subclass/&CollegeOfAudacityDescription=Barden des College of Audacity unterhalten durch gewagte Heldentaten der Waffenkunst. Sie führen Stunts wie Schwertschlucken, Messerwerfen und Jonglieren sowie Scheinkämpfe vor. Obwohl sie ihre Waffen zur Unterhaltung nutzen, sind sie auch selbst gut ausgebildete und erfahrene Krieger.
 Subclass/&CollegeOfAudacityTitle=Hochschule für Kühnheit

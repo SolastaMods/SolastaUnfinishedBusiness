@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.5.92.7:
+
+- added Wyrmkin race [by @otearaisu]
+- tweaked Ability of the Chain Master [by @HIEROT]
+- tweaked College of Audacity
+- tweaked College of Life
+
 1.5.92.6:
 
 - added College of Audacity

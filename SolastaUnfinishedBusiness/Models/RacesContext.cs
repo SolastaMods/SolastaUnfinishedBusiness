@@ -16,7 +16,7 @@ internal static class RacesContext
     internal static void Load()
     {
         Morphotypes.Load();
-        
+
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceFairyBuilder.RaceFairy);
         LoadRace(RaceHalfElfBuilder.RaceHalfElfVariant);
@@ -24,6 +24,7 @@ internal static class RacesContext
         LoadRace(RaceOligathBuilder.RaceOligath);
         LoadRace(RaceTieflingBuilder.RaceTiefling);
         LoadRace(RaceWendigoBuilder.RaceWendigo);
+        LoadRace(RaceWyrmkinBuilder.RaceWyrmkin);
         LoadRace(SubraceDarkelfBuilder.SubraceDarkelf);
         LoadRace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
         LoadRace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);

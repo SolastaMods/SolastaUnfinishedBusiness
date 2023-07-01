@@ -70,7 +70,7 @@ internal static class RangedCombatFeats
                     .AddToDB())
             .AddToDB();
     }
-    
+
     private static FeatDefinition BuildCrossbowMastery()
     {
         const string NAME = "FeatCrossbowMastery";

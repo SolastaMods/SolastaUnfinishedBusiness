@@ -4,7 +4,7 @@
   "parentCondition": "Definition:ConditionFlying:ec82fae48f9a55a41a49fd96d93b49b5",
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamagePoison_GhoulsCaress:38d9a7cb160c0cf429a16e744c244d04",
+    "Definition:AdditionalDamagePseudoDragon:41bae5ed-8d6f-51a7-83aa-2ac7bc5b27b8",
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44"
   ],
   "allowMultipleInstances": false,

@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=회전
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=회전
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=회전
-Subclass/&CollegeOfAudacityDescription=배짱 대학의 음유시인들은 미드 홀이나 큰 모닥불 주변에 모여 과거와 현재의 위대하신 분들의 업적을 노래합니다. 그들은 위대한 사건을 직접 목격하고 그러한 사건의 기억이 세상에서 사라지지 않도록 하기 위해 땅을 여행합니다. 그들의 노래로 그들은 다른 사람들이 옛 영웅들과 같은 성취의 높이에 도달하도록 영감을 줍니다.
+Subclass/&CollegeOfAudacityDescription=Audacity 대학의 음유시인들은 대담한 무기 기량을 통해 즐거움을 선사합니다. 그들은 칼 삼키기, 칼 던지기, 저글링, 모의 전투와 같은 스턴트를 수행합니다. 그들은 오락을 위해 무기를 사용하지만, 고도로 훈련되고 숙련된 전사이기도 합니다.
 Subclass/&CollegeOfAudacityTitle=대담 대학
