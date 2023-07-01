@@ -29,7 +29,7 @@ internal static class RangedCombatFeats
         var featRangedExpert = BuildRangedExpert();
         var featSteadyAim = BuildSteadyAim();
 
-        feats.AddRange(featDeadEye, featRangedExpert, featBowMastery, featSteadyAim);
+        feats.AddRange(featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             GroupFeats.FeatGroupPiercer,
