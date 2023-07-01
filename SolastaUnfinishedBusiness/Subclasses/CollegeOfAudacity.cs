@@ -303,7 +303,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 if (gameLocationBattleService != null)
                 {
                     targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
-                        .Where(x => gameLocationBattleService.IsWithin1Cell(originalTarget, x)));
+                        .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x)));
                 }
             }
             else
