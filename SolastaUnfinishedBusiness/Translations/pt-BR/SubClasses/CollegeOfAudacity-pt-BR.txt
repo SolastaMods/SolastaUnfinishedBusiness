@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Girar
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Girar
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Girar
-Subclass/&CollegeOfAudacityDescription=Os bardos do Colégio da Audácia se divertem por meio de feitos ousados ​​de destreza com armas. Eles realizam acrobacias como engolir espadas, arremessar facas e fazer malabarismos e simular combates. Embora usem suas armas para entreter, eles também são guerreiros altamente treinados e habilidosos.
+Subclass/&CollegeOfAudacityDescription=Os bardos do Colégio da Audácia se divertem por meio de feitos ousados de destreza com armas. Eles realizam acrobacias como engolir espadas, arremessar facas e fazer malabarismos e simular combates. Embora usem suas armas para entreter, eles também são guerreiros altamente treinados e habilidosos.
 Subclass/&CollegeOfAudacityTitle=Faculdade de audácia
