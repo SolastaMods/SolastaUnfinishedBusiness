@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -111,10 +112,15 @@ public static class CharacterActionPanelPatcher
                 DoReorder((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
             }
 
-            // if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle))
-            // {
-            //     DoReorder((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle, 0);
-            // }
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle))
+            {
+                DoReorder((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle);
+            }
+
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle))
+            {
+                DoReorder((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle);
+            }
 
             //PATCH: hide power button on action panel if no valid powers to use or see
             actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
@@ -131,9 +137,6 @@ public static class CharacterActionPanelPatcher
                     ActionDefinitions.ActionType.Bonus, battle),
                 ActionDefinitions.Id.PowerNoCost => !character.CanSeeAndUseAtLeastOnePower(
                     ActionDefinitions.ActionType.NoCost, battle),
-                // (ActionDefinitions.Id)
-                //     ExtraActionId.MonsterSwapAttackToggle =>
-                //     GameLocationCharacter.GetFromActor(character).HasAttackedSinceLastTurn,
                 _ => false
             };
         }
@@ -274,7 +277,7 @@ public static class CharacterActionPanelPatcher
             if (!requiresConcentration)
             {
                 spellDefinition = DatabaseHelper.GetDefinition<SpellDefinition>(
-                    $"{spellDefinition.Name}{Subclasses.WizardDeadMaster.DeadMasterNoConcentration}");
+                    $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
             }
         }
     }

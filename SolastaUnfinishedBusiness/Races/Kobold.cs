@@ -16,7 +16,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class KoboldRaceBuilder
+internal static class RaceKoboldBuilder
 {
     internal static CharacterRaceDefinition RaceKobold { get; } = BuildKobold();
 

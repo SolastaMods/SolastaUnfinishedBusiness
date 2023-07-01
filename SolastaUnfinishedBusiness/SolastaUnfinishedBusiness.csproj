@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.5.92.3</AssemblyVersion>
+    <AssemblyVersion>1.5.92.6</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>
@@ -264,12 +264,5 @@
     <None Update="UnofficialTranslations\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Remove="Translations\pt-BR\Settings-pt-BR.txt"/>
-    <None Remove="Translations\ko\Settings-ko.txt"/>
-    <None Remove="Translations\ja\Settings-ja.txt"/>
-    <None Remove="Translations\it\Settings-it.txt"/>
-    <None Remove="Translations\fr\Settings-fr.txt"/>
-    <None Remove="Translations\es\Settings-es.txt"/>
-    <None Remove="Translations\de\Settings-de.txt"/>
   </ItemGroup>
 </Project>

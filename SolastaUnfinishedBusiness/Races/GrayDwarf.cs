@@ -18,7 +18,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavin
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class GrayDwarfSubraceBuilder
+internal static class SubraceGrayDwarfBuilder
 {
     internal static CharacterRaceDefinition SubraceGrayDwarf { get; } = BuildGrayDwarf();
 
@@ -156,7 +156,6 @@ internal static class GrayDwarfSubraceBuilder
                 powerGrayDwarfInvisibility)
             .AddToDB();
 
-        raceGrayDwarf.subRaces.Clear();
         Dwarf.SubRaces.Add(raceGrayDwarf);
 
         return raceGrayDwarf;

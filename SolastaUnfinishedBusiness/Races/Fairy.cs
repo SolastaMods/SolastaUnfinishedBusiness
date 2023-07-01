@@ -18,7 +18,7 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class FairyRaceBuilder
+internal static class RaceFairyBuilder
 {
     private const string Name = "Fairy";
     internal static CharacterRaceDefinition RaceFairy { get; } = BuildFairy();

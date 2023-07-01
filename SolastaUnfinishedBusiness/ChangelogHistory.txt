@@ -1,5 +1,28 @@
 ﻿CHANGES:
 
+1.5.92.6:
+
+- added College of Audacity
+- added Crossbow Mastery feat
+- fixed Old Tactics soft lock
+- fixed Lifebringer range type
+
+1.5.92.5:
+
+- fixed Hammer the Point to stack modifiers
+- fixed incorrect feats under Old Tactics group
+- fixed messed up translations on last build
+- improved Way of the Weal and Woe combat log
+
+1.5.92.4:
+
+- added setting "Grant Scimitar Weapon Specialization to Bards and Rogues"
+- added Obsidian Dwarf subrace
+- added Way of the Weal and Woe subclass [need QA]
+- fixed "Remove attunement requirements" setting to activate hidden static properties
+- fixed Spirit Shroud spell to trigger on magical or physical attack rolls
+- improved setting "Replace spider like models" to hide spider bitmap on game over screen
+
 1.5.92.3:
 
 - added Hammer the Point, and Old Tactics feats [need QA]

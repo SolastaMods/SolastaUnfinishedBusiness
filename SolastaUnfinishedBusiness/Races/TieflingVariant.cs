@@ -21,7 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class TieflingRaceBuilder
+internal static class RaceTieflingBuilder
 {
     internal static CharacterRaceDefinition RaceTiefling { get; } = BuildTiefling();
 

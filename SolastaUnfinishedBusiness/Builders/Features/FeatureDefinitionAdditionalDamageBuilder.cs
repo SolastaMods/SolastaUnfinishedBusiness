@@ -151,7 +151,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.attackOnly = true;
         return this;
     }
-    
+
     internal FeatureDefinitionAdditionalDamageBuilder SetAttackModeOnly()
     {
         Definition.attackModeOnly = true;

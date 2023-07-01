@@ -144,6 +144,7 @@ ModUi/&GameUi=게임 UI
 ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=시미터 <b>무기 전문화</b>를 <color=#D89555>음유시인</color> 및 <color=#D89555>도적</color>에게 부여합니다.
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않은 경우 출구 및 텔레포터 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=정확한 HP 대신 몬스터의 체력을 25% / 50% / 75% / 100% 단계로 표시
 ModUi/&House=<color=#F0DAA0>집:</color>
