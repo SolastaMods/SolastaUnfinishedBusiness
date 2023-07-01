@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -198,7 +199,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         var actionAffinityMasterfulWhirlToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityMasterfulWhirlToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle)
             .AddToDB();
 
         var featureSetMasterfulWhirl = FeatureDefinitionFeatureSetBuilder
@@ -211,7 +212,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfGuts, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishDuelist, 256))
             .AddFeaturesAtLevel(3, featureSetBonusProficiencies, proficiencyFightingStyle, featureSetAudaciousWhirl)
             .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(14, featureSetMasterfulWhirl)
@@ -319,6 +320,9 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 {
                     DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                 };
+
+                EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
+                    FeatureDefinitionPowers.PowerRemorhazRetaliate, EffectHelpers.EffectType.Effect);
 
                 RulesetActor.InflictDamage(
                     damageRoll,
