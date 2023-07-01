@@ -1,8 +1,10 @@
 Action/&AudaciousWhirlToggleDescription=Attiva/disattiva Vortice Audace
 Action/&AudaciousWhirlToggleTitle=Vortice audace
-Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlDescription=+2 alla CA.
+Action/&MasterfulWhirlToggleDescription=Attiva/disattiva Vortice magistrale
+Action/&MasterfulWhirlToggleTitle=Vortice magistrale
+Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlDescription=Rotolo di vortice a CA.
 Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlTitle=Vortice difensivo
-Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription=Ogni volta che esegui l'azione Attacco durante il tuo turno, la tua velocità di camminata aumenta di 3 metri fino alla fine del turno e se un attacco con un'arma che effettui come parte di questa azione colpisce una creatura, puoi spendere un uso della tua Ispirazione bardica per fare in modo che l'arma infligga danni extra al bersaglio colpito. Il danno è uguale al numero che tiri sul dado di Ispirazione bardica. Puoi anche scegliere una manovra particolare:\n• <b>Virtigio difensivo</b>: aggiungi anche +2 alla tua CA fino all'inizio del tuo prossimo turno.\n• <b>Virtiglio tagliente</b> : infliggi i danni extra a tutte le altre creature nemiche entro 1,5 metri da te.\n• <b>Mobile Vortice</b>: ottieni i benefici del disimpegno fino alla fine del tuo turno.
+Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription=Ogni volta che esegui l'azione Attacco durante il tuo turno, la tua velocità di camminata aumenta di 3 metri fino alla fine del turno e se un attacco con un'arma che effettui come parte di questa azione colpisce una creatura, puoi spendere un uso della tua Ispirazione bardica per fare in modo che l'arma infligga danni extra al bersaglio colpito. Il danno è uguale al numero che tiri sul dado di Ispirazione bardica. Scegli anche una manovra particolare:\n• <b>Tirante difensivo</b>: aggiungi il tiro di dado di Ispirazione bardica alla tua CA fino all'inizio del tuo prossimo turno.\n• <b>Tirante tagliente</b> b>: infliggi i danni extra a tutte le altre creature nemiche entro 1,5 metri da te.\n• <b>Mobile Vortice</b>: ottieni i benefici del disimpegno fino alla fine del tuo turno.
 Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlTitle=Vortice audace
 Feature/&FeatureSetCollegeOfAudacityBonusProficienciesDescription=Ottieni competenza con le armature medie e la scimitarra. Puoi anche usare la tua arma come punto focale per lanciare incantesimi per i tuoi incantesimi da bardo.
 Feature/&FeatureSetCollegeOfAudacityBonusProficienciesTitle=Competenze bonus

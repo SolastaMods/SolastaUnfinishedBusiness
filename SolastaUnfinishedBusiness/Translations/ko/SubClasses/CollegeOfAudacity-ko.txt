@@ -1,8 +1,10 @@
 Action/&AudaciousWhirlToggleDescription=대담한 소용돌이 활성화/비활성화
 Action/&AudaciousWhirlToggleTitle=대담한 소용돌이
-Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlDescription=AC에 +2.
+Action/&MasterfulWhirlToggleDescription=Masterful Whirl 활성화/비활성화
+Action/&MasterfulWhirlToggleTitle=훌륭한 소용돌이
+Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlDescription=AC로 소용돌이 굴림.
 Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlTitle=방어 소용돌이
-Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription=자신의 턴에 공격 행동을 취할 때마다 턴이 끝날 때까지 걷는 속도가 10피트 증가하고, 이 행동의 일부로 무기 공격이 생물을 때리면 Bardic Inspiration을 한 번 사용할 수 있습니다. 공격한 대상에게 무기가 추가 피해를 입히도록 합니다. 손상은 Bardic Inspiration 주사위에서 굴린 숫자와 같습니다. 또한 특정 동작을 선택합니다.\n• <b>방어 소용돌이</b>: 또한 다음 차례가 시작될 때까지 AC에 +2를 추가합니다.\n• <b>격돌 소용돌이</b> : 5피트 내에 있는 다른 모든 적 생물에게 추가 피해를 입힙니다.\n• <b>이동 소용돌이</b>: 턴이 끝날 때까지 해제의 이점을 얻습니다.
+Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription=자신의 턴에 공격 행동을 취할 때마다 턴이 끝날 때까지 걷는 속도가 10피트 증가하고, 이 행동의 일부로 무기 공격이 생물을 때리면 Bardic Inspiration을 한 번 사용할 수 있습니다. 공격한 대상에게 무기가 추가 피해를 입히도록 합니다. 손상은 Bardic Inspiration 주사위에서 굴린 숫자와 같습니다. 또한 특정 기동을 선택합니다.\n• <b>방어 소용돌이</b>: 다음 턴이 시작될 때까지 Bardic Inspiration 주사위 굴림을 AC에 추가합니다.\n• <b>Slashing Whirl</b> b>: 5피트 내에 있는 다른 모든 적 생물에게 추가 피해를 입힙니다.\n• <b>이동 소용돌이</b>: 턴이 끝날 때까지 해제의 이점을 얻습니다.
 Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlTitle=대담한 소용돌이
 Feature/&FeatureSetCollegeOfAudacityBonusProficienciesDescription=중간 갑옷과 시미터에 능숙해집니다. 무기를 바드 주문의 주문 시전 초점으로 사용할 수도 있습니다.
 Feature/&FeatureSetCollegeOfAudacityBonusProficienciesTitle=보너스 능력

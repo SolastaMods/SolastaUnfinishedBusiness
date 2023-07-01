@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -10,7 +11,6 @@ using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -21,6 +21,9 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class CollegeOfAudacity : AbstractSubclass
 {
     private const string Name = "CollegeOfAudacity";
+
+    private const ActionDefinitions.Id AudaciousWhirlToggle = (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle;
+    private const ActionDefinitions.Id MasterfulWhirlToggle = (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle;
 
     internal CollegeOfAudacity()
     {
@@ -89,7 +92,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         var attributeModifierDefensiveWhirl = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DefensiveWhirl")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
             .AddToDB();
 
         var conditionDefensiveWhirl = ConditionDefinitionBuilder
@@ -110,7 +113,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1),
                         EffectFormBuilder.ConditionForm(conditionDefensiveWhirl, applyToSelf: true))
                     .Build())
             .AddToDB();
@@ -125,9 +127,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Cube, 3)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1))
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
             .AddToDB();
 
@@ -143,7 +143,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging, applyToSelf: true))
                     .Build())
             .AddToDB();
@@ -160,22 +159,18 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .SetCustomSubFeatures(
-                new RestrictReactionAttackMode((mode, character, _) =>
-                    mode is { SourceDefinition: ItemDefinition } &&
-                    character.RulesetCharacter.IsToggleEnabled(
-                        (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle)))
             .AddToDB();
 
-        var modifyMagicEffectAudaciousWhirl = new ModifyMagicEffectAudaciousWhirl(
-            conditionAudaciousWhirlExtraMovement,
-            powerDefensiveWhirl,
-            powerSlashingWhirl,
-            powerMobileWhirl);
-
-        powerDefensiveWhirl.SetCustomSubFeatures(PowerVisibilityModifier.Hidden, modifyMagicEffectAudaciousWhirl);
-        powerSlashingWhirl.SetCustomSubFeatures(PowerVisibilityModifier.Hidden, modifyMagicEffectAudaciousWhirl);
-        powerMobileWhirl.SetCustomSubFeatures(PowerVisibilityModifier.Hidden, modifyMagicEffectAudaciousWhirl);
+        powerAudaciousWhirl.SetCustomSubFeatures(
+            new CustomBehaviorWhirl(
+                conditionAudaciousWhirlExtraMovement,
+                powerDefensiveWhirl,
+                powerSlashingWhirl,
+                powerMobileWhirl),
+            new RestrictReactionAttackMode((mode, character, _) =>
+                mode is { SourceDefinition: ItemDefinition } &&
+                (character.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
+                 character.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
 
         PowerBundle.RegisterPowerBundle(
             powerAudaciousWhirl,
@@ -199,9 +194,16 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
         // Masterful Whirl
 
-        var featureSetMasterfulWhirl = FeatureDefinitionBuilder
+        var actionAffinityMasterfulWhirlToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityMasterfulWhirlToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle)
+            .AddToDB();
+
+        var featureSetMasterfulWhirl = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}MasterfulWhirl")
             .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(actionAffinityMasterfulWhirlToggle)
             .AddToDB();
 
         // MAIN
@@ -222,8 +224,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyMagicEffectAudaciousWhirl :
-        IModifyMagicEffect, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinished, IActionFinished
+    private sealed class CustomBehaviorWhirl :
+        IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinished
     {
         private readonly ConditionDefinition _conditionExtraMovement;
         private readonly FeatureDefinitionPower _powerDefensiveWhirl;
@@ -231,9 +233,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
 
         private string damageType;
-        private int usedBardicInspiration;
 
-        public ModifyMagicEffectAudaciousWhirl(
+        public CustomBehaviorWhirl(
             ConditionDefinition conditionExtraMovement,
             FeatureDefinitionPower powerDefensiveWhirl,
             FeatureDefinitionPower powerSlashingWhirl,
@@ -252,29 +253,91 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
-            if (characterActionUsePower.activePower.PowerDefinition != _powerDefensiveWhirl &&
-                characterActionUsePower.activePower.PowerDefinition != _powerSlashingWhirl &&
-                characterActionUsePower.activePower.PowerDefinition != _powerMobileWhirl)
+            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
+
+            if (powerDefinition != _powerDefensiveWhirl &&
+                powerDefinition != _powerSlashingWhirl &&
+                powerDefinition != _powerMobileWhirl)
             {
                 yield break;
             }
 
-            var rulesetCharacter = characterActionUsePower.ActingCharacter.RulesetCharacter;
+            var actingCharacter = characterActionUsePower.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            var levels = rulesetCharacter.GetClassLevel(Bard);
+            var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
+                ? DieType.D6
+                : rulesetCharacter.GetBardicInspirationDieValue();
+            var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            // masterful whirl won't consume bardic inspiration
-            if (levels >= 14)
+            // add damage roll to AC if defensive whirl
+            if (characterActionUsePower.activePower.PowerDefinition == _powerDefensiveWhirl)
+            {
+                var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition.Name == $"Condition{Name}DefensiveWhirl");
+
+                if (usableCondition != null)
+                {
+                    usableCondition.amount = damageRoll;
+                }
+            }
+
+            // add targets
+            var originalTarget = characterAction.ActionParams.TargetCharacters[0];
+            var targetCharacters = new List<GameLocationCharacter>();
+
+            if (powerDefinition == _powerSlashingWhirl)
+            {
+                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                if (gameLocationBattleService != null)
+                {
+                    targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
+                        .Where(x => gameLocationBattleService.IsWithin1Cell(originalTarget, x)));
+                }
+            }
+            else
+            {
+                targetCharacters.Add(originalTarget);
+            }
+
+            // apply damage to all targets
+            foreach (var targetCharacter in targetCharacters)
+            {
+                var rulesetDefender = targetCharacter.RulesetCharacter;
+
+                var damage = new DamageForm
+                {
+                    DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
+                };
+
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damage,
+                    damage.DamageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    rulesetDefender,
+                    false,
+                    rulesetCharacter.Guid,
+                    false,
+                    new List<string>(),
+                    new RollInfo(damage.DieType, new List<int> { damageRoll }, 0),
+                    false,
+                    out _);
+            }
+
+            // consume bardic inspiration if not a masterful whirl
+            if (rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))
             {
                 yield break;
             }
 
-            rulesetCharacter.UsedBardicInspiration = usedBardicInspiration + 1;
+            rulesetCharacter.UsedBardicInspiration++;
             rulesetCharacter.BardicInspirationAltered?.Invoke(
                 rulesetCharacter, rulesetCharacter.RemainingBardicInspirations);
         }
@@ -296,31 +359,11 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
             damageType = damageForm.damageType;
-            usedBardicInspiration = attacker.RulesetCharacter?.UsedBardicInspiration ?? 0;
 
             yield break;
         }
 
-        // change damage to bardic inspiration die and attack damage type
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            damageForm.damageType = damageType;
-            damageForm.dieType = character.GetBardicInspirationDieValue();
-
-            return effectDescription;
-        }
-
+        // add extra movement on any attack
         public IEnumerator OnAttackFinished(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -337,7 +380,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
-            // extra movement
             if (!rulesetCharacter.HasAnyConditionOfType(_conditionExtraMovement.Name))
             {
                 rulesetCharacter.InflictCondition(
