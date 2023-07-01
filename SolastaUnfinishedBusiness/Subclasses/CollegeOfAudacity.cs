@@ -115,6 +115,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionDefensiveWhirl, applyToSelf: true))
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Slashing Whirl
@@ -129,6 +130,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Mobile Whirl
@@ -145,6 +147,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging, applyToSelf: true))
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Audacious Whirl
@@ -170,6 +173,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 powerMobileWhirl),
             new RestrictReactionAttackMode((mode, character, _) =>
                 mode is { SourceDefinition: ItemDefinition } &&
+                character.OnceInMyTurnIsValid("Whirl") &&
                 (character.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
                  character.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
 
@@ -273,6 +277,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             {
                 yield break;
             }
+
+            actingCharacter.UsedSpecialFeatures.TryAdd("Whirl", 1);
 
             var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
                 ? DieType.D6
