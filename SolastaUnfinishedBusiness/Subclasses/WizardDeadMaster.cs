@@ -340,16 +340,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
-            var usedSpecialFeatures = attacker.UsedSpecialFeatures;
-
-            usedSpecialFeatures.TryAdd(feature.Name, 0);
-
-            if (usedSpecialFeatures[feature.Name] > 0)
+            if (!attacker.OncePerTurnIsValid(feature.name))
             {
                 yield break;
             }
 
-            usedSpecialFeatures[feature.Name]++;
+            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var spell = spellEffect.SpellDefinition;

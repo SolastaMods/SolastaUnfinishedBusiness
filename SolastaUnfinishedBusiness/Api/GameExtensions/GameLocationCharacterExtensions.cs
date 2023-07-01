@@ -213,6 +213,17 @@ public static class GameLocationCharacterExtensions
         return canReact;
     }
 
+    internal static bool OnceInMyTurnIsValid(this GameLocationCharacter instance, string key)
+    {
+        return instance.OncePerTurnIsValid(key) &&
+               Gui.Battle != null && Gui.Battle.ActiveContender == instance;
+    }
+
+    internal static bool OncePerTurnIsValid(this GameLocationCharacter instance, string key)
+    {
+        return !instance.UsedSpecialFeatures.ContainsKey(key);
+    }
+
 #if false
     internal static int GetActionTypeRank(this GameLocationCharacter instance, ActionType type)
     {
@@ -220,6 +231,7 @@ public static class GameLocationCharacterExtensions
         return ranks.TryGetValue(type, out var value) ? value : 0;
     }
 #endif
+
     internal static FeatureDefinition GetCurrentAdditionalActionFeature(this GameLocationCharacter instance,
         ActionType type)
     {
