@@ -164,6 +164,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         powerAudaciousWhirl.SetCustomSubFeatures(
             new CustomBehaviorWhirl(
                 conditionAudaciousWhirlExtraMovement,
+                conditionDefensiveWhirl,
                 powerDefensiveWhirl,
                 powerSlashingWhirl,
                 powerMobileWhirl),
@@ -228,6 +229,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinished
     {
         private readonly ConditionDefinition _conditionExtraMovement;
+        private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly FeatureDefinitionPower _powerDefensiveWhirl;
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
@@ -236,11 +238,13 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
         public CustomBehaviorWhirl(
             ConditionDefinition conditionExtraMovement,
+            ConditionDefinition conditionDefensiveWhirl,
             FeatureDefinitionPower powerDefensiveWhirl,
             FeatureDefinitionPower powerSlashingWhirl,
             FeatureDefinitionPower powerMobileWhirl)
         {
             _conditionExtraMovement = conditionExtraMovement;
+            _conditionDefensiveWhirl = conditionDefensiveWhirl;
             _powerDefensiveWhirl = powerDefensiveWhirl;
             _powerSlashingWhirl = powerSlashingWhirl;
             _powerMobileWhirl = powerMobileWhirl;
@@ -279,7 +283,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             if (characterActionUsePower.activePower.PowerDefinition == _powerDefensiveWhirl)
             {
                 var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition.Name == $"Condition{Name}DefensiveWhirl");
+                    x.ConditionDefinition == _conditionDefensiveWhirl);
 
                 if (usableCondition != null)
                 {
