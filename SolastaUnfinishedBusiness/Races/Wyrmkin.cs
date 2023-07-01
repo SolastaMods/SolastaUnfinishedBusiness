@@ -39,7 +39,7 @@ internal static class WyrmkinRaceBuilder
 
         var raceWyrmkin = CharacterRaceDefinitionBuilder
             .Create(Dragonborn, "RaceWyrmkin")
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite("Wyrmkin", Resources.Wyrmkin, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetBaseWeight(35)
             .SetBaseHeight(3)
@@ -101,7 +101,7 @@ internal static class WyrmkinRaceBuilder
         caveWyrmkinRacePresentation.preferedSkinColors = new RangedInt(48, 53);
         var raceCaveWyrmkin = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, "RaceCaveWyrmkin")
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite("Wyrmkin", Resources.Wyrmkin, 1024, 512))
             .SetRacePresentation(caveWyrmkinRacePresentation)
             .SetFeaturesAtLevel(1,
                 attributeModifierCaveWyrmkinStrengthAbilityScoreIncrease,
@@ -279,7 +279,7 @@ internal static class WyrmkinRaceBuilder
 
         var raceHighWyrmkin = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, "RaceHighWyrmkin")
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite("Wyrmkin", Resources.Wyrmkin, 1024, 512))
             .SetRacePresentation(highWyrmkinRacePresentation)
             .SetFeaturesAtLevel(1,
             attributeModifierHighWyrmkinStrengthAbilityScoreIncrease,
