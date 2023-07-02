@@ -2,10 +2,15 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerWayOfTheDragonElementalBreathBlack:159384fc-e99b-5c30-9651-3e2730d27780",
+    "Definition:PowerWayOfTheDragonElementalBreathBlackPoints:24988c17-e511-5018-ae35-18cfe182ded7",
     "Definition:PowerWayOfTheDragonElementalBreathGold:3dd7aa6a-7335-51f0-81d7-eed5809a7ed1",
+    "Definition:PowerWayOfTheDragonElementalBreathGoldPoints:2c4b3660-6193-5aaa-b2bf-1dfe26fcd3d7",
     "Definition:PowerWayOfTheDragonElementalBreathSilver:80903e66-95c2-501c-95c7-d358218e7aa7",
+    "Definition:PowerWayOfTheDragonElementalBreathSilverPoints:e62f39f1-c265-568d-bff6-feab221e4985",
     "Definition:PowerWayOfTheDragonElementalBreathBlue:ca30d282-4c2d-50cf-8a64-7686eec68a1f",
-    "Definition:PowerWayOfTheDragonElementalBreathGreen:6999a757-eb46-5e29-b9f1-458fdc13c075"
+    "Definition:PowerWayOfTheDragonElementalBreathBluePoints:87e45608-0073-5b7f-aa97-d05a19e8753d",
+    "Definition:PowerWayOfTheDragonElementalBreathGreen:6999a757-eb46-5e29-b9f1-458fdc13c075",
+    "Definition:PowerWayOfTheDragonElementalBreathGreenPoints:749ffdb9-a137-5058-8746-0142b6bc8b27"
   ],
   "mode": "DeterminedByAncestry",
   "ancestryDamageTypeMap": [

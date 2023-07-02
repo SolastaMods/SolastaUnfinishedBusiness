@@ -40,6 +40,7 @@ ModUi/&Blueprints=蓝图
 ModUi/&Campaigns=<color=#F0DAA0>战役：</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>战役和地点：</color>
 ModUi/&Category=职业
+ModUi/&ChangeDragonbornElementalBreathUsages=将<color=#D89555>Dragonborn</color>元素呼吸的用法更改为每次短暂休息的体质调整值
 ModUi/&ChangeSleetStormToCube=将<color=#D89555>雪雨暴</color>更改为使用立方体而不是圆柱体
 ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点

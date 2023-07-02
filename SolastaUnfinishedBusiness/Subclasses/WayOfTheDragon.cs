@@ -201,6 +201,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerBlackElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerBlackElementalBreath));
+
+        var powerBlackElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerBlackElementalBreath, $"Power{Name}ElementalBreathBlackPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerBlackElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerBlackElementalBreath));
+
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -216,6 +227,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     20)
                 .Build())
             .AddToDB();
+
+        powerBlueElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerBlueElementalBreath));
+
+        var powerBlueElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerBlueElementalBreath, $"Power{Name}ElementalBreathBluePoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerBlueElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerBlueElementalBreath));
 
         var effectGreenElementalBreath = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
@@ -244,6 +266,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerGreenElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerGreenElementalBreath));
+
+        var powerGreenElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerGreenElementalBreath, $"Power{Name}ElementalBreathGreenPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerGreenElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerGreenElementalBreath));
+
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -259,6 +292,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     20)
                 .Build())
             .AddToDB();
+
+        powerGoldElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerGoldElementalBreath));
+
+        var powerGoldElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerGoldElementalBreath, $"Power{Name}ElementalBreathGoldPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerGoldElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerGoldElementalBreath));
 
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
@@ -276,16 +320,32 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerSilverElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerSilverElementalBreath));
+
+        var powerSilverElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerSilverElementalBreath, $"Power{Name}ElementalBreathSilverPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerSilverElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerSilverElementalBreath));
+
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Breath")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
             .AddFeatureSet(
                 powerBlackElementalBreath,
+                powerBlackElementalBreathPoints,
                 powerBlueElementalBreath,
+                powerBlueElementalBreathPoints,
                 powerGoldElementalBreath,
+                powerGoldElementalBreathPoints,
                 powerGreenElementalBreath,
-                powerSilverElementalBreath)
+                powerGreenElementalBreathPoints,
+                powerSilverElementalBreath,
+                powerSilverElementalBreathPoints)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
                 DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
@@ -505,6 +565,48 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         return featureWayOfDragonFury;
+    }
+
+    //
+    // Elemental Breath Fixed
+    //
+
+    private sealed class PowerUseValidityElementalBreathProficiency : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
+
+        public PowerUseValidityElementalBreathProficiency(FeatureDefinitionPower powerElementalBreathProficiency)
+        {
+            _powerElementalBreathProficiency = powerElementalBreathProficiency;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+
+            return usablePower.RemainingUses > 0;
+        }
+    }
+
+    //
+    // Elemental Breath Points
+    //
+
+    private sealed class PowerUseValidityElementalBreathPoints : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
+
+        public PowerUseValidityElementalBreathPoints(FeatureDefinitionPower powerElementalBreathProficiency)
+        {
+            _powerElementalBreathProficiency = powerElementalBreathProficiency;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+
+            return usablePower.RemainingUses == 0;
+        }
     }
 
     private sealed class CustomBehaviorReactiveHide : IReactToAttackOnMeFinished, IAttackBeforeHitConfirmedOnMe,

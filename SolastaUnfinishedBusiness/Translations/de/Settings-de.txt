@@ -40,6 +40,7 @@ ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=<color=#F0DAA0>Kampagnen:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Kampagnen und Standorte:</color>
 ModUi/&Category=Kategorie
+ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung von <color=#D89555>Drachenblut</color>-Elementaratem pro kurzer Pause in einen Konstitutionsmodifikator
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Seet Storm</color>, um einen Würfel anstelle eines Zylinders zu verwenden
 ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
 ModUi/&Character=Charakter

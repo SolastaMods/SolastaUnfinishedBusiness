@@ -51,6 +51,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
+        toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
+            CharacterContext.SwitchDragonbornElementalBreathUsages();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
