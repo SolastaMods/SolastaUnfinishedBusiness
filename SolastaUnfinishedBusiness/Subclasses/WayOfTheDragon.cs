@@ -183,7 +183,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         return FeatureSetPathOfTheDragonDisciple;
     }
 
-    private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
+    private static FeatureDefinition BuildDragonFeatureSet()
     {
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
@@ -212,6 +212,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         powerBlackElementalBreathPoints.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathPoints(powerBlackElementalBreath));
 
+        var featureSetElementalBreathBlack = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathBlack")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerBlackElementalBreath, powerBlackElementalBreathPoints)
+            .AddToDB();
+        
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -239,10 +245,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         powerBlueElementalBreathPoints.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathPoints(powerBlueElementalBreath));
 
-        var effectGreenElementalBreath = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+        var featureSetElementalBreathBlue = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathBlue")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerBlueElementalBreath, powerBlueElementalBreathPoints)
             .AddToDB();
-
+        
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -253,7 +261,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Round, 3)
                 .AddEffectForms(EffectFormBuilder.Create()
-                        .SetSummonEffectProxyForm(effectGreenElementalBreath)
+                        .SetSummonEffectProxyForm(
+                            EffectProxyDefinitionBuilder
+                                .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+                                .AddToDB())
                         .Build(),
                     StinkingCloud.EffectDescription
                         .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
@@ -277,6 +288,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         powerGreenElementalBreathPoints.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathPoints(powerGreenElementalBreath));
 
+        var featureSetElementalBreathGreen = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathGreen")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerGreenElementalBreath, powerGreenElementalBreathPoints)
+            .AddToDB();
+        
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -304,6 +321,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         powerGoldElementalBreathPoints.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathPoints(powerGoldElementalBreath));
 
+        var featureSetElementalBreathGold = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathGold")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerGoldElementalBreath, powerGoldElementalBreathPoints)
+            .AddToDB();
+        
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -331,21 +354,22 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         powerSilverElementalBreathPoints.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathPoints(powerSilverElementalBreath));
 
+        var featureSetElementalBreathSilver = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathSilver")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerSilverElementalBreath, powerSilverElementalBreathPoints)
+            .AddToDB();
+        
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Breath")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
             .AddFeatureSet(
-                powerBlackElementalBreath,
-                powerBlackElementalBreathPoints,
-                powerBlueElementalBreath,
-                powerBlueElementalBreathPoints,
-                powerGoldElementalBreath,
-                powerGoldElementalBreathPoints,
-                powerGreenElementalBreath,
-                powerGreenElementalBreathPoints,
-                powerSilverElementalBreath,
-                powerSilverElementalBreathPoints)
+                featureSetElementalBreathBlack,
+                featureSetElementalBreathBlue,
+                featureSetElementalBreathGold,
+                featureSetElementalBreathGreen,
+                featureSetElementalBreathSilver)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
                 DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
