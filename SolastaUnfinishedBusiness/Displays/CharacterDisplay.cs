@@ -84,6 +84,8 @@ internal static class CharacterDisplay
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
 
+        UI.Label();
+
         toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
         if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
         {

@@ -1352,9 +1352,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition EnhanceAbility { get; } = GetDefinition<SpellDefinition>("EnhanceAbility");
         internal static SpellDefinition Entangle { get; } = GetDefinition<SpellDefinition>("Entangle");
         internal static SpellDefinition ExpeditiousRetreat { get; } = GetDefinition<SpellDefinition>("ExpeditiousRetreat");
-        internal static SpellDefinition EyebiteAsleep { get; } = GetDefinition<SpellDefinition>("EyebiteAsleep");
-        internal static SpellDefinition EyebitePanicked { get; } = GetDefinition<SpellDefinition>("EyebitePanicked");
-        internal static SpellDefinition EyebiteSickened { get; } = GetDefinition<SpellDefinition>("EyebiteSickened");
+        internal static SpellDefinition Eyebite { get; } = GetDefinition<SpellDefinition>("Eyebite");
         internal static SpellDefinition FaerieFire { get; } = GetDefinition<SpellDefinition>("FaerieFire");
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");

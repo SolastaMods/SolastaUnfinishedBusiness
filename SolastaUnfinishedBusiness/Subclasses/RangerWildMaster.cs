@@ -380,13 +380,13 @@ internal sealed class RangerWildMaster : AbstractSubclass
         //
 
         FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
-            EyebiteAsleep.guiPresentation.spriteReference;
+            Eyebite.guiPresentation.spriteReference;
 
         FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
-            EyebitePanicked.guiPresentation.spriteReference;
+            Eyebite.guiPresentation.spriteReference;
 
         FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
-            EyebiteSickened.guiPresentation.spriteReference;
+            Eyebite.guiPresentation.spriteReference;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
