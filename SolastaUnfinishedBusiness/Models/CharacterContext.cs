@@ -145,6 +145,7 @@ internal static class CharacterContext
         LoadVisuals();
         SwitchAsiAndFeat();
         SwitchBarbarianFightingStyle();
+        SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
@@ -490,6 +491,28 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchDragonbornElementalBreathUsages()
+    {
+        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .Where(x => x.Name.StartsWith("PowerDragonbornBreathWeapon"));
+
+        foreach (var power in powers)
+        {
+            if (Main.Settings.ChangeDragonbornElementalBreathUsages)
+            {
+                power.usesAbilityScoreName = AttributeDefinitions.Constitution;
+                power.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
+                power.fixedUsesPerRecharge = 0;
+            }
+            else
+            {
+                power.usesAbilityScoreName = AttributeDefinitions.Charisma;
+                power.usesDetermination = UsesDetermination.Fixed;
+                power.fixedUsesPerRecharge = 1;
+            }
         }
     }
 

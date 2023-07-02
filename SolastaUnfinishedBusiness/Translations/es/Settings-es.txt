@@ -40,6 +40,7 @@ ModUi/&Blueprints=Planos
 ModUi/&Campaigns=<color=#F0DAA0>Campañas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campañas y ubicaciones:</color>
 ModUi/&Category=Categoría
+ModUi/&ChangeDragonbornElementalBreathUsages=Cambiar los usos de aliento elemental <color=#D89555>Dragón</color> a modificador de constitución por descanso breve
 ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Sleet Storm</color> para usar un cubo en lugar de un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro de cambios</color></b>
 ModUi/&Character=Personaje

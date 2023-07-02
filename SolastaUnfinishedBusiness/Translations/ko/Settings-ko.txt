@@ -40,6 +40,7 @@ ModUi/&Blueprints=청사진
 ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
+ModUi/&ChangeDragonbornElementalBreathUsages=짧은 휴식마다 <color=#D89555>드래곤본</color> 원소 숨결 사용을 체질 수정자로 변경
 ModUi/&ChangeSleetStormToCube=실린더 대신 큐브를 사용하도록 <color=#D89555>진눈깨비</color> 변경
 ModUi/&Changelog=<b><color=#D89555>변경 로그</color></b>
 ModUi/&Character=성격

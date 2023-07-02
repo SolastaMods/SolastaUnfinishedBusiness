@@ -102,6 +102,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
+    public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
