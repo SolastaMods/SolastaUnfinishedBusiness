@@ -224,7 +224,7 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="ZipTranslations" BeforeTargets="Compile"> <!-- Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'"> -->
+  <Target Name="ZipTranslations" BeforeTargets="Build;Clean">
     <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip"/>
   </Target>
 

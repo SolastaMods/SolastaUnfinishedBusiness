@@ -11,12 +11,14 @@ internal static class CharacterDisplay
         UI.Label(Gui.Localize("ModUi/&InitialChoices"));
         UI.Label();
 
-        var toggle = Main.Settings.AddHelpActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
+        var toggle = Main.Settings.EnableFlexibleBackgrounds;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddHelpActionToAllRaces = toggle;
-            CharacterContext.SwitchHelpPower();
+            Main.Settings.EnableFlexibleBackgrounds = toggle;
+            FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         }
+
+        UI.Label();
 
         toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
@@ -30,11 +32,13 @@ internal static class CharacterDisplay
             Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
         }
 
-        toggle = Main.Settings.EnableFlexibleBackgrounds;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
+        UI.Label();
+
+        toggle = Main.Settings.AddHelpActionToAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFlexibleBackgrounds = toggle;
-            FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
+            Main.Settings.AddHelpActionToAllRaces = toggle;
+            CharacterContext.SwitchHelpPower();
         }
 
         toggle = Main.Settings.EnableFlexibleRaces;
@@ -70,24 +74,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
-        if (Main.Settings.EnableBetaContent)
-        {
-            toggle = Main.Settings.EnumerateOriginSubFeatures;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnumerateOriginSubFeatures = toggle;
-            }
         }
 
         UI.Label();
@@ -143,6 +129,22 @@ internal static class CharacterDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        if (Main.Settings.EnableBetaContent)
+        {
+            toggle = Main.Settings.EnumerateOriginSubFeatures;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnumerateOriginSubFeatures = toggle;
+            }
+        }
 
         toggle = Main.Settings.EnableBarbarianFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))

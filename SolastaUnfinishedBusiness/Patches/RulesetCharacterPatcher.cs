@@ -517,7 +517,8 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ActionType actionType, ref bool __result)
         {
-            if (actionType == ActionType.Bonus && (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
+            if (actionType == ActionType.Bonus &&
+                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
             {
                 __result = true;
             }

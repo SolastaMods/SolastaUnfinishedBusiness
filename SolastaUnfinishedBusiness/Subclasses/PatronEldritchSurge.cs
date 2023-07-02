@@ -92,7 +92,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     // LEVEL 14 Blast Reload
 
-    public static FeatureDefinition FeatureBlastReload = FeatureDefinitionBuilder
+    public static readonly FeatureDefinition FeatureBlastReload = FeatureDefinitionBuilder
         .Create($"Feature{Name}BlastReload")
         .SetGuiPresentation(Category.Feature)
         .SetCustomSubFeatures(new CustomBehaviorBlastReload())

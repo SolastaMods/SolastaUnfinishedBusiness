@@ -193,8 +193,8 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 20,
-      "maxValue": 25
+      "minValue": 11,
+      "maxValue": 11
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",

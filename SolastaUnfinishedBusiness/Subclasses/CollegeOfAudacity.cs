@@ -237,9 +237,9 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerDefensiveWhirl;
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
+        private bool _criticalHit;
 
         private string damageType;
-        private bool _criticalHit;
 
         public CustomBehaviorWhirl(
             ConditionDefinition conditionExtraMovement,
@@ -318,7 +318,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 targetCharacters.Add(originalTarget);
             }
 
-            var dices = new List<int>() { damageRoll };
+            var dices = new List<int> { damageRoll };
             var diceNumber = _criticalHit ? 2 : 1;
 
             if (diceNumber > 1)
@@ -328,7 +328,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 damageRoll += criticalDamageRoll;
                 dices.Add(criticalDamageRoll);
             }
-            
+
             // apply damage to all targets
             foreach (var targetCharacter in targetCharacters)
             {
