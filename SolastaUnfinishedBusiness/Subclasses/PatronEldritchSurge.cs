@@ -73,7 +73,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     // LEVEL 10 Blast Overload
 
-    public static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
+    private static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
         .AddFeatures(
@@ -88,6 +88,14 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
                 .AddToDB())
+        .AddToDB();
+
+    // LEVEL 14 Blast Reload
+
+    public static FeatureDefinition FeatureBlastReload = FeatureDefinitionBuilder
+        .Create($"Feature{Name}BlastReload")
+        .SetGuiPresentation(Category.Feature)
+        .SetCustomSubFeatures(new CustomBehaviorBlastReload())
         .AddToDB();
 
     internal PatronEldritchSurge()
@@ -151,12 +159,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         // LEVEL 14
 
         // Blast Reload
-
-        var featureBlastReload = FeatureDefinitionBuilder
-            .Create($"Feature{Name}BlastReload")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomBehaviorBlastReload())
-            .AddToDB();
+        // Moved to static property
 
         // MAIN
 
@@ -166,7 +169,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddFeaturesAtLevel(1, bonusCantripsEldritchSurgeBlastExclusive)
             .AddFeaturesAtLevel(6, powerBlastPursuit)
             .AddFeaturesAtLevel(10, powerBlastOverload)
-            .AddFeaturesAtLevel(14, featureBlastReload)
+            .AddFeaturesAtLevel(14, FeatureBlastReload)
             .AddToDB();
     }
 
