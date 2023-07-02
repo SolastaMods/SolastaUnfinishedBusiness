@@ -366,12 +366,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
             .AddFeatureSet(
                 featureSetElementalBreathBlack,
-                featureSetElementalBreathBlue,
+                featureSetElementalBreathSilver,
                 featureSetElementalBreathGold,
-                featureSetElementalBreathGreen,
-                featureSetElementalBreathSilver)
+                featureSetElementalBreathBlue,
+                featureSetElementalBreathGreen)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
-                DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
+                DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonBreath;
