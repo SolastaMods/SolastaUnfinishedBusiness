@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.5.92.8:
+
+- added "Change Dragonborn elemental breath usages to constitution modifier per short rest" setting
+- changed Way of the Dragon's elemental breath to alternatively use 2 ki points when out of PB usages
+- fixed College of Audacity's whirl damage to double damage dice on critical hits [no double AC on defensive]
+- fixed College of Audacity's whirl powers to be once in my turn
+- fixed Wyrmkin race interaction with "Unlock skin colors" setting
+
 1.5.92.7:
 
 - added Wyrmkin race [by @otearaisu]
