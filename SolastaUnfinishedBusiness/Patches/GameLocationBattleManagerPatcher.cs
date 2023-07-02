@@ -407,6 +407,33 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
+            //PATCH: support for `IAttackBeforeHitConfirmedOnMeOrAlly`
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var attackBeforeHitConfirmedOnMeOrAlly in __instance.battle
+                             .GetOpposingContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .SelectMany(x =>
+                                 x.RulesetCharacter.GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
+                             .ToList()) // avoid changing enumerator
+                {
+                    yield return attackBeforeHitConfirmedOnMeOrAlly.OnAttackBeforeHitConfirmedOnMeOrAlly(
+                        __instance,
+                        attacker,
+                        defender,
+                        attackModifier,
+                        attackMode,
+                        rangedAttack,
+                        advantageType,
+                        actualEffectForms,
+                        rulesetEffect,
+                        criticalHit,
+                        firstTarget);
+                }
+            }
+
             while (values.MoveNext())
             {
                 yield return values.Current;
@@ -950,6 +977,7 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget,
             bool criticalHit)
         {
+            //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnEnemy`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
@@ -962,6 +990,7 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
+            //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMe`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
@@ -970,6 +999,23 @@ public static class GameLocationBattleManagerPatcher
                              .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMe>())
                 {
                     yield return feature.OnMagicalAttackBeforeHitConfirmedOnMe(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
+            }
+
+            //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMeOrAlly`
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in __instance.battle
+                             .GetOpposingContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .SelectMany(x =>
+                                 x.RulesetCharacter.GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
+                             .ToList()) // avoid changing enumerator
+                {
+                    yield return magicalAttackBeforeHitConfirmedOnMeOrAlly.OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
