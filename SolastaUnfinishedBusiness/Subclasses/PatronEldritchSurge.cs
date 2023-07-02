@@ -73,7 +73,7 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     // LEVEL 10 Blast Overload
 
-    private static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
+    public static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
         .AddFeatures(

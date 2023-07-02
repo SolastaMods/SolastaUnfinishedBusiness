@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
@@ -516,7 +517,7 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ActionType actionType, ref bool __result)
         {
-            if (actionType == ActionType.Bonus && __instance.HasAnyConditionOfType("ConditionBlastReload"))
+            if (actionType == ActionType.Bonus && __instance.HasConditionOfType(PatronEldritchSurge.ConditionBlastOverload))
             {
                 __result = true;
             }
