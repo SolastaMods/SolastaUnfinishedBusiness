@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -233,12 +234,13 @@ internal static class RaceTieflingBuilder
 
         #endregion
 
-        castSpellTieflingFeral.slotsPerLevels.RemoveAll(x => x.Level > 4);
-        for (var level = 5; level <= 20; level++)
+        castSpellTieflingFeral.slotsPerLevels.Clear();
+
+        for (var level = 1; level <= 20; level++)
         {
             castSpellTieflingFeral.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level, Slots = castSpellTieflingFeral.slotsPerLevels[3].slots
+                Level = level, Slots = new List<int> { level >= 3 ? 1 : 0 }
             });
         }
 
