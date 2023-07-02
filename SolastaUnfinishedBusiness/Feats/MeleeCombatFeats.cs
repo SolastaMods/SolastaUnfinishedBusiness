@@ -1026,7 +1026,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName) ||
+            if (!attacker.OncePerTurnIsValid(SpecialFeatureName) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
             {
                 yield break;

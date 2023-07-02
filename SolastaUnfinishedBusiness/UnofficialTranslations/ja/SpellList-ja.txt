@@ -1,9 +1,9 @@
 SpellList/&SpellListClericTitle=クレリックの呪文
+SpellList/&SpellListDruidTitle=ドルイドの呪文
 SpellList/&SpellListPaladinTitle=パラディンの呪文
 SpellList/&SpellListRangerTitle=レンジャーの呪文
-SpellList/&SpellListSpellbladeTitle=スペルブレードの呪文
-SpellList/&SpellListWizardTitle=ウィザードの呪文
 SpellList/&SpellListSorcererTitle=ソーサラーの呪文
-SpellList/&SpellListDruidTitle=ドルイドの呪文
-SpellList/&SpellListWarlockTitle=ウォーロックの呪文
+SpellList/&SpellListSpellbladeTitle=スペルブレードの呪文
 SpellList/&SpellListTraditionLightTitle=モンク（光の道）の呪文
+SpellList/&SpellListWarlockTitle=ウォーロックの呪文
+SpellList/&SpellListWizardTitle=ウィザードの呪文

@@ -1,2 +1,2 @@
-Conditions/&ConditionPOI_Title=氷の宮殿の隠れ家効果
 Conditions/&ConditionPOI_Description=氷の宮殿と魔界にいる間、非悪魔は複数のペナルティを受けます。
+Conditions/&ConditionPOI_Title=氷の宮殿の隠れ家効果

@@ -1,9 +1,9 @@
 SpellList/&SpellListClericTitle=Hechizos de clérigo
+SpellList/&SpellListDruidTitle=Hechizos de druida
 SpellList/&SpellListPaladinTitle=Hechizos de paladín
 SpellList/&SpellListRangerTitle=Hechizos de guardabosques
-SpellList/&SpellListSpellbladeTitle=Hechizos de hoja hechizada
-SpellList/&SpellListWizardTitle=Hechizos de mago
 SpellList/&SpellListSorcererTitle=Hechizos de hechicero
-SpellList/&SpellListDruidTitle=Hechizos de druida
-SpellList/&SpellListWarlockTitle=Hechizos de brujo
+SpellList/&SpellListSpellbladeTitle=Hechizos de hoja hechizada
 SpellList/&SpellListTraditionLightTitle=Hechizos de monje (camino de la luz)
+SpellList/&SpellListWarlockTitle=Hechizos de brujo
+SpellList/&SpellListWizardTitle=Hechizos de mago

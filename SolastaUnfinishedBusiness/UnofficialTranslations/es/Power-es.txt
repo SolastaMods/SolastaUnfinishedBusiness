@@ -1,9 +1,9 @@
-Power/&PowerStoneGolemSlow_Title=Lento
+Power/&DemonicInfluence_Description=Cautiva a un enemigo para que luche por ti hasta que se deshaga de tu influencia demoníaca.
 Power/&PowerStoneGolemSlow_Description=Los golems de piedra pueden ralentizar a los enemigos cercanos.
+Power/&PowerStoneGolemSlow_Title=Lento
+Power/&Vrock_Screech_Description=El Vrock emite un poderoso grito que puede aturdir a los enemigos a su alrededor.
+Power/&Vrock_Screech_Title=Chillido
+Power/&Vrock_Spores_Description=El veneno de vrock inflige 1d10 de daño por veneno cada turno.
+Power/&Vrock_Spores_Title=Esporas
 Power/&WightLifeDrain_Description=Los wights pueden drenar la esencia de la vida en un golpe cuerpo a cuerpo exitoso.
 Power/&WightLordCircleofDeath_Description=Un señor de los espectros puede drenar la esencia vital de los enemigos que lo rodean.
-Power/&Vrock_Screech_Title=Chillido
-Power/&Vrock_Screech_Description=El Vrock emite un poderoso grito que puede aturdir a los enemigos a su alrededor.
-Power/&Vrock_Spores_Title=esporas
-Power/&Vrock_Spores_Description=El veneno de vrock inflige 1d10 de daño por veneno cada turno.
-Power/&DemonicInfluence_Description=Cautiva a un enemigo para que luche por ti hasta que se deshaga de tu influencia demoníaca.

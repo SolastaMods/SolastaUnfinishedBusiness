@@ -25,4 +25,4 @@ CharacterFamily/&OozeTitle=Rezumar
 CharacterFamily/&PlantDescription=Las plantas en este contexto son criaturas vegetales, no flora ordinaria. La mayoría de ellos son ambulatorios, y algunos son carnívoros. Las plantas por excelencia son el montículo shambling y el treant. Las criaturas fúngicas también entran en esta categoría.
 CharacterFamily/&PlantTitle=Planta
 CharacterFamily/&UndeadDescription=Los no-muertos son criaturas que alguna vez estuvieron vivas, llevadas a un horrible estado de no-muerto a través de la práctica de la magia nigromántica o alguna maldición profana.
-CharacterFamily/&UndeadTitle=muertos vivientes
+CharacterFamily/&UndeadTitle=Muertos vivientes

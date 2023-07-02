@@ -1,5 +1,5 @@
 Alignment/&ChaoticEvilDescription=Las criaturas malvadas caóticas (CE) actúan con violencia arbitraria, estimuladas por su codicia, odio o sed de sangre. Los demonios, los dragones rojos y los orcos son caóticos y malvados.
-Alignment/&ChaoticEvilTitle=mal caótico
+Alignment/&ChaoticEvilTitle=Mal caótico
 Alignment/&ChaoticEvilTitleShort=CE
 Alignment/&ChaoticGoodDescription=Las criaturas caóticas buenas (CG) actúan como les indica su conciencia, sin tener en cuenta lo que los demás esperan. Los dragones de cobre, muchos elfos y unicornios son caóticos.
 Alignment/&ChaoticGoodTitle=Bien caotico
@@ -26,5 +26,5 @@ Alignment/&NeutralGoodTitleShort=NG
 Alignment/&NeutralTitle=Neutral
 Alignment/&NeutralTitleShort=N
 Alignment/&UnalignedDescription=La mayoría de las criaturas que carecen de la capacidad de pensamiento racional no tienen alineamientos... no están alineados. Tal criatura es incapaz de hacer una elección moral o ética y actúa de acuerdo con su naturaleza bestial. Los tiburones son depredadores salvajes, por ejemplo, pero no son malvados; no tienen alineación.
-Alignment/&UnalignedTitle=desalineado
+Alignment/&UnalignedTitle=Desalineado
 Alignment/&UnalignedTitleShort=UN

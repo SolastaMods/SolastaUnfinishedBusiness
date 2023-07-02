@@ -183,7 +183,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         return FeatureSetPathOfTheDragonDisciple;
     }
 
-    private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
+    private static FeatureDefinition BuildDragonFeatureSet()
     {
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
@@ -201,6 +201,23 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerBlackElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerBlackElementalBreath));
+
+        var powerBlackElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerBlackElementalBreath, $"Power{Name}ElementalBreathBlackPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerBlackElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerBlackElementalBreath));
+
+        var featureSetElementalBreathBlack = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathBlack")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerBlackElementalBreath, powerBlackElementalBreathPoints)
+            .AddToDB();
+        
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -217,10 +234,23 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var effectGreenElementalBreath = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+        powerBlueElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerBlueElementalBreath));
+
+        var powerBlueElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerBlueElementalBreath, $"Power{Name}ElementalBreathBluePoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddToDB();
 
+        powerBlueElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerBlueElementalBreath));
+
+        var featureSetElementalBreathBlue = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathBlue")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerBlueElementalBreath, powerBlueElementalBreathPoints)
+            .AddToDB();
+        
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -231,7 +261,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Round, 3)
                 .AddEffectForms(EffectFormBuilder.Create()
-                        .SetSummonEffectProxyForm(effectGreenElementalBreath)
+                        .SetSummonEffectProxyForm(
+                            EffectProxyDefinitionBuilder
+                                .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+                                .AddToDB())
                         .Build(),
                     StinkingCloud.EffectDescription
                         .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
@@ -244,6 +277,23 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerGreenElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerGreenElementalBreath));
+
+        var powerGreenElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerGreenElementalBreath, $"Power{Name}ElementalBreathGreenPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerGreenElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerGreenElementalBreath));
+
+        var featureSetElementalBreathGreen = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathGreen")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerGreenElementalBreath, powerGreenElementalBreathPoints)
+            .AddToDB();
+        
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -260,6 +310,23 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerGoldElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerGoldElementalBreath));
+
+        var powerGoldElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerGoldElementalBreath, $"Power{Name}ElementalBreathGoldPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerGoldElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerGoldElementalBreath));
+
+        var featureSetElementalBreathGold = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathGold")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerGoldElementalBreath, powerGoldElementalBreathPoints)
+            .AddToDB();
+        
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -276,18 +343,35 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerSilverElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerSilverElementalBreath));
+
+        var powerSilverElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerSilverElementalBreath, $"Power{Name}ElementalBreathSilverPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerSilverElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerSilverElementalBreath));
+
+        var featureSetElementalBreathSilver = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathSilver")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerSilverElementalBreath, powerSilverElementalBreathPoints)
+            .AddToDB();
+        
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Breath")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
             .AddFeatureSet(
-                powerBlackElementalBreath,
-                powerBlueElementalBreath,
-                powerGoldElementalBreath,
-                powerGreenElementalBreath,
-                powerSilverElementalBreath)
+                featureSetElementalBreathBlack,
+                featureSetElementalBreathSilver,
+                featureSetElementalBreathGold,
+                featureSetElementalBreathBlue,
+                featureSetElementalBreathGreen)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
-                DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
+                DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonBreath;
@@ -505,6 +589,48 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         return featureWayOfDragonFury;
+    }
+
+    //
+    // Elemental Breath Fixed
+    //
+
+    private sealed class PowerUseValidityElementalBreathProficiency : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
+
+        public PowerUseValidityElementalBreathProficiency(FeatureDefinitionPower powerElementalBreathProficiency)
+        {
+            _powerElementalBreathProficiency = powerElementalBreathProficiency;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+
+            return usablePower.RemainingUses > 0;
+        }
+    }
+
+    //
+    // Elemental Breath Points
+    //
+
+    private sealed class PowerUseValidityElementalBreathPoints : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
+
+        public PowerUseValidityElementalBreathPoints(FeatureDefinitionPower powerElementalBreathProficiency)
+        {
+            _powerElementalBreathProficiency = powerElementalBreathProficiency;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+
+            return usablePower.RemainingUses == 0;
+        }
     }
 
     private sealed class CustomBehaviorReactiveHide : IReactToAttackOnMeFinished, IAttackBeforeHitConfirmedOnMe,

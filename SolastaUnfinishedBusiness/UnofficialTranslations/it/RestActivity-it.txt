@@ -1,12 +1,12 @@
 RestActivity/&ArcaneRecoveryDescription=Una volta al giorno, quando completi un riposo breve, puoi recuperare un numero di slot incantesimo consumati (massimo 5° livello) pari a metà del tuo livello da mago, arrotondato per eccesso.
+RestActivity/&ArcaneRecoveryExecutedDescription=L'attivazione di <b>Recupero arcano</b> ha consentito a {0} di riguadagnare i seguenti slot incantesimo:
 RestActivity/&ArcaneRecoveryTitle=Recupero Arcano
 RestActivity/&AttuneItemDescription=La sintonizzazione con un elemento consente di accedere alle sue proprietà e funzioni avanzate.
 RestActivity/&AttuneItemTitle=Oggetto in sintonia
+RestActivity/&FiendishResilienceDescription=Seleziona un nuovo tipo di resistenza ai danni. Questo sostituisce la precedente scelta di resilienza diabolica.
 RestActivity/&LevelUpDescription=Inizia la sequenza di aumento di livello per questo personaggio.
 RestActivity/&LevelUpTitle=Sali di livello
+RestActivity/&NaturalRecoveryDescription=Una volta al giorno, quando completi un riposo breve, puoi recuperare un numero di slot incantesimo consumati (massimo 5° livello) pari a metà del tuo livello da druido, arrotondato per eccesso.
+RestActivity/&NaturalRecoveryTitle=Recupero naturale
 RestActivity/&PrepareSpellsDescription=Puoi modificare l'elenco degli incantesimi preparati quando termini un riposo lungo.
 RestActivity/&PrepareSpellsTitle=Prepara gli incantesimi
-RestActivity/&ArcaneRecoveryExecutedDescription=L'attivazione di <b>Recupero arcano</b> ha consentito a {0} di riguadagnare i seguenti slot incantesimo:
-RestActivity/&NaturalRecoveryTitle=Recupero naturale
-RestActivity/&NaturalRecoveryDescription=Una volta al giorno, quando completi un riposo breve, puoi recuperare un numero di slot incantesimo consumati (massimo 5° livello) pari a metà del tuo livello da druido, arrotondato per eccesso.
-RestActivity/&FiendishResilienceDescription=Seleziona un nuovo tipo di resistenza ai danni. Questo sostituisce la precedente scelta di resilienza diabolica.

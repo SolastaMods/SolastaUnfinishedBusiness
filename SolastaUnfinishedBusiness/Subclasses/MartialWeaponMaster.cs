@@ -373,8 +373,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(_featureDefinition.Name) ||
-                gameLocationBattleService.Battle.ActiveContender != attacker)
+            if (!attacker.OnceInMyTurnIsValid(_featureDefinition.Name))
             {
                 yield break;
             }

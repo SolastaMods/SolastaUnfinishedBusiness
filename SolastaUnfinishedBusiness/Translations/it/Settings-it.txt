@@ -40,6 +40,7 @@ ModUi/&Blueprints=Cianografie
 ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e località:</color>
 ModUi/&Category=Categoria
+ModUi/&ChangeDragonbornElementalBreathUsages=Cambia gli usi del soffio elementale <color=#D89555>Dragonborn</color> in modificatore di costituzione per riposo breve
 ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color> per usare un cubo invece di un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere

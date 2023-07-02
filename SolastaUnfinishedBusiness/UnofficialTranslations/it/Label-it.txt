@@ -3,6 +3,6 @@ Label/&CampfireLocationRestTitle=
 Label/&CampfireResumeTravelRestDescription=
 Label/&CampfireResumeTravelRestTitle=
 Label/&EnterLocationDescription=Chiedi al gruppo di entrare in questo luogo.
-Label/&EnterLocationTitle=accedere
+Label/&EnterLocationTitle=Accedere
 Label/&TravelToLocationDescription=Preparati a viaggiare in questa posizione.
 Label/&TravelToLocationTitle=Viaggio

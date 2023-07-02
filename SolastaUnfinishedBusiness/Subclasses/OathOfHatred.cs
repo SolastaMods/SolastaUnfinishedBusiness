@@ -278,7 +278,7 @@ internal sealed class OathOfHatred : AbstractSubclass
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                me.UsedSpecialFeatures.ContainsKey(_power.Name))
+                !me.OncePerTurnIsValid(_power.Name))
             {
                 yield break;
             }

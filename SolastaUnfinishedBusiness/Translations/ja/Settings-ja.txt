@@ -40,6 +40,7 @@ ModUi/&Blueprints=青写真
 ModUi/&Campaigns=<color=#F0DAA0>キャンペーン:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリー
+ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>Dragonborn</color>のエレメンタルブレスの使用量を短い休憩ごとに体質修正に変更する
 ModUi/&ChangeSleetStormToCube=<color=#D89555>みぞれの嵐</color>を円柱の代わりに立方体を使用するように変更します
 ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター

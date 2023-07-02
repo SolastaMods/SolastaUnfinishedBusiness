@@ -44,7 +44,7 @@ Size: *Large*
 |  22 |  10 |  22 |  02 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Condition Affinity Frightened Immunity
 * Walk 8
 * Normal Vision
@@ -74,7 +74,7 @@ Size: *Large*
 |  22 |  10 |  22 |  02 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Condition Affinity Frightened Immunity
 * Walk 8
 * Normal Vision
@@ -104,7 +104,7 @@ Size: *Large*
 |  16 |  17 |  13 |  08 |  14 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Sight
+* Keen Sight
 * Condition Affinity Prone Immunity
 * Movement Affinity No Climb
 * Movement Affinity No Special Moves
@@ -137,7 +137,7 @@ Size: *Medium*
 |  16 |  20 |  13 |  08 |  14 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Sight
+* Keen Sight
 * Condition Affinity Prone Immunity
 * Movement Affinity No Climb
 * Movement Affinity No Special Moves
@@ -234,7 +234,7 @@ Size: *Large*
 |  15 |  10 |  14 |  02 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Normal Vision
 
@@ -263,7 +263,7 @@ Size: *Medium*
 |  15 |  10 |  14 |  02 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Normal Vision
 
@@ -324,7 +324,7 @@ Size: *Large*
 |  19 |  10 |  16 |  02 |  13 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Normal Vision
 
@@ -353,7 +353,7 @@ Size: *Medium*
 |  19 |  10 |  16 |  02 |  13 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Normal Vision
 
@@ -452,7 +452,7 @@ Size: *Medium*
 |  20 |  10 |  16 |  02 |  13 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Normal Vision
 
@@ -481,8 +481,7 @@ Size: *Medium*
 |  17 |  15 |  15 |  03 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
 * Walk 10
 * Normal Vision
@@ -511,7 +510,7 @@ Size: *Large*
 |  17 |  15 |  15 |  03 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
+* Keen Hearing and Smell
 * Pack Tactics
 * Movement Affinity No Climb
 * Movement Affinity No Vault
@@ -542,7 +541,7 @@ Size: *Small*
 |  06 |  15 |  10 |  02 |  14 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Sight
+* Keen Sight
 * Condition Affinity Prone Immunity
 * Movement Affinity No Climb
 * Movement Affinity No Special Moves
@@ -670,7 +669,7 @@ Size: *Medium*
 |  16 |  17 |  13 |  08 |  14 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Sight
+* Keen Sight
 * Pack Tactics
 * Condition Affinity Prone Immunity
 * Movement Affinity No Climb
@@ -760,7 +759,7 @@ Size: *Medium*
 |  18 |  13 |  15 |  05 |  10 |  05 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 7
 * Normal Vision
 
@@ -816,13 +815,13 @@ Size: *Large*
 |  21 |  10 |  22 |  06 |  08 |  08 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Condition Affinity Calm Emotion Charmed Immunity
 * Condition Affinity Calm Emotion Frightened Immunity
 * Condition Affinity Frightened Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Resistance
 * Walk 8
 * Reckless
@@ -854,8 +853,7 @@ Size: *Small*
 |  10 |  10 |  12 |  03 |  12 |  06 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
 * 
 * 
@@ -959,10 +957,10 @@ Size: *Large*
 |  18 |  16 |  17 |  06 |  10 |  12 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Pack Tactics
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Resistance
 * Movement Affinity No Climb
 * Movement Affinity No Vault
@@ -996,7 +994,7 @@ Size: *Medium*
 |  18 |  16 |  17 |  06 |  10 |  12 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Pack Tactics
 * Damage Affinity Cold Resistance
 * Movement Affinity No Climb
@@ -1029,8 +1027,7 @@ Size: *Small*
 |  12 |  15 |  12 |  03 |  12 |  06 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
 * Walk 8
 * Normal Vision
@@ -1059,8 +1056,7 @@ Size: *Small*
 |  12 |  15 |  12 |  03 |  12 |  06 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
 * Movement Affinity No Climb
 * Movement Affinity No Vault

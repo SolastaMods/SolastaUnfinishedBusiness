@@ -156,7 +156,7 @@ internal static class ValidatorsCharacter
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 
             return gameLocationCharacter != null &&
-                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(weaponTypeDefinition.Name);
+                   !gameLocationCharacter.OncePerTurnIsValid(weaponTypeDefinition.Name);
         };
     }
 

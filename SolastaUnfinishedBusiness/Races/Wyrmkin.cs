@@ -122,7 +122,9 @@ internal static class RaceWyrmkinBuilder
 
         var caveWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
-        caveWyrmkinRacePresentation.preferedSkinColors = new RangedInt(48, 53);
+        caveWyrmkinRacePresentation.preferedSkinColors = Main.Settings.UnlockSkinColors
+            ? new RangedInt(48, 53)
+            : new RangedInt(14, 14);
 
         var raceCaveWyrmkin = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, $"Race{Name}")
@@ -195,7 +197,9 @@ internal static class RaceWyrmkinBuilder
 
         var highWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
 
-        highWyrmkinRacePresentation.preferedSkinColors = new RangedInt(20, 25);
+
+        highWyrmkinRacePresentation.preferedSkinColors =
+            Main.Settings.UnlockSkinColors ? new RangedInt(65, 65) : new RangedInt(11, 11);
 
         var raceHighWyrmkin = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, $"Race{Name}")

@@ -1,9 +1,9 @@
-Power/&PowerStoneGolemSlow_Title=遅い
+Power/&DemonicInfluence_Description=敵があなたの悪魔の影響を振り払うまで、あなたのために戦うよう敵を魅了します。
 Power/&PowerStoneGolemSlow_Description=ストーンゴーレムは近くの敵の動きを遅くすることができます。
+Power/&PowerStoneGolemSlow_Title=遅い
+Power/&Vrock_Screech_Description=ヴロックは周囲の敵を気絶させる強力な叫び声を発します。
+Power/&Vrock_Screech_Title=金切り声
+Power/&Vrock_Spores_Description=ヴロックの毒は毎ターン 1d10 の毒ダメージを与える。
+Power/&Vrock_Spores_Title=胞子
 Power/&WightLifeDrain_Description=ワイトは近接攻撃が成功するとライフエッセンスを消耗させることができます。
 Power/&WightLordCircleofDeath_Description=ワイトロードは周囲の敵から生命の本質を吸い取ることができます。
-Power/&Vrock_Screech_Title=金切り声
-Power/&Vrock_Screech_Description=ヴロックは周囲の敵を気絶させる強力な叫び声を発します。
-Power/&Vrock_Spores_Title=胞子
-Power/&Vrock_Spores_Description=ヴロックの毒は毎ターン 1d10 の毒ダメージを与える。
-Power/&DemonicInfluence_Description=敵があなたの悪魔の影響を振り払うまで、あなたのために戦うよう敵を魅了します。

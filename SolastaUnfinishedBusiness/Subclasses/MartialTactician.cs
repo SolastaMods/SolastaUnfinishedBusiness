@@ -308,7 +308,7 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             // once per turn
-            if (attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy"))
+            if (!attacker.OncePerTurnIsValid("AdaptiveStrategy"))
             {
                 Main.Info("AdaptiveStrategy: once per turn. exiting.");
                 return;
@@ -367,10 +367,10 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            // once per round
-            if (attacker.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            // once per turn
+            if (!attacker.OncePerTurnIsValid("OvercomingStrategy"))
             {
-                Main.Info("OvercomingStrategy: once per round. exiting.");
+                Main.Info("OvercomingStrategy: once per turn. exiting.");
                 yield break;
             }
 
@@ -426,9 +426,10 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            // once per round
-            if (locCharacter.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            // once per turn
+            if (!locCharacter.OncePerTurnIsValid("OvercomingStrategy"))
             {
+                Main.Info("OvercomingStrategy: once per turn . exiting.");
                 return;
             }
 

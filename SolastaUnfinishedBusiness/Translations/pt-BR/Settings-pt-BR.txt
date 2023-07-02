@@ -40,6 +40,7 @@ ModUi/&Blueprints=Plantas
 ModUi/&Campaigns=<color=#F0DAA0>Campanhas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campanhas e locais:</color>
 ModUi/&Category=Categoria
+ModUi/&ChangeDragonbornElementalBreathUsages=Alterar os usos de respiração elementar de <color=#D89555>Dragonborn</color> para modificador de constituição por descanso curto
 ModUi/&ChangeSleetStormToCube=Alterar <color=#D89555>Sleet Storm</color> para usar um cubo em vez de um cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro de alterações</color></b>
 ModUi/&Character=Personagem

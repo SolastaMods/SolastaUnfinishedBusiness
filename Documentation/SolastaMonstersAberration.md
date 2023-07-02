@@ -78,7 +78,7 @@ Size: *Large*
 |  23 |  13 |  21 |  07 |  09 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 6
 * Regeneration
 * Darkvision
@@ -110,7 +110,7 @@ Size: *Large*
 |  20 |  12 |  20 |  06 |  06 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Condition Affinity Calm Emotion Frightened Immunity
 * Condition Affinity Charm Immunity
 * MIND CONTROLLED IMMUNITY
@@ -148,7 +148,7 @@ Size: *Large*
 |  20 |  12 |  20 |  06 |  06 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Regeneration
 * Darkvision
@@ -334,6 +334,7 @@ Size: *Large*
 |  19 |  11 |  16 |  04 |  12 |  15 |
 
 *Features:*
+* Condition Affinity Prone Immunity
 * Fly 6
 * Walk 6
 * Regeneration

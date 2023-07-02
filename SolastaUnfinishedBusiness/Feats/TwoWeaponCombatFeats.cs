@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -122,7 +123,7 @@ internal static class TwoWeaponCombatFeats
                 return;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(_conditionDualFlurryGrant.Name))
+            if (!attacker.OnceInMyTurnIsValid(_conditionDualFlurryGrant.Name))
             {
                 return;
             }
@@ -131,7 +132,7 @@ internal static class TwoWeaponCombatFeats
 
             if (hero.HasConditionOfType(condition))
             {
-                attacker.UsedSpecialFeatures.Add(_conditionDualFlurryGrant.Name, 1);
+                attacker.UsedSpecialFeatures.TryAdd(_conditionDualFlurryGrant.Name, 1);
                 condition = _conditionDualFlurryGrant;
             }
 

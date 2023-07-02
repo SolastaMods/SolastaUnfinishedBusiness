@@ -230,8 +230,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(_featureVoraciousFury.Name) ||
-                Gui.Battle == null || Gui.Battle.ActiveContender != attacker)
+            if (!attacker.OnceInMyTurnIsValid(_featureVoraciousFury.Name))
             {
                 yield break;
             }
