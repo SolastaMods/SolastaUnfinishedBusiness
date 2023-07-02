@@ -185,6 +185,13 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinition BuildDragonFeatureSet()
     {
+        var diceByLevelTable = new List<DiceByRank>
+        {
+            new() { rank = 6, diceNumber = 1 },
+            new() { rank = 11, diceNumber = 2 },
+            new() { rank = 17, diceNumber = 3 }
+        };
+
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -201,6 +208,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerBlackElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
         powerBlackElementalBreath.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathProficiency(powerBlackElementalBreath));
 
@@ -217,7 +225,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(powerBlackElementalBreath, powerBlackElementalBreathPoints)
             .AddToDB();
-        
+
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -234,6 +242,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerBlueElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
         powerBlueElementalBreath.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathProficiency(powerBlueElementalBreath));
 
@@ -250,7 +259,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(powerBlueElementalBreath, powerBlueElementalBreathPoints)
             .AddToDB();
-        
+
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -277,6 +286,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerGreenElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
         powerGreenElementalBreath.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathProficiency(powerGreenElementalBreath));
 
@@ -293,7 +303,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(powerGreenElementalBreath, powerGreenElementalBreathPoints)
             .AddToDB();
-        
+
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -310,6 +320,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerGoldElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
         powerGoldElementalBreath.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathProficiency(powerGoldElementalBreath));
 
@@ -326,7 +337,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(powerGoldElementalBreath, powerGoldElementalBreathPoints)
             .AddToDB();
-        
+
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -343,6 +354,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerSilverElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
         powerSilverElementalBreath.SetCustomSubFeatures(
             new PowerUseValidityElementalBreathProficiency(powerSilverElementalBreath));
 
@@ -359,7 +371,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(powerSilverElementalBreath, powerSilverElementalBreathPoints)
             .AddToDB();
-        
+
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Breath")
             .SetGuiPresentation(Category.Feature)
