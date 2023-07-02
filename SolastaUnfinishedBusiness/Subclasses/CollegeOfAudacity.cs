@@ -318,27 +318,38 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 targetCharacters.Add(originalTarget);
             }
 
+            var dices = new List<int>() { damageRoll };
+            var diceNumber = _criticalHit ? 2 : 1;
+
+            if (diceNumber > 1)
+            {
+                var criticalDamageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+                damageRoll += criticalDamageRoll;
+                dices.Add(criticalDamageRoll);
+            }
+            
             // apply damage to all targets
             foreach (var targetCharacter in targetCharacters)
             {
                 var rulesetDefender = targetCharacter.RulesetCharacter;
 
-                var damage = new DamageForm
+                var damageForm = new DamageForm
                 {
-                    DamageType = damageType, DieType = dieType, DiceNumber = _criticalHit ? 2 : 1, BonusDamage = 0
+                    DamageType = damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
                 };
 
                 RulesetActor.InflictDamage(
                     damageRoll,
-                    damage,
-                    damage.DamageType,
+                    damageForm,
+                    damageType,
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                     rulesetDefender,
                     false,
                     rulesetCharacter.Guid,
                     false,
                     new List<string>(),
-                    new RollInfo(damage.DieType, new List<int> { damageRoll }, 0),
+                    new RollInfo(dieType, dices, 0),
                     false,
                     out _);
             }
