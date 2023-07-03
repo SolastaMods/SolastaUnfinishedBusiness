@@ -148,7 +148,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ActionFinishedArcaneBackslash(
+            new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell,
                 conditionDistractingAmbush));
@@ -288,13 +288,13 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedArcaneBackslash : IActionFinished
+    private sealed class ActionFinishedByMeArcaneBackslash : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _powerArcaneBackslash;
         private readonly FeatureDefinitionPower _powerCounterSpell;
 
-        public ActionFinishedArcaneBackslash(
+        public ActionFinishedByMeArcaneBackslash(
             FeatureDefinitionPower powerArcaneBackslash,
             FeatureDefinitionPower powerCounterSpell,
             ConditionDefinition conditionDistractingAmbush)
@@ -304,7 +304,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionDistractingAmbush = conditionDistractingAmbush;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
@@ -348,7 +348,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodeAdditionalDamagePossessed : IFeatureDefinitionCustomCode, IClassHoldingFeature
+    private sealed class CustomCodeAdditionalDamagePossessed : IDefinitionCustomCode, IClassHoldingFeature
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
 
@@ -366,7 +366,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IActionInitiated, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IActionInitiatedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;
@@ -379,7 +379,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionPossessed = conditionPossessed;
         }
 
-        public IEnumerator OnActionInitiated(CharacterAction characterAction)
+        public IEnumerator OnActionInitiatedByMe(CharacterAction characterAction)
         {
             if (characterAction is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _powerEssenceTheft)
@@ -432,7 +432,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodePremeditationSlot4 : IFeatureDefinitionCustomCode
+    private sealed class CustomCodePremeditationSlot4 : IDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {

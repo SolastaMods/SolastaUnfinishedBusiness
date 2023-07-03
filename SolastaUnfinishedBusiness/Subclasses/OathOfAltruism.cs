@@ -80,7 +80,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                     .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
                         RuleDefinitions.TargetType.IndividualsUnique)
                     .Build())
-            .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
+            .SetCustomSubFeatures(new AfterActionFinishedByMeTakeThePain())
             .AddToDB();
 
         var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
@@ -143,9 +143,9 @@ internal sealed class OathOfAltruism : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class AfterActionFinishedTakeThePain : IUsePowerFinished
+    private sealed class AfterActionFinishedByMeTakeThePain : IUsePowerFinishedByMe
     {
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (!power.Name.StartsWith($"Power{Name}TakeThePain"))
             {

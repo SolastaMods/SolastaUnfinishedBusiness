@@ -269,7 +269,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IIgnoreDamageAffinity, IUsePowerFinished, IFilterTargetingMagicEffect
+        IIgnoreDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -317,7 +317,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             return false;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var battle = Gui.Battle;
 

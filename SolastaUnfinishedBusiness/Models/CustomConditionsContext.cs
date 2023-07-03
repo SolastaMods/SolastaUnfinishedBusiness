@@ -117,12 +117,12 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IActionFinished, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
             var actionParams = action.ActionParams;

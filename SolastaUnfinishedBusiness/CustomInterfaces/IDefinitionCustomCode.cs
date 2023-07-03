@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IFeatureDefinitionCustomCode
+public interface IDefinitionCustomCode
 {
     // Use this to add the feature to the character
     [UsedImplicitly]

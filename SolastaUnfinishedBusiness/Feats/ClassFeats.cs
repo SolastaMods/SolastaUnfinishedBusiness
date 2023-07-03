@@ -469,12 +469,12 @@ internal static class ClassFeats
         return awakenTheBeastWithinGroup;
     }
 
-    internal sealed class CustomBehaviorFeatAwakenTheBeastWithin : IActionFinished
+    internal sealed class CustomBehaviorFeatAwakenTheBeastWithin : IActionFinishedByMe
     {
         // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
         private const ulong TemporaryHitPointsGuid = 42424242;
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionRevertShape ||
                 action.ActingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
@@ -517,14 +517,14 @@ internal static class ClassFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ActionFinishedFeatCunningEscape())
+            .SetCustomSubFeatures(new ActionFinishedByMeFeatCunningEscape())
             .SetValidators(ValidatorsFeat.IsRogueLevel3)
             .AddToDB();
     }
 
-    private class ActionFinishedFeatCunningEscape : IActionFinished
+    private class ActionFinishedByMeFeatCunningEscape : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.DashBonus)
             {
@@ -560,7 +560,7 @@ internal static class ClassFeats
         var feature = FeatureDefinitionBuilder
             .Create($"Feature{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedHardy())
+            .SetCustomSubFeatures(new ActionFinishedByMeHardy())
             .AddToDB();
 
         var hardyStr = FeatDefinitionWithPrerequisitesBuilder
@@ -589,9 +589,9 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class ActionFinishedHardy : IUsePowerFinished
+    private sealed class ActionFinishedByMeHardy : IUsePowerFinishedByMe
     {
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != PowerFighterSecondWind)
             {
@@ -1023,13 +1023,13 @@ internal static class ClassFeats
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatures(power, powerChannelDivinityPool, powerGainSlotPool)
                 .SetValidators(ValidatorsFeat.IsClericLevel4)
-                .SetCustomSubFeatures(new ActionFinishedFeatSpiritualFluidity())
+                .SetCustomSubFeatures(new ActionFinishedByMeFeatSpiritualFluidity())
                 .AddToDB();
     }
 
-    private sealed class ActionFinishedFeatSpiritualFluidity : IUsePowerFinished
+    private sealed class ActionFinishedByMeFeatSpiritualFluidity : IUsePowerFinishedByMe
     {
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
 
@@ -1149,13 +1149,13 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerPool)
             .SetValidators(ValidatorsFeat.IsRangerLevel1)
-            .SetCustomSubFeatures(new ActionFinishedFeatSlayTheEnemies())
+            .SetCustomSubFeatures(new ActionFinishedByMeFeatSlayTheEnemies())
             .AddToDB();
     }
 
-    private sealed class ActionFinishedFeatSlayTheEnemies : IUsePowerFinished
+    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IUsePowerFinishedByMe
     {
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (!power.Name.StartsWith("PowerFeatSlayTheEnemies"))
             {

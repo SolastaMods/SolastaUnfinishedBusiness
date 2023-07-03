@@ -210,7 +210,7 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerBifrost.SetCustomSubFeatures(new ActionFinishedBifrost(powerBifrost, powerBifrostDamage));
+        powerBifrost.SetCustomSubFeatures(new ActionFinishedByMeBifrost(powerBifrost, powerBifrostDamage));
 
         // LEVEL 20
 
@@ -358,12 +358,12 @@ internal sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedBifrost : IUsePowerFinished
+    private sealed class ActionFinishedByMeBifrost : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBifrost;
         private readonly FeatureDefinitionPower _powerBifrostDamage;
 
-        public ActionFinishedBifrost(
+        public ActionFinishedByMeBifrost(
             FeatureDefinitionPower powerBifrost,
             FeatureDefinitionPower powerBifrostDamage)
         {
@@ -371,7 +371,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             _powerBifrostDamage = powerBifrostDamage;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != _powerBifrost)
             {

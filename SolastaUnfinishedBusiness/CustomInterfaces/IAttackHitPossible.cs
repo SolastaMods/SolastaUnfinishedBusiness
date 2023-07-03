@@ -13,6 +13,5 @@ public interface IAttackHitPossible
         RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect,
         ActionModifier attackModifier,
-        int attackRoll
-    );
+        int attackRoll);
 }

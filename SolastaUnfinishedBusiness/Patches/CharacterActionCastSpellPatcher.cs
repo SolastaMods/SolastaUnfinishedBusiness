@@ -48,10 +48,10 @@ public static class CharacterActionCastSpellPatcher
             ref bool terminateEffectOnTarget
         )
         {
-            //PATCH: re-implements base method to allow `ICustomSpellEffectLevel` to provide customized spell effect level
+            //PATCH: re-implements base method to allow `IChangeSpellEffectLevel` to provide customized spell effect level
 
             var activeSpell = __instance.ActiveSpell;
-            var effectLevelProvider = activeSpell.SpellDefinition.GetFirstSubFeatureOfType<ICustomSpellEffectLevel>();
+            var effectLevelProvider = activeSpell.SpellDefinition.GetFirstSubFeatureOfType<IChangeSpellEffectLevel>();
 
             if (effectLevelProvider == null)
             {

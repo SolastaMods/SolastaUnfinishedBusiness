@@ -117,7 +117,7 @@ internal static class RaceWyrmkinBuilder
             .AddToDB();
 
         featureCaveWyrmkinChargingStrike.SetCustomSubFeatures(
-            new AfterActionFinishedCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike,
+            new AfterActionFinishedByMeCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike,
                 conditionChargingStrike));
 
         var caveWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
@@ -269,12 +269,12 @@ internal static class RaceWyrmkinBuilder
         }
     }
 
-    private sealed class AfterActionFinishedCaveWyrmkinChargingStrike : IActionFinished
+    private sealed class AfterActionFinishedByMeCaveWyrmkinChargingStrike : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _parentFeature;
 
-        public AfterActionFinishedCaveWyrmkinChargingStrike(
+        public AfterActionFinishedByMeCaveWyrmkinChargingStrike(
             FeatureDefinition parentFeature,
             ConditionDefinition conditionChargingStrike)
         {
@@ -282,7 +282,7 @@ internal static class RaceWyrmkinBuilder
             _parentFeature = parentFeature;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionId != Id.DashMain)
             {

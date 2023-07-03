@@ -648,7 +648,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
-                        new ActionFinishedFeatMobileDash(
+                        new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -668,16 +668,16 @@ internal static class OtherFeats
     }
 
 
-    private sealed class ActionFinishedFeatMobileDash : IActionFinished
+    private sealed class ActionFinishedByMeFeatMobileDash : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public ActionFinishedFeatMobileDash(ConditionDefinition conditionDefinition)
+        public ActionFinishedByMeFeatMobileDash(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not (CharacterActionDash or
                 CharacterActionFlurryOfBlows or
@@ -746,10 +746,10 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
-        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinished, IActionFinishedByEnemy
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
         //Poison characters that I shove
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionShove)
             {

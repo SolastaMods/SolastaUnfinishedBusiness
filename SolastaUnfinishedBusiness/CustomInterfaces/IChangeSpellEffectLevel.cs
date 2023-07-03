@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICustomSpellEffectLevel
+public interface IChangeSpellEffectLevel
 {
     public int GetEffectLevel(RulesetActor rulesetActor, [UsedImplicitly] RulesetEffectSpell rulesetEffectSpell);
 }

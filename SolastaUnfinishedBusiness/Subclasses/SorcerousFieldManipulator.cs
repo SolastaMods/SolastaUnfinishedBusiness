@@ -61,7 +61,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ActionInitiatedDisplacement(), PushesOrDragFromEffectPoint.Marker)
+            .SetCustomSubFeatures(new ActionInitiatedByMeDisplacement(), PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -140,14 +140,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.SetCustomSubFeatures(
             new PowerUseValidityForcefulStepFixed(powerForcefulStepFixed),
-            new ActionFinishedForcefulStep(powerForcefulStepApply));
+            new ActionFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepPoints")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
             .SetEffectDescription(effectDescriptionForcefulStep)
-            .SetCustomSubFeatures(new ActionFinishedForcefulStep(powerForcefulStepApply))
+            .SetCustomSubFeatures(new ActionFinishedByMeForcefulStep(powerForcefulStepApply))
             .AddToDB();
 
         powerForcefulStepPoints.SetCustomSubFeatures(
@@ -202,9 +202,9 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class ActionInitiatedDisplacement : IActionInitiated, IUsePowerFinished
+    private sealed class ActionInitiatedByMeDisplacement : IActionInitiatedByMe, IUsePowerFinishedByMe
     {
-        public IEnumerator OnActionInitiated(CharacterAction characterAction)
+        public IEnumerator OnActionInitiatedByMe(CharacterAction characterAction)
         {
             var rulesetEffect = characterAction.ActionParams.RulesetEffect;
 
@@ -223,7 +223,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != PowerSorcerousFieldManipulatorDisplacement)
             {
@@ -335,16 +335,16 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step Apply
     //
 
-    private sealed class ActionFinishedForcefulStep : IUsePowerFinished
+    private sealed class ActionFinishedByMeForcefulStep : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerApply;
 
-        public ActionFinishedForcefulStep(FeatureDefinitionPower powerApply)
+        public ActionFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
         {
             _powerApply = powerApply;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power.Name != $"Power{Name}ForcefulStepFixed" && power.Name != $"Power{Name}ForcefulStepPoints")
             {

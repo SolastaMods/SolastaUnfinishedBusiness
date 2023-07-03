@@ -33,7 +33,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create($"MovementAffinity{Name}TempestSwiftness")
             .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedAdditiveModifier(2)
-            .SetCustomSubFeatures(new ActionFinishedTempestSwiftness())
+            .SetCustomSubFeatures(new ActionFinishedByMeTempestSwiftness())
             .AddToDB();
 
         // LEVEL 06
@@ -221,7 +221,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         powerEyeOfTheStorm.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new ActionFinishedEyeOfTheStorm(powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
+            new ActionFinishedByMeEyeOfTheStorm(powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}EyeOfTheStorm")
@@ -255,9 +255,9 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Tempest Swiftness
     //
 
-    private sealed class ActionFinishedTempestSwiftness : IUsePowerFinished
+    private sealed class ActionFinishedByMeTempestSwiftness : IUsePowerFinishedByMe
     {
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != PowerMonkFlurryOfBlows)
             {
@@ -399,13 +399,13 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Eye of The Storm
     //
 
-    private sealed class ActionFinishedEyeOfTheStorm : IUsePowerFinished
+    private sealed class ActionFinishedByMeEyeOfTheStorm : IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStormLeap;
 
-        public ActionFinishedEyeOfTheStorm(
+        public ActionFinishedByMeEyeOfTheStorm(
             FeatureDefinitionPower powerEyeOfTheStorm,
             FeatureDefinitionPower powerEyeOfTheStormLeap,
             ConditionDefinition conditionEyeOfTheStorm)
@@ -415,7 +415,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != _powerEyeOfTheStorm)
             {

@@ -562,7 +562,7 @@ public static class InnovationArtillerist
 
     #region REFUND CANNON
 
-    private class CustomBehaviorRefundCannon : IPowerUseValidity, IUsePowerFinished
+    private class CustomBehaviorRefundCannon : IPowerUseValidity, IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
@@ -590,7 +590,7 @@ public static class InnovationArtillerist
             return hasUsedPowerActivate && hasSpellSlotsAvailable;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != _featureDefinitionPower)
             {

@@ -230,7 +230,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class AttackEffectAfterDamageDiscordance : IUsePowerFinished, IAttackEffectAfterDamage
+    private sealed class AttackEffectAfterDamageDiscordance : IUsePowerFinishedByMe, IAttackEffectAfterDamage
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
@@ -267,7 +267,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             ApplyCondition(attacker, defender);
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var gameLocationAttacker = action.ActingCharacter;
             var rulesetAttacker = gameLocationAttacker.RulesetCharacter;

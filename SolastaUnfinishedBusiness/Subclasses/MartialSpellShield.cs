@@ -107,7 +107,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ComputeModifierMagicAffinityCombatMagicVigor : IAttackComputeModifier, IIncreaseSpellDc
+    private sealed class ComputeModifierMagicAffinityCombatMagicVigor : IAttackComputeModifier, IChangeSpellDC
     {
         private readonly FeatureDefinitionMagicAffinity _featureDefinitionMagicAffinity;
 
@@ -131,7 +131,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 return;
             }
 
-            var modifier = GetSpellModifier(myself);
+            var modifier = GetSpellDC(myself);
 
             attackModifier.attackRollModifier += modifier;
             attackModifier.attackToHitTrends.Add(new TrendInfo(
@@ -139,7 +139,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 _featureDefinitionMagicAffinity));
         }
 
-        public int GetSpellModifier(RulesetCharacter caster)
+        public int GetSpellDC(RulesetCharacter caster)
         {
             var strModifier =
                 ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));

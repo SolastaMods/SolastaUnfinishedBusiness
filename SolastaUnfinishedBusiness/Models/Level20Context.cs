@@ -223,7 +223,7 @@ internal static class Level20Context
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
-        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedArchDruid(magicAffinityArchDruid));
+        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
 
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -801,16 +801,16 @@ internal static class Level20Context
         return invocationPoolWizardSignatureSpells;
     }
 
-    private sealed class ActionFinishedArchDruid : IUsePowerFinished
+    private sealed class ActionFinishedByMeArchDruid : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ActionFinishedArchDruid(FeatureDefinition featureDefinition)
+        public ActionFinishedByMeArchDruid(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != PowerDruidWildShape && power != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
             {
@@ -857,7 +857,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class CustomCodeBarbarianPrimalChampion : IFeatureDefinitionCustomCode
+    private sealed class CustomCodeBarbarianPrimalChampion : IDefinitionCustomCode
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {

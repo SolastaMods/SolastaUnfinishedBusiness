@@ -449,7 +449,7 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 
 #if false
-    private class TacticalSurge : IActionFinished
+    private class TacticalSurge : IActionFinishedByMe
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinition feature;
@@ -463,7 +463,7 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionActionSurge)
             {

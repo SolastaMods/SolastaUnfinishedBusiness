@@ -351,7 +351,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorElderChampion : ICharacterTurnStartListener, IActionFinished
+    private sealed class CustomBehaviorElderChampion : ICharacterTurnStartListener, IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionElderChampionAdditionalAttack;
 
@@ -360,7 +360,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             _conditionElderChampionAdditionalAttack = conditionElderChampionAdditionalAttack;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionType != ActionDefinitions.ActionType.Main ||
                 characterAction is not CharacterActionCastSpell)

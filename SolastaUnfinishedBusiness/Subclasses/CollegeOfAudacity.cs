@@ -230,7 +230,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWhirl :
-        IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly ConditionDefinition _conditionExtraMovement;
@@ -255,7 +255,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             _powerMobileWhirl = powerMobileWhirl;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction is not CharacterActionSpendPower characterActionUsePower)
             {

@@ -83,14 +83,14 @@ public static class CharacterActionPatcher
         {
             var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
 
-            //PATCH: IActionInitiated
+            //PATCH: IActionInitiatedByMe
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var iActionsInitiated = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
+                var iActionsInitiated = rulesetCharacter.GetSubFeaturesByType<IActionInitiatedByMe>();
 
                 foreach (var iActionInitiated in iActionsInitiated)
                 {
-                    yield return iActionInitiated.OnActionInitiated(__instance);
+                    yield return iActionInitiated.OnActionInitiatedByMe(__instance);
                 }
             }
 
@@ -117,12 +117,12 @@ public static class CharacterActionPatcher
                     FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
                 }
 
-                //PATCH: IActionFinished
-                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
+                //PATCH: IActionFinishedByMe
+                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinishedByMe>();
 
                 foreach (var iActionFinished in iActionsFinished)
                 {
-                    yield return iActionFinished.OnActionFinished(__instance);
+                    yield return iActionFinished.OnActionFinishedByMe(__instance);
                 }
 
                 //PATCH: support for IActionFinishedByEnemy

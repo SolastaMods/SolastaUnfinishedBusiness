@@ -221,7 +221,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorBlastPursuitOrOverload : IUsePowerFinished, IPowerUseValidity
+    private sealed class CustomBehaviorBlastPursuitOrOverload : IUsePowerFinishedByMe, IPowerUseValidity
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _triggerPower;
@@ -247,7 +247,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                    SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) >= 1;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != _triggerPower)
             {

@@ -361,7 +361,7 @@ internal static class Level20SubclassesContext
 
         powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
             ForcePowerUseInSpendPowerAction.Marker,
-            new ActionFinishedQuiveringPalm(
+            new ActionFinishedByMeQuiveringPalm(
                 powerTraditionOpenHandQuiveringPalm,
                 conditionTraditionOpenHandQuiveringPalm));
 
@@ -635,7 +635,7 @@ internal static class Level20SubclassesContext
     // Position of Strength
     //
 
-    private sealed class CustomCodePositionOfStrength : IFeatureDefinitionCustomCode
+    private sealed class CustomCodePositionOfStrength : IDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -790,7 +790,7 @@ internal static class Level20SubclassesContext
     // Purity of Light
     //
 
-    private sealed class CustomBehaviorPurityOfLight : IFeatureDefinitionCustomCode, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorPurityOfLight : IDefinitionCustomCode, IPhysicalAttackFinishedByMe
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -859,7 +859,7 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IUsePowerFinished
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -896,7 +896,7 @@ internal static class Level20SubclassesContext
         }
 
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != _featureDefinitionPower)
             {
@@ -974,12 +974,12 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class ActionFinishedQuiveringPalm : IUsePowerFinished
+    private sealed class ActionFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedQuiveringPalm(
+        public ActionFinishedByMeQuiveringPalm(
             FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
@@ -987,7 +987,7 @@ internal static class Level20SubclassesContext
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var battle = Gui.Battle;
 
