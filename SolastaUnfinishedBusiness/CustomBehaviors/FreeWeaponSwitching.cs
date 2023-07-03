@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public sealed class FreeWeaponSwitching
 {
