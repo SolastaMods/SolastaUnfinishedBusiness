@@ -1295,7 +1295,6 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            // ReSharper disable once InvertIf
             if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
                 //PATCH: allow custom behavior when physical attack finished on defender
@@ -1304,6 +1303,26 @@ public static class GameLocationBattleManagerPatcher
                     yield return feature.OnAttackFinishedOnMe(
                         __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                         damageAmount);
+                }
+            }
+
+            // ReSharper disable once InvertIf
+            if (__instance.Battle != null)
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
+                {
+                    var allyFeatures = gameLocationAlly.RulesetCharacter
+                        .GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
+
+                    foreach (var feature in allyFeatures)
+                    {
+                        yield return feature.OnAttackFinishedOnMeOrAlly(
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode, attackRollOutcome,
+                            damageAmount);
+                    }
                 }
             }
         }

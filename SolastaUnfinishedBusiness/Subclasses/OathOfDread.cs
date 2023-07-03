@@ -420,7 +420,7 @@ internal sealed class OathOfDread : AbstractSubclass
     // Harrowing Crusade
     //
 
-    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade : IReactToAttackOnMeOrAllyFinished
+    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade : IPhysicalAttackFinishedOnMeOrAlly
     {
         private readonly ConditionDefinition _conditionMarkOfTheSubmission;
 
@@ -429,14 +429,15 @@ internal sealed class OathOfDread : AbstractSubclass
             _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
         }
 
-        public IEnumerator OnReactToAttackOnAllyFinished(
+        public IEnumerator OnAttackFinishedOnMeOrAlly(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             GameLocationCharacter me,
-            GameLocationCharacter ally,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var hasFrightened = rulesetAttacker.AllConditions.Any(x =>
@@ -490,7 +491,7 @@ internal sealed class OathOfDread : AbstractSubclass
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
-            reactionParams.StringParameter = ally.Name;
+            reactionParams.StringParameter = defender.Name;
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 

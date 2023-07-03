@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionAttackPatcher
 {
-    //PATCH: Adds support to IReactToAttackOnEnemyFinished, IReactToAttackFinished, IReactToAttackOnMeFinished, IReactToAttackOnMeOrAllyFinished
+    //PATCH: Adds support to IReactToAttackOnEnemyFinished
     [HarmonyPatch(typeof(CharacterActionAttack), nameof(CharacterActionAttack.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -90,31 +90,6 @@ public static class CharacterActionAttackPatcher
                         {
                             yield break;
                         }
-                    }
-                }
-            }
-
-            //
-            // IReactToAttackOnMeOrAllyFinished
-            //
-
-            // ReSharper disable once InvertIf
-            if (Gui.Battle != null &&
-                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(gameLocationAttacker.Side)
-                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
-                {
-                    var allyFeatures = gameLocationAlly.RulesetCharacter
-                        .GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();
-
-                    foreach (var feature in allyFeatures)
-                    {
-                        yield return feature.OnReactToAttackOnAllyFinished(
-                            gameLocationAttacker, gameLocationAlly, gameLocationDefender, rollOutcome, actionParams,
-                            attackMode,
-                            actionModifier);
                     }
                 }
             }
