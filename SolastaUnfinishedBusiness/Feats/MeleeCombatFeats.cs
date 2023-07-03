@@ -823,7 +823,7 @@ internal static class MeleeCombatFeats
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, ITargetReducedToZeroHp
+    private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, IOnTargetReducedToZeroHp
     {
         private readonly ConditionDefinition _conditionCleavingAttackFinish;
 

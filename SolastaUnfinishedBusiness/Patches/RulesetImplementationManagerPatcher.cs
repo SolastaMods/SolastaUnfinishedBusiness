@@ -700,7 +700,7 @@ public static class RulesetImplementationManagerPatcher
             GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
         }
 
-        //PATCH: supports ISavingThrowAfterRoll interface
+        //PATCH: supports IOnSavingThrowAfterRoll interface
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter caster,
@@ -726,7 +726,7 @@ public static class RulesetImplementationManagerPatcher
             ref int saveOutcomeDelta)
         {
             //PATCH: react to failed saving throw
-            foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<ISavingThrowAfterRoll>())
+            foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<IOnSavingThrowAfterRoll>())
             {
                 savingThrowAfterRoll.OnSavingThrowAfterRoll(
                     caster,

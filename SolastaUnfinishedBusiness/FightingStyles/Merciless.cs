@@ -41,9 +41,9 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Merciless", Resources.Merciless, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
-                .Create("TargetReducedToZeroHpFightingStyleMerciless")
+                .Create("OnTargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new TargetReducedToZeroHpFightingStyleMerciless())
+                .SetCustomSubFeatures(new OnTargetReducedToZeroHpFightingStyleMerciless())
                 .AddToDB())
         .AddToDB();
 
@@ -52,8 +52,8 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class TargetReducedToZeroHpFightingStyleMerciless :
-        ITargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
+    private sealed class OnTargetReducedToZeroHpFightingStyleMerciless :
+        IOnTargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
     {
         private bool isCritical;
 

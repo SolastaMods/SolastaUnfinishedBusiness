@@ -401,7 +401,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
     }
 
     private sealed class CustomBehaviorChainOfExecution :
-        INotifyConditionRemoval, ITargetReducedToZeroHp, IDefinitionCustomCode
+        INotifyConditionRemoval, IOnTargetReducedToZeroHp, IDefinitionCustomCode
     {
         private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
         private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;

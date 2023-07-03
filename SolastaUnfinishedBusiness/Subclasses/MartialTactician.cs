@@ -334,7 +334,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class RefundPowerUseAfterKill : ITargetReducedToZeroHp
+    private class RefundPowerUseAfterKill : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinition feature;
         private readonly FeatureDefinitionPower power;

@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ISavingThrowAfterRoll
+public interface IOnSavingThrowAfterRoll
 {
     [UsedImplicitly]
     public void OnSavingThrowAfterRoll(

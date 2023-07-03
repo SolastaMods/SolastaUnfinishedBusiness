@@ -3,16 +3,16 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class RankByClassLevel : IRankProvider
+public class ModifyProviderRankByClassLevel : IModifyProviderRank
 {
     private readonly string className;
 
-    private RankByClassLevel(string className)
+    private ModifyProviderRankByClassLevel(string className)
     {
         this.className = className;
     }
 
-    public RankByClassLevel(BaseDefinition classDefinition) : this(classDefinition.Name)
+    public ModifyProviderRankByClassLevel(BaseDefinition classDefinition) : this(classDefinition.Name)
     {
     }
 

@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ISKipEffectRemovalOnLocationChange
+public interface IPreventEffectRemovalOnLocationChange
 {
     [UsedImplicitly]
     public bool Skip(bool willEnterChainedLocation);

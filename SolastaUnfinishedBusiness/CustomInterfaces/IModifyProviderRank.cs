@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IRankProvider
+public interface IModifyProviderRank
 {
     int GetRank(RulesetCharacter character);
 }

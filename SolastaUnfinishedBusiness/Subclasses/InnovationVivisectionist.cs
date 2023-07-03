@@ -129,7 +129,7 @@ public static class InnovationVivisectionist
             .AddToDB();
 
         powerOrganDonation.SetCustomSubFeatures(
-            new TargetReducedToZeroHpOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
+            new OnTargetReducedToZeroHpOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
 
         // LEVEL 15
 
@@ -218,13 +218,13 @@ public static class InnovationVivisectionist
         }
     }
 
-    private class TargetReducedToZeroHpOrganDonation : ITargetReducedToZeroHp
+    private class OnTargetReducedToZeroHpOrganDonation : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinitionPower _powerEmergencyCure;
         private readonly FeatureDefinitionPower _powerEmergencySurgery;
         private readonly FeatureDefinitionPower _powerOrganDonation;
 
-        public TargetReducedToZeroHpOrganDonation(
+        public OnTargetReducedToZeroHpOrganDonation(
             FeatureDefinitionPower powerOrganDonation,
             FeatureDefinitionPower powerEmergencySurgery,
             FeatureDefinitionPower powerEmergencyCure)

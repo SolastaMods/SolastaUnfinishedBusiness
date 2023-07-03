@@ -929,7 +929,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
-            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>()
+            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<IOnTargetReducedToZeroHp>()
                          .Select(x =>
                              x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
                                  activeEffect)))
@@ -946,7 +946,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ISourceReducedToZeroHP` feature
-            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<ISourceReducedToZeroHp>()
+            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<IOnSourceReducedToZeroHp>()
                          .Select(x =>
                              x.HandleSourceReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
                                  activeEffect)))

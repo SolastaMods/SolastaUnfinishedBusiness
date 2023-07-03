@@ -67,7 +67,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create($"Feature{Name}BlastPursuit")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new TargetReducedToZeroHpBlastPursuit())
+                    new OnTargetReducedToZeroHpBlastPursuit())
                 .AddToDB())
         .AddToDB();
 
@@ -268,7 +268,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class TargetReducedToZeroHpBlastPursuit : ITargetReducedToZeroHp
+    private sealed class OnTargetReducedToZeroHpBlastPursuit : IOnTargetReducedToZeroHp
     {
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,

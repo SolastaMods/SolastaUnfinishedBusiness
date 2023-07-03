@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ISourceReducedToZeroHp
+public interface IOnSourceReducedToZeroHp
 {
     public IEnumerator HandleSourceReducedToZeroHp(
         GameLocationCharacter attacker,

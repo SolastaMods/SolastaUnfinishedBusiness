@@ -241,7 +241,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         }
     }
 
-    private sealed class TerrificPerformance : ITargetReducedToZeroHp
+    private sealed class TerrificPerformance : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinitionPower power14;
         private readonly FeatureDefinitionPower power6;

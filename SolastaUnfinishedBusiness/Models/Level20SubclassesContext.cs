@@ -307,9 +307,9 @@ internal static class Level20SubclassesContext
             .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("SavingThrowAfterRollQuiveringPalm")
+                    .Create("OnSavingThrowAfterRollQuiveringPalm")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
+                    .SetCustomSubFeatures(new OnSavingThrowAfterRollQuiveringPalm())
                     .AddToDB())
             .AddToDB();
 
@@ -431,7 +431,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
-            new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
+            new OnSourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
@@ -716,11 +716,11 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
+    private sealed class OnSourceReducedToZeroHpPhysicalPerfection : IOnSourceReducedToZeroHp
     {
         private readonly FeatureDefinitionPower _powerPhysicalPerfection;
 
-        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        public OnSourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
         {
             _powerPhysicalPerfection = powerPhysicalPerfection;
         }
@@ -919,7 +919,7 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class SavingThrowAfterRollQuiveringPalm : ISavingThrowAfterRoll
+    private sealed class OnSavingThrowAfterRollQuiveringPalm : IOnSavingThrowAfterRoll
     {
         public void OnSavingThrowAfterRoll(
             RulesetCharacter caster,

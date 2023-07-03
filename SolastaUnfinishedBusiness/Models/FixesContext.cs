@@ -145,7 +145,7 @@ internal static class FixesContext
     private static void FixMartialArtsProgression()
     {
         //BUGFIX: fixes die progression of Monk's Martial Arts to use Monk level, not character level
-        var provider = new RankByClassLevel(Monk);
+        var provider = new ModifyProviderRankByClassLevel(Monk);
         var features = new List<FeatureDefinition>
         {
             FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,

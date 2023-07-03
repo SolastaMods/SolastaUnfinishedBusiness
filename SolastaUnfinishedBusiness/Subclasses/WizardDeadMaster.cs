@@ -307,7 +307,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    private sealed class StarkHarvest : ITargetReducedToZeroHp
+    private sealed class StarkHarvest : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinition feature;
 

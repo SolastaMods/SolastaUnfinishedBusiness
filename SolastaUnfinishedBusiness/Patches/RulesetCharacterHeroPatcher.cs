@@ -465,7 +465,7 @@ public static class RulesetCharacterHeroPatcher
                 return true;
             }
 
-            var provider = feature.GetFirstSubFeatureOfType<IRankProvider>();
+            var provider = feature.GetFirstSubFeatureOfType<IModifyProviderRank>();
             if (provider == null)
             {
                 return true;
