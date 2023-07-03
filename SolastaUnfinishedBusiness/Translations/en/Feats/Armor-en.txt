@@ -6,5 +6,3 @@ Feat/&FeatMediumArmorMasterDescription=You have practiced moving in medium armor
 Feat/&FeatMediumArmorMasterTitle=Medium Armor Master
 Feat/&FeatMediumArmorStrDescription=Increase your Strength by 1, to a maximum of 20.\nYou gain proficiency with medium armor and shields.
 Feat/&FeatMediumArmorStrTitle=Medium Armor [Str]
-Feedback/&HeavyArmorMasterFormat=Heavy Armor Master!
-Feedback/&HeavyArmorMasterLine=Heavy Armor Master reduces damage from target!

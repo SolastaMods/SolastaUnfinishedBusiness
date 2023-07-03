@@ -6,5 +6,3 @@ Feat/&FeatMediumArmorMasterDescription=您已经练习穿着中甲移动以获�
 Feat/&FeatMediumArmorMasterTitle=中型装甲大师
 Feat/&FeatMediumArmorStrDescription=将你的力量提高1，最高20。\n你可以熟练使用中型盔甲和盾牌。
 Feat/&FeatMediumArmorStrTitle=中甲掌控 [力量]
-Feedback/&HeavyArmorMasterFormat=重甲大师
-Feedback/&HeavyArmorMasterLine=重甲大师减少目标伤害！
