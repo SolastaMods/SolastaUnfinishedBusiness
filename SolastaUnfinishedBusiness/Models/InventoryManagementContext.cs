@@ -37,14 +37,27 @@ internal static class InventoryManagementContext
 
     private static Toggle UnidentifiedToggle { get; set; }
 
+    private static GameObject UnidentifiedMagicalLabel { get; set; }
+
     internal static Action SelectionChanged { get; private set; }
+
+    private static bool UseInventoryFilteringAndSorting => Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
+
+    private static Vector2 OriginalContainerPosition;
+
+    private static ContainerPanel InventoryContainerPanel { get; set; }
 
     internal static void Load()
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
-        var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-        containerPanel.rectTransform.anchoredPosition += new Vector2(0, -80);
+        InventoryContainerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
+        
+        if (UseInventoryFilteringAndSorting)
+        {
+            OriginalContainerPosition = InventoryContainerPanel.rectTransform.anchoredPosition;
+            InventoryContainerPanel.rectTransform.anchoredPosition += new Vector2(0, -80);
+        }
 
         // ReSharper disable once Unity.UnknownResource
         var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
@@ -79,7 +92,7 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.name = "IdentifiedToggle";
         UnidentifiedToggle.gameObject.SetActive(true);
         UnidentifiedToggle.onValueChanged.RemoveAllListeners();
-        var unidentified = Object.Instantiate(byTextMesh.gameObject, rightGroup);
+        UnidentifiedMagicalLabel = Object.Instantiate(byTextMesh.gameObject, rightGroup);
 
         //
         // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
@@ -87,22 +100,22 @@ internal static class InventoryManagementContext
 
         SelectionChanged = () =>
         {
-            var container = containerPanel.Container;
+            var container = InventoryContainerPanel.Container;
 
             if (container == null)
             {
                 return;
             }
 
-            var inspectedCharacter = containerPanel.InspectedCharacter;
-            var dropAreaClicked = containerPanel.DropAreaClicked;
-            var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
+            var inspectedCharacter = InventoryContainerPanel.InspectedCharacter;
+            var dropAreaClicked = InventoryContainerPanel.DropAreaClicked;
+            var visibleSlotsRefreshed = InventoryContainerPanel.VisibleSlotsRefreshed;
 
-            containerPanel.Unbind();
+            InventoryContainerPanel.Unbind();
             Flush(container);
             SortAndFilter(container);
-            containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
-            containerPanel.RefreshNow();
+            InventoryContainerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
+            InventoryContainerPanel.RefreshNow();
         };
 
         // changes the reorder button label and refactor the listener
@@ -116,14 +129,14 @@ internal static class InventoryManagementContext
         reorderButton.onClick.RemoveAllListeners();
         reorderButton.onClick.AddListener(delegate
         {
-            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
+            if (UseInventoryFilteringAndSorting)
             {
                 ResetControls();
                 SelectionChanged();
             }
             else
             {
-                containerPanel.OnReorderCb();
+                InventoryContainerPanel.OnReorderCb();
             }
         });
 
@@ -222,9 +235,9 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.isOn = false;
         UnidentifiedToggle.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-        unidentified.GetComponentInChildren<TextMeshProUGUI>()
+        UnidentifiedMagicalLabel.GetComponentInChildren<TextMeshProUGUI>()
             .SetText(Gui.Localize("UI/&InventoryFilterUnidentifiedMagical"));
-        unidentified.transform.localPosition = new Vector3(-332f, 340f, 0f);
+        UnidentifiedMagicalLabel.transform.localPosition = new Vector3(-332f, 340f, 0f);
     }
 
     internal static void ResetControls()
@@ -244,13 +257,23 @@ internal static class InventoryManagementContext
 
     internal static void RefreshControlsVisibility()
     {
-        var active = Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
+        var active = UseInventoryFilteringAndSorting;
 
         FilterGuiDropdown.gameObject.SetActive(active);
         BySortGroup.gameObject.SetActive(active);
         SortGuiDropdown.gameObject.SetActive(active);
         TaggedGuiDropdown.gameObject.SetActive(active);
         UnidentifiedToggle.gameObject.SetActive(active);
+        UnidentifiedMagicalLabel.gameObject.SetActive(active);
+        
+        if (!active)
+        {
+            InventoryContainerPanel.rectTransform.anchoredPosition = OriginalContainerPosition;
+        }
+        else
+        {
+            InventoryContainerPanel.rectTransform.anchoredPosition = OriginalContainerPosition + new Vector2(0, -80);
+        }
     }
 
     private static void Sort(List<RulesetItem> items)
