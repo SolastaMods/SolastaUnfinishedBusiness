@@ -134,6 +134,8 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerBlastPursuit.effectDescription.effectParticleParameters.casterParticleReference = null;
+
         powerBlastPursuit.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit),
             new ExtraActionBlastPursuit());
