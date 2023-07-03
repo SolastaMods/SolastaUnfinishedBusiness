@@ -746,7 +746,7 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
-        IPhysicalAttackFinished, IPhysicalAttackFinishedOnMe, IActionFinished, IActionFinishedByEnemy
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinished, IActionFinishedByEnemy
     {
         //Poison characters that I shove
         public IEnumerator OnActionFinished(CharacterAction action)
@@ -779,7 +779,7 @@ internal static class OtherFeats
         }
 
         //Poison target if I attack with unarmed
-        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
+        public IEnumerator OnAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, RulesetAttackMode attackMode,
             RollOutcome attackRollOutcome, int damageAmount)
         {

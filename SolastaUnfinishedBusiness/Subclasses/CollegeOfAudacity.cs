@@ -230,7 +230,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWhirl :
-        IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinished
+        IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly ConditionDefinition _conditionExtraMovement;
@@ -387,7 +387,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         }
 
         // add extra movement on any attack
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

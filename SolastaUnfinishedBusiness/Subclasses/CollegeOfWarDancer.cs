@@ -230,9 +230,9 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             0);
     }
 
-    private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinished
+    private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
+        public IEnumerator OnAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
             GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackerAttackMode,
             RollOutcome attackRollOutcome, int damageAmount)
         {

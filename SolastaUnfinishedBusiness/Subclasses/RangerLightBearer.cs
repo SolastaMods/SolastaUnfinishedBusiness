@@ -82,7 +82,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedBlessedWarrior(conditionBlessedWarrior))
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -292,16 +292,16 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalAttackInitiatedBlessedWarrior : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior : IPhysicalAttackInitiatedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public PhysicalAttackInitiatedBlessedWarrior(ConditionDefinition conditionDefinition)
+        public PhysicalAttackInitiatedByMeBlessedWarrior(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

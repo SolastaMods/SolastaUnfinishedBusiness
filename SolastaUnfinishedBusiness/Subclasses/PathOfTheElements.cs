@@ -242,7 +242,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new MagicalAttackFinishedElementalBurst(PowerDomainElementalLightningBlade),
+                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -282,7 +282,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new MagicalAttackFinishedElementalBurst(PowerDomainElementalIceLance),
+                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -327,7 +327,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new MagicalAttackFinishedElementalBurst(PowerDomainElementalFireBurst),
+                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -541,16 +541,16 @@ internal sealed class PathOfTheElements : AbstractSubclass
     // Elemental Burst
     //
 
-    private sealed class MagicalAttackFinishedElementalBurst : IMagicalAttackFinished
+    private sealed class MagicalAttackFinishedByMeElementalBurst : IMagicalAttackFinishedByMe
     {
         private readonly IMagicEffect _magicEffect;
 
-        public MagicalAttackFinishedElementalBurst(IMagicEffect magicEffect)
+        public MagicalAttackFinishedByMeElementalBurst(IMagicEffect magicEffect)
         {
             _magicEffect = magicEffect;
         }
 
-        public IEnumerator OnMagicalAttackFinished(
+        public IEnumerator OnMagicalAttackFinishedByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

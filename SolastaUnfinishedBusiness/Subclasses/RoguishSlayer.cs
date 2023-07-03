@@ -169,7 +169,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedFatalStrike())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -195,7 +195,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiated, IAttackComputeModifier
+    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiatedByMe, IAttackComputeModifier
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -254,7 +254,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -489,9 +489,9 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class PhysicalAttackInitiatedFatalStrike : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeFatalStrike : IPhysicalAttackInitiatedByMe
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

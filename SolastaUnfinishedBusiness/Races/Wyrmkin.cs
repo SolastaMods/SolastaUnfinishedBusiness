@@ -215,7 +215,7 @@ internal static class RaceWyrmkinBuilder
         return raceHighWyrmkin;
     }
 
-    private sealed class CaveWyrmkinShovingAttack : IPhysicalAttackFinished
+    private sealed class CaveWyrmkinShovingAttack : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _parentFeature;
@@ -226,7 +226,7 @@ internal static class RaceWyrmkinBuilder
             _parentFeature = parentFeature;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

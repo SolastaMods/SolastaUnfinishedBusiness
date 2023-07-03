@@ -240,7 +240,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         combatAffinityTacticalAwareness.SetCustomSubFeatures(
-            new PhysicalAttackInitiatedTacticalAwareness(combatAffinityTacticalAwareness));
+            new PhysicalAttackInitiatedByMeTacticalAwareness(combatAffinityTacticalAwareness));
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianTacticalAwareness")
@@ -515,16 +515,16 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 #endif
 
-    private sealed class PhysicalAttackInitiatedTacticalAwareness : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeTacticalAwareness : IPhysicalAttackInitiatedByMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackInitiatedTacticalAwareness(FeatureDefinition featureDefinition)
+        public PhysicalAttackInitiatedByMeTacticalAwareness(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

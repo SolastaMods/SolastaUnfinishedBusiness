@@ -1034,9 +1034,9 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
+                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
                 {
-                    yield return feature.OnMagicalAttackFinished(
+                    yield return feature.OnMagicalAttackFinishedByMe(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
@@ -1221,9 +1221,9 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            foreach (var attackInitiated in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiated>())
+            foreach (var attackInitiated in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
             {
-                yield return attackInitiated.OnAttackInitiated(
+                yield return attackInitiated.OnAttackInitiatedByMe(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
             }
 
@@ -1287,9 +1287,9 @@ public static class GameLocationBattleManagerPatcher
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
                 //PATCH: allow custom behavior when physical attack finished
-                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
+                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
                 {
-                    yield return feature.OnAttackFinished(
+                    yield return feature.OnAttackFinishedByMe(
                         __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                         damageAmount);
                 }

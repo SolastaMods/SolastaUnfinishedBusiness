@@ -422,17 +422,17 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         additionalDamageHammerThePoint.SetCustomSubFeatures(
-            new PhysicalAttackInitiatedFeatHammerThePoint(conditionHammerThePoint, featHammerThePoint));
+            new PhysicalAttackInitiatedByMeFeatHammerThePoint(conditionHammerThePoint, featHammerThePoint));
 
         return featHammerThePoint;
     }
 
-    private sealed class PhysicalAttackInitiatedFeatHammerThePoint : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeFeatHammerThePoint : IPhysicalAttackInitiatedByMe
     {
         private readonly ConditionDefinition _conditionHammerThePoint;
         private readonly FeatDefinition _featHammerThePoint;
 
-        public PhysicalAttackInitiatedFeatHammerThePoint(
+        public PhysicalAttackInitiatedByMeFeatHammerThePoint(
             ConditionDefinition conditionHammerThePoint,
             FeatDefinition featHammerThePoint)
         {
@@ -440,7 +440,7 @@ internal static class MeleeCombatFeats
             _featHammerThePoint = featHammerThePoint;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -687,7 +687,7 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class AttackComputeModifierFeatBladeMastery : IPhysicalAttackInitiated
+    private sealed class AttackComputeModifierFeatBladeMastery : IPhysicalAttackInitiatedByMe
     {
         private readonly FeatDefinition _featDefinition;
         private readonly WeaponTypeDefinition[] _weaponTypeDefinition;
@@ -699,7 +699,7 @@ internal static class MeleeCombatFeats
             _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -932,7 +932,7 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(new PhysicalAttackFinishedCrusher(
+        .SetCustomSubFeatures(new PhysicalAttackFinishedByMeCrusher(
             ConditionDefinitionBuilder
                 .Create("ConditionFeatCrusherCriticalHit")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
@@ -975,18 +975,18 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedCrusher : IPhysicalAttackFinished
+    private sealed class PhysicalAttackFinishedByMeCrusher : IPhysicalAttackFinishedByMe
     {
         private const string SpecialFeatureName = "FeatureCrusher";
 
         private readonly ConditionDefinition _criticalConditionDefinition;
 
-        public PhysicalAttackFinishedCrusher(ConditionDefinition conditionDefinition)
+        public PhysicalAttackFinishedByMeCrusher(ConditionDefinition conditionDefinition)
         {
             _criticalConditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1468,7 +1468,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new PhysicalAttackInitiatedFeatPiercer(
+            new PhysicalAttackInitiatedByMeFeatPiercer(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
@@ -1520,18 +1520,18 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackInitiatedFeatPiercer : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeFeatPiercer : IPhysicalAttackInitiatedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
 
-        internal PhysicalAttackInitiatedFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
+        internal PhysicalAttackInitiatedByMeFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
             _damageType = damageType;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

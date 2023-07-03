@@ -1,4 +1,4 @@
-﻿//DEPRECATED: use IPhysicalAttackInitiated instead
+﻿//DEPRECATED: use IPhysicalAttackInitiatedByMe instead
 
 #if false
 using JetBrains.Annotations;

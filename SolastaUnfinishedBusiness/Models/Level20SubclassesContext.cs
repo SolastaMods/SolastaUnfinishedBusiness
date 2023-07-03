@@ -790,7 +790,7 @@ internal static class Level20SubclassesContext
     // Purity of Light
     //
 
-    private sealed class CustomBehaviorPurityOfLight : IFeatureDefinitionCustomCode, IPhysicalAttackFinished
+    private sealed class CustomBehaviorPurityOfLight : IFeatureDefinitionCustomCode, IPhysicalAttackFinishedByMe
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -806,7 +806,7 @@ internal static class Level20SubclassesContext
             // empty
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

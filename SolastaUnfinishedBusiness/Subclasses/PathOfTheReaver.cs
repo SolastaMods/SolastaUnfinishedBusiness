@@ -65,7 +65,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         // CONNECT ALL THEM TOGETHER NOW
 
         featureVoraciousFury.SetCustomSubFeatures(
-            new PhysicalAttackFinishedVoraciousFury(featureVoraciousFury, powerBloodbath));
+            new PhysicalAttackFinishedByMeVoraciousFury(featureVoraciousFury, powerBloodbath));
         powerBloodbath.SetCustomSubFeatures(
             new TargetReducedToZeroHpBloodbath(powerBloodbath));
         featureCorruptedBlood.SetCustomSubFeatures(
@@ -191,12 +191,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     // Voracious Fury
     //
 
-    private sealed class PhysicalAttackFinishedVoraciousFury : IPhysicalAttackFinished
+    private sealed class PhysicalAttackFinishedByMeVoraciousFury : IPhysicalAttackFinishedByMe
     {
         private readonly FeatureDefinition _featureVoraciousFury;
         private readonly FeatureDefinitionPower _powerBloodBath;
 
-        public PhysicalAttackFinishedVoraciousFury(
+        public PhysicalAttackFinishedByMeVoraciousFury(
             FeatureDefinition featureVoraciousFury,
             FeatureDefinitionPower powerBloodBath)
         {
@@ -204,7 +204,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             _powerBloodBath = powerBloodBath;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -31,7 +31,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 {
     private const string FeatureSetMarshalKnowYourEnemyName = "FeatureSetMarshalKnowYourEnemy";
 
-    private const string MarshalCoordinatedAttackName = "ReactToAttackFinishedMarshalCoordinatedAttack";
+    private const string MarshalCoordinatedAttackName = "ReactToAttackFinishedByMeMarshalCoordinatedAttack";
 
     private const string EternalComradeName = "MarshalEternalComrade";
 
@@ -134,7 +134,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create(MarshalCoordinatedAttackName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ReactToAttackFinishedMarshalCoordinatedAttack())
+            .SetCustomSubFeatures(new ReactToAttackFinishedByMeMarshalCoordinatedAttack())
             .AddToDB();
     }
 
@@ -374,9 +374,9 @@ internal sealed class MartialMarshal : AbstractSubclass
         return featureMarshalKnowledgeableDefense;
     }
 
-    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IPhysicalAttackFinished
+    private sealed class ReactToAttackFinishedByMeMarshalCoordinatedAttack : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
