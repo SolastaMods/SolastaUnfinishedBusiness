@@ -61,7 +61,8 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastPursuit")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHasted)
+        .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
         .AddFeatures(
             FeatureDefinitionBuilder
                 .Create($"Feature{Name}BlastPursuit")
@@ -124,7 +125,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
                 .SetEffectForms(
                     EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
                     EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
@@ -148,13 +149,20 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBlastOverload))
                 .Build())
             .AddToDB();
 
         powerBlastOverload.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastOverload, ConditionBlastOverload));
+        powerBlastOverload.EffectDescription
+            .EffectParticleParameters
+            .casterParticleReference
+                = ConditionDefinitions.ConditionRaging.conditionStartParticleReference;
+        powerBlastOverload.EffectDescription
+            .EffectParticleParameters
+            .conditionParticleReference
+                = ConditionDefinitions.ConditionRaging.conditionParticleReference;
 
         // LEVEL 14
 
