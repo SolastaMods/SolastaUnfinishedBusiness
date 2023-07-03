@@ -13,6 +13,7 @@ public interface IAttackBeforeHitConfirmedOnMeOrAlly
         GameLocationBattleManager battle,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
+        GameLocationCharacter ally,
         ActionModifier attackModifier,
         RulesetAttackMode attackMode,
         bool rangedAttack,

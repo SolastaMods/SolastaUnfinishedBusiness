@@ -11,6 +11,7 @@ public interface IMagicalAttackBeforeHitConfirmedOnMeOrAlly
     IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
+        GameLocationCharacter ally,
         ActionModifier magicModifier,
         RulesetEffect rulesetEffect,
         List<EffectForm> actualEffectForms,

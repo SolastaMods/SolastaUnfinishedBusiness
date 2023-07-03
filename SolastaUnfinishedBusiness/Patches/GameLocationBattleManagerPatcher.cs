@@ -412,25 +412,28 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var attackBeforeHitConfirmedOnMeOrAlly in __instance.battle
+                foreach (var ally in __instance.battle
                              .GetOpposingContenders(attacker.Side)
                              .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .SelectMany(x =>
-                                 x.RulesetCharacter.GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
                              .ToList()) // avoid changing enumerator
                 {
-                    yield return attackBeforeHitConfirmedOnMeOrAlly.OnAttackBeforeHitConfirmedOnMeOrAlly(
-                        __instance,
-                        attacker,
-                        defender,
-                        attackModifier,
-                        attackMode,
-                        rangedAttack,
-                        advantageType,
-                        actualEffectForms,
-                        rulesetEffect,
-                        criticalHit,
-                        firstTarget);
+                    foreach (var attackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
+                    {
+                        yield return attackBeforeHitConfirmedOnMeOrAlly.OnAttackBeforeHitConfirmedOnMeOrAlly(
+                            __instance,
+                            attacker,
+                            defender,
+                            ally,
+                            attackModifier,
+                            attackMode,
+                            rangedAttack,
+                            advantageType,
+                            actualEffectForms,
+                            rulesetEffect,
+                            criticalHit,
+                            firstTarget);
+                    }
                 }
             }
 
@@ -1008,15 +1011,19 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in __instance.battle
+                foreach (var ally in __instance.battle
                              .GetOpposingContenders(attacker.Side)
                              .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .SelectMany(x =>
-                                 x.RulesetCharacter.GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
                              .ToList()) // avoid changing enumerator
                 {
-                    yield return magicalAttackBeforeHitConfirmedOnMeOrAlly.OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
-                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                    foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
+                    {
+                        yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
+                            .OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
+                                attacker, defender, ally, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                                criticalHit);
+                    }
                 }
             }
 
@@ -1244,14 +1251,16 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
+            foreach (var ally in __instance.battle.GetOpposingContenders(attacker.Side)
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .SelectMany(x =>
-                             x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
                          .ToList()) // avoid changing enumerator
             {
-                yield return attackInitiated.OnAttackInitiatedOnMeOrAlly(
-                    __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+                foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
+                             .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
+                {
+                    yield return physicalAttackInitiatedOnMeOrAlly.OnAttackInitiatedOnMeOrAlly(
+                        __instance, action, attacker, defender, ally, attackModifier, attackerAttackMode);
+                }
             }
         }
     }

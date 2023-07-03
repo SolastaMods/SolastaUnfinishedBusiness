@@ -11,6 +11,7 @@ public interface IPhysicalAttackInitiatedOnMeOrAlly
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
+        GameLocationCharacter ally,
         ActionModifier attackModifier,
         RulesetAttackMode attackerAttackMode);
 }
