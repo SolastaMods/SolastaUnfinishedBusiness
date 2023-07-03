@@ -460,6 +460,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter ally,
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {

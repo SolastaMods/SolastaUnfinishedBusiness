@@ -217,11 +217,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            var rulesetEnemy = attacker.RulesetCharacter;
-
-            if (!me.CanReact() ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+            if (!me.CanReact())
             {
                 yield break;
             }
