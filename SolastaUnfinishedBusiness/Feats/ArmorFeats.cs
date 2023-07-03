@@ -72,7 +72,8 @@ internal static class ArmorFeats
                     .Create("ReduceDamageFeatHeavyArmorMaster")
                     .SetGuiPresentation("FeatHeavyArmorMaster", Category.Feat)
                     .SetNotificationTag("HeavyArmorMaster")
-                    .SetFixedReducedDamage((_, _) => 3, DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing)
+                    .SetAlwaysActiveReducedDamage((_, _) => 3, DamageTypeBludgeoning, DamageTypePiercing,
+                        DamageTypeSlashing)
                     .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
                     .AddToDB())
             .SetArmorProficiencyPrerequisite(HeavyArmorCategory)

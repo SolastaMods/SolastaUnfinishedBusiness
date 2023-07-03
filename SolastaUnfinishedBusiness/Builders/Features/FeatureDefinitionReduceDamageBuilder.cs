@@ -17,7 +17,7 @@ internal class FeatureDefinitionReduceDamageBuilder
     }
 
     [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(
+    internal FeatureDefinitionReduceDamageBuilder SetAlwaysActiveReducedDamage(
         Func<GameLocationCharacter, GameLocationCharacter, int> reducedDamage,
         params string[] damageTypes)
     {
