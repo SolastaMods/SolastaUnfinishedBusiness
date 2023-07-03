@@ -77,6 +77,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     private static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
+        .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .AddFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageInvocationAgonizingBlast, $"AdditionalDamage{Name}BlastOverload")
@@ -149,20 +150,13 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBlastOverload))
                 .Build())
             .AddToDB();
 
         powerBlastOverload.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastOverload, ConditionBlastOverload));
-        powerBlastOverload.EffectDescription
-            .EffectParticleParameters
-            .casterParticleReference
-                = ConditionDefinitions.ConditionRaging.conditionStartParticleReference;
-        powerBlastOverload.EffectDescription
-            .EffectParticleParameters
-            .conditionParticleReference
-                = ConditionDefinitions.ConditionRaging.conditionParticleReference;
 
         // LEVEL 14
 
