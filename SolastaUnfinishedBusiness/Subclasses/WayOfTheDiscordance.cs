@@ -288,7 +288,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                                  .Count
                          })
                          .Where(t =>
-                             !t.gameLocationCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                             t.gameLocationCharacter.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
                              t.discordanceCount >= DiscordanceLimit)
                          .Select(t => t.gameLocationCharacter)
                          .ToList()) // avoid changing enumerator

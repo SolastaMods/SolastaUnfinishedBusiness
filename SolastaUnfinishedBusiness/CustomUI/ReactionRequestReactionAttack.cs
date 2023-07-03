@@ -22,8 +22,9 @@ internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequest
         {
             var targetCharacter = ReactionParams.TargetCharacters[0];
 
-            return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
-                .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+            return targetCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                   ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
+                       .Contains(targetCharacter);
         }
     }
 

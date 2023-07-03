@@ -46,7 +46,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
     public override bool IsStillValid =>
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(target) &&
-        !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+        target.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false};
 
     private void BuildSuboptions()
     {

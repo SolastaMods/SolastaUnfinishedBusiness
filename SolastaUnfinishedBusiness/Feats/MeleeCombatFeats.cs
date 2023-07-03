@@ -646,8 +646,8 @@ internal static class MeleeCombatFeats
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name) ||
-                rulesetCharacter.IsDeadOrDyingOrUnconscious)
+            if (rulesetCharacter is not {IsDeadOrDyingOrUnconscious: false} ||
+                !rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 return;
             }

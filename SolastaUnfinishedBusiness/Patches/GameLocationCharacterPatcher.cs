@@ -282,8 +282,9 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            var rulesetCharacter = __instance?.RulesetCharacter;
-            if (rulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
+            var rulesetCharacter = __instance.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

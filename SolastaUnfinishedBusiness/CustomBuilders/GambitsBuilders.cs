@@ -917,8 +917,7 @@ internal static class GambitsBuilders
             var rulesetEnemy = attacker.RulesetCharacter;
 
             if (!me.CanReact() ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+                rulesetEnemy is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }
@@ -1248,8 +1247,7 @@ internal static class GambitsBuilders
             var rulesetEnemy = attacker.RulesetCharacter;
 
             if (!me.CanReact() ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+                rulesetEnemy is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }

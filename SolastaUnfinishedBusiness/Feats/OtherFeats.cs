@@ -822,7 +822,7 @@ internal static class OtherFeats
         {
             var rulesetTarget = target.RulesetCharacter;
 
-            if (rulesetTarget == null || rulesetTarget.IsDeadOrDying)
+            if (rulesetTarget is not {IsDeadOrDyingOrUnconscious: false})
             {
                 return;
             }

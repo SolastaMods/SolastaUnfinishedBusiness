@@ -1163,7 +1163,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: Allow attack of opportunity on target that failed saving throw
             //Process other participants of the battle
             foreach (var unit in __instance.Battle.AllContenders
-                         .Where(x => x is { RulesetCharacter.IsDeadOrDyingOrUnconscious: false })
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .ToList())
             {
                 if (unit == defender || unit == attacker)

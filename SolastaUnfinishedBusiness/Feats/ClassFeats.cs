@@ -384,8 +384,7 @@ internal static class ClassFeats
 
             if (!me.CanReact() ||
                 me == ally ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

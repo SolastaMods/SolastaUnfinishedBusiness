@@ -672,8 +672,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             var rulesetEnemy = attacker.RulesetCharacter;
 
             if (!me.CanReact() ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
