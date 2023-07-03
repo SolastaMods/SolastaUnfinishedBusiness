@@ -1,9 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -118,6 +120,32 @@ public static class CharacterActionUsePowerPatcher
                 .ItemUsed?.Invoke(usableDevice.ItemDefinition.Name);
 
             return false;
+        }
+    }
+
+    //PATCH: Adds support to IUsePowerFinished
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.ExecuteImpl))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ExecuteImpl_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            [NotNull] CharacterActionUsePower __instance)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: IActionFinished
+            var power = __instance.activePower.PowerDefinition;
+
+            foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinished>())
+            {
+                usePowerFinished.OnUsePowerFinished(__instance);
+            }
         }
     }
 }
