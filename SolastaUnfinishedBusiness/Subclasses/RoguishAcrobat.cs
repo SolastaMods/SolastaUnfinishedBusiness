@@ -183,8 +183,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             ActionModifier attackModifier,
@@ -193,8 +192,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;

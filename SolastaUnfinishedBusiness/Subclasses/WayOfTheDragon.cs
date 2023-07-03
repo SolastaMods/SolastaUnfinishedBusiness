@@ -658,8 +658,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -668,8 +667,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             if (rulesetEffect == null)
             {

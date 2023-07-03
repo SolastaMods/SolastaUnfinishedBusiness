@@ -135,8 +135,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -145,8 +144,8 @@ internal sealed class RoguishDuelist : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             var rulesetDefender = defender.RulesetCharacter;
 

@@ -366,8 +366,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         }
 
         // collect damage type
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -376,8 +375,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 

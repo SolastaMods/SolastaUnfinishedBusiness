@@ -57,8 +57,7 @@ internal sealed class Merciless : AbstractFightingStyle
     {
         private bool isCritical;
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -67,8 +66,8 @@ internal sealed class Merciless : AbstractFightingStyle
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             isCritical = criticalHit;
 

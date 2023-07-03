@@ -151,8 +151,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             ActionModifier attackModifier,
@@ -161,8 +160,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             if (!me.CanReact())
             {

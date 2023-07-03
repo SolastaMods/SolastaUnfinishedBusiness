@@ -368,8 +368,7 @@ public static class GameLocationBattleManagerPatcher
                                  advantageType,
                                  actualEffectForms,
                                  rulesetEffect,
-                                 criticalHit,
-                                 firstTarget)))
+                                 firstTarget, criticalHit)))
                 {
                     while (extra.MoveNext())
                     {
@@ -397,8 +396,7 @@ public static class GameLocationBattleManagerPatcher
                                  advantageType,
                                  actualEffectForms,
                                  rulesetEffect,
-                                 criticalHit,
-                                 firstTarget)))
+                                 firstTarget, criticalHit)))
                 {
                     while (extra.MoveNext())
                     {
@@ -431,8 +429,7 @@ public static class GameLocationBattleManagerPatcher
                             advantageType,
                             actualEffectForms,
                             rulesetEffect,
-                            criticalHit,
-                            firstTarget);
+                            firstTarget, criticalHit);
                     }
                 }
             }

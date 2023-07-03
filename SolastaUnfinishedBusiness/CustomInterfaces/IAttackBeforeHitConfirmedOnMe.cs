@@ -9,8 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IAttackBeforeHitConfirmedOnMe
 {
     [UsedImplicitly]
-    IEnumerator OnAttackBeforeHitConfirmedOnMe(
-        GameLocationBattleManager battle,
+    IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
@@ -19,6 +18,6 @@ public interface IAttackBeforeHitConfirmedOnMe
         RuleDefinitions.AdvantageType advantageType,
         List<EffectForm> actualEffectForms,
         RulesetEffect rulesetEffect,
-        bool criticalHit,
-        bool firstTarget);
+        bool firstTarget,
+        bool criticalHit);
 }

@@ -183,17 +183,17 @@ internal class PatronMountain : AbstractSubclass
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter ally,
+            GameLocationCharacter me,
             ActionModifier attackModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (defender == ally)
+            if (defender == me)
             {
                 yield break;
             }
@@ -202,14 +202,14 @@ internal class PatronMountain : AbstractSubclass
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter ally,
+            GameLocationCharacter me,
             ActionModifier magicModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool criticalHit)
         {
-            if (defender == ally)
+            if (defender == me)
             {
                 yield break;
             }

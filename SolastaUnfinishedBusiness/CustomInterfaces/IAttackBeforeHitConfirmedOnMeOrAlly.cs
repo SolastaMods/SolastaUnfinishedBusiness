@@ -13,13 +13,13 @@ public interface IAttackBeforeHitConfirmedOnMeOrAlly
         GameLocationBattleManager battle,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter ally,
+        GameLocationCharacter me,
         ActionModifier attackModifier,
         RulesetAttackMode attackMode,
         bool rangedAttack,
         RuleDefinitions.AdvantageType advantageType,
         List<EffectForm> actualEffectForms,
         RulesetEffect rulesetEffect,
-        bool criticalHit,
-        bool firstTarget);
+        bool firstTarget,
+        bool criticalHit);
 }

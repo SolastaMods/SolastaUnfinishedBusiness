@@ -19,6 +19,6 @@ public interface IAttackBeforeHitConfirmedOnEnemy
         RuleDefinitions.AdvantageType advantageType,
         List<EffectForm> actualEffectForms,
         RulesetEffect rulesetEffect,
-        bool criticalHit,
-        bool firstTarget);
+        bool firstTarget,
+        bool criticalHit);
 }
