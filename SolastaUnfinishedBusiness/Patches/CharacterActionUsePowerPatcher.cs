@@ -122,30 +122,4 @@ public static class CharacterActionUsePowerPatcher
             return false;
         }
     }
-
-    //PATCH: Adds support to IUsePowerFinishedByMe
-    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.ExecuteImpl))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ExecuteImpl_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            [NotNull] IEnumerator values,
-            [NotNull] CharacterActionUsePower __instance)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            //PATCH: IActionFinishedByMe
-            var power = __instance.activePower.PowerDefinition;
-
-            foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinishedByMe>())
-            {
-                usePowerFinished.OnUsePowerFinishedByMe(__instance, power);
-            }
-        }
-    }
 }

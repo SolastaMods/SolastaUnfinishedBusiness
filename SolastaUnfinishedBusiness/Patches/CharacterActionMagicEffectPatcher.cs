@@ -129,6 +129,17 @@ public static class CharacterActionMagicEffectPatcher
                 yield return values.Current;
             }
 
+            //PATCH: Adds support to IUsePowerFinishedByMe
+            if (__instance is CharacterActionUsePower characterActionUsePower)
+            {
+                var power = characterActionUsePower.activePower.PowerDefinition;
+
+                foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinishedByMe>())
+                {
+                    usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower, power);
+                }
+            }
+
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
             var definition = __instance.GetBaseDefinition();
