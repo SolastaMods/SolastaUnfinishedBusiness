@@ -324,11 +324,11 @@ public static class CharacterActionMagicEffectPatcher
                          .ToList()) // avoid changing enumerator
             {
                 var allyFeatures =
-                    gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
+                    gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IAttackFinishedOnEnemy>();
 
                 foreach (var feature in allyFeatures)
                 {
-                    yield return feature.OnReactToAttackOnEnemyFinished(
+                    yield return feature.OnAttackFinishedOnEnemy(
                         attacker,
                         gameLocationAlly,
                         target,

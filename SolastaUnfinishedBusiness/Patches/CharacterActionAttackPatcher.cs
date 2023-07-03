@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionAttackPatcher
 {
-    //PATCH: Adds support to IReactToAttackOnEnemyFinished
+    //PATCH: Adds support to IAttackFinishedOnEnemy
     [HarmonyPatch(typeof(CharacterActionAttack), nameof(CharacterActionAttack.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -63,7 +63,7 @@ public static class CharacterActionAttackPatcher
             }
 
             //
-            // IReactToAttackOnEnemyFinished
+            // IAttackFinishedOnEnemy
             //
 
             if (Gui.Battle != null &&
@@ -77,11 +77,11 @@ public static class CharacterActionAttackPatcher
                              .ToList()) // avoid changing enumerator
                 {
                     var allyFeatures =
-                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IAttackFinishedOnEnemy>();
 
                     foreach (var feature in allyFeatures)
                     {
-                        yield return feature.OnReactToAttackOnEnemyFinished(
+                        yield return feature.OnAttackFinishedOnEnemy(
                             gameLocationAttacker, gameLocationAlly, gameLocationDefender, rollOutcome, actionParams,
                             attackMode,
                             actionModifier);

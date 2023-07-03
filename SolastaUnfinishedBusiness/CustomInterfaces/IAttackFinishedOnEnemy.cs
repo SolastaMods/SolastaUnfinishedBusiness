@@ -3,10 +3,10 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IReactToAttackOnEnemyFinished
+public interface IAttackFinishedOnEnemy
 {
     [UsedImplicitly]
-    public IEnumerator OnReactToAttackOnEnemyFinished(
+    public IEnumerator OnAttackFinishedOnEnemy(
         GameLocationCharacter ally,
         GameLocationCharacter me,
         GameLocationCharacter enemy,

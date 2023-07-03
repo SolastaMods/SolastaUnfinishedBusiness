@@ -341,7 +341,7 @@ internal static class ClassFeats
             .SetGuiPresentation("FeatExploiter", Category.Feat)
             .AddToDB();
 
-        featureExploiter.SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter(featureExploiter));
+        featureExploiter.SetCustomSubFeatures(new AttackFinishedOnMeOrAllyFeatExploiter(featureExploiter));
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
@@ -351,16 +351,16 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
+    private class AttackFinishedOnMeOrAllyFeatExploiter : IAttackFinishedOnEnemy
     {
         private readonly FeatureDefinition _featureExploiter;
 
-        public ReactToAttackOnMeOrAllyFinishedFeatExploiter(FeatureDefinition featureExploiter)
+        public AttackFinishedOnMeOrAllyFeatExploiter(FeatureDefinition featureExploiter)
         {
             _featureExploiter = featureExploiter;
         }
 
-        public IEnumerator OnReactToAttackOnEnemyFinished(
+        public IEnumerator OnAttackFinishedOnEnemy(
             GameLocationCharacter ally,
             GameLocationCharacter me,
             GameLocationCharacter enemy,
