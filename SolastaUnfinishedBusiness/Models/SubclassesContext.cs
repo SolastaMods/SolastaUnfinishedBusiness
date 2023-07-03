@@ -98,6 +98,7 @@ internal static class SubclassesContext
         LoadSubclass(new PatronEldritchSurge());
         LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
+        LoadSubclass(new PatronMountain());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
 

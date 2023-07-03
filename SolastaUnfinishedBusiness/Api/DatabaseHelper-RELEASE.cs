@@ -181,6 +181,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionKindredSpiritBondSavingThrows { get; } = GetDefinition<ConditionDefinition>("ConditionKindredSpiritBondSavingThrows");
         internal static ConditionDefinition ConditionLevitate { get; } = GetDefinition<ConditionDefinition>("ConditionLevitate");
         internal static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive");
+        internal static ConditionDefinition ConditionLongstrider { get; } = GetDefinition<ConditionDefinition>("ConditionLongstrider");
         internal static ConditionDefinition ConditionLuminousKi { get; } = GetDefinition<ConditionDefinition>("ConditionLuminousKi");
         internal static ConditionDefinition ConditionMagicallyArmored { get; } = GetDefinition<ConditionDefinition>("ConditionMagicallyArmored");
         internal static ConditionDefinition ConditionMalediction { get; } = GetDefinition<ConditionDefinition>("ConditionMalediction");
@@ -773,6 +774,10 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritBond { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritBond");
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritMagicalSpirit { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritMagicalSpirit");
+    }
+    internal static class FeatureDefinitionTerrainTypeAffinitys
+    {
+        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerMountain { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerMountain");
     }
     internal static class FightingStyleDefinitions
     {
