@@ -626,7 +626,7 @@ public static class GameLocationBattleManagerPatcher
                 {
                     // Can I always reduce a fixed damage amount (i.e.: Heavy Armor Feat)
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive:
-                        totalReducedDamage = feature.ReducedDamage;
+                        totalReducedDamage = feature.ReducedDamage(attacker, defender);
                         break;
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
@@ -668,7 +668,7 @@ public static class GameLocationBattleManagerPatcher
                             continue;
                         }
 
-                        totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
+                        totalReducedDamage = feature.ReducedDamage(attacker, defender) * reactionParams.IntParameter;
                         break;
                     }
 

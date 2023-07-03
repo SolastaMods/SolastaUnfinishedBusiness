@@ -7,8 +7,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionReduceDamageBuilder
-    : DefinitionBuilder<FeatureDefinitionReduceDamage,
-        FeatureDefinitionReduceDamageBuilder>
+    : DefinitionBuilder<FeatureDefinitionReduceDamage, FeatureDefinitionReduceDamageBuilder>
 {
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
@@ -18,7 +17,9 @@ internal class FeatureDefinitionReduceDamageBuilder
     }
 
     [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(int reducedDamage, params string[] damageTypes)
+    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(
+        Func<GameLocationCharacter, GameLocationCharacter, int> reducedDamage,
+        params string[] damageTypes)
     {
         Definition.DamageTypes.SetRange(damageTypes);
         Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
@@ -28,7 +29,9 @@ internal class FeatureDefinitionReduceDamageBuilder
 
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetConsumeSpellSlotsReducedDamage(
-        CharacterClassDefinition spellCastingClass, int reducedDamage, params string[] damageTypes)
+        CharacterClassDefinition spellCastingClass,
+        Func<GameLocationCharacter, GameLocationCharacter, int> reducedDamage,
+        params string[] damageTypes)
     {
         Definition.SpellCastingClass = spellCastingClass;
         Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot;
