@@ -253,7 +253,7 @@ internal class PatronMountain : AbstractSubclass
         {
             if (defender != me)
             {
-                yield return HandleReaction(me);
+                yield return HandleReaction(attacker, me);
             }
         }
 
@@ -269,11 +269,11 @@ internal class PatronMountain : AbstractSubclass
         {
             if (defender != me)
             {
-                yield return HandleReaction(me);
+                yield return HandleReaction(attacker, me);
             }
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter me)
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter me)
         {
             var gameLocationBattleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -281,6 +281,11 @@ internal class PatronMountain : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (gameLocationBattleManager == null || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            if (!gameLocationBattleManager.IsWithinXCells(me, attacker, 6))
             {
                 yield break;
             }
