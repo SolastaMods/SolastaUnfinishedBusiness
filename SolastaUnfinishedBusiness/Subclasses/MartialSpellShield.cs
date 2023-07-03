@@ -15,8 +15,9 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialSpellShield : AbstractSubclass
 {
-    internal const string Name = "SpellShield";
-
+    private const string Name = "SpellShield";
+    internal const string FullName = $"Martial{Name}";
+    
     internal MartialSpellShield()
     {
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
