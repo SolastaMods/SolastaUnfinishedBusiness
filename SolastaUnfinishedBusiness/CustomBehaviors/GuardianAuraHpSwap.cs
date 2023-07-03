@@ -67,7 +67,7 @@ internal static class GuardianAuraHpSwap
             yield break;
         }
 
-        if (defender.RulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
+        if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
         {
             yield break;
         }

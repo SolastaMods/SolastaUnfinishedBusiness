@@ -395,7 +395,6 @@ internal sealed class MartialMarshal : AbstractSubclass
             }
 
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var allies = new List<GameLocationCharacter>();
 
             foreach (var guestCharacter in characterService.GuestCharacters.ToList())

@@ -181,7 +181,7 @@ internal static class CustomSituationalContext
 
             if (locationCharacters.Any(locationCharacter =>
                     locationCharacter == summoner &&
-                    locationCharacter.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+                    locationCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionIncapacitated)))
             {
                 return true;
