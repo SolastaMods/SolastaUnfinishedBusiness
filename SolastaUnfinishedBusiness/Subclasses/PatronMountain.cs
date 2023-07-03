@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -42,6 +44,53 @@ internal class PatronMountain : AbstractSubclass
 
         // Barrier of Stone
 
+
+        var conditionBarrierOfStone = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BarrierOfStone")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        var reduceDamageBarrierOfStone = FeatureDefinitionReduceDamageBuilder
+            .Create($"ReduceDamage{Name}BarrierOfStone")
+            .SetGuiPresentation($"Power{Name}BarrierOfStone", Category.Feature)
+            .SetAlwaysActiveReducedDamage((_, defender) =>
+            {
+                var rulesetCharacter = defender.RulesetCharacter;
+
+                if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    return 0;
+                }
+
+                var usableCondition =
+                    rulesetCharacter.AllConditions.FirstOrDefault(x =>
+                        x.ConditionDefinition == conditionBarrierOfStone);
+
+                if (usableCondition == null)
+                {
+                    return 0;
+                }
+
+                var rulesetCaster = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
+
+                if (rulesetCaster == null)
+                {
+                    return 0;
+                }
+
+                var levels = rulesetCaster.GetClassLevel(CharacterClassDefinitions.Warlock);
+                var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetCaster.TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+                return (2 * levels) + charismaModifier;
+            })
+            .AddToDB();
+
+        conditionBarrierOfStone.Features.Add(reduceDamageBarrierOfStone);
+
         var powerBarrierOfStone = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BarrierOfStone")
             .SetGuiPresentation(Category.Feature)
@@ -49,7 +98,8 @@ internal class PatronMountain : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerBarrierOfStone.SetCustomSubFeatures(new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone));
+        powerBarrierOfStone.SetCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, conditionBarrierOfStone));
 
         // Knowledge of Aeons
 
@@ -95,10 +145,14 @@ internal class PatronMountain : AbstractSubclass
 
         var powerEternalGuardian = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EternalGuardian")
+            .SetGuiPresentation(Category.Feature)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
             .SetReactionContext(ExtraReactionContext.Custom)
             .SetOverriddenPower(powerBarrierOfStone)
             .AddToDB();
+
+        powerEternalGuardian.SetCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerEternalGuardian, conditionBarrierOfStone));
 
         // LEVEL 10
 
@@ -172,11 +226,15 @@ internal class PatronMountain : AbstractSubclass
     private class AttackBeforeHitConfirmedOnMeBarrierOfStone :
         IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
     {
+        private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public AttackBeforeHitConfirmedOnMeBarrierOfStone(FeatureDefinitionPower featureDefinitionPower)
+        public AttackBeforeHitConfirmedOnMeBarrierOfStone(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
@@ -193,9 +251,9 @@ internal class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (defender == me)
+            if (defender != me)
             {
-                yield break;
+                yield return HandleReaction(me);
             }
         }
 
@@ -209,20 +267,20 @@ internal class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (defender == me)
+            if (defender != me)
             {
-                yield break;
+                yield return HandleReaction(me);
             }
         }
 
-        public IEnumerator HandleReaction(
-            GameLocationBattleManager battle,
-            GameLocationCharacter me)
+        private IEnumerator HandleReaction(GameLocationCharacter me)
         {
+            var gameLocationBattleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (gameLocationBattleManager == null || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -252,7 +310,8 @@ internal class PatronMountain : AbstractSubclass
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+            yield return gameLocationBattleManager.WaitForReactions(me, gameLocationActionManager,
+                previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -264,6 +323,20 @@ internal class PatronMountain : AbstractSubclass
             //
             // implement damage reduction
             //
+
+            rulesetMe.InflictCondition(
+                _conditionDefinition.Name,
+                _conditionDefinition.DurationType,
+                _conditionDefinition.DurationParameter,
+                _conditionDefinition.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetMe.Guid,
+                rulesetMe.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

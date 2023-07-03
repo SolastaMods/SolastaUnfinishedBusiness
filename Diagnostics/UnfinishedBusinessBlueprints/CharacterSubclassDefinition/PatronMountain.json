@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPatronMountainBarrierOfStone:d3db5998-2ff7-5449-8c40-fd3e7856267c",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityPatronMountainExpandedSpells:5887e8a6-4b93-5e34-a8b3-decc4d120d9c",
       "level": 1
     },
