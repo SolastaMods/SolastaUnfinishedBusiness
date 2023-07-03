@@ -1,0 +1,36 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Armor",
+  "proficiencies": [
+    "LightArmorCategory",
+    "MediumArmorCategory"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ProficiencyIronbornDwarfArmorTrainingTitle",
+    "description": "Feature/&ProficiencyIronbornDwarfArmorTrainingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6b3b86a5-5a8e-5208-b590-d63322af3186",
+  "contentPack": 9999,
+  "name": "ProficiencyIronbornDwarfArmorTraining"
+}
