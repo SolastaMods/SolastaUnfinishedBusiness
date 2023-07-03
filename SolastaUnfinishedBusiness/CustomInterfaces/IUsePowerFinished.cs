@@ -6,5 +6,5 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IUsePowerFinished
 {
     [UsedImplicitly]
-    public IEnumerator OnUsePowerFinished(CharacterActionUsePower characterActionUsePower);
+    public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power);
 }

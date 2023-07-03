@@ -255,12 +255,11 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Tempest Swiftness
     //
 
-    private sealed class ActionFinishedTempestSwiftness : IActionFinished
+    private sealed class ActionFinishedTempestSwiftness : IUsePowerFinished
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)
+            if (power != PowerMonkFlurryOfBlows)
             {
                 yield break;
             }
@@ -400,7 +399,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Eye of The Storm
     //
 
-    private sealed class ActionFinishedEyeOfTheStorm : IActionFinished
+    private sealed class ActionFinishedEyeOfTheStorm : IUsePowerFinished
     {
         private readonly ConditionDefinition _conditionEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStorm;
@@ -416,10 +415,9 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerEyeOfTheStorm)
+            if (power != _powerEyeOfTheStorm)
             {
                 yield break;
             }

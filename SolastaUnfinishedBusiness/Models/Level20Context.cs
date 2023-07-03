@@ -801,7 +801,7 @@ internal static class Level20Context
         return invocationPoolWizardSignatureSpells;
     }
 
-    private sealed class ActionFinishedArchDruid : IActionFinished
+    private sealed class ActionFinishedArchDruid : IUsePowerFinished
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -810,9 +810,9 @@ internal static class Level20Context
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower)
+            if (power != PowerDruidWildShape && power != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
             {
                 yield break;
             }
@@ -824,19 +824,12 @@ internal static class Level20Context
                 yield break;
             }
 
-            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
-            var powerCircleOfTheNightWildShapeCombat = CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat;
-
-            if (powerDefinition != PowerDruidWildShape && powerDefinition != powerCircleOfTheNightWildShapeCombat)
-            {
-                yield break;
-            }
-
             var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacter);
 
             usablePower.Recharge();
 
-            var usablePowerNight = UsablePowersProvider.Get(powerCircleOfTheNightWildShapeCombat, rulesetCharacter);
+            var usablePowerNight = UsablePowersProvider.Get(
+                CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat, rulesetCharacter);
 
             usablePowerNight.Recharge();
 

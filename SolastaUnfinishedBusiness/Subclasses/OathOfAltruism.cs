@@ -143,27 +143,21 @@ internal sealed class OathOfAltruism : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class AfterActionFinishedTakeThePain : IActionFinished
+    private sealed class AfterActionFinishedTakeThePain : IUsePowerFinished
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (!power.Name.StartsWith($"Power{Name}TakeThePain"))
+            {
+                yield break;
+            }
+
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
             {
                 yield break;
             }
 
-            if (action.ActingCharacter == null)
-            {
-                yield break;
-            }
-
             var self = action.ActingCharacter;
-
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                !characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}TakeThePain"))
-            {
-                yield break;
-            }
 
             foreach (var character in action.ActionParams.targetCharacters)
             {

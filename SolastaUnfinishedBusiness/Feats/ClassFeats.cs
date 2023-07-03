@@ -589,12 +589,11 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class ActionFinishedHardy : IActionFinished
+    private sealed class ActionFinishedHardy : IUsePowerFinished
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
+            if (power != PowerFighterSecondWind)
             {
                 yield break;
             }
@@ -1028,35 +1027,24 @@ internal static class ClassFeats
                 .AddToDB();
     }
 
-    private sealed class ActionFinishedFeatSpiritualFluidity : IActionFinished
+    private sealed class ActionFinishedFeatSpiritualFluidity : IUsePowerFinished
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            switch (action)
+            var character = action.ActingCharacter.RulesetCharacter;
+
+            if (power.Name.StartsWith(
+                    "PowerFeatSpiritualFluidityGainChannelDivinityFromSlot"))
             {
-                case CharacterActionUsePower characterActionUsePowerGainChannel when
-                    characterActionUsePowerGainChannel.activePower.PowerDefinition.Name.StartsWith(
-                        "PowerFeatSpiritualFluidityGainChannelDivinityFromSlot"):
-                {
-                    var character = action.ActingCharacter.RulesetCharacter;
-                    var name = characterActionUsePowerGainChannel.activePower.PowerDefinition.Name;
-                    var level = int.Parse(name.Substring(name.Length - 1, 1));
-                    var repertoire = character.GetClassSpellRepertoire(Cleric);
+                var name = power.Name;
+                var level = int.Parse(name.Substring(name.Length - 1, 1));
+                var repertoire = character.GetClassSpellRepertoire(Cleric);
 
-                    repertoire?.SpendSpellSlot(level);
-
-                    break;
-                }
-                case CharacterActionUsePower characterActionUsePowerGainSlot when
-                    characterActionUsePowerGainSlot.activePower.PowerDefinition.Name.StartsWith(
-                        "PowerFeatSpiritualFluidityGainSlot"):
-                {
-                    var character = action.ActingCharacter.RulesetCharacter;
-
-                    character.UsedChannelDivinity += 1;
-
-                    break;
-                }
+                repertoire?.SpendSpellSlot(level);
+            }
+            else if (power.Name.StartsWith("PowerFeatSpiritualFluidityGainSlot"))
+            {
+                character.UsedChannelDivinity += 1;
             }
 
             yield break;
@@ -1165,19 +1153,17 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class ActionFinishedFeatSlayTheEnemies : IActionFinished
+    private sealed class ActionFinishedFeatSlayTheEnemies : IUsePowerFinished
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePowerSlayTheEnemies ||
-                !characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name.StartsWith(
-                    "PowerFeatSlayTheEnemies"))
+            if (!power.Name.StartsWith("PowerFeatSlayTheEnemies"))
             {
                 yield break;
             }
 
             var character = action.ActingCharacter.RulesetCharacter;
-            var name = characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name;
+            var name = power.Name;
             var level = int.Parse(name.Substring(name.Length - 1, 1));
             var repertoire = character.GetClassSpellRepertoire(Ranger);
 

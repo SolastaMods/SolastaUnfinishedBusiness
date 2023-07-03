@@ -358,7 +358,7 @@ internal sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedBifrost : IActionFinished
+    private sealed class ActionFinishedBifrost : IUsePowerFinished
     {
         private readonly FeatureDefinitionPower _powerBifrost;
         private readonly FeatureDefinitionPower _powerBifrostDamage;
@@ -371,10 +371,9 @@ internal sealed class OathOfThunder : AbstractSubclass
             _powerBifrostDamage = powerBifrostDamage;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerBifrost)
+            if (power != _powerBifrost)
             {
                 yield break;
             }
@@ -386,7 +385,7 @@ internal sealed class OathOfThunder : AbstractSubclass
                 yield break;
             }
 
-            var attacker = characterAction.ActingCharacter;
+            var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()

@@ -562,7 +562,7 @@ public static class InnovationArtillerist
 
     #region REFUND CANNON
 
-    private class CustomBehaviorRefundCannon : IPowerUseValidity, IActionFinished
+    private class CustomBehaviorRefundCannon : IPowerUseValidity, IUsePowerFinished
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
@@ -571,10 +571,28 @@ public static class InnovationArtillerist
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            var hasUsedPowerActivate = character.UsablePowers
+                .Any(x => x.RemainingUses == 0 &&
+                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
+                          x.PowerDefinition.Name.EndsWith("Activate"));
+
+            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+
+            return hasUsedPowerActivate && hasSpellSlotsAvailable;
+        }
+
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _featureDefinitionPower)
             {
                 yield break;
             }
@@ -599,25 +617,6 @@ public static class InnovationArtillerist
             var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
 
             spellRepertoire.SpendSpellSlot(slotLevel);
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
-            var hasUsedPowerActivate = character.UsablePowers
-                .Any(x => x.RemainingUses == 0 &&
-                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
-                          x.PowerDefinition.Name.EndsWith("Activate"));
-
-            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
-
-            return hasUsedPowerActivate && hasSpellSlotsAvailable;
         }
     }
 

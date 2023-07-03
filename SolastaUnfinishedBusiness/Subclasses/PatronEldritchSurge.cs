@@ -221,7 +221,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorBlastPursuitOrOverload : IActionFinished, IPowerUseValidity
+    private sealed class CustomBehaviorBlastPursuitOrOverload : IUsePowerFinished, IPowerUseValidity
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _triggerPower;
@@ -232,27 +232,6 @@ internal class PatronEldritchSurge : AbstractSubclass
         {
             _triggerPower = triggerPower;
             _conditionDefinition = conditionDefinition;
-        }
-
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _triggerPower)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
-            var rulesetHero = rulesetCharacter.GetOriginalHero();
-
-            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var slotLevel = SharedSpellsContext.GetWarlockSpellLevel(rulesetHero);
-
-            SharedSpellsContext.GetWarlockSpellRepertoire(rulesetHero)?.SpendSpellSlot(slotLevel);
         }
 
         public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
@@ -266,6 +245,26 @@ internal class PatronEldritchSurge : AbstractSubclass
 
             return !rulesetCharacter.HasConditionOfType(_conditionDefinition) &&
                    SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) >= 1;
+        }
+
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _triggerPower)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
+
+            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var slotLevel = SharedSpellsContext.GetWarlockSpellLevel(rulesetHero);
+
+            SharedSpellsContext.GetWarlockSpellRepertoire(rulesetHero)?.SpendSpellSlot(slotLevel);
         }
     }
 

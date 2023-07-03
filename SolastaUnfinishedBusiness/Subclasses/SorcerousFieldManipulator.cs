@@ -202,22 +202,8 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class ActionInitiatedDisplacement : IActionInitiated, IActionFinished
+    private sealed class ActionInitiatedDisplacement : IActionInitiated, IUsePowerFinished
     {
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            var rulesetEffect = characterAction.ActionParams.RulesetEffect;
-
-            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != PowerSorcerousFieldManipulatorDisplacement)
-            {
-                yield break;
-            }
-
-            // bring back power target type to position
-            rulesetEffectPower.EffectDescription.targetType = TargetType.Position;
-        }
-
         public IEnumerator OnActionInitiated(CharacterAction characterAction)
         {
             var rulesetEffect = characterAction.ActionParams.RulesetEffect;
@@ -235,6 +221,19 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
             // make target type individuals unique to trigger the game and only teleport targets
             rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
+        }
+
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != PowerSorcerousFieldManipulatorDisplacement)
+            {
+                yield break;
+            }
+
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+
+            // bring back power target type to position
+            rulesetEffect.EffectDescription.targetType = TargetType.Position;
         }
 
         private static int3 GetFinalPosition(GameLocationCharacter target, int3 position)
@@ -336,7 +335,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step Apply
     //
 
-    private sealed class ActionFinishedForcefulStep : IActionFinished
+    private sealed class ActionFinishedForcefulStep : IUsePowerFinished
     {
         private readonly FeatureDefinitionPower _powerApply;
 
@@ -345,11 +344,9 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             _powerApply = powerApply;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                (characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepFixed" &&
-                 characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepPoints"))
+            if (power.Name != $"Power{Name}ForcefulStepFixed" && power.Name != $"Power{Name}ForcefulStepPoints")
             {
                 yield break;
             }

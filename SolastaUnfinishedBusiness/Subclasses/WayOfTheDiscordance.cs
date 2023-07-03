@@ -230,7 +230,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class AttackEffectAfterDamageDiscordance : IActionFinished, IAttackEffectAfterDamage
+    private sealed class AttackEffectAfterDamageDiscordance : IUsePowerFinished, IAttackEffectAfterDamage
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
@@ -244,16 +244,38 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             _powerDiscordanceDamage = powerDiscordanceDamage;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        // only add condition if monk weapon or unarmed
+        public void OnAttackEffectAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
+                !attacker.RulesetCharacter.IsMonkWeapon(item))
+            {
+                return;
+            }
+
+            ApplyCondition(attacker, defender);
+        }
+
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var gameLocationAttacker = action.ActingCharacter;
             var rulesetAttacker = gameLocationAttacker.RulesetCharacter;
 
             // force expend ki points depending on power level used
-            if (action is CharacterActionUsePower characterActionUsePower &&
-                characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}BurstOfDisharmony"))
+            if (power.Name.StartsWith($"Power{Name}BurstOfDisharmony"))
             {
-                var name = characterActionUsePower.activePower.PowerDefinition.Name;
+                var name = power.Name;
                 var kiPoints = int.Parse(name.Substring(name.Length - 1, 1));
                 var kiPointsAltered = rulesetAttacker.KiPointsAltered;
 
@@ -288,7 +310,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                                  .Count
                          })
                          .Where(t =>
-                             t.gameLocationCharacter.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+                             t.gameLocationCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              t.discordanceCount >= DiscordanceLimit)
                          .Select(t => t.gameLocationCharacter)
                          .ToList()) // avoid changing enumerator
@@ -335,29 +357,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             yield break;
-        }
-
-        // only add condition if monk weapon or unarmed
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
-                !attacker.RulesetCharacter.IsMonkWeapon(item))
-            {
-                return;
-            }
-
-            ApplyCondition(attacker, defender);
         }
 
         private void ApplyCondition(IControllableCharacter attacker, IControllableCharacter defender)

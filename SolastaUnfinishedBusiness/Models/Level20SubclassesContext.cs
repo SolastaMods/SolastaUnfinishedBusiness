@@ -859,7 +859,7 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IActionFinished
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IUsePowerFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -870,30 +870,6 @@ internal static class Level20SubclassesContext
         {
             _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
-        }
-
-
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
-            if (characterAction.ActionParams.TargetCharacters.Count == 0)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
-            var rulesetCondition = rulesetDefender?.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (rulesetCondition != null)
-            {
-                rulesetDefender.RemoveCondition(rulesetCondition);
-            }
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -917,6 +893,29 @@ internal static class Level20SubclassesContext
             }
 
             return isValid;
+        }
+
+
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
+            if (action.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+            var rulesetCondition = rulesetDefender?.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetDefender.RemoveCondition(rulesetCondition);
+            }
         }
     }
 
@@ -975,7 +974,7 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class ActionFinishedQuiveringPalm : IActionFinished
+    private sealed class ActionFinishedQuiveringPalm : IUsePowerFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -988,12 +987,11 @@ internal static class Level20SubclassesContext
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var battle = Gui.Battle;
 
-            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            if (battle == null || power != _featureDefinitionPower)
             {
                 yield break;
             }

@@ -144,7 +144,7 @@ public static class CharacterActionUsePowerPatcher
 
             foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinished>())
             {
-                usePowerFinished.OnUsePowerFinished(__instance);
+                usePowerFinished.OnUsePowerFinished(__instance, power);
             }
         }
     }

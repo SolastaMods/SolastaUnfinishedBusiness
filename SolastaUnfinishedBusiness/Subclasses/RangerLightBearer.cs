@@ -424,7 +424,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class ActionFinishedAngelicForm : IActionFinished
+    private sealed class ActionFinishedAngelicForm : IUsePowerFinished
     {
         private static FeatureDefinitionPower _featureDefinitionPower;
 
@@ -433,10 +433,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinished(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            if (power != _featureDefinitionPower)
             {
                 yield break;
             }
