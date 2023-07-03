@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IChangeSpellDC
+public interface IModifySpellDC
 {
     int GetSpellDC(RulesetCharacter caster);
 }

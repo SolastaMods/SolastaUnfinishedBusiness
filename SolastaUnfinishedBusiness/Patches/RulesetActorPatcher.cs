@@ -507,7 +507,7 @@ public static class RulesetActorPatcher
             }
             else
             {
-                var changeDiceRollList = actor.GetSubFeaturesByType<IChangeDiceRoll>();
+                var changeDiceRollList = actor.GetSubFeaturesByType<IModifyDiceRoll>();
 
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {

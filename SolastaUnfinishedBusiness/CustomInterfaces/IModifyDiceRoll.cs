@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IChangeDiceRoll
+public interface IModifyDiceRoll
 {
     [UsedImplicitly]
     public void BeforeRoll(

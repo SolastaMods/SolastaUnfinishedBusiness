@@ -85,7 +85,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AttackComputeModifierMarshalKnowYourEnemy())
+            .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
@@ -490,7 +490,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private sealed class AttackComputeModifierMarshalKnowYourEnemy : IAttackComputeModifier
+    private sealed class ModifyAttackActionModifierMarshalKnowYourEnemy : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
             RulesetCharacter myself,

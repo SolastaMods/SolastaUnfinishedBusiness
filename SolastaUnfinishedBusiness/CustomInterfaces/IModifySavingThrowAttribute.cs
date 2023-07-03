@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IChangeSavingThrowAttribute
+public interface IModifySavingThrowAttribute
 {
     public bool IsValid(RulesetActor rulesetActor, string attributeScore);
 

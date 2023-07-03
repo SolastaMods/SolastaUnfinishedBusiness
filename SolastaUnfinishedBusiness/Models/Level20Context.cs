@@ -126,9 +126,9 @@ internal static class Level20Context
     private static void BarbarianLoad()
     {
         var changeAbilityCheckBarbarianIndomitableMight = FeatureDefinitionBuilder
-            .Create("ChangeAbilityCheckBarbarianIndomitableMight")
+            .Create("ModifyAbilityCheckBarbarianIndomitableMight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ChangeAbilityCheckBarbarianIndomitableMight())
+            .SetCustomSubFeatures(new ModifyAbilityCheckBarbarianIndomitableMight())
             .AddToDB();
 
         var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
@@ -837,7 +837,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ChangeAbilityCheckBarbarianIndomitableMight : IChangeAbilityCheck
+    private sealed class ModifyAbilityCheckBarbarianIndomitableMight : IModifyAbilityCheck
     {
         public int MinRoll(
             [CanBeNull] RulesetCharacter character,

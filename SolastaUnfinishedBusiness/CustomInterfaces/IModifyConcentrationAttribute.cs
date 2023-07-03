@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IChangeConcentrationAttribute
+public interface IModifyConcentrationAttribute
 {
     public bool IsValid(RulesetActor rulesetActor);
 

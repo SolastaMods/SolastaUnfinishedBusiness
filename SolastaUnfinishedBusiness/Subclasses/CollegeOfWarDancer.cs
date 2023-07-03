@@ -379,7 +379,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class FocusedWarDance : IChangeConcentrationAttribute
+    private sealed class FocusedWarDance : IModifyConcentrationAttribute
     {
         public bool IsValid(RulesetActor rulesetActor)
         {

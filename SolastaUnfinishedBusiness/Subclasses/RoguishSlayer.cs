@@ -195,7 +195,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiatedByMe, IAttackComputeModifier
+    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiatedByMe, IModifyAttackActionModifier
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;

@@ -63,7 +63,7 @@ internal sealed class OathOfThunder : AbstractSubclass
 
         featureHammersBoon.SetCustomSubFeatures(
             ReturningWeapon.Instance,
-            new ModifyWeaponAttackModeHammerAndAxeBoon(featureHammersBoon));
+            new ModifyWeaponModifyAttackModeHammerAndAxeBoon(featureHammersBoon));
 
         // ThunderousRebuke
 
@@ -275,11 +275,11 @@ internal sealed class OathOfThunder : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyWeaponAttackModeHammerAndAxeBoon : IModifyWeaponAttackMode, IAttackComputeModifier
+    private sealed class ModifyWeaponModifyAttackModeHammerAndAxeBoon : IModifyWeaponAttackMode, IModifyAttackActionModifier
     {
         private readonly FeatureDefinition _featureHammersBoon;
 
-        public ModifyWeaponAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
+        public ModifyWeaponModifyAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
         {
             _featureHammersBoon = featureHammersBoon;
         }

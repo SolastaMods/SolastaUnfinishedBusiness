@@ -40,7 +40,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .AddToDB();
 
         magicAffinitySpellShieldCombatMagicVigor.SetCustomSubFeatures(
-            new ComputeModifierMagicAffinityCombatMagicVigor(magicAffinitySpellShieldCombatMagicVigor));
+            new ActionModifierMagicAffinityCombatMagicVigor(magicAffinitySpellShieldCombatMagicVigor));
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
             .Create($"Condition{Name}ArcaneDeflection")
@@ -107,11 +107,11 @@ internal sealed class MartialSpellShield : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ComputeModifierMagicAffinityCombatMagicVigor : IAttackComputeModifier, IChangeSpellDC
+    private sealed class ActionModifierMagicAffinityCombatMagicVigor : IModifyAttackActionModifier, IModifySpellDC
     {
         private readonly FeatureDefinitionMagicAffinity _featureDefinitionMagicAffinity;
 
-        public ComputeModifierMagicAffinityCombatMagicVigor(
+        public ActionModifierMagicAffinityCombatMagicVigor(
             FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity)
         {
             _featureDefinitionMagicAffinity = featureDefinitionMagicAffinity;

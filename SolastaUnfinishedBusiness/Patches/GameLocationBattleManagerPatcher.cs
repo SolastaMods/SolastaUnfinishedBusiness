@@ -760,7 +760,7 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            var attackModifiers = attacker.GetSubFeaturesByType<IAttackComputeModifier>();
+            var attackModifiers = attacker.GetSubFeaturesByType<IModifyAttackActionModifier>();
 
             foreach (var feature in attackModifiers)
             {

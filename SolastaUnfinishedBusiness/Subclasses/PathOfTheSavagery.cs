@@ -143,7 +143,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
 
-        featureFuriousDefense.SetCustomSubFeatures(new ChangeSavingThrowAttributeFuriousDefense(featureFuriousDefense));
+        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowAttributeFuriousDefense(featureFuriousDefense));
 
         // MAIN
 
@@ -289,11 +289,11 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class ChangeSavingThrowAttributeFuriousDefense : IChangeSavingThrowAttribute
+    private sealed class ModifySavingThrowAttributeFuriousDefense : IModifySavingThrowAttribute
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ChangeSavingThrowAttributeFuriousDefense(FeatureDefinition featureDefinition)
+        public ModifySavingThrowAttributeFuriousDefense(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

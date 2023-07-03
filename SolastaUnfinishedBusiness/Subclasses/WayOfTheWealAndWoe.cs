@@ -86,7 +86,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorWealAndWoe : IAttackEffectAfterDamage, IChangeDiceRoll
+    private sealed class CustomBehaviorWealAndWoe : IAttackEffectAfterDamage, IModifyDiceRoll
     {
         private readonly ConditionDefinition _conditionWeal;
         private readonly FeatureDefinition _featureBrutalWeal;

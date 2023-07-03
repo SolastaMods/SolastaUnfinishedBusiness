@@ -2,9 +2,9 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IModifyMyAttackCritThreshold
+public interface IModifyAttackCriticalThreshold
 {
     [UsedImplicitly]
-    public int TryModifyMyAttackCritThreshold(
+    public int GetCriticalThreshold(
         int current, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod);
 }
