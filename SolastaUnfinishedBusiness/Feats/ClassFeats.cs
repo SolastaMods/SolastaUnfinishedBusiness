@@ -341,7 +341,7 @@ internal static class ClassFeats
             .SetGuiPresentation("FeatExploiter", Category.Feat)
             .AddToDB();
 
-        featureExploiter.SetCustomSubFeatures(new AttackFinishedOnMeOrAllyFeatExploiter(featureExploiter));
+        featureExploiter.SetCustomSubFeatures(new PhysicalAttackFinishedOnMeOrAllyFeatExploiter(featureExploiter));
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
@@ -351,23 +351,21 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class AttackFinishedOnMeOrAllyFeatExploiter : IAttackFinishedOnEnemy
+    private class PhysicalAttackFinishedOnMeOrAllyFeatExploiter :
+        IMagicalAttackFinishedOnEnemy, IPhysicalAttackFinishedOnEnemy
     {
         private readonly FeatureDefinition _featureExploiter;
 
-        public AttackFinishedOnMeOrAllyFeatExploiter(FeatureDefinition featureExploiter)
+        public PhysicalAttackFinishedOnMeOrAllyFeatExploiter(FeatureDefinition featureExploiter)
         {
             _featureExploiter = featureExploiter;
         }
 
-        public IEnumerator OnAttackFinishedOnEnemy(
-            GameLocationCharacter ally,
+        private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             GameLocationCharacter me,
-            GameLocationCharacter enemy,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            RollOutcome outcome)
         {
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
@@ -380,10 +378,10 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var rulesetEnemy = enemy.RulesetCharacter;
+            var rulesetEnemy = defender.RulesetCharacter;
 
             if (!me.CanReact() ||
-                me == ally ||
+                me == attacker ||
                 rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
@@ -397,7 +395,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(enemy);
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(defender);
 
             if (retaliationMode == null || retaliationMode.ranged)
             {
@@ -408,8 +406,8 @@ internal static class ClassFeats
 
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
 
-            reactionParams.TargetCharacters.Add(enemy);
-            reactionParams.StringParameter = ally.Name;
+            reactionParams.TargetCharacters.Add(defender);
+            reactionParams.StringParameter = attacker.Name;
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
@@ -426,6 +424,33 @@ internal static class ClassFeats
             }
 
             me.RulesetCharacter.LogCharacterUsedFeature(_featureExploiter);
+        }
+
+        public IEnumerator OnMagicalAttackFinishedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter ally,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield break;
+            // yield return HandleReaction(attacker, defender, ally); //TODO: fix this later before next release
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnEnemy(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter ally,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            yield return HandleReaction(attacker, defender, ally, attackRollOutcome);
         }
     }
 

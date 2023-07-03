@@ -396,7 +396,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .AddToDB();
 
-        featureAdvantage.SetCustomSubFeatures(new ModifyAttackActionModifierShadowBlade(itemShadowBlade, featureAdvantage));
+        featureAdvantage.SetCustomSubFeatures(
+            new ModifyAttackActionModifierShadowBlade(itemShadowBlade, featureAdvantage));
 
         var conditionShadowBlade = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")

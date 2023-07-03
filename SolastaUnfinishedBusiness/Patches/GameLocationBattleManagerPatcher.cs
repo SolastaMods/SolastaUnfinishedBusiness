@@ -1029,7 +1029,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            // ReSharper disable once InvertIf
+            //PATCH: support for `IMagicalAttackFinishedByMe`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
@@ -1038,6 +1038,27 @@ public static class GameLocationBattleManagerPatcher
                 {
                     yield return feature.OnMagicalAttackFinishedByMe(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
+            }
+            
+            //PATCH: support for `IMagicalAttackFinishedOnEnemy`
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var ally in __instance.battle.GetMyContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
+                {
+                    foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IMagicalAttackFinishedOnEnemy>())
+                    {
+                        yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
+                            .OnMagicalAttackFinishedOnEnemy(
+                                attacker, defender, ally, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                                criticalHit);
+                    }
                 }
             }
         }
@@ -1221,7 +1242,8 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            foreach (var attackInitiated in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
+            foreach (var attackInitiated in
+                     attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
             {
                 yield return attackInitiated.OnAttackInitiatedByMe(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
@@ -1306,6 +1328,26 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
+            if (__instance.Battle != null)
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var gameLocationAlly in Gui.Battle.GetMyContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
+                {
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnEnemy>();
+
+                    foreach (var feature in allyFeatures)
+                    {
+                        yield return feature.OnPhysicalAttackFinishedOnEnemy(
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                            attackRollOutcome,
+                            damageAmount);
+                    }
+                }
+            }
+
             // ReSharper disable once InvertIf
             if (__instance.Battle != null)
             {
@@ -1314,13 +1356,14 @@ public static class GameLocationBattleManagerPatcher
                              .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
-                    var allyFeatures = gameLocationAlly.RulesetCharacter
-                        .GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
 
                     foreach (var feature in allyFeatures)
                     {
                         yield return feature.OnAttackFinishedOnMeOrAlly(
-                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode, attackRollOutcome,
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                            attackRollOutcome,
                             damageAmount);
                     }
                 }

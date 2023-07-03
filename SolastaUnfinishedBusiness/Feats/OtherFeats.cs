@@ -748,6 +748,20 @@ internal static class OtherFeats
     private class CustomBehaviorFeatPoisonousSkin :
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
+        //Poison character that shoves me
+        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
+
+        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        {
+            if (characterAction.ActionParams.TargetCharacters == null ||
+                !characterAction.ActionParams.TargetCharacters.Contains(target))
+            {
+                yield break;
+            }
+
+            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
+        }
+
         //Poison characters that I shove
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -762,20 +776,6 @@ internal static class OtherFeats
             {
                 PoisonTarget(rulesetAttacker, target);
             }
-        }
-
-        //Poison character that shoves me
-        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
-
-        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
-        {
-            if (characterAction.ActionParams.TargetCharacters == null ||
-                !characterAction.ActionParams.TargetCharacters.Contains(target))
-            {
-                yield break;
-            }
-
-            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
         }
 
         //Poison target if I attack with unarmed
