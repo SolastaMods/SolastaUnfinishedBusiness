@@ -352,9 +352,10 @@ internal static class ClassFeats
     }
 
     private class PhysicalAttackFinishedOnMeOrAllyFeatExploiter :
-        IMagicalAttackFinishedOnEnemy, IPhysicalAttackFinishedOnEnemy
+        IAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedOnEnemy, IPhysicalAttackFinishedOnEnemy
     {
         private readonly FeatureDefinition _featureExploiter;
+        private bool _hit;
 
         public PhysicalAttackFinishedOnMeOrAllyFeatExploiter(FeatureDefinition featureExploiter)
         {
@@ -364,10 +365,9 @@ internal static class ClassFeats
         private IEnumerator HandleReaction(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            RollOutcome outcome)
+            GameLocationCharacter me)
         {
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (!_hit)
             {
                 yield break;
             }
@@ -436,8 +436,7 @@ internal static class ClassFeats
             bool firstTarget,
             bool criticalHit)
         {
-            yield break;
-            // yield return HandleReaction(attacker, defender, ally); //TODO: fix this later before next release
+            yield return HandleReaction(attacker, defender, ally);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnEnemy(
@@ -450,7 +449,25 @@ internal static class ClassFeats
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            yield return HandleReaction(attacker, defender, ally, attackRollOutcome);
+            yield return HandleReaction(attacker, defender, ally);
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _hit = true;
+
+            yield break;
         }
     }
 
