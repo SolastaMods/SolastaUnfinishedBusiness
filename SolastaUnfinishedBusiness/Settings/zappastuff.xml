@@ -335,6 +335,7 @@
     <string>RaceOligath</string>
     <string>RaceWendigo</string>
     <string>RaceWyrmkin</string>
+    <string>RaceIronbornDwarf</string>
     <string>RaceObsidianDwarf</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
