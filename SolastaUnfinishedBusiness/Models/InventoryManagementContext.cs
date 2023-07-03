@@ -27,6 +27,8 @@ internal static class InventoryManagementContext
 
     private static readonly List<MerchantCategoryDefinition> ItemCategories = new();
 
+    private static Vector2 _originalContainerPosition;
+
     private static GuiDropdown FilterGuiDropdown { get; set; }
 
     private static SortGroup BySortGroup { get; set; }
@@ -41,9 +43,8 @@ internal static class InventoryManagementContext
 
     internal static Action SelectionChanged { get; private set; }
 
-    private static bool UseInventoryFilteringAndSorting => Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
-
-    private static Vector2 OriginalContainerPosition;
+    private static bool UseInventoryFilteringAndSorting =>
+        Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer;
 
     private static ContainerPanel InventoryContainerPanel { get; set; }
 
@@ -52,10 +53,11 @@ internal static class InventoryManagementContext
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
         InventoryContainerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
-        
+
         if (UseInventoryFilteringAndSorting)
         {
-            OriginalContainerPosition = InventoryContainerPanel.rectTransform.anchoredPosition;
+            _originalContainerPosition = InventoryContainerPanel.rectTransform.anchoredPosition;
+
             InventoryContainerPanel.rectTransform.anchoredPosition += new Vector2(0, -80);
         }
 
@@ -265,14 +267,14 @@ internal static class InventoryManagementContext
         TaggedGuiDropdown.gameObject.SetActive(active);
         UnidentifiedToggle.gameObject.SetActive(active);
         UnidentifiedMagicalLabel.gameObject.SetActive(active);
-        
+
         if (!active)
         {
-            InventoryContainerPanel.rectTransform.anchoredPosition = OriginalContainerPosition;
+            InventoryContainerPanel.rectTransform.anchoredPosition = _originalContainerPosition;
         }
         else
         {
-            InventoryContainerPanel.rectTransform.anchoredPosition = OriginalContainerPosition + new Vector2(0, -80);
+            InventoryContainerPanel.rectTransform.anchoredPosition = _originalContainerPosition + new Vector2(0, -80);
         }
     }
 
