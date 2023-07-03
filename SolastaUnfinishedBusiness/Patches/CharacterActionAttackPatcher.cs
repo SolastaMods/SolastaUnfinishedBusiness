@@ -63,25 +63,6 @@ public static class CharacterActionAttackPatcher
             }
 
             //
-            // IReactToAttackFinished
-            //
-
-            if (Gui.Battle != null &&
-                gameLocationAttacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                var attackerFeatures = gameLocationAttacker.RulesetCharacter
-                    .GetSubFeaturesByType<IReactToAttackFinished>();
-
-                foreach (var feature in attackerFeatures)
-                {
-                    yield return feature.OnReactToAttackFinished(
-                        gameLocationAttacker, gameLocationDefender, rollOutcome, actionParams, attackMode,
-                        actionModifier);
-                }
-            }
-
-            //
             // IReactToAttackOnEnemyFinished
             //
 
@@ -110,25 +91,6 @@ public static class CharacterActionAttackPatcher
                             yield break;
                         }
                     }
-                }
-            }
-
-            //
-            // IReactToAttackOnMeFinished
-            //
-
-            if (Gui.Battle != null &&
-                gameLocationAttacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                var defenderFeatures = gameLocationDefender.RulesetCharacter
-                    .GetSubFeaturesByType<IReactToAttackOnMeFinished>();
-
-                foreach (var feature in defenderFeatures)
-                {
-                    yield return feature.OnReactToAttackOnMeFinished(
-                        gameLocationAttacker, gameLocationDefender, rollOutcome, actionParams, attackMode,
-                        actionModifier);
                 }
             }
 

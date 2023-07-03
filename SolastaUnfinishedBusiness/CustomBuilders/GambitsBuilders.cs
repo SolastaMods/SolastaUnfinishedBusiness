@@ -881,7 +881,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class Retaliate : IReactToAttackOnMeFinished
+    private sealed class Retaliate : IPhysicalAttackFinishedOnMe
     {
         private readonly ConditionDefinition condition;
         private readonly bool melee;
@@ -894,35 +894,36 @@ internal static class GambitsBuilders
             this.pool = pool;
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             //trigger only on a miss
-            if (outcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            if (attackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
             {
                 yield break;
             }
 
             var rulesetEnemy = attacker.RulesetCharacter;
 
-            if (!me.CanReact() ||
-                rulesetEnemy is not {IsDeadOrDyingOrUnconscious: false})
+            if (!defender.CanReact() ||
+                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
+            if (defender.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
@@ -935,14 +936,14 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!melee && battle.IsWithin1Cell(me, attacker))
+            if (!melee && battle.IsWithin1Cell(defender, attacker))
             {
                 yield break;
             }
 
             var (retaliationMode, retaliationModifier) = melee
-                ? me.GetFirstMeleeModeThatCanAttack(attacker)
-                : me.GetFirstRangedModeThatCanAttack(attacker);
+                ? defender.GetFirstMeleeModeThatCanAttack(attacker)
+                : defender.GetFirstRangedModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
             {
@@ -952,13 +953,13 @@ internal static class GambitsBuilders
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
             retaliationMode.AddAttackTagAsNeeded(MartialTactician.TacticalAwareness);
 
-            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var rulesetCharacter = me.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
                 condition.Name,
@@ -1246,7 +1247,7 @@ internal static class GambitsBuilders
             var rulesetEnemy = attacker.RulesetCharacter;
 
             if (!me.CanReact() ||
-                rulesetEnemy is not {IsDeadOrDyingOrUnconscious: false})
+                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
