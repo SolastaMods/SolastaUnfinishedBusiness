@@ -11,7 +11,7 @@ internal class FeatureDefinitionReduceDamageBuilder
 {
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetAlwaysActiveReducedDamage(
-        Func<GameLocationCharacter, GameLocationCharacter, int> reducedDamage,
+        ReducedDamageHandler reducedDamage,
         params string[] damageTypes)
     {
         Definition.DamageTypes.SetRange(damageTypes);
@@ -23,7 +23,7 @@ internal class FeatureDefinitionReduceDamageBuilder
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetConsumeSpellSlotsReducedDamage(
         CharacterClassDefinition spellCastingClass,
-        Func<GameLocationCharacter, GameLocationCharacter, int> reducedDamage,
+        ReducedDamageHandler reducedDamage,
         params string[] damageTypes)
     {
         Definition.SpellCastingClass = spellCastingClass;

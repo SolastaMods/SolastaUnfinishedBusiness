@@ -4,10 +4,14 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
+internal delegate int ReducedDamageHandler(
+    GameLocationCharacter attacker,
+    GameLocationCharacter defender);
+
 internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
 {
     public RuleDefinitions.AdditionalDamageTriggerCondition TriggerCondition { get; set; }
-    public Func<GameLocationCharacter, GameLocationCharacter, int> ReducedDamage { get; set; }
+    public ReducedDamageHandler ReducedDamage { get; set; }
     public List<string> DamageTypes { get; set; }
     public string NotificationTag { get; set; }
     public CharacterClassDefinition SpellCastingClass { get; set; }
