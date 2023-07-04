@@ -42,6 +42,7 @@ Rules/&CondiitonFeatDistractingGambitDescription=AC -1
 Rules/&ConditionAcidifiedDescription=直到效果结束前，每回合均会受到强酸伤害。
 Rules/&ConditionAcidifiedTitle=酸化
 Rules/&ConditionAffinityChilledImmunity=免疫中度寒冷天气的影响。
+Rules/&ConditionAffinityFrozenImmunity=
 Rules/&ConditionAidedDescription=生命值（最大/当前）增加 5 + 提升值。
 Rules/&ConditionAidedTitle=受助
 Rules/&ConditionAnnoyedByBeeDescription=在专注上具有劣势，直到开始下一个回合。
