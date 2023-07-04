@@ -341,7 +341,7 @@ internal static class ClassFeats
             .SetGuiPresentation("FeatExploiter", Category.Feat)
             .AddToDB();
 
-        featureExploiter.SetCustomSubFeatures(new PhysicalAttackFinishedOnMeOrAllyFeatExploiter(featureExploiter));
+        featureExploiter.SetCustomSubFeatures(new CustomBehaviorFeatExploiter(featureExploiter));
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
@@ -351,15 +351,59 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class PhysicalAttackFinishedOnMeOrAllyFeatExploiter :
+    private class CustomBehaviorFeatExploiter :
         IAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedOnEnemy, IPhysicalAttackFinishedOnEnemy
     {
         private readonly FeatureDefinition _featureExploiter;
         private bool _hit;
 
-        public PhysicalAttackFinishedOnMeOrAllyFeatExploiter(FeatureDefinition featureExploiter)
+        public CustomBehaviorFeatExploiter(FeatureDefinition featureExploiter)
         {
             _featureExploiter = featureExploiter;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _hit = true;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicalAttackFinishedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter ally,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, defender, ally);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnEnemy(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter ally,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            yield return HandleReaction(attacker, defender, ally);
         }
 
         private IEnumerator HandleReaction(
@@ -378,11 +422,14 @@ internal static class ClassFeats
                 yield break;
             }
 
+            if (!me.CanReact() || attacker == me)
+            {
+                yield break;
+            }
+
             var rulesetEnemy = defender.RulesetCharacter;
 
-            if (!me.CanReact() ||
-                me == attacker ||
-                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -425,50 +472,6 @@ internal static class ClassFeats
 
             me.RulesetCharacter.LogCharacterUsedFeature(_featureExploiter);
         }
-
-        public IEnumerator OnMagicalAttackFinishedOnEnemy(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter ally,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender, ally);
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedOnEnemy(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter ally,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            yield return HandleReaction(attacker, defender, ally);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            _hit = true;
-
-            yield break;
-        }
     }
 
     #endregion
@@ -498,7 +501,7 @@ internal static class ClassFeats
                     .SetFeatures(t.attributeModifier)
                     .SetFeatFamily(NAME)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
-                    .SetCustomSubFeatures(new CustomBehaviorFeatAwakenTheBeastWithin())
+                    .SetCustomSubFeatures(new ActionFinishedByMeFeatAwakenTheBeastWithin())
                     .AddToDB())
             .Cast<FeatDefinition>()
             .ToArray();
@@ -511,7 +514,7 @@ internal static class ClassFeats
         return awakenTheBeastWithinGroup;
     }
 
-    internal sealed class CustomBehaviorFeatAwakenTheBeastWithin : IActionFinishedByMe
+    internal sealed class ActionFinishedByMeFeatAwakenTheBeastWithin : IActionFinishedByMe
     {
         // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
         private const ulong TemporaryHitPointsGuid = 42424242;
@@ -602,7 +605,7 @@ internal static class ClassFeats
         var feature = FeatureDefinitionBuilder
             .Create($"Feature{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedByMeHardy())
+            .SetCustomSubFeatures(new UsePowerFinishedByMeFeatHardy())
             .AddToDB();
 
         var hardyStr = FeatDefinitionWithPrerequisitesBuilder
@@ -631,7 +634,7 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class ActionFinishedByMeHardy : IUsePowerFinishedByMe
+    private sealed class UsePowerFinishedByMeFeatHardy : IUsePowerFinishedByMe
     {
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
@@ -756,7 +759,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class GainWildShapeCharges : ICustomMagicEffectAction, IPowerUseValidity
+    private sealed class GainWildShapeCharges : ICustomMagicEffectAction, IPowerUseValidity
     {
         private readonly int slotLevel;
         private readonly int wildShapeAmount;
@@ -796,7 +799,7 @@ internal static class ClassFeats
         }
     }
 
-    private class SpendWildShapeUse : ICustomMagicEffectAction
+    private sealed class SpendWildShapeUse : ICustomMagicEffectAction
     {
         private SpendWildShapeUse()
         {

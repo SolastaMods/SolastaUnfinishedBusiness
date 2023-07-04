@@ -17,7 +17,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 {
     private const string Name = "SpellShield";
     internal const string FullName = $"Martial{Name}";
-    
+
     internal MartialSpellShield()
     {
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder

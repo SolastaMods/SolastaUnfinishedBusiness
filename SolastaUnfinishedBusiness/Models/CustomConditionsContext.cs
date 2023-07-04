@@ -124,20 +124,19 @@ internal static class CustomConditionsContext
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var actingCharacter = action.ActingCharacter;
-            var actionParams = action.ActionParams;
-            var hero = actingCharacter.RulesetCharacter;
-
             if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
             {
                 yield break;
             }
 
-            var ruleEffect = actionParams.RulesetEffect;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetEffect = actionParams.RulesetEffect;
 
-            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+            if (rulesetEffect == null || !IsAllowedEffect(rulesetEffect.EffectDescription))
             {
-                BecomeRevealed(hero);
+                BecomeRevealed(rulesetCharacter);
             }
         }
 

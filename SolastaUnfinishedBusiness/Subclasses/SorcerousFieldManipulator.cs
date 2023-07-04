@@ -204,6 +204,19 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
     private sealed class CustomBehaviorDisplacement : IUsePowerInitiatedByMe, IUsePowerFinishedByMe
     {
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != PowerSorcerousFieldManipulatorDisplacement)
+            {
+                yield break;
+            }
+
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+
+            // bring back power target type to position
+            rulesetEffect.EffectDescription.targetType = TargetType.Position;
+        }
+
         public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
         {
             if (power != PowerSorcerousFieldManipulatorDisplacement)
@@ -219,19 +232,6 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
             // make target type individuals unique to trigger the game and only teleport targets
             rulesetEffect.EffectDescription.targetType = TargetType.IndividualsUnique;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != PowerSorcerousFieldManipulatorDisplacement)
-            {
-                yield break;
-            }
-
-            var rulesetEffect = action.ActionParams.RulesetEffect;
-
-            // bring back power target type to position
-            rulesetEffect.EffectDescription.targetType = TargetType.Position;
         }
 
         private static int3 GetFinalPosition(GameLocationCharacter target, int3 position)

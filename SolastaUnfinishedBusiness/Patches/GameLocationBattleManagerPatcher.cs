@@ -354,26 +354,20 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var rulesetAttacker = attacker.RulesetCharacter;
-
-                foreach (var extra in rulesetAttacker
-                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>()
-                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnEnemy(
-                                 __instance,
-                                 attacker,
-                                 defender,
-                                 attackModifier,
-                                 attackMode,
-                                 rangedAttack,
-                                 advantageType,
-                                 actualEffectForms,
-                                 rulesetEffect,
-                                 firstTarget, criticalHit)))
+                foreach (var attackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
+                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>())
                 {
-                    while (extra.MoveNext())
-                    {
-                        yield return extra.Current;
-                    }
+                    yield return attackBeforeHitConfirmedOnEnemy.OnAttackBeforeHitConfirmedOnEnemy(
+                        __instance,
+                        attacker,
+                        defender,
+                        attackModifier,
+                        attackMode,
+                        rangedAttack,
+                        advantageType,
+                        actualEffectForms,
+                        rulesetEffect,
+                        firstTarget, criticalHit);
                 }
             }
 
@@ -382,26 +376,20 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var rulesetDefender = defender.RulesetCharacter;
-
-                foreach (var extra in rulesetDefender
-                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMe>()
-                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnMe(
-                                 __instance,
-                                 attacker,
-                                 defender,
-                                 attackModifier,
-                                 attackMode,
-                                 rangedAttack,
-                                 advantageType,
-                                 actualEffectForms,
-                                 rulesetEffect,
-                                 firstTarget, criticalHit)))
+                foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter
+                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMe>())
                 {
-                    while (extra.MoveNext())
-                    {
-                        yield return extra.Current;
-                    }
+                    yield return attackBeforeHitConfirmedOnMe.OnAttackBeforeHitConfirmedOnMe(
+                        __instance,
+                        attacker,
+                        defender,
+                        attackModifier,
+                        attackMode,
+                        rangedAttack,
+                        advantageType,
+                        actualEffectForms,
+                        rulesetEffect,
+                        firstTarget, criticalHit);
                 }
             }
 
@@ -1040,7 +1028,7 @@ public static class GameLocationBattleManagerPatcher
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
-            
+
             //PATCH: support for `IMagicalAttackFinishedOnEnemy`
             // ReSharper disable once InvertIf
             if (Gui.Battle != null &&

@@ -238,8 +238,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
         private bool _criticalHit;
-
-        private string damageType;
+        private string _damageType;
 
         public CustomBehaviorWhirl(
             ConditionDefinition conditionExtraMovement,
@@ -257,6 +256,11 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
+            if (_damageType == null)
+            {
+                yield break;
+            }
+
             if (characterAction is not CharacterActionSpendPower characterActionUsePower)
             {
                 yield break;
@@ -336,13 +340,13 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
                 var damageForm = new DamageForm
                 {
-                    DamageType = damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
+                    DamageType = _damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
                 };
 
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
-                    damageType,
+                    _damageType,
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                     rulesetDefender,
                     false,
@@ -366,7 +370,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         }
 
         // collect damage type
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -378,12 +383,17 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            if (attackMode == null)
+            {
+                _damageType = null;
+
+                yield break;
+            }
+
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
-            damageType = damageForm.damageType;
+            _damageType = damageForm.damageType;
             _criticalHit = criticalHit;
-
-            yield break;
         }
 
         // add extra movement on any attack

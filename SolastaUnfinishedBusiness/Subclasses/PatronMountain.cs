@@ -44,7 +44,6 @@ internal class PatronMountain : AbstractSubclass
 
         // Barrier of Stone
 
-
         var conditionBarrierOfStone = ConditionDefinitionBuilder
             .Create($"Condition{Name}BarrierOfStone")
             .SetGuiPresentationNoContent(true)
@@ -251,10 +250,7 @@ internal class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (defender != me)
-            {
-                yield return HandleReaction(attacker, me);
-            }
+            yield return HandleReaction(defender, me);
         }
 
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
@@ -267,14 +263,22 @@ internal class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (defender != me)
-            {
-                yield return HandleReaction(attacker, me);
-            }
+            yield return HandleReaction(defender, me);
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter me)
+        private IEnumerator HandleReaction(GameLocationCharacter defender, GameLocationCharacter me)
         {
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
+            if (!me.CanReact() || me == defender)
+            {
+                yield break;
+            }
+
             var gameLocationBattleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var gameLocationActionManager =
@@ -285,24 +289,12 @@ internal class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            if (!gameLocationBattleManager.IsWithinXCells(me, attacker, 6))
+            if (!gameLocationBattleManager.IsWithinXCells(me, defender, 6))
             {
                 yield break;
             }
 
             var rulesetMe = me.RulesetCharacter;
-
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
-            {
-                yield break;
-            }
-
-            if (!me.CanReact())
-            {
-                yield break;
-            }
-
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
@@ -324,11 +316,6 @@ internal class PatronMountain : AbstractSubclass
             }
 
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-
-            //
-            // implement damage reduction
-            //
-
             rulesetMe.InflictCondition(
                 _conditionDefinition.Name,
                 _conditionDefinition.DurationType,

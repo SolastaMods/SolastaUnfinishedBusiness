@@ -439,16 +439,6 @@ internal sealed class OathOfDread : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var hasFrightened = rulesetAttacker.AllConditions.Any(x =>
-                x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
-                x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
-
-            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
-            {
-                yield break;
-            }
-
             //do not trigger on my own turn, so won't retaliate on AoO
             if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
             {
@@ -456,6 +446,22 @@ internal sealed class OathOfDread : AbstractSubclass
             }
 
             if (!me.CanReact())
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var hasFrightened = rulesetAttacker.AllConditions.Any(x =>
+                x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
+                x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
+
+            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
             {
                 yield break;
             }

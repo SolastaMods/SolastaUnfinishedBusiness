@@ -37,7 +37,7 @@ public static class RulesetCharacterMonsterPatcher
             MulticlassWildshapeContext.FinalizeMonster(__instance, keepMentalAbilityScores);
 
             //PATCH: supports Awaken the Beast Within feat
-            ClassFeats.CustomBehaviorFeatAwakenTheBeastWithin.GrantTempHP(__instance);
+            ClassFeats.ActionFinishedByMeFeatAwakenTheBeastWithin.GrantTempHP(__instance);
         }
     }
 

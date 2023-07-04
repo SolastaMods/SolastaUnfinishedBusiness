@@ -379,6 +379,29 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionPossessed = conditionPossessed;
         }
 
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerEssenceTheft)
+            {
+                return true;
+            }
+
+            if (target.RulesetCharacter == null)
+            {
+                return true;
+            }
+
+            var isValid = !target.RulesetCharacter.HasConditionOfType(_conditionPossessed.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHavePossessedCondition");
+            }
+
+            return isValid;
+        }
+
         public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
         {
             if (power != _powerEssenceTheft)
@@ -405,29 +428,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             }
 
             damage.dieType = DieType.D8;
-        }
-
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _powerEssenceTheft)
-            {
-                return true;
-            }
-
-            if (target.RulesetCharacter == null)
-            {
-                return true;
-            }
-
-            var isValid = !target.RulesetCharacter.HasConditionOfType(_conditionPossessed.Name);
-
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHavePossessedCondition");
-            }
-
-            return isValid;
         }
     }
 
