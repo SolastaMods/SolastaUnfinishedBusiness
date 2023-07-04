@@ -396,6 +396,26 @@ internal static class MeleeCombatFeats
 
     #endregion
 
+    #region Fencer
+
+    private static FeatDefinition BuildFencer()
+    {
+        const string NAME = "FeatFencer";
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasAttacked,
+                    ValidatorsCharacter.HasFreeHand,
+                    ValidatorsCharacter.HasMeleeWeaponInMainHand))
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Hammer the Point
 
     private static FeatDefinition BuildHammerThePoint()
@@ -1463,26 +1483,6 @@ internal static class MeleeCombatFeats
                     break;
             }
         }
-    }
-
-    #endregion
-
-    #region Fencer
-
-    private static FeatDefinition BuildFencer()
-    {
-        const string NAME = "FeatFencer";
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(
-                new AddExtraMainHandAttack(
-                    ActionDefinitions.ActionType.Bonus,
-                    ValidatorsCharacter.HasAttacked,
-                    ValidatorsCharacter.HasFreeHand,
-                    ValidatorsCharacter.HasMeleeWeaponInMainHand))
-            .AddToDB();
     }
 
     #endregion

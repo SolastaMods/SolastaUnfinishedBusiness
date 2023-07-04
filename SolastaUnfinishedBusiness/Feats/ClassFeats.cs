@@ -339,9 +339,8 @@ internal static class ClassFeats
         var featureExploiter = FeatureDefinitionBuilder
             .Create("FeatureExploiter")
             .SetGuiPresentation("FeatExploiter", Category.Feat)
+            .SetCustomSubFeatures(new CustomBehaviorFeatExploiter())
             .AddToDB();
-
-        featureExploiter.SetCustomSubFeatures(new CustomBehaviorFeatExploiter(featureExploiter));
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
@@ -353,13 +352,6 @@ internal static class ClassFeats
 
     private class CustomBehaviorFeatExploiter : IMagicalAttackFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
-        private readonly FeatureDefinition _featureExploiter;
-
-        public CustomBehaviorFeatExploiter(FeatureDefinition featureExploiter)
-        {
-            _featureExploiter = featureExploiter;
-        }
-
         public IEnumerator OnMagicalAttackFinishedByMeOrAlly(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
@@ -391,7 +383,7 @@ internal static class ClassFeats
             yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
         }
 
-        private IEnumerator HandleReaction(
+        private static IEnumerator HandleReaction(
             RollOutcome attackRollOutcome,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
