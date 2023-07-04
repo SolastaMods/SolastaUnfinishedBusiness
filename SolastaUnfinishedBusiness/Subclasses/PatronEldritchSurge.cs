@@ -61,7 +61,8 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastPursuit")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHasted)
+        .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
         .AddFeatures(
             FeatureDefinitionBuilder
                 .Create($"Feature{Name}BlastPursuit")
@@ -76,6 +77,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     private static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
+        .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .AddFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageInvocationAgonizingBlast, $"AdditionalDamage{Name}BlastOverload")
@@ -124,13 +126,15 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
                 .SetEffectForms(
                     EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
                     EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
                     EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuitOff))
                 .Build())
             .AddToDB();
+
+        powerBlastPursuit.effectDescription.effectParticleParameters.casterParticleReference = null;
 
         powerBlastPursuit.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit),
