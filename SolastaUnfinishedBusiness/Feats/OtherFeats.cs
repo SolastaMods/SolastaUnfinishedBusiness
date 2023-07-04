@@ -705,7 +705,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class AooImmunityFeatMobile : IImmuneToAooOfRecentAttackedTarget
+    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked
     {
     }
 

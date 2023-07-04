@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class AttacksOfOpportunity
 {
     internal const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
-    internal static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
+    internal static readonly IIgnoreAoOImmunity IgnoreDisengage = new IgnoreDisengage();
     internal static readonly object SentinelFeatMarker = new SentinelFeatMarker();
     private static readonly Dictionary<ulong, (int3, int3)> MovingCharactersCache = new();
 
@@ -88,13 +88,13 @@ internal static class AttacksOfOpportunity
     internal static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
         bool def, float distance)
     {
-        if (attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
+        if (attacker.GetSubFeaturesByType<IIgnoreAoOImmunity>()
             .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance)))
         {
             return true;
         }
 
-        if (character.HasSubFeatureOfType<IImmuneToAooOfRecentAttackedTarget>() &&
+        if (character.HasSubFeatureOfType<IIgnoreAoOIfAttacked>() &&
             character.proximityByAttackedCreature.TryGetValue(attacker.Guid, out var value) &&
             value == (int)RuleDefinitions.AttackProximity.Melee)
         {
@@ -105,7 +105,7 @@ internal static class AttacksOfOpportunity
     }
 }
 
-internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
+internal sealed class IgnoreDisengage : IIgnoreAoOImmunity
 {
     public bool CanIgnoreAoOImmunity([NotNull] RulesetCharacter character, RulesetCharacter attacker, float distance)
     {

@@ -7,23 +7,24 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 /// <summary>
 ///     Implement on a ConditionDefinition to make it be removed when its source's turn starts.
 /// </summary>
-public interface IConditionRemovedOnSourceTurnStart
+public interface IRemoveConditionOnSourceTurnStart
 {
 }
 
 //TODO: get rid of interface and add this as sub feature to conditions that implemented interface
-internal class RemoveConditionOnSourceTurnStart : IConditionRemovedOnSourceTurnStart
+internal class RemoveRemoveConditionOnSourceTurnStart : IRemoveConditionOnSourceTurnStart
 {
-    private RemoveConditionOnSourceTurnStart()
+    private RemoveRemoveConditionOnSourceTurnStart()
     {
     }
 
-    public static IConditionRemovedOnSourceTurnStart Mark { get; } = new RemoveConditionOnSourceTurnStart();
+    public static IRemoveConditionOnSourceTurnStart Mark { get; } = new RemoveRemoveConditionOnSourceTurnStart();
 }
 
 public static class ConditionRemovedOnSourceTurnStartPatch
 {
-    public static void RemoveConditionIfNeeded(RulesetActor __instance,
+    public static void RemoveConditionIfNeeded(
+        RulesetActor __instance,
         RuleDefinitions.TurnOccurenceType occurenceType)
     {
         if (occurenceType != RuleDefinitions.TurnOccurenceType.StartOfTurn)
@@ -39,7 +40,8 @@ public static class ConditionRemovedOnSourceTurnStartPatch
         }
 
         foreach (var contender in battleService.Battle.AllContenders
-                     .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: not null }))
+                     .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: not null })
+                     .ToList())
         {
             var conditionsToRemove = new List<RulesetCondition>();
 
@@ -48,7 +50,7 @@ public static class ConditionRemovedOnSourceTurnStartPatch
                     .SelectMany(x => x.Value)
                     .Where(x => x.SourceGuid == __instance.Guid)
                     .Where(x => x.ConditionDefinition
-                        .HasSubFeatureOfType<IConditionRemovedOnSourceTurnStart>()));
+                        .HasSubFeatureOfType<IRemoveConditionOnSourceTurnStart>()));
 
             foreach (var conditionToRemove in conditionsToRemove)
             {

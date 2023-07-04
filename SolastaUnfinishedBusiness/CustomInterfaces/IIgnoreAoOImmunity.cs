@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ICanIgnoreAoOImmunity
+public interface IIgnoreAoOImmunity
 {
     bool CanIgnoreAoOImmunity(RulesetCharacter character, RulesetCharacter attacker, float distance);
 }
