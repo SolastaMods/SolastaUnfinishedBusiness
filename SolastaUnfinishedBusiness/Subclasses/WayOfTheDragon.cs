@@ -9,11 +9,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -65,34 +66,89 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace)
+                    .Build())
             .AddToDB();
 
-        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(powerReactiveHide,
-            conditionReactiveHide));
+        powerReactiveHide.SetCustomSubFeatures(
+            new CustomBehaviorReactiveHide(powerReactiveHide, conditionReactiveHide));
 
-        /*
-        Level 17 - Ascension
-        As a free action, you may spend 4 Ki points to grow a pair of wings and gain the effects of Fly spell, without needing to concentrate for up to 1 minute. While this ability lasts, you gain +2 AC and access to Wing Sweep ability.
-        */
+        // LEVEL 17
+
         var conditionAscension = ConditionDefinitionBuilder
-            .Create(ConditionFlying12, $"Condition{Name}Ascension")
-            .SetGuiPresentation(Category.Condition, ConditionFlying12)
-            .AddFeatures(FeatureDefinitionAttributeModifiers.AttributeModifierHasted)
+            .Create($"Condition{Name}Ascension")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}Ascension")
+                    .SetGuiPresentation($"Power{Name}Ascension", Category.Feature)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                    .AddToDB())
             .AddToDB();
 
         var powerAscension = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Ascension")
-            .SetGuiPresentation(Category.Feature, Fly)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 4, 4)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .AddEffectForms(EffectFormBuilder
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionAscension,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .SetDurationData(DurationType.Minute, 1)
-                .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasNoneOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var powerAscensionDismiss = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}AscensionDismiss")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionAscension,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var featureSetAscension = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Ascension")
+            .SetGuiPresentation($"Power{Name}Ascension", Category.Feature)
+            .AddFeatureSet(powerAscension, powerAscensionDismiss)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -101,7 +157,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildDiscipleFeatureSet(), damageAffinityAncestry, powerReactiveHide)
             .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
             .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
-            .AddFeaturesAtLevel(17, powerAscension)
+            .AddFeaturesAtLevel(17, featureSetAscension)
             .AddToDB();
     }
 
@@ -132,8 +188,15 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         return FeatureSetPathOfTheDragonDisciple;
     }
 
-    private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
+    private static FeatureDefinition BuildDragonFeatureSet()
     {
+        var diceByLevelTable = new List<DiceByRank>
+        {
+            new() { rank = 6, diceNumber = 1 },
+            new() { rank = 11, diceNumber = 2 },
+            new() { rank = 17, diceNumber = 3 }
+        };
+
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -148,6 +211,24 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     AttributeDefinitions.Wisdom,
                     20)
                 .Build())
+            .AddToDB();
+
+        powerBlackElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
+        powerBlackElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerBlackElementalBreath));
+
+        var powerBlackElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerBlackElementalBreath, $"Power{Name}ElementalBreathBlackPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerBlackElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerBlackElementalBreath));
+
+        var featureSetElementalBreathBlack = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathBlack")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerBlackElementalBreath, powerBlackElementalBreathPoints)
             .AddToDB();
 
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
@@ -166,8 +247,22 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var effectGreenElementalBreath = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+        powerBlueElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
+        powerBlueElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerBlueElementalBreath));
+
+        var powerBlueElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerBlueElementalBreath, $"Power{Name}ElementalBreathBluePoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerBlueElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerBlueElementalBreath));
+
+        var featureSetElementalBreathBlue = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathBlue")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerBlueElementalBreath, powerBlueElementalBreathPoints)
             .AddToDB();
 
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
@@ -180,7 +275,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Round, 3)
                 .AddEffectForms(EffectFormBuilder.Create()
-                        .SetSummonEffectProxyForm(effectGreenElementalBreath)
+                        .SetSummonEffectProxyForm(
+                            EffectProxyDefinitionBuilder
+                                .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+                                .AddToDB())
                         .Build(),
                     StinkingCloud.EffectDescription
                         .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
@@ -191,6 +289,24 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     AttributeDefinitions.Wisdom,
                     20)
                 .Build())
+            .AddToDB();
+
+        powerGreenElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
+        powerGreenElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerGreenElementalBreath));
+
+        var powerGreenElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerGreenElementalBreath, $"Power{Name}ElementalBreathGreenPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerGreenElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerGreenElementalBreath));
+
+        var featureSetElementalBreathGreen = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathGreen")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerGreenElementalBreath, powerGreenElementalBreathPoints)
             .AddToDB();
 
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
@@ -209,6 +325,24 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerGoldElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
+        powerGoldElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerGoldElementalBreath));
+
+        var powerGoldElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerGoldElementalBreath, $"Power{Name}ElementalBreathGoldPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerGoldElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerGoldElementalBreath));
+
+        var featureSetElementalBreathGold = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathGold")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerGoldElementalBreath, powerGoldElementalBreathPoints)
+            .AddToDB();
+
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
@@ -225,18 +359,36 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        powerSilverElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
+        powerSilverElementalBreath.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathProficiency(powerSilverElementalBreath));
+
+        var powerSilverElementalBreathPoints = FeatureDefinitionPowerBuilder
+            .Create(powerSilverElementalBreath, $"Power{Name}ElementalBreathSilverPoints")
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
+            .AddToDB();
+
+        powerSilverElementalBreathPoints.SetCustomSubFeatures(
+            new PowerUseValidityElementalBreathPoints(powerSilverElementalBreath));
+
+        var featureSetElementalBreathSilver = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalBreathSilver")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerSilverElementalBreath, powerSilverElementalBreathPoints)
+            .AddToDB();
+
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Breath")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
             .AddFeatureSet(
-                powerBlackElementalBreath,
-                powerBlueElementalBreath,
-                powerGoldElementalBreath,
-                powerGreenElementalBreath,
-                powerSilverElementalBreath)
+                featureSetElementalBreathBlack,
+                featureSetElementalBreathSilver,
+                featureSetElementalBreathGold,
+                featureSetElementalBreathBlue,
+                featureSetElementalBreathGreen)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
-                DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
+                DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonBreath;
@@ -456,21 +608,63 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         return featureWayOfDragonFury;
     }
 
-    private sealed class CustomBehaviorReactiveHide : IReactToAttackOnMeFinished, IAttackBeforeHitConfirmedOnMe,
-        IMagicalAttackBeforeHitConfirmedOnMe
+    //
+    // Elemental Breath Fixed
+    //
+
+    private sealed class PowerUseValidityElementalBreathProficiency : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
+
+        public PowerUseValidityElementalBreathProficiency(FeatureDefinitionPower powerElementalBreathProficiency)
+        {
+            _powerElementalBreathProficiency = powerElementalBreathProficiency;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+
+            return usablePower.RemainingUses > 0;
+        }
+    }
+
+    //
+    // Elemental Breath Points
+    //
+
+    private sealed class PowerUseValidityElementalBreathPoints : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
+
+        public PowerUseValidityElementalBreathPoints(FeatureDefinitionPower powerElementalBreathProficiency)
+        {
+            _powerElementalBreathProficiency = powerElementalBreathProficiency;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+
+            return usablePower.RemainingUses == 0;
+        }
+    }
+
+    private sealed class CustomBehaviorReactiveHide :
+        IPhysicalAttackFinishedOnMe, IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public CustomBehaviorReactiveHide(FeatureDefinitionPower featureDefinitionPower,
+        public CustomBehaviorReactiveHide(
+            FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -479,8 +673,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             if (rulesetEffect == null)
             {
@@ -500,25 +694,26 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             yield return HandleReaction(defender);
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
 
-            if (!me.CanAct())
+            if (!defender.CanAct())
             {
                 yield break;
             }
 
-            var rulesetCharacter = me.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             if (rulesetCharacter.RemainingKiPoints == 0)
             {
@@ -532,7 +727,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -555,8 +750,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
-                out var damageType);
+            TryGetAncestryDamageTypeFromCharacter(
+                defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType);
 
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
 
@@ -733,12 +928,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         private IEnumerator HandleReaction(GameLocationCharacter defender)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (!defender.CanReact())
             {
                 yield break;
             }
@@ -750,9 +940,19 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = $"{Name}ReactiveHide", UsablePower = usablePower
                 };

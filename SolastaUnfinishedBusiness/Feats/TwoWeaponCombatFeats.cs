@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.FightingStyles;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -66,7 +64,7 @@ internal static class TwoWeaponCombatFeats
                     .Create("OnAttackDamageEffectFeatDualFlurry")
                     .SetGuiPresentation("FeatDualFlurry", Category.Feat)
                     .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
+                        new OnPhysicalAttackHitFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
                     .AddToDB())
             .AddToDB();
     }
@@ -89,12 +87,12 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IAttackEffectAfterDamage
+    private sealed class OnPhysicalAttackHitFeatDualFlurry : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
 
-        internal OnAttackHitEffectFeatDualFlurry(
+        internal OnPhysicalAttackHitFeatDualFlurry(
             ConditionDefinition conditionDualFlurryGrant,
             ConditionDefinition conditionDualFlurryApply)
         {
@@ -102,7 +100,7 @@ internal static class TwoWeaponCombatFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -120,24 +118,12 @@ internal static class TwoWeaponCombatFeats
                 return;
             }
 
-            var hasWeaponInMainHand = ValidatorsCharacter.HasMeleeWeaponInMainHand(hero);
-            var hasWeaponInOffHand = ValidatorsCharacter.HasMeleeWeaponInOffHand(hero);
-            var hasShield = ValidatorsCharacter.HasShield(hero);
-            var hasShieldExpert =
-                hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
-                hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
-            var hasGauntlet =
-                ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.ThunderGauntletType)(attackMode, null, null);
-
-            var isValid = (hasWeaponInMainHand || hasGauntlet) &&
-                          ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
-
-            if (attackMode == null || !isValid)
+            if (attackMode == null || !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero))
             {
                 return;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(_conditionDualFlurryGrant.Name))
+            if (!attacker.OnceInMyTurnIsValid(_conditionDualFlurryGrant.Name))
             {
                 return;
             }
@@ -146,7 +132,7 @@ internal static class TwoWeaponCombatFeats
 
             if (hero.HasConditionOfType(condition))
             {
-                attacker.UsedSpecialFeatures.Add(_conditionDualFlurryGrant.Name, 1);
+                attacker.UsedSpecialFeatures.TryAdd(_conditionDualFlurryGrant.Name, 1);
                 condition = _conditionDualFlurryGrant;
             }
 

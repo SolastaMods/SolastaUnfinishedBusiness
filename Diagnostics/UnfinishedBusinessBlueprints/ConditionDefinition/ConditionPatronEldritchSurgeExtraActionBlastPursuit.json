@@ -6,7 +6,7 @@
   "features": [
     "Definition:AdditionalActionPatronEldritchSurgeBlastPursuit:1090d24a-e956-590d-969b-70ad57affefd"
   ],
-  "allowMultipleInstances": true,
+  "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,

@@ -1,6 +1,6 @@
 Skill/&AcrobaticsDescription=La tua prova di Destrezza (Acrobazia) copre il tuo tentativo di rimanere in piedi in una situazione difficile, come quando stai cercando di correre su una lastra di ghiaccio, restare in equilibrio su una corda tesa o stare in piedi sul ponte di una nave che oscilla.
 Skill/&AcrobaticsTitle=Acrobazie
-Skill/&AnimalHandlingDescription=Quando c'è qualche dubbio se puoi calmare un animale addomesticato, evitare che una cavalcatura si spaventi o intuire le intenzioni di un animale, effettua una prova di Saggezza (Addestrare Animali). Si effettua anche una prova di Saggezza (Addestrare Animali) per controllare la propria cavalcatura quando si tenta una manovra rischiosa.
+Skill/&AnimalHandlingDescription=Quando c'è qualche dubbio se puoi calmare un animale addomesticato, evitare che una cavalcatura si spaventi o intuire le intenzioni di un animale, effettua una prova di Saggezza (Maneggiare Animali). Si effettua anche una prova di Saggezza (Addestrare Animali) per controllare la propria cavalcatura quando si tenta una manovra rischiosa.
 Skill/&AnimalHandlingTitle=Manipolazione degli animali
 Skill/&ArcanaDescription=La tua prova di Intelligenza (Arcana) misura la tua capacità di richiamare informazioni su incantesimi, oggetti magici, simboli arcani, tradizioni magiche, i piani di esistenza e gli abitanti di quei piani.
 Skill/&ArcanaTitle=Arcano
@@ -28,7 +28,7 @@ Skill/&PersuasionDescription=Quando tenti di influenzare qualcuno o un gruppo di
 Skill/&PersuasionTitle=Persuasione
 Skill/&ReligionDescription=La tua prova di Intelligenza (Religione) misura la tua capacità di richiamare informazioni su divinità, riti e preghiere, gerarchie religiose, simboli sacri e pratiche di culti segreti.
 Skill/&ReligionTitle=Religione
-Skill/&SleightOfHandDescription=Ogni volta che tenti un atto di prestidigitazione o inganno manuale, come piazzare qualcosa addosso a qualcun altro o nascondere un oggetto addosso alla tua persona, effettua una prova di Destrezza (Razza di Mano).
+Skill/&SleightOfHandDescription=Ogni volta che tenti un atto di prestidigitazione o inganno manuale, come piantare qualcosa su qualcun altro o nascondere un oggetto sulla tua persona, effettua una prova di Destrezza (Razza di Mano).
 Skill/&SleightOfHandTitle=Gioco di prestigio
 Skill/&StealthDescription=Effettua una prova di Destrezza (Furtività) quando tenti un'azione mentre sei nelle immediate vicinanze dei nemici senza essere individuato. Il tuo punteggio viene utilizzato anche per determinare la velocità con cui si riempie l'indicatore di rilevamento quando ti aggiri furtivamente intorno ai nemici.
 Skill/&StealthTitle=Invisibile

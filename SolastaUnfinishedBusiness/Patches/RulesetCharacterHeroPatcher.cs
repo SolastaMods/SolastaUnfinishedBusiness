@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 
@@ -466,7 +465,7 @@ public static class RulesetCharacterHeroPatcher
                 return true;
             }
 
-            var provider = feature.GetFirstSubFeatureOfType<IRankProvider>();
+            var provider = feature.GetFirstSubFeatureOfType<IModifyProviderRank>();
             if (provider == null)
             {
                 return true;
@@ -920,10 +919,9 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterHero __instance)
         {
-            //TODO: convert this to an interface
-            FairyRaceBuilder.OnItemEquipped(__instance);
-            TieflingRaceBuilder.OnItemEquipped(__instance);
-            WizardBladeDancer.OnItemEquipped(__instance);
+            //TODO: add slot and item to the interface?
+            __instance.GetSubFeaturesByType<IOnItemEquipped>()
+                .ForEach(f => f.OnItemEquipped(__instance));
         }
     }
 
@@ -1027,6 +1025,27 @@ public static class RulesetCharacterHeroPatcher
                 "RulesetCharacterHero.RefreshActiveItemFeatures",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, myStaticPropertiesMethod));
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsDualWieldingMeleeWeapons))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GIsDualWieldingMeleeWeapons_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacterHero __instance, ref bool __result)
+        {
+            //PATCH: allows using features that require dual-wielding melee if in Guardian mode with both hands empty
+            if (__result)
+            {
+                return;
+            }
+
+            if (InnovationArmor.InGuardianMode(__instance))
+            {
+                __result = __instance.HasEmptyMainHand() && __instance.HasEmptyOffHand();
+            }
         }
     }
 }

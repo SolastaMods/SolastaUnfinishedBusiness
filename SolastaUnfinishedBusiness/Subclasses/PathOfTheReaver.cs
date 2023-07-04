@@ -65,9 +65,9 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         // CONNECT ALL THEM TOGETHER NOW
 
         featureVoraciousFury.SetCustomSubFeatures(
-            new PhysicalAttackFinishedVoraciousFury(featureVoraciousFury, powerBloodbath));
+            new PhysicalAttackFinishedByMeVoraciousFury(featureVoraciousFury, powerBloodbath));
         powerBloodbath.SetCustomSubFeatures(
-            new TargetReducedToZeroHpBloodbath(powerBloodbath));
+            new OnTargetReducedToZeroHpBloodbath(powerBloodbath));
         featureCorruptedBlood.SetCustomSubFeatures(
             new PhysicalAttackFinishedOnMeCorruptedBlood(featureCorruptedBlood, powerBloodbath));
 
@@ -191,12 +191,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     // Voracious Fury
     //
 
-    private sealed class PhysicalAttackFinishedVoraciousFury : IPhysicalAttackFinished
+    private sealed class PhysicalAttackFinishedByMeVoraciousFury : IPhysicalAttackFinishedByMe
     {
         private readonly FeatureDefinition _featureVoraciousFury;
         private readonly FeatureDefinitionPower _powerBloodBath;
 
-        public PhysicalAttackFinishedVoraciousFury(
+        public PhysicalAttackFinishedByMeVoraciousFury(
             FeatureDefinition featureVoraciousFury,
             FeatureDefinitionPower powerBloodBath)
         {
@@ -204,7 +204,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             _powerBloodBath = powerBloodBath;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -220,7 +220,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -230,8 +230,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(_featureVoraciousFury.Name) ||
-                Gui.Battle == null || Gui.Battle.ActiveContender != attacker)
+            if (!attacker.OnceInMyTurnIsValid(_featureVoraciousFury.Name))
             {
                 yield break;
             }
@@ -257,7 +256,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -287,11 +286,11 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     // Bloodbath
     //
 
-    private class TargetReducedToZeroHpBloodbath : ITargetReducedToZeroHp
+    private class OnTargetReducedToZeroHpBloodbath : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinitionPower _powerBloodBath;
 
-        public TargetReducedToZeroHpBloodbath(FeatureDefinitionPower powerBloodBath)
+        public OnTargetReducedToZeroHpBloodbath(FeatureDefinitionPower powerBloodBath)
         {
             _powerBloodBath = powerBloodBath;
         }
@@ -340,7 +339,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

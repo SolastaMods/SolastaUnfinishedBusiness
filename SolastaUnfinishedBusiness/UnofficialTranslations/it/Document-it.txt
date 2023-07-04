@@ -1,4 +1,4 @@
-Document/&Lightfiller_01_Title=Codice chiave della cassaforte Wildspring
 Document/&Lightfiller_01_Content=Non comunicare al di fuori della famiglia
-Document/&Lightfiller_02_Title=Chiave della cella dell'ospite
+Document/&Lightfiller_01_Title=Codice chiave della cassaforte Wildspring
 Document/&Lightfiller_02_Content=Comunicare a discrezione del direttore
+Document/&Lightfiller_02_Title=Chiave della cella dell'ospite

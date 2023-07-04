@@ -11,7 +11,7 @@
   ],
   "activeOnGround": false,
   "destroyedWhenUnequiped": false,
-  "forceEquip": false,
+  "forceEquip": true,
   "forceEquipSlot": "HeadSlot",
   "canBeStacked": false,
   "stackSize": 10,

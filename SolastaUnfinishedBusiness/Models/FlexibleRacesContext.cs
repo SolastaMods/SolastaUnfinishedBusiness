@@ -41,7 +41,8 @@ internal static class FlexibleRacesContext
         { "RaceFairy", AttributeChoiceThree },
         { "RaceOligath", AttributeChoiceThree },
         { "RaceWendigo", AttributeChoiceThree },
-        { "RaceTiefling", AttributeChoiceThree }
+        { "RaceTiefling", AttributeChoiceThree },
+        { "RaceWyrmkin", AttributeChoiceThree }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
@@ -90,6 +91,8 @@ internal static class FlexibleRacesContext
         { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
+        { "RaceIronbornDwarf", new List<string> { "AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease" } },
+        { "RaceObsidianDwarf", new List<string> { "AttributeModifierObsidianDwarfStrengthAbilityScoreIncrease" } },
         {
             "RaceOligath",
             new List<string>
@@ -104,6 +107,22 @@ internal static class FlexibleRacesContext
             {
                 "AttributeModifierWendigoStrengthAbilityScoreIncrease",
                 "AttributeModifierWendigoDexterityAbilityScoreIncrease"
+            }
+        },
+        {
+            "RaceCaveWyrmkin",
+            new List<string>
+            {
+                "AttributeModifierCaveWyrmkinConstitutionAbilityScoreIncrease",
+                "AttributeModifierCaveWyrmkinStrengthAbilityScoreIncrease"
+            }
+        },
+        {
+            "RaceHighWyrmkin",
+            new List<string>
+            {
+                "AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease",
+                "AttributeModifierHighWyrmkinStrengthAbilityScoreIncrease"
             }
         },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },

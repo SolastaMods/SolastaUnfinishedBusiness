@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PathOfTheSpirits : AbstractSubclass
 {
-    private const string SubclassName = "PathOfTheSpirits";
+    private const string Name = "PathOfTheSpirits";
 
     internal PathOfTheSpirits()
     {
@@ -119,7 +119,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         #endregion
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(SubclassName)
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("PathOfTheSpirits", Resources.PathOfTheSpirits, 256))
             .AddFeaturesAtLevel(3,
@@ -290,11 +290,11 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerPathOfTheSpiritsHonedBear()
     {
         var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
-            .Create($"Condition{SubclassName}HonedAnimalAspectsBear")
+            .Create($"Condition{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create("CombatAffinityPowerHonedAnimalAspectsBear")
-                .SetGuiPresentation($"Condition{SubclassName}HonedAnimalAspectsBear", Category.Condition)
+                .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition)
                 .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                 .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                 .AddToDB())
@@ -305,7 +305,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         var powerHonedAnimalAspectsBear = FeatureDefinitionPowerBuilder
-            .Create($"Power{SubclassName}HonedAnimalAspectsBear")
+            .Create($"Power{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(
@@ -337,14 +337,14 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerPathOfTheSpiritsHonedEagle()
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFlying12, $"Condition{SubclassName}HonedAnimalAspectsEagle")
+            .Create(ConditionDefinitions.ConditionFlying12, $"Condition{Name}HonedAnimalAspectsEagle")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying12)
             .AddSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
             .AddToDB();
 
         var powerHonedAnimalAspectsEagle = FeatureDefinitionPowerBuilder
-            .Create($"Power{SubclassName}HonedAnimalAspectsEagle")
+            .Create($"Power{Name}HonedAnimalAspectsEagle")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(
@@ -369,14 +369,14 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         var conditionHonedAnimalAspectsWolf = ConditionDefinitionBuilder
-            .Create($"Condition{SubclassName}HonedAnimalAspectsWolf")
+            .Create($"Condition{Name}HonedAnimalAspectsWolf")
             .SetGuiPresentation(Category.Condition)
             .AddFeatures(actionAffinityHonedAnimalAspectsWolf)
             .AddSpecialInterruptions(ConditionInterruption.RageStop)
             .AddToDB();
 
         var powerHonedAnimalAspectsWolf = FeatureDefinitionPowerBuilder
-            .Create($"Power{SubclassName}HonedAnimalAspectsWolf")
+            .Create($"Power{Name}HonedAnimalAspectsWolf")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(

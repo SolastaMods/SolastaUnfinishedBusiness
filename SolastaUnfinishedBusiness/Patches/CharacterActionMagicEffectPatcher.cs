@@ -15,7 +15,8 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ForceApplyConditionOnSelf))]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect),
+        nameof(CharacterActionMagicEffect.ForceApplyConditionOrLightOnSelf))]
     [UsedImplicitly]
     public static class ForceApplyConditionOnSelf_Patch
     {
@@ -66,7 +67,7 @@ public static class CharacterActionMagicEffectPatcher
                 formsParams,
                 null,
                 out _,
-                forceSelfConditionOnly: true,
+                forceSelfConditionOrLightOnly: true,
                 effectApplication: effectDescription.EffectApplication,
                 filters: effectDescription.EffectFormFilters,
                 terminateEffectOnTarget: out _);
@@ -123,9 +124,31 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
+            //PATCH: IActionInitiatedByMe
+            if (__instance is CharacterActionUsePower characterActionUsePower1)
+            {
+                var power = characterActionUsePower1.activePower.PowerDefinition;
+
+                foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerInitiatedByMe>())
+                {
+                    usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
+                }
+            }
+
             while (values.MoveNext())
             {
                 yield return values.Current;
+            }
+
+            //PATCH: Adds support to IUsePowerFinishedByMe
+            if (__instance is CharacterActionUsePower characterActionUsePower2)
+            {
+                var power = characterActionUsePower2.activePower.PowerDefinition;
+
+                foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinishedByMe>())
+                {
+                    usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
+                }
             }
 
             //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
@@ -300,41 +323,35 @@ public static class CharacterActionMagicEffectPatcher
                 yield return values.Current;
             }
 
-            if (!battleService.IsBattleInProgress)
-            {
-                yield break;
-            }
-
             var attacker = __instance.ActingCharacter;
-            var rulesetEffect = __instance.ActionParams.RulesetEffect;
 
-            if (rulesetEffect.EffectDescription.RangeType != RuleDefinitions.RangeType.MeleeHit &&
-                rulesetEffect.EffectDescription.RangeType != RuleDefinitions.RangeType.RangeHit)
+            //PATCH: support for `IMagicalAttackFinishedByMe`
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
+                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
+                {
+                    yield return feature.OnMagicalAttackFinishedByMe(__instance, attacker, target);
+                }
             }
 
-            foreach (var gameLocationAlly in Gui.Battle.AllContenders
-                         .Where(x =>
-                             (x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                              x.RulesetCharacter.HasAnyConditionOfType(RuleDefinitions
-                                  .ConditionMindControlledByCaster)) ||
-                             x.Side == attacker.Side)
-                         .ToList()) // avoid changing enumerator
+            //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var allyFeatures =
-                    gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
-
-                foreach (var feature in allyFeatures)
+                foreach (var ally in Gui.Battle.GetMyContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
                 {
-                    yield return feature.OnReactToAttackOnEnemyFinished(
-                        attacker,
-                        gameLocationAlly,
-                        target,
-                        __instance.AttackRollOutcome,
-                        __instance.ActionParams,
-                        null,
-                        null); //TODO: need to find a good way to pass the magic attack modifier here
+                    foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())
+                    {
+                        yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
+                            .OnMagicalAttackFinishedByMeOrAlly(__instance, attacker, target, ally);
+                    }
                 }
             }
         }

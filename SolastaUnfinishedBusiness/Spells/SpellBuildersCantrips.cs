@@ -18,10 +18,493 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region CANTRIPS
+    #region Air Blast
+
+    internal static SpellDefinition BuildAirBlast()
+    {
+        const string NAME = "AirBlast";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.AirBlast, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Strength,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Blade Ward
+
+    internal static SpellDefinition BuildBladeWard()
+    {
+        const string NAME = "BladeWard";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.BladeWard, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Round, 1)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionBladeWard")
+                            .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
+                            .SetFeatures(
+                                DamageAffinityBludgeoningResistance,
+                                DamageAffinitySlashingResistance,
+                                DamageAffinityPiercingResistance)
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
+            .Build();
+
+        effectDescription.EffectParticleParameters.casterParticleReference =
+            GuidingBolt.effectDescription.EffectParticleParameters.casterParticleReference;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Burst of Radiance
+
+    internal static SpellDefinition BuildBurstOfRadiance()
+    {
+        const string NAME = "BurstOfRadiance";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetParticleEffectParameters(BurningHands)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeRadiant, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Enduring Sting
+
+    internal static SpellDefinition BuildEnduringSting()
+    {
+        const string NAME = "EnduringSting";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.EnduringSting, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetParticleEffectParameters(Bane)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                true,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Illuminating Sphere
+
+    internal static SpellDefinition BuildIlluminatingSphere()
+    {
+        const string NAME = "IlluminatingSphere";
+
+        var spell = SpellDefinitionBuilder
+            .Create(Sparkle, NAME)
+            .SetGuiPresentation(Category.Spell, Shine)
+            .SetVocalSpellSameType(VocalSpellSemeType.Detection)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Sparkle.EffectDescription)
+                .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 6)
+                .SetParticleEffectParameters(SacredFlame_B.EffectDescription.EffectParticleParameters)
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Mind Spike
+
+    internal static SpellDefinition BuildMindSpike()
+    {
+        const string NAME = "MindSpike";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MindSpike, 128, 128);
+
+        var conditionMindSpike = ConditionDefinitionBuilder
+            .Create(ConditionBaned, $"Condition{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBaned)
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+            .SetParticleEffectParameters(Bane)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Intelligence,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionMindSpike, ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Minor Life Steal
+
+    internal static SpellDefinition BuildMinorLifesteal()
+    {
+        var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
+
+        return SpellDefinitionBuilder
+            .Create("MinorLifesteal")
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetVerboseComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSpellLevel(0)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                .SetDurationData(DurationType.Hour, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8, 0, HealFromInflictedDamage.Half)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetTempHpForm(0, DieType.D4, 1, true)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build())
+                .SetParticleEffectParameters(VampiricTouch)
+                .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Sword Storm
+
+    internal static SpellDefinition BuildSwordStorm()
+    {
+        const string NAME = "SwordStorm";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.SwordStorm, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetParticleEffectParameters(ShadowDagger)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Dexterity,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeForce, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Thorny Vines
+
+    internal static SpellDefinition BuildThornyVines()
+    {
+        var spriteReference = Sprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
+
+        return SpellDefinitionBuilder
+            .Create("ThornyVines")
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetSpellLevel(0)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
+                .SetParticleEffectParameters(VenomousSpike)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
+                    additionalDicePerIncrement: 1)
+                .SetEffectForms(
+                    EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D6),
+                    EffectFormBuilder.MotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                ).Build())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Thunder Strike
+
+    internal static SpellDefinition BuildThunderStrike()
+    {
+        const string NAME = "ThunderStrike";
+
+        var spriteReference = Shield;
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(
+                EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
+            .ExcludeCaster()
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Wrack
+
+    internal static SpellDefinition BuildWrack()
+    {
+        const string NAME = "Wrack";
+
+        var conditionWrack = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionHindered)
+            .AddFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(
+                        ActionDefinitions.Id.DisengageMain,
+                        ActionDefinitions.Id.DisengageBonus,
+                        ActionDefinitions.Id.DashMain,
+                        ActionDefinitions.Id.DashBonus)
+                    .AddToDB())
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create(InflictWounds)
+            .SetEffectAdvancement(
+                EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
+            .SetDurationData(DurationType.Round, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+            .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Wrack", Resources.Wrack, 128))
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Acid Claws
+
+    internal static ConditionDefinition AcidClawCondition => _acidClawCondition ??= BuildAcidClawCondition();
 
     private static ConditionDefinition _acidClawCondition;
-    internal static ConditionDefinition AcidClawCondition => _acidClawCondition ??= BuildAcidClawCondition();
 
     private static ConditionDefinition BuildAcidClawCondition()
     {
@@ -75,282 +558,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    internal static SpellDefinition BuildAirBlast()
-    {
-        const string NAME = "AirBlast";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.AirBlast, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Strength,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildBladeWard()
-    {
-        const string NAME = "BladeWard";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.BladeWard, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.Round, 1)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(
-                        ConditionDefinitionBuilder
-                            .Create("ConditionBladeWard")
-                            .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
-                            .SetFeatures(
-                                DamageAffinityBludgeoningResistance,
-                                DamageAffinitySlashingResistance,
-                                DamageAffinityPiercingResistance)
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add)
-                    .Build())
-            .Build();
-
-        effectDescription.EffectParticleParameters.casterParticleReference =
-            GuidingBolt.effectDescription.EffectParticleParameters.casterParticleReference;
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildBurstOfRadiance()
-    {
-        const string NAME = "BurstOfRadiance";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(BurningHands)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeRadiant, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetSomaticComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildEnduringSting()
-    {
-        const string NAME = "EnduringSting";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.EnduringSting, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-            .SetParticleEffectParameters(Bane)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetMotionForm(MotionForm.MotionType.FallProne)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildIlluminatingSphere()
-    {
-        const string NAME = "IlluminatingSphere";
-
-        var spell = SpellDefinitionBuilder
-            .Create(Sparkle, NAME)
-            .SetGuiPresentation(Category.Spell, Shine)
-            .SetVocalSpellSameType(VocalSpellSemeType.Detection)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Sparkle.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 6)
-                .SetParticleEffectParameters(SacredFlame_B.EffectDescription.EffectParticleParameters)
-                .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildMindSpike()
-    {
-        const string NAME = "MindSpike";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.MindSpike, 128, 128);
-
-        var conditionMindSpike = ConditionDefinitionBuilder
-            .Create(ConditionBaned, $"Condition{NAME}")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBaned)
-            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-            .AddToDB();
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-            .SetParticleEffectParameters(Bane)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Intelligence,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionMindSpike, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildMinorLifesteal()
-    {
-        var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
-
-        return SpellDefinitionBuilder
-            .Create("MinorLifesteal")
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetVerboseComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSpellLevel(0)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
-                .SetDurationData(DurationType.Hour, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8, 0, HealFromInflictedDamage.Half)
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm(0, DieType.D4, 1, true)
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .Build())
-                .SetParticleEffectParameters(VampiricTouch)
-                .Build())
-            .AddToDB();
-    }
+    #endregion
 
     #region Resonating Strike
 
@@ -438,7 +646,7 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
+    private sealed class SpellEffectLevelFromCasterLevel : IModifySpellEffectLevel
     {
         public int GetEffectLevel([NotNull] RulesetActor caster, RulesetEffectSpell rulesetEffectSpell)
         {
@@ -660,166 +868,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    internal static SpellDefinition BuildSwordStorm()
-    {
-        const string NAME = "SwordStorm";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.SwordStorm, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-            .SetParticleEffectParameters(ShadowDagger)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildThornyVines()
-    {
-        var spriteReference = Sprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
-
-        return SpellDefinitionBuilder
-            .Create("ThornyVines")
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetSpellLevel(0)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
-                .SetParticleEffectParameters(VenomousSpike)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
-                    additionalDicePerIncrement: 1)
-                .SetEffectForms(
-                    EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D6),
-                    EffectFormBuilder.MotionForm(MotionForm.MotionType.DragToOrigin, 2)
-                ).Build())
-            .AddToDB();
-    }
-
-    internal static SpellDefinition BuildThunderStrike()
-    {
-        const string NAME = "ThunderStrike";
-
-        var spriteReference = Shield;
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(
-                EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
-            .ExcludeCaster()
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildWrack()
-    {
-        const string NAME = "Wrack";
-
-        var conditionWrack = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionHindered)
-            .AddFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create($"ActionAffinity{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetForbiddenActions(
-                        ActionDefinitions.Id.DisengageMain,
-                        ActionDefinitions.Id.DisengageBonus,
-                        ActionDefinitions.Id.DashMain,
-                        ActionDefinitions.Id.DashBonus)
-                    .AddToDB())
-            .AddToDB();
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create(InflictWounds)
-            .SetEffectAdvancement(
-                EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetDurationData(DurationType.Round, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-            .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build())
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Wrack", Resources.Wrack, 128))
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .AddToDB();
-
-        return spell;
-    }
+    #region Toll the Dead
 
     internal static SpellDefinition BuildTollTheDead()
     {
@@ -864,7 +913,7 @@ internal static partial class SpellBuilders
             var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
             var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

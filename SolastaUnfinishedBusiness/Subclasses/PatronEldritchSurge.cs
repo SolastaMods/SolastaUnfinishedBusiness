@@ -26,39 +26,49 @@ internal class PatronEldritchSurge : AbstractSubclass
     private const string PowerBlastPursuitName = $"Power{Name}BlastPursuit";
 
     // LEVEL 06 Blast Pursuit
-
+    // Original name to keep save integrity
     private static readonly FeatureDefinitionAdditionalAction AdditionalActionBlastPursuit =
         FeatureDefinitionAdditionalActionBuilder
             .Create($"AdditionalAction{Name}BlastPursuit")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(AllowDuplicates.Mark)
             .SetActionType(ActionType.Main)
-            .SetRestrictedActions(
-                Id.AttackMain,
-                Id.CastMain,
-                Id.DashMain,
-                Id.DisengageMain,
-                Id.Dodge)
-            .SetMaxAttacksNumber(1)
+            .SetForbiddenActions(Id.AttackMain)
+            .AddToDB();
+
+    private static readonly FeatureDefinitionAdditionalAction AdditionalActionBlastPursuitOff =
+        FeatureDefinitionAdditionalActionBuilder
+            .Create($"AdditionalAction{Name}BlastPursuitOff")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(AllowDuplicates.Mark)
+            .SetActionType(ActionType.Bonus)
+            .SetForbiddenActions(Id.AttackOff)
             .AddToDB();
 
     private static readonly ConditionDefinition ConditionExtraActionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}ExtraActionBlastPursuit")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .AllowMultipleInstances()
         .SetFeatures(AdditionalActionBlastPursuit)
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionExtraActionBlastPursuitOff = ConditionDefinitionBuilder
+        .Create($"Condition{Name}ExtraActionBlastPursuitOff")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(AdditionalActionBlastPursuitOff)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastPursuit")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHasted)
+        .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
         .AddFeatures(
             FeatureDefinitionBuilder
                 .Create($"Feature{Name}BlastPursuit")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new TargetReducedToZeroHpBlastPursuit())
+                    new OnTargetReducedToZeroHpBlastPursuit())
                 .AddToDB())
         .AddToDB();
 
@@ -67,6 +77,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     private static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
+        .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .AddFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageInvocationAgonizingBlast, $"AdditionalDamage{Name}BlastOverload")
@@ -79,6 +90,14 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
                 .AddToDB())
+        .AddToDB();
+
+    // LEVEL 14 Blast Reload
+
+    public static readonly FeatureDefinition FeatureBlastReload = FeatureDefinitionBuilder
+        .Create($"Feature{Name}BlastReload")
+        .SetGuiPresentation(Category.Feature)
+        .SetCustomSubFeatures(new CustomBehaviorBlastReload())
         .AddToDB();
 
     internal PatronEldritchSurge()
@@ -106,11 +125,16 @@ internal class PatronEldritchSurge : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionBlastPursuit))
+                .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
+                    EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
+                    EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuitOff))
                 .Build())
             .AddToDB();
+
+        powerBlastPursuit.effectDescription.effectParticleParameters.casterParticleReference = null;
 
         powerBlastPursuit.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit),
@@ -139,12 +163,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         // LEVEL 14
 
         // Blast Reload
-
-        var featureBlastReload = FeatureDefinitionBuilder
-            .Create($"Feature{Name}BlastReload")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomBehaviorBlastReload())
-            .AddToDB();
+        // Moved to static property
 
         // MAIN
 
@@ -154,7 +173,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddFeaturesAtLevel(1, bonusCantripsEldritchSurgeBlastExclusive)
             .AddFeaturesAtLevel(6, powerBlastPursuit)
             .AddFeaturesAtLevel(10, powerBlastOverload)
-            .AddFeaturesAtLevel(14, featureBlastReload)
+            .AddFeaturesAtLevel(14, FeatureBlastReload)
             .AddToDB();
     }
 
@@ -170,14 +189,6 @@ internal class PatronEldritchSurge : AbstractSubclass
     {
         return rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
                rulesetEffectSpell.SpellDefinition == EldritchBlast;
-    }
-
-    private static int GetBlastPursuitExtraActionCount(RulesetActor rulesetActor, int additionalCount = 0)
-    {
-        return additionalCount +
-               rulesetActor.ConditionsByCategory
-                   .SelectMany(x => x.Value)
-                   .Count(x => x.conditionDefinition == ConditionExtraActionBlastPursuit);
     }
 
     private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
@@ -201,18 +212,20 @@ internal class PatronEldritchSurge : AbstractSubclass
             var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
             var increaseLevels = new[] { 3, 8, 13, 18 };
             var additionalBeamCount = increaseLevels.Count(level => determinantLevel >= level);
-            var blastPursuitExtraActionCount = GetBlastPursuitExtraActionCount(rulesetHero);
-            var overloadStatus = rulesetHero.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
+            var pursuitStatus = rulesetCharacter.HasConditionOfType(ConditionBlastPursuit)
+                ? 1 + (warlockClassLevel >= 16 ? 1 : 0)
+                : 0;
+            var overloadStatus = rulesetCharacter.HasConditionOfType(ConditionBlastOverload) ? 1 : 0;
 
             effectDescription.effectAdvancement.Clear();
             effectDescription.targetParameter = 1 + additionalBeamCount;
-            effectDescription.rangeParameter = Math.Max(1, 24 - (6 * (blastPursuitExtraActionCount + overloadStatus)));
+            effectDescription.rangeParameter = Math.Max(1, 24 - (6 * (pursuitStatus + overloadStatus)));
 
             return effectDescription;
         }
     }
 
-    private sealed class CustomBehaviorBlastPursuitOrOverload : IActionFinished, IPowerUseValidity
+    private sealed class CustomBehaviorBlastPursuitOrOverload : IUsePowerFinishedByMe, IPowerUseValidity
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _triggerPower;
@@ -225,15 +238,27 @@ internal class PatronEldritchSurge : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
         {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _triggerPower)
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
+
+            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return false;
+            }
+
+            return !rulesetCharacter.HasConditionOfType(_conditionDefinition) &&
+                   SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) >= 1;
+        }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _triggerPower)
             {
                 yield break;
             }
 
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetHero = rulesetCharacter.GetOriginalHero();
 
             if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
@@ -245,22 +270,9 @@ internal class PatronEldritchSurge : AbstractSubclass
 
             SharedSpellsContext.GetWarlockSpellRepertoire(rulesetHero)?.SpendSpellSlot(slotLevel);
         }
-
-        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
-        {
-            var rulesetHero = rulesetCharacter.GetOriginalHero();
-
-            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return false;
-            }
-
-            return !rulesetHero.HasConditionOfType(_conditionDefinition.Name) &&
-                   SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) >= 1;
-        }
     }
 
-    private sealed class TargetReducedToZeroHpBlastPursuit : ITargetReducedToZeroHp
+    private sealed class OnTargetReducedToZeroHpBlastPursuit : IOnTargetReducedToZeroHp
     {
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
@@ -294,7 +306,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class ExtraActionBlastPursuit : IActionExecutionHandled
+    private sealed class ExtraActionBlastPursuit : IActionExecutionHandled, ICharacterTurnStartListener
     {
         public void OnActionExecutionHandled(
             GameLocationCharacter gameLocationCharacter,
@@ -302,35 +314,16 @@ internal class PatronEldritchSurge : AbstractSubclass
             ActionScope scope)
         {
             // skip if wrong scope or action type
-            if (scope != ActionScope.Battle || actionParams.ActionDefinition.ActionType != ActionType.Main)
-            {
-                return;
-            }
-
-            // skip if still has attacks available
-            if (gameLocationCharacter.GetActionAvailableIterations(Id.AttackMain) > 0)
+            if (scope != ActionScope.Battle)
             {
                 return;
             }
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
             {
-                return;
-            }
-
-            var blastPursuitExtraActionCount =
-                GetBlastPursuitExtraActionCount(rulesetCharacter);
-
-            var isValidBlastPursuit =
-                rulesetCharacter.HasConditionOfType(ConditionBlastPursuit) &&
-                blastPursuitExtraActionCount == 0;
-
-            if (isValidBlastPursuit)
-            {
-                InflictCondition(rulesetCharacter);
-
                 return;
             }
 
@@ -342,26 +335,83 @@ internal class PatronEldritchSurge : AbstractSubclass
             }
 
             var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
-            var warlockRemainingSlots = SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero);
 
-            var isValidPermanentBlastPursuit =
-                IsEldritchBlast(actionParams.activeEffect) &&
-                eldritchSurgeLevel >= 18 &&
-                blastPursuitExtraActionCount <= 1 &&
-                warlockRemainingSlots <= 0;
-
-            if (!isValidPermanentBlastPursuit)
+            if (eldritchSurgeLevel >= 16)
             {
                 return;
             }
 
-            InflictCondition(rulesetCharacter);
+            var actionType = actionParams.ActionDefinition.ActionType;
+            var featureToCheck = actionType switch
+            {
+                ActionType.Main => AdditionalActionBlastPursuit,
+                ActionType.Bonus => AdditionalActionBlastPursuitOff,
+                _ => null
+            };
+            var conditionToRemove = actionType switch
+            {
+                ActionType.Main => ConditionExtraActionBlastPursuitOff.Name,
+                ActionType.Bonus => ConditionExtraActionBlastPursuit.Name,
+                _ => null
+            };
+
+            if (featureToCheck == null)
+            {
+                return;
+            }
+
+            var filters = gameLocationCharacter.ActionPerformancesByType[actionType];
+            var k = gameLocationCharacter.CurrentActionRankByType[actionType] - 1;
+            var f = k >= 0 && k < filters.Count ? PerformanceFilterExtraData.GetData(filters[k]) : null;
+            var feature = f?.Feature;
+
+            if (feature == featureToCheck)
+            {
+                rulesetCharacter.RemoveAllConditionsOfType(conditionToRemove);
+            }
         }
 
-        private static void InflictCondition(RulesetCharacter rulesetCharacter)
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
+
+            if (rulesetHero == null)
+            {
+                return;
+            }
+
+            var eldritchSurgeLevel = rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name);
+
+            if (eldritchSurgeLevel == 20 && SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) <= 0)
+            {
+                InflictCondition(rulesetCharacter, ConditionBlastPursuit);
+            }
+
+            if (!rulesetCharacter.HasConditionOfType(ConditionBlastPursuit))
+            {
+                return;
+            }
+
+            InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuit);
+            InflictCondition(rulesetCharacter, ConditionExtraActionBlastPursuitOff);
+        }
+
+        private static void InflictCondition(RulesetCharacter rulesetCharacter, ConditionDefinition condition)
+        {
+            if (rulesetCharacter.HasConditionOfType(condition))
+            {
+                return;
+            }
+
             rulesetCharacter.InflictCondition(
-                ConditionExtraActionBlastPursuit.Name,
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -375,7 +425,12 @@ internal class PatronEldritchSurge : AbstractSubclass
                 0
             );
 
-            var title = ConditionExtraActionBlastPursuit.GuiPresentation.Title;
+            if (condition != ConditionBlastPursuit)
+            {
+                return;
+            }
+
+            var title = condition.GuiPresentation.Title;
 
             rulesetCharacter.ShowLabel(title, Gui.ColorPositive);
             rulesetCharacter.LogCharacterActivatesAbility(title, "Feedback/&BlastPursuitExtraAction", true);

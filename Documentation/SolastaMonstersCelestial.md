@@ -17,6 +17,7 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Immunity _except _magical
 * Damage Affinity Piercing Immunity _except _magical
 * Damage Affinity Psychic Immunity
@@ -55,6 +56,7 @@ Size: *Medium*
 * Condition Affinity Charm Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Piercing Resistance
 * Damage Affinity Psychic Immunity
@@ -94,6 +96,7 @@ Size: *Medium*
 * Condition Affinity Charm Immunity
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Frightened Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Piercing Resistance
 * Damage Affinity Poison Immunity

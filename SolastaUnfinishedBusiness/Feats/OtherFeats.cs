@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -647,7 +648,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
-                        new ActionFinishedFeatMobileDash(
+                        new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -667,16 +668,16 @@ internal static class OtherFeats
     }
 
 
-    private sealed class ActionFinishedFeatMobileDash : IActionFinished
+    private sealed class ActionFinishedByMeFeatMobileDash : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public ActionFinishedFeatMobileDash(ConditionDefinition conditionDefinition)
+        public ActionFinishedByMeFeatMobileDash(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not (CharacterActionDash or
                 CharacterActionFlurryOfBlows or
@@ -715,19 +716,23 @@ internal static class OtherFeats
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
         .SetGuiPresentation(Category.Feature)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetSavingThrowData(false,
-                AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Constitution)
-            .SetEffectForms(EffectFormBuilder
+        .SetEffectDescription(
+            EffectDescriptionBuilder
                 .Create()
-                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                .ExcludeCaster()
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Constitution)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                    .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                 .Build())
-            .SetDurationData(DurationType.Minute, 1)
-            .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
-            .Build())
         .AddToDB();
 
     private static FeatDefinition BuildPoisonousSkin()
@@ -741,10 +746,24 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
-        IAttackEffectAfterDamage, ICustomConditionFeature, IActionFinished
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
-        // handle Shove scenario
-        public IEnumerator OnActionFinished(CharacterAction action)
+        //Poison character that shoves me
+        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
+
+        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        {
+            if (characterAction.ActionParams.TargetCharacters == null ||
+                !characterAction.ActionParams.TargetCharacters.Contains(target))
+            {
+                yield break;
+            }
+
+            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
+        }
+
+        //Poison characters that I shove
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionShove)
             {
@@ -755,90 +774,65 @@ internal static class OtherFeats
 
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                ApplyPower(rulesetAttacker, target);
+                PoisonTarget(rulesetAttacker, target);
             }
         }
 
-        // handle standard attack scenario
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+        //Poison target if I attack with unarmed
+        public IEnumerator OnAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter me, GameLocationCharacter target, RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome, int damageAmount)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            //Missed: skipping
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
 
-            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) || attackMode.ranged ||
-                outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            //Not unarmed attack: skipping
+            if (!ValidatorsWeapon.IsUnarmed(me.RulesetCharacter, attackMode))
+            {
+                yield break;
+            }
+
+            PoisonTarget(me.RulesetCharacter, target);
+        }
+
+        //Poison melee attacker
+        public IEnumerator OnAttackFinishedOnMe(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter attacker, GameLocationCharacter me, RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome, int damageAmount)
+        {
+            //Missed: skipping
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
+
+            //Not melee attack: skipping
+            if (!ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield break;
+            }
+
+            PoisonTarget(me.RulesetCharacter, attacker);
+        }
+
+        private static void PoisonTarget(RulesetCharacter me, GameLocationCharacter target)
+        {
+            var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
-            ApplyPower(attacker.RulesetCharacter, defender);
-        }
+            var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, me);
 
-        // handle Grappled scenario
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            var conditionDefinition = rulesetCondition.ConditionDefinition;
-
-            if (!conditionDefinition.Name.Contains("Grappled"))
-            {
-                return;
-            }
-
-            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var grappler))
-            {
-                return;
-            }
-
-            var grapplerLocationCharacter = GameLocationCharacter.GetFromActor(grappler);
-
-            ApplyPower(target, grapplerLocationCharacter);
-        }
-
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
-        }
-
-        private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
-        {
-            var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
-            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
-            {
-                saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
-            };
-
-            return ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
-        }
-
-        private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
-        {
-            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
-                x is RulesetEffectPower rulesetEffectPower &&
-                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
-
-            if (hasEffect)
-            {
-                return;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
-            {
-                return;
-            }
-
-            var effectPower = GetUsablePower(attacker);
-
-            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
+            ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(me, usablePower, false)
+                .AddAsActivePowerToSource()
+                .ApplyEffectOnCharacter(rulesetTarget, true, target.LocationPosition);
         }
     }
 

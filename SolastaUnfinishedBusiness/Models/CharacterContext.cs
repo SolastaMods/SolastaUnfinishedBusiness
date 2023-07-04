@@ -20,6 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static RuleDefinitions;
@@ -144,6 +145,7 @@ internal static class CharacterContext
         LoadVisuals();
         SwitchAsiAndFeat();
         SwitchBarbarianFightingStyle();
+        SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
@@ -154,6 +156,7 @@ internal static class CharacterContext
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
+        SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
@@ -332,8 +335,6 @@ internal static class CharacterContext
 
     private static void LoadVisuals()
     {
-        Tiefling.RacePresentation.faceShapeAssetPrefix = Main.Settings.UseElfFaceModelsOnTieflings ? "Elf" : "Tiefling";
-
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
         if (Main.Settings.UnlockSkinColors)
@@ -490,6 +491,28 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchDragonbornElementalBreathUsages()
+    {
+        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .Where(x => x.Name.StartsWith("PowerDragonbornBreathWeapon"));
+
+        foreach (var power in powers)
+        {
+            if (Main.Settings.ChangeDragonbornElementalBreathUsages)
+            {
+                power.usesAbilityScoreName = AttributeDefinitions.Constitution;
+                power.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
+                power.fixedUsesPerRecharge = 0;
+            }
+            else
+            {
+                power.usesAbilityScoreName = AttributeDefinitions.Charisma;
+                power.usesDetermination = UsesDetermination.Fixed;
+                power.fixedUsesPerRecharge = 1;
+            }
         }
     }
 
@@ -869,6 +892,23 @@ internal static class CharacterContext
             .ToList();
 
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    internal static void SwitchScimitarWeaponSpecialization()
+    {
+        var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
+
+        foreach (var proficiency in proficiencies)
+        {
+            if (Main.Settings.GrantScimitarSpecializationToBardRogue)
+            {
+                proficiency.Proficiencies.TryAdd(WeaponTypeDefinitions.ScimitarType.Name);
+            }
+            else
+            {
+                proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
+            }
+        }
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(

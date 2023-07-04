@@ -1,4 +1,7 @@
-// automatically generated on 6/15/2023 12:00:00 AM
+// automatically generated on 6/22/2023 12:00:00 AM
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
+// ReSharper disable StringLiteralTypo
 
 using TA.AI;
 
@@ -20225,6 +20228,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_Son { get; } =
             GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_Son");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_Son_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_Son_Ending");
 
         internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_Son_Palace { get; } =
             GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_Son_Palace");

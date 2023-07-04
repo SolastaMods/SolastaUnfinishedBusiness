@@ -154,7 +154,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 06
         //
 
-        //ideally this should be simple feature, but leaving as Power for compatibility
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
@@ -370,7 +369,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         return mode is { Ranged: true } && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition);
     }
 
-    private sealed class CustomCodeWayOfTheDistantHandCombat : IFeatureDefinitionCustomCode
+    private sealed class CustomCodeWayOfTheDistantHandCombat : IDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -399,7 +398,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodeUnseenEyes : IFeatureDefinitionCustomCode
+    private sealed class CustomCodeUnseenEyes : IDefinitionCustomCode
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
@@ -426,7 +425,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 
-    private sealed class UpgradeFlurry : IActionFinished
+    private sealed class UpgradeFlurry : IActionFinishedByMe
     {
         private readonly ConditionDefinition condition;
 
@@ -435,7 +434,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             this.condition = condition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionFlurryOfBlows)
             {

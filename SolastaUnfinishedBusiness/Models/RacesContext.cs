@@ -17,15 +17,18 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
-        LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
-        LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
-        LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);
-        LoadRace(KoboldRaceBuilder.RaceKobold);
-        LoadRace(FairyRaceBuilder.RaceFairy);
+        LoadRace(RaceFairyBuilder.RaceFairy);
+        LoadRace(RaceHalfElfBuilder.RaceHalfElfVariant);
+        LoadRace(RaceKoboldBuilder.RaceKobold);
         LoadRace(RaceOligathBuilder.RaceOligath);
+        LoadRace(RaceTieflingBuilder.RaceTiefling);
         LoadRace(RaceWendigoBuilder.RaceWendigo);
-        LoadRace(TieflingRaceBuilder.RaceTiefling);
+        LoadRace(RaceWyrmkinBuilder.RaceWyrmkin);
+        LoadRace(SubraceDarkelfBuilder.SubraceDarkelf);
+        LoadRace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
+        LoadRace(SubraceIronbornDwarfBuilder.SubraceIronbornDwarf);
+        LoadRace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();

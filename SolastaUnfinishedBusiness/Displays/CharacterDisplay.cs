@@ -11,12 +11,14 @@ internal static class CharacterDisplay
         UI.Label(Gui.Localize("ModUi/&InitialChoices"));
         UI.Label();
 
-        var toggle = Main.Settings.AddHelpActionToAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
+        var toggle = Main.Settings.EnableFlexibleBackgrounds;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddHelpActionToAllRaces = toggle;
-            CharacterContext.SwitchHelpPower();
+            Main.Settings.EnableFlexibleBackgrounds = toggle;
+            FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         }
+
+        UI.Label();
 
         toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
@@ -30,11 +32,13 @@ internal static class CharacterDisplay
             Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
         }
 
-        toggle = Main.Settings.EnableFlexibleBackgrounds;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
+        UI.Label();
+
+        toggle = Main.Settings.AddHelpActionToAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFlexibleBackgrounds = toggle;
-            FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
+            Main.Settings.AddHelpActionToAllRaces = toggle;
+            CharacterContext.SwitchHelpPower();
         }
 
         toggle = Main.Settings.EnableFlexibleRaces;
@@ -51,15 +55,20 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
-        UI.Label();
+        toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
+            CharacterContext.SwitchDragonbornElementalBreathUsages();
+        }
 
+        UI.Label();
 
         toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
         }
-
 
         toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
@@ -69,29 +78,13 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
-        if (Main.Settings.EnableBetaContent)
-        {
-            toggle = Main.Settings.EnumerateOriginSubFeatures;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnumerateOriginSubFeatures = toggle;
-            }
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.EnableEpicPointsAndArray;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
+
+        UI.Label();
 
         toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
         if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
@@ -139,6 +132,22 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        if (Main.Settings.EnableBetaContent)
+        {
+            toggle = Main.Settings.EnumerateOriginSubFeatures;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnumerateOriginSubFeatures = toggle;
+            }
+        }
+
         toggle = Main.Settings.EnableBarbarianFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
         {
@@ -158,6 +167,13 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableMonkWeaponSpecialization = toggle;
             CharacterContext.SwitchMonkWeaponSpecialization();
+        }
+
+        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
+            CharacterContext.SwitchScimitarWeaponSpecialization();
         }
 
         UI.Label();
@@ -230,20 +246,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowBeardlessDwarves"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowBeardlessDwarves = toggle;
-        }
-
-#if false
-        toggle = Main.Settings.AllowHornsOnAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowHornsOnAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowHornsOnAllRaces = toggle;
-        }
-#endif
-
-        toggle = Main.Settings.UseElfFaceModelsOnTieflings;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseElfFaceModelsOnTieflings"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseElfFaceModelsOnTieflings = toggle;
         }
 
         UI.Label();

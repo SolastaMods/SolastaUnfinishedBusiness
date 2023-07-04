@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerMountain:e3f80e8f642548846b8cb1b3eac2887c",
+    "Definition:ProficiencyPatronMountainNatureSurvival:d43085ae-10e3-524b-8e86-e139894294cb"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle",
+    "description": "Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5676a3e3-6892-5ed3-99d1-d6a818d45232",
+  "contentPack": 9999,
+  "name": "FeatureSetPatronMountainKnowledgeOfAeons"
+}

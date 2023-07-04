@@ -129,7 +129,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         var featureUnbridledFerocity = FeatureDefinitionBuilder
             .Create($"Feature{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AttackEffectAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
+            .SetCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
         // LEVEL 14
@@ -143,7 +143,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
 
-        featureFuriousDefense.SetCustomSubFeatures(new ChangeSavingThrowAttributeFuriousDefense(featureFuriousDefense));
+        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowAttributeFuriousDefense(featureFuriousDefense));
 
         // MAIN
 
@@ -189,7 +189,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
     }
 
 #if false
-    private sealed class AttackEffectAfterDamageWrathAndFury : IAttackEffectAfterDamage
+    private sealed class AttackEffectAfterDamageWrathAndFury : IPhysicalAttackAfterDamage
     {
         private readonly FeatureDefinitionPower _powerGrievousWound;
 
@@ -199,7 +199,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             _powerGrievousWound = powerGrievousWound;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -210,8 +210,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             // only on critical hits
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDying ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 outcome is not RollOutcome.CriticalSuccess)
             {
                 return;
@@ -219,7 +218,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false})
             {
                 return;
             }
@@ -241,16 +240,16 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
     }
 #endif
 
-    private sealed class AttackEffectAfterDamageUnbridledFerocity : IAttackEffectAfterDamage
+    private sealed class PhysicalAttackAfterDamageUnbridledFerocity : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionUnbridledFerocity;
 
-        public AttackEffectAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        public PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
         {
             _conditionUnbridledFerocity = conditionUnbridledFerocity;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -260,7 +259,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker == null)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -290,11 +289,11 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class ChangeSavingThrowAttributeFuriousDefense : IChangeSavingThrowAttribute
+    private sealed class ModifySavingThrowAttributeFuriousDefense : IModifySavingThrowAttribute
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ChangeSavingThrowAttributeFuriousDefense(FeatureDefinition featureDefinition)
+        public ModifySavingThrowAttributeFuriousDefense(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

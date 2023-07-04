@@ -282,7 +282,8 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddToDB();
 
         var damageAffinityForgeMastery = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance, "DamageAffinityForgeMastery")
+            .Create("DamageAffinityForgeMastery")
+            .SetGuiPresentationNoContent(true)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
             .SetDamageType(DamageTypeFire)
             .AddToDB();

@@ -66,6 +66,7 @@ public class Settings : UnityModManager.ModSettings
 
     //TA made level ups of more than 1 level at a time (like when starting PoI with low level party) disallow unlearning spells/invocations to streamline process. Setting this to true disables that.
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
+    public bool EnableActionSwitching { get; set; }
 
     //
     // Gameplay - Tools
@@ -101,6 +102,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
+    public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
@@ -123,6 +125,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
+    public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableLevel20 { get; set; }
     public bool EnableMulticlass { get; set; }
     public int MaxAllowedClasses { get; set; }
@@ -142,7 +145,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
-    public bool UseElfFaceModelsOnTieflings { get; set; }
 
     //
     // Gameplay - Rules

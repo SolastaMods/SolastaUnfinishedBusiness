@@ -97,7 +97,7 @@ Size: *Medium*
 |  18 |  18 |  18 |  18 |  12 |  18 |
 
 *Features:*
-* Feature/&ConditionAffinityCircleLandLandsStrideTitle
+* Condition Affinity Prone Immunity
 * Condition Affinity Veil Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Necrotic Resistance
@@ -348,8 +348,8 @@ Size: *Medium*
 |  10 |  18 |  12 |  10 |  15 |  08 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Sight
+* Keen Hearing and Smell
+* Keen Sight
 * Walk 6
 * Normal Vision
 
@@ -1635,7 +1635,6 @@ Size: *Medium*
 * Brave
 * Walk 6
 * Parry
-* Parry
 * Normal Vision
 
 *Attacks:*
@@ -2911,8 +2910,8 @@ Size: *Medium*
 |  11 |  14 |  12 |  11 |  13 |  11 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Sight
+* Keen Hearing and Smell
+* Keen Sight
 * Walk 6
 * Normal Vision
 
@@ -2941,8 +2940,8 @@ Size: *Medium*
 |  11 |  14 |  12 |  11 |  13 |  11 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Sight
+* Keen Hearing and Smell
+* Keen Sight
 * Walk 6
 * Normal Vision
 
@@ -3430,6 +3429,7 @@ Size: *Medium*
 * MIND CONTROLLED IMMUNITY
 * DOMINATED IMMUNITY
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Prophet of Darkness - Dim
 * Prophet of Darkness - Darkness
 * Prophet of Darkness - Unlit
@@ -3496,6 +3496,7 @@ Size: *Medium*
 * MIND CONTROLLED IMMUNITY
 * DOMINATED IMMUNITY
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Prophet of Darkness - Dim
 * Prophet of Darkness - Darkness
 * Prophet of Darkness - Unlit
@@ -4157,8 +4158,8 @@ Size: *Medium*
 |  16 |  13 |  14 |  10 |  11 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
+* Keen Smell
 * Damage Affinity Werewolf _ Bludgeoning Immunity
 * Damage Affinity Werewolf _ Piercing Immunity
 * Damage Affinity Werewolf _ Slashing Immunity
@@ -4539,8 +4540,8 @@ Size: *Medium*
 |  15 |  13 |  14 |  10 |  11 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
+* Keen Smell
 * Damage Affinity Werewolf _ Bludgeoning Immunity
 * Damage Affinity Werewolf _ Piercing Immunity
 * Damage Affinity Werewolf _ Slashing Immunity

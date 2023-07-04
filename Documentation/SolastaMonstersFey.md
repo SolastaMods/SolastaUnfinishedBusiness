@@ -282,7 +282,7 @@ Size: *Large*
 |  22 |  10 |  22 |  02 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Walk 8
 * Normal Vision
 
@@ -311,7 +311,7 @@ Size: *Medium*
 |  16 |  22 |  12 |  10 |  10 |  10 |
 
 *Features:*
-* Ability Check Affinity Keen Sight
+* Keen Sight
 * Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Piercing Resistance
@@ -348,8 +348,7 @@ Size: *Large*
 |  18 |  14 |  14 |  09 |  13 |  11 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
 * Movement Affinity No Climb
 * Movement Affinity No Vault

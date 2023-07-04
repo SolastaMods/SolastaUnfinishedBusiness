@@ -25,8 +25,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBladeDancerBladeDanceTitle",
-    "description": "Condition/&ConditionBladeDancerBladeDanceDescription",
+    "title": "Feature/&AbilityCheckAffinityBladeDancerBladeDanceConstitutionTitle",
+    "description": "Feature/&AbilityCheckAffinityBladeDancerBladeDanceConstitutionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

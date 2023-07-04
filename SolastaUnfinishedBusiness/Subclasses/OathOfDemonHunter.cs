@@ -100,7 +100,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new RangedAttackInMeleeDisadvantageRemover(IsOathOfDemonHunterWeapon),
-                new PhysicalAttackFinishedLightEnergyCrossbowBolt(conditionTrialMark, powerTrialMark))
+                new PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(conditionTrialMark, powerTrialMark))
             .AddToDB();
 
         //
@@ -178,12 +178,12 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
     internal static IsWeaponValidHandler IsOathOfDemonHunterWeapon { get; } =
         ValidatorsWeapon.IsOfWeaponType(LightCrossbowType, HeavyCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
 
-    private sealed class PhysicalAttackFinishedLightEnergyCrossbowBolt : IPhysicalAttackFinished
+    private sealed class PhysicalAttackFinishedByMeLightEnergyCrossbowBolt : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionTrialMark;
         private readonly FeatureDefinitionPower _powerTrialMark;
 
-        public PhysicalAttackFinishedLightEnergyCrossbowBolt(
+        public PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(
             ConditionDefinition conditionTrialMark,
             FeatureDefinitionPower powerTrialMark)
         {
@@ -191,7 +191,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
             _powerTrialMark = powerTrialMark;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

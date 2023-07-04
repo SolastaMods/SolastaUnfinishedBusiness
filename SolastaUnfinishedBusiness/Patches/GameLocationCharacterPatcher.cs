@@ -93,11 +93,12 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IAttackEffectAfterDamage>();
+            var features = character.GetSubFeaturesByType<IPhysicalAttackAfterDamage>();
 
             foreach (var effect in features)
             {
-                effect.OnAttackEffectAfterDamage(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnPhysicalAttackAfterDamage(__instance, target, outcome, actionParams, attackMode,
+                    attackModifier);
             }
         }
     }
@@ -217,12 +218,43 @@ public static class GameLocationCharacterPatcher
                 .ReplaceEnumerateFeaturesToBrowse("IActionPerformanceProvider",
                     -1, "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
                     new CodeInstruction(OpCodes.Call, enumerate1))
-                //PATCH: Support for `IDefinitionApplicationValidator`
-                //PATCH: also moves on `HasDownedAnEnemy` bonus actions to the end of the list, preserving order
-                //fixes main attacks stopping working if Horde Breaker's extra action on kill is triggered after Action Surge
+                //PATCH: Support for action switching
                 .ReplaceEnumerateFeaturesToBrowse("IAdditionalActionsProvider",
                     -1, "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
                     new CodeInstruction(OpCodes.Call, enumerate2));
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter __instance)
+        {
+            //PATCH: support for action switching
+            ActionSwitching.ResortPerformances(__instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.SpendActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpendActionType_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType)
+        {
+            //PATCH: support for action switching
+            ActionSwitching.SpendActionType(__instance, actionType);
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.RefundActionUse))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefundActionUse_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType)
+        {
+            //PATCH: support for action switching
+            ActionSwitching.RefundActionUse(__instance, actionType);
         }
     }
 
@@ -231,14 +263,29 @@ public static class GameLocationCharacterPatcher
     [UsedImplicitly]
     public static class HandleActionExecution_Patch
     {
+        private static int _mainAttacks, _bonusAttacks, _mainRank, _bonusRank;
+
+        [UsedImplicitly]
+        public static void Prefix(
+            GameLocationCharacter __instance,
+            CharacterActionParams actionParams,
+            ActionDefinitions.ActionScope scope)
+        {
+            _mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
+            _bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
+            _mainAttacks = __instance.UsedMainAttacks;
+            _bonusAttacks = __instance.UsedBonusAttacks;
+        }
+
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            var rulesetCharacter = __instance?.RulesetCharacter;
-            if (rulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
+            var rulesetCharacter = __instance.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -248,6 +295,9 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
             rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
                 .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
+            //PATCH: support for action switching
+            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank,
+                _bonusAttacks);
         }
     }
 
@@ -289,7 +339,9 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix(GameLocationCharacter __instance, ref bool __result, ActionDefinitions.Id actionId)
         {
-            if (actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
+            if (actionId != (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
                 actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
                 actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle &&
                 actionId != (ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)

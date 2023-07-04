@@ -57,7 +57,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
             var targetCharacter = ReactionParams.TargetCharacters[0];
 
             return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
-                .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+                .Contains(targetCharacter) && targetCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
         }
     }
 

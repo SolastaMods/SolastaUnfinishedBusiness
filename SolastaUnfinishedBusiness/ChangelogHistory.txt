@@ -1,5 +1,117 @@
 ﻿CHANGES:
 
+1.5.92.9:
+
+- added Ironborn Dwarf subrace
+- added Patron Mountain subclass
+- fixed Feral Tiefling missing Burning Hands spell
+- fixed Martial Spell Shield's spell slots determination
+- fixed Ranger Hellwalker's enduring sting dice progression
+- fixed Way of Dragons' elemental breath dice progression
+- improved mod performance on game locations and battles
+- improved Patron Eldritch Surge's effects
+
+1.5.92.8:
+
+- added "Change Dragonborn elemental breath usages to constitution modifier per short rest" setting
+- changed Way of the Dragon's elemental breath to alternatively use 2 ki points when out of PB usages
+- fixed College of Audacity's whirl damage to double damage dice on critical hits [no double AC on defensive]
+- fixed College of Audacity's whirl powers to be once in my turn
+- fixed Wyrmkin race interaction with "Unlock skin colors" setting
+
+1.5.92.7:
+
+- added Wyrmkin race [by @otearaisu]
+- tweaked Ability of the Chain Master [by @HIEROT]
+- tweaked College of Audacity
+- tweaked College of Life
+
+1.5.92.6:
+
+- added College of Audacity
+- added Crossbow Mastery feat
+- fixed Old Tactics soft lock
+- fixed Lifebringer range type
+
+1.5.92.5:
+
+- fixed Hammer the Point to stack modifiers
+- fixed incorrect feats under Old Tactics group
+- fixed messed up translations on last build
+- improved Way of the Weal and Woe combat log
+
+1.5.92.4:
+
+- added setting "Grant Scimitar Weapon Specialization to Bards and Rogues"
+- added Obsidian Dwarf subrace
+- added Way of the Weal and Woe subclass [need QA]
+- fixed "Remove attunement requirements" setting to activate hidden static properties
+- fixed Spirit Shroud spell to trigger on magical or physical attack rolls
+- improved setting "Replace spider like models" to hide spider bitmap on game over screen
+
+1.5.92.3:
+
+- added Hammer the Point, and Old Tactics feats [need QA]
+- fixed Fairy, and Feral Tiefling on equipment change notification
+- fixed Plane Magic invocations availability checks
+- fixed Rage action interaction with action switch setting
+- fixed Ranger Sky Warrior, and Wizard Bladedancer on equipment change notification
+- fixed Shapechange spell interaction with metamagic selection panel
+- fixed Thorn Vines melee range back to original 30 ft
+- fixed Wardancer free weapon switch interaction with multiplayer
+- fixed Wizard Dead Master and College of Life interaction on raise dead spells without concentration
+
+1.5.92.2:
+
+TIP:
+
+- game effects are a bit odd so avoid saving with a battle in progress. both UB and vanilla
+
+ATTENTION: 
+
+- Reinstall mod if Japanese, Korean, Italian or Spanish in use for latest translation files
+- RESPEC might be required on Innovation Armor, and Innovation Weapon if extra attack misbehaves
+- RESPEC is required on Ranger Sky Warrior subclass promoted off beta on this release
+
+CHANGES:
+
+- fixed importing saves with active infusions or other effects
+- fixed multiplayer de-syncs caused by Killing Spree, Spell Fighting, and Horde Breaker
+- fixed Path of the Elements' conduit storm not cancelling flying on rage stop
+- fixed Skin of Retribution applying poison to caster
+- improved Patron Eldritch Surge's blast pursuit progression
+- improved Way of the Dragon's features descriptions, and changed ascension duration to permanent
+- reverted vanilla nerf on Dwarf Dagger critical threshold [back to 18 with proper stacking]
+- updated Korean unofficial translations to game version 1.5.92
+
+1.5.92.1:
+
+- added half-attribute feat groups and sub groups by ability score
+- added Ranger Sky Warrior subclass [beta, design by @MarinerEarendil]
+- changed Circle of the Eternal Groove's verdancy duration to 5 rounds at 14th
+- changed Way of the Dragon's ascension to behave similar to Fairy, Feral, etc.
+- fixed IsWearingMediumArmor validator always returning false [Fairy, Feral, Bladedancer]
+- fixed HasKnowledgeOfSpell validator interaction with mod spells selection
+- fixed IsMelee validator to consider monsters [Marshal]
+- fixed Thunder Gauntlet interaction with Dual Flurry
+- fixed Way of the Dragon's reactive hide prompting on every damage
+- updated Japanese, Italian, and Spanish unofficial translations to game version 1.5.92
+
+1.5.92.0:
+
+- added BETA setting "Interface > Game UI > Enable Action switching"
+- fixed Martial Champion's superior critical to set threshold to 18
+- changed Critical Virtuoso feat to be -1 additive to threshold
+- updated codebase to game version 1.5.92
+
+1.5.74.5:
+
+- demoted setting "Use Elf face models on tieflings"
+- fixed action bar powers' getting disabled under certain scenarios
+- fixed Domain Smith's reinforce armor stating long rest on description
+- fixed Fighter Weapon Specialization granting +1 strength
+- fixed Oath of Thunder causing a soft lock under certain scenarios
+
 1.5.74.4:
 
 - added Medium Armor Master feat

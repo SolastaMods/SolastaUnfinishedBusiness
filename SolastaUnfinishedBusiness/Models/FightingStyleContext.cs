@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -106,33 +106,15 @@ internal static class FightingStyleContext
                 continue;
             }
 
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (trainedFightingStyle.Condition)
+            isActive = trainedFightingStyle.Condition switch
             {
                 // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
-                case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
-                {
-                    isActive = true;
-
-                    break;
-                }
-
+                FightingStyleDefinition.TriggerCondition.RangedWeaponAttack => true,
                 // allow Shield Expert benefit from Two Weapon Fighting Style
-                case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
-                {
-                    var mainHandSlot = hero.GetMainWeapon();
-                    var offHandSlot = hero.GetOffhandWeapon();
-                    var hasShieldExpert =
-                        hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
-                        hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
-
-                    isActive = hasShieldExpert &&
-                               mainHandSlot != null && mainHandSlot.ItemDefinition.IsWeapon &&
-                               offHandSlot != null && offHandSlot.ItemDefinition.IsArmor;
-
-                    break;
-                }
-            }
+                FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded =>
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero),
+                _ => false
+            };
 
             if (isActive)
             {

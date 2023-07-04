@@ -194,7 +194,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
-                new PhysicalAttackFinishedMightyShot(powerMightyShot))
+                new PhysicalAttackFinishedByMeMightyShot(powerMightyShot))
             .AddToDB();
 
         // MAIN
@@ -288,16 +288,16 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
     // Mighty Shot
     //
 
-    private sealed class PhysicalAttackFinishedMightyShot : IPhysicalAttackFinished
+    private sealed class PhysicalAttackFinishedByMeMightyShot : IPhysicalAttackFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerMightyShot;
 
-        public PhysicalAttackFinishedMightyShot(FeatureDefinitionPower powerMightyShot)
+        public PhysicalAttackFinishedByMeMightyShot(FeatureDefinitionPower powerMightyShot)
         {
             _powerMightyShot = powerMightyShot;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

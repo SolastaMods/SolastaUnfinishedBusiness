@@ -1,4 +1,4 @@
-Document/&Lightfiller_01_Title=Wildspring Safe キーコード
 Document/&Lightfiller_01_Content=家族以外とコミュニケーションをとらない
-Document/&Lightfiller_02_Title=ゲストセルキー
+Document/&Lightfiller_01_Title=Wildspring Safe キーコード
 Document/&Lightfiller_02_Content=監視員の判断でコミュニケーションを取る
+Document/&Lightfiller_02_Title=ゲストセルキー

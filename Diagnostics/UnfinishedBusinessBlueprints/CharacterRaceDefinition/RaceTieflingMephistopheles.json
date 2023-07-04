@@ -136,6 +136,7 @@
       "FaceShape_E"
     ],
     "dontSortFaceShapes": true,
+    "maxRandomFaceShapeIndex": 5,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -298,6 +299,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "3510889d-228b-545d-b345-e2156da11282",
-  "contentPack": "PalaceOfIce",
+  "contentPack": 9999,
   "name": "RaceTieflingMephistopheles"
 }

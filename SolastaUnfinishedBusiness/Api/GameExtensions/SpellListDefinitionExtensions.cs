@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -25,12 +24,5 @@ internal static class SpellListDefinitionExtensions
         {
             list.spellsByLevel[index].spells.TryAdd(spell);
         }
-    }
-
-    internal static IEnumerable<SpellDefinition> GetSpellsOfLevels(this SpellListDefinition list, params int[] levels)
-    {
-        return list.spellsByLevel
-            .Where(d => levels.Contains(d.level))
-            .SelectMany(d => d.spells);
     }
 }

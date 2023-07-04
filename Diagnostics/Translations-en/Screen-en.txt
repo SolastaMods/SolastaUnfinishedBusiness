@@ -1258,3 +1258,5 @@ Screen/&MonsterOrNpcSelectionDescription=Select a monster or NPC.
 Screen/&AttunementSameCopyWarningTitle={0} cannot attune to more than one copy of the same items
 Screen/&InventoryItemHasAlreadyBeenLootedDescription=The item has already been looted.
 Screen/&AncestrySpellsRecoveredTitle=Ancestry Spell Slots
+Screen/&LanguageSelectionTitle=Select a Language
+Screen/&MonsterOrNpcSelectionTitle=Select a monster or NPC.

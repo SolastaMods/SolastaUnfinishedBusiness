@@ -1,0 +1,6 @@
+Maps/&Location_Presentation_DLC3_Undermountain_Description=바위와 얼음을 깎아 만든 거대한 요새로, 스노우 얼라이언스의 오래된 드워프 부족이 다른 도시와 채굴 및 교역을 벌였습니다.
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Description=Turvaamalinn의 난방 시스템에 전력을 공급하는 일부 드워프 기계를 호스팅하는 복잡한 터널 및 용암 채널 네트워크.
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=용암 터널
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Description=Turvaamalinn에 대한 주요 액세스는 일반적으로 여행자와 상인이 사용합니다… 수많은 얼음으로 막히지 않은 경우.
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=터널 입구
+Maps/&Location_Presentation_DLC3_Undermountain_Title=보안

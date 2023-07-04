@@ -396,7 +396,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .AddToDB();
 
-        featureAdvantage.SetCustomSubFeatures(new AttackComputeModifierShadowBlade(itemShadowBlade, featureAdvantage));
+        featureAdvantage.SetCustomSubFeatures(
+            new ModifyAttackActionModifierShadowBlade(itemShadowBlade, featureAdvantage));
 
         var conditionShadowBlade = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -414,12 +415,12 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class AttackComputeModifierShadowBlade : IAttackComputeModifier
+    private sealed class ModifyAttackActionModifierShadowBlade : IModifyAttackActionModifier
     {
         private readonly FeatureDefinition _featureAdvantage;
         private readonly ItemDefinition _itemShadowBlade;
 
-        public AttackComputeModifierShadowBlade(ItemDefinition itemShadowBlade, FeatureDefinition featureAdvantage)
+        public ModifyAttackActionModifierShadowBlade(ItemDefinition itemShadowBlade, FeatureDefinition featureAdvantage)
         {
             _itemShadowBlade = itemShadowBlade;
             _featureAdvantage = featureAdvantage;

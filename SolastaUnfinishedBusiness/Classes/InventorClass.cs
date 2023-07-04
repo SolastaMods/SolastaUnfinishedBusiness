@@ -713,18 +713,13 @@ internal static class InventorClass
 
     private static FeatureDefinition BuildSpellStoringItem()
     {
-        var vanillaSpells = SpellListDefinitions.SpellListAllSpells
-            .GetSpellsOfLevels(1, 2)
-            .Where(x => x.castingTime == ActivationTime.Action);
-
-        var modSpells = SpellsContext.Spells
-            .Where(x => x.SpellLevel is 1 or 2)
-            .Where(x => x.castingTime == ActivationTime.Action);
+        var spells = SpellsContext.Spells
+            .Where(x => x.SpellLevel is 1 or 2 &&
+                        x.castingTime == ActivationTime.Action &&
+                        !x.Name.EndsWith(WizardDeadMaster.DeadMasterNoConcentration));
 
         // build powers for all level 1 and 2 spells to allow better integration with custom spells selection
-        SpellStoringItemPowers.AddRange(vanillaSpells
-            .Union(modSpells)
-            .Distinct()
+        SpellStoringItemPowers.AddRange(spells
             .Select(spell =>
                 BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, PowerInventorSpellStoringItem)));
 

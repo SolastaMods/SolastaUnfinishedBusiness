@@ -18,14 +18,15 @@ internal sealed class Sentinel : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(SentinelName)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Sentinel", Resources.Sentinel, 256))
-        .SetFeatures(FeatureDefinitionBuilder
-            .Create("OnAttackHitEffectFeatSentinel")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                AttacksOfOpportunity.CanIgnoreDisengage,
-                AttacksOfOpportunity.SentinelFeatMarker,
-                new OnAttackHitEffectFeatSentinel(CustomConditionsContext.StopMovement))
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionBuilder
+                .Create("OnAttackHitEffectFeatSentinel")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    AttacksOfOpportunity.CanIgnoreDisengage,
+                    AttacksOfOpportunity.SentinelFeatMarker,
+                    new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))
+                .AddToDB())
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
@@ -33,16 +34,16 @@ internal sealed class Sentinel : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFeatSentinel : IAttackEffectAfterDamage
+    private sealed class OnPhysicalAttackHitFeatSentinel : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
-        internal OnAttackHitEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        internal OnPhysicalAttackHitFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
         {
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -68,7 +69,8 @@ internal sealed class Sentinel : AbstractFightingStyle
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

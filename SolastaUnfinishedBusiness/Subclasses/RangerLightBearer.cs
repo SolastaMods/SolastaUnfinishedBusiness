@@ -82,7 +82,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedBlessedWarrior(conditionBlessedWarrior))
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -108,6 +108,11 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerLifeBringer", Resources.PowerLifeBringer, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.HealingPool, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands.EffectDescription)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .Build())
             .AddToDB();
 
         // LEVEL 07
@@ -142,8 +147,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily = new List<SaveAffinityByFamilyDescription>
         {
-            new() { advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Fiend.Name },
-            new() { advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Undead.Name }
+            new() { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
+            new() { advantageType = AdvantageType.Disadvantage, family = "Undead" }
         };
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
@@ -200,7 +205,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedAngelicForm(powerAngelicFormSprout));
+        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedByMeAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -287,16 +292,16 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalAttackInitiatedBlessedWarrior : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior : IPhysicalAttackInitiatedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public PhysicalAttackInitiatedBlessedWarrior(ConditionDefinition conditionDefinition)
+        public PhysicalAttackInitiatedByMeBlessedWarrior(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -306,8 +311,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDying ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 yield break;
@@ -420,19 +424,18 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class ActionFinishedAngelicForm : IActionFinished
+    private sealed class ActionFinishedByMeAngelicForm : IUsePowerFinishedByMe
     {
         private static FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        public ActionFinishedByMeAngelicForm(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            if (power != _featureDefinitionPower)
             {
                 yield break;
             }
@@ -456,6 +459,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter ally,
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {

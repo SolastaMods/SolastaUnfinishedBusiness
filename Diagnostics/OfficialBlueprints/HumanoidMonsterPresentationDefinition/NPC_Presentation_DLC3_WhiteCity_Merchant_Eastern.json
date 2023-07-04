@@ -58,7 +58,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_Scavenger_Title",
+    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_EasternClans_Title",
     "description": "NPC/&DLC3_NPC_NorthernClans_Merchant_EasternClans_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

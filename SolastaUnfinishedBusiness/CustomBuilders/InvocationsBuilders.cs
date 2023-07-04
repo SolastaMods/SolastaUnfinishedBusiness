@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static RuleDefinitions;
@@ -523,7 +524,14 @@ internal static class InvocationsBuilders
         var conditionAbilityPseudo = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlying12, "ConditionAbilityPseudo")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainPseudodragon)
-            .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_GhoulsCaress)
+            .AddFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create(AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
+                    .SetSavingThrowData(
+                        EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.HalfDamage)
+                    .SetDamageDice(DieType.D8, 1)
+                    .SetNotificationTag("Poison")
+                    .AddToDB())
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
@@ -544,7 +552,7 @@ internal static class InvocationsBuilders
         var featureAbilitiesOfTheChainMaster = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AfterActionFinishedAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
+            .SetCustomSubFeatures(new AfterActionFinishedByMeAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
                 conditionAbilityQuasit, conditionAbilityPseudo))
             .AddToDB();
 
@@ -625,7 +633,7 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class AfterActionFinishedAbilitiesChain : IActionFinished
+    private sealed class AfterActionFinishedByMeAbilitiesChain : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionImpAbility;
 
@@ -634,7 +642,7 @@ internal static class InvocationsBuilders
         private readonly ConditionDefinition _conditionQuasitAbility;
         private readonly ConditionDefinition _conditionSpriteAbility;
 
-        internal AfterActionFinishedAbilitiesChain(ConditionDefinition conditionSpriteAbility,
+        internal AfterActionFinishedByMeAbilitiesChain(ConditionDefinition conditionSpriteAbility,
             ConditionDefinition conditionImpAbility,
             ConditionDefinition conditionQuasitAbility,
             ConditionDefinition conditionPseudoAbility)
@@ -645,7 +653,7 @@ internal static class InvocationsBuilders
             _conditionPseudoAbility = conditionPseudoAbility;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
 

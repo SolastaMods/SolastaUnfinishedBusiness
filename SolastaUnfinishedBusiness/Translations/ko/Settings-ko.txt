@@ -40,6 +40,7 @@ ModUi/&Blueprints=청사진
 ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
+ModUi/&ChangeDragonbornElementalBreathUsages=짧은 휴식마다 <color=#D89555>드래곤본</color> 원소 숨결 사용을 체질 수정자로 변경
 ModUi/&ChangeSleetStormToCube=실린더 대신 큐브를 사용하도록 <color=#D89555>진눈깨비</color> 변경
 ModUi/&Changelog=<b><color=#D89555>변경 로그</color></b>
 ModUi/&Character=성격
@@ -73,6 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가�
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.
 ModUi/&DungeonMakerMenu=던전메이커
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 의복</color> 모습
+ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> 작업 전환 막대 사용
 ModUi/&EnableAdditionalBackstoryDisplay=백그라운드 검사 시 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘 활성화
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Dungeon Maker에 새 항목 추가</i>
@@ -143,6 +145,7 @@ ModUi/&GameUi=게임 UI
 ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=시미터 <b>무기 전문화</b>를 <color=#D89555>음유시인</color> 및 <color=#D89555>도적</color>에게 부여합니다.
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않은 경우 출구 및 텔레포터 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=정확한 HP 대신 몬스터의 체력을 25% / 50% / 75% / 100% 단계로 표시
 ModUi/&House=<color=#F0DAA0>집:</color>

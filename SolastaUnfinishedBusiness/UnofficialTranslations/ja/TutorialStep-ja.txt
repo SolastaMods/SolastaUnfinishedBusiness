@@ -1,271 +1,271 @@
 TutorialStep/&BattleCameraDescription=戦闘中は、WASD を使用するか、マウス ポインタを画面の境界線に移動するか、中央のボタンを押しながらマウスを動かすことで、カメラを移動できます。\n\n戦闘中と同じ方法でカメラを回転させます。探検。
+TutorialStep/&BattleCameraDescriptionXBox=戦闘中、<sprite Index={4}> を使用してカメラを移動できます。\n\n<sprite Index={5}> を使用してカメラを回転します。
 TutorialStep/&BattleCameraTitle=戦闘中のカメラ制御
-TutorialStep/&CautiousModeDescription=慎重モードをアクティブにすると、移動が遅くなりますが、隠されたオブジェクトやトラップに特別な注意を払うことと、ステルスで移動することの 2 つの利点が得られます。 \n敵があなたの存在に気づき始めると、敵の頭上にゲージが溜まり、反応して隠れる時間が与えられます。
+TutorialStep/&CautiousModeDescription=慎重モードをアクティブにすると、移動が遅くなりますが、隠されたオブジェクトやトラップに特別な注意を払うことと、ステルスで移動することの 2 つの利点が得られます。\n敵があなたの存在に気づき始めると、敵の頭上にゲージが溜まり、反応して隠れる時間が与えられます。
 TutorialStep/&CautiousModeTitle=慎重モード
 TutorialStep/&ConfigWeapons2Description=インベントリ内のショートカットを変更できます。\n武器、盾、その他のアイテムを手のスロットにドラッグ アンド ドロップして、ショートカットを変更します。
 TutorialStep/&ConfigWeapons2Title=武器のショートカットを変更する
-TutorialStep/&ConfigWeaponsDescription=ショートカットを使用して装備を切り替えることができます。\nデフォルトでは 3 つの武器設定ショートカットがあります。\n最後のショートカットはライト ショートカットです。これは、トーチまたは他の光源を含む 3 番目の構成を使用します。\n呪文リストにライト キャントリップがある場合、ライト ボタンを押すとすぐにそれを発動できます。
+TutorialStep/&ConfigWeaponsDescription=ショートカットを使用して装備を切り替えることができます。\nデフォルトでは 3 つの武器設定ショートカットがあります。\n最後のショートカットはライト ショートカットです。これはトーチまたは他の光源を含む 3 番目の構成を使用します。\n呪文リストにライト キャントリップがある場合は、ライト ボタンを押すとすぐにそれを発動できます。
 TutorialStep/&ConfigWeaponsTitle=装備のショートカット
-TutorialStep/&FoodDescription=\n在庫に食料がない場合は、略奪可能なコンテナや倒れた敵の持ち物の中から食料を探してください。
+TutorialStep/&ConfigWeaponsXBoxDescription=ショートカットを使用して機器を切り替えることができます。\nこれらのショートカットにアクセスするには、<spriteindex={12}> を押してください。デフォルトでは 3 つの武器設定ショートカットがあります。\n最後のショートカットはライト ショートカットです。トーチまたはその他の光源を含む 3 番目の構成を使用します。\n呪文リストにライト キャントリップがある場合は、4 番目のショートカットですぐにそれをキャストできます。
+TutorialStep/&Crafting01Description=ソラスタでは様々なアイテムをクラフトすることができます。そのためには、適切な機器、材料、スキル、時間が必要です。魔法のアイテムの場合、場合によっては呪文を知る必要があります。\n\nパーティーがキャンプを設営してもまだ寝ていないとき、旅行中に作成が実行されます。\n\nキャラクターは自由時間の一部を費やすことができます。現在の製作タスクに取り組むことになります。
+TutorialStep/&Crafting01Title=クラフト
+TutorialStep/&Crafting02Description=作成に必要なツールは次のとおりです:\n\n- ポーション: 薬草学キット\n- 巻物: 巻物キット\n- 毒: 毒殺者のキット\n- 魔法の武器と防具: マナカロン ロザリオ\n{ 99} これらのツールを使用するには、これらのツールに習熟する必要があります。
+TutorialStep/&Crafting02Title=クラフト装備
+TutorialStep/&Crafting03Description=特定の作成ツールに習熟している場合でも、レシピの難易度を連続的にチェックするには特定のスキルが必要です。\nポーションを作成するには、薬だけで十分な場合もありますが、アルカナは非常に便利です。\n毒を作る、薬、自然が便利です。\n巻物や魔法のアイテムを作るには、アルカナが必須です。
+TutorialStep/&Crafting03Title=クラフトスキル
+TutorialStep/&Crafting04Description=クラフトには材料が必要です。これらは冒険中に見つけられ、花、茂み、岩から、時には死んだ生き物から集められることもあります。\nもちろん、非常に珍しいものでない限り、ショップから購入することもできます。\nエンチャントには、大変動で秘密が失われたマナカロンの熟練鍛冶によって魔法のように準備された、下塗りされたアイテムが必要です。一般に、下塗りされたアイテムは、その可能性を発揮するために非常にまれな追加の成分を必要とします。
+TutorialStep/&Crafting04Title=クラフト材料
+TutorialStep/&Crafting05Description=最後に、アイテムを作成するには、どの材料を組み合わせるかを知る必要があります。これらの「レシピ」は、マニュアルを読んだり、マスターから教わったりして学ぶことができます。\nソラスタン派は通常、レシピのコピーを保管し、友人に良い価格で販売していますが、一部はバッドランズでも見つけることができます。\n\nレシピを一度学習すると、パーティー全員が次のことを行うことができます。これを使って。
+TutorialStep/&Crafting05Title=クラフトレシピ
+TutorialStep/&Crafting06Description=クラフトを開始するには、キャラクターの画面を開き、「クラフト」タブをクリックします。開始可能なレシピを選択するだけです。\n移動中に進行状況バーが表示され、操作が終了すると通知が表示されます。\n必要に応じて別のレシピを起動できます。\n覚えておいてください。作成操作をキャンセルすると、材料は失われます。
+TutorialStep/&Crafting06Title=インターフェースの作成
+TutorialStep/&Crafting06XBoxDescription=クラフトを開始するには、<spriteindex={11}>を使用してキャラクターの画面を開き、<spriteindex={8}>または<spriteindex={9}>を使用して[クラフト]タブを選択します。開始するには、利用可能なレシピを選択するだけです。\n移動中に進行状況バーが表示され、作成操作が完了すると通知が表示されるので、必要に応じて別のレシピを開始できます。\n製作操作をキャンセルすると、材料は失われます。
+TutorialStep/&FoodDescription=在庫に食料がない場合は、略奪可能なコンテナや倒れた敵の所持品の中から食料を探します。
 TutorialStep/&FoodTitle=食べ物
 TutorialStep/&GatheringDescription=冒険を続けるために、特定のエリアにチームを集める必要がある場合があります。\n\nクエストの次のステップを解除するには、パーティ全員をこれらのエリアに連れて行く方法を見つけてください。
 TutorialStep/&GatheringTitle=パーティーを集める
-TutorialStep/&InventorySpaceDescription=キャラクターは、負担になるまで最大 5 倍の筋力を保持できます。\n\n各アイテムには重量があります。矢などの一部のアイテムは 1 つのインベントリ スロットに積み重ねることができますが、それでも重量は加算されます。\n\n装備品を略奪するときは、重荷ゲージを確認してください。キャラクターの動きが遅い場合は、荷物を持ちすぎていないか確認してください。
+TutorialStep/&InventorySpaceDescription=キャラクターは、負担になるまで最大 5 倍の体力を運ぶことができます。\n\n各アイテムには重量があります。矢などの一部のアイテムは 1 つのインベントリ スロットに積み重ねることができますが、それでも重量は加算されます。\n\n装備を略奪するときは、重荷ゲージを確認してください。キャラクターの動きが遅い場合は、荷物を持ちすぎていないか確認してください。
 TutorialStep/&InventorySpaceTitle=在庫管理
-TutorialStep/&LightingDescription=ソラスタでは、自然光源のない深くて暗い場所を探索します。特にダークビジョンを持たないキャラクターにとっては、探索と戦闘が難しくなります。\n\nたいまつを装備したり、光の呪文を唱えたりして、グループ全体に環境を明らかにすることができます。
+TutorialStep/&LightingDescription=ソラスタでは、自然光源のない深く暗い場所を探索します。特にダークビジョンを持たないキャラクターにとっては、探索と戦闘が難しくなります。\n\nたいまつを装備したり、光の呪文を唱えたりして、グループ全体に環境を明らかにすることができます。
 TutorialStep/&LightingTitle=照明と光源
+TutorialStep/&MajorGateBoneKeep_Description=このマイナー ゲートを使用すると、城の外にテレポートできます。\n\n後ろのメジャー ゲートを使用して、ケール サイフレンにテレポートすることもできます。
+TutorialStep/&MajorGateBoneKeep_Title=メジャーゲート
 TutorialStep/&MechanismsDescription=場合によっては、通路のロックを解除したり、システムをアクティブにしたりするために、インタラクティブなアイテムを見つける必要があります。\n探索し、慎重モードを使用して検出の可能性を高め、インタラクションの可能性を示す歯車アイコンを探します。\nその後、準備は完了です。あなたへ: アクティブ化しますか?
 TutorialStep/&MechanismsTitle=インタラクティブなオブジェクト
-TutorialStep/&MovingCharactersDescription=地面上の目的地を左クリックすると、選択したキャラクターがその場所に移動します。 \n\nカメラは自動的にそれらを追跡します。\n\nカーソルは、無効な場所をターゲットにしているかどうかを示します。
+TutorialStep/&MovingCharactersDescription=地面上の目的地を左クリックすると、選択したキャラクターがその場所に移動します。\n\nカメラは自動的にそれらを追跡します。\n\nカーソルは、無効な場所をターゲットにしているかどうかを示します。
+TutorialStep/&MovingCharactersDescriptionXBox=<spriteindex={4}>を使用してカーソルを移動し、<spriteindex={0}>を押して、選択したキャラクターをその位置に移動します。\n\nカーソルは、無効な位置をターゲットにしているかどうかを示します。
 TutorialStep/&MovingCharactersTitle=キャラクターの移動
-TutorialStep/&OutgameMainMenuDescription=ソラスタへようこそ!\n\nこの一連のパネルでは、ゲームを発見しながらその主なコンセプトを紹介します。\n\n新しいゲームを開始するには、画面の右側にあるオプションの 1 つを選択してください。冒険したりキャラクターを作成したり
-TutorialStep/&OutgameMainMenuTitle=ゲーム内ヘルプ
-TutorialStep/&OutgameNewAdventureDescription=この画面では、ソラスタの世界で「キャンペーン」と呼ばれる新しい冒険を開始できます。\n\nゲームのリリース後には、さらに多くのキャンペーンが計画されています。\n\n選択する必要があります。レベル 1 キャラクター 4 人でソラスタ キャンペーンを開始します。
-TutorialStep/&OutgameNewAdventureTitle=新しい冒険
-TutorialStep/&OutgameCharacterSelectionDescription=このプールには、冒険に選択できる利用可能なキャラクターがリストされています。\n\n冒険をすぐに始めたい場合は、一部のキャラクターが私たちによって生成されています。ただし、冒険者 4 人からなる独自のパーティーを作成することをお勧めします。
-TutorialStep/&OutgameCharacterSelectionTitle=パーティーのセットアップ
-TutorialStep/&OutgameCharacterCreationAbilityScoresDescription=能力スコアは、キャラクターが優れている点を定義する 6 つの中心的な属性です: 強さ、器用さ、体質、知性、知恵、カリスマ性。値は 3 ～ 20 です。\n\n各スコアの下のボーナスは、関連するアクションに適用されます。たとえば、STR ボーナスは強さに基づいて攻撃ロールに追加されます。
-TutorialStep/&OutgameCharacterCreationAbilityScoresTitle=能力値
-TutorialStep/&OutgameCharacterCreationAbilityScores2Description=能力スコアは、ランダムまたはポイント システムを使用するなど、いくつかの方法で生成できます。 \n\nクラスには優先される能力スコア（たとえば、魔法使いの知力）があるため、キャラクターの最高スコアがそのクラスの主要な能力であることを確認してください。
+TutorialStep/&OutgameCharacterCreationAbilityScores2Description=能力スコアは、ランダムまたはポイント システムを使用するなど、いくつかの方法で生成できます。\n\nクラスには優先される能力スコア (たとえば、魔法使いの知力) があるため、キャラクターの最高スコアがそのクラスの主要な能力であることを確認してください。
 TutorialStep/&OutgameCharacterCreationAbilityScores2Title=能力値の決定
-TutorialStep/&OutgameCharacterCreationAbilityScores3Description=すべてのキャラクターの祖先は一部の能力スコアにボーナスを提供し、興味深い祖先/クラスの相乗効果をもたらします。 \n\n能力スコアはレベル 4、8 などで増加できます。戦闘機はさらに頻繁に増加します。
+TutorialStep/&OutgameCharacterCreationAbilityScores3Description=すべてのキャラクターの祖先は一部の能力スコアにボーナスを提供し、興味深い祖先/クラスの相乗効果をもたらします。\n\n能力スコアはレベル 4、8 などで増加できます。戦闘機はさらに頻繁に増加します。
 TutorialStep/&OutgameCharacterCreationAbilityScores3Title=能力値の向上
-TutorialStep/&OutgameCharacterCreationBackgroundDescription=背景は、冒険生活に先立つキャラクターの歴史を決定します。\n\n背景には、装備や熟練度だけでなく、性格フラグを選択する機能も含まれています。これらは、物語シーケンス中のキャラクターの社会的行動を決定します。
-TutorialStep/&OutgameCharacterCreationAncestryDescription=キャラクター作成の最初のステップは、祖先を選択することです。これにより、あなたの外見と右側にリストされているゲームプレイ能力が決定されます。\n\n一部の祖先は、ゲームプレイ能力をさらに洗練するための血統サブオプションを提供しています。キャラクター。
+TutorialStep/&OutgameCharacterCreationAbilityScoresDescription=能力スコアは、キャラクターの優れた点を定義する 6 つの中心的な属性です: 強さ、器用さ、体質、知性、知恵、カリスマ性。値は 3 ～ 20 です。\n\n各スコアの下のボーナスは、関連するアクションに適用されます。たとえば、STR ボーナスは強さに基づいて攻撃ロールに追加されます。
+TutorialStep/&OutgameCharacterCreationAbilityScoresTitle=能力値
+TutorialStep/&OutgameCharacterCreationAncestryDescription=キャラクター作成の最初のステップは、祖先を選択することです。これにより、あなたの外観と右側にリストされているゲームプレイ能力が決定されます。\n\n一部の祖先は、ゲームプレイ能力をさらに洗練するための血統サブオプションを提供しています。キャラクター。
 TutorialStep/&OutgameCharacterCreationAncestryTitle=祖先の選択
-TutorialStep/&OutgameCharacterCreationBackgroundTitle=背景の選択
 TutorialStep/&OutgameCharacterCreationBackground2Description=経歴によって提供される性格フラグに加えて、法/混沌と善/悪の倫理軸に基づいて 2 つの性格フラグも選択する必要があります。\n\nソラスタでは、調整は性格の 2 番目の形式です。カスタマイズ。
 TutorialStep/&OutgameCharacterCreationBackground2Title=位置合わせ
 TutorialStep/&OutgameCharacterCreationBackground3Description=同じフラグを 2 回選択すると、性格特性を強化できます。フラグはゲームプレイ、選択肢、ダイアログ オプションには影響しませんが、キャラクターの話し方、口調、マナーを変更するだけです。\n\n結果として得られる性格は、画面の左下にまとめられており、最も濃い色が表示されます。最強の個性を表します。
 TutorialStep/&OutgameCharacterCreationBackground3Title=結果として生じる性格
-TutorialStep/&OutgameCharacterCreationClassDescription=キャラクター クラスによって職業が決定され、右側にリストされている特定の機能が付与されます。 \n\n経験レベルが上がると、新しいパワーやサブクラスも付与されます。\n\n各クラスには、カスタマイズできる装備のセットも用意されています。
+TutorialStep/&OutgameCharacterCreationBackgroundDescription=背景は、冒険生活に先立つキャラクターの歴史を決定します。\n\n背景には、装備や熟練度だけでなく、性格フラグを選択する機能も含まれています。これらは、物語シーケンス中のキャラクターの社会的行動を決定します。
+TutorialStep/&OutgameCharacterCreationBackgroundTitle=背景の選択
+TutorialStep/&OutgameCharacterCreationClassDescription=キャラクター クラスによって職業が決定され、右側にリストされている特定の機能が付与されます。\n\n経験レベルが上がると、新しいパワーやサブクラスも付与されます。\n\n各クラスには、カスタマイズできる装備のセットも用意されています。
 TutorialStep/&OutgameCharacterCreationClassTitle=クラスの選択
-TutorialStep/&OutgameCharacterCreationDeityDescription=クレリックとパラディンは作成時にソラスタの神のいずれかを選択する必要があります。 \n\n聖職者にとって、選択された神は専門化できるさまざまな神聖領域を提供します。\n\n選択された神聖領域は、自動的に準備された呪文、神性を伝達する能力、および新たな力を与えます。より高いレベル。
+TutorialStep/&OutgameCharacterCreationDeityDescription=クレリックとパラディンは作成時にソラスタの神のいずれかを選択する必要があります。\n\n聖職者にとって、選択された神は、専門化できるさまざまな神聖領域を提供します。\n\n選択された神聖領域は、自動的に準備された呪文、神性を伝達する能力、および新しい力を与えます。より高いレベル。
 TutorialStep/&OutgameCharacterCreationDeityTitle=神
-TutorialStep/&OutgameCharacterCreationFightingStyleDescription=一部のキャラクター クラスでは、戦闘スタイルを選択できます。\n\nこの戦闘スタイルでは、戦闘テクニックや装備を使用する際に特別な利点が得られます。\n\n一部のキャラクター クラスには、より高いレベルで二次的な戦闘スタイルが付与されます。
+TutorialStep/&OutgameCharacterCreationFightingStyleDescription=一部のキャラクター クラスでは戦闘スタイルを選択できます。\n\nこの戦闘スタイルでは、戦闘テクニックや装備を使用する際に特別な利点が得られます。\n\n一部のキャラクター クラスには、より高いレベルで二次的な戦闘スタイルが付与されます。
 TutorialStep/&OutgameCharacterCreationFightingStyleTitle=戦闘スタイル
 TutorialStep/&OutgameCharacterCreationIdentityDescription=キャラクター作成のこの最終段階では、キャラクターの外観とアイデンティティをカスタマイズできます。\n\n利用可能なオプションはすべて自由に選択できますが、キャラクター作成プロセスを完了するには有効な名が必要です。
 TutorialStep/&OutgameCharacterCreationIdentityTitle=身元
-TutorialStep/&OutgameCharacterCreationProficienciesDescription=この段階では、さまざまな専門分野の習熟度を習得できます。クラスと祖先によって、一連の熟練度または選択できるオプションの範囲が決まります。\n\n画面の右側では、タイプと出身別に熟練度を選択できます。次に進む前に、すべてのポイントを消費する必要があります。 。
-TutorialStep/&OutgameCharacterCreationProficienciesTitle=熟練度
-TutorialStep/&OutgameCharacterCreationProficiencies2Description=ほとんどの攻撃と能力チェックでは、熟練度ボーナスを使用して効率を決定します。\n\nこのボーナスは +2 から始まり、レベル 5、9 などで増加します。このボーナスは、キャラクターが熟練しているアクション ロールに追加されます: セービング スロー、能力チェック、熟練した武器を使用した攻撃ロール、魔法攻撃と呪文の難易度クラス。
+TutorialStep/&OutgameCharacterCreationProficiencies2Description=ほとんどの攻撃と能力チェックでは、熟練度ボーナスを使用して効率を決定します。\n\nこのボーナスは +2 から始まり、レベル 5、9 などで増加します。このボーナスは、キャラクターが熟練しているアクション ロールに追加されます: セーヴィング スロー、能力チェック、熟練した武器を使用した攻撃ロール、魔法の攻撃と呪文の難易度クラス。
 TutorialStep/&OutgameCharacterCreationProficiencies2Title=熟練度ボーナス
+TutorialStep/&OutgameCharacterCreationProficienciesDescription=この段階では、さまざまな専門分野の習熟度を習得できます。クラスと祖先によって、一連の熟練度または選択できるオプションの範囲が決まります。\n\n画面の右側では、タイプと出身別に熟練度を選択できます。先に進む前に、すべてのポイントを消費する必要があります。 。
+TutorialStep/&OutgameCharacterCreationProficienciesTitle=熟練度
+TutorialStep/&OutgameCharacterCreationSpells2Description=一部のクラスと祖先はキャントリップにアクセスできます。キャラクターは、提供されたリストから割り当てられたキャントリップを選択する必要があります。\n\nキャントリップは、メインの呪文とは対照的に、呪文スロットを消費せずに無限に唱えることができる単純な呪文です。
+TutorialStep/&OutgameCharacterCreationSpells2Title=キャントリップ
+TutorialStep/&OutgameCharacterCreationSpells3Description=それぞれがクラスの特徴に合わせた呪文のリストを提供します。たとえば、聖職者は治癒の呪文を持ち、ウィザードは元素の力を利用できます。\n\nそこからすべての呪文にアクセスできるクラスもありますが、ウィザードのような他のクラスは呪文の書に呪文を収集する必要があります。\n{ 99} そして最後に、一部のクラスでは長い休息を経て呪文を選択して準備する必要がありますが、残りの呪文スロットがあれば既知の呪文を自由に使用できるクラスもあります。
+TutorialStep/&OutgameCharacterCreationSpells3Title=主な魔法
 TutorialStep/&OutgameCharacterCreationSpellsDescription=すぐに魔法の呪文にアクセスできるクラスもあれば、より高いレベルに到達するか、サブクラスを選択する必要があるクラスもあります。\n\nこの画面では、キャラクターがどの呪文を唱えることができるかを選択できます。
 TutorialStep/&OutgameCharacterCreationSpellsTitle=呪文と魔法
-TutorialStep/&OutgameCharacterCreationSpells2Description=一部のクラスと祖先はキャントリップにアクセスできます。キャラクターは、提供されたリストから割り当てられたキャントリップを選択する必要があります。\n\nキャントリップは、メインの呪文とは異なり、呪文スロットを消費せずに無限に唱えることができる単純な呪文です。
-TutorialStep/&OutgameCharacterCreationSpells2Title=キャントリップ
-TutorialStep/&OutgameCharacterCreationSpells3Description=それぞれがクラスの特徴に合わせた呪文のリストを提供します。たとえば、聖職者は治癒の呪文を持っていますが、ウィザードは元素の力を利用できます。\n\nそこからすべての呪文にアクセスできるクラスもあれば、ウィザードのような他のクラスは呪文の書に呪文を収集する必要があります。\n\n 99}そして最後に、一部のクラスでは長い休息を通して呪文を選択して準備する必要がありますが、残りの呪文スロットがあれば既知の呪文を自由に使用できるクラスもあります。
-TutorialStep/&OutgameCharacterCreationSpells3Title=主な魔法
-TutorialStep/&OutgameCharacterCreationSubclassDescription=クラスは、特定のレベルに到達すると、クラス アーキタイプの形で専門化を提供します。\n\nアーキタイプにはクラスに応じて異なる名前が付いています。魔法使いの場合は秘術の伝統、戦闘機の場合は武道のアーキタイプ。聖職者はレベル 1 で神聖な領域を選択します。\n\n各アーキタイプは、キャラクターに独特の風味を与え、そのプレイスタイルを根本的に変えることができる一連の特徴と能力を提供します。\n
+TutorialStep/&OutgameCharacterCreationSubclassDescription=クラスは、特定のレベルに到達すると、クラス アーキタイプの形で専門化を提供します。\n\nアーキタイプには、クラスに応じて異なる名前が付いています。魔法使いの場合は秘術の伝統、戦闘機の場合は武道のアーキタイプ。聖職者はレベル 1 で神聖な領域を選択します。\n\n各アーキタイプは、キャラクターに独特の風味を与え、そのプレイスタイルを根本的に変えることができる一連の特徴と能力を提供します。
 TutorialStep/&OutgameCharacterCreationSubclassTitle=クラスの原型
-TutorialStep/&RestingDescription=パーティの体力と呪文が少なくなったときは、安全な場所にいて、キャラクターごとに 1 つの食糧配給がある限り、長い休息を取ることができます。\n\n長い休息により、ヒット ポイントがすべて回復され、リチャージされます。パワーのほとんどを回復し、最大ヒットダイスの半分を返します。
+TutorialStep/&OutgameCharacterSelectionDescription=このプールには、冒険に選択できる利用可能なキャラクターがリストされています。\n\n冒険をすぐに始めたい場合は、一部のキャラクターが私たちによって生成されています。ただし、冒険者 4 人からなる独自のパーティーを作成することをお勧めします。
+TutorialStep/&OutgameCharacterSelectionTitle=パーティーのセットアップ
+TutorialStep/&OutgameMainMenuDescription=ソラスタへようこそ!\n\nこの一連のパネルでは、ゲームを発見しながらその主な概念を紹介します。\n\n新しいゲームを開始するには、画面右側のオプションの 1 つを選択してください。冒険したりキャラクターを作成したり
+TutorialStep/&OutgameMainMenuTitle=ゲーム内ヘルプ
+TutorialStep/&OutgameMainMenuXBoxDescription=Solasta のゲームパッド バージョンへようこそ。\n<spriteindex={0}> を押して開始してください。
+TutorialStep/&OutgameMainMenuXBoxTitle=ゲーム内ヘルプ (これは Xbox テストです)
+TutorialStep/&OutgameNewAdventureDescription=この画面では、ソラスタの世界で「キャンペーン」と呼ばれる新しい冒険を開始できます。\n\nゲームのリリース後、さらに多くのキャンペーンが計画されています。\n\n選択する必要があります。レベル 1 キャラクター 4 人でソラスタ キャンペーンを開始します。
+TutorialStep/&OutgameNewAdventureTitle=新しい冒険
+TutorialStep/&PickupQuests_Description=これらのボードでは、オプションのクエストに挑戦する機会が提供されます。それは非常に簡単です: クライアントからクエストを受け入れ、必要なアクションを実行し、ボードに戻って報酬を受け取ります!\n\n注意してください: これらのクエストの中には、見た目より危険なものもあります。
+TutorialStep/&PickupQuests_Title=クエストをピックアップ
+TutorialStep/&RestingDescription=パーティの体力と呪文が少なくなったときは、安全な場所にいて、キャラクターごとに 1 つの食糧配給がある限り、長い休息をとることができます。\n\n長い休息により、すべてのヒット ポイントが回復し、リチャージされます。あなたのパワーのほとんどを回復し、最大ヒットダイスの半分を返します。
 TutorialStep/&RestingTitle=休憩中
 TutorialStep/&SelectionDescription=3D ビューでキャラクターをクリックして選択するか、四角形をドラッグして複数を選択します。\nポートレートをダブルクリックして、特定の 1 人のキャラクターをロックします。\nポートレートをクリックするか、ポートレートリストの下部にある「すべて」ボタンを選択します。
 TutorialStep/&SelectionTitle=キャラクター選択
-TutorialStep/&Tuto_CampaignMap_Description=矢印キーを使用して地図を探索します。\n\n目的地をクリックして旅行を計画します。あなたのパーティーはそこに到着するまでに少し時間がかかります。\n \n途中、冒険者は採集や狩りをして食料を集めることができます。また、クラフトの材料を見つけたり、旅行者、注目の場所、さらにはモンスターに遭遇したりすることもあります。
-TutorialStep/&Tuto_CampaignMap_Title=トラベルマップ
-TutorialStep/&Tuto_CampaignMap2_Description=ゆっくりとしたペースでは、モンスターから隠れるようにしながら慎重に移動できます。\n通常のペースは速いですが、危険が伴います。\n速いペースは最も速いですが、危険な場合があります。\n\nレンジャーは、好みの地形にいる間は非常に役立ちます。より多くの食べ物を見つけることができ、モンスターに驚かれる可能性も低くなります。\n
-TutorialStep/&Tuto_CampaignMap2_Title=移動ペース
-TutorialStep/&Tuto_CampaignMap3_Description=旅行を設定できるので、パーティーを細かく管理する必要はありません。 \n\n誰かがレベルアップできたら、その日の移動を終えることなく、すぐに長い休憩を開始できます。\n製作タスクが完了したら、時間をロスすることなく新しいタスクをセットアップできます。\nあなたは、たとえば、長い休憩の後に休憩後のウィンドウを開いて、準備した呪文を修正することができます。\n
-TutorialStep/&Tuto_CampaignMap3_Title=トラベル設定
-TutorialStep/&Tuto_CampaignMap4_Description=ヒーローたちは通常、常に体調を整えて何にでも備えられるように旅行の計画を立てます。\n\nこのルーティンでは、移動は 1 日 8 時間以内とし、食事や睡眠、その他の活動に十分な時間を確保する必要があります。工作、会話、ゲーム、楽器の演奏、祈りなど。\n
-TutorialStep/&Tuto_CampaignMap4_Title=旅行のルーチン
-TutorialStep/&Tuto_CampaignMap5_Description=場合によっては、通常の日常生活が中断され、ヒーローが休んでいるはずの時間に旅行しなければならない場合があります。これにより疲労が増し、極度の疲労につながる可能性があります。\n\n冒険家は、一時的に無理をしてから通常の日常生活に戻り、キャンプ活動を制限して疲労を軽減するためにより多くの休息を取る方法を知っています。\n
-TutorialStep/&Tuto_CampaignMap5_Title=旅行の疲れ
-TutorialStep/&Tuto_CampaignMap6_Description=[中断] ボタンを押すことで、いつでも旅行を手動で中断できます。\n\nその後、キャラクターの肖像画をクリックしてインベントリを開き、新しい製作活動を開始したり、装備を変更したり、好きなものをチェックしたりできます。{ 99}\n旅行を再開するには、[再開] ボタンをクリックするだけです。\n
-TutorialStep/&Tuto_CampaignMap6_Title=旅行の中断
-TutorialStep/&Tuto_CampaignMap7_Description=夜襲の後は、安全に眠りに戻り、長い休息を完了することができます。\nそれには、キャンプファイヤーをクリックするだけです。\nすべてのキャラクターは、通常どおり長い休息の恩恵を受けます。\n }Peaceful Restを持つOblivionドメインの聖職者は将来驚かないだろう。今回はルールの説明を目的としました。
-TutorialStep/&Tuto_CampaignMap7_Title=長い休息を終えて
-TutorialStep/&Tuto_FindCouncil_Description=公国の首都は大きな都市です。 \n\n今、あなたはレガシー評議会を見つける必要があります。そこに到着すると、ファスト トラベル機能にアクセスできるようになります。ただし、今のところは少し歩く必要があります。\n\n北に進み、サンブレイズ コートまで階段を上ってください。それから西の階段を上がって評議会に向かいましょう。\n
-TutorialStep/&Tuto_FindCouncil_Title=カエル・シフレンで自分の道を見つける
-TutorialStep/&Tuto_LevelUp_Description=ヒーローたちはレベルアップする準備ができています!\n\nそのためには、長い休憩を取る必要があります。\n\n墓守の樽に戻り、バーテンダーのカレルと話してください。宿泊できるように部屋をリクエストしてください。
-TutorialStep/&Tuto_LevelUp_Title=レベルアップ！
-TutorialStep/&Tuto_LevelUp2_Description=夜が終わり、ヒーローたちは過去数日間でどれだけ学んだかを実感します。\n\n各キャラクターの「レベルアップ」ボタンをクリックして、関連するインターフェースを起動します。\n\nレベルアップすると、次のような特典が得られます。ヒットポイントが増加し、クラスに応じて追加機能が追加されます。\n
-TutorialStep/&Tuto_LevelUp2_Title=レベルアップ！
-TutorialStep/&Tuto_LevelUpGeneric_Description=次のレベルの目標経験値に到達したら、長い休憩を取ってレベルアップ ウィンドウを開きます。\n\nそこでは、クラスに応じて追加のヒット ポイントと機能を獲得できます。\n\nレベルを上げるために、宿屋、移動中、または探索場所内で長い休憩を取ることができることを忘れないでください。
-TutorialStep/&Tuto_LevelUpGeneric_Title=レベルアップ
-TutorialStep/&Tuto_LocationMap_Description=地図アイコンをクリックして場所の地図を開きます。\n \n ウェイポイントが見つかったら、それを使用してその場所内の別の場所にファストトラベルできます。\n\n 現時点では、次のことができます。ファストトラベルして墓守の樽に戻ります。
-TutorialStep/&Tuto_LocationMap_Title=ロケーションマップ
-TutorialStep/&Tuto_LocationMap2_Description=地図ボタンを押して位置地図を開きます。\n\n出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n\nファスト トラベル ボタンを押して [はい] を選択します。\n
-TutorialStep/&Tuto_LocationMap2_Title=高速出口の場所
-TutorialStep/&Tuto_LocationMapGeneric_Description=「地図」ボタンをクリックすると、場所の地図が開きます。 \n\n探索するとウェイポイントが見つかります。これらは、さまざまな構造物の役割、エリアの照明レベル、その他のゲームプレイ変更要素に関する情報を提供します。\n\n地図は、商人などの重要な NPC の存在を示します。ポートレートは通常、NPC と対話できることを意味します。
-TutorialStep/&Tuto_LocationMapGeneric_Title=ロケーションマップ
-TutorialStep/&Tuto_LocationMapGeneric2_Description=マップには、鍵のかかったドア、開かれていない宝箱、検出したが発動または解除されていない罠も表示されます。\n\n発見したが戦わなかった敵も表示されるため、攻撃するか回避するかを決定できます。 \n場所を探索すると、地図は自動的に更新されます。
-TutorialStep/&Tuto_LocationMapGeneric2_Title=地図アイコン
-TutorialStep/&Tuto_LocationMapGeneric3_Description=道が空いていて徒歩で到着できる限り、地図を使用して地図上のウェイポイントに即座に移動します。そうでない場合は、パスがブロックされていることが通知されます。\n
-TutorialStep/&Tuto_LocationMapGeneric3_Title=急ぎ旅
-TutorialStep/&Tuto_LocationMapGeneric4_Description=また、このウェイポイントが場所の出口である場合、道が空いていて徒歩でそこに到達できる限り、それを使用してトラベル マップに直接移動できます。そうでない場合は、パスがブロックされていることが通知されます。
-TutorialStep/&Tuto_LocationMapGeneric4_Title=高速出口の場所
-TutorialStep/&Tuto_ManaLamps_Description=マナカロン遺跡では、これらの魔法のランプに出会えるかもしれません。\n\nそれらは魔法の力を使用し、松明よりも明るく信頼性の高い光を放ちます。\n\n魔法のダメージを受けると、キャントリップも含めて起動します。 。
-TutorialStep/&Tuto_ManaLamps_Title=マナランプ
-TutorialStep/&Tuto_Merchants_Description=商人は商品を売り買いします。また、彼らはあなたのインベントリ内の魔法のアイテムを検出して識別することもできます。\n\n彼らの中には特定の派閥に所属しているものもあり、それらの派閥で良い評判を得ることで利益を得られます。
-TutorialStep/&Tuto_Merchants_Title=商人
-TutorialStep/&Tuto_PreparingSpells_Description=多くの術者は、一度に思い出せる以上の呪文を知っています。準備された呪文は、キャラクターが呪文スロットを消費して使用できる呪文を表します。 \n\nヒーローの既知の呪文リストを確認し、準備する呪文を選択してください。\n\n準備されていない呪文は唱えることができません。多くのキャラクターは準備できる以上の呪文を知っているので、状況に応じて慎重に選択してください!\n
-TutorialStep/&Tuto_PreparingSpells_Title=呪文の準備
-TutorialStep/&Tuto_ReadyAnAction_Description=これにより、キャラクターは特定の条件が満たされるまで待機し、他のキャラクターのターンを中断して準備済みのアクションを実行できるようになります。\n\nクラウン オブ ザ マジスターでは、キャラクターと状況に応じて攻撃の準備をすることができます。 \n\n移動したり、ボーナス アクションを使用したり、準備完了アクションを使用したりできます。これにより、ターンは自動的に終了します。\n
-TutorialStep/&Tuto_ReadyAnAction_Title=行動の準備をしましょう
-TutorialStep/&Tuto_ShortRest_Description=ダンジョン探索中の回復には、短い休憩が有効です。すべての敵から十分に離れていればいつでもそうすることができますが、非常に敵対的な場所では不可能な場合があります。パーティは全員揃っていなければなりません。\n\n短い休憩とは 1 時間の休憩時間のことであり、登場人物は食べたり飲んだり、本を読んだり、傷の手当てをしたりする以外に激しい作業は何もしません。\n\n
-TutorialStep/&Tuto_ShortRest_Title=ちょっとした休憩
-TutorialStep/&Tuto_ShortRest2_Description=短い休憩の後、キャラクターはヒット ダイスを消費してヒット ポイントを回復できます。ヒーローにはレベルごとに 1 つのヒットダイスがあります。一度消費してしまうと、元に戻すには長い休息が必要になります。短い休憩の後、ヒット ダイスの全部または一部を使うことができます。\n\nキャラクターのクラスとレベルに応じて、短い休憩をとることで他の能力が回復する場合があります。\n
-TutorialStep/&Tuto_ShortRest2_Title=短い休憩の利点
-TutorialStep/&Tuto_Stalactites_Description=探索していると、吊り下げられた檻、鍾乳石、その他の危険が敵や自分に降りかかる可能性があります。\n\nこれらを矢や攻撃呪文で狙ってください（それでも、攻撃ロール）を使って彼らを落下させ、その下の誰かを押しつぶします。
-TutorialStep/&Tuto_Stalactites_Title=落下の危険性
-TutorialStep/&Tuto_SurpriseAttack_Description=キャンプ中にびっくり！出発する前に攻撃者を撃退しなければなりません。\n驚いたので、戦闘の最初のターンは何も行動できません!\n\n呪文と力をためらわないでください!戦いが終われば長い休息も終わりますので、生き残りをかけた戦いに全力を尽くしましょう！
-TutorialStep/&Tuto_SurpriseAttack_Title=奇襲！
-TutorialStep/&Tuto_SurpriseAttack2_Title=遭遇から生き残る
-TutorialStep/&Tuto_TeamBalance_Description=バランスのとれたパーティは、どんな状況でも生き残る可能性が高くなります。たとえば、ダメージ ディーラー (ファイター) 1 人、ヒーラー (クレリック) 1 人、マジック ユーザー (ウィザード) 1 人、ステルス キャラクター (ローグ) 1 人で、古典的なバランスの取れたパーティーを構成します。 \nパラディンはダメージディーラー、ヒーラー、マジックユーザーを組み合わせたもので、3つの分野すべてで何らかの能力を備えています。同様に、レンジャーはダメージ ディーラーであり、ステルス キャラクターであり、魔法のユーザーでもあります。 \n選択肢が大幅に制限されるため、同じクラスのキャラクターを 2 つまたは 3 つ持つことは避けるのが最善です。同じクラスが 4 人いるとさらに最悪です。でも、ここはあなたのパーティーです。
-TutorialStep/&Tuto_TeamBalance_Title=パーティーバランス
-TutorialStep/&Tuto_Telema_CameraElevation_Description=通常、フリー カメラは地面の標高に従います。\n\nナビゲーション ゾーンが重なっている場合は、マウス ホイールまたはコンパスの矢印ボタンを使用してカメラを上下に移動できます。\n\nコンパスの矢印が表示されます。このような状況では、身長差が大きい場合には画面上にアイコンが表示されます。
-TutorialStep/&Tuto_Telema_CameraElevation_Title=カメラの仰角
-TutorialStep/&Tuto_Telema_Crafting_Description=関連する製作キット、知識、材料、レシピを使用して、さまざまなアイテムを製作できます。\n\nヴァイオレットは薬草キットと薬のスキルに熟練しています。彼女がレシピを学習し、必要な材料を持っていれば、治癒のポーションを作ることができます!\n\nレシピの知識はパーティー全体で共有されることに注意してください。
-TutorialStep/&Tuto_Telema_Crafting_Title=クラフト
-TutorialStep/&Tuto_Telema_Crafting2_Description=キャラクターインベントリで作成インターフェイスを開き、魔法のミサイルの巻物を選択します。ヴァイオレットは必要な材料を使って魔法のインクを作ることから始め、それから巻物を書きます。\n\nこれには何時間もかかり、旅行中に休憩時間を利用する必要があります。テレマの遺跡を探索している間はスクロールを完了することはできません。
-TutorialStep/&Tuto_Telema_Crafting2_Title=クラフト
-TutorialStep/&Tuto_Telema_Identify1_Description=時には魔法かと疑うような素晴らしいアイテムに出会うこともあります。これを確認するには Detect Magic 呪文を唱える必要があります。次に Identify を唱えてその特性を調べ、その恩恵を受ける必要があります。\n\nこれらの呪文はほとんどの店で有料で唱えることができますが、キャラクターは探索中にキャストできることを知っています。
-TutorialStep/&Tuto_Telema_Identify1_Title=魔法のアイテムの識別
-TutorialStep/&Tuto_Telema_Identify2_Description=「ディテクト・マジック」や「アイデンティファイ」などの呪文は儀式として唱えることができます。\n\nつまり、それらを唱えるために呪文スロットを消費する必要はありません。儀式には 10 時間がかかるため、しばらくそのままにしておくだけで済みます。通常のキャストよりも数分長くなります。
-TutorialStep/&Tuto_Telema_Identify2_Title=儀式の鋳造
-TutorialStep/&Tuto_UseCovers_Description=戦闘では、壁、バリケード、その他の設定要素に盾のアイコンが表示されることがよくあります。 \n\nハーフカバーは敵に遠距離攻撃を当てると-2のペナルティを与えます。もちろん、あなたはカバーの反対側にいる必要があります。 4分の3カバーすると-5のペナルティが与えられます。フルカバーはターゲットにならないことを意味します。\nこれは近接攻撃や呪文の効果範囲には影響しません。
-TutorialStep/&Tuto_UseCovers_Title=カバーを取る！
-TutorialStep/&Tuto_Utility_Description=戦闘では、インベントリは 1 ターンに 1 回のみ使用できます。これには武器の切り替えも含まれます。\n\nまた、インベントリ アクションを消費せずにアイテムにアクセスして使用できるユーティリティ スロットもあります。\n\nポーションを配置するか、ここにスクロールすると使用できるようになります。直接。これは引き続きメインのアクションとしてカウントされます。
-TutorialStep/&Tuto_Utility_Title=インベントリとユーティリティスロット
-TutorialStep/&Tuto01_Camera_Description=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n\n 99}WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を当てたまま W キーを押し続けるとズームインします。
+TutorialStep/&Tuto01_CameraXbox_Description=<spriteindex={23}>を使用してカメラビューを回転し、視点を変更します。\n\n<spriteindex={4}>を使用してカメラを移動し、<spriteindex={22}>を使用しますキャラクターに焦点を当てながら、そのキャラクターを拡大します。
+TutorialStep/&Tuto01_Camera_Description=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n{ 99} WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を合わせた状態で W キーを押し続けると、キャラクターが拡大されます。
 TutorialStep/&Tuto01_Camera_Title=カメラコントロール
-TutorialStep/&Tuto01_Climbing_and_jumping_Description=ジャンプしたり登ったりするには、目的地をクリックするだけです。\n\nキャラクターの体力と陸上競技の習熟度に応じて、2 ～ 5 マスの間でジャンプしたり登ったりできます。\n\nいつでも 2 マスを飛び越えることができます。 3 つのマスを降りて 1 つのマスを登ったり、はしごやロープなどの簡単な地面を問題なく登ったりできます。
-TutorialStep/&Tuto01_Climbing_and_jumping_Title=木登りとジャンプ
-TutorialStep/&Tuto01_Climbing_and_jumping2_Description=上: 筋力が 15 未満で、運動能力に熟練していないキャラクターは、胸に届くほど遠くまでジャンプすることができません。 \n\n\n\n下: 筋力 15 ～ 20 の戦闘機は 3 つのマスを飛び越えることができます。筋力 11 ～ 14 に加えて陸上競技の熟練度を持つキャラクターも同様です。
+TutorialStep/&Tuto01_Climbing_and_jumping2_Description=上: 筋力が 15 未満で、運動能力に習熟していないキャラクターは、胸に届くほど遠くまでジャンプすることができません。\n\n\n\n以下: 強さ 15 ～ 20 の戦闘機は 3 つのマスを飛び越えることができます。筋力 11 ～ 14 に加えて陸上競技の熟練度を持つキャラクターも同様です。
 TutorialStep/&Tuto01_Climbing_and_jumping2_Title=ジャンプ距離
 TutorialStep/&Tuto01_Climbing_and_jumping3_Description=一般に、優れた身体能力を持たないキャラクターにはクリティカル パスが常に開かれています。ただし、オプションの戦利品にはアクセスするのが難しい場合があります。\n\nただし、諦めないでください。この宝箱に到達する別の方法が見つかるかもしれません。
 TutorialStep/&Tuto01_Climbing_and_jumping3_Title=代替パス
-TutorialStep/&Tuto01_Crawling_Description=穴を通り抜けるには、反対側をクリックします。\n\nカメラを回転すると、反対側をよく見ることができます。 Q または E を使用するか、左ボタンを押しながらマウスを動かします。\n\nキャラクターは目的の目的地に向かう途中で、必要に応じて自動的にひざまずいたり、這ったり、立ち上がったりします。
+TutorialStep/&Tuto01_Climbing_and_jumpingXbox_Description=ジャンプしたり登ったりするには、移動したい場所にカーソルを置き、<spriteindex={0}> を押します。\n\nキャラクターの強さと陸上競技の習熟度に応じて、2 ～ 5 マスの間でジャンプしたり登ったりできます。 .\n\nいつでも 2 つのマスを飛び越えたり、3 つのマスを落としたり、1 つのマスを登ったり、はしごやロープなどの簡単な表面を問題なく登ることができます。
+TutorialStep/&Tuto01_Climbing_and_jumping_Description=ジャンプしたり登ったりするには、目的地をクリックするだけです。\n\nキャラクターの強さと陸上競技の習熟度に応じて、2 ～ 5 マスの間でジャンプしたり登ったりできます。\n\nいつでも 2 マスを飛び越えることができます。セルを移動し、3 つのセルを落として 1 つのセルを登ったり、はしごやロープなどの簡単な面を問題なく登ったりできます。
+TutorialStep/&Tuto01_Climbing_and_jumping_Title=木登りとジャンプ
+TutorialStep/&Tuto01_CrawlingXbox_Description=穴の中を這うには、カーソルを穴の近くに置き、<sprite Index={0}> を押します。\n\nカメラを回転すると、反対側の様子をよりよく見ることができます。 <spriteindex={23}>を使用するか、<spriteindex={4}>を使用してカメラを移動します。\n\nキャラクターは目的地に向かう途中で、必要に応じて自動的にひざまずいたり、這ったり、立ち上がったりします。 。
+TutorialStep/&Tuto01_Crawling_Description=穴を通り抜けるには、反対側をクリックします。\n\nカメラを回転すると、反対側をよりよく見ることができます。 Q または E を使用するか、左ボタンを押したままマウスを動かします。\n\nキャラクターは、目的の目的地に向かう途中で、必要に応じて自動的にひざまずいたり、這ったり、立ち上がったりします。
 TutorialStep/&Tuto01_Crawling_Title=這う
 TutorialStep/&Tuto01_Interacting_Description=ハイライト表示された要素はインタラクティブです。\n\nカーソルは、開く、押す、起動する、鍵を開けるなど、実行できるアクションを示します。\n\nアクションにサイコロの目が必要な場合、難易度クラスは次のようになります。表示されます。
 TutorialStep/&Tuto01_Interacting_Title=インタラクティブな要素
-TutorialStep/&Tuto01_Looting_Description=チェストやその他のコンテナをクリックして略奪します。\n\n運ぶものはすべて体重ゲージに影響するため、体重制限に達すると速度が大幅に低下するため注意してください。\n\n装備と光源は、使用する前に適切なスロットに配置する必要があります。
-TutorialStep/&Tuto01_Looting_Title=略奪と在庫管理
+TutorialStep/&Tuto01_Looting2Xbox_Description=一部のアイテムはインベントリの同じセルに積み重ねることができます。スタック内のユニットの最大数はアイテムによって異なります。\n\nアイテムのスタックを分割するには、<sprite Index={7}> を押してそこにあるオプションを使用するか、<sprite Index を 2 回押します。 ={0}> スタックの半分を一度に取得します。
+TutorialStep/&Tuto01_Looting2_Description=一部のアイテムはインベントリの同じセルにスタックできます。最大ユニット数はアイテムによって異なります。\n\nアイテムのスタックを分割するには、CTRL キーを押しながらスタックを空のセルにドラッグ アンド ドロップします。これにより、スタックから 1 つのユニットが取得されます。
 TutorialStep/&Tuto01_Looting2_Title=積み重ね可能なアイテム
-TutorialStep/&Tuto01_Questlog_Description=[日記] ボタンをクリックしてクエスト ログを開きます。\n\nこれにより、現在の目標に関する詳細情報と役立つコンテキストが表示されます。\n\n日記には、日記よりもはるかに多くの情報が含まれていることに注意してください。クエストログ。
-TutorialStep/&Tuto01_Questlog_Title=ジャーナル
+TutorialStep/&Tuto01_LootingXbox_Description=チェストやその他のコンテナを略奪するには、その上にカーソルを置き、<sprite Index={0}> を押します。\n\n持ち運ぶものはすべて体重ゲージに影響するため、重量制限に達しないように注意してください。これにより、速度が大幅に低下します。\n\n機器と光源は、使用する前に適切なスロットに配置する必要があります。
+TutorialStep/&Tuto01_Looting_Description=チェストやその他のコンテナをクリックして略奪します。\n\n運んでいるものはすべて体重ゲージに影響するため、体重制限に達すると速度が大幅に低下するため注意してください。\n\n装備と光源は、使用する前に適切なスロットに配置する必要があります。
+TutorialStep/&Tuto01_Looting_Title=略奪と在庫管理
 TutorialStep/&Tuto01_Questlog2_Description=ログには現在の目標がリストされており、クエストを進めるためにはこれを完了する必要があります。その他のオプションの目標がある場合もあります。\n\nログには、クエストの微妙な点を理解するのに役立つヒントやコンテキストも表示されます。\n\n成功と失敗はすべてここに記録されます。
 TutorialStep/&Tuto01_Questlog2_Title=クエストログ
+TutorialStep/&Tuto01_QuestlogXbox_Description=パーティー ジャーナルを開くには、<sprite Index={11}> を押したまま、<sprite Index={5}> を使用してジャーナルを選択します。\n\nこれにより、現在の目標に関する詳細情報といくつかの役立つ情報が表示されます。\n\nジャーナルにはクエスト ログよりもはるかに多くの情報が含まれていることに注意してください。
+TutorialStep/&Tuto01_Questlog_Description=[日記] ボタンをクリックしてクエスト ログを開きます。\n\nこれにより、現在の目標に関する詳細情報と役立つコンテキストが表示されます。\n\n日記には、日記よりもはるかに多くの情報が含まれていることに注意してください。クエストログ。
+TutorialStep/&Tuto01_Questlog_Title=ジャーナル
 TutorialStep/&Tuto01_Refocus_Description=カメラを動かして周囲を調べた後、キャラクターを中心にして追いかけることができます。\n\nキャラクターのポートレートをダブルクリックするか、このキャラクターを制御しているときに TAB キーを押します。
+TutorialStep/&Tuto01_Refocus_DescriptionXBox=カメラを動かして周囲を調べた後、キャラクターを中心にして追いかけることができます。\n\n<spriteindex={10}> を押したまま同じキャラクターを 2 回選択するか、<spriteindex={3] を押してください。 }> カメラをパーティーの最初のキャラクターの中心に置きます。
 TutorialStep/&Tuto01_Refocus_Title=キャラクターを中心に
+TutorialStep/&Tuto01_SelectionXbox_Description=3D ビューでキャラクターにカーソルを置いてキャラクターを選択するか、<sprite Index={13}> または <sprite Index={15}> を使用して各キャラクターを順番に選択します。\nパーティー全体を選択するには、まず長押しします。 <spriteindex={10}> を押してから、<spriteindex={3}> を押します。\n\n移動するには、<spriteindex={4}> を使用してカーソルを移動し、<spriteindex={0} を押します。> カーソルがある場所にパーティーを移動します。有効な目的地にカーソルを置くと、丸いマーカーが表示されます。無効な目的地には「禁止」の標識が表示されます。
 TutorialStep/&Tuto01_Selection_Description=3D ビューでキャラクターをクリックするか、キャラクターのポートレートをクリックして、キャラクターを選択します。パーティー全体を選択するには、ポートレート表示の下部にある [すべて選択] ボタンを使用します。 1 つまたは複数の文字を囲む四角形をドラッグして選択することもできます。\n\n移動するには、移動先を左クリックします。有効な目的地にマウスを置くと、丸いマーカーが表示されます。無効な目的地には「禁止」の標識が表示されます。
 TutorialStep/&Tuto01_Selection_Title=キャラクター選択と基本動作
-TutorialStep/&Tuto02_Cautious_Stealth_Description=慎重モードを有効にすると動作が遅くなりますが、隠されたオブジェクトや罠が見つけやすくなり、敵に発見されにくくなるという 2 つの利点があります。 \n敵があなたの存在に気づき始めると、敵の頭上にゲージが表示され、反応して隠れるまでの時間が与えられます。\nこのモードでは敵の 3 マス上に留まれば、検出されることはありません。
+TutorialStep/&Tuto02_Cautious_Stealth_Description=慎重モードを有効にすると動作が遅くなりますが、隠されたオブジェクトや罠が見つけやすくなり、敵に発見されにくくなるという 2 つの利点があります。\n敵があなたの存在に気づき始めると、敵の頭上にゲージが表示され、反応して隠れるまでの時間が与えられます。\nこのモードでは敵の 3 マス上に留まれば、検出されることはありません。
 TutorialStep/&Tuto02_Cautious_Stealth_Title=慎重モード
-TutorialStep/&Tuto02_Healing_Description=キャラクターが回復呪文を唱えることができる場合（聖職者など）、失われたヒット ポイントを回復するには、「呪文を唱える」ボタンを押して呪文を選択します。\n\n近くの戦利品にあるポーションを使用することもできます。インベントリを開き、ポーションを右クリックして使用します。
+TutorialStep/&Tuto02_HealingXbox_Description=キャラクターが回復呪文を唱えることができる場合 (たとえば聖職者など)、<sprite Index={2}> を押して Cast Spell メニューにアクセスし、失われたヒット ポイントを回復するために呪文を選択します。\n\nあなたは近くの戦利品で見つかったポーションを使用することもできます。 <sprite Index={3}> を押してインベントリを開きます。ポーションを選択し、<sprite Index={7}> を押して使用します。
+TutorialStep/&Tuto02_Healing_Description=キャラクターが回復呪文を唱えることができる場合（聖職者など）、失われたヒット ポイントを回復するには、「呪文を唱える」ボタンを押して呪文を選択します。\n\n近くの戦利品で見つかったポーションを使用することもできます。インベントリを開き、ポーションを右クリックして使用します。
 TutorialStep/&Tuto02_Healing_Title=ヒーリング
 TutorialStep/&Tuto02_Light_Up_Description=ホルダー上のトーチなどの可燃性アイテムに点火するには、トーチを持った状態でアイテムを操作するか、キャントリップ<i>ファイア ボルト</i>などの炎の呪文を唱えます。
 TutorialStep/&Tuto02_Light_Up_Title=照明アイテム
-TutorialStep/&Tuto02_Rest_Description=ヒット ポイント、特殊能力、呪文を回復するには、長い休憩を取る必要があります。\n\nそのためには、安全な場所にパーティーを集め、パーティー メンバーごとに 1 つの食料を用意する必要があります。 \n\n安全な場所はキャンプファイヤーで表されます。所在地図にも掲載されています。
+TutorialStep/&Tuto02_Rest_Description=ヒット ポイント、特殊能力、呪文を回復するには、長い休憩を取る必要があります。\n\nそのためには、安全な場所にパーティーを集め、パーティー メンバーごとに 1 つの食料を用意する必要があります。\n\n安全な場所はキャンプファイヤーで表されます。所在地図にも掲載されています。
 TutorialStep/&Tuto02_Rest_Title=ゆっくり休んでください
+TutorialStep/&Tuto02_Search_AroundXbox_Description=エリアを探索して、ドアを開けるための仕組みを見つけてください。\n\n画面中央のカーソルがインタラクティブ オブジェクトの近くにある場合、そのオブジェクトがハイライト表示され、カーソルが説明アイコンに変わります。
 TutorialStep/&Tuto02_Search_Around_Description=エリアを探索して、ドアを開けるための仕組みを見つけてください。\n\nインタラクティブなアイテムの上にマウスを置くとハイライト表示され、カーソルが説明アイコンに変わります。
 TutorialStep/&Tuto02_Search_Around_Title=メカニズム
+TutorialStep/&Tuto03_Cautious2_Description=このミッションの期間中は、慎重モードを維持してください。\n\n敵の聞こえる範囲内でオブジェクトとの相互作用（ドアや宝箱を開けたり、スリをしたりするなど）を試みる場合は、ステルス チェックを行う必要があります。成功した場合にのみ検出されなくなります。注意モードでは、足跡を見つけて追跡することもできます。
+TutorialStep/&Tuto03_Cautious2_Title=ステルス
+TutorialStep/&Tuto03_CautiousXBox_Description=<sprite Index={2}> を押して慎重モードを選択すると、密かに移動します。敵があなたのノイズ サークルを横切るとあなたの声を聞くことができ、あなたが慎重モードを終了するとすぐにあなたを発見します。\n\nあなたのノイズ サークルはあなたの鎧の種類とあなたのステルス スキルによって異なります。また、光源を携行している間は敵の視界に入らないようにするのが得策です。
 TutorialStep/&Tuto03_Cautious_Description=慎重に移動するには慎重モードを使用してください。敵があなたのノイズ サークルを横切るとあなたの声を聞くことができ、あなたが慎重モードを終了するとすぐにあなたを発見します。\n\nあなたのノイズ サークルはあなたの鎧の種類とあなたのステルス スキルによって異なります。また、光源を携行している間は敵の視界に入らないようにするのが得策です。
 TutorialStep/&Tuto03_Cautious_Title=ステルス
-TutorialStep/&Tuto03_Cautious2_Description=このミッションの全期間中は慎重モードを維持してください。\n\nドアや宝箱を開けたり、スリをしたりするなど、敵の聞こえる範囲内でオブジェクトとの相互作用を試みる場合は、ステルス チェックを行う必要があります。成功した場合にのみ検出されなくなります。注意モードでは、足跡を見つけて追跡することもできます。
-TutorialStep/&Tuto03_Cautious2_Title=ステルス
-TutorialStep/&Tuto03_Disarm_Description=トラップを解除するには、まずトラップを検出する必要があります。検出されていない罠が仕掛けられたチェストを開けたり、ロックピックしたりしようとすると、罠を発動したときに初めてその罠について知ることができます!\n\n罠を解除してみるには、罠の上にマウスを置いてください。そして左クリックします。器用さチェックに成功する必要があります。泥棒の道具は、使いこなせば役に立ちます。
-TutorialStep/&Tuto03_Disarm_Title=罠の解除
 TutorialStep/&Tuto03_Disarm2_Description=一部のトラップは、トリガーすることによってのみ解除できます。\n\nトラップの解除に失敗した場合は、トリガーするかロックするか、もう一度試す必要があります。
 TutorialStep/&Tuto03_Disarm2_Title=罠の解除
-TutorialStep/&Tuto03_Lockpick_Description=鍵を開けてみるには、鍵のかかったドアまたはチェストの上にマウスを置いて左クリックします。パーティー全体を選択すると、タスクに対して最も熟練したキャラクターが自動的に選択されます。\n\n錠前を開けるには、在庫に盗賊用の道具が入っている必要があります。盗賊の道具に習熟していると役に立ちます。
+TutorialStep/&Tuto03_DisarmXbox_Description=トラップを解除するには、まずトラップを検出する必要があります。まだ検出していない罠が仕掛けられたチェストを開けたり、ロックピックしたりしようとすると、罠を起動したときに初めてその罠について知ることができます!\n\n罠の解除を試みるには、カーソルを移動してください。上に重ねて <sprite Index={0}> を押します。器用さチェックに成功する必要があります。泥棒の道具は、使いこなせば役に立ちます。
+TutorialStep/&Tuto03_Disarm_Description=トラップを解除するには、まずトラップを検出する必要があります。検出されていない罠が仕掛けられたチェストを開けたり、ロックピックしたりしようとすると、罠を起動したときに初めてその罠について知ることができます!\n\n罠の解除を試みるには、罠の上にマウスを置いてください。そして左クリックします。器用さチェックに成功する必要があります。泥棒の道具は、使いこなせば役に立ちます。
+TutorialStep/&Tuto03_Disarm_Title=罠の解除
+TutorialStep/&Tuto03_LockpickXbox_Description=鍵を開けてみるには、<sprite Index={4}> を使用してカーソルを移動し、鍵のかかったドアの上にカーソルを置き、<sprite Index={0}> を押します。\n\nパーティー全員を選択した場合、最も熟練したキャラクターがそのタスクのために自動的に選択されます。\n\n錠前を開けるには、インベントリに盗賊の道具が入っている必要があります。盗賊の道具に習熟していると役に立ちます。
+TutorialStep/&Tuto03_Lockpick_Description=鍵を開けてみるには、鍵のかかったドアまたはチェストの上にマウスを置いて左クリックします。パーティー全体を選択すると、タスクに対して最も熟練したキャラクターが自動的に選択されます。\n\n錠前を開けるには、インベントリに盗賊の道具が入っている必要があります。盗賊の道具に習熟していると役に立ちます。
 TutorialStep/&Tuto03_Lockpick_Title=ピッキング
-TutorialStep/&Tuto03_Sneak_Attack_Description=発見されずに敵を攻撃すると、奇襲という利点が得られます。 \n\nつまり、あなたにはヒットするロールがあり、次のターンまで対戦相手は反応できないということです。\n\nあなたがローグの場合、あなたの攻撃はスニークアタックとなり、追加のダメージを与えます。 。
+TutorialStep/&Tuto03_Sneak_Attack_Description=発見されずに敵を攻撃すると、奇襲という利点が得られます。\n\nつまり、あなたは攻撃するロールで有利であり、次のターンまで対戦相手は反応できません。\n\nあなたがローグの場合、あなたの攻撃は急襲となり、追加のダメージを与えます。 。
 TutorialStep/&Tuto03_Sneak_Attack_Title=奇襲
-TutorialStep/&Tuto04_Attack_Shove_Description=デフォルトの武器を使用して敵を攻撃するには、敵の上にマウスを置いて左クリックします。\n\n攻撃呪文を唱えたり、武器構成を切り替えて別の武器、たとえば遠距離武器を使用したりすることもできます。\n\n 99}キャラクターによっては、いくつかの特殊能力も利用できます。\n
-TutorialStep/&Tuto04_Attack_Shove_Title=攻撃
-TutorialStep/&Tuto04_Attack_Shove2_Description=敵を押し倒そうとします。 「突き飛ばす」を選択し、利用可能なオプションから選択します。\n\n敵を後ろ向きに穴に押し込むと、敵は落ちます。敵を押し倒すと敵はうつ伏せになり、移動ポイントを消費して立ち上がるまで脆弱なままになります。\n
+TutorialStep/&Tuto04_Attack_Shove2Xbox_Description=敵を押し倒したり、押し倒したりすることができます。\n\n<spriteindex={2}>を押した後、<spriteindex={16}>を使用して突き飛ばすを選択し、利用可能なオプションを選択します。\n\n敵を後ろ向きに穴に押し込むと、彼らは倒れるだろう。敵を押し倒すと、敵は伏せになり、移動ポイントを消費して立ち上がるまで脆弱なままになります。
+TutorialStep/&Tuto04_Attack_Shove2_Description=敵を押し倒そうとします。 「突き飛ばす」を選択し、利用可能なオプションから選択します。\n\n敵を後ろ向きに穴に押し込むと、敵は落ちます。敵を押し倒すと、敵は伏せになり、移動ポイントを消費して立ち上がるまで脆弱なままになります。
 TutorialStep/&Tuto04_Attack_Shove2_Title=突き飛ばす
-TutorialStep/&Tuto04_Dashing_Description=黄色のエリア内のポイントに移動すると、メイン アクションをダッシュに使用します。\nダッシュすると、そのターンの最大移動量が 2 倍になります。\n\nただし、アクションを攻撃したり呪文を唱えたりするために使用することはできません。\n \n通常どおりに移動してから、さらにダッシュするか、そのアクションを他のことに使用するかを決定できることを覚えておいてください。
+TutorialStep/&Tuto04_Attack_ShoveXbox_Description=デフォルトの武器を使用して敵を攻撃するには、敵にカーソルを置き、<spriteindex={0}> を押します。\n\n武器構成を切り替えて、別の武器（たとえば遠距離武器）を使用できます。 <sprite Index={12}> を押します。\n\nキャラクターによっては、呪文などの特殊な能力も使用できます。
+TutorialStep/&Tuto04_Attack_Shove_Description=デフォルトの武器を使用して敵を攻撃するには、敵の上にマウスを置いて左クリックします。\n\nまた、攻撃呪文を唱えたり、武器構成を切り替えて別の武器、たとえば遠距離武器を使用したりすることもできます。\n{ 99} キャラクターによっては、特殊な能力も利用できます。
+TutorialStep/&Tuto04_Attack_Shove_Title=攻撃
+TutorialStep/&Tuto04_Dashing_Description=黄色のエリア内のポイントに移動すると、メイン アクションはダッシュに使用されます。\nダッシュは、そのターンの最大移動量が 2 倍になります。\n\nただし、アクションを使用して攻撃したり、呪文を唱えたりすることはできません。\n\n通常どおりに移動してから、さらにダッシュするか、アクションを他のことに使用するかを決定できることを覚えておいてください。
 TutorialStep/&Tuto04_Dashing_Title=ダッシュ
 TutorialStep/&Tuto04_Disengaging_Description=機会攻撃を回避するには、「離脱」アクションを使用できます。ターンの残りの間、機会攻撃を受けるリスクなく、自由に敵に近づくことができます。\n\nただし、離脱にはメイン アクションが使用されるため、このターン中は攻撃したりダッシュしたりすることはできません。 。
 TutorialStep/&Tuto04_Disengaging_Title=離脱中
-TutorialStep/&Tuto04_Dodging_Description=回避をクリックすると、メイン アクションが使用され、次の利点が得られます。\n\n次のターンの開始まで、目に見えるすべての攻撃者は攻撃ロールで不利になり、あなたは器用さセーヴィング スローで有利になります。
+TutorialStep/&Tuto04_DodgingXbox_Description=<spriteindex={2}> を押すと、回避などの他のアクションを選択することもできます。\n\n回避を選択すると、メインのアクションが使用され、次のような利点があります:\n\n次のターン、目に見えるすべての攻撃者は攻撃ロールで不利になりますが、あなたは器用さのセーヴィング スローで有利になります。
+TutorialStep/&Tuto04_Dodging_Description=回避をクリックすると、メイン アクションが使用され、次の利点が得られます:\n\n次のターンの開始まで、目に見えるすべての攻撃者は攻撃ロールで不利になり、あなたは器用さセーヴィング スローで有利になります。
 TutorialStep/&Tuto04_Dodging_Title=回避
-TutorialStep/&Tuto04_Opportunity_Description=クリーチャーがそれを認識している敵の手の届かないところに移動すると、その敵はその反応を利用して近接攻撃を行うことができます。\n\nもちろん、機会攻撃を使用することもできます。\n\n敵の近接攻撃範囲内にいるときは常に注意してください。ただ立ち去ることはできません。
+TutorialStep/&Tuto04_Opportunity_Description=クリーチャーがそれを見ることができる敵の手の届かないところに移動すると、その敵はその反応を利用して近接攻撃を行うことができます。\n\nもちろん、機会攻撃を使用することもできます。\n\n敵の近接攻撃範囲内にいるときは常に注意してください。ただ立ち去ることはできません。
 TutorialStep/&Tuto04_Opportunity_Title=機会攻撃
-TutorialStep/&Tuto04_Sleight_Description=Sleight of Hand に熟練している場合は、敵や NPC からスリを試みることができます。 \nまた、特定の防具はステルスチェックで不利になります。\nこれは常に危険なので、試す前によく考えてください。チャンスを掴むには、非常にステルスでなければなりません!
+TutorialStep/&Tuto04_Sleight_Description=Sleight of Hand に熟練している場合は、敵や NPC からスリを試みることができます。\nまた、特定の防具はステルスチェックで不利になります。\nこれは常に危険を伴うので、試す前によく考えてください。チャンスを掴むには、非常にステルスでなければなりません!
 TutorialStep/&Tuto04_Sleight_Title=スライハンド
-TutorialStep/&TutoT4_Critical_Description=冒険の過程で、一部のノンプレイヤー キャラクターが危機に瀕することがあります。\n\nこれは、彼らを死なせてしまうとゲームが終了することを意味します。\n
+TutorialStep/&TutoT4_Critical_Description=冒険の過程で、一部のノンプレイヤー キャラクターが危機に陥ることがあります。\n\nこれは、彼らを死なせてしまうとゲームが終了することを意味します。
 TutorialStep/&TutoT4_Critical_Title=クリティカルキャラクター
-TutorialStep/&UsingCameraDescription=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n\n 99}WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を当てたまま W キーを押し続けるとズームインします。
-TutorialStep/&UsingCameraTitle=カメラの使用
+TutorialStep/&Tuto_CampaignMap2_Description=ゆっくりとしたペースでは、モンスターから隠れるようにしながら慎重に動くことができます。\n通常のペースは速いですが、危険が伴います。\n速いペースは最も速いですが、危険になる可能性があります。\n\nレンジャーは、好みの地形にいる間は非常に役立ちます。より多くの食べ物が見つかり、モンスターに驚かれる可能性が低くなります。
+TutorialStep/&Tuto_CampaignMap2_Title=移動ペース
+TutorialStep/&Tuto_CampaignMap3_Description=旅行を設定できるので、パーティーを細かく管理する必要はありません。\n\n誰かがレベルアップできたら、その日の移動を終えずにすぐに長い休憩を開始できます。\n製作タスクが完了したら、時間をロスすることなく新しいタスクをセットアップできます。\nあなたはたとえば、長い休憩の後に休憩後のウィンドウを開いて、準備した呪文を変更できます。
+TutorialStep/&Tuto_CampaignMap3_Title=トラベル設定
+TutorialStep/&Tuto_CampaignMap4_Description=ヒーローたちは通常、常に体調を整えて何にでも備えられるように旅行の計画を立てます。\n\nこのルーティンでは、移動は 1 日 8 時間以内とし、食事や睡眠、その他の活動に十分な時間を確保する必要があります。物を作ること、話すこと、ゲームをすること、楽器を演奏すること、祈ることなどです。
+TutorialStep/&Tuto_CampaignMap4_Title=旅行のルーチン
+TutorialStep/&Tuto_CampaignMap5_Description=場合によっては、通常の日常生活が中断され、ヒーローが休んでいるはずの時間に旅行しなければならないことがあります。これにより疲労が増し、極度の疲労につながる可能性があります。\n\n冒険者は、一時的に無理をしてから通常の日常生活に戻り、疲労を軽減するためにキャンプ活動を制限してより多くの休息を取る方法を知っています。
+TutorialStep/&Tuto_CampaignMap5_Title=旅行の疲れ
+TutorialStep/&Tuto_CampaignMap6XBox_Description=<sprite Index={2}> を押すことで、いつでも手動で旅行を中断できます。\n\n次に、<sprite Index={3}> を押してキャラクターのインベントリにアクセスし、新しいクラフト アクティビティを開始できる場合があります。装備を変更するか、必要なものを確認してください。\n\n<sprite Index={0}> を押して移動を再開します。
+TutorialStep/&Tuto_CampaignMap6_Description=[中断] ボタンを押すことで、いつでも旅行を手動で中断できます。\n\nその後、キャラクターの肖像画をクリックしてインベントリを開き、新しい製作活動を開始したり、装備を変更したり、好きなものをチェックしたりできます。{ 99}\n[再開] ボタンをクリックするだけで旅行を再開できます。
+TutorialStep/&Tuto_CampaignMap6_Title=旅行の中断
+TutorialStep/&Tuto_CampaignMap7XBox_Description=夜襲の後は、安全に眠りに戻り、長い休息を終えることができます。\nこれを行うには、カーソルをキャンプファイヤーに移動し、<spriteindex={0}> を押します。\nすべてのキャラクターが受け取ります。通常どおりの長い休息の利点。\n\n平和な休息を持つオブリビオン領域の聖職者は、将来驚かないだろう。今回はルールの説明を目的としました。
+TutorialStep/&Tuto_CampaignMap7_Description=夜襲の後は、安全に眠りに戻り、長い休息を完了することができます。\nそれには、キャンプファイヤーをクリックするだけです。\nすべてのキャラクターは、通常どおり長い休息の恩恵を受けます。\n平和な休息を持つオブリビオン領域の聖職者は、将来驚くことはないだろう。今回はルールの説明を目的としました。
+TutorialStep/&Tuto_CampaignMap7_Title=長い休息を終えて
+TutorialStep/&Tuto_CampaignMapXBox_Description=<sprite Index={4}> を使用して地図を探索します。\n\n目的地にマーカーを配置したら、<sprite Index={3}> を押して旅行の計画を立てます。あなたのパーティーはそこに到着するまでに時間がかかります。 <sprite index={2}> を押して場所を入力することもできます。\n\n冒険者は、途中で採餌や狩猟をして食料を集めることができます。また、クラフトの材料を見つけたり、旅行者、注目の場所、さらにはモンスターに遭遇したりすることもあります。
+TutorialStep/&Tuto_CampaignMap_Description=矢印キーを使用して地図を探索します。\n\n目的地をクリックして旅行を計画します。あなたのパーティーはそこに到着するまでに少し時間がかかります。\n\n途中、冒険者は採集や狩りをして食料を集めることができます。また、クラフトの材料を見つけたり、旅行者、注目の場所、さらにはモンスターに遭遇したりすることもあります。
+TutorialStep/&Tuto_CampaignMap_Title=トラベルマップ
+TutorialStep/&Tuto_DLC_Forge1=モンスターのいる場所を一掃したら、フォージの前哨基地に行って報告してください。彼らは残りの戦利品を集めて売るために人々をそこに送り込みます。\nあなたがフォージキャンプを訪れるたびに、彼らがあなたに借りているお金を請求することができます。
+TutorialStep/&Tuto_DLC_Forge2=彼らは持ち帰ったものの総額の一部を受け取ります。収集したアイテムの一部を売却前に買い戻すチャンスもあります。\nフォージ リーダーの近くにあるミッション ボードと対話して、スカベンジャー システムを使用します。
 TutorialStep/&Tuto_Explosive_Description=これらの化学成分は非常に不安定であり、炎の呪文や物体と接触すると爆発を引き起こします。これらの化学物質の周囲を歩き回る場合は注意するか、有利に使用して近くの敵にダメージを与えてみてください。
 TutorialStep/&Tuto_Explosives_Title=爆発物コンポーネント
-TutorialStep/&Tuto_RunePuzzle_Title=魔法のルーンパズル
-TutorialStep/&Tuto_RunePuzzle_Description=地面にわずかに光っている隠されたルーンを見つけて、それを踏んでアクティブにします。
-TutorialStep/&Crafting01Title=クラフト
-TutorialStep/&Crafting01Description=ソラスタでは様々なアイテムをクラフトすることができます。そのためには、適切な機器、材料、スキル、時間が必要です。魔法のアイテムの場合、場合によっては呪文を知る必要があります。\n\nクラフトは、パーティーがキャンプを設営してもまだ寝ていない旅行中に実行されます。\n\nキャラクターは自由時間の一部を費やすことができます。現在の製作タスクに取り組むことになります。
-TutorialStep/&Crafting02Title=クラフト装備
-TutorialStep/&Crafting02Description=作成に必要なツールは次のとおりです:\n\n-ポーション: 薬草学キット\n-巻物: 巻物キット\n-毒: 毒殺者のキット\n-エンチャントされた武器と防具: マナカロン ロザリオ\n{ 99}これらのツールを使用するには、これらのツールに習熟する必要があります。
-TutorialStep/&Crafting03Title=クラフトスキル
-TutorialStep/&Crafting03Description=特定の作成ツールに習熟している場合でも、レシピの難易度を連続的にチェックするには特定のスキルが必要です。\nポーションを作成するには、薬だけで十分な場合もありますが、アルカナは非常に便利です。\n毒を作るには、薬や自然が便利です。\n巻物や魔法のアイテムを作るには、アルカナが必須です。
-TutorialStep/&Crafting04Title=クラフト材料
-TutorialStep/&Crafting04Description=クラフトには材料が必要です。これらは冒険中に見つけられ、花、茂み、岩から、時には死んだ生き物から集められることもあります。 \nもちろん、非常に珍しいものでない限り、店から購入することもできます。\n付呪には、大変動で秘密が失われたマナカロンの熟練鍛冶によって魔法のように準備された下塗りされたアイテムが必要です。一般に、下塗りされたアイテムは、その可能性を発揮するために非常にまれな追加の材料を必要とします。
-TutorialStep/&Crafting05Title=クラフトレシピ
-TutorialStep/&Crafting05Description=最後に、アイテムを作成するには、どの材料を組み合わせるかを知る必要があります。これらの「レシピ」は、マニュアルを読んだり、マスターから教わったりして学ぶことができます。 \nソラスタン派は通常、レシピのコピーを保管し、友人に良い価格で販売していますが、一部はバッドランズでも見つけることができます。\n\n一度レシピを覚えたら、パーティー全員が次のことを行うことができます。これを使って。
-TutorialStep/&Crafting06Title=インターフェースの作成
-TutorialStep/&Crafting06Description=クラフトを開始するには、キャラクターの画面を開き、「クラフト」タブをクリックします。開始可能なレシピを選択するだけです。\n移動中に進行状況バーが表示され、操作が終了すると通知が表示されます。\n必要に応じて別のレシピを起動できます。\n覚えておいてください。作成操作をキャンセルすると、材料は失われます。
-TutorialStep/&Tuto_SurpriseAttack3_Title=奇襲
-TutorialStep/&Tuto_SurpriseAttack3_Description=あなたの存在に気づいていない敵にこっそり近づくことができれば、敵を不意を突いて戦闘の最初のターンを失わせることができます。\nこれを行うには、攻撃オプションをクリックするか、攻撃呪文を選択して攻撃します。キャラクターを選択し、敵をターゲットにして攻撃を確認します。\nこれにより戦闘が開始され、奇襲の優位性が得られます。また、あなたのキャラクターが見えない限り、攻撃ロールで有利になります。
-TutorialStep/&Tuto_T8_Scav01_Title=スカベンジャーシステム
-TutorialStep/&Tuto_T8_Scav01_Description=モンスターのいる場所を一掃したら、スカベンジャーの前哨基地に行って自分の行為を報告してください。彼らは残されたわずかな戦利品を集めて売るためにそこに部下を送り込みます。\nスカベンジャー本部を訪れるたびに、彼らがあなたに借りているお金を請求することができます。
-TutorialStep/&Tuto_T8_Scav02_Title=ゴールドを手に入れる
-TutorialStep/&Tuto_T8_Scav02_Description=彼らは持ち帰ったものの総額の一部を受け取ります。集めたアイテムの一部を事前に買い戻すチャンスもあります。\nシステムを使用するためにスカベンジャーの補給官に話しかける必要はありません。近くの標識をクリックすれば使用できます。
-TutorialStep/&Tuto_T8_CriticalCharacters_Title=クリティカルキャラクター
-TutorialStep/&Tuto_T8_CriticalCharacters_Description=2人のキャラクターが仲間としてパーティーに加わりました。彼らの世話をする;彼らは重要人物であり、死ぬとゲームオーバーになります。\n一方で、彼らは単なる追随者ではありません。彼らはあなたのヒーローと同じように戦ったり、アクションを実行したりできます。
-TutorialStep/&PickupQuests_Title=クエストをピックアップ
-TutorialStep/&PickupQuests_Description=これらのボードでは、オプションのクエストに挑戦する機会が提供されます。それは非常に簡単です: クライアントからクエストを受け入れ、必要なアクションを実行し、ボードに戻って報酬を受け取ります!\n\n注意: これらのクエストの中には、見た目よりも危険なものもあります。
-TutorialStep/&MajorGateBoneKeep_Title=メジャーゲート
-TutorialStep/&MajorGateBoneKeep_Description=このマイナー ゲートを使用すると、城の外にテレポートできます。\n\n後ろのメジャー ゲートを使用して、ケール サイフレンにテレポートすることもできます。
-TutorialStep/&Tuto01_Looting2_Description=一部のアイテムはインベントリの同じセルにスタックできます。最大ユニット数はアイテムによって異なります。\n\nアイテムのスタックを分割するには、CTRL キーを押しながらスタックを空のセルにドラッグ アンド ドロップします。これにより、スタックから 1 つのユニットが取得されます。
-TutorialStep/&Tuto_Legendary_01_Title=伝説のクエスト
+TutorialStep/&Tuto_FindCouncil_Description=公国の首都は大きな都市です。\n\n今すぐ、レガシー評議会を見つける必要があります。そこに到着すると、ファスト トラベル機能にアクセスできるようになります。ただし、今のところは少し歩く必要があります。\n\n北に進み、サンブレイズ コートまでの階段を上ってください。次に、西の階段を上がって評議会に向かいます。
+TutorialStep/&Tuto_FindCouncil_Title=カエル・シフレンで自分の道を見つける
 TutorialStep/&Tuto_Legendary_01_Description=注意してください: Arwin Merton と話す場合は、クエストを完了する必要があります。そうしないと、決定的に失敗します。
-TutorialStep/&Tuto_Legendary_02_Title=クエストをキャンセルする
+TutorialStep/&Tuto_Legendary_01_Title=伝説のクエスト
 TutorialStep/&Tuto_Legendary_02_Description=クエストを完了せずにその場から出てしまうと、クエスト失敗が決定します！
+TutorialStep/&Tuto_Legendary_02_Title=クエストをキャンセルする
+TutorialStep/&Tuto_LevelUp2_Description=夜が終わり、ヒーローたちは過去数日間でどれだけ学んだかを実感します。\n\n各キャラクターのレベルアップ ボタンをクリックして、関連するインターフェースを起動します。\n\nレベルアップすると、次のことが可能になります。ヒットポイントが増加し、クラスに応じて追加機能が追加されます。
+TutorialStep/&Tuto_LevelUp2_Title=レベルアップ！
+TutorialStep/&Tuto_LevelUpGeneric_Description=次のレベルの目標経験値に達したら、長い休憩をとってレベルアップ ウィンドウを開きます。\n\nそこでは、クラスに応じて追加のヒット ポイントと機能を獲得できます。\n\nレベルを上げるために、宿屋、移動中、または探索場所内で長い休憩を取ることができることを忘れないでください。
+TutorialStep/&Tuto_LevelUpGeneric_Title=レベルアップ
+TutorialStep/&Tuto_LevelUp_Description=ヒーローたちはレベルアップする準備ができています!\n\nそのためには、長い休憩を取る必要があります。\n\n墓守の樽に戻り、バーテンダーのカレルと話してください。宿泊できるように部屋をリクエストしてください。
+TutorialStep/&Tuto_LevelUp_Title=レベルアップ！
+TutorialStep/&Tuto_LocationMap2Xbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n\n出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n{ 99} ファスト トラベル ポイントにカーソルを置き、<spriteindex={0}> を使用して選択します。 <spriteindex={28}>を押し続けると高速移動が開始され、<spriteindex={1}>を押すとキャンセルされます。
+TutorialStep/&Tuto_LocationMap2_Description=地図ボタンを押して位置地図を開きます。\n\n出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n\nファストトラベルボタンを押して「はい」を選択します。
+TutorialStep/&Tuto_LocationMap2_Title=高速出口の場所
+TutorialStep/&Tuto_LocationMapGeneric2_Description=マップには、鍵のかかったドア、開いていない宝箱、検出したが発動または解除されていない罠も表示されます。\n\n発見したが戦っていない敵も表示されるため、攻撃するか回避するかを決定できます。\n場所を探索すると、地図は自動的に更新されます。
+TutorialStep/&Tuto_LocationMapGeneric2_Title=地図アイコン
+TutorialStep/&Tuto_LocationMapGeneric3_Description=道が空いていて徒歩で到着できる限り、地図を使用して地図上のウェイポイントに即座に移動します。そうでない場合は、パスがブロックされていることが通知されます。
+TutorialStep/&Tuto_LocationMapGeneric3_Title=急ぎ旅
+TutorialStep/&Tuto_LocationMapGeneric4_Description=また、このウェイポイントが場所の出口である場合、道が空いていて徒歩でそこに到達できる限り、それを使用してトラベル マップに直接移動できます。そうでない場合は、パスがブロックされていることが通知されます。
+TutorialStep/&Tuto_LocationMapGeneric4_Title=高速出口の場所
+TutorialStep/&Tuto_LocationMapGenericXbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n\n探索するとウェイポイントが見つかります。これらは、さまざまな構造物の役割、エリアの照明レベル、その他のゲームプレイ変更要素に関する情報を提供します。\n\nマップは商人などの重要な NPC の存在を示します。ポートレートは通常、NPC と対話できることを意味します。\n\nまた、<sprite Index={11}> を押したまま、<sprite Index={4}> または <sprite Index を使用してそこからマップを選択することもできます。 ={5}>。
+TutorialStep/&Tuto_LocationMapGeneric_Description=「地図」ボタンをクリックすると、場所の地図が開きます。\n\n探索するとウェイポイントが見つかります。これらは、さまざまな構造物の役割、エリアの照明レベル、その他のゲームプレイ変更要素に関する情報を提供します。\n\nマップは、商人などの重要な NPC の存在を示します。ポートレートは通常、NPC と対話できることを意味します。
+TutorialStep/&Tuto_LocationMapGeneric_Title=ロケーションマップ
+TutorialStep/&Tuto_LocationMapXbox_Description=<sprite Index={17}> を押して位置マップを開きます。\n\nウェイポイントが見つかったら、それを使用してその場所内の別の場所に高速移動できます。\n\n今のところ、ファストトラベルを使用して墓守の樽に戻ることができます。
+TutorialStep/&Tuto_LocationMap_Description=地図アイコンをクリックして場所の地図を開きます。\n\nウェイポイントが見つかったら、それを使用してその場所内の別の場所にファストトラベルできます。\n\n現時点では、次のことができます。ファストトラベルして墓守の樽に戻ります。
+TutorialStep/&Tuto_LocationMap_Title=ロケーションマップ
+TutorialStep/&Tuto_ManaLamps_Description=マナカロン遺跡では、これらの魔法のランプに出会うかもしれません。\n\nこれらは魔法の力を使用し、松明よりも明るく信頼性の高い光を放ちます。\n\n魔法のダメージを与えると、キャントリップも含めて魔法のランプが起動します。 。
+TutorialStep/&Tuto_ManaLamps_Title=マナランプ
+TutorialStep/&Tuto_Merchants_Description=商人は商品を売り買いします。また、彼らはあなたのインベントリ内の魔法のアイテムを検出して識別することもできます。\n\n彼らの一部は特定の派閥に所属しており、それらの派閥から良い評判を得ることによって恩恵を受けるでしょう。
+TutorialStep/&Tuto_Merchants_Title=商人
+TutorialStep/&Tuto_PreparingSpells_Description=多くの術者は、一度に思い出せる以上の呪文を知っています。準備された呪文は、キャラクターが呪文スロットを消費して使用できる呪文を表します。\n\nヒーローの既知の呪文のリストを確認し、準備する呪文を選択してください。\n\n準備されていない呪文は唱えることができません。多くのキャラクターは準備できる以上の呪文を知っているため、状況に応じて慎重に選択してください。
+TutorialStep/&Tuto_PreparingSpells_Title=呪文の準備
+TutorialStep/&Tuto_ReadyAnAction_Description=これにより、キャラクターは特定の条件が満たされるまで待機できるようになり、他のキャラクターのターンを中断して準備済みのアクションを実行できるようになります。\n\nCrown of the Magister では、キャラクターと状況に応じて攻撃の準備をすることができます。\n\n移動したり、ボーナス アクションを使用したり、準備完了アクションを使用したりできます。これで自動的にターンが終了します。
+TutorialStep/&Tuto_ReadyAnAction_Title=行動の準備をしましょう
+TutorialStep/&Tuto_RunePuzzle_Description=地面にわずかに光っている隠されたルーンを見つけて、それを踏んでアクティブにします。
+TutorialStep/&Tuto_RunePuzzle_Title=魔法のルーンパズル
+TutorialStep/&Tuto_ShortRest2_Description=短い休憩の後、キャラクターはヒット ダイスを消費してヒット ポイントを回復できます。ヒーローにはレベルごとに 1 つのヒットダイスがあります。一度消費してしまうと、元に戻すには長い休息が必要になります。短い休憩の後、ヒット ダイスのすべてまたは一部を費やすことができます。\n\nキャラクターのクラスとレベルに応じて、他の能力は短い休憩をとることで回復する場合があります。
+TutorialStep/&Tuto_ShortRest2_Title=短い休憩の利点
+TutorialStep/&Tuto_ShortRestXBox_Description=<sprite Index={11}> を押したまま「短い休憩」を選択すると、短い休憩をとることができます。\n短い休憩は、ダンジョン探索中の回復に便利な方法です。すべての敵から十分に離れていればいつでもそうすることができますが、非常に敵対的な場所では不可能な場合があります。パーティーは全員揃っていなければなりません。\n\n短い休憩とは 1 時間の休憩時間のことであり、登場人物たちは食べたり飲んだり、傷の手当てをしたりする以外に激しい作業を行いません。
+TutorialStep/&Tuto_ShortRest_Description=ダンジョン探索中の回復には、短い休憩が有効です。すべての敵から十分に離れていればいつでもそうすることができますが、非常に敵対的な場所では不可能な場合があります。パーティは全員一緒でなければなりません。\n\n短い休憩とは 1 時間の休憩時間のことであり、登場人物たちは食べたり、飲んだり、本を読んだり、傷の手当てをしたりする以外に激しい作業を行いません。
+TutorialStep/&Tuto_ShortRest_Title=ちょっとした休憩
+TutorialStep/&Tuto_Stalactites_Description=探索していると、吊り下げられた檻、鍾乳石、その他の危険物が敵や自分に降りかかる可能性があります。\n\nこれらを矢や攻撃呪文で狙います（それでも攻撃を行う必要があります）。攻撃ロール）を使って彼らを落下させ、その下の誰かを押しつぶします。
+TutorialStep/&Tuto_Stalactites_Title=落下の危険性
+TutorialStep/&Tuto_SurpriseAttack2_Description=道路で攻撃を受けた後は、マップの出口を探して旅を続けることができます。\nキャンプ中に攻撃された場合は、キャンプファイヤーを操作して長い休息を再開します。
+TutorialStep/&Tuto_SurpriseAttack2_Title=遭遇から生き残る
+TutorialStep/&Tuto_SurpriseAttack3XBox_Description=あなたの存在に気づいていない敵にこっそり近づくことができれば、敵を不意を突いて戦闘の最初のターンを失わせることができます。\nそれには、<spriteindex={2}> を押して、いずれかのキャラクターで攻撃オプションまたは攻撃呪文を選択し、敵をターゲットにして攻撃を確定します。\nこれにより戦闘が開始され、奇襲の優位性が得られます。また、あなたのキャラクターが見えない限り、攻撃ロールで有利になります。
+TutorialStep/&Tuto_SurpriseAttack3_Description=あなたの存在に気づいていない敵にこっそり近づくことができれば、敵の不意を突いて戦闘の最初のターンを失わせることができます。\nそのためには、攻撃オプションをクリックするか、攻撃呪文をクリックしてください。キャラクターを選択し、敵をターゲットにして攻撃を確認します。\nこれにより戦闘が開始され、奇襲の優位性が得られます。また、あなたのキャラクターが見えない限り、攻撃ロールで有利になります。
+TutorialStep/&Tuto_SurpriseAttack3_Title=奇襲
+TutorialStep/&Tuto_SurpriseAttack_Description=キャンプ中にびっくり！出発する前に攻撃者を撃退しなければなりません。\n驚いたので、戦闘の最初のターンは何も行動できません!\n\n呪文と力をためらわないでください!戦いが終われば長い休息も終わりますので、生き残りをかけた戦いに全力を尽くしましょう！
+TutorialStep/&Tuto_SurpriseAttack_Title=奇襲！
+TutorialStep/&Tuto_T8_CriticalCharacters_Description=2人のキャラクターが仲間としてパーティーに加わりました。彼らの世話をする;彼らはクリティカルであり、死ぬとゲームオーバーになります。\n一方、彼らは単なる追随者ではありません。彼らはあなたのヒーローと同じように戦ったり、アクションを実行したりできます。
+TutorialStep/&Tuto_T8_CriticalCharacters_Title=クリティカルキャラクター
+TutorialStep/&Tuto_T8_Scav01_Description=モンスターのいる場所を一掃したら、スカベンジャーの前哨基地に行って自分の行為を報告してください。彼らは残されたわずかな戦利品を集めて売るためにそこに部下を送り込みます。\nスカベンジャー本部を訪問するたびに、彼らがあなたに借りているお金を請求することができます。
+TutorialStep/&Tuto_T8_Scav01_Title=スカベンジャーシステム
+TutorialStep/&Tuto_T8_Scav02_Description=彼らは持ち帰ったものの総額の一部を受け取ります。集めたアイテムの一部を事前に買い戻すチャンスもあります。\nシステムを使用するためにスカベンジャーの補給官に話しかける必要はありません。近くにある標識をクリックするだけで済みます。
+TutorialStep/&Tuto_T8_Scav02_Title=ゴールドを手に入れる
+TutorialStep/&Tuto_TDLC1_T1_Redeemers_Description=時々、あなたのパーティーには強すぎるモンスターに遭遇することがあります。ただし、常に戦う必要があるわけではありません。\n\n慎重な姿勢を保ち、何としても避けるようにしてください。そうでなければ…まあ、それはあなたの人生です。
 TutorialStep/&Tuto_TDLC1_T1_Redeemers_Title=引き続き注意してください!
-TutorialStep/&Tuto_TDLC1_T1_Redeemers_Description=時々、あなたのパーティーには強すぎるモンスターに遭遇することがあります。ただし、常に戦う必要があるわけではありません。\n \n 慎重な姿勢を保ち、何としても避けるようにしてください。そうでなければ…まあ、それはあなたの人生です。
-TutorialStep/&Tuto_TDLC1_T2_OutpostControl_Title=前哨基地制御
 TutorialStep/&Tuto_TDLC1_T2_OutpostControl_Description=前哨基地を管理する勢力を変更するには、目的の勢力が表示されるまで入り口の右側にあるバナーをクリックします。
-TutorialStep/&Tuto_DLC_Forge1=モンスターのいる場所を一掃したら、フォージの前哨基地に行って報告してください。彼らは残りの戦利品を集めて売るために人々をそこに送り込みます。\n あなたがフォージキャンプを訪れるたびに、彼らがあなたに借りているお金を請求することができます。
-TutorialStep/&Tuto_DLC_Forge2=彼らは持ち帰ったものの総額の一部を受け取ります。収集したアイテムの一部を売却前に買い戻すチャンスもあります。\nフォージ リーダーの近くにあるミッション ボードと対話して、スカベンジャー システムを使用します。
-TutorialStep/&OutgameMainMenuXBoxTitle=ゲーム内ヘルプ (これは Xbox テストです)
-TutorialStep/&OutgameMainMenuXBoxDescription=Solasta のゲームパッド バージョンへようこそ。\n <spriteindex={0}> を押して開始してください。
-TutorialStep/&Tuto_LocationMapGenericXbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n \n 探索するとウェイポイントが見つかります。これらは、さまざまな構造物の役割、エリアの照明レベル、その他のゲームプレイ変更要素に関する情報を提供します。\n\n マップは、商人などの重要な NPC の存在を示します。ポートレートは通常、NPC と対話できることを意味します。\n \n また、<sprite Index={11}> を押したまま、<sprite Index={4}> または <sprite Index を使用してそこからマップを選択することもできます。 ={5}>。
-TutorialStep/&Tuto02_Search_AroundXbox_Description=エリアを探索して、ドアを開けるための仕組みを見つけてください。\n \n 画面中央のカーソルがインタラクティブ オブジェクトの近くにある場合、そのオブジェクトが強調表示され、カーソルが説明アイコンに変わります。
-TutorialStep/&Tuto01_CameraXbox_Description=<spriteindex={23}>を使用してカメラビューを回転し、視点を変更します。\n\n<spriteindex={4}>を使用してカメラを移動し、<spriteindex={22}>を使用しますキャラクターに焦点を当てながら、そのキャラクターを拡大します。
-TutorialStep/&Tuto01_Climbing_and_jumpingXbox_Description=ジャンプしたり登ったりするには、移動したい場所にカーソルを置き、<spriteindex={0}> を押します。\n \n キャラクターの強さと陸上競技の習熟度に応じて、2 ～ 5 マスの間でジャンプしたり登ったりできます。 .\n \n いつでも 2 つのマスを飛び越えたり、3 つのマスを落としたり、1 つのマスを登ったり、はしごやロープなどの簡単な表面を問題なく登ることができます。
-TutorialStep/&Tuto01_CrawlingXbox_Description=穴の中を這うには、カーソルを穴の近くに置き、<sprite Index={0}> を押します。\n \n カメラを回転すると、反対側の様子をよりよく見ることができます。 <spriteindex={23}>を使用するか、<spriteindex={4}>を使用してカメラを移動します。\n\nキャラクターは目的地に向かう途中で、必要に応じて自動的にひざまずいたり、這ったり、立ち上がったりします。 。
-TutorialStep/&Tuto01_LootingXbox_Description=チェストやその他のコンテナを略奪するには、その上にカーソルを置き、<sprite Index={0}> を押します。\n \n 持ち運ぶものはすべて体重ゲージに影響するため、重量制限に達しないように注意してください。これにより、速度が大幅に低下します。\n \n 機器と光源は、使用する前に適切なスロットに配置する必要があります。
-TutorialStep/&Tuto01_QuestlogXbox_Description=パーティー ジャーナルを開くには、<sprite Index={11}> を押したまま、<sprite Index={5}> を使用してジャーナルを選択します。\n \n これにより、現在の目標に関する詳細情報といくつかの役立つ情報が表示されます。 \n \n ジャーナルにはクエスト ログよりもはるかに多くの情報が含まれていることに注意してください。
-TutorialStep/&Tuto01_SelectionXbox_Description=3D ビューでキャラクター上にカーソルを置いてキャラクターを選択するか、<sprite Index={13}> または <sprite Index={15}> を使用して各キャラクターを順番に選択します。\nパーティー全体を選択するには、まず長押しします。 <spriteindex={10}> を押してから、<spriteindex={3}> を押します。\n \n 移動するには、<spriteindex={4}> を使用してカーソルを移動し、<spriteindex={0} を押します。> カーソルがある場所にパーティーを移動します。有効な目的地にカーソルを置くと、丸いマーカーが表示されます。無効な目的地には「禁止」の標識が表示されます。
-TutorialStep/&Tuto04_Attack_ShoveXbox_Description=デフォルトの武器を使用して敵を攻撃するには、敵にカーソルを置き、<sprite Index={0}> を押します。\n \n 武器構成を切り替えて、別の武器（たとえば遠距離武器）を使用できます。 <sprite Index={12}> を押します。\n\n キャラクターによっては、呪文などの特殊な能力も使用できます。
-TutorialStep/&Tuto04_Attack_Shove2Xbox_Description=敵を押し倒したり、押し倒したりすることができます。 \n \n <spriteindex={2}>を押した後、<spriteindex={16}>を使用して突き飛ばすを選択し、利用可能なオプションを選択します。\n \n 敵を後ろ向きに穴に押し込むと、彼らは倒れるだろう。敵を押し倒すと、敵はうつ伏せになり、移動ポイントを消費して立ち上がるまで脆弱なままになります。
-TutorialStep/&Tuto04_DodgingXbox_Description=<spriteindex={2}> を押すと、回避などの他のアクションを選択することもできます。\n \n 回避を選択すると、メインのアクションが使用され、次のような利点があります:\n \n の開始まで次のターン、目に見えるすべての攻撃者は攻撃するロールで不利になりますが、あなたは器用さのセーヴィング スローで有利になります。
-TutorialStep/&ConfigWeaponsXBoxDescription=ショートカットを使用して機器を切り替えることができます。\n これらのショートカットにアクセスするには、<spriteindex={12}> を押してください。デフォルトでは 3 つの武器設定ショートカットがあります。\n 最後のショートカットはライト ショートカットです。トーチまたはその他の光源を含む 3 番目の構成を使用します。\n 呪文リストにライト キャントリップがある場合、4 番目のショートカットですぐにそれをキャストできます。
-TutorialStep/&Tuto02_HealingXbox_Description=キャラクターが回復呪文を唱えることができる場合 (たとえば、聖職者など)、<sprite Index={2}> を押して Cast Spell メニューにアクセスし、失われたヒット ポイントを回復するために呪文を選択します。\n \n あなたは近くの戦利品で見つかったポーションを使用することもできます。 <sprite Index={3}> を押してインベントリを開きます。ポーションを選択し、<sprite Index={7}> を押して使用します。
-TutorialStep/&Tuto03_DisarmXbox_Description=トラップを解除するには、まずトラップを検出する必要があります。検出されていない罠が仕掛けられたチェストを開けたり、ロックピックしたりしようとすると、罠を起動したときに初めてその罠について知ることができます!\n \n 罠の解除を試みるには、カーソルを移動してください。上に重ねて <sprite Index={0}> を押します。器用さチェックに成功する必要があります。泥棒の道具は、使いこなせば役に立ちます。
-TutorialStep/&Tuto03_LockpickXbox_Description=鍵を開けてみるには、<sprite Index={4}> を使用してカーソルを移動し、鍵のかかったドアの上にカーソルを置き、<sprite Index={0}> を押します。\n \n パーティー全体を選択した場合、最も熟練したキャラクターがそのタスクのために自動的に選択されます。\n \n 錠前を開けるには、インベントリに盗賊の道具が入っている必要があります。盗賊の道具に習熟していると役に立ちます。
-TutorialStep/&Crafting06XBoxDescription=クラフトを開始するには、<spriteindex={11}>を使用してキャラクターの画面を開き、<spriteindex={8}>または<spriteindex={9}>を使用して[クラフト]タブを選択します。開始するには、利用可能なレシピを選択するだけです。\n 移動中に進行状況バーが表示され、作成操作が完了すると通知が表示されるので、必要に応じて別のレシピを開始できます。\n製作操作をキャンセルすると、材料は失われます。
-TutorialStep/&Tuto01_Looting2Xbox_Description=一部のアイテムはインベントリの同じセルに積み重ねることができます。スタック内のユニットの最大数はアイテムによって異なります。\n \n アイテムのスタックを分割するには、<sprite Index={7}> を押してそこにあるオプションを使用するか、<sprite Index を 2 回押します。 ={0}> スタックの半分を一度に取得します。
-TutorialStep/&Tuto_LocationMapXbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n \n ウェイポイントが見つかったら、それを使用してその場所内の別の場所に高速移動できます。\n\n 今のところ、ファストトラベルを使用して墓守の樽に戻ることができます。
-TutorialStep/&Tuto_LocationMap2Xbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n \n 出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n { 99} ファスト トラベル ポイントにカーソルを置き、<spriteindex={0}> を使用して選択します。 <spriteindex={28}>を押し続けると高速移動が開始され、<spriteindex={1}>を押すとキャンセルされます。
-TutorialStep/&Tuto_Telema_CameraElevationXbpx_Description=通常、フリー カメラは地面の標高に従います。\n \n ナビゲーション ゾーンが重なっている場合は、<sprite Index={7}> を 1 回押してから <sprite Index={22}> を移動すると、カメラを上下に移動できます。 。このモードを終了するには、もう一度 <spriteindex={7}> を押します。
-TutorialStep/&Tuto_CampaignMapXBox_Description=<sprite Index={4}> を使用して地図を探索します。\n \n 目的地にマーカーを配置したら、<sprite Index={3}> を押して旅行の計画を立てます。あなたのパーティーはそこに到着するまでに時間がかかります。 <sprite index={2}> を押して場所を入力することもできます。\n \n 冒険者は、途中で採餌や狩猟をして食料を集めることができます。また、クラフトの材料を見つけたり、旅行者、注目の場所、さらにはモンスターに遭遇したりすることもあります。
-TutorialStep/&Tuto_CampaignMap6XBox_Description=<sprite Index={2}> を押すことで、いつでも手動で旅行を中断できます。\n\nその後、<sprite Index={3}> を押してキャラクターのインベントリにアクセスし、場合によっては新しいクラフト アクティビティを開始できます。装備を変更するか、必要なものを確認してください。\n \n <sprite Index={0}> を押して移動を再開します。
-TutorialStep/&Tuto_CampaignMap7XBox_Description=夜襲の後は、安全に眠りに戻り、長い休息を終えることができます。\nこれを行うには、カーソルをキャンプファイヤーに移動し、<spriteindex={0}> を押します。\nすべてのキャラクターが受け取ります。通常どおりの長い休息の利点。\n \n 平和な休息を持つオブリビオン領域の聖職者は、将来驚かないだろう。今回はルールの説明を目的としました。
-TutorialStep/&Tuto_SurpriseAttack3XBox_Description=あなたの存在に気づいていない敵にこっそり近づくことができれば、敵の不意を突いて戦闘の最初のターンを失わせることができます。\nそうするには、<spriteindex={2}> を押して、いずれかのキャラクターで攻撃オプションまたは攻撃呪文を選択し、敵をターゲットにして攻撃を確定します。\nこれにより戦闘が開始され、奇襲の優位性が得られます。また、あなたのキャラクターが見えない限り、攻撃ロールで有利になります。
-TutorialStep/&Tuto03_CautiousXBox_Description=<sprite Index={2}> を押して慎重モードを選択すると、こっそりと移動できます。敵があなたのノイズ サークルを横切るとあなたの声を聞くことができ、あなたが慎重モードを終了するとすぐにあなたを発見します。\n \n あなたのノイズ サークルはあなたの鎧の種類とあなたのステルス スキルによって異なります。また、光源を携行している間は敵の視界に入らないようにするのが得策です。
-TutorialStep/&Tuto_ShortRestXBox_Description=<sprite Index={11}> を押したまま「短い休憩」を選択すると、短い休憩をとることができます。\n 短い休憩は、ダンジョン探索中に回復するのに便利な方法です。すべての敵から十分に離れていればいつでもそうすることができますが、非常に敵対的な場所では不可能な場合があります。パーティは全員揃っていなければなりません。\n \n 短い休憩とは 1 時間の休憩時間のことであり、登場人物たちは食べたり飲んだり、傷の手当てをしたりする以外に激しい作業を行いません。
-TutorialStep/&BattleCameraDescriptionXBox=戦闘中、<spriteindex={4}>を使用してカメラを移動できます。\n\n<spriteindex={5}>を使用してカメラを回転します。
-TutorialStep/&MovingCharactersDescriptionXBox=<spriteindex={4}>を使用してカーソルを移動し、<spriteindex={0}>を押して、選択したキャラクターをその位置に移動します。\n \n カーソルは、無効な位置をターゲットにしているかどうかを示します。
-TutorialStep/&Tuto01_Refocus_DescriptionXBox=カメラを動かして周囲を調べた後、キャラクターを中心にして追いかけることができます。\n \n <spriteindex={10}> を押したまま同じキャラクターを 2 回選択するか、<spriteindex={3] を押してください。 }> カメラをパーティーの最初のキャラクターの中心に置きます。
-TutorialStep/&Tuto_WarlockSpells01_Title=ウォーロックの呪文
-TutorialStep/&Tuto_WarlockSpells01_Description=ウォーロックは、固有の呪文スロットのプールを使用して呪文を唱える特定の方法を持っています。 \n このプールは小さいですが、ウォーロックの呪文スロットは短い休憩で再充電され、新しい呪文レベルを獲得すると呪文スロットのレベルも増加します。 \n たとえば、レベル 3 の呪文を習得したウォーロックは、すべての呪文を第 3 レベルのスロットで唱え、利用可能な場合はより低いレベルの呪文をアップキャストします。
-TutorialStep/&Tuto_WarlockSpells02_Title=ミスティックアルカナム
-TutorialStep/&Tuto_WarlockSpells02_Description=ウォーロックが 9 レベルに到達すると、呪文スロットは 5 レベルのままになります。 \n 11 レベルで、ウォーロックはミスティック アルカナムを獲得し、1 日に 1 回唱えることができる 6 レベルの呪文を選択できるようになります。 \n 13 レベルでは、7 レベルのミスティック アルカナムがロック解除されます。
+TutorialStep/&Tuto_TDLC1_T2_OutpostControl_Title=前哨基地のコントロール
+TutorialStep/&Tuto_TeamBalance_Description=バランスのとれたパーティは、どんな状況でも生き残る可能性が高くなります。たとえば、ダメージ ディーラー (ファイター) 1 人、ヒーラー (クレリック) 1 人、マジック ユーザー (ウィザード) 1 人、ステルス キャラクター (ローグ) 1 人で、古典的なバランスの取れたパーティーを構成します。\nパラディンはダメージ ディーラー、ヒーラー、マジック ユーザーを組み合わせたもので、3 つの分野すべてで何らかの能力を備えています。同様に、レンジャーはダメージ ディーラーであり、ステルス キャラクターであり、魔法のユーザーでもあります。\n選択肢が大幅に制限されるため、同じクラスのキャラクターを 2 つまたは 3 つ持つことは避けるのが最善です。同じクラスが 4 人いるとさらに最悪です。でも、ここはあなたのパーティーです。
+TutorialStep/&Tuto_TeamBalance_Title=パーティーバランス
+TutorialStep/&Tuto_Telema_CameraElevationXbpx_Description=フリー カメラは通常、地面の標高に従います。\n\nナビゲーション ゾーンが重なっている場合は、<sprite Index={7}> を 1 回押してから <sprite Index={22}> を移動すると、カメラを上下に移動できます。 。このモードを終了するには、もう一度 <spriteindex={7}> を押します。
+TutorialStep/&Tuto_Telema_CameraElevation_Description=通常、フリー カメラは地面の標高に従います。\n\nナビゲーション ゾーンが重なっている場合は、マウス ホイールまたはコンパスの矢印ボタンを使用してカメラを上下に移動できます。\n\nコンパスの矢印が表示されます。このような状況では、身長差が大きい場合には画面上にアイコンが表示されます。
+TutorialStep/&Tuto_Telema_CameraElevation_Title=カメラの仰角
+TutorialStep/&Tuto_Telema_Crafting2_Description=キャラクターインベントリで作成インターフェイスを開き、魔法のミサイルの巻物を選択します。ヴァイオレットは必要な材料を使って魔法のインクを作ることから始め、それから巻物を書きます。\n\nこれには何時間もかかり、旅行中に休憩時間を利用する必要があります。テレマの遺跡を探索している間はスクロールを完了することはできません。
+TutorialStep/&Tuto_Telema_Crafting2_Title=クラフト
+TutorialStep/&Tuto_Telema_Crafting_Description=関連する製作キット、知識、材料、レシピを使用して、さまざまなアイテムを製作できます。\n\nバイオレットは薬草キットと薬のスキルに熟練しています。彼女がレシピを学習し、必要な材料を持っていれば、治癒のポーションを作ることができます!\n\nレシピの知識はパーティー全体で共有されることに注意してください。
+TutorialStep/&Tuto_Telema_Crafting_Title=クラフト
+TutorialStep/&Tuto_Telema_Identify1_Description=時には魔法かと疑うような素晴らしいアイテムに出会うこともあります。これを確認するには Detect Magic 呪文を唱える必要があります。次に、Identify を唱えてその特性を調べ、その恩恵を受ける必要があります。\n\nこれらの呪文はほとんどの店で有料で唱えることができますが、キャラクターは探索中にキャストできることを知っています。
+TutorialStep/&Tuto_Telema_Identify1_Title=魔法のアイテムの識別
+TutorialStep/&Tuto_Telema_Identify2_Description=Detect Magic や Identify などの呪文は儀式として唱えることができます。\n\nつまり、それらを唱えるために呪文スロットを消費する必要はありません。儀式には 10 時間がかかるため、しばらくそのままにしておくだけで済みます。通常のキャストよりも数分長くなります。
+TutorialStep/&Tuto_Telema_Identify2_Title=儀式の鋳造
+TutorialStep/&Tuto_UseCovers_Description=戦闘では、壁、バリケード、その他の設定要素に盾のアイコンが表示されることがよくあります。\n\nハーフカバーは敵に遠距離攻撃を当てると-2のペナルティを与える。もちろん、カバーの向こう側にいる必要があります。 4分の3カバーすると-5のペナルティが与えられます。フルカバーはターゲットにならないことを意味します。\nこれは近接攻撃や呪文の効果範囲には影響しません。
+TutorialStep/&Tuto_UseCovers_Title=カバーを取る！
+TutorialStep/&Tuto_Utility_Description=戦闘では、インベントリは 1 ターンに 1 回のみ使用できます。これには武器の切り替えも含まれます。\n\nまた、インベントリ アクションを消費せずにアイテムにアクセスして使用できるユーティリティ スロットもあります。\n\nここにポーションを置くかスクロールすると、ポーションを使用できるようになります。直接。これは引き続きメインのアクションとしてカウントされます。
+TutorialStep/&Tuto_Utility_Title=インベントリとユーティリティスロット
+TutorialStep/&Tuto_WarlockInvocations01_Description=発動は、ウォーロックが新しいレベルに到達するときに学習する特別な能力です。\n一部の能力では永続的なボーナスが得られますが、他の能力では呪文を唱えることができます。\nこれらの呪文の中には、自由に唱えるものもありますが、呪文スロットを消費し、通常はリチャージするために長い休憩を必要とするものもあります。
 TutorialStep/&Tuto_WarlockInvocations01_Title=ウォーロックの呼び出し
-TutorialStep/&Tuto_WarlockInvocations01_Description=発動は、ウォーロックが新しいレベルに到達するときに学習する特別な能力です。 \n 一部の能力では永続的なボーナスが得られますが、他の能力では呪文を唱えることができます。 \n これらの呪文の中には、自由に唱えるものもありますが、呪文スロットを消費し、通常はリチャージするために長い休憩を必要とするものもあります。
-TutorialStep/&Tuto_SurpriseAttack2_Description=道路で攻撃を受けた後は、マップの出口を探して旅を続けることができます。\n キャンプ中に攻撃された場合は、キャンプファイヤーを操作して長い休息を再開します。
+TutorialStep/&Tuto_WarlockSpells01_Description=ウォーロックは、固有の呪文スロットのプールを使用して呪文を唱える特定の方法を持っています。\nこのプールは小さいですが、ウォーロックの呪文スロットは短い休憩で再充電され、新しい呪文レベルを得るにつれて呪文スロットのレベルも増加します。\nたとえば、レベル 3 の呪文を習得したウォーロックは、すべての呪文を第 3 レベルのスロットで唱え、利用可能な場合はより低いレベルの呪文をアップキャストします。
+TutorialStep/&Tuto_WarlockSpells01_Title=ウォーロックの呪文
+TutorialStep/&Tuto_WarlockSpells02_Description=ウォーロックが 9 レベルに達すると、呪文スロットは 5 レベルのままになります。\n11 レベルで、ウォーロックはミスティック アルカナムを獲得し、1 日に 1 回唱えることができる 6 レベルの呪文を選択できるようになります。\n13 レベルでは、7 レベルのミスティック アルカナムがロック解除されます。
+TutorialStep/&Tuto_WarlockSpells02_Title=ミスティックアルカナム
+TutorialStep/&UsingCameraDescription=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n{ 99} WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を合わせた状態で W キーを押し続けると、キャラクターが拡大されます。
+TutorialStep/&UsingCameraTitle=カメラの使用

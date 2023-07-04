@@ -49,10 +49,21 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsTwoHandedRanged(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
+    {
+        return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsTwoHandedRanged([CanBeNull] RulesetAttackMode attackMode)
     {
-        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
-               IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
+        return IsTwoHandedRanged(attackMode?.SourceDefinition as ItemDefinition);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool IsTwoHandedRanged([CanBeNull] ItemDefinition itemDefinition)
+    {
+        return IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -73,11 +84,9 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
     {
-        var item = attackMode?.sourceObject as RulesetItem ?? rulesetItem;
+        rulesetItem = attackMode?.sourceObject as RulesetItem ?? rulesetItem;
 
-        return item != null
-            ? IsMelee(item)
-            : IsMelee(attackMode);
+        return rulesetItem != null ? IsMelee(rulesetItem) : IsMelee(attackMode);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -89,7 +98,17 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
     {
-        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
+        if (attackMode == null)
+        {
+            return false;
+        }
+
+        if (attackMode.SourceDefinition is ItemDefinition itemDefinition)
+        {
+            return IsMelee(itemDefinition);
+        }
+
+        return !attackMode.Ranged;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -151,7 +170,8 @@ internal static class ValidatorsWeapon
         [CanBeNull] RulesetCharacter rulesetCharacter,
         [CanBeNull] RulesetAttackMode attackMode)
     {
-        return rulesetCharacter is RulesetCharacterMonster || IsUnarmed((ItemDefinition)null, attackMode);
+        return (rulesetCharacter is RulesetCharacterMonster && IsMelee(attackMode)) ||
+               IsUnarmed((ItemDefinition)null, attackMode);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

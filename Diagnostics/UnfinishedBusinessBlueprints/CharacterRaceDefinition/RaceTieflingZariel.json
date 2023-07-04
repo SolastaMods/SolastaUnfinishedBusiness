@@ -136,6 +136,7 @@
       "FaceShape_E"
     ],
     "dontSortFaceShapes": true,
+    "maxRandomFaceShapeIndex": 5,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -298,6 +299,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "740e7892-8b56-5708-bee2-fd16b2b73bd8",
-  "contentPack": "PalaceOfIce",
+  "contentPack": 9999,
   "name": "RaceTieflingZariel"
 }

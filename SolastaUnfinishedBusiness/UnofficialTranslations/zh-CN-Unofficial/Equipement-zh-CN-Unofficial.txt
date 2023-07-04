@@ -1,13 +1,13 @@
 Equipement/&AttunedCharacterFormat=此物品同调于{0}
-Equipement/&AttunementCountFormat=同调物品：\n\n  {0}/{1}
+Equipement/&AttunementCountFormat=同调物品：\n\n{0}/{1}
 Equipement/&Document_BloodFangInvasion_Content01=这一切都始于一连串突袭，他们在墙外袭扰，攻击商队。这足以让我们担忧并做出回应，但他们又止步于此！唉！这是一出诡计，实际上，突袭由狡诈之人引导，能够准确无误地预测我们的反应。
 Equipement/&Document_BloodFangInvasion_Content02=因此，我们在突袭后派出的部队几乎被一个不剩地歼灭了。这绝不仅是一次来自兽人部落的袭击，而是旨在征服我们峡谷的全面入侵！我们在城门前几乎惊呆了，但仍设法及时关上了门！我们失去了精锐，但岩壁仍旧坚固，使我们得以生产武器，补充我们迅速耗尽的箭矢。这次围攻使我们陷入停滞，因为我们不太明白他们进攻的目的。通往柯帕伦峡谷唯一的通道是已被我们的城镇和要塞封锁的山口。峡谷本身是很容易进来的——只要你能飞！否则，陡峭的岩壁提供的就是我所见过最佳的自然防御！
 Equipement/&Document_BloodFangInvasion_Content03=然而，敌人的数量如此之多，同时我们的数量开始慢慢减少。我们意识到，我们无法仅靠自己的力量坚持下去！于是，我派出了我的发小，乔瑞斯·尼卡农，用魔法乃至更平凡的信使们来传递我们受困的信息！
 Equipement/&Document_BloodFangInvasion_Content04=两周后，兽人设法突破了我们的防御，到达了内庭！时势危急，所有能武装起来的人都在匆忙地竖起路障，因为门前的方阵被击溃只是时间问题！就在此时，格罗姆尼尔·石拳和他的雇佣兵们攻向了敌人的后方！他的进攻凶猛而巧妙。一连串一击脱离的进攻从多个方向袭来，火球和闪电接连爆炸，仿佛是来自一千个声音的吟唱，还夹杂着玛斯加斯公国各个部队的战吼！兽人以为前来驰援的战力远比他们多得多。石拳队长得以对兽人的指挥团进行最猛烈的打击，杀死了凝聚部落的血腥萨满，一举击垮了他们的精神！我们赢了，但付出了沉重的代价，我的心情非常复杂！乔瑞斯·尼卡农看到了我，是他的话语让我从沮丧中振作起来！
-Equipement/&Document_BloodFangInvasion_Content05=“总督，你认为这令人沮丧，没错！但相信我，成为战败方只会更糟，兽人会屠杀或奴役我们所有人，连婴儿也不会放过！” \n第八任总督——《血牙入侵纪事》
+Equipement/&Document_BloodFangInvasion_Content05=“总督，你认为这令人沮丧，没错！但相信我，成为战败方只会更糟，兽人会屠杀或奴役我们所有人，连婴儿也不会放过！”\n第八任总督——《血牙入侵纪事》
 Equipement/&Document_BloodFangInvasion_Description=节选自《血牙入侵》\n由第八任总督撰写。
 Equipement/&Document_BloodFangInvasion_Title=书本
-Equipement/&Document_CharterStonefist_Content01=1 - 为了表彰对柯帕伦峡谷的帮助，石拳佣兵队现已被认证为柯帕伦峡谷守卫部队！\n\n2 - 从今往后，格罗姆尼尔·石拳队长将被称为格罗姆尼尔·石拳男爵，峡谷的守护者！ \n\n3 - 在职责范围内，佣兵队需要在峡谷驻扎足够的兵力，以确保谷地的安全，佣兵队的一部分可以在雇佣兵公会的通常条款下接受雇佣合同，但前提是该合同不会损害峡谷的利益！\n\n4 - 退休后，石拳佣兵队的每一名成员如有意愿，都将获得峡谷中的一块土地，以及建立农场时的协助！为此，我们将拿出谷地西部不少于 10% 的土地作为契约！\n签发于柯帕伦峡谷，灾变后 1005 年，经鼓掌认证
+Equipement/&Document_CharterStonefist_Content01=1 - 为了表彰对柯帕伦峡谷的帮助，石拳佣兵队现已被认证为柯帕伦峡谷守卫部队！\n\n2 - 从今往后，格罗姆尼尔·石拳队长将被称为格罗姆尼尔·石拳男爵，峡谷的守护者！\n\n3 - 在职责范围内，佣兵队需要在峡谷驻扎足够的兵力，以确保谷地的安全，佣兵队的一部分可以在雇佣兵公会的通常条款下接受雇佣合同，但前提是该合同不会损害峡谷的利益！\n\n4 - 退休后，石拳佣兵队的每一名成员如有意愿，都将获得峡谷中的一块土地，以及建立农场时的协助！为此，我们将拿出谷地西部不少于 10% 的土地作为契约！\n签发于柯帕伦峡谷，灾变后 1005 年，经鼓掌认证
 Equipement/&Document_CharterStonefist_Description=石拳佣兵队章程
 Equipement/&Document_CharterStonefist_Title=正式文件
 Equipement/&Document_ValeOfRemembrance01=柯帕伦的早期时光

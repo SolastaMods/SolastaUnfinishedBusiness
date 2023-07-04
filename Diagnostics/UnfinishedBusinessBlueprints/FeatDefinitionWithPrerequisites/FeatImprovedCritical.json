@@ -12,13 +12,13 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierMartialChampionImprovedCritical:6e6f489cef90d6b4ebe16357f17daa56"
+    "Definition:AttributeModifierFeatImprovedCritical:26272f91-3c5e-516d-b5bf-b8cf359eb2e0"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feature/&MartialChampionImprovedCriticalTitle",
-    "description": "Feature/&MartialChampionImprovedCriticalDescription",
+    "description": "Feat/&FeatCriticalVirtuosoDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -31,6 +31,13 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetAttackOfOpportunityImmunity(
+        bool attackOfOpportunityImmunity)
+    {
+        Definition.attackOfOpportunityImmunity = attackOfOpportunityImmunity;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
     {
         Definition.myAttackAdvantage = advantage;

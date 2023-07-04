@@ -33,6 +33,7 @@ internal static class SubclassesContext
         LoadSubclass(new PathOfTheYeoman());
 
         // Bard
+        LoadSubclass(new CollegeOfAudacity());
         LoadSubclass(new CollegeOfGuts());
         LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
@@ -67,6 +68,7 @@ internal static class SubclassesContext
         LoadSubclass(new RangerArcanist());
         LoadSubclass(new RangerLightBearer());
         LoadSubclass(new RangerHellWalker());
+        LoadSubclass(new RangerSkyWarrior());
         LoadSubclass(new RangerSurvivalist());
         LoadSubclass(new RangerWildMaster());
 
@@ -90,11 +92,13 @@ internal static class SubclassesContext
         LoadSubclass(new WayOfTheDragon());
         LoadSubclass(new WayOfTheSilhouette());
         LoadSubclass(new WayOfTheTempest());
+        LoadSubclass(new WayOfTheWealAndWoe());
 
         // Warlock
         LoadSubclass(new PatronEldritchSurge());
         LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
+        LoadSubclass(new PatronMountain());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
 

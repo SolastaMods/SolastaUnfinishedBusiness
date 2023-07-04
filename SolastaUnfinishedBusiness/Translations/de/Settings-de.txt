@@ -40,6 +40,7 @@ ModUi/&Blueprints=Blaupausen
 ModUi/&Campaigns=<color=#F0DAA0>Kampagnen:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Kampagnen und Standorte:</color>
 ModUi/&Category=Kategorie
+ModUi/&ChangeDragonbornElementalBreathUsages=Ändere die Verwendung von <color=#D89555>Drachenblut</color>-Elementaratem pro kurzer Pause in einen Konstitutionsmodifikator
 ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Seet Storm</color>, um einen Würfel anstelle eines Zylinders zu verwenden
 ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
 ModUi/&Character=Charakter
@@ -73,6 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschalte
 ModUi/&DungeonMakerBasicHelp=. Für diese Einstellungen ist es nicht erforderlich, dass der Player diesen Mod installiert hat
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiserin-Gewand</color> Aussehen
+ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> Aktionswechselleiste aktivieren
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige von Hintergrundgeschichten bei der Hintergrundinspektion
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
@@ -143,6 +145,7 @@ ModUi/&GameUi=Spiel-Benutzeroberfläche
 ModUi/&Gameplay=Spielweise
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Gewähre <b>Waffenspezialisierung</b> für den Krummsäbel an <color=#D89555>Barden</color> und <color=#D89555>Schurken</color>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecken Sie die visuellen Effekte von Ausgängen und Teleportern, wenn diese noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>

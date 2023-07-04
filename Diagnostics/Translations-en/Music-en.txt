@@ -19,3 +19,4 @@ Music/&ValleyTitle=Valley
 Music/&PactClawTitle=Pact of the Claw
 Music/&DemonsTitle=Demons
 Music/&GreatColdTitle=The Great Cold
+Music/&TavernTitle=Tavern

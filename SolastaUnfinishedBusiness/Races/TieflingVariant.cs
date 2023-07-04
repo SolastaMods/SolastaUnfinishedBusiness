@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -20,7 +22,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class TieflingRaceBuilder
+internal static class RaceTieflingBuilder
 {
     internal static CharacterRaceDefinition RaceTiefling { get; } = BuildTiefling();
 
@@ -29,25 +31,14 @@ internal static class TieflingRaceBuilder
         return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor();
     }
 
-    internal static void OnItemEquipped([NotNull] RulesetCharacter character)
-    {
-        if (IsFlightValid(character))
-        {
-            return;
-        }
-
-        var rulesetCondition = character.AllConditions.FirstOrDefault(x =>
-            x.ConditionDefinition == ConditionDefinitions.ConditionFlyingAdaptive);
-
-        if (rulesetCondition != null)
-        {
-            character.RemoveCondition(rulesetCondition);
-        }
-    }
-
     [NotNull]
     private static CharacterRaceDefinition BuildTiefling()
     {
+        var contentPack = ServiceRepository.GetService<IGamingPlatformService>()
+            .IsContentPackAvailable(GamingPlatformDefinitions.ContentPack.PalaceOfIce)
+            ? CeContentPackContext.CeContentPack
+            : GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+
         #region subraces
 
         //
@@ -84,7 +75,7 @@ internal static class TieflingRaceBuilder
                 castSpellTieflingDevilTongue)
             .AddToDB();
 
-        raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingDevilTongue.contentPack = contentPack;
 
         //
         // Feral
@@ -116,6 +107,12 @@ internal static class TieflingRaceBuilder
 
         var sprite = Sprites.GetSprite("PowerDragonWings", Resources.PowerDragonWings, 256, 128);
 
+        var conditionTieflingFeralWings = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionTieflingFeralWings")
+            .AddToDB();
+
+        conditionTieflingFeralWings.AddCustomSubFeatures(new CheckTieflingFeralFlying(conditionTieflingFeralWings));
+
         var powerDemonicWingsSprout = FeatureDefinitionPowerBuilder
             .Create("PowerTieflingFeralDemonicWingsSprout")
             .SetGuiPresentation(Category.Feature, sprite)
@@ -125,16 +122,10 @@ internal static class TieflingRaceBuilder
                     .Create()
                     .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTieflingFeralWings))
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionTieflingFeralWings.Name)))
             .AddToDB();
 
         var powerDemonicWingsDismiss = FeatureDefinitionPowerBuilder
@@ -147,15 +138,15 @@ internal static class TieflingRaceBuilder
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionFlyingAdaptive,
-                                ConditionForm.ConditionOperation.Remove)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(conditionTieflingFeralWings,
+                            ConditionForm.ConditionOperation.Remove),
+                        //Leaving this for compatibility
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                            ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
+                    conditionTieflingFeralWings.Name)))
             .AddToDB();
 
         var featureSetDemonicWings = FeatureDefinitionFeatureSetBuilder
@@ -173,7 +164,7 @@ internal static class TieflingRaceBuilder
                 featureSetDemonicWings)
             .AddToDB();
 
-        raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingDevilTongue.contentPack = contentPack;
 
         //
         // Mephistopheles
@@ -203,7 +194,7 @@ internal static class TieflingRaceBuilder
                 castSpellTieflingMephistopheles)
             .AddToDB();
 
-        raceTieflingMephistopheles.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingMephistopheles.contentPack = contentPack;
 
         //
         // Zariel
@@ -239,16 +230,17 @@ internal static class TieflingRaceBuilder
                 castSpellTieflingZariel)
             .AddToDB();
 
-        raceTieflingZariel.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTieflingZariel.contentPack = contentPack;
 
         #endregion
 
-        castSpellTieflingFeral.slotsPerLevels.RemoveAll(x => x.Level > 4);
-        for (var level = 5; level <= 20; level++)
+        castSpellTieflingFeral.slotsPerLevels.Clear();
+
+        for (var level = 1; level <= 20; level++)
         {
             castSpellTieflingFeral.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level, Slots = castSpellTieflingFeral.slotsPerLevels[3].slots
+                Level = level, Slots = new List<int> { level >= 3 ? 1 : 0 }
             });
         }
 
@@ -282,7 +274,7 @@ internal static class TieflingRaceBuilder
                 ProficiencyTieflingStaticLanguages)
             .AddToDB();
 
-        raceTiefling.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+        raceTiefling.contentPack = contentPack;
         raceTiefling.subRaces.SetRange(
             raceTieflingDevilTongue,
             raceTieflingFeral,
@@ -290,5 +282,31 @@ internal static class TieflingRaceBuilder
             raceTieflingZariel);
 
         return raceTiefling;
+    }
+
+    private sealed class CheckTieflingFeralFlying : IOnItemEquipped
+    {
+        private readonly ConditionDefinition condition;
+
+        public CheckTieflingFeralFlying(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (IsFlightValid(hero))
+            {
+                return;
+            }
+
+            var rulesetCondition = hero.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
+
+            if (rulesetCondition != null)
+            {
+                hero.RemoveCondition(rulesetCondition);
+            }
+        }
     }
 }

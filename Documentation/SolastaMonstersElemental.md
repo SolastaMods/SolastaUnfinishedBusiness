@@ -387,6 +387,7 @@ Size: *Medium*
 * Condition Affinity Exhaustion Immunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Poison Immunity
 * Fly 12
 * Walk 6
@@ -426,9 +427,9 @@ Size: *Large*
 * Condition Affinity Prone Immunity
 * Condition Affinity Restrainedmmunity
 * Condition Affinity Unconscious Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Fire Vulnerability
@@ -473,9 +474,9 @@ Size: *Large*
 * Condition Affinity Prone Immunity
 * Condition Affinity Restrainedmmunity
 * Condition Affinity Unconscious Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Fire Vulnerability

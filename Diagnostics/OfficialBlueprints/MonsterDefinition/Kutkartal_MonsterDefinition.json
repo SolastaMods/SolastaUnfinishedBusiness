@@ -110,7 +110,8 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
-    "Definition:PowerKutkartalIncreasedReliance:75a5eaa8a1e9dbb47a261c2977eaecc1"
+    "Definition:PowerKutkartalIncreasedReliance:75a5eaa8a1e9dbb47a261c2977eaecc1",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
   ],
   "attackIterations": [
     {

@@ -219,6 +219,130 @@ public static class RulesetActorPatcher
     }
 #endif
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveConditionOfCategory))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RemoveConditionOfCategory_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetActor __instance, string category, RulesetCondition rulesetCondition)
+        {
+            //PATCH: support for action switching
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                return;
+            }
+
+            if (__instance is not RulesetCharacter character)
+            {
+                return;
+            }
+
+            if (!character.conditionsByCategory.ContainsKey(category))
+            {
+                return;
+            }
+
+            ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategory))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RemoveAllConditionsOfCategory_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetActor __instance, string category)
+        {
+            //PATCH: support for action switching
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                return;
+            }
+
+            if (__instance is not RulesetCharacter character)
+            {
+                return;
+            }
+
+            if (!character.conditionsByCategory.ContainsKey(category))
+            {
+                return;
+            }
+
+            foreach (var rulesetCondition in character.conditionsByCategory[category])
+            {
+                ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategoryExcludingSources))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RemoveAllConditionsOfCategoryExcludingSources_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetActor __instance, string category, List<ulong> sources)
+        {
+            //PATCH: support for action switching
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                return;
+            }
+
+            if (__instance is not RulesetCharacter character)
+            {
+                return;
+            }
+
+            if (!character.conditionsByCategory.ContainsKey(category))
+            {
+                return;
+            }
+
+            foreach (var rulesetCondition in character.conditionsByCategory[category]
+                         .Where(rulesetCondition => !sources.Contains(rulesetCondition.SourceGuid)))
+            {
+                ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategoryAndType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RemoveAllConditionsOfCategoryAndType_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetActor __instance, string category, string type)
+        {
+            //PATCH: support for action switching
+            if (!Main.Settings.EnableActionSwitching)
+            {
+                return;
+            }
+
+            if (__instance is not RulesetCharacter character)
+            {
+                return;
+            }
+
+            if (!character.conditionsByCategory.ContainsKey(category))
+            {
+                return;
+            }
+
+            foreach (var rulesetCondition in character.conditionsByCategory[category]
+                         .Where(rulesetCondition => rulesetCondition.ConditionDefinition.Name == type ||
+                                                    rulesetCondition.ConditionDefinition.IsSubtypeOf(type)))
+            {
+                ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ModulateSustainedDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -383,9 +507,7 @@ public static class RulesetActorPatcher
             }
             else
             {
-                var changeDiceRollList = actor.GetSubFeaturesByType<IChangeDiceRoll>()
-                    .Where(x => x.IsValid(rollContext, actor as RulesetCharacter))
-                    .ToList();
+                var changeDiceRollList = actor.GetSubFeaturesByType<IModifyDiceRoll>();
 
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {
@@ -399,9 +521,10 @@ public static class RulesetActorPatcher
 
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {
-                    changeDiceRoll.AfterRoll(rollContext, actor as RulesetCharacter,
-                        ref firstRoll,
-                        ref secondRoll);
+                    changeDiceRoll.AfterRoll(
+                        rollContext,
+                        actor as RulesetCharacter,
+                        ref result);
                 }
             }
 

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using TA;
@@ -212,6 +213,17 @@ public static class GameLocationCharacterExtensions
         return canReact;
     }
 
+    internal static bool OnceInMyTurnIsValid(this GameLocationCharacter instance, string key)
+    {
+        return instance.OncePerTurnIsValid(key) &&
+               Gui.Battle != null && Gui.Battle.ActiveContender == instance;
+    }
+
+    internal static bool OncePerTurnIsValid(this GameLocationCharacter instance, string key)
+    {
+        return !instance.UsedSpecialFeatures.ContainsKey(key);
+    }
+
 #if false
     internal static int GetActionTypeRank(this GameLocationCharacter instance, ActionType type)
     {
@@ -219,51 +231,104 @@ public static class GameLocationCharacterExtensions
         return ranks.TryGetValue(type, out var value) ? value : 0;
     }
 #endif
+
     internal static FeatureDefinition GetCurrentAdditionalActionFeature(this GameLocationCharacter instance,
         ActionType type)
     {
         if (!instance.currentActionRankByType.TryGetValue(type, out var rank))
         {
-            rank = 0;
-        }
-
-        if (rank <= 0)
-        {
             return null;
         }
 
-        FeatureApplicationValidation.EnumerateAdditionalActionProviders(instance.RulesetCharacter);
-        var i = 0;
-        foreach (var feature in instance.RulesetCharacter.FeaturesToBrowse)
+        var filters = instance.ActionPerformancesByType[type];
+        return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.Feature;
+    }
+
+    internal static bool CanCastAnyInvocationOfActionId(this GameLocationCharacter instance,
+        Id actionId,
+        ActionScope scope,
+        bool canCastSpells,
+        bool canOnlyUseCantrips)
+    {
+        var character = instance.RulesetCharacter;
+
+        if (character.Invocations.Empty())
         {
-            //this condition should never trigger, this is just for Rider to not complain about types
-            if (feature is not IAdditionalActionsProvider provider) { continue; }
+            return false;
+        }
 
-            if (provider.ActionType != type) { continue; }
+        ActionStatus? mainSpell = null;
+        ActionStatus? bonusSpell = null;
 
-            //Since non-triggered ones are removed on FeatureApplicationValidation.EnumerateAdditionalActionProviders
-            //we don't actually need these checks
-            /*
-            var valid = provider.TriggerCondition == RuleDefinitions.AdditionalActionTriggerCondition.None;
-            if (!valid && provider.TriggerCondition ==
-                RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
-            {
-                valid = instance.enemiesDownedByAttack > 0;
-            }
+        foreach (var invocation in character.Invocations)
+        {
+            var definition = invocation.InvocationDefinition;
+            var isValid = definition
+                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                .All(v => v(character, definition));
 
-            if (!valid)
+            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
                 continue;
             }
-            */
 
-            i++;
-            if (i == rank)
+            if (scope == ActionScope.Battle)
             {
-                return feature;
+                isValid = definition.GetActionId() == actionId;
+            }
+            else
+            {
+                isValid = definition.GetMainActionId() == actionId;
+            }
+
+            var grantedSpell = definition.GrantedSpell;
+            if (isValid && grantedSpell != null)
+            {
+                if (!canCastSpells)
+                {
+                    isValid = false;
+                }
+                else if (canOnlyUseCantrips && grantedSpell.SpellLevel > 0)
+                {
+                    isValid = false;
+                }
+                else
+                {
+                    var spellActionId = grantedSpell.BattleActionId;
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (spellActionId)
+                    {
+                        case Id.CastMain:
+                            mainSpell ??= scope == ActionScope.Battle
+                                ? instance.GetActionStatus(spellActionId, scope)
+                                : ActionStatus.Available;
+                            if (mainSpell != ActionStatus.Available)
+                            {
+                                isValid = false;
+                            }
+
+                            break;
+                        case Id.CastBonus:
+                            bonusSpell ??= scope == ActionScope.Battle
+                                ? instance.GetActionStatus(spellActionId, scope)
+                                : ActionStatus.Available;
+                            if (bonusSpell != ActionStatus.Available)
+                            {
+                                isValid = false;
+                            }
+
+                            break;
+                    }
+                }
+            }
+
+            if (isValid)
+            {
+                return true;
             }
         }
 
-        return null;
+        return false;
     }
 }

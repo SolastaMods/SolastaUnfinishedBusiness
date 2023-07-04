@@ -23,6 +23,7 @@ public static class CustomActionIdContext
         BuildCustomRageStartAction();
         BuildCustomToggleActions();
         BuildDoNothingActions();
+        BuildPrioritizeAction();
         BuildFarStepAction();
     }
 
@@ -131,6 +132,20 @@ public static class CustomActionIdContext
     private static void BuildCustomToggleActions()
     {
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "AudaciousWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "MasterfulWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MasterfulWhirlToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "FeatCrusherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
@@ -202,6 +217,18 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Reaction)
             .SetActionScope(ActionScope.All)
             .OverrideClassName("DoNothing")
+            .AddToDB();
+    }
+
+    private static void BuildPrioritizeAction()
+    {
+        ActionDefinitionBuilder
+            .Create(UseBardicInspiration, "PrioritizeAction")
+            .SetGuiPresentationNoContent()
+            .SetActionId(ExtraActionId.PrioritizeAction)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.All)
+            .OverrideClassName("PrioritizeAction")
             .AddToDB();
     }
 
@@ -300,7 +327,7 @@ public static class CustomActionIdContext
 
         if (isInvocationAction)
         {
-            result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
+            result = CanUseInvocationAction(actionId, scope, locationCharacter, canCastSpells, canOnlyUseCantrips);
         }
 
         if (isPowerUse)
@@ -330,8 +357,9 @@ public static class CustomActionIdContext
     }
 
     private static ActionStatus CanUseInvocationAction(Id actionId, ActionScope scope,
-        RulesetCharacter character, bool canCastSpells, bool canOnlyUseCantrips)
+        GameLocationCharacter locationCharacter, bool canCastSpells, bool canOnlyUseCantrips)
     {
+        var character = locationCharacter.RulesetCharacter;
         if (IsGambitActionId(actionId)
             && character.HasPower(GambitsBuilders.GambitPool)
             && character.KnowsAnyInvocationOfActionId(actionId, scope)
@@ -340,7 +368,7 @@ public static class CustomActionIdContext
             return ActionStatus.OutOfUses;
         }
 
-        return character.CanCastAnyInvocationOfActionId(actionId, scope, canCastSpells, canOnlyUseCantrips)
+        return locationCharacter.CanCastAnyInvocationOfActionId(actionId, scope, canCastSpells, canOnlyUseCantrips)
             ? ActionStatus.Available
             : ActionStatus.Unavailable;
     }

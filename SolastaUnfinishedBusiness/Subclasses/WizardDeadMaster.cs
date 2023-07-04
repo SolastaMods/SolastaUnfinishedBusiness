@@ -25,6 +25,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
+
+    internal const string DeadMasterNoConcentration = "NoConcentration";
     internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
     internal WizardDeadMaster()
@@ -238,7 +240,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
                 // create non concentration versions to be used whenever upcast
                 _ = SpellDefinitionBuilder
-                    .Create(createDeadSpell, $"CreateDead{monster.name}NoConcentration")
+                    .Create(createDeadSpell, $"CreateDead{monster.name}{DeadMasterNoConcentration}")
                     .SetRequiresConcentration(false)
                     .AddToDB();
 
@@ -305,7 +307,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    private sealed class StarkHarvest : ITargetReducedToZeroHp
+    private sealed class StarkHarvest : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinition feature;
 
@@ -338,16 +340,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
-            var usedSpecialFeatures = attacker.UsedSpecialFeatures;
-
-            usedSpecialFeatures.TryAdd(feature.Name, 0);
-
-            if (usedSpecialFeatures[feature.Name] > 0)
+            if (!attacker.OncePerTurnIsValid(feature.name))
             {
                 yield break;
             }
 
-            usedSpecialFeatures[feature.Name]++;
+            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var spell = spellEffect.SpellDefinition;

@@ -40,6 +40,7 @@ ModUi/&Blueprints=Cianografie
 ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e località:</color>
 ModUi/&Category=Categoria
+ModUi/&ChangeDragonbornElementalBreathUsages=Cambia gli usi del soffio elementale <color=#D89555>Dragonborn</color> in modificatore di costituzione per riposo breve
 ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color> per usare un cubo invece di un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere
@@ -73,6 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o ent
 ModUi/&DungeonMakerBasicHelp=. Queste impostazioni non richiedono che il giocatore abbia installato questa mod
 ModUi/&DungeonMakerMenu=Creatore di sotterranei
 ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito da Imperatrice</color>
+ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> Abilita la barra di cambio azione
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporto sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
@@ -143,6 +145,7 @@ ModUi/&GameUi=Interfaccia utente del gioco
 ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concedi la <b>Specializzazione arma</b> a Scimitarra a <color=#D89555>Bardi</color> e <color=#D89555>Ladri</color>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non ancora scoperti
 ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
 ModUi/&House=<color=#F0DAA0>Casa:</color>

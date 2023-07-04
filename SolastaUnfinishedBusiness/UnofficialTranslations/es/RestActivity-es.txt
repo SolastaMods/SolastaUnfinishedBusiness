@@ -1,12 +1,12 @@
 RestActivity/&ArcaneRecoveryDescription=Una vez al día, cuando completas un breve descanso, puedes recuperar una cantidad de espacios de conjuros gastados (nivel máximo 5) hasta la mitad de tu nivel de mago, redondeado hacia arriba.
+RestActivity/&ArcaneRecoveryExecutedDescription=La activación de <b>Recuperación Arcana</b> ha permitido a {0} recuperar los siguientes espacios de hechizos:
 RestActivity/&ArcaneRecoveryTitle=Recuperación Arcana
 RestActivity/&AttuneItemDescription=Sintonizarse con un elemento accede a sus propiedades y funciones avanzadas.
 RestActivity/&AttuneItemTitle=Elemento de sintonía
+RestActivity/&FiendishResilienceDescription=Seleccione un nuevo tipo de resistencia al daño. Esto reemplaza la opción anterior de resiliencia diabólica.
 RestActivity/&LevelUpDescription=Comienza la secuencia de subida de nivel para este personaje.
 RestActivity/&LevelUpTitle=Elevar a mismo nivel
-RestActivity/&PrepareSpellsDescription=Puedes cambiar tu lista de hechizos preparados cuando termines un descanso prolongado.
-RestActivity/&PrepareSpellsTitle=preparar hechizos
-RestActivity/&ArcaneRecoveryExecutedDescription=La activación de <b>Recuperación Arcana</b> ha permitido a {0} recuperar los siguientes espacios de hechizos:
-RestActivity/&NaturalRecoveryTitle=Recuperación Natural
 RestActivity/&NaturalRecoveryDescription=Una vez al día, cuando completas un breve descanso, puedes recuperar una cantidad de espacios de conjuros gastados (nivel 5 como máximo) hasta la mitad de tu nivel de druida, redondeado hacia arriba.
-RestActivity/&FiendishResilienceDescription=Seleccione un nuevo tipo de resistencia al daño. Esto reemplaza la opción anterior de resiliencia diabólica.
+RestActivity/&NaturalRecoveryTitle=Recuperación Natural
+RestActivity/&PrepareSpellsDescription=Puedes cambiar tu lista de hechizos preparados cuando termines un descanso prolongado.
+RestActivity/&PrepareSpellsTitle=Preparar hechizos

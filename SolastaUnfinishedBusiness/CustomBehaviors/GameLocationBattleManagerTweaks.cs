@@ -234,8 +234,8 @@ internal static class GameLocationBattleManagerTweaks
                          .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
             {
                 additionalDamageForm.DieType =
-                    damageDieProviderFromCharacter.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
-                        additionalDamageForm, attackMode, attacker, defender);
+                    damageDieProviderFromCharacter?.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
+                        additionalDamageForm, attackMode, attacker, defender) ?? provider.DamageDieType;
             }
 
             /*
@@ -802,6 +802,15 @@ internal static class GameLocationBattleManagerTweaks
 
             // Some additional damage only work with attack modes (Hunter's Mark)
             if (provider.AttackModeOnly && attackMode == null)
+            {
+                continue;
+            }
+
+            // Some additional damage works on enemies only
+            if ((provider.TargetSide == RuleDefinitions.Side.Enemy &&
+                 !attacker.RulesetCharacter.IsOppositeSide(defender.RulesetCharacter.Side))
+                || (provider.TargetSide == RuleDefinitions.Side.Ally &&
+                    attacker.RulesetCharacter.IsOppositeSide(defender.RulesetCharacter.Side)))
             {
                 continue;
             }

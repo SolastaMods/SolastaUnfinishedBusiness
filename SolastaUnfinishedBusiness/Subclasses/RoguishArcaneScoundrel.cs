@@ -148,7 +148,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ActionFinishedArcaneBackslash(
+            new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell,
                 conditionDistractingAmbush));
@@ -288,13 +288,13 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedArcaneBackslash : IActionFinished
+    private sealed class ActionFinishedByMeArcaneBackslash : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _powerArcaneBackslash;
         private readonly FeatureDefinitionPower _powerCounterSpell;
 
-        public ActionFinishedArcaneBackslash(
+        public ActionFinishedByMeArcaneBackslash(
             FeatureDefinitionPower powerArcaneBackslash,
             FeatureDefinitionPower powerCounterSpell,
             ConditionDefinition conditionDistractingAmbush)
@@ -304,7 +304,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionDistractingAmbush = conditionDistractingAmbush;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
@@ -348,7 +348,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodeAdditionalDamagePossessed : IFeatureDefinitionCustomCode, IClassHoldingFeature
+    private sealed class CustomCodeAdditionalDamagePossessed : IDefinitionCustomCode, IClassHoldingFeature
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
 
@@ -366,7 +366,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IActionInitiated, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IUsePowerInitiatedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;
@@ -377,35 +377,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         {
             _powerEssenceTheft = powerEssenceTheft;
             _conditionPossessed = conditionPossessed;
-        }
-
-        public IEnumerator OnActionInitiated(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerEssenceTheft)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterAction.ActingCharacter;
-
-            actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
-
-            var damage = characterAction.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
-
-            // this currently works as there is only one feature in game using DamageDieProviderFromCharacter
-            // we might need to change this to a proper interface if others start using it
-            var hasSneakAttackDieTypeChange = actingCharacter.RulesetCharacter
-                .GetSubFeaturesByType<DamageDieProviderFromCharacter>()
-                .Any();
-
-            if (!hasSneakAttackDieTypeChange)
-            {
-                damage.dieType = DieType.D6;
-                yield break;
-            }
-
-            damage.dieType = DieType.D8;
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -430,9 +401,37 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             return isValid;
         }
+
+        public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
+        {
+            if (power != _powerEssenceTheft)
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
+
+            var damage = characterAction.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+
+            // this currently works as there is only one feature in game using DamageDieProviderFromCharacter
+            // we might need to change this to a proper interface if others start using it
+            var hasSneakAttackDieTypeChange = actingCharacter.RulesetCharacter
+                .GetSubFeaturesByType<DamageDieProviderFromCharacter>()
+                .Any();
+
+            if (!hasSneakAttackDieTypeChange)
+            {
+                damage.dieType = DieType.D6;
+                yield break;
+            }
+
+            damage.dieType = DieType.D8;
+        }
     }
 
-    private sealed class CustomCodePremeditationSlot4 : IFeatureDefinitionCustomCode
+    private sealed class CustomCodePremeditationSlot4 : IDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {

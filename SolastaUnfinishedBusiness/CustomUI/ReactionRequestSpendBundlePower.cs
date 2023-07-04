@@ -46,7 +46,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
 
     public override bool IsStillValid =>
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(target) &&
-        !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+        target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
 
     private void BuildSuboptions()
     {
@@ -120,7 +120,9 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
         var rulesetCharacter = actingCharacter.RulesetCharacter;
         var usablePower = UsablePowersProvider.Get(power, rulesetCharacter);
-        var powerEffect = rulesService.InstantiateEffectPower(rulesetCharacter, usablePower, false);
+        var powerEffect = rulesService
+            .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+            .AddAsActivePowerToSource();
 
         ReactionParams.RulesetEffect = powerEffect;
 

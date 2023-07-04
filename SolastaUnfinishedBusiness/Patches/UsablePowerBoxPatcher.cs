@@ -40,11 +40,15 @@ public static class UsablePowerBoxPatcher
             //PATCH: make reaction powers not active
             if (__instance.usablePower.PowerDefinition.activationTime == RuleDefinitions.ActivationTime.Reaction)
             {
-                __instance.button.interactable = false;
                 __instance.canvasGroup.interactable = false;
                 __instance.titleActiveLabel.gameObject.SetActive(false);
                 __instance.titleInactiveLabel.gameObject.SetActive(true);
             }
+            else
+            {
+                __instance.canvasGroup.interactable = true;
+            }
+
 
             //PATCH: make power icons fit into box, instead of stretching
             var img = __instance.image;

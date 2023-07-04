@@ -1,4 +1,4 @@
-Document/&Lightfiller_01_Title=Código de clave de seguridad de Wildspring
 Document/&Lightfiller_01_Content=No te comuniques fuera de la familia.
-Document/&Lightfiller_02_Title=Clave de celda de invitado
+Document/&Lightfiller_01_Title=Código de clave de seguridad de Wildspring
 Document/&Lightfiller_02_Content=Comunicar a criterio del alcaide
+Document/&Lightfiller_02_Title=Clave de celda de invitado

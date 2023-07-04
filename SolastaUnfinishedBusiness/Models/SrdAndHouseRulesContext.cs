@@ -96,6 +96,7 @@ internal static class SrdAndHouseRulesContext
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
         SwitchHastedCasing();
+        ActionSwitching.Load();
     }
 
     internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)

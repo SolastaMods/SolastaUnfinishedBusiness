@@ -161,6 +161,7 @@
       "FaceShape_E"
     ],
     "dontSortFaceShapes": true,
+    "maxRandomFaceShapeIndex": 5,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -323,6 +324,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "31027206-c934-50e9-a6c2-20b8d4f2f86c",
-  "contentPack": "PalaceOfIce",
+  "contentPack": 9999,
   "name": "RaceTiefling"
 }

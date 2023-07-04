@@ -42,7 +42,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddToDB();
 
         featureSpecializationDisadvantage.SetCustomSubFeatures(
-            new AttackComputeModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
+            new ModifyAttackActionModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
 
         var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
@@ -53,7 +53,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         {
             var weaponTypeName = weaponTypeDefinition.Name;
 
-            var featureSpecialization = FeatureDefinitionAttributeModifierBuilder
+            var featureSpecialization = FeatureDefinitionBuilder
                 .Create($"Feature{Name}{Specialization}{weaponTypeName}")
                 .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature)
                 .AddToDB();
@@ -135,7 +135,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureMomentum.SetCustomSubFeatures(new TargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
+        featureMomentum.SetCustomSubFeatures(new OnTargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
 
         // LEVEL 10
 
@@ -228,11 +228,11 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Specialization
     //
 
-    private sealed class AttackComputeModifierSpecializationDisadvantage : IAttackComputeModifier
+    private sealed class ModifyAttackActionModifierSpecializationDisadvantage : IModifyAttackActionModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public AttackComputeModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
+        public ModifyAttackActionModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
@@ -317,7 +317,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Focused Strikes
     //
 
-    private sealed class CustomBehaviorFocusedStrikes : IAttackComputeModifier
+    private sealed class CustomBehaviorFocusedStrikes : IModifyAttackActionModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -347,12 +347,12 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Momentum
     //
 
-    private class TargetReducedToZeroHpMomentum : ITargetReducedToZeroHp
+    private class OnTargetReducedToZeroHpMomentum : IOnTargetReducedToZeroHp
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public TargetReducedToZeroHpMomentum(
+        public OnTargetReducedToZeroHpMomentum(
             FeatureDefinition featureDefinition,
             ConditionDefinition conditionDefinition)
         {
@@ -373,8 +373,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.UsedSpecialFeatures.ContainsKey(_featureDefinition.Name) ||
-                gameLocationBattleService.Battle.ActiveContender != attacker)
+            if (!attacker.OnceInMyTurnIsValid(_featureDefinition.Name))
             {
                 yield break;
             }
@@ -488,7 +487,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Perfect Strikes
     //
 
-    private sealed class PerfectStrikes : IChangeDiceRoll
+    private sealed class PerfectStrikes : IModifyDiceRoll
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -499,31 +498,34 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter)
-        {
-            return rollContext == RollContext.AttackDamageValueRoll &&
-                   HasSpecializedWeapon(rulesetCharacter) &&
-                   rulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
-        }
-
         public void BeforeRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
             ref DieType dieType,
             ref AdvantageType advantageType)
         {
-            advantageType = AdvantageType.Advantage;
+            if (IsValid(rollContext, rulesetCharacter))
+            {
+                advantageType = AdvantageType.Advantage;
+            }
         }
 
         public void AfterRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
-            ref int firstRoll,
-            ref int secondRoll)
+            ref int result)
         {
-            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+            if (IsValid(rollContext, rulesetCharacter))
+            {
+                rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+            }
+        }
+
+        private bool IsValid(RollContext rollContext, RulesetCharacter rulesetCharacter)
+        {
+            return rollContext == RollContext.AttackDamageValueRoll &&
+                   HasSpecializedWeapon(rulesetCharacter) &&
+                   rulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -96,6 +96,11 @@ internal static class RulesetCharacterHeroExtensions
     internal static bool HasEmptyMainHand([NotNull] this RulesetCharacterHero hero)
     {
         return hero.GetMainWeapon() == null;
+    }
+
+    internal static bool HasEmptyOffHand([NotNull] this RulesetCharacterHero hero)
+    {
+        return hero.GetOffhandWeapon() == null;
     }
 
     internal static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)

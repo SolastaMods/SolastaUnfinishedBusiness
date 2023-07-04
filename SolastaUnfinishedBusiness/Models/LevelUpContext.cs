@@ -682,7 +682,7 @@ internal static class LevelUpContext
     {
         foreach (var grantedFeature in features)
         {
-            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IFeatureDefinitionCustomCode>())
+            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IDefinitionCustomCode>())
             {
                 customCode.ApplyFeature(hero, tag);
             }
@@ -716,7 +716,7 @@ internal static class LevelUpContext
     {
         foreach (var grantedFeature in features)
         {
-            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IFeatureDefinitionCustomCode>())
+            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IDefinitionCustomCode>())
             {
                 customCode.RemoveFeature(hero, tag);
             }

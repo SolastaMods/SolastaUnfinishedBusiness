@@ -81,24 +81,24 @@ internal static class ValidatorsFeat
         ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
             Elf, ElfHigh, ElfSylvan, HalfElf,
-            DarkelfSubraceBuilder.SubraceDarkelf,
-            RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant,
-            RaceHalfElfVariantRaceBuilder.RaceHalfElfDarkVariant,
-            RaceHalfElfVariantRaceBuilder.RaceHalfElfHighVariant,
-            RaceHalfElfVariantRaceBuilder.RaceHalfElfSylvanVariant);
+            SubraceDarkelfBuilder.SubraceDarkelf,
+            RaceHalfElfBuilder.RaceHalfElfVariant,
+            RaceHalfElfBuilder.RaceHalfElfDarkVariant,
+            RaceHalfElfBuilder.RaceHalfElfHighVariant,
+            RaceHalfElfBuilder.RaceHalfElfSylvanVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
         ValidateIsRace(Gnome.FormatTitle(), Gnome);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsTiefling =
-        ValidateIsRace(TieflingRaceBuilder.RaceTiefling.FormatTitle(), Tiefling, TieflingRaceBuilder.RaceTiefling);
+        ValidateIsRace(RaceTieflingBuilder.RaceTiefling.FormatTitle(), Tiefling, RaceTieflingBuilder.RaceTiefling);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
         ValidateIsRace(
-            $"{Dwarf.FormatTitle()}, {Gnome.FormatTitle()}, {Halfling.FormatTitle()}, {KoboldRaceBuilder.RaceKobold.FormatTitle()}",
+            $"{Dwarf.FormatTitle()}, {Gnome.FormatTitle()}, {Halfling.FormatTitle()}, {RaceKoboldBuilder.RaceKobold.FormatTitle()}",
             Dwarf, DwarfHill, DwarfSnow,
-            GrayDwarfSubraceBuilder.SubraceGrayDwarf,
-            KoboldRaceBuilder.RaceKobold,
+            SubraceGrayDwarfBuilder.SubraceGrayDwarf,
+            RaceKoboldBuilder.RaceKobold,
             Gnome, Halfling, HalflingIsland, HalflingMarsh);
 
 #if false
@@ -141,6 +141,7 @@ internal static class ValidatorsFeat
         };
     }
 
+#if false
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFeature(
@@ -154,6 +155,7 @@ internal static class ValidatorsFeat
             return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };
     }
+#endif
 
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

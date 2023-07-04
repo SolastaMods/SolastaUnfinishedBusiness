@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -8,7 +9,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
-using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -80,48 +80,49 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterAction __instance)
         {
-            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
-
-            //PATCH: IActionInitiated
-            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                var iActionsInitiated = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
-
-                foreach (var iActionInitiated in iActionsInitiated)
-                {
-                    yield return iActionInitiated.OnActionInitiated(__instance);
-                }
-            }
-
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
-                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
-                    Gui.Battle != null &&
-                    rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
-                {
-                    __instance.ActingCharacter.UsedMainSpell = false;
-                    __instance.ActingCharacter.UsedMainCantrip = false;
-                }
-
                 //PATCH: clear determination cache on every action end
-                if (Main.Settings.UseOfficialFlankingRules &&
-                    Gui.Battle != null)
+                if (Main.Settings.UseOfficialFlankingRules && Gui.Battle != null)
                 {
                     FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
                 }
 
-                //PATCH: IActionFinished
-                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
+                //PATCH: IActionFinishedByMe
+                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinishedByMe>();
 
-                foreach (var iActionFinished in iActionsFinished)
+                foreach (var actionFinished in iActionsFinished)
                 {
-                    yield return iActionFinished.OnActionFinished(__instance);
+                    yield return actionFinished.OnActionFinishedByMe(__instance);
+                }
+
+                //PATCH: support for IActionFinishedByEnemy
+                if (Gui.Battle != null)
+                {
+                    foreach (var enemy in Gui.Battle.GetOpposingContenders(rulesetCharacter.Side)
+                                 .ToList()) // avoid changing enumerator
+                    {
+                        var rulesetEnemy = enemy.RulesetCharacter;
+
+                        if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
+                        {
+                            continue;
+                        }
+
+                        foreach (var actionFinishedByEnemy in rulesetEnemy
+                                     .GetSubFeaturesByType<IActionFinishedByEnemy>()
+                                     .Where(x => x.ActionDefinition == __instance.ActionDefinition))
+                        {
+                            yield return actionFinishedByEnemy.OnActionFinishedByEnemy(enemy, __instance);
+                        }
+                    }
                 }
             }
 

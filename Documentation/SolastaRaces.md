@@ -391,6 +391,10 @@ Snow dwarves are sturdy and adventurous, adapted to harsh terrain and low temper
 
 Dexterity + 1
 
+* Blizzard Resistance
+
+Immunity to the "Frozen" condition type
+
 * Crossbow Expertise
 
 Proficient with Heavy Crossbow.
@@ -403,11 +407,7 @@ See normally in dim light, and in natural darkness as if in dim light.
 
 Common, Dwarvish
 
-* None
-
-Immunity to the "Frozen" condition type
-
-* Resistant to cold weather.
+* Resistant to cold weather
 
 Immune to the effects of moderately cold weather.
 

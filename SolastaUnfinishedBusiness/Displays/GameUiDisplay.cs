@@ -211,6 +211,17 @@ internal static class GameUiDisplay
             Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
 
+        if (Main.Settings.EnableBetaContent)
+        {
+            UI.Label();
+
+            toggle = Main.Settings.EnableActionSwitching;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableActionSwitching = toggle;
+            }
+        }
+
         #endregion
 
         #region Formation

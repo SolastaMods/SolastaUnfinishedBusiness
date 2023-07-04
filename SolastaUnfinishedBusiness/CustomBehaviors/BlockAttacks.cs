@@ -45,13 +45,12 @@ internal static class BlockAttacks
         RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect,
         ActionModifier attackModifier,
-        int attackRoll
-    )
+        int attackRoll)
     {
         var unitCharacter = unit.RulesetCharacter;
         var rulesetDefender = defender.RulesetCharacter;
 
-        if (rulesetDefender == null ||
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
             !attacker.IsOppositeSide(unit.Side) ||
             defender.Side != unit.Side ||
             unit == defender ||

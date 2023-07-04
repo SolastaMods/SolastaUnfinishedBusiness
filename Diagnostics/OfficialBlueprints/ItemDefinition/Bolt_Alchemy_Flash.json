@@ -262,6 +262,7 @@
           "m_SubObjectType": ""
         },
         "activeEffectSurfaceParticlePerIndex": "",
+        "activeEffectSurfaceParticlePerIndexCount": 0,
         "emissiveBorderCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -337,7 +338,8 @@
         "dynamicCooldown": false
       },
       "animationMagicEffect": "Animation0",
-      "lightCounterDispellsEffect": false
+      "lightCounterDispellsEffect": false,
+      "hideSavingThrowAnimation": false
     }
   },
   "isUsableDevice": false,
@@ -466,7 +468,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "7b96b2b7e8ecf9540ba744502258f7a9",
+      "m_AssetGUID": "78f4109d8a2d43c459c910376011ecbd",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

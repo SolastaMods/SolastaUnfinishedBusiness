@@ -1,7 +1,7 @@
-Tag/&PactTomeCantripSpecialTagTitle=Trucchetti del patto
-Tag/&PactTomeSpellSpecialTagTitle=Incantesimi del patto
-Tag/&PactTomeRitualSpellSpecialTagTitle=Rituali del patto
-Tag/&MysticArcanumSpellSpecialTagTitle=Arcano Mistico
-Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=Magical Secrets Trucchetto o Incantesimo
-Tag/&BonusCantripsCantripSpecialTagTitle=Trucchetti bonus
 Tag/&ArcaneProfessorCantripSpecialTagTitle=Professore Arcano
+Tag/&BonusCantripsCantripSpecialTagTitle=Trucchetti bonus
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=Magical Secrets Trucchetto o Incantesimo
+Tag/&MysticArcanumSpellSpecialTagTitle=Arcano Mistico
+Tag/&PactTomeCantripSpecialTagTitle=Trucchetti del patto
+Tag/&PactTomeRitualSpellSpecialTagTitle=Rituali del patto
+Tag/&PactTomeSpellSpecialTagTitle=Incantesimi di patto

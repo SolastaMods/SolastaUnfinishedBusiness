@@ -19,9 +19,9 @@ Size: *Huge*
 * Condition Affinity Frightened Fear Immunity
 * Condition Affinity Frightened Immunity
 * Condition Affinity Hindered By Frost Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
 * Heated Body
@@ -496,8 +496,7 @@ Size: *Large*
 |  20 |  16 |  16 |  04 |  12 |  06 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
 * Damage Affinity Slashing Resistance
 * Movement Affinity No Climb
@@ -529,10 +528,10 @@ Size: *Huge*
 |  24 |  10 |  22 |  09 |  13 |  09 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Keen Smell
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Fire Vulnerability
 * Walk 8
@@ -565,10 +564,10 @@ Size: *Huge*
 |  24 |  10 |  22 |  09 |  13 |  09 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Keen Smell
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Fire Vulnerability
 * Walk 8
@@ -601,10 +600,10 @@ Size: *Large*
 |  18 |  13 |  16 |  08 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Keen Smell
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Fire Vulnerability
 * Walk 8
@@ -636,10 +635,10 @@ Size: *Large*
 |  18 |  13 |  16 |  08 |  12 |  07 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Keen Smell
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Fire Vulnerability
 * Walk 8
@@ -742,9 +741,9 @@ Size: *Huge*
 
 *Features:*
 * Condition Affinity Hindered By Frost Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Heated Body
 * Burrow 10
@@ -779,9 +778,9 @@ Size: *Large*
 
 *Features:*
 * Condition Affinity Hindered By Frost Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Heated Body
 * Burrow 10
@@ -823,9 +822,9 @@ Size: *Large*
 * MIND CONTROLLED IMMUNITY
 * DOMINATED IMMUNITY
 * Condition Affinity Prone Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Immunity
 * Damage Affinity Piercing Resistance
@@ -1128,7 +1127,7 @@ Size: *Medium*
 |  19 |  10 |  17 |  11 |  12 |  12 |
 
 *Features:*
-* Ability Check Affinity Keen Smell
+* Keen Smell
 * Damage Affinity Werewolf _ Bludgeoning Immunity
 * Damage Affinity Werewolf _ Piercing Immunity
 * Damage Affinity Werewolf _ Slashing Immunity
@@ -1161,12 +1160,11 @@ Size: *Large*
 |  18 |  13 |  14 |  07 |  12 |  08 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Disciple Cold Immunity
 * Movement Affinity No Climb
 * Movement Affinity No Vault
@@ -1198,12 +1196,11 @@ Size: *Large*
 |  18 |  13 |  14 |  07 |  12 |  08 |
 
 *Features:*
-* Ability Check Affinity Keen Hearing
-* Ability Check Affinity Keen Smell
+* Keen Hearing and Smell
 * Pack Tactics
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Cold Immunity
 * Movement Affinity No Climb
 * Movement Affinity No Vault

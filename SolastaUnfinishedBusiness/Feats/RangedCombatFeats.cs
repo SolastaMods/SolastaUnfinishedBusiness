@@ -24,11 +24,12 @@ internal static class RangedCombatFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featBowMastery = BuildBowMastery();
+        var featCrossbowMastery = BuildCrossbowMastery();
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
         var featSteadyAim = BuildSteadyAim();
 
-        feats.AddRange(featDeadEye, featRangedExpert, featBowMastery, featSteadyAim);
+        feats.AddRange(featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             GroupFeats.FeatGroupPiercer,
@@ -36,6 +37,7 @@ internal static class RangedCombatFeats
             DiscretionOfTheCoedymwarth,
             UncannyAccuracy,
             featBowMastery,
+            featCrossbowMastery,
             featDeadEye,
             featRangedExpert,
             featSteadyAim);
@@ -65,6 +67,34 @@ internal static class RangedCombatFeats
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(ShortbowType),
                             ValidatorsCharacter.HasUsedWeaponType(ShortbowType)))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildCrossbowMastery()
+    {
+        const string NAME = "FeatCrossbowMastery";
+
+        var isCrossbow = ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType, LightCrossbowType);
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"Custom{NAME}")
+                    .SetGuiPresentation(NAME, Category.Feat)
+                    .SetDamageRollModifier(1)
+                    .SetCustomSubFeatures(
+                        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                            (OperationType.Set, isCrossbow(mode, null, character))),
+                        new CanUseAttribute(
+                            AttributeDefinitions.Strength,
+                            ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType)),
+                        new AddExtraRangedAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(LightCrossbowType),
+                            ValidatorsCharacter.HasUsedWeaponType(LightCrossbowType)))
                     .AddToDB())
             .AddToDB();
     }

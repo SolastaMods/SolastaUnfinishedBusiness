@@ -162,7 +162,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUseAttackEffectAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.SetCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -175,7 +175,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUseAttackEffectAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.SetCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -240,7 +240,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         combatAffinityTacticalAwareness.SetCustomSubFeatures(
-            new PhysicalAttackInitiatedTacticalAwareness(combatAffinityTacticalAwareness));
+            new PhysicalAttackInitiatedByMeTacticalAwareness(combatAffinityTacticalAwareness));
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianTacticalAwareness")
@@ -277,18 +277,18 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 #endif
 
-    private class RefundPowerUseAttackEffectAfterCrit : IAttackEffectAfterDamage
+    private class RefundPowerUsePhysicalAttackAfterCrit : IPhysicalAttackAfterDamage
     {
         private readonly FeatureDefinition feature;
         private readonly FeatureDefinitionPower power;
 
-        public RefundPowerUseAttackEffectAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
+        public RefundPowerUsePhysicalAttackAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
         {
             this.power = power;
             this.feature = feature;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -308,7 +308,7 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             // once per turn
-            if (attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy"))
+            if (!attacker.OncePerTurnIsValid("AdaptiveStrategy"))
             {
                 Main.Info("AdaptiveStrategy: once per turn. exiting.");
                 return;
@@ -334,7 +334,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class RefundPowerUseAfterKill : ITargetReducedToZeroHp
+    private class RefundPowerUseAfterKill : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinition feature;
         private readonly FeatureDefinitionPower power;
@@ -367,10 +367,10 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            // once per round
-            if (attacker.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            // once per turn
+            if (!attacker.OncePerTurnIsValid("OvercomingStrategy"))
             {
-                Main.Info("OvercomingStrategy: once per round. exiting.");
+                Main.Info("OvercomingStrategy: once per turn. exiting.");
                 yield break;
             }
 
@@ -426,9 +426,10 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            // once per round
-            if (locCharacter.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            // once per turn
+            if (!locCharacter.OncePerTurnIsValid("OvercomingStrategy"))
             {
+                Main.Info("OvercomingStrategy: once per turn . exiting.");
                 return;
             }
 
@@ -448,7 +449,7 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 
 #if false
-    private class TacticalSurge : IActionFinished
+    private class TacticalSurge : IActionFinishedByMe
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinition feature;
@@ -462,7 +463,7 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionActionSurge)
             {
@@ -514,16 +515,16 @@ internal sealed class MartialTactician : AbstractSubclass
     }
 #endif
 
-    private sealed class PhysicalAttackInitiatedTacticalAwareness : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeTacticalAwareness : IPhysicalAttackInitiatedByMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackInitiatedTacticalAwareness(FeatureDefinition featureDefinition)
+        public PhysicalAttackInitiatedByMeTacticalAwareness(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

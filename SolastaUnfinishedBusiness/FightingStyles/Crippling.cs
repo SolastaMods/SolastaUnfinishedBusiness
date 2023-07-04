@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
@@ -20,12 +19,11 @@ internal sealed class Crippling : AbstractFightingStyle
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Crippling", Resources.Crippling, 256))
         .SetFeatures(
             FeatureDefinitionAdditionalDamageBuilder
-                .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
+                .Create("AdditionalDamageCrippling")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(Name)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                .SetDamageDice(DieType.D1, 0)
+                .SetAttackModeOnly()
                 .SetConditionOperations(
                     new ConditionOperationDescription
                     {

@@ -9,10 +9,13 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
@@ -474,9 +477,9 @@ public static class RulesetCharacterPatcher
             //PATCH: support for `IIncreaseSpellDC`
             //Adds extra modifiers to spell DC
 
-            var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
+            var features = __instance.GetSubFeaturesByType<IModifySpellDC>();
 
-            __result += features.Sum(feature => feature.GetSpellModifier(__instance));
+            __result += features.Sum(feature => feature.GetSpellDC(__instance));
         }
     }
 
@@ -514,7 +517,8 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ActionType actionType, ref bool __result)
         {
-            if (actionType == ActionType.Bonus && __instance.HasAnyConditionOfType("ConditionBlastReload"))
+            if (actionType == ActionType.Bonus &&
+                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
             {
                 __result = true;
             }
@@ -669,8 +673,8 @@ public static class RulesetCharacterPatcher
             RulesetCharacter target, BaseDefinition attackMethod)
         {
             var current = attribute.CurrentValue;
-            me.GetSubFeaturesByType<IModifyMyAttackCritThreshold>().ForEach(m =>
-                current = m.TryModifyMyAttackCritThreshold(current, me, target, attackMethod));
+            me.GetSubFeaturesByType<IModifyAttackCriticalThreshold>().ForEach(m =>
+                current = m.GetCriticalThreshold(current, me, target, attackMethod));
             return current;
         }
     }
@@ -756,7 +760,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: IChangeAbilityCheck
+    //PATCH: IModifyAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollAbilityCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -773,7 +777,7 @@ public static class RulesetCharacterPatcher
             int rollModifier,
             ref int minRoll)
         {
-            var features = __instance.GetSubFeaturesByType<IChangeAbilityCheck>();
+            var features = __instance.GetSubFeaturesByType<IModifyAbilityCheck>();
 
             if (features.Count <= 0)
             {
@@ -791,7 +795,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: IChangeAbilityCheck
+    //PATCH: IModifyAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ResolveContestCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -816,7 +820,7 @@ public static class RulesetCharacterPatcher
             List<RuleDefinitions.TrendInfo> advantageTrends,
             List<RuleDefinitions.TrendInfo> modifierTrends)
         {
-            var features = rulesetCharacter.GetSubFeaturesByType<IChangeAbilityCheck>();
+            var features = rulesetCharacter.GetSubFeaturesByType<IModifyAbilityCheck>();
             var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType,
                 out firstRoll, out secondRoll, enumerateFeatures, canRerollDice, skill);
 
@@ -839,7 +843,7 @@ public static class RulesetCharacterPatcher
 
         //
         // there are 2 calls to RollDie on this method
-        // we replace them to allow us to compare the die result vs. the minRoll value from any IChangeAbilityCheck feature
+        // we replace them to allow us to compare the die result vs. the minRoll value from any IModifyAbilityCheck feature
         //
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -942,6 +946,81 @@ public static class RulesetCharacterPatcher
             {
                 spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanCastSpellOfActionType_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref bool __result,
+            ActionType actionType, bool canOnlyUseCantrips)
+        {
+            if (__result) { return; }
+
+            //PATCH: update usage for power pools
+            foreach (var invocation in __instance.Invocations)
+            {
+                var definition = invocation.InvocationDefinition;
+                if (definition is not InvocationDefinitionCustom)
+                {
+                    continue;
+                }
+
+                var spell = definition.GrantedSpell;
+                if (spell == null)
+                {
+                    continue;
+                }
+
+                if (canOnlyUseCantrips && spell.spellLevel > 0)
+                {
+                    continue;
+                }
+
+                var isValid = definition
+                    .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                    .All(v => v(__instance, definition));
+
+                if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+                {
+                    continue;
+                }
+
+                var battleActionId = spell.BattleActionId;
+
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                switch (actionType)
+                {
+                    case ActionType.Main:
+                        if (battleActionId != Id.CastMain)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    case ActionType.Bonus:
+                        if (battleActionId != Id.CastBonus)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    default:
+                        continue;
+                }
+
+                if (!invocation.IsAvailable(__instance))
+                {
+                    continue;
+                }
+
+                __result = true;
+
+                return;
             }
         }
     }
@@ -1197,12 +1276,13 @@ public static class RulesetCharacterPatcher
             bool inCombat,
             bool usedMainSpell,
             bool usedBonusSpell,
+            bool ignoreActivationTimeChecks,
             out string failureFlag)
         {
             //PATCH: allow PowerVisibilityModifier to make power device functions visible even if not valid
             //used to make Grenadier's grenade functions not be be hidden when you have not enough charges
             var result = device.IsFunctionAvailable(function, character, inCombat, usedMainSpell, usedBonusSpell,
-                out failureFlag);
+                ignoreActivationTimeChecks, out failureFlag);
 
             if (result || function.DeviceFunctionDescription.type != DeviceFunctionDescription.FunctionType.Power)
             {
@@ -1387,7 +1467,7 @@ public static class RulesetCharacterPatcher
                 rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
 
             foreach (var attribute in rulesetActor
-                         .GetSubFeaturesByType<IChangeConcentrationAttribute>()
+                         .GetSubFeaturesByType<IModifyConcentrationAttribute>()
                          .Where(x => x.IsValid(rulesetActor))
                          .Select(x => x.ConcentrationAttribute(rulesetActor)))
             {

@@ -319,4 +319,4 @@ Tooltip/&TagMagicalEffectTitle=Magic Effect
 Tooltip/&InvalidStringVariable=Invalid string parameter: must be {0} only
 Tooltip/&CampaignMapPartyStartDescription=This will define the default position of the party on the campaign map if the "Start Location" of the campaign is not connected to a valid node on the Campaign Map (for example, if the start location is a staging/preparation area).
 Tooltip/&NpcEfficientCompagnonDescription=This NPC can join the party (using a faction switch functor in a quest/dialog) as a efficient fighting companion, with attacks and/or spells
-Tooltip/&UniqueCreatureDescription=This creature is unique and can only be spawned once per location
+Tooltip/&UniqueCreatureDescription=This creature is unique and can only exist once per location. If you spawn it multiple times, only the latest one will be present and the others will be despawned.

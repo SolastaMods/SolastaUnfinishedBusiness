@@ -1,0 +1,13 @@
+Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=当你使用武僧武器或徒手攻击进行攻击检定并造成暴击后，你会造成相当于你的武术骰子一次检定的额外伤害。
+Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=残酷的福利
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=当你使用武僧武器或徒手攻击进行攻击检定并造成暴击后，你将返还 1 点气值。
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=推动福利
+Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=当你使用武僧武器或徒手攻击进行攻击检定并严重失手后，你会对目标而不是你自己造成祸害伤害。
+Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=他们的祸患
+Feature/&FeatureWayOfWealAndWoeWealDescription=当你使用武僧武器进行攻击检定或进行徒手攻击后，你的致命一击和致命一击范围都会增加一倍。当你完成长时间休息、重击或未命中时，它会重置回 20 和 1。
+Feature/&FeatureWayOfWealAndWoeWealTitle=福利
+Feature/&FeatureWayOfWealAndWoeWoeDescription=当你使用武僧武器或徒手攻击进行一次攻击检定并严重失手后，你会受到相当于你的武术骰子一次检定的伤害。
+Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
+Feedback/&WoeReroll=由于 {1} {2} 重新投掷攻击骰子，从 {3} 变为 {4}
+Subclass/&WayOfWealAndWoeDescription=福祸道的僧人，注重顺境和逆境，与敌人作战。
+Subclass/&WayOfWealAndWoeTitle=福祸之道

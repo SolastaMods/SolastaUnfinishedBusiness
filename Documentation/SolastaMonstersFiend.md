@@ -18,8 +18,8 @@ Size: *Large*
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
 * Condition Affinity Poison Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -73,9 +73,9 @@ Size: *Large*
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
 * Condition Affinity Poison Immunity
-* Resistant to cold weather.
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -125,8 +125,8 @@ Size: *Large*
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
 * Condition Affinity Poison Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -165,8 +165,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -206,8 +207,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -247,8 +249,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -289,8 +292,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -330,8 +334,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -372,8 +377,8 @@ Size: *Medium*
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
 * Condition Affinity Poison Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -413,8 +418,8 @@ Size: *Large*
 * Reactive
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
 * Condition Affinity Poison Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -460,8 +465,8 @@ Size: *Large*
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
 * Condition Affinity Poison Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -516,6 +521,7 @@ Size: *Large*
 * Condition Affinity Frightened Immunity
 * MIND CONTROLLED IMMUNITY
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -565,6 +571,7 @@ Size: *Large*
 * Condition Affinity Frightened Immunity
 * MIND CONTROLLED IMMUNITY
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -614,6 +621,7 @@ Size: *Large*
 * Condition Affinity Frightened Immunity
 * MIND CONTROLLED IMMUNITY
 * Condition Affinity Poison Immunity
+* Condition Affinity Prone Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -693,8 +701,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
@@ -734,8 +743,9 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity _ Lair Effect _ Palace Of Ice Immunity
-* Resistant to cold weather.
-* Condition Affinity Weather Frozen Immunity
+* Condition Affinity Prone Immunity
+* Resistant to cold weather
+* Blizzard Resistance
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Cold Resistance
 * Damage Affinity Fire Resistance
