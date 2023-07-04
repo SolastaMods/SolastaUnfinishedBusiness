@@ -47,7 +47,7 @@ internal static class CreditsDisplay
         ("RedOrca", "Path of the Light"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Holic75", "spells, Bolgrif"),
-        ("Remunos", "Obsidian Dwarf"),
+        ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("Kiloku", "quality of life"),
         ("Earandil", "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
         ("DemonicDuck",
