@@ -61,7 +61,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ActionInitiatedByMeDisplacement(), PushesOrDragFromEffectPoint.Marker)
+            .SetCustomSubFeatures(new CustomBehaviorDisplacement(), PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -202,25 +202,23 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class ActionInitiatedByMeDisplacement : IActionInitiatedByMe, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorDisplacement : IUsePowerInitiatedByMe, IUsePowerFinishedByMe
     {
-        public IEnumerator OnActionInitiatedByMe(CharacterAction characterAction)
+        public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
         {
-            var rulesetEffect = characterAction.ActionParams.RulesetEffect;
-
-            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != PowerSorcerousFieldManipulatorDisplacement)
+            if (power != PowerSorcerousFieldManipulatorDisplacement)
             {
                 yield break;
             }
 
+            var rulesetEffect = characterAction.ActionParams.RulesetEffect;
             var actionParams = characterAction.ActionParams;
 
             actionParams.Positions.SetRange(
                 GetFinalPosition(actionParams.TargetCharacters[0], actionParams.Positions[0]));
 
             // make target type individuals unique to trigger the game and only teleport targets
-            rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
+            rulesetEffect.EffectDescription.targetType = TargetType.IndividualsUnique;
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)

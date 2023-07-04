@@ -124,19 +124,30 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
+            //PATCH: IActionInitiatedByMe
+            if (__instance is CharacterActionUsePower characterActionUsePower1)
+            {
+                var power = characterActionUsePower1.activePower.PowerDefinition;
+
+                foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerInitiatedByMe>())
+                {
+                    usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
+                }
+            }
+            
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
             //PATCH: Adds support to IUsePowerFinishedByMe
-            if (__instance is CharacterActionUsePower characterActionUsePower)
+            if (__instance is CharacterActionUsePower characterActionUsePower2)
             {
-                var power = characterActionUsePower.activePower.PowerDefinition;
+                var power = characterActionUsePower2.activePower.PowerDefinition;
 
                 foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinishedByMe>())
                 {
-                    usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower, power);
+                    usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
                 }
             }
 

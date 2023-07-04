@@ -3,8 +3,8 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IActionInitiatedByMe
+public interface IUsePowerInitiatedByMe
 {
     [UsedImplicitly]
-    IEnumerator OnActionInitiatedByMe(CharacterAction characterAction);
+    IEnumerator OnUsePowerInitiatedByMe(CharacterAction action, FeatureDefinitionPower power);
 }

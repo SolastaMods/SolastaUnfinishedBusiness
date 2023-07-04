@@ -366,7 +366,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IActionInitiatedByMe, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IUsePowerInitiatedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;
@@ -379,10 +379,9 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionPossessed = conditionPossessed;
         }
 
-        public IEnumerator OnActionInitiatedByMe(CharacterAction characterAction)
+        public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
         {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerEssenceTheft)
+            if (power != _powerEssenceTheft)
             {
                 yield break;
             }

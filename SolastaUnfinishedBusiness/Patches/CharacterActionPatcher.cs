@@ -81,38 +81,17 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterAction __instance)
         {
-            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
-
-            //PATCH: IActionInitiatedByMe
-            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                var iActionsInitiated = rulesetCharacter.GetSubFeaturesByType<IActionInitiatedByMe>();
-
-                foreach (var iActionInitiated in iActionsInitiated)
-                {
-                    yield return iActionInitiated.OnActionInitiatedByMe(__instance);
-                }
-            }
-
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
-                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
-                    Gui.Battle != null &&
-                    rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
-                {
-                    __instance.ActingCharacter.UsedMainSpell = false;
-                    __instance.ActingCharacter.UsedMainCantrip = false;
-                }
-
                 //PATCH: clear determination cache on every action end
-                if (Main.Settings.UseOfficialFlankingRules &&
-                    Gui.Battle != null)
+                if (Main.Settings.UseOfficialFlankingRules && Gui.Battle != null)
                 {
                     FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
                 }
@@ -120,31 +99,29 @@ public static class CharacterActionPatcher
                 //PATCH: IActionFinishedByMe
                 var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinishedByMe>();
 
-                foreach (var iActionFinished in iActionsFinished)
+                foreach (var actionFinished in iActionsFinished)
                 {
-                    yield return iActionFinished.OnActionFinishedByMe(__instance);
+                    yield return actionFinished.OnActionFinishedByMe(__instance);
                 }
 
                 //PATCH: support for IActionFinishedByEnemy
                 if (Gui.Battle != null)
                 {
-                    foreach (var target in Gui.Battle.AllContenders
-                                 .Where(x => x.Side != __instance.ActingCharacter.Side)
+                    foreach (var enemy in Gui.Battle.GetOpposingContenders(rulesetCharacter.Side)
                                  .ToList()) // avoid changing enumerator
                     {
-                        var character = target.RulesetCharacter;
+                        var rulesetEnemy = enemy.RulesetCharacter;
 
-                        if (character is not { IsDeadOrDyingOrUnconscious: false })
+                        if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
                         {
                             continue;
                         }
 
-                        var features = character.GetSubFeaturesByType<IActionFinishedByEnemy>()
-                            .Where(x => x.ActionDefinition == __instance.ActionDefinition);
-
-                        foreach (var feature in features)
+                        foreach (var actionFinishedByEnemy in rulesetEnemy
+                                     .GetSubFeaturesByType<IActionFinishedByEnemy>()
+                                     .Where(x => x.ActionDefinition == __instance.ActionDefinition))
                         {
-                            yield return feature.OnActionFinishedByEnemy(target, __instance);
+                            yield return actionFinishedByEnemy.OnActionFinishedByEnemy(enemy, __instance);
                         }
                     }
                 }
