@@ -176,9 +176,9 @@ internal class PatronMountain : AbstractSubclass
 
         var additionalDamageIceboundSoul = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}IceboundSoul")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"FeatureSet{Name}IceboundSoul", Category.Feature)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackModeOnly()
+            .SetAttackOnly()
             .SetSavingThrowData()
             .SetConditionOperations(new ConditionOperationDescription
             {
@@ -250,7 +250,10 @@ internal class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender, me);
+            if (rulesetEffect == null)
+            {
+                yield return HandleReaction(defender, me);
+            }
         }
 
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
@@ -279,6 +282,13 @@ internal class PatronMountain : AbstractSubclass
                 yield break;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
             var gameLocationBattleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var gameLocationActionManager =
@@ -289,7 +299,7 @@ internal class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            if (!gameLocationBattleManager.IsWithinXCells(me, defender, 6))
+            if (!gameLocationBattleManager.IsWithinXCells(me, defender, 7))
             {
                 yield break;
             }
@@ -307,8 +317,8 @@ internal class PatronMountain : AbstractSubclass
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleManager.WaitForReactions(me, gameLocationActionManager,
-                previousReactionCount);
+            yield return gameLocationBattleManager.WaitForReactions(
+                me, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -316,7 +326,7 @@ internal class PatronMountain : AbstractSubclass
             }
 
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-            rulesetMe.InflictCondition(
+            rulesetDefender.InflictCondition(
                 _conditionDefinition.Name,
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
