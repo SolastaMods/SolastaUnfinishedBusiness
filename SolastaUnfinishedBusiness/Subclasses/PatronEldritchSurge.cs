@@ -531,14 +531,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 BaseDefinition.SerializeDatabaseReferenceList<SpellDefinition>(serializer, "CantripsUsedThisTurn", "SpellDefinition", cantripsUsedThisTurn);
                 if (serializer.Mode == Serializer.SerializationMode.Read)
                 {
-                    for (int i = 0; i < this.cantripsUsedThisTurn.Count; i++)
-                    {
-                        if (this.cantripsUsedThisTurn[i] == null)
-                        {
-                            this.cantripsUsedThisTurn.RemoveAt(i);
-                            i--;
-                        }
-                    }
+                    cantripsUsedThisTurn.RemoveAll(x => x is null);
                 }
             }
             catch (Exception ex)
