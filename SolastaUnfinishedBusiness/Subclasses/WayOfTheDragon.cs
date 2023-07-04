@@ -66,10 +66,15 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace)
+                    .Build())
             .AddToDB();
 
-        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(
-            powerReactiveHide, conditionReactiveHide));
+        powerReactiveHide.SetCustomSubFeatures(
+            new CustomBehaviorReactiveHide(powerReactiveHide, conditionReactiveHide));
 
         // LEVEL 17
 
@@ -645,13 +650,14 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorReactiveHide : IPhysicalAttackFinishedOnMe, IAttackBeforeHitConfirmedOnMe,
-        IMagicalAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorReactiveHide :
+        IPhysicalAttackFinishedOnMe, IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public CustomBehaviorReactiveHide(FeatureDefinitionPower featureDefinitionPower,
+        public CustomBehaviorReactiveHide(
+            FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
@@ -744,8 +750,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            TryGetAncestryDamageTypeFromCharacter(defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
-                out var damageType);
+            TryGetAncestryDamageTypeFromCharacter(
+                defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType);
 
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
 

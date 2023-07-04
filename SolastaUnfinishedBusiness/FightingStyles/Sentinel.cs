@@ -20,7 +20,7 @@ internal sealed class Sentinel : AbstractFightingStyle
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Sentinel", Resources.Sentinel, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
-                .Create("OnAttackHitFeatSentinel")
+                .Create("OnAttackHitEffectFeatSentinel")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
