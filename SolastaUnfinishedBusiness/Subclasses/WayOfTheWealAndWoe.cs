@@ -86,7 +86,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorWealAndWoe : IAttackEffectAfterDamage, IModifyDiceRoll
+    private sealed class CustomBehaviorWealAndWoe : IPhysicalAttackAfterDamage, IModifyDiceRoll
     {
         private readonly ConditionDefinition _conditionWeal;
         private readonly FeatureDefinition _featureBrutalWeal;
@@ -111,7 +111,42 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
             _featureTheirWoe = featureTheirWoe;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            // Empty
+        }
+
+        public void AfterRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int result)
+        {
+            if (rollContext != RollContext.AttackRoll)
+            {
+                return;
+            }
+
+            var conditionWealCount =
+                rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == _conditionWeal);
+
+            if (result == 1 || result - conditionWealCount > 1)
+            {
+                return;
+            }
+
+            rulesetCharacter.LogCharacterUsedFeature(_featureWeal, "Feedback/&WoeReroll", false,
+                (ConsoleStyleDuplet.ParameterType.Player, rulesetCharacter.Name),
+                (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
+
+            result = 1;
+        }
+
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -195,41 +230,6 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
                     rulesetAttacker.RemoveAllConditionsOfType(_conditionWeal.Name);
                     break;
             }
-        }
-
-        public void BeforeRoll(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref DieType dieType,
-            ref AdvantageType advantageType)
-        {
-            // Empty
-        }
-
-        public void AfterRoll(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref int result)
-        {
-            if (rollContext != RollContext.AttackRoll)
-            {
-                return;
-            }
-
-            var conditionWealCount =
-                rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == _conditionWeal);
-
-            if (result == 1 || result - conditionWealCount > 1)
-            {
-                return;
-            }
-
-            rulesetCharacter.LogCharacterUsedFeature(_featureWeal, "Feedback/&WoeReroll", false,
-                (ConsoleStyleDuplet.ParameterType.Player, rulesetCharacter.Name),
-                (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
-
-            result = 1;
         }
 
         private static void InflictMartialArtDieDamage(

@@ -550,14 +550,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
             _magicEffect = magicEffect;
         }
 
-        public IEnumerator OnMagicalAttackFinishedByMe(
+        public IEnumerator OnMagicalAttackFinishedByMe(CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
             EffectHelpers.StartVisualEffect(attacker, defender, _magicEffect, EffectHelpers.EffectType.Effect);
 

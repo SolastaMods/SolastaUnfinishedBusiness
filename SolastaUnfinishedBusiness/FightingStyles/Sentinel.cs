@@ -19,12 +19,12 @@ internal sealed class Sentinel : AbstractFightingStyle
         .Create(SentinelName)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Sentinel", Resources.Sentinel, 256))
         .SetFeatures(FeatureDefinitionBuilder
-            .Create("OnAttackHitEffectFeatSentinel")
+            .Create("OnPhysicalAttackHitFeatSentinel")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 AttacksOfOpportunity.CanIgnoreDisengage,
                 AttacksOfOpportunity.SentinelFeatMarker,
-                new OnAttackHitEffectFeatSentinel(CustomConditionsContext.StopMovement))
+                new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))
             .AddToDB())
         .AddToDB();
 
@@ -33,16 +33,16 @@ internal sealed class Sentinel : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFeatSentinel : IAttackEffectAfterDamage
+    private sealed class OnPhysicalAttackHitFeatSentinel : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
-        internal OnAttackHitEffectFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        internal OnPhysicalAttackHitFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
         {
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

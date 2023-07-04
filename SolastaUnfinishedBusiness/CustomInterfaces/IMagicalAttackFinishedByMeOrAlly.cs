@@ -4,11 +4,12 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 // triggers on any magical attack regardless of an attack roll or not
-public interface IMagicalAttackFinishedByMe
+public interface IMagicalAttackFinishedByMeOrAlly
 {
     [UsedImplicitly]
-    IEnumerator OnMagicalAttackFinishedByMe(
+    public IEnumerator OnMagicalAttackFinishedByMeOrAlly(
         CharacterActionMagicEffect action,
         GameLocationCharacter attacker,
-        GameLocationCharacter defender);
+        GameLocationCharacter defender,
+        GameLocationCharacter ally);
 }

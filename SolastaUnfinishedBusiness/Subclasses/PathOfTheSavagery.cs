@@ -129,7 +129,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         var featureUnbridledFerocity = FeatureDefinitionBuilder
             .Create($"Feature{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AttackEffectAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
+            .SetCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
         // LEVEL 14
@@ -189,7 +189,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
     }
 
 #if false
-    private sealed class AttackEffectAfterDamageWrathAndFury : IAttackEffectAfterDamage
+    private sealed class AttackEffectAfterDamageWrathAndFury : IPhysicalAttackAfterDamage
     {
         private readonly FeatureDefinitionPower _powerGrievousWound;
 
@@ -199,7 +199,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             _powerGrievousWound = powerGrievousWound;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -240,16 +240,16 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
     }
 #endif
 
-    private sealed class AttackEffectAfterDamageUnbridledFerocity : IAttackEffectAfterDamage
+    private sealed class PhysicalAttackAfterDamageUnbridledFerocity : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionUnbridledFerocity;
 
-        public AttackEffectAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        public PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
         {
             _conditionUnbridledFerocity = conditionUnbridledFerocity;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

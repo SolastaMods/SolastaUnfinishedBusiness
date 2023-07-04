@@ -115,7 +115,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         powerDiscordance.SetCustomSubFeatures(
-            new AttackEffectAfterDamageDiscordance(conditionDiscordance, powerDiscordanceDamage));
+            new PhysicalAttackAfterDamageDiscordance(conditionDiscordance, powerDiscordanceDamage));
 
         var powerBurstOfDisharmonyPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstOfDisharmony")
@@ -230,13 +230,13 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class AttackEffectAfterDamageDiscordance : IUsePowerFinishedByMe, IAttackEffectAfterDamage
+    private sealed class PhysicalAttackAfterDamageDiscordance : IUsePowerFinishedByMe, IPhysicalAttackAfterDamage
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly FeatureDefinitionPower _powerDiscordanceDamage;
 
-        public AttackEffectAfterDamageDiscordance(
+        public PhysicalAttackAfterDamageDiscordance(
             ConditionDefinition conditionDiscordance,
             FeatureDefinitionPower powerDiscordanceDamage)
         {
@@ -245,7 +245,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         }
 
         // only add condition if monk weapon or unarmed
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

@@ -397,7 +397,7 @@ internal sealed class DomainDefiler : AbstractSubclass
         }
     }
 
-    private sealed class OnDamageInsidiousMagic : IAttackEffectAfterDamage
+    private sealed class OnDamageInsidiousMagic : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionInsidiousDeathMagic;
 
@@ -406,7 +406,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             _conditionInsidiousDeathMagic = conditionInsidiousDeathMagic;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

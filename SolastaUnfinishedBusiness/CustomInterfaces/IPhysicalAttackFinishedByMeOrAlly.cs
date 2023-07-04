@@ -3,10 +3,10 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPhysicalAttackFinishedOnEnemy
+public interface IPhysicalAttackFinishedByMeOrAlly
 {
     [UsedImplicitly]
-    public IEnumerator OnPhysicalAttackFinishedOnEnemy(
+    public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
         GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,

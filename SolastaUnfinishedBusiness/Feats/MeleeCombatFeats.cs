@@ -600,7 +600,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorAlwaysReady : IAttackEffectAfterDamage, ICharacterTurnEndListener
+    private sealed class CustomBehaviorAlwaysReady : IPhysicalAttackAfterDamage, ICharacterTurnEndListener
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -611,7 +611,21 @@ internal static class MeleeCombatFeats
             _featureDefinition = featureDefinition;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
+            {
+                return;
+            }
+
+            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+            locationCharacter.ReadiedAction = ActionDefinitions.ReadyActionType.Melee;
+        }
+
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -640,20 +654,6 @@ internal static class MeleeCombatFeats
                 0,
                 0,
                 0);
-        }
-
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
-            {
-                return;
-            }
-
-            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
-            locationCharacter.ReadiedAction = ActionDefinitions.ReadyActionType.Melee;
         }
     }
 
@@ -810,7 +810,8 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish))
+                    .SetCustomSubFeatures(
+                        new AddExtraPhysicalAttackFeatCleavingPhysicalAttack(conditionCleavingAttackFinish))
                     .AddToDB())
             .AddToDB();
 
@@ -823,29 +824,14 @@ internal static class MeleeCombatFeats
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, IOnTargetReducedToZeroHp
+    private sealed class AddExtraPhysicalAttackFeatCleavingPhysicalAttack : IPhysicalAttackAfterDamage,
+        IOnTargetReducedToZeroHp
     {
         private readonly ConditionDefinition _conditionCleavingAttackFinish;
 
-        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionCleavingAttackFinish)
+        public AddExtraPhysicalAttackFeatCleavingPhysicalAttack(ConditionDefinition conditionCleavingAttackFinish)
         {
             _conditionCleavingAttackFinish = conditionCleavingAttackFinish;
-        }
-
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (outcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
-            {
-                return;
-            }
-
-            InflictCondition(attacker.RulesetCharacter);
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -857,6 +843,22 @@ internal static class MeleeCombatFeats
             if (activeEffect != null || !ValidateCleavingAttack(attackMode))
             {
                 yield break;
+            }
+
+            InflictCondition(attacker.RulesetCharacter);
+        }
+
+        public void OnPhysicalAttackAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
+            {
+                return;
             }
 
             InflictCondition(attacker.RulesetCharacter);
@@ -1135,7 +1137,7 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomBehaviorFeatDevastatingStrikes :
-        IAttackEffectAfterDamage, IAttackBeforeHitConfirmedOnEnemy
+        IPhysicalAttackAfterDamage, IAttackBeforeHitConfirmedOnEnemy
     {
         private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
         private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
@@ -1190,7 +1192,7 @@ internal static class MeleeCombatFeats
                 0);
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1335,13 +1337,13 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         feat.SetCustomSubFeatures(
-            new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
+            new PhysicalAttackAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
     }
 
-    private sealed class AttackEffectAfterDamageFeatFellHanded : IAttackEffectAfterDamage
+    private sealed class PhysicalAttackAfterDamageFeatFellHanded : IPhysicalAttackAfterDamage
     {
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
@@ -1350,7 +1352,7 @@ internal static class MeleeCombatFeats
         private readonly DamageForm damage;
         private readonly FeatureDefinitionPower power;
 
-        public AttackEffectAfterDamageFeatFellHanded(FeatureDefinitionPower power,
+        public PhysicalAttackAfterDamageFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             this.power = power;
@@ -1362,7 +1364,7 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1721,7 +1723,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatSlasher")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new AttackEffectAfterDamageFeatSlasher(
+            new PhysicalAttackAfterDamageFeatSlasher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
@@ -1777,13 +1779,13 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class AttackEffectAfterDamageFeatSlasher : IAttackEffectAfterDamage
+    private sealed class PhysicalAttackAfterDamageFeatSlasher : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly ConditionDefinition _criticalConditionDefinition;
         private readonly string _damageType;
 
-        internal AttackEffectAfterDamageFeatSlasher(
+        internal PhysicalAttackAfterDamageFeatSlasher(
             ConditionDefinition conditionDefinition,
             ConditionDefinition criticalConditionDefinition,
             string damageType)
@@ -1793,7 +1795,7 @@ internal static class MeleeCombatFeats
             _damageType = damageType;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

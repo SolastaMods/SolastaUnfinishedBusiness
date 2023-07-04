@@ -1,18 +1,15 @@
-﻿//DEPRECATED: use IPhysicalAttackInitiatedByMe instead
-
-#if false
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 /**
- * Called after roll is made, but before damage is applied.
+ * Called after damage is applied (or would have been applied if it was a hit).
  * Called regardless of whether attack hits or not.
  */
-public interface IAttackEffectBeforeDamage
+public interface IPhysicalAttackAfterDamage
 {
     [UsedImplicitly]
-    public void OnAttackEffectBeforeDamage(
+    public void OnPhysicalAttackAfterDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         RuleDefinitions.RollOutcome outcome,
@@ -20,4 +17,3 @@ public interface IAttackEffectBeforeDamage
         RulesetAttackMode attackMode,
         ActionModifier attackModifier);
 }
-#endif

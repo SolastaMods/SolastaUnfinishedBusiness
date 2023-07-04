@@ -96,7 +96,7 @@ internal static class GambitsBuilders
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new SpendPowerAttackEffectAfterAttack(spendDiePower);
+        var spendDieOnAttack = new SpendPowerPhysicalAttackAfterPhysicalAttack(spendDiePower);
 
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
@@ -853,16 +853,16 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class SpendPowerAttackEffectAfterAttack : IAttackEffectAfterDamage
+    private sealed class SpendPowerPhysicalAttackAfterPhysicalAttack : IPhysicalAttackAfterDamage
     {
         private readonly FeatureDefinitionPower power;
 
-        public SpendPowerAttackEffectAfterAttack(FeatureDefinitionPower power)
+        public SpendPowerPhysicalAttackAfterPhysicalAttack(FeatureDefinitionPower power)
         {
             this.power = power;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

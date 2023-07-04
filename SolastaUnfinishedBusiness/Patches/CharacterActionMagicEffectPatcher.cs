@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -302,6 +303,57 @@ public static class CharacterActionMagicEffectPatcher
                 -1, "CharacterActionMagicEffect.ApplyForms",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionMagicEffect),
+        nameof(CharacterActionMagicEffect.HandlePostApplyMagicEffectOnZoneOrTargets))]
+    [UsedImplicitly]
+    public static class HandlePostApplyMagicEffectOnZoneOrTargets_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            CharacterActionMagicEffect __instance,
+            IGameLocationBattleService battleService,
+            GameLocationCharacter target)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            var attacker = __instance.ActingCharacter;
+
+            //PATCH: support for `IMagicalAttackFinishedByMe`
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
+                {
+                    yield return feature.OnMagicalAttackFinishedByMe(__instance, attacker, target);
+                }
+            }
+
+            //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                foreach (var ally in Gui.Battle.GetMyContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
+                {
+                    foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())
+                    {
+                        yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
+                            .OnMagicalAttackFinishedByMeOrAlly(__instance, attacker, target, ally);
+                    }
+                }
+            }
         }
     }
 }

@@ -351,49 +351,34 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatExploiter :
-        IAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedOnEnemy, IPhysicalAttackFinishedOnEnemy
+    private class CustomBehaviorFeatExploiter : IMagicalAttackFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
         private readonly FeatureDefinition _featureExploiter;
-        private bool _hit;
 
         public CustomBehaviorFeatExploiter(FeatureDefinition featureExploiter)
         {
             _featureExploiter = featureExploiter;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+        public IEnumerator OnMagicalAttackFinishedByMeOrAlly(
+            CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter ally)
         {
-            _hit = true;
+            var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
-            yield break;
+            if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            var attackRollOutcome = action.AttackRollOutcome;
+
+            yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
         }
 
-        public IEnumerator OnMagicalAttackFinishedOnEnemy(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter ally,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender, ally);
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedOnEnemy(
+        public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -403,15 +388,16 @@ internal static class ClassFeats
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            yield return HandleReaction(attacker, defender, ally);
+            yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
         }
 
         private IEnumerator HandleReaction(
+            RollOutcome attackRollOutcome,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter me)
         {
-            if (!_hit)
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
