@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupMeleeCombatTitle",
-    "description": "Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack",
+    "title": "Feat/&FeatFencerTitle",
+    "description": "Feat/&FeatFencerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "76afeff2-9e1c-50bc-91b5-fdcd072eeb7e",
+  "guid": "fbbd9a9a-517e-52d5-a37e-d6742bf6f766",
   "contentPack": 9999,
-  "name": "FeatGroupMeleeCombat"
+  "name": "FeatFencer"
 }

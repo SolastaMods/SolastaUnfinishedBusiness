@@ -2,6 +2,7 @@
 
 1.5.92.9:
 
+- added Fencer feat
 - added Ironborn Dwarf subrace
 - added Patron Mountain subclass
 - fixed Feral Tiefling missing Burning Hands spell

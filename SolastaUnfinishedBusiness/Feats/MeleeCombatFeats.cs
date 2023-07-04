@@ -37,6 +37,7 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
+        var featFencer = BuildFencer();
         var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
@@ -59,6 +60,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featOldTacticsDex,
@@ -107,6 +109,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,
@@ -1460,6 +1463,26 @@ internal static class MeleeCombatFeats
                     break;
             }
         }
+    }
+
+    #endregion
+
+    #region Fencer
+
+    private static FeatDefinition BuildFencer()
+    {
+        const string NAME = "FeatFencer";
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasAttacked,
+                    ValidatorsCharacter.HasFreeHand,
+                    ValidatorsCharacter.HasMeleeWeaponInMainHand))
+            .AddToDB();
     }
 
     #endregion
