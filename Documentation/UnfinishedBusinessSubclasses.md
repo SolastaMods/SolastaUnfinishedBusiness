@@ -605,7 +605,7 @@ Bards of the College of Audacity entertain through daring feats of weapon prowes
 
 * Audacious Whirl
 
-Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
+Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a melee weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
 • Defensive Whirl: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
 • Slashing Whirl: You deal the extra damage to all other enemy creatures within 5 feet of you.
 • Mobile Whirl: You gain benefits of disengage until the end of your turn.
@@ -2783,7 +2783,64 @@ Your control of moon light has increased to a new level. You can cast the spells
 
 
 
-# 54. - The Riftwalker
+# 54. - The Mountain
+
+You have made a pact with an ancient primal entity that dwells atop the highest mountains of Solasta. Such entities yearn for a simpler epoch when mortals left them to their long slumber above the clouds, raising no cities and delving no mines. Their warlocks disdain the tools of civilization, calling upon the mountain's strength to shield their companions and strike down their foes.
+
+
+## Level 1
+
+* Barrier of Stone
+
+When an ally within 30 ft of you takes damage, you may use your reaction to reduce the damage by an amount equal to twice your warlock level plus your Charisma modifier. You may use this power a number of times equal to your Charisma modifier per long rest.
+
+* Expanded Spells
+
+
+	I	Earth Tremor, Sleep
+
+	II	Heat Metal, Lesser Restoration
+
+	III	Protection from Energy, Sleet Storm
+
+	IV	Freedom of Movement, Ice Storm
+
+	V	Cone of Cold, Greater Restoration
+
+
+
+* Knowledge of Aeons
+
+Gain proficiency in Nature and Survival. Gain Mountain as a favored terrain type.
+
+
+## Level 6
+
+* Clinging Strength
+
+You may use a bonus action on your turn to give yourself or an ally within 5 feet of you the benefits of Longstrider and Spider Climb for 1 hour without any concentration requirement. Once you use this power, you cannot use it again until you finish a short or long rest.
+
+* Eternal Guardian
+
+You may use your Barrier of Stone feature a number of times equal to your Charisma modifier per short rest.
+
+
+## Level 10
+
+* The Mountain Wakes
+
+You may cast Ice Storm as a fourth level spell a number of times equal to your proficiency bonus per long rest.
+
+
+## Level 14
+
+* Icebound Soul
+
+Gain immunity to cold damage. The first time you hit an enemy with an attack on your turn, they must make a Constitution saving throw against your warlock spell DC or become blinded until the end of your next turn.
+
+
+
+# 55. - The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -2844,7 +2901,7 @@ Your control of rift portals has increased to the point than you can now grant t
 
 
 
-# 55. - The Soulblade
+# 56. - The Soulblade
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -2904,9 +2961,9 @@ You can use Soul Hex twice times per short rest now.
 
 
 
-# 56. - Vivisectionist
+# 57. - Vivisectionist
 
-A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist’s goals are not always related to healing, but rather to experimentation and knowledge with body parts.
+A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist's goals are not always related to healing, but rather to experimentation and knowledge with body parts.
 
 
 ## Level 3
@@ -2970,7 +3027,7 @@ You can take a free action to use Lesser Restoration or Remove Curse on an ally 
 
 
 
-# 57. - Way of Discordance
+# 58. - Way of Discordance
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -3004,7 +3061,7 @@ Starting at 17th level, when a creature receives damage from your Discordance fe
 
 
 
-# 58. - Way of Distant Hand
+# 59. - Way of Distant Hand
 
 Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 
@@ -3052,7 +3109,7 @@ Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Addi
 
 
 
-# 59. - Way of Dragon
+# 60. - Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -3069,21 +3126,15 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 
 * Reactive Hide
 
-Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 ki to gain resistance to all damage until the end of attacker’s turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
-• Black Dragon: Acidified for 1 round.
-• Blue Dragon: Shocked for 1 round.
-• Gold Dragon: On Fire for 1 round.
-• Green Dragon: Poisoned for 1 round.
-• Silver Dragon: Slowed for 1 round.
-
-A creature affected by one of the detrimental conditions above must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to maximum values of 2x your martial arts dice. 
+Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
+A creature affected by one of the detrimental conditions must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to maximum values of 2x your martial arts dice. 
 
 
 ## Level 6
 
 * Elemental Breath
 
-You can use your bonus action to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive 3d6 damage (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus.
+You can use your bonus action to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive 3d6 damage (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and if you are out of uses, you can pay 2 ki instead. The damage is increased to 4d6 at 11th level, and 5d6 at 17th level.
 
 
 ## Level 11
@@ -3101,7 +3152,7 @@ You can use your bonus action to sprout a pair of wings, gaining flying speed eq
 
 
 
-# 60. - Way of Silhouette
+# 61. - Way of Silhouette
 
 Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -3143,7 +3194,7 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-# 61. - Way of Tempest
+# 62. - Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -3177,7 +3228,7 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-# 62. - Way of Weal and Woe
+# 63. - Way of Weal and Woe
 
 Monks of the Way of Weal and Woe focus on both prosperity and adversity to engage their enemies in battle.
 
@@ -3215,7 +3266,7 @@ After you make an attack roll with a monk weapon or a unarmed attack, and critic
 
 
 
-# 63. - Weapon Master
+# 64. - Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -3269,7 +3320,7 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 
 
-# 64. - Weaponsmith
+# 65. - Weaponsmith
 
 Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 
@@ -3327,7 +3378,7 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-# 65. - Wildmaster
+# 66. - Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 
