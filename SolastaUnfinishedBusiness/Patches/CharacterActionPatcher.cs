@@ -85,36 +85,30 @@ public static class CharacterActionPatcher
                 yield return values.Current;
             }
 
+            //PATCH: clear flanking rules determination cache on every action end
+            if (Main.Settings.UseOfficialFlankingRules && Gui.Battle != null)
+            {
+                FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
+            }
+
             var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: clear determination cache on every action end
-                if (Main.Settings.UseOfficialFlankingRules && Gui.Battle != null)
-                {
-                    FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
-                }
-
-                //PATCH: IActionFinishedByMe
-                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinishedByMe>();
-
-                foreach (var actionFinished in iActionsFinished)
+                //PATCH: support for `IActionFinishedByMe`
+                foreach (var actionFinished in rulesetCharacter.GetSubFeaturesByType<IActionFinishedByMe>())
                 {
                     yield return actionFinished.OnActionFinishedByMe(__instance);
                 }
 
-                //PATCH: support for IActionFinishedByEnemy
-                if (Gui.Battle != null)
+                //PATCH: support for `IActionFinishedByEnemy`
+                if (Gui.Battle != null && rulesetCharacter.Side == RuleDefinitions.Side.Enemy)
                 {
                     foreach (var enemy in Gui.Battle.GetOpposingContenders(rulesetCharacter.Side)
+                                 .Where(x => x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
                                  .ToList()) // avoid changing enumerator
                     {
                         var rulesetEnemy = enemy.RulesetCharacter;
-
-                        if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
-                        {
-                            continue;
-                        }
 
                         foreach (var actionFinishedByEnemy in rulesetEnemy
                                      .GetSubFeaturesByType<IActionFinishedByEnemy>()
