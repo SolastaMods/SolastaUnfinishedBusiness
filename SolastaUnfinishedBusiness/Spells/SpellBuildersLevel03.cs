@@ -462,7 +462,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetConditionForm(ConditionDefinitionBuilder
                                 .Create($"Condition{SpiritShroudName}{damage}")
-                                .SetGuiPresentationNoContent(false)
+                                .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .CopyParticleReferences(ConditionSpiritGuardiansSelf)
                                 .SetPossessive()
