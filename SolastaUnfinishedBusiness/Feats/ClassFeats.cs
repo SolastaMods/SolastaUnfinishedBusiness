@@ -450,13 +450,6 @@ internal static class ClassFeats
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(me, manager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            me.RulesetCharacter.LogCharacterUsedFeature(_featureExploiter);
         }
     }
 

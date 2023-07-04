@@ -126,7 +126,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(SpellDefinitions.Haste)
+                .SetParticleEffectParameters(Haste)
                 .SetEffectForms(
                     EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
                     EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),

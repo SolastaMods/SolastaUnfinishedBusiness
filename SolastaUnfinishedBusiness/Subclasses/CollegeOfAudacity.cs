@@ -155,7 +155,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         var powerAudaciousWhirl = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AudaciousWhirl")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.BardicInspiration)
+            .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.BardicInspiration)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -172,7 +172,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 powerSlashingWhirl,
                 powerMobileWhirl),
             new RestrictReactionAttackMode((mode, character, _) =>
-                mode is { SourceDefinition: ItemDefinition } &&
                 character.OnceInMyTurnIsValid("Whirl") &&
                 (character.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
                  character.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
@@ -383,7 +382,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode == null)
+            if (rulesetEffect != null)
             {
                 _damageType = null;
 

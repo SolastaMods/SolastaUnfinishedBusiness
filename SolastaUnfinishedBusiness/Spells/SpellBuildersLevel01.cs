@@ -765,9 +765,9 @@ internal static partial class SpellBuilders
 
     private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionSanctuary;
         private readonly ConditionDefinition _conditionArmorClass;
         private readonly ConditionDefinition _conditionResistance;
+        private readonly ConditionDefinition _conditionSanctuary;
 
         internal AttackBeforeHitConfirmedOnMeSanctuary(
             ConditionDefinition conditionSanctuary,
