@@ -18,14 +18,15 @@ internal sealed class Sentinel : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(SentinelName)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Sentinel", Resources.Sentinel, 256))
-        .SetFeatures(FeatureDefinitionBuilder
-            .Create("OnPhysicalAttackHitFeatSentinel")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                AttacksOfOpportunity.CanIgnoreDisengage,
-                AttacksOfOpportunity.SentinelFeatMarker,
-                new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionBuilder
+                .Create("OnAttackHitFeatSentinel")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    AttacksOfOpportunity.CanIgnoreDisengage,
+                    AttacksOfOpportunity.SentinelFeatMarker,
+                    new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))
+                .AddToDB())
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()

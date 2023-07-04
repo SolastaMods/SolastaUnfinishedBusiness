@@ -126,7 +126,7 @@ internal static class Level20Context
     private static void BarbarianLoad()
     {
         var changeAbilityCheckBarbarianIndomitableMight = FeatureDefinitionBuilder
-            .Create("ModifyAbilityCheckBarbarianIndomitableMight")
+            .Create("ChangeAbilityCheckBarbarianIndomitableMight")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ModifyAbilityCheckBarbarianIndomitableMight())
             .AddToDB();

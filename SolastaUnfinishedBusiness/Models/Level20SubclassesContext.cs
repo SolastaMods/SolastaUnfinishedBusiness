@@ -307,7 +307,7 @@ internal static class Level20SubclassesContext
             .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
             .SetFeatures(
                 FeatureDefinitionBuilder
-                    .Create("OnSavingThrowAfterRollQuiveringPalm")
+                    .Create("SavingThrowAfterRollQuiveringPalm")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new OnSavingThrowAfterRollQuiveringPalm())
                     .AddToDB())

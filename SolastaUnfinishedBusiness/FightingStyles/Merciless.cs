@@ -41,7 +41,7 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Merciless", Resources.Merciless, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
-                .Create("OnTargetReducedToZeroHpFightingStyleMerciless")
+                .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new OnTargetReducedToZeroHpFightingStyleMerciless())
                 .AddToDB())
