@@ -452,42 +452,18 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
-                var blockEvents =
-                    BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode,
-                        rulesetEffect, attackModifier, attackRoll);
-
-                while (blockEvents.MoveNext())
-                {
-                    yield return blockEvents.Current;
-                }
-            }
-
             // ReSharper disable once InvertIf
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: support for 'IAttackHitPossible'
-                foreach (var extra in defender.RulesetCharacter
-                             .GetSubFeaturesByType<IAttackHitPossible>()
-                             .Select(feature => feature.DefenderAttackHitPossible(
-                                 __instance,
-                                 attacker,
-                                 defender,
-                                 attackMode,
-                                 rulesetEffect,
-                                 attackModifier,
-                                 attackRoll)))
+                //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
+                var blockEvents = BlockAttacks.ProcessOnCharacterAttackHitConfirm(
+                    __instance, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll);
+
+                while (blockEvents.MoveNext())
                 {
-                    while (extra.MoveNext())
-                    {
-                        yield return extra.Current;
-                    }
+                    yield return blockEvents.Current;
                 }
             }
         }
