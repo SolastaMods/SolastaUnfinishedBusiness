@@ -309,7 +309,7 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionBuilder
                     .Create("SavingThrowAfterRollQuiveringPalm")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
+                    .SetCustomSubFeatures(new OnSavingThrowAfterRollQuiveringPalm())
                     .AddToDB())
             .AddToDB();
 
@@ -361,7 +361,7 @@ internal static class Level20SubclassesContext
 
         powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
             ForcePowerUseInSpendPowerAction.Marker,
-            new ActionFinishedQuiveringPalm(
+            new ActionFinishedByMeQuiveringPalm(
                 powerTraditionOpenHandQuiveringPalm,
                 conditionTraditionOpenHandQuiveringPalm));
 
@@ -431,7 +431,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
-            new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
+            new OnSourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
@@ -635,7 +635,7 @@ internal static class Level20SubclassesContext
     // Position of Strength
     //
 
-    private sealed class CustomCodePositionOfStrength : IFeatureDefinitionCustomCode
+    private sealed class CustomCodePositionOfStrength : IDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -716,11 +716,11 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
+    private sealed class OnSourceReducedToZeroHpPhysicalPerfection : IOnSourceReducedToZeroHp
     {
         private readonly FeatureDefinitionPower _powerPhysicalPerfection;
 
-        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        public OnSourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
         {
             _powerPhysicalPerfection = powerPhysicalPerfection;
         }
@@ -790,7 +790,7 @@ internal static class Level20SubclassesContext
     // Purity of Light
     //
 
-    private sealed class CustomBehaviorPurityOfLight : IFeatureDefinitionCustomCode, IPhysicalAttackFinished
+    private sealed class CustomBehaviorPurityOfLight : IDefinitionCustomCode, IPhysicalAttackFinishedByMe
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -806,7 +806,7 @@ internal static class Level20SubclassesContext
             // empty
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -859,7 +859,7 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IActionFinished
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -870,30 +870,6 @@ internal static class Level20SubclassesContext
         {
             _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
-        }
-
-
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
-            if (characterAction.ActionParams.TargetCharacters.Count == 0)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
-            var rulesetCondition = rulesetDefender?.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (rulesetCondition != null)
-            {
-                rulesetDefender.RemoveCondition(rulesetCondition);
-            }
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -918,9 +894,32 @@ internal static class Level20SubclassesContext
 
             return isValid;
         }
+
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
+            if (action.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+            var rulesetCondition = rulesetDefender?.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetDefender.RemoveCondition(rulesetCondition);
+            }
+        }
     }
 
-    private sealed class SavingThrowAfterRollQuiveringPalm : ISavingThrowAfterRoll
+    private sealed class OnSavingThrowAfterRollQuiveringPalm : IOnSavingThrowAfterRoll
     {
         public void OnSavingThrowAfterRoll(
             RulesetCharacter caster,
@@ -975,12 +974,12 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class ActionFinishedQuiveringPalm : IActionFinished
+    private sealed class ActionFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedQuiveringPalm(
+        public ActionFinishedByMeQuiveringPalm(
             FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
@@ -988,12 +987,11 @@ internal static class Level20SubclassesContext
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             var battle = Gui.Battle;
 
-            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            if (battle == null || power != _featureDefinitionPower)
             {
                 yield break;
             }

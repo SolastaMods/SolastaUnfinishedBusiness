@@ -9,7 +9,7 @@
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
-  <DisplayFeatsToggle>true</DisplayFeatsToggle>
+  <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
@@ -134,6 +134,7 @@
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <EnableAlternateHuman>true</EnableAlternateHuman>
+  <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
@@ -335,6 +336,7 @@
     <string>RaceOligath</string>
     <string>RaceWendigo</string>
     <string>RaceWyrmkin</string>
+    <string>RaceIronbornDwarf</string>
     <string>RaceObsidianDwarf</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
@@ -407,6 +409,7 @@
     <string>RangerSkyWarrior</string>
     <string>CollegeOfAudacity</string>
     <string>WayOfWealAndWoe</string>
+    <string>PatronMountain</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -515,6 +518,7 @@
     <string>FeatHammerThePoint</string>
     <string>FeatGroupOldTactics</string>
     <string>FeatCrossbowMastery</string>
+    <string>FeatFencer</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>

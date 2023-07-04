@@ -266,18 +266,19 @@ public static class CharacterActionPanelPatcher
             var spell = spellDefinition; // cannot pass ref to enumerator
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
 
-            //PATCH: supports IBypassSpellConcentration
+            //PATCH: supports IModifyConcentrationRequirement
             var spellLevel = spellDefinition.SpellLevel;
             var upcastDelta = slotLevel - spellLevel;
             var requiresConcentration = !rulesetCharacter
-                .GetSubFeaturesByType<IBypassSpellConcentration>()
+                .GetSubFeaturesByType<IModifyConcentrationRequirement>()
                 .Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
-                .Any(y => y.SpellDefinitions().Contains(spell));
+                .Any(y => y.AllowedSpells().Contains(spell));
 
-            if (!requiresConcentration)
+            if (!requiresConcentration && DatabaseHelper.TryGetDefinition<SpellDefinition>(
+                    $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}",
+                    out var spellNoConcentration))
             {
-                spellDefinition = DatabaseHelper.GetDefinition<SpellDefinition>(
-                    $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
+                spellDefinition = spellNoConcentration;
             }
         }
     }

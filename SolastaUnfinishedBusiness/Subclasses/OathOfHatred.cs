@@ -209,7 +209,7 @@ internal sealed class OathOfHatred : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class OnDamagesDauntlessPursuer : IAttackEffectAfterDamage
+    private sealed class OnDamagesDauntlessPursuer : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionDauntlessPursuerAfterAttack;
 
@@ -218,7 +218,7 @@ internal sealed class OathOfHatred : AbstractSubclass
             _conditionDauntlessPursuerAfterAttack = conditionDauntlessPursuerAfterAttack;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

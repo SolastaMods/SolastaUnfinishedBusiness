@@ -93,11 +93,12 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IAttackEffectAfterDamage>();
+            var features = character.GetSubFeaturesByType<IPhysicalAttackAfterDamage>();
 
             foreach (var effect in features)
             {
-                effect.OnAttackEffectAfterDamage(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnPhysicalAttackAfterDamage(__instance, target, outcome, actionParams, attackMode,
+                    attackModifier);
             }
         }
     }
@@ -282,8 +283,9 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            var rulesetCharacter = __instance?.RulesetCharacter;
-            if (rulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
+            var rulesetCharacter = __instance.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

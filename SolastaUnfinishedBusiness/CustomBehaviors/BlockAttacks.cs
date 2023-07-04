@@ -23,17 +23,19 @@ internal static class BlockAttacks
         ActionModifier attackModifier,
         int attackRoll)
     {
-        var units = Gui.Battle.AllContenders
-            .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
-            .ToArray(); // avoid changing enumerator
+        var rulesetDefender = defender.RulesetCharacter;
 
-        foreach (var unit in units)
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
         {
-            if (attacker != unit && defender != unit)
-            {
-                yield return ActiveSpiritualShielding(
-                    unit, attacker, defender, battleManager, attackMode, rulesetEffect, attackModifier, attackRoll);
-            }
+            yield break;
+        }
+
+        foreach (var unit in Gui.Battle.GetOpposingContenders(attacker.Side)
+                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                     .ToList())
+        {
+            yield return ActiveSpiritualShielding(
+                unit, attacker, defender, battleManager, attackMode, rulesetEffect, attackModifier, attackRoll);
         }
     }
 
@@ -48,13 +50,8 @@ internal static class BlockAttacks
         int attackRoll)
     {
         var unitCharacter = unit.RulesetCharacter;
-        var rulesetDefender = defender.RulesetCharacter;
 
-        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-            !attacker.IsOppositeSide(unit.Side) ||
-            defender.Side != unit.Side ||
-            unit == defender ||
-            !unitCharacter.HasSubFeatureOfType<SpiritualShielding>())
+        if (unit == defender || !unitCharacter.HasSubFeatureOfType<SpiritualShielding>())
         {
             yield break;
         }
@@ -80,6 +77,8 @@ internal static class BlockAttacks
         }
 
         //Is defender already shielded?
+        var rulesetDefender = defender.RulesetCharacter;
+
         if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
         {
             yield break;
@@ -114,7 +113,7 @@ internal static class BlockAttacks
         }
 
         //Spend resources
-        unitCharacter.usedChannelDivinity++;
+        unitCharacter.UsedChannelDivinity++;
 
         rulesetDefender.InflictCondition(
             ConditionDefinitions.ConditionShielded.Name,

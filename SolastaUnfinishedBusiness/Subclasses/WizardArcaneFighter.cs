@@ -86,7 +86,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class SpellFighting : ITargetReducedToZeroHp
+    private sealed class SpellFighting : IOnTargetReducedToZeroHp
     {
         private readonly ConditionDefinition condition;
 

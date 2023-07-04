@@ -64,7 +64,7 @@ internal static class TwoWeaponCombatFeats
                     .Create("OnAttackDamageEffectFeatDualFlurry")
                     .SetGuiPresentation("FeatDualFlurry", Category.Feat)
                     .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
+                        new OnPhysicalAttackHitFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
                     .AddToDB())
             .AddToDB();
     }
@@ -87,12 +87,12 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IAttackEffectAfterDamage
+    private sealed class OnPhysicalAttackHitFeatDualFlurry : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
 
-        internal OnAttackHitEffectFeatDualFlurry(
+        internal OnPhysicalAttackHitFeatDualFlurry(
             ConditionDefinition conditionDualFlurryGrant,
             ConditionDefinition conditionDualFlurryApply)
         {
@@ -100,7 +100,7 @@ internal static class TwoWeaponCombatFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

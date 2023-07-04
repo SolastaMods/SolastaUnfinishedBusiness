@@ -177,7 +177,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatExecutioner"));
     }
 
-    private sealed class CustomCodeImprovedDisablingStrike : IFeatureDefinitionCustomCode
+    private sealed class CustomCodeImprovedDisablingStrike : IDefinitionCustomCode
     {
         private readonly FeatureDefinitionAdditionalDamage _additionalDamageDisablingStrike;
 

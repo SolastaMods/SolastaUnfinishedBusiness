@@ -339,9 +339,8 @@ internal static class ClassFeats
         var featureExploiter = FeatureDefinitionBuilder
             .Create("FeatureExploiter")
             .SetGuiPresentation("FeatExploiter", Category.Feat)
+            .SetCustomSubFeatures(new CustomBehaviorFeatExploiter())
             .AddToDB();
-
-        featureExploiter.SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter(featureExploiter));
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
@@ -351,25 +350,46 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
+    private class CustomBehaviorFeatExploiter : IMagicalAttackFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
-        private readonly FeatureDefinition _featureExploiter;
-
-        public ReactToAttackOnMeOrAllyFinishedFeatExploiter(FeatureDefinition featureExploiter)
+        public IEnumerator OnMagicalAttackFinishedByMeOrAlly(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter ally)
         {
-            _featureExploiter = featureExploiter;
+            var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
+
+            if (effectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            var attackRollOutcome = action.AttackRollOutcome;
+
+            yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
         }
 
-        public IEnumerator OnReactToAttackOnEnemyFinished(
+        public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             GameLocationCharacter ally,
-            GameLocationCharacter me,
-            GameLocationCharacter enemy,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
+        }
+
+        private static IEnumerator HandleReaction(
+            RollOutcome attackRollOutcome,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me)
+        {
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -380,12 +400,14 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var rulesetEnemy = enemy.RulesetCharacter;
+            if (!me.CanReact() || attacker == me)
+            {
+                yield break;
+            }
 
-            if (!me.CanReact() ||
-                me == ally ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+            var rulesetEnemy = defender.RulesetCharacter;
+
+            if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -398,7 +420,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(enemy);
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(defender);
 
             if (retaliationMode == null || retaliationMode.ranged)
             {
@@ -409,8 +431,8 @@ internal static class ClassFeats
 
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
 
-            reactionParams.TargetCharacters.Add(enemy);
-            reactionParams.StringParameter = ally.Name;
+            reactionParams.TargetCharacters.Add(defender);
+            reactionParams.StringParameter = attacker.Name;
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
@@ -420,13 +442,6 @@ internal static class ClassFeats
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(me, manager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            me.RulesetCharacter.LogCharacterUsedFeature(_featureExploiter);
         }
     }
 
@@ -457,7 +472,7 @@ internal static class ClassFeats
                     .SetFeatures(t.attributeModifier)
                     .SetFeatFamily(NAME)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
-                    .SetCustomSubFeatures(new CustomBehaviorFeatAwakenTheBeastWithin())
+                    .SetCustomSubFeatures(new ActionFinishedByMeFeatAwakenTheBeastWithin())
                     .AddToDB())
             .Cast<FeatDefinition>()
             .ToArray();
@@ -470,12 +485,12 @@ internal static class ClassFeats
         return awakenTheBeastWithinGroup;
     }
 
-    internal sealed class CustomBehaviorFeatAwakenTheBeastWithin : IActionFinished
+    internal sealed class ActionFinishedByMeFeatAwakenTheBeastWithin : IActionFinishedByMe
     {
         // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
         private const ulong TemporaryHitPointsGuid = 42424242;
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionRevertShape ||
                 action.ActingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
@@ -518,14 +533,14 @@ internal static class ClassFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ActionFinishedFeatCunningEscape())
+            .SetCustomSubFeatures(new ActionFinishedByMeFeatCunningEscape())
             .SetValidators(ValidatorsFeat.IsRogueLevel3)
             .AddToDB();
     }
 
-    private class ActionFinishedFeatCunningEscape : IActionFinished
+    private class ActionFinishedByMeFeatCunningEscape : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.DashBonus)
             {
@@ -561,7 +576,7 @@ internal static class ClassFeats
         var feature = FeatureDefinitionBuilder
             .Create($"Feature{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedHardy())
+            .SetCustomSubFeatures(new UsePowerFinishedByMeFeatHardy())
             .AddToDB();
 
         var hardyStr = FeatDefinitionWithPrerequisitesBuilder
@@ -590,12 +605,11 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class ActionFinishedHardy : IActionFinished
+    private sealed class UsePowerFinishedByMeFeatHardy : IUsePowerFinishedByMe
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
+            if (power != PowerFighterSecondWind)
             {
                 yield break;
             }
@@ -716,7 +730,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class GainWildShapeCharges : ICustomMagicEffectAction, IPowerUseValidity
+    private sealed class GainWildShapeCharges : ICustomMagicEffectAction, IPowerUseValidity
     {
         private readonly int slotLevel;
         private readonly int wildShapeAmount;
@@ -756,7 +770,7 @@ internal static class ClassFeats
         }
     }
 
-    private class SpendWildShapeUse : ICustomMagicEffectAction
+    private sealed class SpendWildShapeUse : ICustomMagicEffectAction
     {
         private SpendWildShapeUse()
         {
@@ -1025,39 +1039,28 @@ internal static class ClassFeats
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatures(power, powerChannelDivinityPool, powerGainSlotPool)
                 .SetValidators(ValidatorsFeat.IsClericLevel4)
-                .SetCustomSubFeatures(new ActionFinishedFeatSpiritualFluidity())
+                .SetCustomSubFeatures(new ActionFinishedByMeFeatSpiritualFluidity())
                 .AddToDB();
     }
 
-    private sealed class ActionFinishedFeatSpiritualFluidity : IActionFinished
+    private sealed class ActionFinishedByMeFeatSpiritualFluidity : IUsePowerFinishedByMe
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            switch (action)
+            var character = action.ActingCharacter.RulesetCharacter;
+
+            if (power.Name.StartsWith(
+                    "PowerFeatSpiritualFluidityGainChannelDivinityFromSlot"))
             {
-                case CharacterActionUsePower characterActionUsePowerGainChannel when
-                    characterActionUsePowerGainChannel.activePower.PowerDefinition.Name.StartsWith(
-                        "PowerFeatSpiritualFluidityGainChannelDivinityFromSlot"):
-                {
-                    var character = action.ActingCharacter.RulesetCharacter;
-                    var name = characterActionUsePowerGainChannel.activePower.PowerDefinition.Name;
-                    var level = int.Parse(name.Substring(name.Length - 1, 1));
-                    var repertoire = character.GetClassSpellRepertoire(Cleric);
+                var name = power.Name;
+                var level = int.Parse(name.Substring(name.Length - 1, 1));
+                var repertoire = character.GetClassSpellRepertoire(Cleric);
 
-                    repertoire?.SpendSpellSlot(level);
-
-                    break;
-                }
-                case CharacterActionUsePower characterActionUsePowerGainSlot when
-                    characterActionUsePowerGainSlot.activePower.PowerDefinition.Name.StartsWith(
-                        "PowerFeatSpiritualFluidityGainSlot"):
-                {
-                    var character = action.ActingCharacter.RulesetCharacter;
-
-                    character.UsedChannelDivinity += 1;
-
-                    break;
-                }
+                repertoire?.SpendSpellSlot(level);
+            }
+            else if (power.Name.StartsWith("PowerFeatSpiritualFluidityGainSlot"))
+            {
+                character.UsedChannelDivinity += 1;
             }
 
             yield break;
@@ -1162,23 +1165,21 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerPool)
             .SetValidators(ValidatorsFeat.IsRangerLevel1)
-            .SetCustomSubFeatures(new ActionFinishedFeatSlayTheEnemies())
+            .SetCustomSubFeatures(new ActionFinishedByMeFeatSlayTheEnemies())
             .AddToDB();
     }
 
-    private sealed class ActionFinishedFeatSlayTheEnemies : IActionFinished
+    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IUsePowerFinishedByMe
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePowerSlayTheEnemies ||
-                !characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name.StartsWith(
-                    "PowerFeatSlayTheEnemies"))
+            if (!power.Name.StartsWith("PowerFeatSlayTheEnemies"))
             {
                 yield break;
             }
 
             var character = action.ActingCharacter.RulesetCharacter;
-            var name = characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name;
+            var name = power.Name;
             var level = int.Parse(name.Substring(name.Length - 1, 1));
             var repertoire = character.GetClassSpellRepertoire(Ranger);
 

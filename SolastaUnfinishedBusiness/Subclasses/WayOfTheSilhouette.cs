@@ -151,8 +151,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             ActionModifier attackModifier,
@@ -161,16 +160,16 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (!me.CanReact())
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
             {
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (!me.CanReact())
             {
                 yield break;
             }
@@ -191,13 +190,13 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             }
 
             var rulesetMe = me.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
 
             if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }
 
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

@@ -122,7 +122,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
     //
 
     private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty :
-        IAttackBeforeHitConfirmedOnMe, IReactToAttackOnMeFinished
+        IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -135,8 +135,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -145,8 +144,8 @@ internal sealed class RoguishDuelist : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
@@ -164,25 +163,26 @@ internal sealed class RoguishDuelist : AbstractSubclass
             rulesetDefender.DamageHalved(rulesetDefender, _featureDefinition);
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
-            if (!me.CanAct())
+            if (!defender.CanAct())
             {
                 yield break;
             }
 
-            var rulesetDefender = me.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(
                 _conditionDefinition.Name,

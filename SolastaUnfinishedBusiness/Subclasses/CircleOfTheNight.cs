@@ -181,7 +181,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        power.SetCustomSubFeatures(new ActionFinishedWildShape(power));
+        power.SetCustomSubFeatures(new ActionFinishedByMeWildShape(power));
 
         ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.WildShape, "CombatWildShape")
@@ -377,19 +377,18 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
-    private sealed class ActionFinishedWildShape : IActionFinished
+    private sealed class ActionFinishedByMeWildShape : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedWildShape(FeatureDefinitionPower featureDefinitionPower)
+        public ActionFinishedByMeWildShape(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower ||
+            if (power != _featureDefinitionPower ||
                 !action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
             {
                 yield break;

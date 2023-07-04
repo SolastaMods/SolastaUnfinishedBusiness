@@ -1,5 +1,17 @@
 ﻿CHANGES:
 
+1.5.92.9:
+
+- added Fencer feat
+- added Ironborn Dwarf subrace
+- added Patron Mountain subclass
+- fixed Feral Tiefling missing Burning Hands spell
+- fixed Martial Spell Shield spell slots determination
+- fixed Ranger Hellwalker enduring sting dice progression
+- fixed Way of Dragons elemental breath dice progression
+- improved mod performance on battles and locations
+- improved Patron Eldritch Surge's effects
+
 1.5.92.8:
 
 - added "Change Dragonborn elemental breath usages to constitution modifier per short rest" setting

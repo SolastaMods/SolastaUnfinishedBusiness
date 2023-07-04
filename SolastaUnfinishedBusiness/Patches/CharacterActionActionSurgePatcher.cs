@@ -8,7 +8,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionActionSurgePatcher
 {
-    //PATCH: Adds support to IReactToAttackOnEnemyFinished, IReactToAttackFinished, IReactToAttackOnMeFinished, IReactToAttackOnMeOrAllyFinished
     [HarmonyPatch(typeof(CharacterActionActionSurge), nameof(CharacterActionActionSurge.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

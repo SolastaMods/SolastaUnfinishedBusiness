@@ -6,5 +6,3 @@ Feat/&FeatMediumArmorMasterDescription=あなたは次の利点を得るため�
 Feat/&FeatMediumArmorMasterTitle=ミディアムアーマーマスター
 Feat/&FeatMediumArmorStrDescription=筋力が 1 増加し、最大 20 になります。\n中程度の鎧と盾の熟練度が上がります。
 Feat/&FeatMediumArmorStrTitle=中装甲[Str]
-Feedback/&HeavyArmorMasterFormat=ヘビーアーマーマスター！
-Feedback/&HeavyArmorMasterLine=ヘビーアーマーマスターはターゲットからのダメージを軽減します！

@@ -58,7 +58,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var bypassSpellConcentrationDeadMaster = FeatureDefinitionBuilder
             .Create("BypassSpellConcentrationDeadMaster")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new BypassSpellConcentrationDeadMaster())
+            .SetCustomSubFeatures(new ModifyConcentrationRequirementDeadMaster())
             .AddToDB();
 
         var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
@@ -294,9 +294,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return modified;
     }
 
-    private sealed class BypassSpellConcentrationDeadMaster : IBypassSpellConcentration
+    private sealed class ModifyConcentrationRequirementDeadMaster : IModifyConcentrationRequirement
     {
-        public IEnumerable<SpellDefinition> SpellDefinitions()
+        public IEnumerable<SpellDefinition> AllowedSpells()
         {
             return DeadMasterSpells;
         }
@@ -307,7 +307,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    private sealed class StarkHarvest : ITargetReducedToZeroHp
+    private sealed class StarkHarvest : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinition feature;
 

@@ -81,7 +81,7 @@
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 16,
+            "rank": 17,
             "diceNumber": 3
           }
         ],

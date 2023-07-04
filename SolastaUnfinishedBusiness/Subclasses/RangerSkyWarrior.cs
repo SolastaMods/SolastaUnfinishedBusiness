@@ -266,8 +266,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             _conditionGiftOfTheWindAttacked = conditionGiftOfTheWindAttacked;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -276,8 +275,8 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             if (battle is not { IsBattleInProgress: true })
             {

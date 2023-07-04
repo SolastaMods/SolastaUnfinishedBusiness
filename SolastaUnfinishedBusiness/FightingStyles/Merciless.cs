@@ -43,7 +43,7 @@ internal sealed class Merciless : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new TargetReducedToZeroHpFightingStyleMerciless())
+                .SetCustomSubFeatures(new OnTargetReducedToZeroHpFightingStyleMerciless())
                 .AddToDB())
         .AddToDB();
 
@@ -52,13 +52,12 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class TargetReducedToZeroHpFightingStyleMerciless :
-        ITargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
+    private sealed class OnTargetReducedToZeroHpFightingStyleMerciless :
+        IOnTargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
     {
         private bool isCritical;
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -67,8 +66,8 @@ internal sealed class Merciless : AbstractFightingStyle
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            bool firstTarget,
+            bool criticalHit)
         {
             isCritical = criticalHit;
 

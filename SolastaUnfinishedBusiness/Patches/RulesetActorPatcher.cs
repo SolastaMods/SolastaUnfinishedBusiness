@@ -196,7 +196,7 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
         {
-            //PATCH: support for `IConditionRemovedOnSourceTurnStart` - removes appropriately marked conditions
+            //PATCH: support for `IRemoveConditionOnSourceTurnStart` - removes appropriately marked conditions
             ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
         }
     }
@@ -507,7 +507,7 @@ public static class RulesetActorPatcher
             }
             else
             {
-                var changeDiceRollList = actor.GetSubFeaturesByType<IChangeDiceRoll>();
+                var changeDiceRollList = actor.GetSubFeaturesByType<IModifyDiceRoll>();
 
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {

@@ -242,7 +242,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new MagicalAttackFinishedElementalBurst(PowerDomainElementalLightningBlade),
+                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -282,7 +282,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new MagicalAttackFinishedElementalBurst(PowerDomainElementalIceLance),
+                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -327,7 +327,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new MagicalAttackFinishedElementalBurst(PowerDomainElementalFireBurst),
+                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -541,23 +541,18 @@ internal sealed class PathOfTheElements : AbstractSubclass
     // Elemental Burst
     //
 
-    private sealed class MagicalAttackFinishedElementalBurst : IMagicalAttackFinished
+    private sealed class MagicalAttackFinishedByMeElementalBurst : IMagicalAttackFinishedByMe
     {
         private readonly IMagicEffect _magicEffect;
 
-        public MagicalAttackFinishedElementalBurst(IMagicEffect magicEffect)
+        public MagicalAttackFinishedByMeElementalBurst(IMagicEffect magicEffect)
         {
             _magicEffect = magicEffect;
         }
 
-        public IEnumerator OnMagicalAttackFinished(
+        public IEnumerator OnMagicalAttackFinishedByMe(CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
             EffectHelpers.StartVisualEffect(attacker, defender, _magicEffect, EffectHelpers.EffectType.Effect);
 
@@ -646,7 +641,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
     // Elemental Conduit - Wildfire
     //
 
-    private sealed class ReactToAttackOnMeFinishedElementalConduitWildfire : IReactToAttackOnMeFinished
+    private sealed class ReactToAttackOnMeFinishedElementalConduitWildfire : IPhysicalAttackFinishedOnMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -655,43 +650,41 @@ internal sealed class PathOfTheElements : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                yield break;
+            }
+
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
             {
                 yield break;
             }
 
-            var rulesetEnemy = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!me.CanReact() ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+            if (!defender.CanReact() ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetDefender.HasAnyConditionOfType(ConditionRaging))
             {
                 yield break;
             }
 
-            var rulesetAttacker = me.RulesetCharacter;
-
-            if (!me.CanAct() || !rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
-            {
-                yield break;
-            }
-
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var actionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -701,7 +694,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             }
 
             var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "Reaction/&CustomReactionElementalConduitWildfireDescription"
                 };
@@ -710,16 +703,15 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
             actionService.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(me, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(defender, actionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var rulesetDefender = attacker.RulesetCharacter;
-            var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
-            var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
+            var modifierTrend = rulesetAttacker.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = rulesetAttacker.actionModifier.savingThrowAdvantageTrends;
             var attackerConModifier =
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Constitution));
@@ -728,9 +720,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
             var defenderDexModifier =
                 AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+                    rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
-            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Dexterity, _featureDefinition, modifierTrend,
+            rulesetAttacker.RollSavingThrow(0, AttributeDefinitions.Dexterity, _featureDefinition, modifierTrend,
                 advantageTrends, defenderDexModifier, 8 + profBonus + attackerConModifier, false,
                 out var savingOutcome,
                 out _);
@@ -740,13 +732,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 yield break;
             }
 
-            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var damageForm = new DamageForm
             {
                 DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = classLevel
             };
 
-            EffectHelpers.StartVisualEffect(me, attacker, SpellDefinitions.HellishRebuke);
+            EffectHelpers.StartVisualEffect(defender, attacker, SpellDefinitions.HellishRebuke);
             RulesetActor.InflictDamage(
                 classLevel,
                 damageForm,
@@ -754,7 +746,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
-                rulesetAttacker.Guid,
+                rulesetDefender.Guid,
                 false,
                 new List<string>(),
                 new RollInfo(DieType.D1, new List<int>(), classLevel),

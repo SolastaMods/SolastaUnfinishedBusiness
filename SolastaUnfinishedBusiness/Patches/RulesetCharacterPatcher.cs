@@ -477,9 +477,9 @@ public static class RulesetCharacterPatcher
             //PATCH: support for `IIncreaseSpellDC`
             //Adds extra modifiers to spell DC
 
-            var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
+            var features = __instance.GetSubFeaturesByType<IModifySpellDC>();
 
-            __result += features.Sum(feature => feature.GetSpellModifier(__instance));
+            __result += features.Sum(feature => feature.GetSpellDC(__instance));
         }
     }
 
@@ -673,8 +673,8 @@ public static class RulesetCharacterPatcher
             RulesetCharacter target, BaseDefinition attackMethod)
         {
             var current = attribute.CurrentValue;
-            me.GetSubFeaturesByType<IModifyMyAttackCritThreshold>().ForEach(m =>
-                current = m.TryModifyMyAttackCritThreshold(current, me, target, attackMethod));
+            me.GetSubFeaturesByType<IModifyAttackCriticalThreshold>().ForEach(m =>
+                current = m.GetCriticalThreshold(current, me, target, attackMethod));
             return current;
         }
     }
@@ -760,7 +760,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: IChangeAbilityCheck
+    //PATCH: IModifyAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollAbilityCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -777,7 +777,7 @@ public static class RulesetCharacterPatcher
             int rollModifier,
             ref int minRoll)
         {
-            var features = __instance.GetSubFeaturesByType<IChangeAbilityCheck>();
+            var features = __instance.GetSubFeaturesByType<IModifyAbilityCheck>();
 
             if (features.Count <= 0)
             {
@@ -795,7 +795,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: IChangeAbilityCheck
+    //PATCH: IModifyAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ResolveContestCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -820,7 +820,7 @@ public static class RulesetCharacterPatcher
             List<RuleDefinitions.TrendInfo> advantageTrends,
             List<RuleDefinitions.TrendInfo> modifierTrends)
         {
-            var features = rulesetCharacter.GetSubFeaturesByType<IChangeAbilityCheck>();
+            var features = rulesetCharacter.GetSubFeaturesByType<IModifyAbilityCheck>();
             var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType,
                 out firstRoll, out secondRoll, enumerateFeatures, canRerollDice, skill);
 
@@ -843,7 +843,7 @@ public static class RulesetCharacterPatcher
 
         //
         // there are 2 calls to RollDie on this method
-        // we replace them to allow us to compare the die result vs. the minRoll value from any IChangeAbilityCheck feature
+        // we replace them to allow us to compare the die result vs. the minRoll value from any IModifyAbilityCheck feature
         //
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -1467,7 +1467,7 @@ public static class RulesetCharacterPatcher
                 rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
 
             foreach (var attribute in rulesetActor
-                         .GetSubFeaturesByType<IChangeConcentrationAttribute>()
+                         .GetSubFeaturesByType<IModifyConcentrationAttribute>()
                          .Where(x => x.IsValid(rulesetActor))
                          .Select(x => x.ConcentrationAttribute(rulesetActor)))
             {

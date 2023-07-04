@@ -243,7 +243,7 @@ internal sealed class RoguishRaven : AbstractSubclass
     {
     }
 
-    private sealed class RefreshSneakAttackOnKill : ITargetReducedToZeroHp
+    private sealed class RefreshSneakAttackOnKill : IOnTargetReducedToZeroHp
     {
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
@@ -271,7 +271,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         public CharacterClassDefinition Class { get; }
     }
 
-    private sealed class KillingSpree : ITargetReducedToZeroHp
+    private sealed class KillingSpree : IOnTargetReducedToZeroHp
     {
         private readonly ConditionDefinition condition;
 

@@ -61,13 +61,14 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionBlastPursuit = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastPursuit")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHasted)
+        .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
         .AddFeatures(
             FeatureDefinitionBuilder
                 .Create($"Feature{Name}BlastPursuit")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new TargetReducedToZeroHpBlastPursuit())
+                    new OnTargetReducedToZeroHpBlastPursuit())
                 .AddToDB())
         .AddToDB();
 
@@ -76,6 +77,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     private static readonly ConditionDefinition ConditionBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
+        .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .AddFeatures(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageInvocationAgonizingBlast, $"AdditionalDamage{Name}BlastOverload")
@@ -124,13 +126,15 @@ internal class PatronEldritchSurge : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 2, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
+                .SetParticleEffectParameters(Haste)
                 .SetEffectForms(
                     EffectFormBuilder.ConditionForm(ConditionBlastPursuit),
                     EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuit),
                     EffectFormBuilder.ConditionForm(ConditionExtraActionBlastPursuitOff))
                 .Build())
             .AddToDB();
+
+        powerBlastPursuit.effectDescription.effectParticleParameters.casterParticleReference = null;
 
         powerBlastPursuit.SetCustomSubFeatures(
             new CustomBehaviorBlastPursuitOrOverload(powerBlastPursuit, ConditionBlastPursuit),
@@ -221,7 +225,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorBlastPursuitOrOverload : IActionFinished, IPowerUseValidity
+    private sealed class CustomBehaviorBlastPursuitOrOverload : IUsePowerFinishedByMe, IPowerUseValidity
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _triggerPower;
@@ -232,27 +236,6 @@ internal class PatronEldritchSurge : AbstractSubclass
         {
             _triggerPower = triggerPower;
             _conditionDefinition = conditionDefinition;
-        }
-
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _triggerPower)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
-            var rulesetHero = rulesetCharacter.GetOriginalHero();
-
-            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var slotLevel = SharedSpellsContext.GetWarlockSpellLevel(rulesetHero);
-
-            SharedSpellsContext.GetWarlockSpellRepertoire(rulesetHero)?.SpendSpellSlot(slotLevel);
         }
 
         public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
@@ -267,9 +250,29 @@ internal class PatronEldritchSurge : AbstractSubclass
             return !rulesetCharacter.HasConditionOfType(_conditionDefinition) &&
                    SharedSpellsContext.GetWarlockRemainingSlots(rulesetHero) >= 1;
         }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _triggerPower)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetHero = rulesetCharacter.GetOriginalHero();
+
+            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var slotLevel = SharedSpellsContext.GetWarlockSpellLevel(rulesetHero);
+
+            SharedSpellsContext.GetWarlockSpellRepertoire(rulesetHero)?.SpendSpellSlot(slotLevel);
+        }
     }
 
-    private sealed class TargetReducedToZeroHpBlastPursuit : ITargetReducedToZeroHp
+    private sealed class OnTargetReducedToZeroHpBlastPursuit : IOnTargetReducedToZeroHp
     {
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,

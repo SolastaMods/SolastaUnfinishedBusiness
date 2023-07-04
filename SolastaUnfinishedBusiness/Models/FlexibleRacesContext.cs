@@ -91,6 +91,7 @@ internal static class FlexibleRacesContext
         { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
+        { "RaceIronbornDwarf", new List<string> { "AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease" } },
         { "RaceObsidianDwarf", new List<string> { "AttributeModifierObsidianDwarfStrengthAbilityScoreIncrease" } },
         {
             "RaceOligath",

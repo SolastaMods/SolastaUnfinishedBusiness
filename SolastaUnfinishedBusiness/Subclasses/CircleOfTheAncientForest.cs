@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -91,7 +90,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         var lifeSapFeature = FeatureDefinitionBuilder
             .Create(LifeSapName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new MagicalAttackFinishedAncientForestLifeSap())
+            .SetCustomSubFeatures(new MagicalAttackFinishedByMeAncientForestLifeSap())
             .AddToDB();
 
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
@@ -339,26 +338,23 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class MagicalAttackFinishedAncientForestLifeSap : IMagicalAttackFinished
+    private sealed class MagicalAttackFinishedByMeAncientForestLifeSap : IMagicalAttackFinishedByMe
     {
-        public IEnumerator OnMagicalAttackFinished(
+        public IEnumerator OnMagicalAttackFinishedByMe(
+            CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
-            var caster = attacker.RulesetCharacter;
+            var rulesetEffect = action.actionParams.RulesetEffect;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (caster.MissingHitPoints <= 0 ||
+            if (rulesetAttacker.MissingHitPoints <= 0 ||
                 !rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
+            var belowHalfHealth = rulesetAttacker.MissingHitPoints > rulesetAttacker.CurrentHitPoints;
 
             attacker.UsedSpecialFeatures.TryGetValue(LifeSapName, out var used);
 
@@ -369,13 +365,13 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
             attacker.UsedSpecialFeatures[LifeSapName] = used + 1;
 
-            var classLevel = caster.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Druid);
+            var classLevel = rulesetAttacker.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Druid);
             var healing = used == 0 && belowHalfHealth ? classLevel : Mathf.CeilToInt(classLevel / 2f);
             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
             var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 
-            caster.LogCharacterActivatesAbility(ability);
-            RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
+            rulesetAttacker.LogCharacterActivatesAbility(ability);
+            RulesetCharacter.Heal(healing, rulesetAttacker, rulesetAttacker, cap, rulesetAttacker.Guid);
         }
     }
 }

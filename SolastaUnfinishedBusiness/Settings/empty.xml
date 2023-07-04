@@ -134,6 +134,7 @@
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <EnableAlternateHuman>false</EnableAlternateHuman>
+  <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
@@ -149,6 +150,7 @@
   <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
   <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
   <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
+  <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
   <EnableLevel20>false</EnableLevel20>
   <EnableMulticlass>false</EnableMulticlass>
   <MaxAllowedClasses>0</MaxAllowedClasses>

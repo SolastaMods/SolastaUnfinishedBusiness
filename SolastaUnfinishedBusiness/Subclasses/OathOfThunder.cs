@@ -63,7 +63,7 @@ internal sealed class OathOfThunder : AbstractSubclass
 
         featureHammersBoon.SetCustomSubFeatures(
             ReturningWeapon.Instance,
-            new ModifyWeaponAttackModeHammerAndAxeBoon(featureHammersBoon));
+            new ModifyWeaponModifyAttackModeHammerAndAxeBoon(featureHammersBoon));
 
         // ThunderousRebuke
 
@@ -210,7 +210,7 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerBifrost.SetCustomSubFeatures(new ActionFinishedBifrost(powerBifrost, powerBifrostDamage));
+        powerBifrost.SetCustomSubFeatures(new ActionFinishedByMeBifrost(powerBifrost, powerBifrostDamage));
 
         // LEVEL 20
 
@@ -275,11 +275,12 @@ internal sealed class OathOfThunder : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyWeaponAttackModeHammerAndAxeBoon : IModifyWeaponAttackMode, IAttackComputeModifier
+    private sealed class ModifyWeaponModifyAttackModeHammerAndAxeBoon :
+        IModifyWeaponAttackMode, IModifyAttackActionModifier
     {
         private readonly FeatureDefinition _featureHammersBoon;
 
-        public ModifyWeaponAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
+        public ModifyWeaponModifyAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
         {
             _featureHammersBoon = featureHammersBoon;
         }
@@ -358,12 +359,12 @@ internal sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedBifrost : IActionFinished
+    private sealed class ActionFinishedByMeBifrost : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBifrost;
         private readonly FeatureDefinitionPower _powerBifrostDamage;
 
-        public ActionFinishedBifrost(
+        public ActionFinishedByMeBifrost(
             FeatureDefinitionPower powerBifrost,
             FeatureDefinitionPower powerBifrostDamage)
         {
@@ -371,10 +372,9 @@ internal sealed class OathOfThunder : AbstractSubclass
             _powerBifrostDamage = powerBifrostDamage;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerBifrost)
+            if (power != _powerBifrost)
             {
                 yield break;
             }
@@ -386,7 +386,7 @@ internal sealed class OathOfThunder : AbstractSubclass
                 yield break;
             }
 
-            var attacker = characterAction.ActingCharacter;
+            var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()

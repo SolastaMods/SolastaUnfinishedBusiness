@@ -648,7 +648,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
-                        new ActionFinishedFeatMobileDash(
+                        new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -668,16 +668,16 @@ internal static class OtherFeats
     }
 
 
-    private sealed class ActionFinishedFeatMobileDash : IActionFinished
+    private sealed class ActionFinishedByMeFeatMobileDash : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public ActionFinishedFeatMobileDash(ConditionDefinition conditionDefinition)
+        public ActionFinishedByMeFeatMobileDash(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not (CharacterActionDash or
                 CharacterActionFlurryOfBlows or
@@ -705,7 +705,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class AooImmunityFeatMobile : IImmuneToAooOfRecentAttackedTarget
+    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked
     {
     }
 
@@ -746,24 +746,8 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
-        IPhysicalAttackFinished, IPhysicalAttackFinishedOnMe, IActionFinished, IActionFinishedByEnemy
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
-        //Poison characters that I shove
-        public IEnumerator OnActionFinished(CharacterAction action)
-        {
-            if (action is not CharacterActionShove)
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            foreach (var target in action.actionParams.TargetCharacters)
-            {
-                PoisonTarget(rulesetAttacker, target);
-            }
-        }
-
         //Poison character that shoves me
         public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
 
@@ -778,8 +762,24 @@ internal static class OtherFeats
             PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
         }
 
+        //Poison characters that I shove
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionShove)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in action.actionParams.TargetCharacters)
+            {
+                PoisonTarget(rulesetAttacker, target);
+            }
+        }
+
         //Poison target if I attack with unarmed
-        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
+        public IEnumerator OnAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, RulesetAttackMode attackMode,
             RollOutcome attackRollOutcome, int damageAmount)
         {
@@ -822,7 +822,7 @@ internal static class OtherFeats
         {
             var rulesetTarget = target.RulesetCharacter;
 
-            if (rulesetTarget == null || rulesetTarget.IsDeadOrDying)
+            if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

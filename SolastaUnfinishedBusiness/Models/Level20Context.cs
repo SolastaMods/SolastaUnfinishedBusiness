@@ -128,7 +128,7 @@ internal static class Level20Context
         var changeAbilityCheckBarbarianIndomitableMight = FeatureDefinitionBuilder
             .Create("ChangeAbilityCheckBarbarianIndomitableMight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ChangeAbilityCheckBarbarianIndomitableMight())
+            .SetCustomSubFeatures(new ModifyAbilityCheckBarbarianIndomitableMight())
             .AddToDB();
 
         var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
@@ -223,7 +223,7 @@ internal static class Level20Context
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
-        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedArchDruid(magicAffinityArchDruid));
+        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
 
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -801,18 +801,18 @@ internal static class Level20Context
         return invocationPoolWizardSignatureSpells;
     }
 
-    private sealed class ActionFinishedArchDruid : IActionFinished
+    private sealed class ActionFinishedByMeArchDruid : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ActionFinishedArchDruid(FeatureDefinition featureDefinition)
+        public ActionFinishedByMeArchDruid(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower)
+            if (power != PowerDruidWildShape && power != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
             {
                 yield break;
             }
@@ -824,19 +824,12 @@ internal static class Level20Context
                 yield break;
             }
 
-            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
-            var powerCircleOfTheNightWildShapeCombat = CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat;
-
-            if (powerDefinition != PowerDruidWildShape && powerDefinition != powerCircleOfTheNightWildShapeCombat)
-            {
-                yield break;
-            }
-
             var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacter);
 
             usablePower.Recharge();
 
-            var usablePowerNight = UsablePowersProvider.Get(powerCircleOfTheNightWildShapeCombat, rulesetCharacter);
+            var usablePowerNight = UsablePowersProvider.Get(
+                CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat, rulesetCharacter);
 
             usablePowerNight.Recharge();
 
@@ -844,7 +837,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ChangeAbilityCheckBarbarianIndomitableMight : IChangeAbilityCheck
+    private sealed class ModifyAbilityCheckBarbarianIndomitableMight : IModifyAbilityCheck
     {
         public int MinRoll(
             [CanBeNull] RulesetCharacter character,
@@ -864,7 +857,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class CustomCodeBarbarianPrimalChampion : IFeatureDefinitionCustomCode
+    private sealed class CustomCodeBarbarianPrimalChampion : IDefinitionCustomCode
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
@@ -936,7 +929,7 @@ internal static class Level20Context
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

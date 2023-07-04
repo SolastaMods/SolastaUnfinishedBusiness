@@ -1,0 +1,6 @@
+Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=힘 +2
+Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=능력치 증가
+Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=당신은 경갑과 중갑에 능숙합니다.
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=아이언본 아머 트레이닝
+Race/&RaceIronbornDwarfDescription=강하고 강인한 Ironborn Dwarves는 그들의 사촌 Snow Dwarves와 함께 살지만 종종 떨어져 있습니다. 부족하고 냉담하지만 그럼에도 불구하고 그들은 Snow Alliance의 누구와도 어깨를 나란히 할 수 있습니다.
+Race/&RaceIronbornDwarfTitle=아이언본 드워프

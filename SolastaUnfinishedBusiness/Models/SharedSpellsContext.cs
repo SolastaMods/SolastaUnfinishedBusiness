@@ -50,7 +50,7 @@ internal static class SharedSpellsContext
         { MartialSpellblade.Name, CasterProgression.OneThird },
         { RoguishArcaneScoundrel.Name, CasterProgression.OneThird },
         { RoguishShadowCaster.Name, CasterProgression.OneThird },
-        { MartialSpellShield.Name, CasterProgression.OneThird }
+        { MartialSpellShield.FullName, CasterProgression.OneThird }
     };
 
     // supports auto prepared spells scenarios on subs
