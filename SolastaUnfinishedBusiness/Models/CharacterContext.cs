@@ -584,8 +584,8 @@ internal static class CharacterContext
 
                 bool ShouldBe2Points()
                 {
-                    return (characterClassDefinition == Rogue && level is 10) ||
-                           (characterClassDefinition == Fighter && level is 6 or 14);
+                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
+                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
                 }
 
                 if (enable)
