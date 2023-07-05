@@ -1,8 +1,8 @@
-MerchantCategory/&AdventuringTitle=冒険ギア
+MerchantCategory/&AdventuringTitle=道具
 MerchantCategory/&AllTitle=全てのアイテム
 MerchantCategory/&ArmorTitle=鎧
 MerchantCategory/&CraftingTitle=クラフト
 MerchantCategory/&DocumentTitle=書類
 MerchantCategory/&IngredientTitle=材料
-MerchantCategory/&MagicDeviceTitle=魔法の装置
-MerchantCategory/&WeaponTitle=兵器
+MerchantCategory/&MagicDeviceTitle=魔法のアイテム
+MerchantCategory/&WeaponTitle=武器
