@@ -25,25 +25,6 @@ public class CustomRagingAura :
         _friendlyAura = friendlyAura;
     }
 
-    public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
-    {
-        if (power != _powerDefinition)
-        {
-            yield break;
-        }
-
-        if (_friendlyAura)
-        {
-            AddCondition(action.ActingCharacter);
-        }
-        else
-        {
-            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect,
-                _conditionDefinition.Name);
-        }
-    }
-
     public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
     {
         var battle = Gui.Battle;
@@ -110,6 +91,25 @@ public class CustomRagingAura :
     public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
     {
         RemoveCondition(rulesetActor);
+    }
+
+    public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+    {
+        if (power != _powerDefinition)
+        {
+            yield break;
+        }
+
+        if (_friendlyAura)
+        {
+            AddCondition(action.ActingCharacter);
+        }
+        else
+        {
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                _conditionDefinition.Name);
+        }
     }
 
     private void RemoveCondition(ISerializable rulesetActor)

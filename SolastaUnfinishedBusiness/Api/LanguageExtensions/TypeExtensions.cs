@@ -1,49 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 /*
-    Courtery to https://stackoverflow.com/questions/4035719/getmethod-for-generic-method
+    Courtesy to https://stackoverflow.com/questions/4035719/getmethod-for-generic-method
     A powerful GetMethod that handles matching one of the overloads including generic type params
  */
 
 internal static class TypeExtensions
 {
     /// <summary>
-    /// Search for a method by name and parameter types.  
-    /// Unlike GetMethod(), does 'loose' matching on generic
-    /// parameter types, and searches base interfaces.
+    ///     Search for a method by name and parameter types.
+    ///     Unlike GetMethod(), does 'loose' matching on generic
+    ///     parameter types, and searches base interfaces.
     /// </summary>
-    /// <exception cref="AmbiguousMatchException"/>
+    /// <exception cref="AmbiguousMatchException" />
     internal static MethodInfo GetMethodExt(this Type thisType,
-                                            string name,
-                                            params Type[] parameterTypes)
+        string name,
+        params Type[] parameterTypes)
     {
         return GetMethodExt(thisType,
-                            name,
-                            BindingFlags.Instance
-                            | BindingFlags.Static
-                            | BindingFlags.Public
-                            | BindingFlags.NonPublic
-                            | BindingFlags.FlattenHierarchy,
-                            parameterTypes);
+            name,
+            BindingFlags.Instance
+            | BindingFlags.Static
+            | BindingFlags.Public
+            | BindingFlags.NonPublic
+            | BindingFlags.FlattenHierarchy,
+            parameterTypes);
     }
 
     /// <summary>
-    /// Search for a method by name, parameter types, and binding flags.  
-    /// Unlike GetMethod(), does 'loose' matching on generic
-    /// parameter types, and searches base interfaces.
+    ///     Search for a method by name, parameter types, and binding flags.
+    ///     Unlike GetMethod(), does 'loose' matching on generic
+    ///     parameter types, and searches base interfaces.
     /// </summary>
-    /// <exception cref="AmbiguousMatchException"/>
+    /// <exception cref="AmbiguousMatchException" />
+    [UsedImplicitly]
     internal static MethodInfo GetMethodExt(this Type thisType,
-                                            string name,
-                                            BindingFlags bindingFlags,
-                                            params Type[] parameterTypes)
+        string name,
+        BindingFlags bindingFlags,
+        params Type[] parameterTypes)
     {
         MethodInfo matchingMethod = null;
 
@@ -51,101 +50,137 @@ internal static class TypeExtensions
         GetMethodExt(ref matchingMethod, thisType, name, bindingFlags, parameterTypes);
 
         // If we're searching an interface, we have to manually search base interfaces
-        if (matchingMethod == null && thisType.IsInterface)
+        if (matchingMethod != null || !thisType.IsInterface)
         {
-            foreach (var interfaceType in thisType.GetInterfaces())
-                GetMethodExt(ref matchingMethod,
-                             interfaceType,
-                             name,
-                             bindingFlags,
-                             parameterTypes);
+            return matchingMethod;
+        }
+
+        foreach (var interfaceType in thisType.GetInterfaces())
+        {
+            GetMethodExt(ref matchingMethod,
+                interfaceType,
+                name,
+                bindingFlags,
+                parameterTypes);
         }
 
         return matchingMethod;
     }
 
     private static void GetMethodExt(ref MethodInfo matchingMethod,
-                                        Type type,
-                                        string name,
-                                        BindingFlags bindingFlags,
-                                        params Type[] parameterTypes)
+        Type type,
+        string name,
+        BindingFlags bindingFlags,
+        params Type[] parameterTypes)
     {
         // Check all methods with the specified name, including in base classes
-        foreach (MethodInfo methodInfo in type.GetMember(name,
-                                                         MemberTypes.Method,
-                                                         bindingFlags))
+        foreach (var memberInfo in type.GetMember(name, MemberTypes.Method, bindingFlags))
         {
+            var methodInfo = (MethodInfo)memberInfo;
+
             // Check that the parameter counts and types match, 
             // with 'loose' matching on generic parameters
             var parameterInfos = methodInfo.GetParameters();
-            if (parameterInfos.Length == parameterTypes.Length)
+
+            if (parameterInfos.Length != parameterTypes.Length)
             {
-                var i = 0;
-                for (; i < parameterInfos.Length; ++i)
+                continue;
+            }
+
+            var i = 0;
+
+            for (; i < parameterInfos.Length; ++i)
+            {
+                if (!parameterInfos[i].ParameterType.IsSimilarType(parameterTypes[i]))
                 {
-                    if (!parameterInfos[i].ParameterType
-                                          .IsSimilarType(parameterTypes[i]))
-                        break;
+                    break;
                 }
-                if (i == parameterInfos.Length)
-                {
-                    if (matchingMethod == null)
-                        matchingMethod = methodInfo;
-                    else
-                        throw new AmbiguousMatchException(
-                               "More than one matching method found!");
-                }
+            }
+
+            if (i != parameterInfos.Length)
+            {
+                continue;
+            }
+
+            if (matchingMethod == null)
+            {
+                matchingMethod = methodInfo;
+            }
+            else
+            {
+                throw new AmbiguousMatchException(
+                    "More than one matching method found!");
             }
         }
     }
 
     /// <summary>
-    /// Special type used to match any generic parameter type in GetMethodExt().
+    ///     Determines if the two types are either identical, or are both generic
+    ///     parameters or generic types with generic parameters in the same
+    ///     locations (generic parameters match any other generic parameter,
+    ///     but NOT concrete types).
     /// </summary>
-    internal class T
-    { }
-
-    /// <summary>
-    /// Determines if the two types are either identical, or are both generic 
-    /// parameters or generic types with generic parameters in the same
-    ///  locations (generic parameters match any other generic paramter,
-    /// but NOT concrete types).
-    /// </summary>
+    [UsedImplicitly]
     internal static bool IsSimilarType(this Type thisType, Type type)
     {
-        // Ignore any 'ref' types
-        if (thisType.IsByRef)
-            thisType = thisType.GetElementType();
-        if (type.IsByRef)
-            type = type.GetElementType();
-
-        // Handle array types
-        if (thisType.IsArray && type.IsArray)
-            return thisType.GetElementType().IsSimilarType(type.GetElementType());
-
-        // If the types are identical, or they're both generic parameters 
-        // or the special 'T' type, treat as a match
-        if (thisType == type || (thisType.IsGenericParameter || thisType == typeof(T))
-                             && (type.IsGenericParameter || type == typeof(T)))
-            return true;
-
-        // Handle any generic arguments
-        if (thisType.IsGenericType && type.IsGenericType)
+        while (true)
         {
-            var thisArguments = thisType.GetGenericArguments();
-            var arguments = type.GetGenericArguments();
-            if (thisArguments.Length == arguments.Length)
+            // Ignore any 'ref' types
+            if (thisType is { IsByRef: true })
             {
-                for (var i = 0; i < thisArguments.Length; ++i)
-                {
-                    if (!thisArguments[i].IsSimilarType(arguments[i]))
-                        return false;
-                }
+                thisType = thisType.GetElementType();
+            }
+
+            if (type is { IsByRef: true })
+            {
+                type = type.GetElementType();
+            }
+
+            // Handle array types
+            if (type != null && thisType is { IsArray: true } && type.IsArray)
+            {
+                thisType = thisType.GetElementType();
+                type = type.GetElementType();
+
+                continue;
+            }
+
+            // If the types are identical, or they're both generic parameters 
+            // or the special 'T' type, treat as a match
+            if (type != null &&
+                thisType != null &&
+                (thisType == type ||
+                 ((thisType.IsGenericParameter ||
+                   thisType == typeof(T)) &&
+                  (type.IsGenericParameter ||
+                   type == typeof(T)))))
+            {
                 return true;
             }
-        }
 
-        return false;
+            // Handle any generic arguments
+            if (type == null || thisType is not { IsGenericType: true } || !type.IsGenericType)
+            {
+                return false;
+            }
+
+            var thisArguments = thisType.GetGenericArguments();
+            var arguments = type.GetGenericArguments();
+
+            if (thisArguments.Length != arguments.Length)
+            {
+                return false;
+            }
+
+            return !thisArguments.Where((t, i) => !t.IsSimilarType(arguments[i])).Any();
+        }
     }
 
+    /// <summary>
+    ///     Special type used to match any generic parameter type in GetMethodExt().
+    /// </summary>
+    [UsedImplicitly]
+    internal class T
+    {
+    }
 }

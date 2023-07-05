@@ -196,6 +196,55 @@ internal class PatronEldritchSurge : AbstractSubclass
                rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
+    // place this method elsewhere fit
+    private static T CreateCustomCondition<T>(
+        ulong targetGuid,
+        ConditionDefinition conditionDefinition,
+        int effectLevel = 1,
+        int amount = 0,
+        int sourceAbilityBonus = 0,
+        int sourceProficiencyBonus = 0) where T : RulesetCondition, new()
+    {
+        var rulesetCondition = new T();
+
+        rulesetCondition.ResetGuid();
+        rulesetCondition.Clear();
+        rulesetCondition.targetGuid = targetGuid;
+
+        if (conditionDefinition.SpecialDuration)
+        {
+            rulesetCondition.durationType = conditionDefinition.DurationType;
+            rulesetCondition.durationParameter = RollStaticDiceAndSum(
+                conditionDefinition.DurationParameter, conditionDefinition.DurationParameterDie);
+            rulesetCondition.remainingRounds = ComputeRoundsDuration(
+                rulesetCondition.durationType, rulesetCondition.durationParameter);
+        }
+        else
+        {
+            rulesetCondition.durationType = DurationType.Irrelevant;
+            rulesetCondition.durationParameter = 0;
+            rulesetCondition.remainingRounds = 0;
+        }
+
+        rulesetCondition.endOccurence = TurnOccurenceType.EndOfTurn;
+        rulesetCondition.ConditionDefinition = conditionDefinition;
+        rulesetCondition.sourceGuid = 0UL;
+        rulesetCondition.sourceFactionName = string.Empty;
+        rulesetCondition.effectLevel = effectLevel;
+        rulesetCondition.effectDefinitionName = string.Empty;
+
+        if (conditionDefinition.AmountOrigin != ConditionDefinition.OriginOfAmount.None)
+        {
+            rulesetCondition.amount = amount;
+        }
+
+        rulesetCondition.sourceAbilityBonus = sourceAbilityBonus;
+        rulesetCondition.sourceProficiencyBonus = sourceProficiencyBonus;
+        rulesetCondition.doNotTerminateWhenRemoved = false;
+
+        return rulesetCondition;
+    }
+
     private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
     {
         public EffectDescription ModifyEffect(
@@ -467,14 +516,18 @@ internal class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType("10Combat",ConditionBlastReloadSupport.Name, out var supportCondition))
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType("10Combat", ConditionBlastReloadSupport.Name,
+                    out var supportCondition))
             {
-                supportCondition = CreateCustomCondition<BlastReloadSupportRulesetCondition>(rulesetCharacter.guid, ConditionBlastReloadSupport);
-                rulesetCharacter.AddConditionOfCategory("10Combat", supportCondition, true, true);
+                supportCondition =
+                    CreateCustomCondition<BlastReloadSupportRulesetCondition>(rulesetCharacter.guid,
+                        ConditionBlastReloadSupport);
+                rulesetCharacter.AddConditionOfCategory("10Combat", supportCondition);
             }
 
             var eldritchSurgeSupportCondition = supportCondition as BlastReloadSupportRulesetCondition;
-            eldritchSurgeSupportCondition.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
+
+            eldritchSurgeSupportCondition?.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter gameLocationCharacter)
@@ -489,12 +542,15 @@ internal class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType("10Combat", ConditionBlastReloadSupport.Name, out var supportCondition))
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionBlastReloadSupport.Name, out var supportCondition))
             {
-                var eldritchSurgeSupportCondition = supportCondition as BlastReloadSupportRulesetCondition;
-                eldritchSurgeSupportCondition.CantripsUsedThisTurn.Clear();
+                return;
             }
 
+            var eldritchSurgeSupportCondition = supportCondition as BlastReloadSupportRulesetCondition;
+
+            eldritchSurgeSupportCondition?.CantripsUsedThisTurn.Clear();
         }
 
         public void QualifySpells(
@@ -503,83 +559,44 @@ internal class PatronEldritchSurge : AbstractSubclass
             IEnumerable<SpellDefinition> spells)
         {
             // _cantripsUsedThisTurn only has entries for Eldritch Surge of at least level 14
-            if (spellRepertoireLine.actionType == ActionType.Bonus &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType("10Combat", ConditionBlastReloadSupport.Name, out var supportCondition))
+            if (spellRepertoireLine.actionType != ActionType.Bonus ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionBlastReloadSupport.Name, out var supportCondition))
             {
-                var eldritchSurgeSupportCondition = supportCondition as BlastReloadSupportRulesetCondition;
-                spellRepertoireLine.relevantSpells.AddRange(eldritchSurgeSupportCondition.CantripsUsedThisTurn.Intersect(spells));
+                return;
+            }
+
+            if (supportCondition is BlastReloadSupportRulesetCondition eldritchSurgeSupportCondition)
+            {
+                spellRepertoireLine.relevantSpells.AddRange(
+                    eldritchSurgeSupportCondition.CantripsUsedThisTurn.Intersect(spells));
             }
         }
     }
-    internal class BlastReloadSupportRulesetCondition : RulesetCondition, ISerializable
+
+    private class BlastReloadSupportRulesetCondition : RulesetCondition
     {
-
-        private List<SpellDefinition> cantripsUsedThisTurn = new List<SpellDefinition>();
-
-        public List<SpellDefinition> CantripsUsedThisTurn { get => cantripsUsedThisTurn; set => cantripsUsedThisTurn = value; }
-
-        public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
-        {
-            base.SerializeAttributes(serializer, versionProvider);
-        }
+        public List<SpellDefinition> CantripsUsedThisTurn { get; } = new();
 
         public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
         {
             base.SerializeElements(serializer, versionProvider);
+
             try
             {
-                BaseDefinition.SerializeDatabaseReferenceList<SpellDefinition>(serializer, "CantripsUsedThisTurn", "SpellDefinition", cantripsUsedThisTurn);
+                BaseDefinition.SerializeDatabaseReferenceList(
+                    serializer, "CantripsUsedThisTurn", "SpellDefinition", CantripsUsedThisTurn);
+
                 if (serializer.Mode == Serializer.SerializationMode.Read)
                 {
-                    cantripsUsedThisTurn.RemoveAll(x => x is null);
+                    CantripsUsedThisTurn.RemoveAll(x => x is null);
                 }
             }
             catch (Exception ex)
             {
-                Trace.LogException(new Exception("[TACTICAL INVISIBLE FOR PLAYERS] error with EldritchSurgeSupportCondition serialization (may be caused by mods or bad versioning implementation) " + ex.Message, ex));
-                Gui.GuiService.ShowMessage(MessageModal.Severity.Serious3, "Message/&CorruptedCharacterErrorTitle", "Message/&CorruptedCharacterErrorDescription", "Message/&MessageOkTitle", null, null, null, true, false, false, false);
+                Trace.LogException(
+                    new Exception("Error with EldritchSurgeSupportCondition serialization" + ex.Message, ex));
             }
         }
-    }
-
-    // place this method elsewhere fit
-    public static T CreateCustomCondition<T>(
-            ulong targetGuid,
-            ConditionDefinition conditionDefinition,
-            int effectLevel = 1,
-            int amount = 0,
-            int sourceAbilityBonus = 0,
-            int sourceProficiencyBonus = 0) where T : RulesetCondition, new()
-    {
-        T rulesetCondition = new T();
-        rulesetCondition.ResetGuid();
-        rulesetCondition.Clear();
-        rulesetCondition.targetGuid = targetGuid;
-        if (conditionDefinition.SpecialDuration)
-        {
-            rulesetCondition.durationType = conditionDefinition.DurationType;
-            rulesetCondition.durationParameter = RuleDefinitions.RollStaticDiceAndSum(conditionDefinition.DurationParameter, conditionDefinition.DurationParameterDie, null);
-            rulesetCondition.remainingRounds = RuleDefinitions.ComputeRoundsDuration(rulesetCondition.durationType, rulesetCondition.durationParameter);
-        }
-        else
-        {
-            rulesetCondition.durationType = RuleDefinitions.DurationType.Irrelevant;
-            rulesetCondition.durationParameter = 0;
-            rulesetCondition.remainingRounds = 0;
-        }
-        rulesetCondition.endOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
-        rulesetCondition.ConditionDefinition = conditionDefinition;
-        rulesetCondition.sourceGuid = 0UL;
-        rulesetCondition.sourceFactionName = string.Empty;
-        rulesetCondition.effectLevel = effectLevel;
-        rulesetCondition.effectDefinitionName = string.Empty;
-        if (conditionDefinition.AmountOrigin != ConditionDefinition.OriginOfAmount.None)
-        {
-            rulesetCondition.amount = amount;
-        }
-        rulesetCondition.sourceAbilityBonus = sourceAbilityBonus;
-        rulesetCondition.sourceProficiencyBonus = sourceProficiencyBonus;
-        rulesetCondition.doNotTerminateWhenRemoved = false;
-        return rulesetCondition;
     }
 }

@@ -20,7 +20,6 @@ using TA;
 using UnityEngine;
 using static ConsoleStyleDuplet;
 using static FeatureDefinitionAttributeModifier;
-using static SolastaUnfinishedBusiness.Api.LanguageExtensions.TypeExtensions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -799,10 +798,13 @@ public static class RulesetActorPatcher
             //this.conditionsByCategory = serializer.SerializeElement<string, List<RulesetCondition>>("ConditionsByCategory", this.conditionsByCategory);
             //to
             //this.conditionsByCategory = serializer.SerializeElement<string, List<RulesetCondition>>("ConditionsByCategory", this.conditionsByCategory, Serializer.SerializationOption.SerializeTypeName);
-            var originalMethod = typeof(IElementsSerializer).GetMethodExt("SerializeElement",
-                new Type[] { typeof(string), typeof(Dictionary<, >) }).MakeGenericMethod(typeof(string), typeof(List<RulesetCondition>));
-            var replacingMethod = typeof(IElementsSerializer).GetMethodExt("SerializeElement",
-                new Type[] { typeof(string), typeof(Dictionary<, >), typeof(Serializer.SerializationOption)}).MakeGenericMethod(typeof(string), typeof(List<RulesetCondition>));
+            var originalMethod = typeof(IElementsSerializer)
+                .GetMethodExt("SerializeElement", typeof(string), typeof(Dictionary<,>))
+                .MakeGenericMethod(typeof(string), typeof(List<RulesetCondition>));
+            var replacingMethod = typeof(IElementsSerializer)
+                .GetMethodExt("SerializeElement", typeof(string), typeof(Dictionary<,>),
+                    typeof(Serializer.SerializationOption))
+                .MakeGenericMethod(typeof(string), typeof(List<RulesetCondition>));
 
             return instructions.ReplaceCalls(
                 originalMethod,

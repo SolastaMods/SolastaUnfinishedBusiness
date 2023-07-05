@@ -17,6 +17,18 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionCastSpellPatcher
 {
+    private static bool RequiresConcentration(
+        SpellDefinition spellDefinition,
+        CharacterActionCastSpell characterActionCastSpell)
+    {
+        var rulesetCharacter = characterActionCastSpell.ActingCharacter.RulesetCharacter;
+        var rulesetEffectSpell = characterActionCastSpell.ActiveSpell;
+
+        return rulesetCharacter.GetSubFeaturesByType<IModifyConcentrationRequirement>()
+            .All(modifyConcentrationRequirement =>
+                modifyConcentrationRequirement.RequiresConcentration(rulesetCharacter, rulesetEffectSpell));
+    }
+
     [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.ApplyMagicEffect))]
     [HarmonyPatch(
         new[]
@@ -128,18 +140,6 @@ public static class CharacterActionCastSpellPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, spellCastingLevel));
         }
-    }
-
-    private static bool RequiresConcentration(
-        SpellDefinition spellDefinition,
-        CharacterActionCastSpell characterActionCastSpell)
-    {
-        var rulesetCharacter = characterActionCastSpell.ActingCharacter.RulesetCharacter;
-        var rulesetEffectSpell = characterActionCastSpell.ActiveSpell;
-
-        return rulesetCharacter.GetSubFeaturesByType<IModifyConcentrationRequirement>()
-            .All(modifyConcentrationRequirement =>
-                modifyConcentrationRequirement.RequiresConcentration(rulesetCharacter, rulesetEffectSpell));
     }
 
     [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.StartConcentrationAsNeeded))]
