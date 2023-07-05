@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierSanctuaryArmorClass:d8990518-0226-5e2e-bb48-af358e18f774"
+    "Definition:ReduceDamageSanctuary:d1f0fb0e-b0e5-5236-b9e4-67056aeeb0fd"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -153,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15e2ae6e-58c8-5515-b670-4a09ecb58ec6",
+  "guid": "d015058d-9975-55d5-8be9-29126572624c",
   "contentPack": 9999,
-  "name": "ConditionSanctuaryArmorClass"
+  "name": "ConditionSanctuaryReduceDamage"
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -11,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -696,15 +696,16 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
-        var conditionSanctuaryArmorClass = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ArmorClass")
+        var conditionSanctuaryReduceDamage = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ReduceDamage")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}ArmorClass")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 30)
-                .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionReduceDamageBuilder
+                    .Create($"ReduceDamage{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
+                    .AddToDB())
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
@@ -731,11 +732,11 @@ internal static partial class SpellBuilders
 
         var featureSanctuary = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new AttackBeforeHitConfirmedOnMeSanctuary(
                     conditionSanctuary,
-                    conditionSanctuaryArmorClass,
+                    conditionSanctuaryReduceDamage,
                     conditionSanctuaryDamageResistance))
             .AddToDB();
 
@@ -765,17 +766,17 @@ internal static partial class SpellBuilders
 
     private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionArmorClass;
+        private readonly ConditionDefinition _conditionReduceDamage;
         private readonly ConditionDefinition _conditionResistance;
         private readonly ConditionDefinition _conditionSanctuary;
 
         internal AttackBeforeHitConfirmedOnMeSanctuary(
             ConditionDefinition conditionSanctuary,
-            ConditionDefinition conditionArmorClass,
+            ConditionDefinition conditionReduceDamage,
             ConditionDefinition conditionResistance)
         {
             _conditionSanctuary = conditionSanctuary;
-            _conditionArmorClass = conditionArmorClass;
+            _conditionReduceDamage = conditionReduceDamage;
             _conditionResistance = conditionResistance;
         }
 
@@ -825,13 +826,13 @@ internal static partial class SpellBuilders
             var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
                 .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
-            var defenderProfBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetCaster
+            var casterProfBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetCaster
                 .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-            var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCaster
+            var casterWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCaster
                 .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
             attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
-                advantageTrends, attackerWisModifier, 8 + defenderProfBonus + defenderWisModifier, false,
+                advantageTrends, attackerWisModifier, 8 + casterProfBonus + casterWisModifier, false,
                 out var savingOutcome,
                 out _);
 
@@ -840,7 +841,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var condition = criticalHit ? _conditionResistance : _conditionArmorClass;
+            var condition = criticalHit ? _conditionResistance : _conditionReduceDamage;
 
             rulesetDefender.InflictCondition(
                 condition.Name,
