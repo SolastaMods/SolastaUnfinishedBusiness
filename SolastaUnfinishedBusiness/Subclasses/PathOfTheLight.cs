@@ -94,6 +94,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetCustomSubFeatures(new BarbarianHolder())
             .AddToDB();
 
+        additionalDamagePathOfTheLightIlluminatingStrike.DiceByRankTable[9].diceNumber = 2;
+
         foreach (var invisibleCondition in InvisibleConditions)
         {
             additionalDamagePathOfTheLightIlluminatingStrike.ConditionOperations.Add(
