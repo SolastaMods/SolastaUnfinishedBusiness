@@ -1,4 +1,8 @@
-﻿1.5.92.10:
+﻿1.5.92.11:
+
+- fixed all spells requiring concentration [it's WoTC not FoTC ;-)]
+
+1.5.92.10:
 
 ATTENTION: 
 
