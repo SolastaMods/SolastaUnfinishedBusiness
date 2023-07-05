@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -749,10 +748,15 @@ internal static class OtherFeats
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
         //Poison character that shoves me
-        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
-
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
+            if (characterAction.ActionId != ActionDefinitions.Id.Shove &&
+                characterAction.ActionId != ActionDefinitions.Id.ShoveBonus &&
+                characterAction.ActionId != ActionDefinitions.Id.ShoveFree)
+            {
+                yield break;
+            }
+
             if (characterAction.ActionParams.TargetCharacters == null ||
                 !characterAction.ActionParams.TargetCharacters.Contains(target))
             {

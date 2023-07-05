@@ -111,8 +111,7 @@ public static class CharacterActionPatcher
                         var rulesetTarget = target.RulesetCharacter;
 
                         foreach (var actionFinishedByEnemy in rulesetTarget
-                                     .GetSubFeaturesByType<IActionFinishedByEnemy>()
-                                     .Where(x => x.ActionDefinition == __instance.ActionDefinition))
+                                     .GetSubFeaturesByType<IActionFinishedByEnemy>())
                         {
                             yield return actionFinishedByEnemy.OnActionFinishedByEnemy(__instance, target);
                         }

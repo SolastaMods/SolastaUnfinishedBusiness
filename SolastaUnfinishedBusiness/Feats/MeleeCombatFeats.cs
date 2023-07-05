@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -534,10 +533,13 @@ internal static class MeleeCombatFeats
 
     private sealed class ActionFinishedByEnemyOldTactics : IActionFinishedByEnemy
     {
-        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.StandUp;
-
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
+            if (characterAction.ActionId != ActionDefinitions.Id.StandUp)
+            {
+                yield break;
+            }
+
             //do not trigger on my own turn, so won't retaliate on AoO
             if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
             {
