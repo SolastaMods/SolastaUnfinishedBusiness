@@ -229,7 +229,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWhirl :
-        IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        ISpendPowerFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly ConditionDefinition _conditionExtraMovement;
@@ -251,121 +251,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             _powerDefensiveWhirl = powerDefensiveWhirl;
             _powerSlashingWhirl = powerSlashingWhirl;
             _powerMobileWhirl = powerMobileWhirl;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            if (_damageType == null)
-            {
-                yield break;
-            }
-
-            if (characterAction is not CharacterActionSpendPower characterActionUsePower)
-            {
-                yield break;
-            }
-
-            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
-
-            if (powerDefinition != _powerDefensiveWhirl &&
-                powerDefinition != _powerSlashingWhirl &&
-                powerDefinition != _powerMobileWhirl)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterActionUsePower.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            actingCharacter.UsedSpecialFeatures.TryAdd("Whirl", 1);
-
-            var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
-                ? DieType.D6
-                : rulesetCharacter.GetBardicInspirationDieValue();
-            var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-            // add damage roll to AC if defensive whirl
-            if (characterActionUsePower.activePower.PowerDefinition == _powerDefensiveWhirl)
-            {
-                var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition == _conditionDefensiveWhirl);
-
-                if (usableCondition != null)
-                {
-                    usableCondition.amount = damageRoll;
-                }
-            }
-
-            // add targets
-            var originalTarget = characterAction.ActionParams.TargetCharacters[0];
-            var targetCharacters = new List<GameLocationCharacter>();
-
-            if (powerDefinition == _powerSlashingWhirl)
-            {
-                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                if (gameLocationBattleService != null)
-                {
-                    targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
-                        .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
-                        .ToList());
-                }
-            }
-            else
-            {
-                targetCharacters.Add(originalTarget);
-            }
-
-            var dices = new List<int> { damageRoll };
-            var diceNumber = _criticalHit ? 2 : 1;
-
-            if (diceNumber > 1)
-            {
-                var criticalDamageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-                damageRoll += criticalDamageRoll;
-                dices.Add(criticalDamageRoll);
-            }
-
-            // apply damage to all targets
-            foreach (var targetCharacter in targetCharacters)
-            {
-                var rulesetDefender = targetCharacter.RulesetCharacter;
-
-                var damageForm = new DamageForm
-                {
-                    DamageType = _damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
-                };
-
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    _damageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                    rulesetDefender,
-                    false,
-                    rulesetCharacter.Guid,
-                    false,
-                    new List<string>(),
-                    new RollInfo(dieType, dices, 0),
-                    false,
-                    out _);
-            }
-
-            // consume bardic inspiration if not a masterful whirl
-            if (rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))
-            {
-                yield break;
-            }
-
-            rulesetCharacter.UsedBardicInspiration++;
-            rulesetCharacter.BardicInspirationAltered?.Invoke(
-                rulesetCharacter, rulesetCharacter.RemainingBardicInspirations);
         }
 
         // collect damage type
@@ -428,6 +313,112 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     0,
                     0);
             }
+        }
+
+        public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+        {
+            if (_damageType == null)
+            {
+                yield break;
+            }
+
+            if (power != _powerDefensiveWhirl && power != _powerSlashingWhirl && power != _powerMobileWhirl)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            actingCharacter.UsedSpecialFeatures.TryAdd("Whirl", 1);
+
+            var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
+                ? DieType.D6
+                : rulesetCharacter.GetBardicInspirationDieValue();
+            var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+            // add damage roll to AC if defensive whirl
+            if (action.activePower.PowerDefinition == _powerDefensiveWhirl)
+            {
+                var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == _conditionDefensiveWhirl);
+
+                if (usableCondition != null)
+                {
+                    usableCondition.amount = damageRoll;
+                }
+            }
+
+            // add targets
+            var originalTarget = action.ActionParams.TargetCharacters[0];
+            var targetCharacters = new List<GameLocationCharacter>();
+
+            if (power == _powerSlashingWhirl)
+            {
+                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                if (gameLocationBattleService != null)
+                {
+                    targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
+                        .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
+                        .ToList());
+                }
+            }
+            else
+            {
+                targetCharacters.Add(originalTarget);
+            }
+
+            var dices = new List<int> { damageRoll };
+            var diceNumber = _criticalHit ? 2 : 1;
+
+            if (diceNumber > 1)
+            {
+                var criticalDamageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+                damageRoll += criticalDamageRoll;
+                dices.Add(criticalDamageRoll);
+            }
+
+            // apply damage to all targets
+            foreach (var targetCharacter in targetCharacters)
+            {
+                var rulesetDefender = targetCharacter.RulesetCharacter;
+
+                var damageForm = new DamageForm
+                {
+                    DamageType = _damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
+                };
+
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    _damageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    rulesetDefender,
+                    false,
+                    rulesetCharacter.Guid,
+                    false,
+                    new List<string>(),
+                    new RollInfo(dieType, dices, 0),
+                    false,
+                    out _);
+            }
+
+            // consume bardic inspiration if not a masterful whirl
+            if (rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.UsedBardicInspiration++;
+            rulesetCharacter.BardicInspirationAltered?.Invoke(
+                rulesetCharacter, rulesetCharacter.RemainingBardicInspirations);
         }
     }
 }

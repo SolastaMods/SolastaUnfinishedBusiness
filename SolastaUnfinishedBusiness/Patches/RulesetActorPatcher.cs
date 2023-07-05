@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -781,6 +782,35 @@ public static class RulesetActorPatcher
                 newEffectForms, formsParams, effectiveDamageTypes,
                 out damageAbsorbedByTemporaryHitPoints, out terminateEffectOnTarget,
                 retargeting, proxyOnly, forceSelfConditionOnly, effectApplication, filters);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.SerializeElements))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SerializeElements_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: supports class inheriting RulesetCondition for saving serializable data
+            //change
+            //this.conditionsByCategory = serializer.SerializeElement<string, List<RulesetCondition>>("ConditionsByCategory", this.conditionsByCategory);
+            //to
+            //this.conditionsByCategory = serializer.SerializeElement<string, List<RulesetCondition>>("ConditionsByCategory", this.conditionsByCategory, Serializer.SerializationOption.SerializeTypeName);
+            var originalMethod = typeof(IElementsSerializer)
+                .GetMethodExt("SerializeElement", typeof(string), typeof(Dictionary<,>))
+                .MakeGenericMethod(typeof(string), typeof(List<RulesetCondition>));
+            var replacingMethod = typeof(IElementsSerializer)
+                .GetMethodExt("SerializeElement", typeof(string), typeof(Dictionary<,>),
+                    typeof(Serializer.SerializationOption))
+                .MakeGenericMethod(typeof(string), typeof(List<RulesetCondition>));
+
+            return instructions.ReplaceCalls(
+                originalMethod,
+                "RulesetActor.SerializeElements",
+                new CodeInstruction(OpCodes.Ldc_I4_1),
+                new CodeInstruction(OpCodes.Callvirt, replacingMethod));
         }
     }
 }

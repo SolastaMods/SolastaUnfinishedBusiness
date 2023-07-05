@@ -1,0 +1,8 @@
+Condition/&AfterRestIdentifyDescription=Распознавание магических предметов
+Condition/&AfterRestIdentifyTitle=Опознание
+Condition/&ConditionDistractedByAllyDescription=Это существо было отвлечено.
+Condition/&ConditionDistractedByAllyTitle=Отвлечён
+Condition/&ConditionLightSensitivityDescription=Вы совершаете с помехой проверки Мудрости (Восприятие) при ярком свете и получаете штраф -1d4 к броскам атаки.
+Condition/&ConditionLightSensitivityTitle=Светочувствительность
+Condition/&ConditionStopMovementDescription=Не в состоянии двигаться. Скорость снижена до 0.
+Condition/&ConditionStopMovementTitle=Остановлен

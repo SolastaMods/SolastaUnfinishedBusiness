@@ -1,0 +1,14 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Сила +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Увеличение характеристики
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=Мудрость +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Увеличение характеристики
+Feature/&CastSpellBolgrifMagicDescription=Вы узнаёте один заговор по вашему выбору из списка заклинаний Друида. Мудрость является вашей заклинательной характеристикой для этого заговора.
+Feature/&CastSpellBolgrifMagicTitle=Друидическая магия
+Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=Вы считаетесь на один размер больше, когда определяется ваша грузоподъемность.
+Feature/&EquipmentAffinityBolgrifPowerfulBuildTitle=Мощное телосложение
+Feature/&PowerBolgrifInvisibilityDescription=Бонусным действием вы можете магически стать невидимыми до начала вашего следующего хода или пока вы не атакуете, не бросите кость урона, или не заставите кого-то совершить спасбросок. Использовав эту особенность, вы не можете использовать её снова, пока не завершите короткий или продолжительный отдых.
+Feature/&PowerBolgrifInvisibilityTitle=Исчезновение
+Feature/&ProficiencyBolgrifLanguagesDescription=Общий, Эльфийский и язык Великанов.
+Feature/&ProficiencyBolgrifLanguagesTitle=Языки
+Race/&RaceBolgrifDescription=Болгрифы - полувеликаны, живущие в морозных высокогорьях Соласты. Они хитры, осторожны, замкнуты, не доверяют большинству гуманоидов, кроме эльфов, и предпочитают жить вдали от цивилизации в крепко сплоченных кланах. Если их вынуждают биться, болгрифы демонстрируют грозные навыки обращения с оружием и природной магией.
+Race/&RaceBolgrifTitle=Болгриф

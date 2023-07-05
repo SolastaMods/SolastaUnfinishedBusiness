@@ -1,0 +1,14 @@
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Увеличьте урон от вашей следующей скрытой атаки дополнительно на 3d6 до конца вашего следующего хода. Этот урон увеличивается до 4d6 на 13-м уровне и до 5d6 на 17-м.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Череда казней
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Вы отмечены Убийцей.
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Метка убийцы
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=Начиная с 9-го уровня, каждый раз, когда вы снижаете хиты существа до 0, или когда существо, пострадавшее от вашей скрытой атаки, умирает до начала вашего следующего хода, увеличьте урон вашей следующей скрытой атаки на половину вашего общего количества костей скрытой атаки (с округлением вверх), до конца вашего следующего хода.
+Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Череда казней
+Feature/&FeatureRoguishSlayerEliminationDescription=Начиная с 3-го уровня, вы достигаете наибольшей смертоносности, когда внезапно набрасываетесь на своих врагов. Вы совершаете с преимуществом броски атаки по всем существам, которые ещё не совершали ход в этом бою. Кроме того, все попадания по существам, захваченным врасплох, являются критическими попаданиями.
+Feature/&FeatureRoguishSlayerEliminationTitle=Ликвидация
+Feature/&FeatureRoguishSlayerFatalStrikeDescription=Начиная с 17-го уровня, вы становитесь мастером мгновенной смерти. Если вы атакуете и попадаете по существу, захваченному врасплох, оно должно совершить спасбросок Телосложения (Сл 8 + ваш модификатор Ловкости + ваш бонус мастерства). Проваленный спасбросок означает удвоение урона от вашей атаки по этому существу.
+Feature/&FeatureRoguishSlayerFatalStrikeTitle=Смертельный удар
+Feature/&PowerRoguishSlayerCloakOfShadowsDescription=Начиная с 13-го уровня, вы можете использовать своё бонусное действие, чтобы стать невидимым на 1 минуту. Вы можете использовать эту способность один раз до короткого отдыха.
+Feature/&PowerRoguishSlayerCloakOfShadowsTitle=Покров теней
+Subclass/&RoguishSlayerDescription=Убийцы сосредоточили своё обучение на мрачном искусстве смерти. Те, кто придерживаются этого архетипа, разнообразны: наёмные убийцы, шпионы, охотники за головами и даже особо помазанные священники, обученные истреблять врагов своего божества. Скрытность, яд и маскировка помогут в борьбе с врагами со смертоносной эффективностью.
+Subclass/&RoguishSlayerTitle=Убийца

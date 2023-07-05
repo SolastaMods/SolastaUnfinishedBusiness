@@ -1,0 +1,14 @@
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Диапазон ваших критических ударов увеличивается на 1.
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Необузданная свирепость
+Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=Начиная с 3-го уровня, вы можете использовать два оружия ближнего боя, не являющихся лёгкими, а также добавлять свой бонус характеристики к вторичной атаке.
+Feature/&AttackModifierPathOfTheSavagerySavageStrengthTitle=Дикая сила
+Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=Начиная с 14-го уровня, пока вы в ярости, каждый раз, когда вы совершаете спасбросок Ловкости, вы можете совершить вместо него спасбросок Силы. Вы получаете +2 КД, когда находитесь в ярости и используете два оружия ближнего боя.
+Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=Яростная защита
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=Начиная с 10-го уровня, пока вы в ярости, каждый раз, когда вы попадаете по существу атакой оружием ближнего боя и не наносите критического удара, вы увеличиваете диапазон критического удара на 1. Этот эффект суммируется. Как только вы наносите критический удар, бонус возвращается к 0.
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=Необузданная свирепость
+Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Начиная с 6-го уровня, когда вы используете два оружия ближнего боя, увеличьте категорию урона каждого оружия на 1 (d4 превращается в d6, d6 превращается в d8 и т.д.).
+Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=Гнев и ярость
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=Вы можете впадать в Ярость свободным действием вместо бонусного.
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=Первобытный инстинкт
+Subclass/&PathOfTheSavageryDescription=Варвары, идущие по Пути дикаря, - это сила природы, они сражаются скорее не как люди, а как дикие звери. Они наносят удары со взрывной скоростью и мощью, оперируя парными клинками, подобно диким животным, сражающимся когтями и клыками.
+Subclass/&PathOfTheSavageryTitle=Путь дикаря

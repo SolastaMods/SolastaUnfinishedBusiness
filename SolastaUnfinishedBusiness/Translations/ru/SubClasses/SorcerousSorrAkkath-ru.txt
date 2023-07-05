@@ -1,0 +1,14 @@
+Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=Один раз за ход вы можете нанести дополнительно 1d6 урона одному существу, в которое вы попали атакой заклинанием, если у вас есть преимущество на бросок атаки. Вам не нужно преимущество при броске атаки, если другой противник цели находится в пределах 5 футов от неё, этот противник не недееспособен, и у вас нет помехи на бросок атаки. Урон увеличивается до 2d6 на 5-м уровне, 3d6 на 11-м уровне и 4d6 на 17-м уровне.
+Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle=Скрытая атака заклинанием
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=Начиная с 6-го уровня, вы получаете сопротивление урону ядом и иммунитет к состоянию отравления. Кроме того, попадание по существу с помощью Скрытой атаки заклинанием заставляет это существо совершить спасбросок Телосложения. Если существо проваливает его, оно становится отравленным до конца вашего следующего хода.
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=Кровь Сорр-Аккат
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=Начиная с 14-го уровня, находясь в тусклом свете или темноте, вы получаете следующие способности:\n• +2 к КД.\n• +2 к броскам атаки.\n• +2 к спасброскам.\n• +2 ОЗ регенерации в конце вашего хода.
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle=Родство с тьмой
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=Вы получаете владение навыками Скрытности и Обмана, изучаете заговор Ядовитый шип и получаете 60 футов тёмного зрения.
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle=Обманчивое наследие
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription=Начиная с 18-го уровня, вы получаете способность накладывать порчу на существ прикосновением и вытягивать их здоровье. Используя свое действие в качестве атаки заклинанием с дальностью касания, нанесите существу 8d8 некротического урона при успешном попадании и исцелитесь на половину нанесённого урона. Вы можете использовать эту способность три раза до длительного отдыха, а если у вас закончились использования, вы можете потратить 4 единицы чародейства.
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle=Прикосновение тьмы
+Feedback/&AdditionalDamageSpellSneakAttackFormat=Скрытая атака заклинанием!
+Feedback/&AdditionalDamageSpellSneakAttackLine={0} совершает скрытую атаку заклинанием по {1} (+{2})
+Subclass/&SorcerousSorrAkkathDescription=Ваша врождённая способность к заклинаниям происходит от магии Сорр-Акката, которая была смешана с вашей кровью или кровью ваших предков. Что касается происхождения этих чародеев, возможно, вы подверглись эксперименту, в котором использовалась кровь сорака, или ваш предок заключил сделку с сораком, или вы просто являетесь потомком сорака.
+Subclass/&SorcerousSorrAkkathTitle=Сорр-Аккат

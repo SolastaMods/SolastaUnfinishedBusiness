@@ -1,0 +1,16 @@
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Ваш разум взорвётся некротическим уроном, если вы в третий раз войдёте в диссонанс.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Диссонанс
+Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=Получите -1d4 к спасброскам и -2 к броскам атаки. Вы можете попытаться совершить спасбросок в конце каждого вашего хода.
+Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=Глубокое смятение
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=Начиная с 3-го уровня, вы научились манипулировать внутренней дисгармонией ваших врагов, создавая волны искажающей энергии. Каждый раз, когда вы поражаете существо монашеским оружием или безоружной атакой, оно получает один уровень состояния Диссонанса на 1 минуту. Когда существо получает 3-й уровень, все уровни снимаются, и оно получает некротический урон, равный вашей кости боевых искусств + ваш модификатор Мудрости.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=Диссонанс
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=Начиная с 6-го уровня, вы применяете один дополнительный уровень состояния Диссонанса, когда успешно оглушаете существо способностью Ошеломляющий удар. Кроме того, пока длится состояние оглушения, оглушенное существо получает дополнительный уровень Диссонанса от ваших атак и способностей.
+Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Схизма
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=На 11-м уровне вы получаете способность вызывать извержение накопленной негативной энергии. Вы можете увеличить урон, потратив очки Ци. Каждое потраченное очко, до максимума, равного вашему бонусу мастерства, увеличивает урон на 1d6.
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Взрыв дисгармонии
+Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=Начиная с 17-го уровня, когда существо получает урон от вашей способности Диссонанс, оно должно успешно выполнить спасбросок Харизмы или получить состояние Смятения на срок до одной минуты. Если существо успешно пройдёт спасбросок или действие эффекта закончится, оно становится невосприимчивым к дальнейшим эффектам Смятения.
+Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=Глубокое смятение
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Потратьте {0} очков Ци, чтобы нанести {1}d6 урона.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Взрыв дисгармонии [{0} Ци]
+Subclass/&WayOfTheDiscordanceDescription=Если большинство монахов стремятся к просветлению через созерцание и достижение внутреннего покоя, то монахи Пути диссонанса, напротив, сосредоточены на использовании хаотических энергий Вселенной. Эти мистические мастера дисгармонии используют внутренние конфликты своих противников, манипулируя их Ци, разрушая их всплесками искажающей энергии.
+Subclass/&WayOfTheDiscordanceTitle=Путь диссонанса

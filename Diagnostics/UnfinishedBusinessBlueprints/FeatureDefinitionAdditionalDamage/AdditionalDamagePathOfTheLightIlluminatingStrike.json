@@ -72,7 +72,7 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 1
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",

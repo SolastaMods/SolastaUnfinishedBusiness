@@ -1,0 +1,13 @@
+Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=После того, как вы совершаете бросок атаки оружием монаха или безоружной атаки и критически попадаете, вы наносите дополнительный урон, равный одному броску вашей кости боевых искусств.
+Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=Жестокое благо
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=После того, как вы совершаете бросок атаки оружием монаха или безоружной атаки и критически попадаете, вы восстанавливаете 1 очко Ци.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=Побуждённое благо
+Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=После того, как вы совершаете бросок атаки оружием монаха или безоржной атаки и критически промахиваетесь, вы вместо этого наносите урон Горя цели вместо себя.
+Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=Их горе
+Feature/&FeatureWayOfWealAndWoeWealDescription=После того, как вы совершаете бросок атаки оружием монаха или безоружной атаки, увеличьте диапазон ваших критических попадания и промаха на 1. Он возвращается к значениям 20 и 1 соответственно после продолжительного отдыха, критического попадания или критического промаха.
+Feature/&FeatureWayOfWealAndWoeWealTitle=Благо
+Feature/&FeatureWayOfWealAndWoeWoeDescription=После того, как вы совершаете бросок атаки оружием монаха или безоружной атаки и критически промахиваетесь, вы получаете урон, равный одному броску вашей кости боевых искусств.
+Feature/&FeatureWayOfWealAndWoeWoeTitle=Горе
+Feedback/&WoeReroll=Из-за {1} {2} перебрасывает кость броска атаки с {3} на {4}
+Subclass/&WayOfWealAndWoeDescription=Монахи Пути блага и горя сосредотачиваются как на процветании, так и на невзгодах, чтобы вовлечь своих врагов в битву.
+Subclass/&WayOfWealAndWoeTitle=Путь блага и горя

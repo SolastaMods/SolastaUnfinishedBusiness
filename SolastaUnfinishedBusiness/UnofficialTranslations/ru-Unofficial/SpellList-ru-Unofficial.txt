@@ -1,0 +1,9 @@
+SpellList/&SpellListClericTitle=Заклинания жреца
+SpellList/&SpellListDruidTitle=Заклинания друида
+SpellList/&SpellListPaladinTitle=Заклинания паладина
+SpellList/&SpellListRangerTitle=Заклинания следопыта
+SpellList/&SpellListSorcererTitle=Заклинания чародея
+SpellList/&SpellListSpellbladeTitle=Заклинания боевого волшебника
+SpellList/&SpellListTraditionLightTitle=Заклинания монаха (Путь света)
+SpellList/&SpellListWarlockTitle=Заклинания колдуна
+SpellList/&SpellListWizardTitle=Заклинания волшебника

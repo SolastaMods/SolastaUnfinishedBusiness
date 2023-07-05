@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -542,7 +541,7 @@ internal static class ClassFeats
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.DashBonus)
+            if (action.ActionId != ActionDefinitions.Id.DashBonus)
             {
                 yield break;
             }

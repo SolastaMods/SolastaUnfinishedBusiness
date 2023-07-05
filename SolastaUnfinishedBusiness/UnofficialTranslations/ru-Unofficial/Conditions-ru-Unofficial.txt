@@ -1,0 +1,2 @@
+Conditions/&ConditionPOI_Description=Находясь в Ледяном дворце и измерении демонов, все, кроме исчадий, получают ряд штрафов.
+Conditions/&ConditionPOI_Title=Эффект логова Ледяного дворца

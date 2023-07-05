@@ -1,0 +1,14 @@
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterTitle=Заклинания повелителя мёртвых
+Feature/&BypassSpellConcentrationDeadMasterDescription=Вы изучили искусство некромантии. При использовании заклинания вам не требуется концентрация, чтобы воскрешать мёртвых.
+Feature/&BypassSpellConcentrationDeadMasterTitle=Рассеивание
+Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Вы получаете +1 к Сл ваших заклинаний школы некромантии.
+Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Эксперт в некромантии
+Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Нежить, созданная вами, увеличивает максимум хитов на 2 за каждый ваш уровень Волшебника и добавляет ваш бонус мастерства к броскам атаки.
+Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=Цепи нежити
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Один раз за ход, когда вы убиваете одно или несколько существ заклинанием 1-го и более высокого уровня, вы восстанавливаете хиты в количестве, равном удвоенному уровню этого заклинания, или утроенному, если заклинание принадлежало школе Некромантии. Вы не получаете это преимущество, убивая конструктов и нежить.
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Мрачная жатва
+Spell/&SpellRaiseDeadFormatDescription=Призывает <b>{0}</b>:\n{1}
+Spell/&SpellRaiseDeadFormatTitle=Поднять {0}
+Subclass/&WizardDeadMasterDescription=Повелители мёртвых изучают способы манипулирования той энергией, которая питает все живые организмы. По мере увеличения ваших знаний вы научитесь вытягивать жизненные силы существ, разрушая своей магией их тела, трансформируя их в магическую энергию, которой можете манипулировать.
+Subclass/&WizardDeadMasterTitle=Повелитель мёртвых

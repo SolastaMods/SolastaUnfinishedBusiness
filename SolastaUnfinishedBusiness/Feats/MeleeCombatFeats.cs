@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -433,7 +432,6 @@ internal static class MeleeCombatFeats
         var additionalDamageHammerThePoint = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}HammerThePoint")
             .SetGuiPresentationNoContent(true)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionHammerThePoint)
             .AddToDB();
@@ -535,21 +533,9 @@ internal static class MeleeCombatFeats
 
     private sealed class ActionFinishedByEnemyOldTactics : IActionFinishedByEnemy
     {
-        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.StandUp;
-
-        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle == null)
-            {
-                yield break;
-            }
-
-            var enemy = characterAction.ActingCharacter;
-
-            if (!battle.IsWithin1Cell(target, enemy))
+            if (characterAction.ActionId != ActionDefinitions.Id.StandUp)
             {
                 yield break;
             }
@@ -561,6 +547,21 @@ internal static class MeleeCombatFeats
             }
 
             if (!target.CanReact())
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var enemy = characterAction.ActingCharacter;
+
+            if (!battle.IsWithin1Cell(target, enemy))
             {
                 yield break;
             }

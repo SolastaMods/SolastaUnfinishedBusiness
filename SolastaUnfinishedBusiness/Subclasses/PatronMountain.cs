@@ -305,6 +305,12 @@ internal class PatronMountain : AbstractSubclass
             }
 
             var rulesetMe = me.RulesetCharacter;
+
+            if (rulesetMe.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            {
+                yield break;
+            }
+
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)

@@ -714,9 +714,7 @@ internal static class InventorClass
     private static FeatureDefinition BuildSpellStoringItem()
     {
         var spells = SpellsContext.Spells
-            .Where(x => x.SpellLevel is 1 or 2 &&
-                        x.castingTime == ActivationTime.Action &&
-                        !x.Name.EndsWith(WizardDeadMaster.DeadMasterNoConcentration));
+            .Where(x => x.SpellLevel is 1 or 2 && x.castingTime == ActivationTime.Action);
 
         // build powers for all level 1 and 2 spells to allow better integration with custom spells selection
         SpellStoringItemPowers.AddRange(spells

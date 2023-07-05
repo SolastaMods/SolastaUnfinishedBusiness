@@ -1,8 +1,8 @@
-SchoolOfMagic/&AbjurationTitle=アブレーション
+SchoolOfMagic/&AbjurationTitle=防御術
 SchoolOfMagic/&ConjurationTitle=召喚術
-SchoolOfMagic/&DivinationTitle=占い
-SchoolOfMagic/&EnchantmentTitle=エンチャント
-SchoolOfMagic/&EvocationTitle=喚起
-SchoolOfMagic/&IllusionTitle=幻想
-SchoolOfMagic/&NecromancyTitle=ネクロマンシー
-SchoolOfMagic/&TransmutationTitle=変換
+SchoolOfMagic/&DivinationTitle=占術
+SchoolOfMagic/&EnchantmentTitle=心術
+SchoolOfMagic/&EvocationTitle=力術
+SchoolOfMagic/&IllusionTitle=幻術
+SchoolOfMagic/&NecromancyTitle=死霊術
+SchoolOfMagic/&TransmutationTitle=変性術
