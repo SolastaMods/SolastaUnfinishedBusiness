@@ -229,7 +229,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWhirl :
-        IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        ISpendPowerFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly ConditionDefinition _conditionExtraMovement;
@@ -253,28 +253,19 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             _powerMobileWhirl = powerMobileWhirl;
         }
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
         {
             if (_damageType == null)
             {
                 yield break;
             }
 
-            if (characterAction is not CharacterActionSpendPower characterActionUsePower)
+            if (power != _powerDefensiveWhirl && power != _powerSlashingWhirl && power != _powerMobileWhirl)
             {
                 yield break;
             }
 
-            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
-
-            if (powerDefinition != _powerDefensiveWhirl &&
-                powerDefinition != _powerSlashingWhirl &&
-                powerDefinition != _powerMobileWhirl)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterActionUsePower.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
@@ -290,7 +281,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             // add damage roll to AC if defensive whirl
-            if (characterActionUsePower.activePower.PowerDefinition == _powerDefensiveWhirl)
+            if (action.activePower.PowerDefinition == _powerDefensiveWhirl)
             {
                 var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == _conditionDefensiveWhirl);
@@ -302,10 +293,10 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             }
 
             // add targets
-            var originalTarget = characterAction.ActionParams.TargetCharacters[0];
+            var originalTarget = action.ActionParams.TargetCharacters[0];
             var targetCharacters = new List<GameLocationCharacter>();
 
-            if (powerDefinition == _powerSlashingWhirl)
+            if (power == _powerSlashingWhirl)
             {
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
