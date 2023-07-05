@@ -433,7 +433,6 @@ internal static class MeleeCombatFeats
         var additionalDamageHammerThePoint = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}HammerThePoint")
             .SetGuiPresentationNoContent(true)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionHammerThePoint)
             .AddToDB();
