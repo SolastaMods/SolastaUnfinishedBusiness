@@ -24,9 +24,10 @@ public static class CharacterActionCastSpellPatcher
         var rulesetCharacter = characterActionCastSpell.ActingCharacter.RulesetCharacter;
         var rulesetEffectSpell = characterActionCastSpell.ActiveSpell;
 
-        return rulesetCharacter.GetSubFeaturesByType<IModifyConcentrationRequirement>()
-            .All(modifyConcentrationRequirement =>
-                modifyConcentrationRequirement.RequiresConcentration(rulesetCharacter, rulesetEffectSpell));
+        return spellDefinition.RequiresConcentration &&
+               rulesetCharacter.GetSubFeaturesByType<IModifyConcentrationRequirement>()
+                   .All(modifyConcentrationRequirement =>
+                       modifyConcentrationRequirement.RequiresConcentration(rulesetCharacter, rulesetEffectSpell));
     }
 
     [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.ApplyMagicEffect))]
