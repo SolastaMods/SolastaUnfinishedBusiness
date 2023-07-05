@@ -1,0 +1,6 @@
+Condition/&ConditionDualFlurryGrantDescription=Ваши враги пошатнулись!
+Condition/&ConditionDualFlurryGrantTitle=Двойной шквал
+Feat/&FeatDualFlurryDescription=Вы мастер боя с парным оружием. В любой ход, когда вы дважды атакуете в ближнем бою, держа оружие в каждой руке, бонусным действием вы можете произвести две атаки неосновной рукой вместо одной.
+Feat/&FeatDualFlurryTitle=Двойной шквал
+Feat/&FeatDualWeaponDefenseDescription=Вы получаете бонус +1 к КД, когда держите в каждой руке по рукопашному оружию.
+Feat/&FeatDualWeaponDefenseTitle=Защита с двумя оружиями

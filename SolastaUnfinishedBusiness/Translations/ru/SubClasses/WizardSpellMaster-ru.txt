@@ -1,0 +1,16 @@
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Приготовьте дополнительные заклинания в количестве, равном вашему модификатору Интеллекта, чтобы у вас всегда под рукой было то, что вам нужно.
+Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Особая подготовка
+Feature/&MagicAffinitySpellMasterKnowledgeDescription=Запишите дополнительное заклинание при каждом повышении уровня.
+Feature/&MagicAffinitySpellMasterKnowledgeTitle=Широта знаний
+Feature/&MagicAffinitySpellMasterPreparedDescription=Приготовьте дополнительные заклинания в количестве, равном вашему бонусу мастерства, чтобы у вас всегда под рукой было то, что вам нужно.
+Feature/&MagicAffinitySpellMasterPreparedTitle=Будь готов
+Feature/&MagicAffinitySpellMasterRecoveryDescription=Один раз до продолжительного отдыха вы можете восстановить ячейки заклинаний (в дополнение к Магическому восстановлению).
+Feature/&MagicAffinitySpellMasterRecoveryTitle=Глубина магии
+Feature/&MagicAffinitySpellMasterScriberDescription=Переписывание заклинаний тратит 1/4 обычных времени и стоимости, и вы также получаете преимущество.
+Feature/&MagicAffinitySpellMasterScriberTitle=Мастер писарь
+Feature/&PointPoolSpellMasterBonusCantripsDescription=Вы получаете 2 дополнительных заговора.
+Feature/&PointPoolSpellMasterBonusCantripsTitle=Бонусные заговоры
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Ваша магическая подготовка наделяет вас преимуществом на спасброски против заклинаний.
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Сопротивление заклинаниям
+Subclass/&WizardSpellMasterDescription=Мастера заклинаний погружаются в магию и стараются изучить каждое заклинание, которое попадает им в руки. В знании заклинаний им нет равных.
+Subclass/&WizardSpellMasterTitle=Мастер заклинаний

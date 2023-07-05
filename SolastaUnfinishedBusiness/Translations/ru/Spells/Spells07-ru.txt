@@ -1,0 +1,4 @@
+Condition/&ConditionReverseGravityDescription=Захвачен обратным притяжением.
+Condition/&ConditionReverseGravityTitle=Изменение тяготения
+Spell/&ReverseGravityDescription=Это заклинание обращает гравитацию в цилиндре с радиусом 50 футов и высотой 100 футов с центром на точке в пределах дистанции.
+Spell/&ReverseGravityTitle=Изменение тяготения

@@ -1,0 +1,9 @@
+Power/&DemonicInfluence_Description=Заставить врага биться с вами до тех пор, пока он не избавится от демонического влияния.
+Power/&PowerStoneGolemSlow_Description=Каменные големы могут замедлять противников поблизости.
+Power/&PowerStoneGolemSlow_Title=Замедление
+Power/&Vrock_Screech_Description=Врок издаёт мощный крик, который может оглушить врагов вокруг.
+Power/&Vrock_Screech_Title=Визг
+Power/&Vrock_Spores_Description=Яд врока наносит 1к10 урона ядом каждый ход.
+Power/&Vrock_Spores_Title=Споры
+Power/&WightLifeDrain_Description=Падшие могут вытягивать жизненные силы при успешном ударе в ближнем бою.
+Power/&WightLordCircleofDeath_Description=Падший владыка может вытягивать жизненные силы из окружающих его врагов.
