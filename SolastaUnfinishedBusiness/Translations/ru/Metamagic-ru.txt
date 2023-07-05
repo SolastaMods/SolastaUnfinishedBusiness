@@ -1,0 +1,16 @@
+Failure/&FailureFlagSpellMustBeOfTargetArea=Заклинание должно иметь область действия в виде конуса, куба, цилиндра или сферы
+Failure/&FailureFlagSpellMustHaveDamageForm=Заклинание должно иметь хотя бы одну форму нанесения урона
+Failure/&FailureFlagSpellMustRequireConcentration=Заклинание должно требовать концентрации
+Failure/&FailureFlagSpellRangeMustBeSelf=Дистанция заклинания должна быть "На себя"
+Feature/&MetamagicAltruisticSpellAllyDescription=Даёт возможность выбрать в качестве цели заклинания союзника в радиусе 30 футов вместо себя.
+Feature/&MetamagicAltruisticSpellAllyTitle=Совместное заклинание, только для союзника
+Feature/&MetamagicAltruisticSpellDescription=Когда вы накладываете заклинание, выбирая целью себя, вы можете потратить 1 очко колдовства, чтобы вместо этого выбрать целью союзника в радиусе 30 футов. Или же вы можете потратить 3 очка колдовства и выбрать целью и себя, и союзника в радиусе 30 футов.
+Feature/&MetamagicAltruisticSpellSelfDescription=Даёт возможность выбрать в качестве цели заклинания союзника в радиусе 30 футов вместе с собой.
+Feature/&MetamagicAltruisticSpellSelfTitle=Совместное заклинание, на себя и союзника
+Feature/&MetamagicAltruisticSpellTitle=Совместное заклинание
+Feature/&MetamagicFocusedSpellDescription=Когда вы накладываете заклинание, которое требует концентрации, вы можете потратить 1 очко колдовства, чтобы получить преимущество на все спасброски Телосложения для сохранения концентрации на нём.
+Feature/&MetamagicFocusedSpellTitle=Сфокусированное заклинание
+Feature/&MetamagicPowerfulSpellDescription=Вы можете потратить 1 очко колдовства за уровень заклинания, чтобы увеличить его количество костей урона на 1.
+Feature/&MetamagicPowerfulSpellTitle=Могущественное заклинание
+Feature/&MetamagicWidenedSpellDescription=Вы можете потратить 2 очка колдовства, чтобы увеличить радиус действия заклинания. Заклинания, имеющие область действия в виде конуса, куба, цилиндра или сферы, увеличивают параметр измерения до ближайших 5 футов.
+Feature/&MetamagicWidenedSpellTitle=Расширенное заклинание
