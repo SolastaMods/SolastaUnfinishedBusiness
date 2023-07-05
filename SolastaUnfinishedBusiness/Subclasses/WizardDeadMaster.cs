@@ -26,7 +26,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
 
-    internal const string DeadMasterNoConcentration = "NoConcentration";
     internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
     internal WizardDeadMaster()
@@ -238,12 +237,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         .Build())
                     .AddToDB();
 
-                // create non concentration versions to be used whenever upcast
-                _ = SpellDefinitionBuilder
-                    .Create(createDeadSpell, $"CreateDead{monster.name}{DeadMasterNoConcentration}")
-                    .SetRequiresConcentration(false)
-                    .AddToDB();
-
                 spells.Add(createDeadSpell);
             }
 
@@ -296,14 +289,11 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     private sealed class ModifyConcentrationRequirementDeadMaster : IModifyConcentrationRequirement
     {
-        public IEnumerable<SpellDefinition> AllowedSpells()
+        public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)
         {
-            return DeadMasterSpells;
-        }
+            var delta = rulesetEffectSpell.EffectLevel - rulesetEffectSpell.SpellDefinition.SpellLevel;
 
-        public int OnlyWithUpcastGreaterThan()
-        {
-            return 1;
+            return delta == 0 || !DeadMasterSpells.Contains(rulesetEffectSpell.SpellDefinition);
         }
     }
 
