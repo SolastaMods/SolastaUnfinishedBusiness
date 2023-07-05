@@ -82,7 +82,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedBlessedWarrior(conditionBlessedWarrior))
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -205,7 +205,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedAngelicForm(powerAngelicFormSprout));
+        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedByMeAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -292,16 +292,16 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalAttackInitiatedBlessedWarrior : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior : IPhysicalAttackInitiatedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public PhysicalAttackInitiatedBlessedWarrior(ConditionDefinition conditionDefinition)
+        public PhysicalAttackInitiatedByMeBlessedWarrior(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -424,19 +424,18 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class ActionFinishedAngelicForm : IActionFinished
+    private sealed class ActionFinishedByMeAngelicForm : IUsePowerFinishedByMe
     {
         private static FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        public ActionFinishedByMeAngelicForm(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            if (power != _featureDefinitionPower)
             {
                 yield break;
             }

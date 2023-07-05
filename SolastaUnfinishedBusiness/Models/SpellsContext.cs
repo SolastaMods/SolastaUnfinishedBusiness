@@ -390,16 +390,6 @@ internal static class SpellsContext
         //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
         SpellListAllSpells.AddSpell(spellDefinition);
 
-        //Handle the particular case of hidden NoConcentration spells we swap on CharacterActionPanel.SpellcastEngaged
-        //We need to register them otherwise the combo College of Life / Deadmaster becomes odd when upcasting
-        if (isDeadMasterSpell)
-        {
-            var spellDefinitionNoConcentration = DatabaseHelper.GetDefinition<SpellDefinition>(
-                $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
-
-            SpellListAllSpells.AddSpell(spellDefinitionNoConcentration);
-        }
-
         //Add spells to Snipers lists
         var spellSniperClasses = new List<CharacterClassDefinition>
         {

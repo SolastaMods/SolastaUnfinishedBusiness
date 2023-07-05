@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -648,7 +647,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
-                        new ActionFinishedFeatMobileDash(
+                        new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -668,16 +667,16 @@ internal static class OtherFeats
     }
 
 
-    private sealed class ActionFinishedFeatMobileDash : IActionFinished
+    private sealed class ActionFinishedByMeFeatMobileDash : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public ActionFinishedFeatMobileDash(ConditionDefinition conditionDefinition)
+        public ActionFinishedByMeFeatMobileDash(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not (CharacterActionDash or
                 CharacterActionFlurryOfBlows or
@@ -705,7 +704,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class AooImmunityFeatMobile : IImmuneToAooOfRecentAttackedTarget
+    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked
     {
     }
 
@@ -746,10 +745,29 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
-        IPhysicalAttackFinished, IPhysicalAttackFinishedOnMe, IActionFinished, IActionFinishedByEnemy
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
+        //Poison character that shoves me
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (characterAction.ActionId != ActionDefinitions.Id.Shove &&
+                characterAction.ActionId != ActionDefinitions.Id.ShoveBonus &&
+                characterAction.ActionId != ActionDefinitions.Id.ShoveFree)
+            {
+                yield break;
+            }
+
+            if (characterAction.ActionParams.TargetCharacters == null ||
+                !characterAction.ActionParams.TargetCharacters.Contains(target))
+            {
+                yield break;
+            }
+
+            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
+        }
+
         //Poison characters that I shove
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionShove)
             {
@@ -764,24 +782,15 @@ internal static class OtherFeats
             }
         }
 
-        //Poison character that shoves me
-        public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
-
-        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
-        {
-            if (characterAction.ActionParams.TargetCharacters == null ||
-                !characterAction.ActionParams.TargetCharacters.Contains(target))
-            {
-                yield break;
-            }
-
-            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
-        }
-
         //Poison target if I attack with unarmed
-        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome, int damageAmount)
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             //Missed: skipping
             if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
@@ -799,9 +808,14 @@ internal static class OtherFeats
         }
 
         //Poison melee attacker
-        public IEnumerator OnAttackFinishedOnMe(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter me, RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome, int damageAmount)
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             //Missed: skipping
             if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
@@ -822,7 +836,7 @@ internal static class OtherFeats
         {
             var rulesetTarget = target.RulesetCharacter;
 
-            if (rulesetTarget is not {IsDeadOrDyingOrUnconscious: false})
+            if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

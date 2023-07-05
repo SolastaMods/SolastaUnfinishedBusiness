@@ -354,26 +354,20 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var rulesetAttacker = attacker.RulesetCharacter;
-
-                foreach (var extra in rulesetAttacker
-                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>()
-                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnEnemy(
-                                 __instance,
-                                 attacker,
-                                 defender,
-                                 attackModifier,
-                                 attackMode,
-                                 rangedAttack,
-                                 advantageType,
-                                 actualEffectForms,
-                                 rulesetEffect,
-                                 firstTarget, criticalHit)))
+                foreach (var attackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
+                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>())
                 {
-                    while (extra.MoveNext())
-                    {
-                        yield return extra.Current;
-                    }
+                    yield return attackBeforeHitConfirmedOnEnemy.OnAttackBeforeHitConfirmedOnEnemy(
+                        __instance,
+                        attacker,
+                        defender,
+                        attackModifier,
+                        attackMode,
+                        rangedAttack,
+                        advantageType,
+                        actualEffectForms,
+                        rulesetEffect,
+                        firstTarget, criticalHit);
                 }
             }
 
@@ -382,26 +376,20 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var rulesetDefender = defender.RulesetCharacter;
-
-                foreach (var extra in rulesetDefender
-                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMe>()
-                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnMe(
-                                 __instance,
-                                 attacker,
-                                 defender,
-                                 attackModifier,
-                                 attackMode,
-                                 rangedAttack,
-                                 advantageType,
-                                 actualEffectForms,
-                                 rulesetEffect,
-                                 firstTarget, criticalHit)))
+                foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter
+                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMe>())
                 {
-                    while (extra.MoveNext())
-                    {
-                        yield return extra.Current;
-                    }
+                    yield return attackBeforeHitConfirmedOnMe.OnAttackBeforeHitConfirmedOnMe(
+                        __instance,
+                        attacker,
+                        defender,
+                        attackModifier,
+                        attackMode,
+                        rangedAttack,
+                        advantageType,
+                        actualEffectForms,
+                        rulesetEffect,
+                        firstTarget, criticalHit);
                 }
             }
 
@@ -464,42 +452,18 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
-                var blockEvents =
-                    BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode,
-                        rulesetEffect, attackModifier, attackRoll);
-
-                while (blockEvents.MoveNext())
-                {
-                    yield return blockEvents.Current;
-                }
-            }
-
             // ReSharper disable once InvertIf
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: support for 'IAttackHitPossible'
-                foreach (var extra in defender.RulesetCharacter
-                             .GetSubFeaturesByType<IAttackHitPossible>()
-                             .Select(feature => feature.DefenderAttackHitPossible(
-                                 __instance,
-                                 attacker,
-                                 defender,
-                                 attackMode,
-                                 rulesetEffect,
-                                 attackModifier,
-                                 attackRoll)))
+                //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
+                var blockEvents = BlockAttacks.ProcessOnCharacterAttackHitConfirm(
+                    __instance, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll);
+
+                while (blockEvents.MoveNext())
                 {
-                    while (extra.MoveNext())
-                    {
-                        yield return extra.Current;
-                    }
+                    yield return blockEvents.Current;
                 }
             }
         }
@@ -626,7 +590,7 @@ public static class GameLocationBattleManagerPatcher
                 {
                     // Can I always reduce a fixed damage amount (i.e.: Heavy Armor Feat)
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive:
-                        totalReducedDamage = feature.ReducedDamage;
+                        totalReducedDamage = feature.ReducedDamage(attacker, defender);
                         break;
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
@@ -668,7 +632,7 @@ public static class GameLocationBattleManagerPatcher
                             continue;
                         }
 
-                        totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
+                        totalReducedDamage = feature.ReducedDamage(attacker, defender) * reactionParams.IntParameter;
                         break;
                     }
 
@@ -760,7 +724,7 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            var attackModifiers = attacker.GetSubFeaturesByType<IAttackComputeModifier>();
+            var attackModifiers = attacker.GetSubFeaturesByType<IModifyAttackActionModifier>();
 
             foreach (var feature in attackModifiers)
             {
@@ -929,7 +893,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
-            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>()
+            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<IOnTargetReducedToZeroHp>()
                          .Select(x =>
                              x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
                                  activeEffect)))
@@ -946,7 +910,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ISourceReducedToZeroHP` feature
-            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<ISourceReducedToZeroHp>()
+            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<IOnSourceReducedToZeroHp>()
                          .Select(x =>
                              x.HandleSourceReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
                                  activeEffect)))
@@ -1027,18 +991,6 @@ public static class GameLocationBattleManagerPatcher
             while (values.MoveNext())
             {
                 yield return values.Current;
-            }
-
-            // ReSharper disable once InvertIf
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
-                {
-                    yield return feature.OnMagicalAttackFinished(
-                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
-                }
             }
         }
     }
@@ -1221,9 +1173,10 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            foreach (var attackInitiated in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiated>())
+            foreach (var attackInitiated in
+                     attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
             {
-                yield return attackInitiated.OnAttackInitiated(
+                yield return attackInitiated.OnAttackInitiatedByMe(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
             }
 
@@ -1287,15 +1240,14 @@ public static class GameLocationBattleManagerPatcher
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
                 //PATCH: allow custom behavior when physical attack finished
-                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
+                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
                 {
-                    yield return feature.OnAttackFinished(
+                    yield return feature.OnAttackFinishedByMe(
                         __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                         damageAmount);
                 }
             }
 
-            // ReSharper disable once InvertIf
             if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
                 //PATCH: allow custom behavior when physical attack finished on defender
@@ -1304,6 +1256,47 @@ public static class GameLocationBattleManagerPatcher
                     yield return feature.OnAttackFinishedOnMe(
                         __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                         damageAmount);
+                }
+            }
+
+            if (__instance.Battle != null)
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var gameLocationAlly in Gui.Battle.GetMyContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
+                {
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
+
+                    foreach (var feature in allyFeatures)
+                    {
+                        yield return feature.OnPhysicalAttackFinishedByMeOrAlly(
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                            attackRollOutcome,
+                            damageAmount);
+                    }
+                }
+            }
+
+            // ReSharper disable once InvertIf
+            if (__instance.Battle != null)
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(attacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()) // avoid changing enumerator
+                {
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
+
+                    foreach (var feature in allyFeatures)
+                    {
+                        yield return feature.OnAttackFinishedOnMeOrAlly(
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                            attackRollOutcome,
+                            damageAmount);
+                    }
                 }
             }
         }

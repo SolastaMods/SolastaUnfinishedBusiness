@@ -93,11 +93,12 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IAttackEffectAfterDamage>();
+            var features = character.GetSubFeaturesByType<IPhysicalAttackAfterDamage>();
 
             foreach (var effect in features)
             {
-                effect.OnAttackEffectAfterDamage(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnPhysicalAttackAfterDamage(__instance, target, outcome, actionParams, attackMode,
+                    attackModifier);
             }
         }
     }

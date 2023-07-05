@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -16,6 +17,18 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionCastSpellPatcher
 {
+    private static bool RequiresConcentration(
+        SpellDefinition spellDefinition,
+        CharacterActionCastSpell characterActionCastSpell)
+    {
+        var rulesetCharacter = characterActionCastSpell.ActingCharacter.RulesetCharacter;
+        var rulesetEffectSpell = characterActionCastSpell.ActiveSpell;
+
+        return rulesetCharacter.GetSubFeaturesByType<IModifyConcentrationRequirement>()
+            .All(modifyConcentrationRequirement =>
+                modifyConcentrationRequirement.RequiresConcentration(rulesetCharacter, rulesetEffectSpell));
+    }
+
     [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.ApplyMagicEffect))]
     [HarmonyPatch(
         new[]
@@ -48,10 +61,10 @@ public static class CharacterActionCastSpellPatcher
             ref bool terminateEffectOnTarget
         )
         {
-            //PATCH: re-implements base method to allow `ICustomSpellEffectLevel` to provide customized spell effect level
+            //PATCH: re-implements base method to allow `IModifySpellEffectLevel` to provide customized spell effect level
 
             var activeSpell = __instance.ActiveSpell;
-            var effectLevelProvider = activeSpell.SpellDefinition.GetFirstSubFeatureOfType<ICustomSpellEffectLevel>();
+            var effectLevelProvider = activeSpell.SpellDefinition.GetFirstSubFeatureOfType<IModifySpellEffectLevel>();
 
             if (effectLevelProvider == null)
             {
@@ -134,6 +147,23 @@ public static class CharacterActionCastSpellPatcher
     [UsedImplicitly]
     public static class StartConcentrationAsNeeded_Patch
     {
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: enforces cantrips to be cast at character level (MULTICLASS)
+            //replaces repertoire's SpellCastingLevel with character level for cantrips
+            var requiresConcentrationMethod = typeof(SpellDefinition).GetMethod("get_RequiresConcentration");
+            var myRequiresConcentrationMethod =
+                new Func<SpellDefinition, CharacterActionCastSpell, bool>(RequiresConcentration)
+                    .Method;
+
+            return instructions.ReplaceCalls(requiresConcentrationMethod,
+                "CharacterActionCastSpell.StartConcentrationAsNeeded",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myRequiresConcentrationMethod));
+        }
+
         [UsedImplicitly]
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
@@ -144,7 +174,7 @@ public static class CharacterActionCastSpellPatcher
                 // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded
                 return
                     !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions.BestowCurse)
-                    || __instance.ActiveSpell.SlotLevel < 5;
+                    || __instance.ActiveSpell.EffectLevel < 5;
             }
 
             return true;
@@ -157,6 +187,21 @@ public static class CharacterActionCastSpellPatcher
     [UsedImplicitly]
     public static class RemoveConcentrationAsNeeded_Patch
     {
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var requiresConcentrationMethod = typeof(SpellDefinition).GetMethod("get_RequiresConcentration");
+            var myRequiresConcentrationMethod =
+                new Func<SpellDefinition, CharacterActionCastSpell, bool>(RequiresConcentration)
+                    .Method;
+
+            return instructions.ReplaceCalls(requiresConcentrationMethod,
+                "CharacterActionCastSpell.RemoveConcentrationAsNeeded",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myRequiresConcentrationMethod));
+        }
+
         [UsedImplicitly]
         public static bool Prefix()
         {

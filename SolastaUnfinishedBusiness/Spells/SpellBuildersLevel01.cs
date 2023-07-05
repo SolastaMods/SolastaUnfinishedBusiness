@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -11,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -690,15 +690,22 @@ internal static partial class SpellBuilders
     {
         const string NAME = "Sanctuary";
 
-        var conditionSanctuaryArmorClass = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ArmorClass")
+        var conditionSanctuary = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .AddSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var conditionSanctuaryReduceDamage = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ReduceDamage")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}ArmorClass")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 30)
-                .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionReduceDamageBuilder
+                    .Create($"ReduceDamage{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
+                    .AddToDB())
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
@@ -723,21 +730,17 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
-        //Attack possible is skipped when crit, so I am just going to halve the damage on critical
         var featureSanctuary = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
-                new AttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuaryDamageResistance))
+                new AttackBeforeHitConfirmedOnMeSanctuary(
+                    conditionSanctuary,
+                    conditionSanctuaryReduceDamage,
+                    conditionSanctuaryDamageResistance))
             .AddToDB();
 
-        var conditionSanctuary = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
-            .AddSpecialInterruptions(ConditionInterruption.Attacks)
-            .SetFeatures(featureSanctuary)
-            .AddToDB();
+        conditionSanctuary.Features.Add(featureSanctuary);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -761,83 +764,24 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-
-    private sealed class SanctuaryBeforeAttackHitPossible : IAttackHitPossible
-    {
-        private readonly ConditionDefinition _conditionSanctuaryBuff;
-
-        internal SanctuaryBeforeAttackHitPossible(ConditionDefinition conditionSanctuaryBuff)
-        {
-            _conditionSanctuaryBuff = conditionSanctuaryBuff;
-        }
-
-        public IEnumerator DefenderAttackHitPossible(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            ActionModifier attackModifier,
-            int attackRoll)
-        {
-            if (battle.Battle == null)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
-            var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
-            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
-            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetDefender
-                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-            var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetDefender
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
-
-            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
-                advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier, false,
-                out var savingOutcome,
-                out _);
-
-            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                yield break;
-            }
-
-            rulesetDefender.InflictCondition(
-                _conditionSanctuaryBuff.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetDefender.guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
-    }
-
     private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionSanctuaryBuff;
+        private readonly ConditionDefinition _conditionReduceDamage;
+        private readonly ConditionDefinition _conditionResistance;
+        private readonly ConditionDefinition _conditionSanctuary;
 
-        internal AttackBeforeHitConfirmedOnMeSanctuary(ConditionDefinition conditionSanctuaryBuff)
+        internal AttackBeforeHitConfirmedOnMeSanctuary(
+            ConditionDefinition conditionSanctuary,
+            ConditionDefinition conditionReduceDamage,
+            ConditionDefinition conditionResistance)
         {
-            _conditionSanctuaryBuff = conditionSanctuaryBuff;
+            _conditionSanctuary = conditionSanctuary;
+            _conditionReduceDamage = conditionReduceDamage;
+            _conditionResistance = conditionResistance;
         }
 
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -849,12 +793,7 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (battle.Battle == null)
-            {
-                yield break;
-            }
-
-            if (criticalHit == false)
+            if (!battle.IsBattleInProgress)
             {
                 yield break;
             }
@@ -866,10 +805,48 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            var usableCondition =
+                rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionSanctuary);
+
+            if (usableCondition == null)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
+
+            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
+
+            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
+
+            var casterProfBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetCaster
+                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+            var casterWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCaster
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
+
+            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
+                advantageTrends, attackerWisModifier, 8 + casterProfBonus + casterWisModifier, false,
+                out var savingOutcome,
+                out _);
+
+            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                yield break;
+            }
+
+            var condition = criticalHit ? _conditionResistance : _conditionReduceDamage;
+
             rulesetDefender.InflictCondition(
-                _conditionSanctuaryBuff.Name,
+                condition.Name,
                 DurationType.Round,
-                1,
+                0,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 rulesetDefender.guid,

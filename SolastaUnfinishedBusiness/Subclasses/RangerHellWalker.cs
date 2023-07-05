@@ -39,12 +39,12 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 BuildSpellGroup(17, SpellsContext.FarStep))
             .AddToDB();
 
-        // had to keep this name off standard for reasons
         var powerFirebolt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Firebolt")
             .SetGuiPresentation(SpellsContext.EnduringSting.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(SpellsContext.EnduringSting.EffectDescription)
+            .SetCustomSubFeatures(new ModifyMagicEffectFireBolt())
             .AddToDB();
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
@@ -235,6 +235,39 @@ internal sealed class RangerHellWalker : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
+    // FireBolt
+    //
+
+    private sealed class ModifyMagicEffectFireBolt : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            var levels = character.GetClassLevel(CharacterClassDefinitions.Ranger);
+            var diceNumber = levels switch
+            {
+                >= 17 => 4,
+                >= 11 => 3,
+                >= 5 => 2,
+                _ => 1
+            };
+
+            damageForm.diceNumber = diceNumber;
+
+            return effectDescription;
+        }
+    }
+    //
     // DammingStrike
     //
 
@@ -269,7 +302,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IIgnoreDamageAffinity, IActionFinished, IFilterTargetingMagicEffect
+        IIgnoreDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -280,35 +313,6 @@ internal sealed class RangerHellWalker : AbstractSubclass
         {
             _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
-        }
-
-        public IEnumerator OnActionFinished(CharacterAction action)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
-            var gameLocationDefender = action.actionParams.targetCharacters[0];
-
-            // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Where(x => x != gameLocationDefender)
-                         .ToList()) // avoid changing enumerator
-            {
-                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
-                var rulesetCondition = rulesetDefender.AllConditions
-                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
-                {
-                    rulesetDefender.RemoveCondition(rulesetCondition);
-                }
-            }
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -344,6 +348,34 @@ internal sealed class RangerHellWalker : AbstractSubclass
             }
 
             return false;
+        }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null || power != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
+            var gameLocationDefender = action.actionParams.targetCharacters[0];
+
+            // remove this condition from all other enemies
+            foreach (var gameLocationCharacter in battle.EnemyContenders
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .Where(x => x != gameLocationDefender)
+                         .ToList()) // avoid changing enumerator
+            {
+                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
+                var rulesetCondition = rulesetDefender.AllConditions
+                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+                if (rulesetCondition != null)
+                {
+                    rulesetDefender.RemoveCondition(rulesetCondition);
+                }
+            }
         }
     }
 }

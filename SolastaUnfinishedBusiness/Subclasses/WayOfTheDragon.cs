@@ -66,10 +66,15 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace)
+                    .Build())
             .AddToDB();
 
-        powerReactiveHide.SetCustomSubFeatures(new CustomBehaviorReactiveHide(
-            powerReactiveHide, conditionReactiveHide));
+        powerReactiveHide.SetCustomSubFeatures(
+            new CustomBehaviorReactiveHide(powerReactiveHide, conditionReactiveHide));
 
         // LEVEL 17
 
@@ -645,13 +650,14 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorReactiveHide : IReactToAttackOnMeFinished, IAttackBeforeHitConfirmedOnMe,
-        IMagicalAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorReactiveHide :
+        IPhysicalAttackFinishedOnMe, IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public CustomBehaviorReactiveHide(FeatureDefinitionPower featureDefinitionPower,
+        public CustomBehaviorReactiveHide(
+            FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
@@ -688,25 +694,26 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             yield return HandleReaction(defender);
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
 
-            if (!me.CanAct())
+            if (!defender.CanAct())
             {
                 yield break;
             }
 
-            var rulesetCharacter = me.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             if (rulesetCharacter.RemainingKiPoints == 0)
             {
@@ -743,8 +750,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
-                out var damageType);
+            TryGetAncestryDamageTypeFromCharacter(
+                defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType);
 
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
 

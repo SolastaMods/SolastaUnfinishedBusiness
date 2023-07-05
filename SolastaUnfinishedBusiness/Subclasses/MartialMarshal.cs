@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -86,7 +85,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AttackComputeModifierMarshalKnowYourEnemy())
+            .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
@@ -135,7 +134,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create(MarshalCoordinatedAttackName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ReactToAttackFinishedMarshalCoordinatedAttack())
+            .SetCustomSubFeatures(new ReactToAttackFinishedByMeMarshalCoordinatedAttack())
             .AddToDB();
     }
 
@@ -375,26 +374,27 @@ internal sealed class MartialMarshal : AbstractSubclass
         return featureMarshalKnowledgeableDefense;
     }
 
-    private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToAttackFinished
+    private sealed class ReactToAttackFinishedByMeMarshalCoordinatedAttack : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnReactToAttackFinished(
-            GameLocationCharacter me,
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            [NotNull] RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
+            var actionParams = action.actionParams;
+
             // non-reaction melee hits only
-            if (attackMode.ranged || outcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
+            if (attackMode.ranged || attackRollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
                 actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
             {
                 yield break;
             }
 
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var battleManager = gameLocationBattleService as GameLocationBattleManager;
             var allies = new List<GameLocationCharacter>();
 
             foreach (var guestCharacter in characterService.GuestCharacters.ToList())
@@ -408,7 +408,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 if (!rulesetCharacterMonster.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
                         RuleDefinitions.ConditionConjuredCreature,
                         out var activeCondition)
-                    || activeCondition.SourceGuid != me.Guid)
+                    || activeCondition.SourceGuid != attacker.Guid)
                 {
                     continue;
                 }
@@ -420,7 +420,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             }
 
             allies.AddRange(characterService.PartyCharacters
-                .Where(partyCharacter => partyCharacter.CanReact() && partyCharacter != me));
+                .Where(partyCharacter => partyCharacter.CanReact() && partyCharacter != attacker));
 
             var reactions = new List<CharacterActionParams>();
 
@@ -486,11 +486,11 @@ internal sealed class MartialMarshal : AbstractSubclass
                 actionService.ReactForOpportunityAttack(reaction);
             }
 
-            yield return battleManager.WaitForReactions(me, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 
-    private sealed class AttackComputeModifierMarshalKnowYourEnemy : IAttackComputeModifier
+    private sealed class ModifyAttackActionModifierMarshalKnowYourEnemy : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
             RulesetCharacter myself,

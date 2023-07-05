@@ -5,14 +5,11 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -248,37 +245,6 @@ public static class CharacterActionPanelPatcher
             return instructions.ReplaceCalls(bindInvocationSelectionPanel, "CharacterActionPanel.SelectInvocation",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
-        }
-    }
-
-    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SpellcastEngaged))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class SpellcastEngaged_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(
-            CharacterActionPanel __instance,
-            // RulesetSpellRepertoire spellRepertoire,
-            ref SpellDefinition spellDefinition,
-            ref int slotLevel)
-        {
-            var spell = spellDefinition; // cannot pass ref to enumerator
-            var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
-
-            //PATCH: supports IBypassSpellConcentration
-            var spellLevel = spellDefinition.SpellLevel;
-            var upcastDelta = slotLevel - spellLevel;
-            var requiresConcentration = !rulesetCharacter
-                .GetSubFeaturesByType<IBypassSpellConcentration>()
-                .Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
-                .Any(y => y.SpellDefinitions().Contains(spell));
-
-            if (!requiresConcentration)
-            {
-                spellDefinition = DatabaseHelper.GetDefinition<SpellDefinition>(
-                    $"{spellDefinition.Name}{WizardDeadMaster.DeadMasterNoConcentration}");
-            }
         }
     }
 

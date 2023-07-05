@@ -155,7 +155,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         var powerAudaciousWhirl = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AudaciousWhirl")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.BardicInspiration)
+            .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.BardicInspiration)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -171,8 +171,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 powerDefensiveWhirl,
                 powerSlashingWhirl,
                 powerMobileWhirl),
-            new RestrictReactionAttackMode((mode, character, _) =>
-                mode is { SourceDefinition: ItemDefinition } &&
+            new RestrictReactionAttackMode((_, character, _) =>
                 character.OnceInMyTurnIsValid("Whirl") &&
                 (character.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
                  character.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
@@ -230,7 +229,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWhirl :
-        IActionFinished, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinished
+        ISpendPowerFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly ConditionDefinition _conditionExtraMovement;
@@ -238,8 +237,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
         private bool _criticalHit;
-
-        private string damageType;
+        private string _damageType;
 
         public CustomBehaviorWhirl(
             ConditionDefinition conditionExtraMovement,
@@ -255,23 +253,81 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             _powerMobileWhirl = powerMobileWhirl;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        // collect damage type
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (characterAction is not CharacterActionSpendPower characterActionUsePower)
+            if (rulesetEffect != null)
+            {
+                _damageType = null;
+
+                yield break;
+            }
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            _damageType = damageForm.damageType;
+            _criticalHit = criticalHit;
+        }
+
+        // add extra movement on any attack
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionExtraMovement.Name))
+            {
+                rulesetCharacter.InflictCondition(
+                    _conditionExtraMovement.Name,
+                    _conditionExtraMovement.DurationType,
+                    _conditionExtraMovement.DurationParameter,
+                    _conditionExtraMovement.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    attacker.RulesetCharacter.guid,
+                    attacker.RulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
+        }
 
-            if (powerDefinition != _powerDefensiveWhirl &&
-                powerDefinition != _powerSlashingWhirl &&
-                powerDefinition != _powerMobileWhirl)
+        public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+        {
+            if (_damageType == null)
             {
                 yield break;
             }
 
-            var actingCharacter = characterActionUsePower.ActingCharacter;
+            if (power != _powerDefensiveWhirl && power != _powerSlashingWhirl && power != _powerMobileWhirl)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
@@ -287,7 +343,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             // add damage roll to AC if defensive whirl
-            if (characterActionUsePower.activePower.PowerDefinition == _powerDefensiveWhirl)
+            if (action.activePower.PowerDefinition == _powerDefensiveWhirl)
             {
                 var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == _conditionDefensiveWhirl);
@@ -299,10 +355,10 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             }
 
             // add targets
-            var originalTarget = characterAction.ActionParams.TargetCharacters[0];
+            var originalTarget = action.ActionParams.TargetCharacters[0];
             var targetCharacters = new List<GameLocationCharacter>();
 
-            if (powerDefinition == _powerSlashingWhirl)
+            if (power == _powerSlashingWhirl)
             {
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
@@ -336,13 +392,13 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
                 var damageForm = new DamageForm
                 {
-                    DamageType = damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
+                    DamageType = _damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
                 };
 
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
-                    damageType,
+                    _damageType,
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                     rulesetDefender,
                     false,
@@ -363,62 +419,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             rulesetCharacter.UsedBardicInspiration++;
             rulesetCharacter.BardicInspirationAltered?.Invoke(
                 rulesetCharacter, rulesetCharacter.RemainingBardicInspirations);
-        }
-
-        // collect damage type
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            damageType = damageForm.damageType;
-            _criticalHit = criticalHit;
-
-            yield break;
-        }
-
-        // add extra movement on any attack
-        public IEnumerator OnAttackFinished(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionExtraMovement.Name))
-            {
-                rulesetCharacter.InflictCondition(
-                    _conditionExtraMovement.Name,
-                    _conditionExtraMovement.DurationType,
-                    _conditionExtraMovement.DurationParameter,
-                    _conditionExtraMovement.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    attacker.RulesetCharacter.guid,
-                    attacker.RulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
         }
     }
 }

@@ -153,7 +153,7 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)
-            .SetCustomSubFeatures(new OnAttackHitEffectBanishingSmite(conditionBanishingSmiteEnemy))
+            .SetCustomSubFeatures(new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
             .AddToDB();
 
         var conditionBanishingSmite = ConditionDefinitionBuilder
@@ -183,16 +183,16 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnAttackHitEffectBanishingSmite : IAttackEffectAfterDamage
+    private sealed class OnPhysicalAttackHitBanishingSmite : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public OnAttackHitEffectBanishingSmite(ConditionDefinition conditionDefinition)
+        public OnPhysicalAttackHitBanishingSmite(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnAttackEffectAfterDamage(
+        public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

@@ -6,5 +6,3 @@ Feat/&FeatMediumArmorMasterDescription=Sie haben das Bewegen in mittlerer Rüstu
 Feat/&FeatMediumArmorMasterTitle=Meister der mittleren Rüstung
 Feat/&FeatMediumArmorStrDescription=Erhöhen Sie Ihre Stärke um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit mittleren Rüstungen und Schilden.
 Feat/&FeatMediumArmorStrTitle=Mittlere Rüstung [Str]
-Feedback/&HeavyArmorMasterFormat=Meister der schweren Rüstung!
-Feedback/&HeavyArmorMasterLine=Heavy Armor Master reduziert den Schaden des Ziels!

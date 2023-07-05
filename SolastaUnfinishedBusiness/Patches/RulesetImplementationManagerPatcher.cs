@@ -656,7 +656,7 @@ public static class RulesetImplementationManagerPatcher
             var attr = attributeScore;
 
             foreach (var attribute in rulesetCharacter
-                         .GetSubFeaturesByType<IChangeSavingThrowAttribute>()
+                         .GetSubFeaturesByType<IModifySavingThrowAttribute>()
                          .Where(x => x.IsValid(rulesetCharacter, attr))
                          .Select(x => x.SavingThrowAttribute(rulesetCharacter)))
             {
@@ -696,11 +696,11 @@ public static class RulesetImplementationManagerPatcher
                 OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
             }
 
-            //PATCH: supports IChangeSavingThrowAttribute interface
+            //PATCH: supports IModifySavingThrowAttribute interface
             GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
         }
 
-        //PATCH: supports ISavingThrowAfterRoll interface
+        //PATCH: supports IOnSavingThrowAfterRoll interface
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter caster,
@@ -726,7 +726,7 @@ public static class RulesetImplementationManagerPatcher
             ref int saveOutcomeDelta)
         {
             //PATCH: react to failed saving throw
-            foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<ISavingThrowAfterRoll>())
+            foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<IOnSavingThrowAfterRoll>())
             {
                 savingThrowAfterRoll.OnSavingThrowAfterRoll(
                     caster,

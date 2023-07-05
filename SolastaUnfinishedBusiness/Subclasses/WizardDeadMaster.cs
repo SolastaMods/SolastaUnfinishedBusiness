@@ -26,7 +26,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
 
-    internal const string DeadMasterNoConcentration = "NoConcentration";
     internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
     internal WizardDeadMaster()
@@ -58,7 +57,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var bypassSpellConcentrationDeadMaster = FeatureDefinitionBuilder
             .Create("BypassSpellConcentrationDeadMaster")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new BypassSpellConcentrationDeadMaster())
+            .SetCustomSubFeatures(new ModifyConcentrationRequirementDeadMaster())
             .AddToDB();
 
         var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
@@ -238,12 +237,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         .Build())
                     .AddToDB();
 
-                // create non concentration versions to be used whenever upcast
-                _ = SpellDefinitionBuilder
-                    .Create(createDeadSpell, $"CreateDead{monster.name}{DeadMasterNoConcentration}")
-                    .SetRequiresConcentration(false)
-                    .AddToDB();
-
                 spells.Add(createDeadSpell);
             }
 
@@ -294,20 +287,17 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return modified;
     }
 
-    private sealed class BypassSpellConcentrationDeadMaster : IBypassSpellConcentration
+    private sealed class ModifyConcentrationRequirementDeadMaster : IModifyConcentrationRequirement
     {
-        public IEnumerable<SpellDefinition> SpellDefinitions()
+        public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)
         {
-            return DeadMasterSpells;
-        }
+            var delta = rulesetEffectSpell.EffectLevel - rulesetEffectSpell.SpellDefinition.SpellLevel;
 
-        public int OnlyWithUpcastGreaterThan()
-        {
-            return 1;
+            return delta == 0 || !DeadMasterSpells.Contains(rulesetEffectSpell.SpellDefinition);
         }
     }
 
-    private sealed class StarkHarvest : ITargetReducedToZeroHp
+    private sealed class StarkHarvest : IOnTargetReducedToZeroHp
     {
         private readonly FeatureDefinition feature;
 

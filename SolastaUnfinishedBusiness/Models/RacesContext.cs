@@ -28,6 +28,7 @@ internal static class RacesContext
         LoadRace(RaceWyrmkinBuilder.RaceWyrmkin);
         LoadRace(SubraceDarkelfBuilder.SubraceDarkelf);
         LoadRace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
+        LoadRace(SubraceIronbornDwarfBuilder.SubraceIronbornDwarf);
         LoadRace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);
 
         // sorting

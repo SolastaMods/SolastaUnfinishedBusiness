@@ -7,18 +7,12 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionReduceDamageBuilder
-    : DefinitionBuilder<FeatureDefinitionReduceDamage,
-        FeatureDefinitionReduceDamageBuilder>
+    : DefinitionBuilder<FeatureDefinitionReduceDamage, FeatureDefinitionReduceDamageBuilder>
 {
     [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
-    {
-        Definition.NotificationTag = notificationTag;
-        return this;
-    }
-
-    [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(int reducedDamage, params string[] damageTypes)
+    internal FeatureDefinitionReduceDamageBuilder SetAlwaysActiveReducedDamage(
+        ReducedDamageHandler reducedDamage,
+        params string[] damageTypes)
     {
         Definition.DamageTypes.SetRange(damageTypes);
         Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
@@ -28,7 +22,9 @@ internal class FeatureDefinitionReduceDamageBuilder
 
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetConsumeSpellSlotsReducedDamage(
-        CharacterClassDefinition spellCastingClass, int reducedDamage, params string[] damageTypes)
+        CharacterClassDefinition spellCastingClass,
+        ReducedDamageHandler reducedDamage,
+        params string[] damageTypes)
     {
         Definition.SpellCastingClass = spellCastingClass;
         Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot;
@@ -36,23 +32,6 @@ internal class FeatureDefinitionReduceDamageBuilder
         Definition.DamageTypes.SetRange(damageTypes);
         return this;
     }
-
-#if false
-    [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetSourceName(string sourceName)
-    {
-        Definition.SourceName = sourceName;
-        return this;
-    }
-
-    [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetSourceType(
-        RuleDefinitions.FeatureSourceType sourceType)
-    {
-        Definition.SourceType = sourceType;
-        return this;
-    }
-#endif
 
     #region Constructors
 

@@ -6,5 +6,3 @@ Feat/&FeatMediumArmorMasterDescription=Has practicado moverte con una armadura i
 Feat/&FeatMediumArmorMasterTitle=Maestro de armaduras medianas
 Feat/&FeatMediumArmorStrDescription=Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
 Feat/&FeatMediumArmorStrTitle=Armadura mediana [Str]
-Feedback/&HeavyArmorMasterFormat=¡Maestro de armadura pesada!
-Feedback/&HeavyArmorMasterLine=¡Heavy Armor Master reduce el daño del objetivo!

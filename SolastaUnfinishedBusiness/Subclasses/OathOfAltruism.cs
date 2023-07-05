@@ -80,7 +80,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                     .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
                         RuleDefinitions.TargetType.IndividualsUnique)
                     .Build())
-            .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
+            .SetCustomSubFeatures(new AfterActionFinishedByMeTakeThePain())
             .AddToDB();
 
         var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
@@ -143,27 +143,21 @@ internal sealed class OathOfAltruism : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class AfterActionFinishedTakeThePain : IActionFinished
+    private sealed class AfterActionFinishedByMeTakeThePain : IUsePowerFinishedByMe
     {
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (!power.Name.StartsWith($"Power{Name}TakeThePain"))
+            {
+                yield break;
+            }
+
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
             {
                 yield break;
             }
 
-            if (action.ActingCharacter == null)
-            {
-                yield break;
-            }
-
             var self = action.ActingCharacter;
-
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                !characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}TakeThePain"))
-            {
-                yield break;
-            }
 
             foreach (var character in action.ActionParams.targetCharacters)
             {

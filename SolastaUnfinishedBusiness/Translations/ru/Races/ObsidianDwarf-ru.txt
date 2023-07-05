@@ -1,0 +1,8 @@
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Сила +1
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Мощь пустошей
+Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Вы обладаете сопротивлением урону огнём.
+Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Вскормлен огнём
+Feature/&ProficiencyObsidianDwarfLanguagesDescription=Общий, Дварфский и Великаний
+Feature/&ProficiencyObsidianDwarfLanguagesTitle=Языки
+Race/&RaceObsidianDwarfDescription=В давние времена группа дварфов была порабощена огненными великанами в качестве шахтеров и ремесленников. Хаотическая магия катаклизма наделила многих из этих дварфов силой и сопротивлением их угнетателей. Дварфы восстали, завоевали свободу и отступили в Пустоши. Назвав себя Обсидиановыми дварфами, они стали развиваться и процветать.
+Race/&RaceObsidianDwarfTitle=Обсидиановый дварф

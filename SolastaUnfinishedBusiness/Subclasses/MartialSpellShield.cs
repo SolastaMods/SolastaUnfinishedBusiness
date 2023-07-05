@@ -15,7 +15,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialSpellShield : AbstractSubclass
 {
-    internal const string Name = "SpellShield";
+    private const string Name = "SpellShield";
+    internal const string FullName = $"Martial{Name}";
 
     internal MartialSpellShield()
     {
@@ -40,7 +41,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .AddToDB();
 
         magicAffinitySpellShieldCombatMagicVigor.SetCustomSubFeatures(
-            new ComputeModifierMagicAffinityCombatMagicVigor(magicAffinitySpellShieldCombatMagicVigor));
+            new ActionModifierMagicAffinityCombatMagicVigor(magicAffinitySpellShieldCombatMagicVigor));
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
             .Create($"Condition{Name}ArcaneDeflection")
@@ -107,11 +108,11 @@ internal sealed class MartialSpellShield : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ComputeModifierMagicAffinityCombatMagicVigor : IAttackComputeModifier, IIncreaseSpellDc
+    private sealed class ActionModifierMagicAffinityCombatMagicVigor : IModifyAttackActionModifier, IModifySpellDC
     {
         private readonly FeatureDefinitionMagicAffinity _featureDefinitionMagicAffinity;
 
-        public ComputeModifierMagicAffinityCombatMagicVigor(
+        public ActionModifierMagicAffinityCombatMagicVigor(
             FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity)
         {
             _featureDefinitionMagicAffinity = featureDefinitionMagicAffinity;
@@ -131,7 +132,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 return;
             }
 
-            var modifier = GetSpellModifier(myself);
+            var modifier = GetSpellDC(myself);
 
             attackModifier.attackRollModifier += modifier;
             attackModifier.attackToHitTrends.Add(new TrendInfo(
@@ -139,7 +140,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 _featureDefinitionMagicAffinity));
         }
 
-        public int GetSpellModifier(RulesetCharacter caster)
+        public int GetSpellDC(RulesetCharacter caster)
         {
             var strModifier =
                 ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));

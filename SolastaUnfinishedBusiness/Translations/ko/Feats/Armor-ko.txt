@@ -6,5 +6,3 @@ Feat/&FeatMediumArmorMasterDescription=다음과 같은 이점을 얻기 위해 
 Feat/&FeatMediumArmorMasterTitle=미디엄 아머 마스터
 Feat/&FeatMediumArmorStrDescription=힘을 1 증가시켜 최대 20까지 증가시킵니다.\n중형 갑옷과 방패에 숙련됩니다.
 Feat/&FeatMediumArmorStrTitle=미디엄 아머[Str]
-Feedback/&HeavyArmorMasterFormat=헤비 아머 마스터!
-Feedback/&HeavyArmorMasterLine=헤비 아머 마스터는 대상의 피해를 줄입니다!

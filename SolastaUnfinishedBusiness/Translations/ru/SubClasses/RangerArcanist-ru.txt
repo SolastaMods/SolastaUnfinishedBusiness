@@ -1,0 +1,16 @@
+Condition/&ConditionMarkedByArcanistDescription=Когда заклинатель, наложивший метку, поражает цель атакой оружием, метка детонирует, нанося 1d6 урона силовым полем поражённому существу и уничтожая метку. Начиная с 11-го уровня, урон от вашей Магической детонации увеличивается до 2d6.
+Condition/&ConditionMarkedByArcanistTitle=Метка арканиста
+Feature/&AdditionalDamageArcanistArcaneDetonationDescription=Начиная с 3-го уровня, вы наделяете своё оружие силой магии. Существа, поражённые вашими атаками, получают Метку арканиста.
+Feature/&AdditionalDamageArcanistArcaneDetonationTitle=Магическая детонация
+Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeDescription=Начиная с 11-го уровня, урон от вашей Магической детонации увеличивается до 2d6.
+Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeTitle=Высшая магическая детонация
+Feature/&AutoPreparedSpellsArcanistDescription=Вы получаете бонусные заклинания, которые считаются для вас заклинаниями Следопыта, они всегда подготовлены и не учитываются при определении количества заклинаний Следопыта, которые вы знаете:\n{0}\n\n
+Feature/&AutoPreparedSpellsArcanistTitle=Бонусные заклинания арканиста
+Feature/&MagicAffinityRangerArcanistDescription=Вы хорошо владеете заклинаниями в бою и можете накладывать заклинания, требующие соматического компонента, даже если обе ваши руки держат оружие или щит.
+Feature/&MagicAffinityRangerArcanistTitle=Магическая боевая подготовка
+Feature/&PowerArcanistArcanePulseDescription=Начиная с 7-го уровня, вы можете спровоцировать всплеск магической энергии на расстоянии 30 футов. Враждебные существа в радиусе 15 футов от точки воздействия получают 4d8 урона и Метку арканиста. Вы можете использовать эту способность количество раз до продолжительного отдыха, равное вашему модификатору Мудрости. На 15-м уровне урон от вашей Пульсации магии увеличивается до 8d8.
+Feature/&PowerArcanistArcanePulseTitle=Пульсация магии
+Feedback/&AdditionalDamageArcanistMarkFormat=Метка арканиста!
+Feedback/&AdditionalDamageArcanistMarkLine=Метка арканиста детонирует и наносит дополнительно +{2} урона по {1}!
+Subclass/&RangerArcanistDescription=Арканист объединяет навыки Следопыта с магическими способностями. Их оружие может накладывать на противников Метку арканиста, а также они научились произносить некоторые заклинания Волшебников в дополнение к репертуару заклинаний Следопыта.
+Subclass/&RangerArcanistTitle=Арканист

@@ -163,13 +163,13 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!me.CanReact())
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
             {
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (!me.CanReact())
             {
                 yield break;
             }
@@ -190,13 +190,13 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             }
 
             var rulesetMe = me.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
 
             if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }
 
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

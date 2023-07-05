@@ -40,7 +40,7 @@ public class CharacterActionPushedCustom : CharacterAction
         var character = ActionParams.ActingCharacter;
         var position = ActionParams.Positions[0];
 
-        if (character.RulesetActor is not {IsDeadOrDyingOrUnconscious: false})
+        if (character.RulesetActor is not { IsDeadOrDyingOrUnconscious: false })
         {
             yield break;
         }

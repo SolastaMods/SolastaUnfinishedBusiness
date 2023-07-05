@@ -1,0 +1,15 @@
+Environment Effect/&BoulderFallTitle=Падение камня
+Environment Effect/&ChandelierfallTitle=Падение люстры
+Environment Effect/&ExplosiveRunesDescription=Взрывные руны наносятся на объекты и взрываются при взаимодействии с этими объектами.
+Environment Effect/&ExplosiveRunesTitle=Взрывные руны
+Environment Effect/&FireburstTitle=Огненный взрыв
+Environment Effect/&IceBurstTitle=Ледяной взрыв
+Environment Effect/&LavaburstTitle=Взрыв лавы
+Environment Effect/&LightHypersensitivityTitle=Сверхчувствительность к свету
+Environment Effect/&LightningAreaNeedleTitle=Колонна молнии
+Environment Effect/&ManaWindTitle=Ветер маны
+Environment Effect/&PalaceOfIceSessrothExhaustion=Истощение от регенерации
+Environment Effect/&PoisonbulbTitle=Ядовитый пузырь
+Environment Effect/&PoisonNeedleDescription=В замке или другом устройстве, которое может отпереть существо, спрятана отравленная игла. Если отпереть объект без подходящего ключа, игла выскакивает и наносит урон ядом.
+Environment Effect/&PoisonNeedleTitle=Отравленная игла
+Environment Effect/&SpikesTitle=Шипы

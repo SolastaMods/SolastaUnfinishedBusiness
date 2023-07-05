@@ -1,0 +1,12 @@
+RestActivity/&ArcaneRecoveryDescription=Раз в день, завершив короткий отдых, вы можете восстановить некоторое количество потраченных ячеек заклинания (макс. 5-го уровня) на значение не более половины от вашего уровня волшебника, округлённое вверх.
+RestActivity/&ArcaneRecoveryExecutedDescription=<b>«Мистическое восстановление»</b>: {0} восстанавливает следующие ячейки заклинаний:
+RestActivity/&ArcaneRecoveryTitle=Маг. восстановление
+RestActivity/&AttuneItemDescription=Связь с предметом даёт доступ к его особенным свойствам и функциям.
+RestActivity/&AttuneItemTitle=Связь с предметом
+RestActivity/&FiendishResilienceDescription=Выберите новый тип сопротивления урону. Это заменяет предыдущий выбор дьявольской стойкости.
+RestActivity/&LevelUpDescription=Начать повышение уровня этого персонажа.
+RestActivity/&LevelUpTitle=Новый уровень
+RestActivity/&NaturalRecoveryDescription=Раз в день, завершив короткий отдых, вы можете восстановить некоторое количество потраченных ячеек заклинания (макс. 5-го уровня) на значение не более половины от вашего уровня друида, округлённое вверх.
+RestActivity/&NaturalRecoveryTitle=Природное восстановление
+RestActivity/&PrepareSpellsDescription=Завершив долгий отдых, вы можете изменить список подготовленных заклинаний.
+RestActivity/&PrepareSpellsTitle=Подготовить заклинания

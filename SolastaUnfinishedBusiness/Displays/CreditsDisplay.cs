@@ -30,14 +30,18 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
         ("HiddenHax",
-            "homebrew design [Circle of the Eternal Grove, College of Audacity, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, " +
+            "homebrew design [feats, spells, Circle of the Eternal Grove, College of Audacity, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, " +
             "Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, " +
             "Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
-        ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
+        ("DemonicDuck",
+            "homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Hammer, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+        ("Earandil", "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
+        ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("Otearaisu", "Oligath, Wendigo, Wyrmkin"),
+        ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
         ("magicSword", "chinese translations, asian languages support, Oath of Demon Hunter"),
@@ -45,18 +49,14 @@ internal static class CreditsDisplay
         ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
-        ("Bazou", "fighting styles, rules, spells"),
-        ("Holic75", "spells, Bolgrif"),
-        ("Remunos", "Obsidian Dwarf"),
         ("Kiloku", "quality of life"),
-        ("Earandil", "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
-        ("DemonicDuck",
-            "homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Hammer, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+        ("Bazou", "fighting styles, rules, spells"),
+        ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
+        ("Holic75", "spells, Bolgrif"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
-        ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
         ("team-waldo", "korean font")
     };
 

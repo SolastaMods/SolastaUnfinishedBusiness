@@ -361,14 +361,8 @@ CraftingManualRecipePrimeCEPike	Title='Prime Pike'.
 CreateDeadRisenGhost	Title='Raise Spectral Avenger'.
 CreateDeadRisenGhost	Description='Summons <b>Spectral Avenger</b>:
 A powerful, ethereal undead creature.'.
-CreateDeadRisenGhostNoConcentration	Title='Raise Spectral Avenger'.
-CreateDeadRisenGhostNoConcentration	Description='Summons <b>Spectral Avenger</b>:
-A powerful, ethereal undead creature.'.
 CreateDeadRisenGhoul	Title='Raise Ghoul'.
 CreateDeadRisenGhoul	Description='Summons <b>Ghoul</b>:
-A ravenous undead creature, constantly searching for flesh to eat.'.
-CreateDeadRisenGhoulNoConcentration	Title='Raise Ghoul'.
-CreateDeadRisenGhoulNoConcentration	Description='Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.'.
 CreateDeadRisenSkeleton	Title='Raise Skeleton'.
 CreateDeadRisenSkeleton	Description='Summons <b>Skeleton</b>:
@@ -376,42 +370,21 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 CreateDeadRisenSkeleton_Archer	Title='Raise Skeleton Archer'.
 CreateDeadRisenSkeleton_Archer	Description='Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
-CreateDeadRisenSkeleton_ArcherNoConcentration	Title='Raise Skeleton Archer'.
-CreateDeadRisenSkeleton_ArcherNoConcentration	Description='Summons <b>Skeleton Archer</b>:
-Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
 CreateDeadRisenSkeleton_Enforcer	Title='Raise Skeletal Enforcer'.
 CreateDeadRisenSkeleton_Enforcer	Description='Summons <b>Skeletal Enforcer</b>:
-A powerful undead creature armed with an axe and a shield.'.
-CreateDeadRisenSkeleton_EnforcerNoConcentration	Title='Raise Skeletal Enforcer'.
-CreateDeadRisenSkeleton_EnforcerNoConcentration	Description='Summons <b>Skeletal Enforcer</b>:
 A powerful undead creature armed with an axe and a shield.'.
 CreateDeadRisenSkeleton_Knight	Title='Raise Skeletal Knight'.
 CreateDeadRisenSkeleton_Knight	Description='Summons <b>Skeletal Knight</b>:
 A powerful undead creature, created by raising a dead knight.'.
-CreateDeadRisenSkeleton_KnightNoConcentration	Title='Raise Skeletal Knight'.
-CreateDeadRisenSkeleton_KnightNoConcentration	Description='Summons <b>Skeletal Knight</b>:
-A powerful undead creature, created by raising a dead knight.'.
 CreateDeadRisenSkeleton_Marksman	Title='Raise Skeletal Marksman'.
 CreateDeadRisenSkeleton_Marksman	Description='Summons <b>Skeletal Marksman</b>:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.'.
-CreateDeadRisenSkeleton_MarksmanNoConcentration	Title='Raise Skeletal Marksman'.
-CreateDeadRisenSkeleton_MarksmanNoConcentration	Description='Summons <b>Skeletal Marksman</b>:
-A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.'.
-CreateDeadRisenSkeletonNoConcentration	Title='Raise Skeleton'.
-CreateDeadRisenSkeletonNoConcentration	Description='Summons <b>Skeleton</b>:
-Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.'.
 CreateDeadRisenWight	Title='Raise Wight'.
 CreateDeadRisenWight	Description='Summons <b>Wight</b>:
 A Wight'.
 CreateDeadRisenWightLord	Title='Raise Wight Lord'.
 CreateDeadRisenWightLord	Description='Summons <b>Wight Lord</b>:
 A powerful wight, trained to withstand the light of day.'.
-CreateDeadRisenWightLordNoConcentration	Title='Raise Wight Lord'.
-CreateDeadRisenWightLordNoConcentration	Description='Summons <b>Wight Lord</b>:
-A powerful wight, trained to withstand the light of day.'.
-CreateDeadRisenWightNoConcentration	Title='Raise Wight'.
-CreateDeadRisenWightNoConcentration	Description='Summons <b>Wight</b>:
-A Wight'.
 CustomInvocationAncestryPathClawDraconicBlack	Description='Your draconic ancestry gives you an affinity to Acid damage type.'.
 CustomInvocationAncestryPathClawDraconicBlue	Description='Your draconic ancestry gives you an affinity to Lightning damage type.'.
 CustomInvocationAncestryPathClawDraconicGold	Description='Your draconic ancestry gives you an affinity to Fire damage type.'.
@@ -699,7 +672,7 @@ You gain the ability to cast the color spray, faerie fire and color burst spells
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
-FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
+FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
 FeatGroupOldTactics	Description='Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupPeregrinationTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.'.

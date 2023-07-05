@@ -23,7 +23,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .AddToDB();
 
         onComputeAttackModifierOpportunistQuickStrike.SetCustomSubFeatures(
-            new AttackComputeModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
+            new ModifyAttackActionModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
 
         var savingThrowAffinityConditionOpportunistDebilitated = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityOpportunistDebilitatingStrike")
@@ -117,11 +117,11 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class AttackComputeModifierOpportunistQuickStrike : IAttackComputeModifier
+    private sealed class ModifyAttackActionModifierOpportunistQuickStrike : IModifyAttackActionModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public AttackComputeModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
+        public ModifyAttackActionModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

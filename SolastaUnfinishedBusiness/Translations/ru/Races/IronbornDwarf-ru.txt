@@ -1,0 +1,6 @@
+Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=Сила +2
+Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Увеличение характеристик
+Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=Вы владеете лёгкими и средними доспехами.
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Подготовка железнорождённых
+Race/&RaceIronbornDwarfDescription=Сильные и выносливые Железнорождённые дварфы живут среди своих сородичей Снежных дварфов, но зачастую отдельно от них. Замкнутые и преданные своим кланам, они, тем не менее, всегда готовы встать плечом к плечу с любым членом Снежного союза.
+Race/&RaceIronbornDwarfTitle=Железнорождённый дварф

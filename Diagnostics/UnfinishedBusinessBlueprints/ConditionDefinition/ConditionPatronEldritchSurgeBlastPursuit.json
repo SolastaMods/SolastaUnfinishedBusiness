@@ -46,9 +46,9 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "5ed3abdf1ac428149afd181e4b2a9ecc",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -134,8 +134,8 @@
     "description": "Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6521f6beb9eb951438440fa9348b8dec",
-      "m_SubObjectName": "RagePointSmall",
+      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
+      "m_SubObjectName": "ConditionDisengaging",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

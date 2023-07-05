@@ -32,7 +32,7 @@ internal class RopeItUp : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode, IPhysicalAttackInitiated
+    private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -45,7 +45,7 @@ internal class RopeItUp : AbstractFightingStyle
             attackMode.maxRange += 2;
         }
 
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

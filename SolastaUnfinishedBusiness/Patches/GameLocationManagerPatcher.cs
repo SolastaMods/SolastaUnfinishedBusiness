@@ -144,7 +144,7 @@ public static class GameLocationManagerPatcher
 
             if (baseDefinition != null)
             {
-                var skip = baseDefinition.GetFirstSubFeatureOfType<ISKipEffectRemovalOnLocationChange>();
+                var skip = baseDefinition.GetFirstSubFeatureOfType<IPreventEffectRemovalOnLocationChange>();
 
                 if (skip != null && skip.Skip(willEnterChainedLocation))
                 {

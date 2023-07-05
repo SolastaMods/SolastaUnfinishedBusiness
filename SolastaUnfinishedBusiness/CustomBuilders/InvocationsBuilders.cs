@@ -552,7 +552,7 @@ internal static class InvocationsBuilders
         var featureAbilitiesOfTheChainMaster = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AfterActionFinishedAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
+            .SetCustomSubFeatures(new AfterActionFinishedByMeAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
                 conditionAbilityQuasit, conditionAbilityPseudo))
             .AddToDB();
 
@@ -633,7 +633,7 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class AfterActionFinishedAbilitiesChain : IActionFinished
+    private sealed class AfterActionFinishedByMeAbilitiesChain : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionImpAbility;
 
@@ -642,7 +642,7 @@ internal static class InvocationsBuilders
         private readonly ConditionDefinition _conditionQuasitAbility;
         private readonly ConditionDefinition _conditionSpriteAbility;
 
-        internal AfterActionFinishedAbilitiesChain(ConditionDefinition conditionSpriteAbility,
+        internal AfterActionFinishedByMeAbilitiesChain(ConditionDefinition conditionSpriteAbility,
             ConditionDefinition conditionImpAbility,
             ConditionDefinition conditionQuasitAbility,
             ConditionDefinition conditionPseudoAbility)
@@ -653,7 +653,7 @@ internal static class InvocationsBuilders
             _conditionPseudoAbility = conditionPseudoAbility;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
 

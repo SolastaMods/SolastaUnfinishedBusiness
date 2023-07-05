@@ -229,8 +229,8 @@ public static class Utilities
     }
 
     [UsedImplicitly]
-    public static Dictionary<TK, TV> Filter<TK, TV>(this Dictionary<TK, TV> dict,
-        Predicate<KeyValuePair<TK, TV>> pred)
+    // ReSharper disable once InconsistentNaming
+    public static Dictionary<TK, TV> Filter<TK, TV>(this Dictionary<TK, TV> dict, Predicate<KeyValuePair<TK, TV>> pred)
     {
         return dict.Where(it => pred(it)).ToDictionary(it => it.Key, it => it.Value);
     }

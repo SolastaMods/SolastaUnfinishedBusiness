@@ -73,7 +73,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetNotificationTag("Hex")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetTargetCondition(conditionHexDefender, AdditionalDamageTriggerCondition.TargetHasCondition)
-            .SetCustomSubFeatures(new ModifyCritThresholdAgainstHexedTargets(conditionHexDefender.Name))
+            .SetCustomSubFeatures(new ModifyCriticalThresholdAgainstHexedTargets(conditionHexDefender.Name))
             .AddToDB();
 
         var conditionHexAttacker = ConditionDefinitionBuilder
@@ -206,16 +206,16 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         return canWeaponBeEmpowered || canTwoHandedBeEmpowered;
     }
 
-    private sealed class ModifyCritThresholdAgainstHexedTargets : IModifyMyAttackCritThreshold
+    private sealed class ModifyCriticalThresholdAgainstHexedTargets : IModifyAttackCriticalThreshold
     {
         private readonly string hexCondition;
 
-        public ModifyCritThresholdAgainstHexedTargets(string hexCondition)
+        public ModifyCriticalThresholdAgainstHexedTargets(string hexCondition)
         {
             this.hexCondition = hexCondition;
         }
 
-        public int TryModifyMyAttackCritThreshold(int current, RulesetCharacter me, RulesetCharacter target,
+        public int GetCriticalThreshold(int current, RulesetCharacter me, RulesetCharacter target,
             BaseDefinition attackMethod)
         {
             if (target == null || attackMethod == null)

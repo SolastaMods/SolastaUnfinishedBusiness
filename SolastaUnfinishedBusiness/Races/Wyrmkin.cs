@@ -117,7 +117,7 @@ internal static class RaceWyrmkinBuilder
             .AddToDB();
 
         featureCaveWyrmkinChargingStrike.SetCustomSubFeatures(
-            new AfterActionFinishedCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike,
+            new AfterActionFinishedByMeCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike,
                 conditionChargingStrike));
 
         var caveWyrmkinRacePresentation = Dragonborn.RacePresentation.DeepCopy();
@@ -215,7 +215,7 @@ internal static class RaceWyrmkinBuilder
         return raceHighWyrmkin;
     }
 
-    private sealed class CaveWyrmkinShovingAttack : IPhysicalAttackFinished
+    private sealed class CaveWyrmkinShovingAttack : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _parentFeature;
@@ -226,7 +226,7 @@ internal static class RaceWyrmkinBuilder
             _parentFeature = parentFeature;
         }
 
-        public IEnumerator OnAttackFinished(
+        public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -269,12 +269,12 @@ internal static class RaceWyrmkinBuilder
         }
     }
 
-    private sealed class AfterActionFinishedCaveWyrmkinChargingStrike : IActionFinished
+    private sealed class AfterActionFinishedByMeCaveWyrmkinChargingStrike : IActionFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _parentFeature;
 
-        public AfterActionFinishedCaveWyrmkinChargingStrike(
+        public AfterActionFinishedByMeCaveWyrmkinChargingStrike(
             FeatureDefinition parentFeature,
             ConditionDefinition conditionChargingStrike)
         {
@@ -282,7 +282,7 @@ internal static class RaceWyrmkinBuilder
             _parentFeature = parentFeature;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction action)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionId != Id.DashMain)
             {
@@ -340,7 +340,7 @@ internal static class RaceWyrmkinBuilder
         }
     }
 
-    private class ReactToAttackOnMeReactiveRetribution : IReactToAttackOnMeFinished
+    private class ReactToAttackOnMeReactiveRetribution : IPhysicalAttackFinishedOnMe
     {
         private readonly FeatureDefinitionPower pool;
 
@@ -349,34 +349,36 @@ internal static class RaceWyrmkinBuilder
             pool = powerHighWyrmkinSwiftRetribution;
         }
 
-        public IEnumerator OnReactToAttackOnMeFinished(GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
             {
                 yield break;
             }
 
             // only trigger on a hit
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
             var rulesetEnemy = attacker.RulesetCharacter;
 
-            if (!me.CanReact() ||
+            if (!defender.CanReact() ||
                 rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
+            if (defender.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
@@ -389,11 +391,11 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(attacker);
+            var (retaliationMode, retaliationModifier) = defender.GetFirstMeleeModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
             {
-                (retaliationMode, retaliationModifier) = me.GetFirstRangedModeThatCanAttack(attacker);
+                (retaliationMode, retaliationModifier) = defender.GetFirstRangedModeThatCanAttack(attacker);
             }
 
             if (retaliationMode == null)
@@ -403,13 +405,13 @@ internal static class RaceWyrmkinBuilder
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, Id.AttackOpportunity);
+            var reactionParams = new CharacterActionParams(defender, Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var rulesetCharacter = me.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", reactionParams);
 

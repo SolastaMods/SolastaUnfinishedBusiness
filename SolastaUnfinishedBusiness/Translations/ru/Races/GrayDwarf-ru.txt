@@ -1,0 +1,12 @@
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Преимущество на проверки и спасброски Силы. +1d4 урона при использовании оружия ближнего боя с модификатором Силы.
+Condition/&ConditionGrayDwarfStoneStrengthTitle=Сила камня
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Сила +1
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Увеличение характеристик
+Feature/&FeatureSetGrayDwarfAncestryDescription=Преимущество на спасброски против Очарования, Паралича и Иллюзий.
+Feature/&FeatureSetGrayDwarfAncestryTitle=Наследие серых дварфов
+Feature/&PowerGrayDwarfInvisibilityDescription=Вы можете магически стать невидимыми до начала вашего следующего хода или пока вы не атакуете, не бросите кость урона, или не заставите кого-то совершить спасбросок. Использовав эту особенность, вы не можете использовать её снова, пока не завершите короткий или продолжительный отдых.
+Feature/&PowerGrayDwarfInvisibilityTitle=Невидимость
+Feature/&PowerGrayDwarfStoneStrengthDescription=Бонусным действием вы можете использовать Силу камня на 1 минуту. Вы получаете преимущество на проверки и спасброски Силы. Вы также дополнительно наносите 1d4 урона при использовании оружия ближнего боя с модификатором Силы. Использовав эту особенность, вы не можете использовать её снова, пока не завершите короткий или продолжительный отдых.
+Feature/&PowerGrayDwarfStoneStrengthTitle=Сила камня
+Race/&RaceGrayDwarfDescription=Серые дварфы - это дварфы, которые изменились после того, как всего несколько поколений были подвержены воздействию таинственной магии Пустошей. Они ведут преимущественно ночной образ жизни и обитают в основном в погребенных руинах. Цвет их кожи ближе к серому или даже угольно-черному. В отличие от большинства гномов, они не отращивают бороды.
+Race/&RaceGrayDwarfTitle=Серый дварф

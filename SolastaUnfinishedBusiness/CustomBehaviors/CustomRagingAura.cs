@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 // it also enforce the condition to any other aura participant as soon as the barb enters rage
 // finally it forces the condition to stop on barb turn start for any hero who had it but not in range anymore
 public class CustomRagingAura :
-    INotifyConditionRemoval, IActionFinished, ICharacterTurnStartListener
+    INotifyConditionRemoval, ISpendPowerFinishedByMe, ICharacterTurnStartListener
 {
     private readonly ConditionDefinition _conditionDefinition;
     private readonly bool _friendlyAura;
@@ -23,26 +23,6 @@ public class CustomRagingAura :
         _powerDefinition = powerDefinition;
         _conditionDefinition = conditionDefinition;
         _friendlyAura = friendlyAura;
-    }
-
-    public IEnumerator OnActionFinished(CharacterAction action)
-    {
-        if (action is CharacterActionSpendPower characterActionSpendPowerFriendly &&
-            characterActionSpendPowerFriendly.activePower.PowerDefinition == _powerDefinition &&
-            _friendlyAura)
-        {
-            AddCondition(action.ActingCharacter);
-        }
-
-        if (action is CharacterActionSpendPower characterActionSpendPowerUnfriendly &&
-            characterActionSpendPowerUnfriendly.activePower.PowerDefinition == _powerDefinition &&
-            _friendlyAura == false)
-        {
-            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                _conditionDefinition.Name);
-        }
-
-        yield break;
     }
 
     public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
@@ -111,6 +91,25 @@ public class CustomRagingAura :
     public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
     {
         RemoveCondition(rulesetActor);
+    }
+
+    public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+    {
+        if (power != _powerDefinition)
+        {
+            yield break;
+        }
+
+        if (_friendlyAura)
+        {
+            AddCondition(action.ActingCharacter);
+        }
+        else
+        {
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                _conditionDefinition.Name);
+        }
     }
 
     private void RemoveCondition(ISerializable rulesetActor)

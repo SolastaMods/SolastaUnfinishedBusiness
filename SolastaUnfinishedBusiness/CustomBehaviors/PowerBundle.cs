@@ -356,12 +356,14 @@ internal static class PowerBundle
             return cached;
         }
 
+#if false
         var baseDefinition = definition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
 
         if (baseDefinition != null)
         {
             result = baseDefinition.GetCustomEffect(caster) ?? original;
         }
+#endif
 
         //ignore features from powers, they would be processed later
         var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(

@@ -605,7 +605,7 @@ public static class ActionSwitching
         data.LoadSpellcasting(character, type);
     }
 
-    private sealed class HordeBreaker : ITargetReducedToZeroHp
+    private sealed class HordeBreaker : IOnTargetReducedToZeroHp
     {
         private readonly ConditionDefinition condition;
 

@@ -15,6 +15,7 @@ Music/&PrisonEscapeTitle=越狱
 Music/&RuinsOfTelemaTitle=特雷玛废墟
 Music/&ShadowsTitle=暗影
 Music/&SwampTitle=沼泽
+Music/&TavernTitle=
 Music/&TheLightBringersTitle=光明使者
 Music/&TheNecromancerTitle=死灵法师
 Music/&ValleyTitle=山谷

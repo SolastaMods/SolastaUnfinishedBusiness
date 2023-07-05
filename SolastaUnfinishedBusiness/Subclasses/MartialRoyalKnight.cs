@@ -13,8 +13,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class MartialRoyalKnight : AbstractSubclass
 {
     private const string Name = "RoyalKnight";
-    internal const string ConditionInspiringSurge = $"Condition{Name}InspiringSurge";
-    internal const string ConditionSpiritedSurge = $"Condition{Name}SpiritedSurge";
+    private const string ConditionInspiringSurge = $"Condition{Name}InspiringSurge";
+    private const string ConditionSpiritedSurge = $"Condition{Name}SpiritedSurge";
 
     internal MartialRoyalKnight()
     {

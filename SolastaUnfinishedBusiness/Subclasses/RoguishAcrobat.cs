@@ -136,6 +136,21 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
         // LEVEL 17 - Heroic Uncanny Dodge
 
+        var reduceDamageHeroicUncannyDodge = FeatureDefinitionReduceDamageBuilder
+            .Create($"ReduceDamage{Name}HeroicUncannyDodge")
+            .SetGuiPresentation($"Power{Name}HeroicUncannyDodge", Category.Feature)
+            .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
+            .AddToDB();
+
+        var conditionHeroicUncannyDodge = ConditionDefinitionBuilder
+            .Create($"Condition{Name}HeroicUncannyDodge")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetFeatures(reduceDamageHeroicUncannyDodge)
+            .AddToDB();
+
         var powerHeroicUncannyDodge = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HeroicUncannyDodge")
             .SetGuiPresentation(Category.Feature)
@@ -144,7 +159,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         powerHeroicUncannyDodge.SetCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
+            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge, conditionHeroicUncannyDodge));
 
         // MAIN
 
@@ -176,11 +191,15 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
     private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge : IAttackBeforeHitConfirmedOnMe
     {
+        private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
+        public AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
@@ -195,10 +214,13 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
 
-            if (gameLocationActionManager == null)
+            if (!me.CanReact())
             {
                 yield break;
             }
@@ -210,13 +232,10 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
-            {
-                yield break;
-            }
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!me.CanReact())
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -241,8 +260,19 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             }
 
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-
-            attackModifier.damageRollReduction = Int32.MaxValue;
+            rulesetMe.InflictCondition(
+                _conditionDefinition.Name,
+                _conditionDefinition.DurationType,
+                _conditionDefinition.DurationParameter,
+                _conditionDefinition.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetMe.guid,
+                rulesetMe.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

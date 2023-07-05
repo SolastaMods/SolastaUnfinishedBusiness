@@ -1,0 +1,3 @@
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=Нет души: врата неактивны
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=Душа предоставлена: врата готовы
+Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=Жертва готова
