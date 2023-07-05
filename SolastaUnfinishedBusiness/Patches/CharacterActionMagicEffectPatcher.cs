@@ -124,7 +124,7 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
-            //PATCH: IActionInitiatedByMe
+            //PATCH: supports `IUsePowerInitiatedByMe`
             if (__instance is CharacterActionUsePower characterActionUsePower1)
             {
                 var power = characterActionUsePower1.activePower.PowerDefinition;
@@ -140,7 +140,7 @@ public static class CharacterActionMagicEffectPatcher
                 yield return values.Current;
             }
 
-            //PATCH: Adds support to IUsePowerFinishedByMe
+            //PATCH: supports `IUsePowerFinishedByMe`
             if (__instance is CharacterActionUsePower characterActionUsePower2)
             {
                 var power = characterActionUsePower2.activePower.PowerDefinition;
@@ -151,7 +151,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
+            //PATCH: supports `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
             var definition = __instance.GetBaseDefinition();
 
@@ -196,11 +196,6 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;
-
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
 
             //chained effects would be useful for EOrb
             var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
