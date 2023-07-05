@@ -536,8 +536,19 @@ internal static class MeleeCombatFeats
     {
         public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.StandUp;
 
-        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
+            {
+                yield break;
+            }
+
+            if (!target.CanReact())
+            {
+                yield break;
+            }
+
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -549,17 +560,6 @@ internal static class MeleeCombatFeats
             var enemy = characterAction.ActingCharacter;
 
             if (!battle.IsWithin1Cell(target, enemy))
-            {
-                yield break;
-            }
-
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
-            {
-                yield break;
-            }
-
-            if (!target.CanReact())
             {
                 yield break;
             }

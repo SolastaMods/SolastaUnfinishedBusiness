@@ -751,7 +751,7 @@ internal static class OtherFeats
         //Poison character that shoves me
         public ActionDefinition ActionDefinition => DatabaseHelper.ActionDefinitions.ActionSurge;
 
-        public IEnumerator OnActionFinishedByEnemy(GameLocationCharacter target, CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (characterAction.ActionParams.TargetCharacters == null ||
                 !characterAction.ActionParams.TargetCharacters.Contains(target))
@@ -779,9 +779,14 @@ internal static class OtherFeats
         }
 
         //Poison target if I attack with unarmed
-        public IEnumerator OnAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome, int damageAmount)
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             //Missed: skipping
             if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
@@ -799,9 +804,14 @@ internal static class OtherFeats
         }
 
         //Poison melee attacker
-        public IEnumerator OnAttackFinishedOnMe(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter me, RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome, int damageAmount)
+        public IEnumerator OnAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
             //Missed: skipping
             if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
