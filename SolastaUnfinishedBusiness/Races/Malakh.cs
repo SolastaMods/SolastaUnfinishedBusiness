@@ -25,11 +25,29 @@ internal static class RaceMalakhBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildMalakh()
     {
-        var attributeModifierMalakhCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}CharismaAbilityScoreIncrease")
+        var featureSetMalakhAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Charisma, 2)
+            .AddFeatureSet(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}CharismaAbilityScoreIncrease")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Charisma, 2)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{Name}AbilityScore")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
+                    .RestrictChoices(
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Constitution)
+                    .AddToDB()
+            )
             .AddToDB();
+
         var featureSetMalakhDivineResistance = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}DivineResistance")
             .SetGuiPresentation(Category.Feature)
@@ -56,17 +74,6 @@ internal static class RaceMalakhBuilder
                     .AddToDB())
             .AddToDB();
 
-        var pointPoolAbilityScore = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{Name}AbilityScore")
-            .SetGuiPresentationNoContent(true)
-            .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
-            .RestrictChoices(
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Constitution)
-            .AddToDB();
 
         var spellListMalakh = SpellListDefinitionBuilder
             .Create($"SpellList{Name}")
@@ -85,6 +92,8 @@ internal static class RaceMalakhBuilder
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetFocusType(EquipmentDefinitions.FocusType.None)
+            .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.None)
+            .SetSpellKnowledge(SpellKnowledge.FixedList)
             .SetSpellList(spellListMalakh)
             .AddToDB();
 
@@ -120,8 +129,7 @@ internal static class RaceMalakhBuilder
                 MoveModeMove6,
                 SenseNormalVision,
                 SenseDarkvision,
-                pointPoolAbilityScore,
-                attributeModifierMalakhCharismaAbilityScoreIncrease,
+                featureSetMalakhAbilityScoreIncrease,
                 featureSetMalakhDivineResistance,
                 featureSetMalakhLanguages,
                 castSpellMalakhMagic,
@@ -190,7 +198,7 @@ internal static class RaceMalakhBuilder
         var raceJudgementMalakh = CharacterRaceDefinitionBuilder
             .Create(raceMalakh, $"Race{Name}")
             .SetOrUpdateGuiPresentation(Name, Category.Race)
-            .SetFeaturesAtLevel(ANGELIC_FORM_LEVEL,
+            .SetFeaturesAtLevel(3,
                 powerJudgementMalakhAngelicVisage)
             .AddToDB();
         return raceJudgementMalakh;
@@ -226,7 +234,7 @@ internal static class RaceMalakhBuilder
         var raceHeraldMalakh = CharacterRaceDefinitionBuilder
             .Create(raceMalakh, $"Race{Name}")
             .SetOrUpdateGuiPresentation(Name, Category.Race)
-            .SetFeaturesAtLevel(ANGELIC_FORM_LEVEL,
+            .SetFeaturesAtLevel(3,
                 powerHeraldMalakhAngelicFlight)
             .AddToDB();
         return raceHeraldMalakh;
@@ -278,7 +286,7 @@ internal static class RaceMalakhBuilder
         var raceGuardianMalakh = CharacterRaceDefinitionBuilder
             .Create(characterRaceDefinition, $"Race{Name}")
             .SetOrUpdateGuiPresentation(Name, Category.Race)
-            .SetFeaturesAtLevel(ANGELIC_FORM_LEVEL,
+            .SetFeaturesAtLevel(3,
                 powerGuardianMalakhAngelicRadiance)
             .AddToDB();
         return raceGuardianMalakh;
