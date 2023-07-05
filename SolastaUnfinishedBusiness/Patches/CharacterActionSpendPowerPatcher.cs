@@ -1,8 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -15,20 +17,34 @@ public static class CharacterActionSpendPowerPatcher
     public static class ExecuteImpl_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(CharacterActionSpendPower __instance)
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            CharacterActionSpendPower __instance)
         {
-            //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
 
+            var power = __instance.activePower.PowerDefinition;
+
+            foreach (var spendPowerFinishedByMe in power.GetAllSubFeaturesOfType<ISpendPowerFinishedByMe>())
+            {
+                spendPowerFinishedByMe.OnSpendPowerFinishedByMe(__instance, power);
+            }
+
+            //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
             if (__instance.ActionParams.RulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
             {
-                return;
+                yield break;
             }
 
             var usablePower = activePower.UsablePower;
+
+            // in this case base game already calls `UsePower`
             if (usablePower.OriginClass != null || usablePower.OriginRace != null)
             {
-                //in this case base game already calls `UsePower`
-                return;
+                yield break;
             }
 
             if (usablePower.powerDefinition.HasSubFeatureOfType<ForcePowerUseInSpendPowerAction>())
