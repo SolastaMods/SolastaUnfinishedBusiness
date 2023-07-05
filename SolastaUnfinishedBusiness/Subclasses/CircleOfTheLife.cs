@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -164,11 +163,24 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
     internal static void LateLoad()
     {
-        MagicAffinityHarmoniousBloom.WarListSpells.SetRange(SpellListAllSpells.SpellsByLevel
-            .SelectMany(x => x.Spells)
-            .Where(x => x.EffectDescription.EffectForms
-                .Any(y => y.FormType == EffectForm.EffectFormType.Healing))
-            .Select(x => x.Name));
+        foreach (var spellDefinition in SpellListAllSpells
+                     .SpellsByLevel
+                     .SelectMany(x => x.Spells)
+                     .Where(x => x.EffectDescription.EffectForms
+                         .Any(y => y.FormType == EffectForm.EffectFormType.Healing)))
+        {
+            if (spellDefinition.SpellsBundle)
+            {
+                foreach (var spellInBundle in spellDefinition.SubspellsList)
+                {
+                    MagicAffinityHarmoniousBloom.WarListSpells.Add(spellInBundle.Name);
+                }
+            }
+            else
+            {
+                MagicAffinityHarmoniousBloom.WarListSpells.Add(spellDefinition.Name);
+            }
+        }
     }
 
     private static int GetDruidLevel(ulong guid)
