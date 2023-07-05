@@ -1,0 +1,6 @@
+Maps/&Location_Presentation_DLC3_Undermountain_Description=Огромная крепость, вырезанная в камне и льду, где древние дварфские кланы Снежного союза добывают ресурсы и торгуются с другими городами.
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Description=Сложная система из тоннелей и лавовых желобов, в которой расположены дварфские механизмы, питающие отопительную систему Турвамалинна.
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=Лавовые тоннели
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Description=Главным проходом в Турвамалинн обычно пользуются путники и торговцы… Правда, сейчас он перекрыт тоннами льда.
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=Вход в тоннель
+Maps/&Location_Presentation_DLC3_Undermountain_Title=Турвамалинн

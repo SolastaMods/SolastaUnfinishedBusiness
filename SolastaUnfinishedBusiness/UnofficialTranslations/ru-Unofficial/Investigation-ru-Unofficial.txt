@@ -1,0 +1,10 @@
+Investigation/&DLC3_ElvenSettlements_Description=В домах и магазинах поселения произошёл ряд краж. Обеспокоенная горожанка по имени Лилиель Оакмосс попросила вас расследовать дело.
+Investigation/&DLC3_ElvenSettlements_Title=Когтистые воры
+Investigation/&DLC3_Gallivan_Description=Капитан Эшдаун подозревает, что кто-то в лагере передаёт стратегическую информацию врагу: неприятели будто бы всегда знают, когда и куда нужно бить.
+Investigation/&DLC3_Gallivan_Title=Тайный агент
+Investigation/&DLC3_Garrads_Description=Следуя предложению Виолетты, вы пытаетесь выяснить, не пробрались ли сораки в замок Гарреда.
+Investigation/&DLC3_Garrads_Title=Старые планы Гектора
+Investigation/&DLC3_Undermountain_Investigation_Description=Решение Эттивенов забросить колодец, а также неутихающие слухи о диверсантах сораков заставили вас начать расследование с целью выяснить, что может угрожать Турвамалинну изнутри.
+Investigation/&DLC3_Undermountain_Investigation_Title=Настойчивые слухи и куча тайн
+Investigation/&DLC3_WhiteCity_Description=Один из инженеров Города Белого Камня подозревает, что в город проник саботажник, и попросил вас отыскать его.
+Investigation/&DLC3_WhiteCity_Title=Саботажник

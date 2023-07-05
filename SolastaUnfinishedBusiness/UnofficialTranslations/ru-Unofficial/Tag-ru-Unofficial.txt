@@ -1,0 +1,7 @@
+Tag/&ArcaneProfessorCantripSpecialTagTitle=Профессор магии
+Tag/&BonusCantripsCantripSpecialTagTitle=Бонусные заговоры
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=Заговор или заклинание из магических секретов
+Tag/&MysticArcanumSpellSpecialTagTitle=Загадочная тайна
+Tag/&PactTomeCantripSpecialTagTitle=Заговоры договора
+Tag/&PactTomeRitualSpellSpecialTagTitle=Ритуалы договора
+Tag/&PactTomeSpellSpecialTagTitle=Заклинания договора
