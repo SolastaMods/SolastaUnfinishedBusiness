@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
-using static RulesetImplementationDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Races;
@@ -28,7 +20,7 @@ internal static class RaceMalakhBuilder
 
     internal static CharacterRaceDefinition RaceMalakh { get; } = BuildMalakh();
 
-    internal static int ANGELIC_FORM_LEVEL = 1;
+    internal static int ANGELIC_FORM_LEVEL = 3;
 
     [NotNull]
     private static CharacterRaceDefinition BuildMalakh()
@@ -92,6 +84,7 @@ internal static class RaceMalakhBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, $"CastSpell{Name}Magic")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetFocusType(EquipmentDefinitions.FocusType.None)
             .SetSpellList(spellListMalakh)
             .AddToDB();
 
@@ -166,6 +159,7 @@ internal static class RaceMalakhBuilder
             .Create($"Condition{Name}AngelicVisage")
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
                 ConditionDefinitions.ConditionDivineFavor)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
             .AddFeatures(additionalDamageMalakhAngelicForm)
@@ -176,12 +170,20 @@ internal static class RaceMalakhBuilder
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfMotherlandVolcanicAura)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                .SetSavingThrowData(true,
+                    AttributeDefinitions.Charisma, true,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, 
+                    AttributeDefinitions.Charisma)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
-                        .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true)
-                        .Build())
+                        .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true, true)
+                        .Build()
+                        )
                 .Build())
             .AddToDB();
 
@@ -200,13 +202,11 @@ internal static class RaceMalakhBuilder
         const string Name = "HeraldMalakh";
 
         var conditionAngelicFlight = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AngelicFlight")
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
-                ConditionDefinitions.ConditionDivineFavor)
+                ConditionDefinitions.ConditionDivineFavor)  
             .SetConditionType(ConditionType.Beneficial)
-            .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
-            .AddFeatures(additionalDamageMalakhAngelicForm, 
-                MoveModeFly8)
+            .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
         var powerHeraldMalakhAngelicFlight = FeatureDefinitionPowerBuilder
