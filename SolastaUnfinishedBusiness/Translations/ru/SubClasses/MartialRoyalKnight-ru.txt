@@ -1,0 +1,17 @@
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Начиная с 3-го уровня, вы добавляете половину своего бонуса мастерства к любой проверке Харизмы, которая ещё не включает ваш бонус мастерства. Кроме того, вы получаете владение спасбросками Харизмы.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Королевский посланник
+Feature/&PowerRoyalKnightInspiringProtectionDescription=Начиная с 15-го уровня, ваши действия вдохновляют других продолжать сражаться. Когда один из ваших союзников, которого вы можете видеть в радиусе 60 футов, проваливает спасбросок, вы можете использовать свою реакцию, чтобы заставить этого союзника повторить бросок. Вы можете использовать эту способность три раза до продолжительного отдыха.
+Feature/&PowerRoyalKnightInspiringProtectionTitle=Вдохновляющая защита
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Начиная с 10-го уровня, бонусным действием вы можете дать союзнику дополнительное основное действие на 1 раунд. Вы можете использовать эту способность один раз до короткого отдыха.
+Feature/&PowerRoyalKnightInspiringSurgeTitle=Вдохновляющий всплеск
+Feature/&PowerRoyalKnightRallyingCryDescription=Начиная с 3-го уровня, вы заменяете своё Второе дыхание силой, восстанавливающей хиты, равные вашему четырёхкратному уровню Воина, равномерно распределённые между одним или несколькими союзниками в радиусе 30 футов.
+Feature/&PowerRoyalKnightRallyingCryTitle=Объединяющий клич
+Feature/&PowerRoyalKnightSpiritedSurgeDescription=Начиная с 18-го уровня, ваш Вдохновляющий всплеск также даёт преимущество на все атаки, спасброски и проверки навыков на 1 раунд.
+Feature/&PowerRoyalKnightSpiritedSurgeTitle=Энергичный всплеск
+Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly=<b>{0}</b> провалил спасбросок от <b>{2}</b> <b>{1}</b>. Вы можете потратить реакцию, чтобы сымпровизировать помощь, позволяющую перебросить спасбросок.
+Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf=<b>{0}</b> провалил спасбросок от <b>{2}</b> <b>{1}</b> и может потратить реакцию, чтобы сымпровизировать помощь, позволяющую перебросить спасбросок.
+Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=Потратьте использование этой силы, чтобы помочь союзнику с его спасброском.
+Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=Вдохновляющая защита
+Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=Вдохновляющая защита
+Subclass/&MartialRoyalKnightDescription=Рыцарь, который пробуждает величие в других, совершая храбрые боевые подвиги. Благородный рыцарь - искусный воин, но возглавив группу союзников, он может превратить даже самое плохо оснащенное ополчение в свирепую боевую дружину.
+Subclass/&MartialRoyalKnightTitle=Благородный рыцарь

@@ -1,0 +1,10 @@
+Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationDescription=Начиная с 6-го уровня, ваши заклинания Очарования, Ограждения и Иллюзии накладываются на один уровень выше, чем используемая ячейка заклинаний.
+Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationTitle=Мистическая манипуляция
+Feature/&PowerSorcerousFieldManipulatorDisplacementDescription=Начиная с 1-го уровня, действием вы можете телепортировать существо в радиусе 60 футов от вас на любую клетку, которую вы можете видеть в пределах этих 60 футов. Враждебные существа должны пройти спасбросок Харизмы, при этом Сл будет равна Сл ваших заклинаний, или будут перемещены. Дружественные существа не обязаны совершать спасбросок. Вы можете использовать эту способность количество раз до продолжительного отдыха, равное вашему бонусу мастерства.
+Feature/&PowerSorcerousFieldManipulatorDisplacementTitle=Смещение
+Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription=Начиная с 18-го уровня, бонусным действием вы можете телепортироваться в выбранное вами место в пределах 60 футов. Любое враждебное существо в радиусе 10 футов от места назначения, куда вы попадаете, должно пройти спасбросок Силы против Сл ваших заклинаний или получить 3d10 урона силовым полем и упасть ничком, будучи отброшенным на 10 футов назад. Вы можете использовать эту способность три раза до длительного отдыха, а также вы можете потратить 4 единицы чародейства, если у вас закончились использования.
+Feature/&PowerSorcerousFieldManipulatorForcefulStepTitle=Сильный шаг
+Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceDescription=Начиная с 14-го уровня, вы получаете владение спасбросками Интеллекта и Мудрости.
+Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle=Ментальное сопротивление
+Subclass/&SorcerousFieldManipulatorDescription=Манипуляторы полей отлично контролируют поле боя и не дают врагам возможности атаковать их.
+Subclass/&SorcerousFieldManipulatorTitle=Манипулятор полей

@@ -1,0 +1,14 @@
+Condition/&ConditionOpportunistDebilitatedDescription=Все ваши спасброски уменьшены на 1d6 на один раунд.
+Condition/&ConditionOpportunistDebilitatedTitle=Ослаблен
+Condition/&ConditionOpportunistExposedDescription=Противники совершают с преимуществом броски атаки по вам.
+Condition/&ConditionOpportunistExposedTitle=Беззащитный
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Начиная с 13-го уровня, когда противник проваливает спасбросок не в ваш ход, вы можете использовать свою реакцию, чтобы атаковать его. При этом может сработать скрытая атака.
+Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Воспользоваться шансом
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=Начиная с 3-го уровня, вы имеете преимущество на броски атаки по противникам, чья инициатива ниже вашей. Кроме того, у вас есть преимущество при совершении атак по возможности.
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Быстрый удар
+Feature/&PowerOpportunistDebilitatingStrikeDescription=Начиная с 9-го уровня, ваша скрытая атака заставляет цель пройти спасбросок Телосложения (Сл 8 + ваш бонус мастерства + ваш модификатор Ловкости) или все её спасброски уменьшаются на 1d6 на один раунд.
+Feature/&PowerOpportunistDebilitatingStrikeTitle=Ослабляющий удар
+Feature/&PowerOpportunistExposingWeaknessDescription=Начиная с 17-го уровня, любая атака против существа, которое провалило спасбросок от вашего умения Ослабляющий удар, производится с преимуществом.
+Feature/&PowerOpportunistExposingWeaknessTitle=Выявление слабости
+Subclass/&RoguishOpportunistDescription=Оппортунисты - это те, кто никогда не упускает шанса покончить со своими врагами. Они наносят быстрые удары и бьют там, где это важно. Немногим из тех, кто сталкивается с ними, удаётся уйти невредимыми.
+Subclass/&RoguishOpportunistTitle=Оппортунист

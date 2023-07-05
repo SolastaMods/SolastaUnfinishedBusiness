@@ -1,0 +1,10 @@
+Feature/&AdditionalActionArcaneFighterDescription=Вы можете наложить заклинание после того, как победили противника атакой оружием.
+Feature/&AdditionalActionArcaneFighterTitle=Бой заклинаниями
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Один раз в ход ваша атака оружием наносит дополнительно 1d8 урона.
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Усиленные магией атаки
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Благодаря большому опыту нахождения в хаосе битвы, вы совершаете проверки концентрации с преимуществом.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Улучшенная концентрация
+Feedback/&AdditionalDamageArcaneFighterFormat=Мистический боец!
+Feedback/&AdditionalDamageArcaneFighterLine=Мистический боец наносит дополнительно +{2} урона!
+Subclass/&WizardArcaneFighterDescription=Мистические бойцы направляют магию в своё оружие, чтобы совершать разрушительные атаки. Для их противников свирепость и неумолимость этих заклинателей часто становятся сюрпризом.
+Subclass/&WizardArcaneFighterTitle=Мистический боец
