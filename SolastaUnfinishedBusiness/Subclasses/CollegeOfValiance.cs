@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -18,6 +19,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class CollegeOfValiance : AbstractSubclass
 {
     private const string Name = "CollegeOfValiance";
+    private static FeatureDefinition _featureSteadfastInspiration;
 
     internal CollegeOfValiance()
     {
@@ -63,32 +65,9 @@ internal sealed class CollegeOfValiance : AbstractSubclass
 
         // Steadfast Inspiration
 
-        var conditionSteadfastInspiration = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBardicInspiration, $"Condition{Name}SteadfastInspiration")
-            .AddToDB();
-
-        var featureSteadfastInspiration = FeatureDefinitionBuilder
+        _featureSteadfastInspiration = FeatureDefinitionBuilder
             .Create($"Feature{Name}SteadfastInspiration")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new UsePowerFinishedByMeSteadfastInspiration(conditionSteadfastInspiration))
-            .AddToDB();
-
-        conditionSteadfastInspiration.Features.Add(featureSteadfastInspiration);
-
-        var powerSteadfastInspiration = FeatureDefinitionPowerBuilder
-            .Create(PowerBardGiveBardicInspiration, $"Power{Name}SteadfastInspiration")
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(PowerBardGiveBardicInspiration)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSteadfastInspiration))
-                    .Build())
-            .SetOverriddenPower(PowerBardGiveBardicInspiration)
-            .AddToDB();
-
-        var featureSetSteadfastInspiration = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}SteadfastInspiration")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerSteadfastInspiration)
             .AddToDB();
 
         // Recall Language
@@ -106,7 +85,7 @@ internal sealed class CollegeOfValiance : AbstractSubclass
         // Heroic Inspiration
 
         var powerHeroicInspiration = FeatureDefinitionPowerBuilder
-            .Create(powerSteadfastInspiration, $"Power{Name}HeroicInspiration")
+            .Create(PowerBardGiveBardicInspiration, $"Power{Name}HeroicInspiration")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
             .SetEffectDescription(
@@ -116,12 +95,26 @@ internal sealed class CollegeOfValiance : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        _ = ActionDefinitionBuilder
+            .Create(GrantBardicInspiration, "ActionUseHeroicInspiration")
+            .OverrideClassName("UsePower")
+            .SetActionId(ExtraActionId.UseHeroicInspiration)
+            .SetActivatedPower(powerHeroicInspiration)
+            .AddToDB();
+
+        var actionAffinityHeroicInspiration = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}HeroicInspiration")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.UseHeroicInspiration)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionLight)
             .AddFeaturesAtLevel(3, featureCaptivatingPresence, powerSteadfastDishearteningPerformance)
-            .AddFeaturesAtLevel(6, featureSetSteadfastInspiration, autoPreparedSpellsRecallLanguage)
-            .AddFeaturesAtLevel(14, powerHeroicInspiration)
+            .AddFeaturesAtLevel(6, autoPreparedSpellsRecallLanguage, _featureSteadfastInspiration)
+            .AddFeaturesAtLevel(14, actionAffinityHeroicInspiration, powerHeroicInspiration)
             .AddToDB();
     }
 
@@ -131,6 +124,20 @@ internal sealed class CollegeOfValiance : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static bool ShouldKeepInspirationDice(ulong sourceGuid)
+    {
+        var bardCharacter = EffectHelpers.GetCharacterByGuid(sourceGuid);
+
+        if (bardCharacter == null || bardCharacter.GetSubclassLevel(CharacterClassDefinitions.Bard, Name) <= 0)
+        {
+            return false;
+        }
+
+        bardCharacter.LogCharacterUsedFeature(_featureSteadfastInspiration);
+
+        return true;
+    }
 
     private sealed class ModifyAbilityCheckCaptivatingPresence : IModifyAbilityCheck
     {
@@ -210,6 +217,7 @@ internal sealed class CollegeOfValiance : AbstractSubclass
                 return;
             }
 
+            // this is almost the same code as RollBardicInspirationDie but dup here for better combat log messages
             var dieType = bardCharacter.GetBardicInspirationDieValue();
             var inspirationDie = RollDie(dieType, AdvantageType.None, out _, out _);
             var baseLine = inspirationDie > saveOutcomeDelta
@@ -231,57 +239,6 @@ internal sealed class CollegeOfValiance : AbstractSubclass
             }
 
             target.RemoveCondition(usableCondition);
-        }
-    }
-
-    private sealed class UsePowerFinishedByMeSteadfastInspiration : IActionFinishedByMe
-    {
-        private readonly ConditionDefinition _conditionSteadfastInspiration;
-
-        public UsePowerFinishedByMeSteadfastInspiration(ConditionDefinition conditionSteadfastInspiration)
-        {
-            _conditionSteadfastInspiration = conditionSteadfastInspiration;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionUseBardicInspiration)
-            {
-                yield break;
-            }
-
-            var failedAttackRoll =
-                characterAction.AttackRoll > 0 &&
-                characterAction.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure;
-
-            var failedAbilityCheck =
-                characterAction.AbilityCheckRoll > 0 &&
-                characterAction.AbilityCheckRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure;
-
-            var failedSavingThrow =
-                characterAction.RolledSaveThrow &&
-                characterAction.SaveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure;
-
-            if (!failedAttackRoll && !failedAbilityCheck && !failedSavingThrow)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
-
-            rulesetCharacter.InflictCondition(
-                _conditionSteadfastInspiration.Name,
-                _conditionSteadfastInspiration.DurationType,
-                _conditionSteadfastInspiration.DurationParameter,
-                _conditionSteadfastInspiration.TurnOccurence,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
         }
     }
 }

@@ -1,18 +1,18 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9031,
-  "actionType": "NoCost",
+  "id": 9030,
+  "actionType": "Bonus",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "PrioritizeAction",
+  "classNameOverride": "UsePower",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
-  "parameter": "None",
-  "formType": "Small",
+  "parameter": "ActivatePower",
+  "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
   "focusCameraOnAction": true,
@@ -20,8 +20,8 @@
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": null,
-  "displayPowerTooltip": false,
+  "activatedPower": "Definition:PowerCollegeOfValianceHeroicInspiration:5b82d737-651e-5bc2-b18b-1963f134f1b5",
+  "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",
   "addLevel": false,
@@ -47,13 +47,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerBardGiveBardicInspirationTitle",
+    "description": "Feature/&PowerBardGiveBardicInspirationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "80ab2cbb353b4df4fa57328bc0d9802b",
+      "m_SubObjectName": "GrantBardicInspiration",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -63,12 +63,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 29,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "118b1701-a7f2-509d-9ce2-90050c30e17c",
+  "guid": "86f89d9e-b91d-55e5-b6b0-140080fb8efe",
   "contentPack": 9999,
-  "name": "PrioritizeAction"
+  "name": "ActionUseHeroicInspiration"
 }
