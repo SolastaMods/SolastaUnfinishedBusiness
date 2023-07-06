@@ -1,4 +1,4 @@
-Condition/&ConditionCollegeOfValianceDishearteningPerformanceDescription=Você deve subtrair o número obtido na fonte do dado Inspiração de Bardo em seu próximo teste de resistência.
+Condition/&ConditionCollegeOfValianceDishearteningPerformanceDescription=Você deve subtrair o número obtido na fonte do dado Inspiração de Bardo em seu próximo teste de resistência bem-sucedido.
 Condition/&ConditionCollegeOfValianceDishearteningPerformanceTitle=Desempenho Desanimador
 Feature/&AutoPreparedSpellsCollegeOfValianceRecallLanguageDescription=Você adquiriu conhecimento de muitos idiomas diferentes através da leitura de obras estrangeiras escritas e pode magicamente se tornar fluente nesses idiomas, adicionando o feitiço Línguas à lista de feitiços conhecidos.
 Feature/&AutoPreparedSpellsCollegeOfValianceRecallLanguageTitle=Recuperar idioma
@@ -6,7 +6,7 @@ Feature/&FeatureCollegeOfValianceCaptivatingPresenceDescription=Você deixa uma 
 Feature/&FeatureCollegeOfValianceCaptivatingPresenceTitle=Presença Cativante
 Feature/&FeatureCollegeOfValianceSteadfastInspirationDescription=Suas palavras inspiradoras são tão encorajadoras que os outros se sentem motivados a ter sucesso. Quando uma criatura amiga adiciona um de seus dados de Inspiração de Bardo ao seu teste de habilidade, jogada de ataque ou teste de resistência e a jogada falha, a criatura pode manter o dado de Inspiração de Bardo.
 Feature/&FeatureCollegeOfValianceSteadfastInspirationTitle=Inspiração Inabalável
-Feature/&PowerCollegeOfValianceDishearteningPerformanceDescription=Seus atos valentes desmoralizam seus oponentes. Como uma ação bônus, você pode gastar um uso de sua Inspiração de Bardo e escolher uma criatura hostil que você possa ver a até 18 metros de você. Role o dado de Inspiração de Bardo. A criatura deve subtrair o número rolado do próximo teste de resistência que fizer antes do início do seu próximo turno.
+Feature/&PowerCollegeOfValianceDishearteningPerformanceDescription=Sua coragem na batalha desmoraliza seus inimigos. Como uma ação bônus, você pode gastar um uso de sua Inspiração de Bardo e escolher uma criatura hostil que você possa ver a até 18 metros de você. Role o dado de Inspiração de Bardo. A criatura deve subtrair o número rolado do primeiro teste de resistência em que obteve sucesso antes do início do seu próximo turno.
 Feature/&PowerCollegeOfValianceDishearteningPerformanceTitle=Desempenho Desanimador
 Feature/&PowerCollegeOfValianceHeroicInspirationDescription=Você pode usar sua ação bônus para ativar a Inspiração Heroica. Heroic Inspiration concede todos os benefícios da Bardic Inspiration sem consumir nenhum uso de Bardic Inspiration e pode atingir duas criaturas amigas em um raio de 60 pés em vez de apenas uma. Você pode usar esta característica um número de vezes por descanso longo igual ao seu modificador de Carisma.
 Feature/&PowerCollegeOfValianceHeroicInspirationTitle=Inspiração heroica

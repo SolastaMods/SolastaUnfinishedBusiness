@@ -58,6 +58,7 @@ internal sealed class CollegeOfValiance : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 10, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDishearteningPerformance))
+                    .SetParticleEffectParameters(PowerCollegeLoreCuttingWords)
                     .Build())
             .AddToDB();
 
@@ -204,8 +205,6 @@ internal sealed class CollegeOfValiance : AbstractSubclass
 
             if (saveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                target.RemoveCondition(usableCondition);
-
                 return;
             }
 
@@ -213,8 +212,6 @@ internal sealed class CollegeOfValiance : AbstractSubclass
 
             if (bardCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
-                target.RemoveCondition(usableCondition);
-
                 return;
             }
 
