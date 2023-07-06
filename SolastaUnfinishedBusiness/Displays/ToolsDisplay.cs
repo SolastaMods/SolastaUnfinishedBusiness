@@ -47,6 +47,9 @@ internal static class ToolsDisplay
                 UI.Width((float)200));
         }
 
+        UI.ActionButton(Gui.Localize("ModUi/&OpenSubjectiveGuide"), UpdateContext.OpenSubjectiveGuideToSolasta,
+            UI.Width((float)608));
+
         UI.Label();
 
         var toggle = Main.Settings.DisableUpdateMessage;

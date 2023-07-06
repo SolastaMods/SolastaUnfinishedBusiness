@@ -178,6 +178,7 @@ ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치 곱하기</co
 ModUi/&NoExperienceOnLevelUp=레벨업에 경험치가 필요하지 않습니다
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 추가 지식 친화적인 이름 제공
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 컨저레이션 목록에서 가장 강력한 생물만 표시</i>
+ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 Solasta에 대한 주관적 가이드 열기
 ModUi/&OverrideMinMaxLevel=새로운 모험을 시작할 때 필요한 최소 및 최대 레벨 재정의
 ModUi/&OverridePartySize=<color=white>파티 규모 재정의</color>
 ModUi/&Patches=<color=#F0DAA0>패치:</color>

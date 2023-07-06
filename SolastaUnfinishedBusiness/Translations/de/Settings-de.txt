@@ -178,6 +178,7 @@ ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonne
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
 ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Zeigt nur die mächtigsten Kreaturen in der Beschwörungsliste an</i>
+ModUi/&OpenSubjectiveGuide=Öffnen Sie den subjektiven Leitfaden zu Solasta von <b><color=#D89555>u/CounterYolo</color></b>
 ModUi/&OverrideMinMaxLevel=Überschreiben Sie die erforderlichen Mindest- und Höchststufen, wenn Sie neue Abenteuer beginnen
 ModUi/&OverridePartySize=<color=white>Überschreiben Sie die Gruppengröße</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
