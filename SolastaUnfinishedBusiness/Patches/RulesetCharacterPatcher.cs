@@ -1656,7 +1656,7 @@ public static class RulesetCharacterPatcher
             __instance.ProcessConditionsMatchingInterruption(ConditionInterruption.BardicInspirationUsed);
 
             //BEGIN PATCH
-            if (!success && CollegeOfValiance.ShouldKeepInspirationDice(sourceCondition.SourceGuid))
+            if (!success && CollegeOfValiance.IsValianceLevel6(sourceCondition.SourceGuid))
             {
                 return false;
             }

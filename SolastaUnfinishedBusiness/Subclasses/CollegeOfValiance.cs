@@ -126,11 +126,11 @@ internal sealed class CollegeOfValiance : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool ShouldKeepInspirationDice(ulong sourceGuid)
+    internal static bool IsValianceLevel6(ulong sourceGuid)
     {
         var bardCharacter = EffectHelpers.GetCharacterByGuid(sourceGuid);
 
-        if (bardCharacter == null || bardCharacter.GetSubclassLevel(CharacterClassDefinitions.Bard, Name) <= 0)
+        if (bardCharacter == null || bardCharacter.GetSubclassLevel(CharacterClassDefinitions.Bard, Name) <= 5)
         {
             return false;
         }
