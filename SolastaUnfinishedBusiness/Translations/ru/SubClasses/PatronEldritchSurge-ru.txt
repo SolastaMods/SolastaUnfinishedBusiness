@@ -16,6 +16,6 @@ Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Вы усиливает
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Взрывное преследование
 Feedback/&AdditionalDamageBlastOverloadFormat=Перегрузка заряда!
 Feedback/&AdditionalDamageBlastOverloadLine={0} вливает магическую силу в {1} (+{2})!
-Feedback/&BlastPursuitExtraAction={1} дарует {0} дополнительное действие! 
+Feedback/&BlastPursuitExtraAction={1} дарует {0} дополнительное действие!
 Subclass/&PatronEldritchSurgeDescription=Вы заключили договор с таинственным существом, которое дарует вам способность высвобождать свирепую магическую энергию <b>Мистического заряда</b>. Этот покровитель - не конкретное существо, а скорее проявление первичного всплеска магии как таковой. Избранный этой сущностью, вы посвящаете себя совершенствованию своего фирменного заклинания и уничтожаете противников разрушительной силой, чтобы доказать свою безграничную мощь. Таким образом, ваш покровитель дарует вам только <b>Мистический заряд</b>.
 Subclass/&PatronEldritchSurgeTitle=Мистический всплеск
