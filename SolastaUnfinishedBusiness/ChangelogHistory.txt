@@ -1,4 +1,33 @@
-﻿1.5.92.11:
+﻿1.5.92.12:
+
+CHARISMA CHECK:
+
+- Zappastuff is looking for a wealthy contributor to donate a SteamDeck [10% off] to the UB cause
+- It would help a lot to make UB compatible with controllers [as well as allow to play on trips]
+- Your name will be immortalized on UB credits, and custom content requests will be prioritized
+- THANKS if you are the chosen one! If so reach out to Zappastuff on STEAM or DISCORD for address
+
+CHANGES:
+
+- added College of Valiance subclass
+- added Malakh subrace [by @otearaisu]
+- added Mod UI button to open "The Subjective Guide to Solasta by u/CounterYolo"
+- changed College of Harlequin terrific performance duration to end of source turn
+- fixed additional feats setting interaction with Fighters and Rogues
+- fixed College of Audacity not triggering whirl damage nor consuming bardic die
+- fixed Innovation Vivisectionist emergency surgery dice progression
+- fixed Grant Bardic Inspiration interaction with action switching
+- fixed Martial Weapon Master stacking specialized weapon bonuses
+- fixed Ranger Wild Master missing eyebite sprites
+- fixed Ritual Magic interaction with Plane Magic
+- fixed vanilla issue always succeeding on savings where bardic die is offered
+- fixed Way of Weal and Woe behavior when enemy dies
+
+COMING NEXT:
+
+- Arcane Archer subclass
+
+1.5.92.11:
 
 - fixed all spells requiring concentration [it's WoTC not FoTC ;-)]
 
