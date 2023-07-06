@@ -199,8 +199,10 @@ public static class InnovationVivisectionist
             var levels = character.GetClassLevel(InventorClass.Class);
             var diceNumber = levels switch
             {
-                >= 15 => 3,
-                >= 9 => 2,
+                >= 19 => 5,
+                >= 15 => 4,
+                >= 11 => 3,
+                >= 7 => 2,
                 _ => 1
             };
 
