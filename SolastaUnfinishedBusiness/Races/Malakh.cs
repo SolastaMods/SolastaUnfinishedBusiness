@@ -131,18 +131,9 @@ internal static class RaceMalakhBuilder
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .AddToDB();
 
-        var angelicFlight = BuildAngelicFlight(additionalDamageMalakhAngelicForm);
-        var angelicRadiance = BuildAngelicRadiance(additionalDamageMalakhAngelicForm);
-        var angelicVisage = BuildAngelicVisage(additionalDamageMalakhAngelicForm);
-
-
-        var featureSetMalakhAngelicForm = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}AngelicForm")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
-            .SetAncestryType(ExtraAncestryType.Malakh)
-            .AddFeatureSet(angelicFlight, angelicRadiance, angelicVisage)
-            .AddToDB();
+        var powerMalakhAngelicFlight = BuildAngelicFlight(additionalDamageMalakhAngelicForm);
+        var powerMalakhAngelicRadiance = BuildAngelicRadiance(additionalDamageMalakhAngelicForm);
+        var powerMalakhAngelicVisage = BuildAngelicVisage(additionalDamageMalakhAngelicForm);
 
         RacePresentation racePresentation = Human.RacePresentation.DeepCopy();
         // disables the origin image from appearing
@@ -164,8 +155,29 @@ internal static class RaceMalakhBuilder
                 )
             .AddToDB();
 
+        // refactored to subrace because featureset doesn't seem to work in higher levels
+        raceMalakh.subRaces =
+            new List<CharacterRaceDefinition> {
+                    BuildMalakhSubrace(raceMalakh, "Herald", powerMalakhAngelicFlight),
+                    BuildMalakhSubrace(raceMalakh, "Guardian", powerMalakhAngelicRadiance),
+                    BuildMalakhSubrace(raceMalakh, "Judgement", powerMalakhAngelicVisage),
+            };
+
 
         return raceMalakh;
+    }
+
+    private static CharacterRaceDefinition BuildMalakhSubrace(
+        CharacterRaceDefinition raceMalakh, 
+        string suffix, FeatureDefinition powerAngelicForm)
+    {
+        var subraceName = $"Race{Name}{suffix}";
+        return CharacterRaceDefinitionBuilder
+            .Create(raceMalakh, subraceName)
+            .SetOrUpdateGuiPresentation(subraceName, Category.Race)
+            .SetFeaturesAtLevel(3,
+                powerAngelicForm)
+            .AddToDB();
     }
 
     private static FeatureDefinition BuildAngelicVisage(
@@ -173,7 +185,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicVisage = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicVisage")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+            .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionDivineFavor)
             .SetSpecialDuration(DurationType.Minute, 1)
             .SetConditionType(ConditionType.Beneficial)
@@ -210,7 +222,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+            .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionDivineFavor)  
             .SetConditionType(ConditionType.Beneficial)
             .AddFeatures(additionalDamageMalakhAngelicForm)
@@ -242,7 +254,7 @@ internal static class RaceMalakhBuilder
 
         var conditionAngelicRadiance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicRadiance")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+            .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
