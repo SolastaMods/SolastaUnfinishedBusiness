@@ -1,0 +1,16 @@
+Condition/&ConditionCollegeOfValianceDishearteningPerformanceDescription=You must subtract the number rolled on Bardic Inspiration die source on your next saving throw.
+Condition/&ConditionCollegeOfValianceDishearteningPerformanceTitle=Disheartening Performance
+Feature/&AutoPreparedSpellsCollegeOfValianceRecallLanguageDescription=You picked up knowledge of many different languages through reading foreign written works, and you can magically become fluent in those languages, adding Tongues spell to the list of spells known.
+Feature/&AutoPreparedSpellsCollegeOfValianceRecallLanguageTitle=Recall Language
+Feature/&FeatureCollegeOfValianceCaptivatingPresenceDescription=You leave a lasting impression on people around you. When you make a Persuasion or Performance check, you can treat a d20 roll of 9 or lower as a 10.
+Feature/&FeatureCollegeOfValianceCaptivatingPresenceTitle=Captivating Presence
+Feature/&FeatureSetCollegeOfValianceSteadfastInspirationDescription=Your inspiring words are so encouraging that others feel driven to succeed. When a friendly creature adds one of your Bardic Inspiration dice to its ability check, attack roll, or saving throw and the roll fails, the creature can keep the Bardic Inspiration die.
+Feature/&FeatureSetCollegeOfValianceSteadfastInspirationTitle=Steadfast Inspiration
+Feature/&PowerCollegeOfValianceDishearteningPerformanceDescription=Your valiant deeds demoralize your opponents. As a bonus action, you can expend one use of your Bardic Inspiration and choose one hostile creature you can see within 60 feet of you. Roll the Bardic Inspiration die. The creature must subtract the number rolled from the next saving throw it makes before the start of your next turn.
+Feature/&PowerCollegeOfValianceDishearteningPerformanceTitle=Disheartening Performance
+Feature/&PowerCollegeOfValianceHeroicInspirationDescription=You can use your bonus action to activate Heroic Inspiration. Heroic Inspiration grants all the benefits of Bardic Inspiration without consuming any Bardic Inspiration usages, and can target two friendly creatures within 60 feet instead of only one. You can use this feature a number of times per long rest equal to your Charisma modifier.
+Feature/&PowerCollegeOfValianceHeroicInspirationTitle=Heroic Inspiration
+Feedback/&DishearteningPerformanceUsedFailureLine={0} spends a {1} inspiration die to change the outcome, rolls {2} on the inspiration die but does not change the roll, which is still succeed.
+Feedback/&DishearteningPerformanceUsedSuccessLine={0} spends a {1} inspiration die to change the outcome, rolls {2} on the inspiration die and changes the roll to a failure!
+Subclass/&CollegeOfValianceDescription=Bards of the College of Valiance use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
+Subclass/&CollegeOfValianceTitle=College of Valiance

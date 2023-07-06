@@ -37,6 +37,7 @@ internal static class SubclassesContext
         LoadSubclass(new CollegeOfGuts());
         LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
+        LoadSubclass(new CollegeOfValiance());
         LoadSubclass(new CollegeOfWarDancer());
 
         // Cleric

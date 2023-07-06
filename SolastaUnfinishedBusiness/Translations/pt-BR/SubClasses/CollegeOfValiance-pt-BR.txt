@@ -1,0 +1,16 @@
+Condition/&ConditionCollegeOfValianceDishearteningPerformanceDescription=Você deve subtrair o número obtido na fonte do dado Inspiração de Bardo em seu próximo teste de resistência.
+Condition/&ConditionCollegeOfValianceDishearteningPerformanceTitle=Desempenho Desanimador
+Feature/&AutoPreparedSpellsCollegeOfValianceRecallLanguageDescription=Você adquiriu conhecimento de muitos idiomas diferentes através da leitura de obras estrangeiras escritas e pode magicamente se tornar fluente nesses idiomas, adicionando o feitiço Línguas à lista de feitiços conhecidos.
+Feature/&AutoPreparedSpellsCollegeOfValianceRecallLanguageTitle=Recuperar idioma
+Feature/&FeatureCollegeOfValianceCaptivatingPresenceDescription=Você deixa uma impressão duradoura nas pessoas ao seu redor. Quando você faz um teste de Persuasão ou Performance, você pode tratar uma rolagem d20 de 9 ou menos como 10.
+Feature/&FeatureCollegeOfValianceCaptivatingPresenceTitle=Presença Cativante
+Feature/&FeatureSetCollegeOfValianceSteadfastInspirationDescription=Suas palavras inspiradoras são tão encorajadoras que os outros se sentem motivados a ter sucesso. Quando uma criatura amiga adiciona um de seus dados de Inspiração de Bardo ao seu teste de habilidade, jogada de ataque ou teste de resistência e a jogada falha, a criatura pode manter o dado de Inspiração de Bardo.
+Feature/&FeatureSetCollegeOfValianceSteadfastInspirationTitle=Inspiração Inabalável
+Feature/&PowerCollegeOfValianceDishearteningPerformanceDescription=Seus atos valentes desmoralizam seus oponentes. Como uma ação bônus, você pode gastar um uso de sua Inspiração de Bardo e escolher uma criatura hostil que você possa ver a até 18 metros de você. Role o dado de Inspiração de Bardo. A criatura deve subtrair o número rolado do próximo teste de resistência que fizer antes do início do seu próximo turno.
+Feature/&PowerCollegeOfValianceDishearteningPerformanceTitle=Desempenho Desanimador
+Feature/&PowerCollegeOfValianceHeroicInspirationDescription=Você pode usar sua ação bônus para ativar a Inspiração Heroica. Heroic Inspiration concede todos os benefícios da Bardic Inspiration sem consumir nenhum uso de Bardic Inspiration e pode atingir duas criaturas amigas em um raio de 60 pés em vez de apenas uma. Você pode usar esta característica um número de vezes por descanso longo igual ao seu modificador de Carisma.
+Feature/&PowerCollegeOfValianceHeroicInspirationTitle=Inspiração heroica
+Feedback/&DishearteningPerformanceUsedFailureLine={0} gasta um {1} dado de inspiração para mudar o resultado, rola {2} no dado de inspiração, mas não muda o resultado, que ainda é um sucesso.
+Feedback/&DishearteningPerformanceUsedSuccessLine={0} gasta um {1} dado de inspiração para mudar o resultado, rola {2} no dado de inspiração e muda a rolagem para um fracasso!
+Subclass/&CollegeOfValianceDescription=Os bardos do College of Valiance usam música e determinação inabalável para encorajar os corações de seus aliados, enquanto desmoralizam seus inimigos. Inspirando-se nas histórias de heróis antigos, grandes feitos e eventos extraordinários, esses bardos lutam corajosamente para preservar seus ideais, deixando uma impressão duradoura naqueles ao seu redor.
+Subclass/&CollegeOfValianceTitle=Faculdade de valentia
