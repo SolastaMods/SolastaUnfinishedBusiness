@@ -157,8 +157,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -198,7 +197,9 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
                     rulesetAttacker.LogCharacterUsedFeature(level >= 17 ? _featureTheirWoe : _featureWoe);
                     InflictMartialArtDieDamage(
                         rulesetAttacker,
-                        level >= 17 ? rulesetDefender : rulesetAttacker,
+                        level >= 17 && rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
+                            ? rulesetDefender
+                            : rulesetAttacker,
                         attackMode,
                         attackModifier);
 
@@ -216,7 +217,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
                     }
 
                     // Brutal Weal
-                    if (level >= 11)
+                    if (level >= 11 && rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
                         InflictMartialArtDieDamage(
