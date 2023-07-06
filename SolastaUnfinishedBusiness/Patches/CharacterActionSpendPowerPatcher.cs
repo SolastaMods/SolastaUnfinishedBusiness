@@ -28,7 +28,9 @@ public static class CharacterActionSpendPowerPatcher
 
             var power = __instance.activePower.PowerDefinition;
 
-            foreach (var spendPowerFinishedByMe in power.GetAllSubFeaturesOfType<ISpendPowerFinishedByMe>())
+            // exceptionally browse ruleset character instead of power
+            foreach (var spendPowerFinishedByMe in __instance.ActingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<ISpendPowerFinishedByMe>())
             {
                 spendPowerFinishedByMe.OnSpendPowerFinishedByMe(__instance, power);
             }
