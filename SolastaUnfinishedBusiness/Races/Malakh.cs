@@ -117,6 +117,27 @@ internal static class RaceMalakhBuilder
                 .Build())
             .AddToDB();
 
+
+        var additionalDamageMalakhAngelicForm = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{Name}AngelicForm")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("AngelicForm")
+                .SetAdditionalDamageType(AdditionalDamageType.Specific)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+                .SetSpecificDamageType(DamageTypeRadiant)
+                .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+                .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+                .AddToDB();
+
+        var featureSetMalakhAngelicForm = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AngelicForm")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddFeatureSet(BuildAngelicFlight(additionalDamageMalakhAngelicForm),
+                BuildAngelicRadiance(additionalDamageMalakhAngelicForm),
+                BuildAngelicVisage(additionalDamageMalakhAngelicForm)
+                )
+            .AddToDB();
         RacePresentation racePresentation = Human.RacePresentation.DeepCopy();
         // disables the origin image from appearing
         racePresentation.originOptions.RemoveRange(1, racePresentation.originOptions.Count - 1);
@@ -135,34 +156,14 @@ internal static class RaceMalakhBuilder
                 castSpellMalakhMagic,
                 powerMalakhHealingTouch
                 )
+            .AddFeaturesAtLevel(3, featureSetMalakhAngelicForm)
             .AddToDB();
-
-        var additionalDamageMalakhAngelicForm = FeatureDefinitionAdditionalDamageBuilder
-                .Create($"AdditionalDamage{Name}AngelicForm")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag("AngelicForm")
-                .SetAdditionalDamageType(AdditionalDamageType.Specific)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-                .SetSpecificDamageType(DamageTypeRadiant)
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-                .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-                .AddToDB();
-
-        raceMalakh.subRaces =
-            new List<CharacterRaceDefinition> { 
-                BuildGuardianMalakh(raceMalakh, additionalDamageMalakhAngelicForm),
-                BuildHeraldMalakh(raceMalakh, additionalDamageMalakhAngelicForm),
-                BuildJudgementMalakh(raceMalakh, additionalDamageMalakhAngelicForm)
-            };
-
         return raceMalakh;
     }
 
-    private static CharacterRaceDefinition BuildJudgementMalakh(CharacterRaceDefinition raceMalakh, 
+    private static FeatureDefinition BuildAngelicVisage(
         FeatureDefinitionAdditionalDamage additionalDamageMalakhAngelicForm)
     {
-        const string Name = "JudgementMalakh";
-
         var conditionAngelicVisage = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicVisage")
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
@@ -173,7 +174,7 @@ internal static class RaceMalakhBuilder
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
-        var powerJudgementMalakhAngelicVisage = FeatureDefinitionPowerBuilder
+        var powerMalakhAngelicVisage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicVisage")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfMotherlandVolcanicAura)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
@@ -195,20 +196,12 @@ internal static class RaceMalakhBuilder
                 .Build())
             .AddToDB();
 
-        var raceJudgementMalakh = CharacterRaceDefinitionBuilder
-            .Create(raceMalakh, $"Race{Name}")
-            .SetOrUpdateGuiPresentation(Name, Category.Race)
-            .SetFeaturesAtLevel(3,
-                powerJudgementMalakhAngelicVisage)
-            .AddToDB();
-        return raceJudgementMalakh;
+        return powerMalakhAngelicVisage;
     }
 
-    private static CharacterRaceDefinition BuildHeraldMalakh(CharacterRaceDefinition raceMalakh, 
+    private static FeatureDefinition BuildAngelicFlight(
         FeatureDefinitionAdditionalDamage additionalDamageMalakhAngelicForm)
     {
-        const string Name = "HeraldMalakh";
-
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
@@ -217,9 +210,9 @@ internal static class RaceMalakhBuilder
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
-        var powerHeraldMalakhAngelicFlight = FeatureDefinitionPowerBuilder
+        var powerMalakhAngelicFlight = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFlight")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfMotherlandVolcanicAura)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfJugementPurgeCorruption)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
@@ -231,25 +224,15 @@ internal static class RaceMalakhBuilder
                 .Build())
             .AddToDB();
 
-        var raceHeraldMalakh = CharacterRaceDefinitionBuilder
-            .Create(raceMalakh, $"Race{Name}")
-            .SetOrUpdateGuiPresentation(Name, Category.Race)
-            .SetFeaturesAtLevel(3,
-                powerHeraldMalakhAngelicFlight)
-            .AddToDB();
-        return raceHeraldMalakh;
+        return powerMalakhAngelicFlight;
     }
 
-    private static CharacterRaceDefinition BuildGuardianMalakh(
-        CharacterRaceDefinition characterRaceDefinition, 
-        FeatureDefinition additionalDamageMalakhAngelicForm)
+    private static FeatureDefinition BuildAngelicRadiance(FeatureDefinition additionalDamageMalakhAngelicForm)
     {
-        const string Name = "GuardianMalakh";
-
-        var featureGuardianMalakhRadiantAura = FeatureDefinitionBuilder
+        var featureMalakhRadiantAura = FeatureDefinitionBuilder
             .Create($"Feature{Name}RadiantAura")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new GuardianMalakhRadiantDamageOnTurnEnd())
+            .SetCustomSubFeatures(new MalakhRadiantDamageOnTurnEnd())
             .AddToDB();
 
         var conditionAngelicRadiance = ConditionDefinitionBuilder
@@ -258,12 +241,12 @@ internal static class RaceMalakhBuilder
                 ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
-            .AddFeatures(additionalDamageMalakhAngelicForm, featureGuardianMalakhRadiantAura)
+            .AddFeatures(additionalDamageMalakhAngelicForm, featureMalakhRadiantAura)
             .AddToDB();
 
         var faerieFireLightSource =
             SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
-        var powerGuardianMalakhAngelicRadiance = FeatureDefinitionPowerBuilder
+        var powerMalakhAngelicRadiance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicRadiance")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfMotherlandVolcanicAura)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
@@ -283,16 +266,10 @@ internal static class RaceMalakhBuilder
                 .Build())
             .AddToDB();
 
-        var raceGuardianMalakh = CharacterRaceDefinitionBuilder
-            .Create(characterRaceDefinition, $"Race{Name}")
-            .SetOrUpdateGuiPresentation(Name, Category.Race)
-            .SetFeaturesAtLevel(3,
-                powerGuardianMalakhAngelicRadiance)
-            .AddToDB();
-        return raceGuardianMalakh;
+        return powerMalakhAngelicRadiance;
     }
 
-    private class GuardianMalakhRadiantDamageOnTurnEnd : ICharacterTurnEndListener
+    private class MalakhRadiantDamageOnTurnEnd : ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
