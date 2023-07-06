@@ -48,6 +48,9 @@ internal static class Global
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; set; }
 
+    // BUGFIX: saving throw not passing correct saving delta on attack actions
+    internal static CharacterAction CurrentAttackAction { get; set; }
+    
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 

@@ -74,6 +74,11 @@ public static class CharacterActionPatcher
                 case CharacterActionSpendPower spendPower:
                     PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                     break;
+
+                // BUGFIX: saving throw not passing correct saving delta on attack actions
+                case CharacterActionAttack:
+                    Global.CurrentAttackAction = __instance;
+                    break;
             }
         }
 
@@ -121,6 +126,9 @@ public static class CharacterActionPatcher
 
             //PATCH: support for character action tracking
             Global.CurrentAction = null;
+            
+            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            Global.CurrentAttackAction = null;
         }
     }
 }

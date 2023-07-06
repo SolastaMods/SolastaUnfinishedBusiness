@@ -725,6 +725,12 @@ public static class RulesetImplementationManagerPatcher
             ref RuleDefinitions.RollOutcome saveOutcome,
             ref int saveOutcomeDelta)
         {
+            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            if (Global.CurrentAttackAction != null)
+            {
+                Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
+            }
+
             //PATCH: react to failed saving throw
             foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<IOnSavingThrowAfterRoll>())
             {
@@ -750,6 +756,12 @@ public static class RulesetImplementationManagerPatcher
                     metamagicOption,
                     ref saveOutcome,
                     ref saveOutcomeDelta);
+            }
+
+            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            if (Global.CurrentAttackAction != null)
+            {
+                Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
             }
         }
     }
