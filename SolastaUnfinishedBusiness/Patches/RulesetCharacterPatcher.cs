@@ -1639,16 +1639,11 @@ public static class RulesetCharacterPatcher
             bool advantage = false)
         {
             var secondRoll = -1;
-            int firstRoll;
+            var firstRoll = DiceMaxValue[(int)sourceCondition.BardicInspirationDie];
 
-            if (forceMaxValue)
+            if (!forceMaxValue)
             {
-                firstRoll = DiceMaxValue[(int)sourceCondition.BardicInspirationDie];
-            }
-            else
-            {
-                RollDie(sourceCondition.BardicInspirationDie,
-                    advantage ? AdvantageType.Advantage : AdvantageType.None,
+                RollDie(sourceCondition.BardicInspirationDie, advantage ? AdvantageType.Advantage : AdvantageType.None,
                     out firstRoll, out secondRoll);
             }
 
@@ -1658,14 +1653,17 @@ public static class RulesetCharacterPatcher
 
             __instance.BardicInspirationDieUsed?.Invoke(
                 __instance, sourceCondition.BardicInspirationDie, firstRoll, secondRoll, success, advantage);
+
             __instance.ProcessConditionsMatchingInterruption(ConditionInterruption.BardicInspirationUsed);
 
             //BEGIN PATCH
-            if (!success && !CollegeOfValiance.ShouldKeepInspirationDice(sourceCondition.SourceGuid))
+            if (!success && CollegeOfValiance.ShouldKeepInspirationDice(sourceCondition.SourceGuid))
             {
-                __instance.RemoveCondition(sourceCondition);
+                return false;
             }
             //END PATCH
+
+            __instance.RemoveCondition(sourceCondition);
 
             return false;
         }

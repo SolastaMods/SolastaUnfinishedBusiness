@@ -119,7 +119,10 @@
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
-  <DefaultPartyHeroes />
+  <DefaultPartyHeroes>
+    <string>Cami</string>
+    <string>Blain</string>
+  </DefaultPartyHeroes>
   <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableCheatMenu>true</EnableCheatMenu>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
@@ -410,6 +413,7 @@
     <string>CollegeOfAudacity</string>
     <string>WayOfWealAndWoe</string>
     <string>PatronMountain</string>
+    <string>CollegeOfValiance</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>

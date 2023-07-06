@@ -97,6 +97,7 @@ internal sealed class CollegeOfValiance : AbstractSubclass
 
         _ = ActionDefinitionBuilder
             .Create(GrantBardicInspiration, "ActionUseHeroicInspiration")
+            .SetOrUpdateGuiPresentation($"Power{Name}HeroicInspiration", Category.Feature)
             .OverrideClassName("UsePower")
             .SetActionId(ExtraActionId.UseHeroicInspiration)
             .SetActivatedPower(powerHeroicInspiration)
