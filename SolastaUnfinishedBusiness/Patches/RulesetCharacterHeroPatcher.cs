@@ -615,10 +615,11 @@ public static class RulesetCharacterHeroPatcher
             RulesetCharacterHero __instance,
             List<SpellDefinition> ritualSpells)
         {
-            if (!SharedSpellsContext.IsMulticaster(__instance))
-            {
-                return true;
-            }
+            // originally it was supposed to only trigger with MC but we now need for Plane Magic scenarios
+            // if (!SharedSpellsContext.IsMulticaster(__instance))
+            // {
+            //     return true;
+            // }
 
             var allRitualSpells = new List<SpellDefinition>();
             var magicAffinities = new List<FeatureDefinition>();

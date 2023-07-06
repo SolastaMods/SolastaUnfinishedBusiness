@@ -16,7 +16,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine;
 using static ActionDefinitions;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
@@ -29,7 +31,7 @@ public static class RulesetCharacterPatcher
     private static void EnumerateISpellCastingAffinityProvider(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
         __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
 
@@ -53,9 +55,10 @@ public static class RulesetCharacterPatcher
                 continue;
             }
 
-            featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
-                RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
-                null, definition.ParseSpecialFeatureTags()));
+            featuresOrigin.Add(
+                definition,
+                new FeatureOrigin(
+                    FeatureSourceType.CharacterFeature, definition.Name, null, definition.ParseSpecialFeatureTags()));
         }
 
         //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
@@ -66,7 +69,7 @@ public static class RulesetCharacterPatcher
     private static void EnumerateFeatureDefinitionRegeneration(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
         __instance.EnumerateFeaturesToBrowse<FeatureDefinitionRegeneration>(featuresToBrowse, featuresOrigin);
         featuresToBrowse.RemoveAll(x =>
@@ -175,7 +178,7 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: Allows condition interruption after target was attacked
             target?.ProcessConditionsMatchingInterruption(
-                (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
+                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
         }
     }
 
@@ -191,7 +194,7 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: allow powers have magic attack bonus based on spell attack
             if (featureDefinitionPower.AttackHitComputation !=
-                (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
+                (PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
             {
                 return;
             }
@@ -271,7 +274,7 @@ public static class RulesetCharacterPatcher
         private static void ValidateIfMaterialInHand(RulesetCharacter caster, SpellDefinition spellDefinition,
             ref bool result, ref string failure)
         {
-            if (spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
+            if (spellDefinition.MaterialComponentType != MaterialComponentType.Specific)
             {
                 return;
             }
@@ -353,7 +356,7 @@ public static class RulesetCharacterPatcher
             ref bool result,
             ref string failure)
         {
-            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific)
+            if (spell.MaterialComponentType != MaterialComponentType.Specific)
             {
                 return;
             }
@@ -391,7 +394,7 @@ public static class RulesetCharacterPatcher
             ref bool result,
             ref string failure)
         {
-            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Mundane)
+            if (spell.MaterialComponentType != MaterialComponentType.Mundane)
             {
                 return;
             }
@@ -442,7 +445,7 @@ public static class RulesetCharacterPatcher
             var effect = PowerBundle.ModifySpellEffect(cantrip, __instance);
             var hasDamage = effect.HasFormOfType(EffectForm.EffectFormType.Damage);
             var hasAttack = cantrip.HasSubFeatureOfType<IAttackAfterMagicEffect>();
-            var notGadgets = effect.TargetFilteringMethod != RuleDefinitions.TargetFilteringMethod.GadgetOnly;
+            var notGadgets = effect.TargetFilteringMethod != TargetFilteringMethod.GadgetOnly;
             var componentsValid = __instance.AreSpellComponentsValid(cantrip);
 
             __result = (hasDamage || hasAttack) && notGadgets && componentsValid;
@@ -501,26 +504,9 @@ public static class RulesetCharacterPatcher
             }
 
             // raging
-            if (__instance.HasAnyConditionOfType(RuleDefinitions.ConditionRaging))
+            if (__instance.HasAnyConditionOfType(ConditionRaging))
             {
                 __result = false;
-            }
-        }
-    }
-
-    //PATCH: ensures Blast Reload works even though the character knows no bonus action spells or used up all slots
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class CanCastSpellOfActionType
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ActionType actionType, ref bool __result)
-        {
-            if (actionType == ActionType.Bonus &&
-                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
-            {
-                __result = true;
             }
         }
     }
@@ -587,12 +573,12 @@ public static class RulesetCharacterPatcher
                 switch (usablePower.PowerDefinition.RechargeRate)
                 {
                     //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
-                    case RuleDefinitions.RechargeRate.RagePoints:
+                    case RechargeRate.RagePoints:
                         hero.SpendRagePoint();
 
                         break;
                     //PATCH: ensures that original character ki pool is in sync with substitute (Multiclass)
-                    case RuleDefinitions.RechargeRate.KiPoints:
+                    case RechargeRate.KiPoints:
                         hero.ForceKiPointConsumption(usablePower.PowerDefinition.CostPerUse);
 
                         break;
@@ -643,9 +629,7 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
             var currentValueMethod = typeof(RulesetAttribute).GetMethod("get_CurrentValue");
-            var method =
-                new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
-                    .Method;
+            var method = new Func<RulesetAttribute, RulesetActor, List<TrendInfo>, int>(MirrorImageLogic.GetAC).Method;
 
             var tryModifyCrit = new Func<
                 RulesetAttribute, // attribute, 
@@ -689,7 +673,7 @@ public static class RulesetCharacterPatcher
             [NotNull] RulesetCharacter __instance,
             RulesetAttackMode attackMode,
             RulesetActor target,
-            List<RuleDefinitions.TrendInfo> toHitTrends,
+            List<TrendInfo> toHitTrends,
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
@@ -703,8 +687,8 @@ public static class RulesetCharacterPatcher
         public static void Postfix(
             RulesetAttackMode attackMode,
             RulesetActor target,
-            List<RuleDefinitions.TrendInfo> toHitTrends,
-            ref RuleDefinitions.RollOutcome outcome,
+            List<TrendInfo> toHitTrends,
+            ref RollOutcome outcome,
             ref int successDelta,
             bool testMode)
         {
@@ -731,7 +715,7 @@ public static class RulesetCharacterPatcher
             [NotNull] RulesetCharacter __instance,
             RulesetEffect activeEffect,
             RulesetActor target,
-            List<RuleDefinitions.TrendInfo> toHitTrends,
+            List<TrendInfo> toHitTrends,
             bool testMode)
         {
             CurrentMagicEffect = activeEffect;
@@ -746,8 +730,8 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(
             RulesetActor target,
-            List<RuleDefinitions.TrendInfo> toHitTrends,
-            ref RuleDefinitions.RollOutcome outcome,
+            List<TrendInfo> toHitTrends,
+            ref RollOutcome outcome,
             ref int successDelta,
             bool testMode)
         {
@@ -772,8 +756,8 @@ public static class RulesetCharacterPatcher
             int baseBonus,
             string abilityScoreName,
             string proficiencyName,
-            List<RuleDefinitions.TrendInfo> modifierTrends,
-            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
             int rollModifier,
             ref int minRoll)
         {
@@ -804,10 +788,10 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static int ExtendedRollDie(
             [NotNull] RulesetCharacter rulesetCharacter,
-            RuleDefinitions.DieType dieType,
-            RuleDefinitions.RollContext rollContext,
+            DieType dieType,
+            RollContext rollContext,
             bool isProficient,
-            RuleDefinitions.AdvantageType advantageType,
+            AdvantageType advantageType,
             out int firstRoll,
             out int secondRoll,
             bool enumerateFeatures,
@@ -817,8 +801,8 @@ public static class RulesetCharacterPatcher
             int rollModifier,
             string abilityScoreName,
             string proficiencyName,
-            List<RuleDefinitions.TrendInfo> advantageTrends,
-            List<RuleDefinitions.TrendInfo> modifierTrends)
+            List<TrendInfo> advantageTrends,
+            List<TrendInfo> modifierTrends)
         {
             var features = rulesetCharacter.GetSubFeaturesByType<IModifyAbilityCheck>();
             var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType,
@@ -889,7 +873,7 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>
             >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
@@ -956,21 +940,37 @@ public static class RulesetCharacterPatcher
     public static class CanCastSpellOfActionType_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ref bool __result,
-            ActionType actionType, bool canOnlyUseCantrips)
+        public static void Postfix(
+            RulesetCharacter __instance,
+            ref bool __result,
+            ActionType actionType,
+            bool canOnlyUseCantrips)
         {
-            if (__result) { return; }
+            if (__result)
+            {
+                return;
+            }
+
+            if (actionType == ActionType.Bonus &&
+                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
+            {
+                __result = true;
+
+                return;
+            }
 
             //PATCH: update usage for power pools
             foreach (var invocation in __instance.Invocations)
             {
                 var definition = invocation.InvocationDefinition;
+
                 if (definition is not InvocationDefinitionCustom)
                 {
                     continue;
                 }
 
                 var spell = definition.GrantedSpell;
+
                 if (spell == null)
                 {
                     continue;
@@ -1047,7 +1047,7 @@ public static class RulesetCharacterPatcher
         public static void Postfix(RulesetCharacter __instance)
         {
             //PATCH: update usage for power pools
-            PowerBundle.RechargeLinkedPowers(__instance, RuleDefinitions.RestType.LongRest);
+            PowerBundle.RechargeLinkedPowers(__instance, RestType.LongRest);
         }
     }
 
@@ -1058,7 +1058,7 @@ public static class RulesetCharacterPatcher
     {
         [UsedImplicitly]
         public static void Postfix(
-            RulesetCharacter __instance, RuleDefinitions.RestType restType, bool simulate)
+            RulesetCharacter __instance, RestType restType, bool simulate)
         {
             //PATCH: update usage for power pools
             if (!simulate)
@@ -1092,8 +1092,7 @@ public static class RulesetCharacterPatcher
                 new Func<RulesetUsablePower, RulesetCharacter, int>(PowerBundle.GetMaxUsesForPool).Method;
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
             var myRestoreAllSpellSlotsMethod =
-                new Action<RulesetSpellRepertoire, RulesetCharacter, RuleDefinitions.RestType>(RestoreAllSpellSlots)
-                    .Method;
+                new Action<RulesetSpellRepertoire, RulesetCharacter, RestType>(RestoreAllSpellSlots).Method;
 
             return instructions
                 .ReplaceCalls(bind,
@@ -1110,9 +1109,9 @@ public static class RulesetCharacterPatcher
         private static void RestoreAllSpellSlots(
             RulesetSpellRepertoire __instance,
             RulesetCharacter rulesetCharacter,
-            RuleDefinitions.RestType restType)
+            RestType restType)
         {
-            if (restType == RuleDefinitions.RestType.LongRest
+            if (restType == RestType.LongRest
                 || rulesetCharacter is not RulesetCharacterHero hero
                 || !SharedSpellsContext.IsMulticaster(hero))
             {
@@ -1422,11 +1421,11 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>
             >(EnumerateISpellCastingAffinityProvider).Method;
 
             var myComputeBaseSavingThrowBonus =
-                new Func<RulesetActor, string, List<RuleDefinitions.TrendInfo>, int>(ComputeBaseSavingThrowBonus)
+                new Func<RulesetActor, string, List<TrendInfo>, int>(ComputeBaseSavingThrowBonus)
                     .Method;
 
             var myComputeSavingThrowModifier =
@@ -1464,7 +1463,7 @@ public static class RulesetCharacterPatcher
         {
             var savingThrowBonus =
                 AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
-                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<TrendInfo>());
 
             foreach (var attribute in rulesetActor
                          .GetSubFeaturesByType<IModifyConcentrationAttribute>()
@@ -1473,7 +1472,7 @@ public static class RulesetCharacterPatcher
             {
                 var newSavingThrowBonus =
                     AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
-                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<TrendInfo>());
 
                 // get the last one instead unless we start using this with other subs and then need to decide which one is better
                 if (newSavingThrowBonus <= savingThrowBonus)
@@ -1489,7 +1488,7 @@ public static class RulesetCharacterPatcher
         private static int ComputeBaseSavingThrowBonus(
             RulesetActor __instance,
             string abilityScoreName,
-            List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
+            List<TrendInfo> savingThrowModifierTrends)
         {
             GetBestSavingThrowAbilityScore(__instance, ref abilityScoreName);
 
@@ -1539,7 +1538,7 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>
             >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
@@ -1561,7 +1560,7 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>
             >(EnumerateFeatureDefinitionRegeneration).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
@@ -1617,6 +1616,53 @@ public static class RulesetCharacterPatcher
             }
 
             __result = false;
+
+            return false;
+        }
+    }
+
+    //PATCH: Support College of Valiance level 6 feature that won't spend a dice on a failure
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollBardicInspirationDie))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RollBardicInspirationDie_Patch
+    {
+        // this is standard game code except for the BEGIN/END patch area
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetCharacter __instance,
+            out int __result,
+            RulesetCondition sourceCondition,
+            int successDelta,
+            bool forceMaxValue = false,
+            bool advantage = false)
+        {
+            var secondRoll = -1;
+            var firstRoll = DiceMaxValue[(int)sourceCondition.BardicInspirationDie];
+
+            if (!forceMaxValue)
+            {
+                RollDie(sourceCondition.BardicInspirationDie, advantage ? AdvantageType.Advantage : AdvantageType.None,
+                    out firstRoll, out secondRoll);
+            }
+
+            __result = Mathf.Max(firstRoll, secondRoll);
+
+            var success = __result >= Mathf.Abs(successDelta);
+
+            __instance.BardicInspirationDieUsed?.Invoke(
+                __instance, sourceCondition.BardicInspirationDie, firstRoll, secondRoll, success, advantage);
+
+            __instance.ProcessConditionsMatchingInterruption(ConditionInterruption.BardicInspirationUsed);
+
+            //BEGIN PATCH
+            if (!success && CollegeOfValiance.IsValianceLevel6(sourceCondition.SourceGuid))
+            {
+                return false;
+            }
+            //END PATCH
+
+            __instance.RemoveCondition(sourceCondition);
 
             return false;
         }

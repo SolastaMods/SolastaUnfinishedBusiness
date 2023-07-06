@@ -212,10 +212,12 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
     internal static bool HasSpecializedWeapon(
         RulesetCharacter rulesetCharacter,
-        RulesetAttackMode rulesetAttackMode = null)
+        RulesetAttackMode rulesetAttackMode = null,
+        WeaponTypeDefinition weaponTypeDefinition = null)
     {
         var specializedWeapons = rulesetCharacter
             .GetSubFeaturesByType<ModifyWeaponAttackModeSpecialization>()
+            .Where(x => weaponTypeDefinition == null || x.WeaponTypeDefinition == weaponTypeDefinition)
             .Select(x => x.WeaponTypeDefinition)
             .ToList();
 
@@ -276,7 +278,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            if (!HasSpecializedWeapon(character, attackMode))
+            // pass WeaponTypeDefinition here so it only triggers once after 2nd specialization onwards
+            if (!HasSpecializedWeapon(character, attackMode, WeaponTypeDefinition))
             {
                 return;
             }
@@ -303,13 +306,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         {
             var hero = rulesetCharacter.GetOriginalHero();
 
-            if (hero == null)
-            {
-                return false;
-            }
-
-            return hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
-                out var characterSubclassDefinition) && characterSubclassDefinition.Name == Name;
+            return hero != null && hero.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name) > 0;
         }
     }
 

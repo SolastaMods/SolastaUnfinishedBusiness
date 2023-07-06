@@ -178,6 +178,7 @@ ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia gana
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuros</i>
+ModUi/&OpenSubjectiveGuide=Abre La guía subjetiva de Solasta de <b><color=#D89555>u/CounterYolo</color></b>
 ModUi/&OverrideMinMaxLevel=Anule los niveles mínimos y máximos requeridos al comenzar nuevas aventuras
 ModUi/&OverridePartySize=<color=white>Anular el tamaño del grupo</color>
 ModUi/&Patches=<color=#F0DAA0>Parches:</color>

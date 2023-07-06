@@ -100,6 +100,7 @@ def main():
     sync_folder("en", "en", "fr")
     sync_folder("en", "en", "de")
     sync_folder("en", "en", "it")
+    sync_folder("en", "en", "ru")
 
 if __name__ == "__main__":
     main()

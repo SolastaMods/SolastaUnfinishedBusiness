@@ -36,7 +36,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     //actual targeting is happening in sub-feature, this is for proper tooltip
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
                     .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)

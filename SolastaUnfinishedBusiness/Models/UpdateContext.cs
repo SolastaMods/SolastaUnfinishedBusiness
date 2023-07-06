@@ -211,6 +211,11 @@ internal static class UpdateContext
         OpenUrl($"file://{Main.ModFolder}/Documentation/{filename}");
     }
 
+    internal static void OpenSubjectiveGuideToSolasta()
+    {
+        OpenUrl("https://docs.google.com/presentation/d/1iqXc3JzT_uKUcnmFoB3Tyddj3Jzj-AXfNtf3vWcWqc0");
+    }
+
     private static void OpenUrl(string url)
     {
         try

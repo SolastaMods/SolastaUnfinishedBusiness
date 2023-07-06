@@ -332,8 +332,8 @@
     "description": "Spell/&EyebitePanickedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a5d60b1cedaec2041ac9491485af2e21",
-      "m_SubObjectName": "PowerIconPlaceholder",
+      "m_AssetGUID": "fcafac54e38785947bb825f90372d1b9",
+      "m_SubObjectName": "Eyebite",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

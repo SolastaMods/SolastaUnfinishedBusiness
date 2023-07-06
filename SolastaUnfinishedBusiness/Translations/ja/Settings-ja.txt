@@ -178,6 +178,7 @@ ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</colo
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
+ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b> による「ソラスタの主観ガイド」を開きます
 ModUi/&OverrideMinMaxLevel=新しい冒険を開始するときに必要な最小レベルと最大レベルを上書きします
 ModUi/&OverridePartySize=<color=white>パーティのサイズを上書きする</color>
 ModUi/&Patches=<color=#F0DAA0>パッチ:</color>

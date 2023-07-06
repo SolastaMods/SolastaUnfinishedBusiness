@@ -179,6 +179,7 @@ ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><
 ModUi/&NoExperienceOnLevelUp=升级不需要经验
 ModUi/&OfferAdditionalLoreFriendlyNames=在角色创建时提供额外的知识友好名称
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+只显示魔法列表中最强大的生物</i>
+ModUi/&OpenSubjectiveGuide=打开 <b><color=#D89555>u/CounterYolo</color></b> 的 Solasta 主观指南
 ModUi/&OverrideMinMaxLevel=开始新冒险时覆盖所需的最低和最高等级
 ModUi/&OverridePartySize=<color=white>覆盖队伍规模</color>
 ModUi/&Patches=<color=#F0DAA0>补丁：</color>
