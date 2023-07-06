@@ -1,14 +1,25 @@
-﻿CHANGES:
+﻿1.5.92.11:
+
+- fixed all spells requiring concentration [it's WoTC not FoTC ;-)]
 
 1.5.92.10:
 
-- fixed Bard magical secrets to not offer raise spells duplicates
+ATTENTION: 
+
+- dismiss any raise dead summon before update
+- manually reinstall if Japanese or Russian in use
+
+CHANGES:
+
+- fixed Bard magical secrets to not offer spell duplicates
 - fixed Hammer the Point to trigger on unarmed attacks
 - fixed Old Tactics to trigger on enemy stand up
 - fixed Path of the Light illuminating strike dice progression
 - fixed Patron Mountain barrier of stone to check for remaining charges
 - fixed Sanctuary to reduce damage taken to zero
+- fixed war lists to register sub spells and correctly determine duration
 - improved Japanese [@reanisz] and Russian [@Kranay] translations
+- improved mod performance on battles and locations
 - improved Patron Eldritch Surge's [@HIEROT]
 
 1.5.92.9:

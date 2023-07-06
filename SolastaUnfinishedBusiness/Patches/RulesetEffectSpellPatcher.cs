@@ -193,4 +193,60 @@ public static class RulesetEffectSpellPatcher
                 new CodeInstruction(OpCodes.Call, spellCastingLevel));
         }
     }
+
+    //PATCH: fix duration determination if spell in any War List (vanilla BUGFIX)
+    [HarmonyPatch(typeof(RulesetEffectSpell), MethodType.Constructor, typeof(RulesetCharacter),
+        typeof(RulesetSpellRepertoire), typeof(SpellDefinition), typeof(int))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RulesetEffectSpell_Constructor1_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetEffectSpell __instance)
+        {
+            __instance.RemainingRounds = __instance.EffectDescription.ComputeRoundsDuration(__instance.EffectLevel);
+        }
+    }
+
+    //PATCH: fix duration determination if spell in any War List (vanilla BUGFIX)
+    [HarmonyPatch(typeof(RulesetEffectSpell), MethodType.Constructor,
+        typeof(RulesetCharacter), typeof(SpellDefinition))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RulesetEffectSpell_Constructor2_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetEffectSpell __instance)
+        {
+            __instance.RemainingRounds = __instance.EffectDescription.ComputeRoundsDuration(__instance.EffectLevel);
+        }
+    }
+
+    //PATCH: fix duration determination if spell in any War List (vanilla BUGFIX)
+    [HarmonyPatch(typeof(RulesetEffectSpell), MethodType.Constructor,
+        typeof(RulesetCharacter), typeof(RulesetInvocation), typeof(int), typeof(int))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RulesetEffectSpell_Constructor3_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetEffectSpell __instance)
+        {
+            __instance.RemainingRounds = __instance.EffectDescription.ComputeRoundsDuration(__instance.EffectLevel);
+        }
+    }
+
+    //PATCH: fix duration determination if spell in any War List (vanilla BUGFIX)
+    [HarmonyPatch(typeof(RulesetEffectSpell), MethodType.Constructor,
+        typeof(RulesetCharacter), typeof(RulesetItemDevice), typeof(SpellDefinition), typeof(int))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RulesetEffectSpell_Constructor4_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetEffectSpell __instance)
+        {
+            __instance.RemainingRounds = __instance.EffectDescription.ComputeRoundsDuration(__instance.EffectLevel);
+        }
+    }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -184,10 +183,22 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
     internal static void LateLoad()
     {
-        MagicAffinityCollegeOfLifeHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells
-            .SpellsByLevel
-            .SelectMany(x => x.Spells)
-            .Where(x => x.SchoolOfMagic is SchoolNecromancy or SchoolTransmutation)
-            .Select(x => x.Name));
+        foreach (var spellDefinition in SpellListDefinitions.SpellListAllSpells
+                     .SpellsByLevel
+                     .SelectMany(x => x.Spells)
+                     .Where(x => x.SchoolOfMagic is SchoolNecromancy or SchoolTransmutation))
+        {
+            if (spellDefinition.SpellsBundle)
+            {
+                foreach (var spellInBundle in spellDefinition.SubspellsList)
+                {
+                    MagicAffinityCollegeOfLifeHeightened.WarListSpells.Add(spellInBundle.Name);
+                }
+            }
+            else
+            {
+                MagicAffinityCollegeOfLifeHeightened.WarListSpells.Add(spellDefinition.Name);
+            }
+        }
     }
 }

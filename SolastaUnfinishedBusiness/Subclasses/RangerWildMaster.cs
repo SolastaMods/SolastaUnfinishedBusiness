@@ -27,6 +27,19 @@ internal sealed class RangerWildMaster : AbstractSubclass
     {
         #region COMMON
 
+        //
+        // required for a better UI presentation on level 15
+        //
+
+        FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
+            Eyebite.guiPresentation.spriteReference;
+
+        FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
+            Eyebite.guiPresentation.spriteReference;
+
+        FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
+            Eyebite.guiPresentation.spriteReference;
+
         var actionAffinitySpiritBeast =
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityWildMasterSpiritBeast")
@@ -374,19 +387,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerKindredSpiritBear15,
             powerKindredSpiritEagle15,
             powerKindredSpiritWolf15);
-
-        //
-        // required for a better UI presentation on level 15
-        //
-
-        FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
-            Eyebite.guiPresentation.spriteReference;
-
-        FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
-            Eyebite.guiPresentation.spriteReference;
-
-        FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
-            Eyebite.guiPresentation.spriteReference;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }

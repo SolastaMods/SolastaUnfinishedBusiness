@@ -42,6 +42,7 @@ internal static class FixesContext
         FixEagerForBattleTexts();
         AddAdditionalActionTitles();
         FixRageActionSpending();
+        FixGrantBardicInspirationForActionSwitchingFeature();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -316,5 +317,10 @@ internal static class FixesContext
         //TA's implementation of Rage Start spends Bonus Action twice - not a big problem in vanilla, but breaks action switching code
         //use our custom rage start class that doesn't have this issue
         DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
+    }
+
+    private static void FixGrantBardicInspirationForActionSwitchingFeature()
+    {
+        DatabaseHelper.ActionDefinitions.GrantBardicInspiration.classNameOverride = "UsePower";
     }
 }

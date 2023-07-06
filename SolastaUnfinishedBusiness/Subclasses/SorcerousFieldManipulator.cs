@@ -190,12 +190,24 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
     internal static void LateLoad()
     {
-        MagicAffinityHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells
-            .SpellsByLevel
-            .SelectMany(x => x.Spells)
-            // don't use the constant as it has a typo
-            .Where(x => x.SchoolOfMagic is "SchoolEnchantment" or SchoolAbjuration or SchoolIllusion)
-            .Select(x => x.Name));
+        foreach (var spellDefinition in SpellListDefinitions.SpellListAllSpells
+                     .SpellsByLevel
+                     .SelectMany(x => x.Spells)
+                     // don't use the constant as it has a typo
+                     .Where(x => x.SchoolOfMagic is "SchoolEnchantment" or SchoolAbjuration or SchoolIllusion))
+        {
+            if (spellDefinition.SpellsBundle)
+            {
+                foreach (var spellInBundle in spellDefinition.SubspellsList)
+                {
+                    MagicAffinityHeightened.WarListSpells.Add(spellInBundle.Name);
+                }
+            }
+            else
+            {
+                MagicAffinityHeightened.WarListSpells.Add(spellDefinition.Name);
+            }
+        }
     }
 
     //
