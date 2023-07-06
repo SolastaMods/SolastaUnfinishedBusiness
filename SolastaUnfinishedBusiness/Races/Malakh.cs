@@ -6,6 +6,8 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -25,6 +27,7 @@ internal static class RaceMalakhBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildMalakh()
     {
+        var malakhSpriteReference = Sprites.GetSprite("Malakh", Resources.Malakh, 1024, 512);
         var featureSetMalakhAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
@@ -117,7 +120,6 @@ internal static class RaceMalakhBuilder
                 .Build())
             .AddToDB();
 
-
         var additionalDamageMalakhAngelicForm = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{Name}AngelicForm")
                 .SetGuiPresentationNoContent(true)
@@ -129,22 +131,26 @@ internal static class RaceMalakhBuilder
                 .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .AddToDB();
 
+        var angelicFlight = BuildAngelicFlight(additionalDamageMalakhAngelicForm);
+        var angelicRadiance = BuildAngelicRadiance(additionalDamageMalakhAngelicForm);
+        var angelicVisage = BuildAngelicVisage(additionalDamageMalakhAngelicForm);
+
+
         var featureSetMalakhAngelicForm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AngelicForm")
             .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSet(BuildAngelicFlight(additionalDamageMalakhAngelicForm),
-                BuildAngelicRadiance(additionalDamageMalakhAngelicForm),
-                BuildAngelicVisage(additionalDamageMalakhAngelicForm)
-                )
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
+            .SetAncestryType(ExtraAncestryType.Malakh)
+            .AddFeatureSet(angelicFlight, angelicRadiance, angelicVisage)
             .AddToDB();
+
         RacePresentation racePresentation = Human.RacePresentation.DeepCopy();
         // disables the origin image from appearing
         racePresentation.originOptions.RemoveRange(1, racePresentation.originOptions.Count - 1);
 
         var raceMalakh = CharacterRaceDefinitionBuilder
-            .Create(Human, "RaceMalahk")
-            .SetOrUpdateGuiPresentation(Name, Category.Race)
+            .Create(Human, "RaceMalakh")
+            .SetGuiPresentation(Category.Race, malakhSpriteReference)
             .SetRacePresentation(racePresentation)
             .SetFeaturesAtLevel(1,
                 MoveModeMove6,
@@ -156,8 +162,9 @@ internal static class RaceMalakhBuilder
                 castSpellMalakhMagic,
                 powerMalakhHealingTouch
                 )
-            .AddFeaturesAtLevel(3, featureSetMalakhAngelicForm)
             .AddToDB();
+
+
         return raceMalakh;
     }
 
@@ -174,9 +181,10 @@ internal static class RaceMalakhBuilder
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
-        var powerMalakhAngelicVisage = FeatureDefinitionPowerBuilder
+        return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicVisage")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfMotherlandVolcanicAura)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
@@ -195,8 +203,6 @@ internal static class RaceMalakhBuilder
                         )
                 .Build())
             .AddToDB();
-
-        return powerMalakhAngelicVisage;
     }
 
     private static FeatureDefinition BuildAngelicFlight(
@@ -210,9 +216,10 @@ internal static class RaceMalakhBuilder
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
-        var powerMalakhAngelicFlight = FeatureDefinitionPowerBuilder
+        return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFlight")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfJugementPurgeCorruption)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
@@ -223,8 +230,6 @@ internal static class RaceMalakhBuilder
                         .Build())
                 .Build())
             .AddToDB();
-
-        return powerMalakhAngelicFlight;
     }
 
     private static FeatureDefinition BuildAngelicRadiance(FeatureDefinition additionalDamageMalakhAngelicForm)
@@ -248,7 +253,8 @@ internal static class RaceMalakhBuilder
             SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
         var powerMalakhAngelicRadiance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicRadiance")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfMotherlandVolcanicAura)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
