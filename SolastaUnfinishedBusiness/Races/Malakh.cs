@@ -208,6 +208,7 @@ internal static class RaceMalakhBuilder
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder.Create()
                         .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true, true)
