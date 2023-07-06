@@ -40,7 +40,7 @@ internal static class CreditsDisplay
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
-        ("Otearaisu", "Oligath, Wendigo, Wyrmkin"),
+        ("Otearaisu", "Malakh, Oligath, Wendigo, Wyrmkin"),
         ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
