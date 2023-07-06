@@ -511,23 +511,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: ensures Blast Reload works even though the character knows no bonus action spells or used up all slots
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpellOfActionType))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class CanCastSpellOfActionType
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ActionType actionType, ref bool __result)
-        {
-            if (actionType == ActionType.Bonus &&
-                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
-            {
-                __result = true;
-            }
-        }
-    }
-
     //PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SpellRepertoires), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -957,21 +940,37 @@ public static class RulesetCharacterPatcher
     public static class CanCastSpellOfActionType_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ref bool __result,
-            ActionType actionType, bool canOnlyUseCantrips)
+        public static void Postfix(
+            RulesetCharacter __instance,
+            ref bool __result,
+            ActionType actionType,
+            bool canOnlyUseCantrips)
         {
-            if (__result) { return; }
+            if (__result)
+            {
+                return;
+            }
+
+            if (actionType == ActionType.Bonus &&
+                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
+            {
+                __result = true;
+
+                return;
+            }
 
             //PATCH: update usage for power pools
             foreach (var invocation in __instance.Invocations)
             {
                 var definition = invocation.InvocationDefinition;
+
                 if (definition is not InvocationDefinitionCustom)
                 {
                     continue;
                 }
 
                 var spell = definition.GrantedSpell;
+
                 if (spell == null)
                 {
                     continue;
