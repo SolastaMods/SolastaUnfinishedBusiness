@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=Habilitar smites em qualquer ataque, caso contrário, apenas em acertos críticos
+Action/&ArcaneArcherToggleTitle=Ativar/desativar Arqueiro Arcano
 Action/&CastPlaneMagicDescription=Lance um dos feitiços que você obteve dos talentos Plane Touched
 Action/&CastPlaneMagicTitle=Plano do Canal Mágico
 Action/&CastSignatureSpellsDescription=Lance esses feitiços de 3º nível sem gastar um slot

@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=Enable smites on any attack otherwise only on critical hits
+Action/&ArcaneArcherToggleTitle=Activate/deactivate Arcane Archer
 Action/&CastPlaneMagicDescription=Cast one of the spells you got from Plane Touched feats
 Action/&CastPlaneMagicTitle=Channel Plane Magic
 Action/&CastSignatureSpellsDescription=Cast these 3rd level spells without spending a slot

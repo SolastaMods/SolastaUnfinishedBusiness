@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=Habilitar golpes en cualquier ataque, de lo contrario, solo en golpes críticos
+Action/&ArcaneArcherToggleTitle=Activar/desactivar Arcane Archer
 Action/&CastPlaneMagicDescription=Lanza uno de los hechizos que obtuviste de las hazañas Plane Touched
 Action/&CastPlaneMagicTitle=Magia del plano del canal
 Action/&CastSignatureSpellsDescription=Lanza estos hechizos de tercer nivel sin gastar un espacio

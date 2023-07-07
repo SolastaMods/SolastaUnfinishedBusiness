@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=모든 공격에 스마이트를 활성화하십시오. 그렇지 않으면 치명타에 대해서만 가능합니다.
+Action/&ArcaneArcherToggleTitle=아케인 아처 활성화/비활성화
 Action/&CastPlaneMagicDescription=Plane Touched feats에서 얻은 주문 중 하나를 시전합니다.
 Action/&CastPlaneMagicTitle=채널 플레인 매직
 Action/&CastSignatureSpellsDescription=슬롯을 소비하지 않고 이 3단계 주문을 시전하십시오.

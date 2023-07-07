@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=Abilita i colpi su qualsiasi attacco, altrimenti solo sui colpi critici
+Action/&ArcaneArcherToggleTitle=Attiva/disattiva Arciere arcano
 Action/&CastPlaneMagicDescription=Lancia uno degli incantesimi ottenuti dai talenti Plane Touched
 Action/&CastPlaneMagicTitle=Magia del piano canale
 Action/&CastSignatureSpellsDescription=Lancia questi incantesimi di 3° livello senza spendere uno slot

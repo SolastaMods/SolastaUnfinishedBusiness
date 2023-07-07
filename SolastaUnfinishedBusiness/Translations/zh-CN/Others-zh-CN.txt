@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=对任何攻击启用重击，否则仅对重击启用
+Action/&ArcaneArcherToggleTitle=激活/停用奥术弓箭手
 Action/&CastPlaneMagicDescription=施展你从 位面之触 专长中获得的法术之一
 Action/&CastPlaneMagicTitle=通道位面魔法
 Action/&CastSignatureSpellsDescription=使用这些3级法术时不消耗法术位

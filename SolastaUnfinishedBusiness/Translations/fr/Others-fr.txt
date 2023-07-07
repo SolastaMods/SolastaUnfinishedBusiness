@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=Activer les châtiments sur n'importe quelle attaque sinon uniquement sur les coups critiques
+Action/&ArcaneArcherToggleTitle=Activer/désactiver Arcane Archer
 Action/&CastPlaneMagicDescription=Lancez l'un des sorts que vous avez obtenus grâce aux exploits de Plane Touched
 Action/&CastPlaneMagicTitle=Magie du plan de canal
 Action/&CastSignatureSpellsDescription=Lancez ces sorts de niveau 3 sans dépenser d'emplacement

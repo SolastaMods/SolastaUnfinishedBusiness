@@ -1,3 +1,5 @@
+Action/&ArcaneArcherToggleDescription=Включить удары при любой атаке, иначе только при критических ударах.
+Action/&ArcaneArcherToggleTitle=Активировать/деактивировать Мистический лучник
 Action/&CastPlaneMagicDescription=Произнесите заклинание, полученное от одно из черт "Затронутый тем или иным Планом"
 Action/&CastPlaneMagicTitle=Направить планарную магию
 Action/&CastSignatureSpellsDescription=Произнесите эти заклинания 3-го уровня без затрат ячеек заклинаний
