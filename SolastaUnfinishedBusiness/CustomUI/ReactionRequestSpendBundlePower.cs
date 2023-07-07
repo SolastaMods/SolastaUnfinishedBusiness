@@ -67,7 +67,8 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         var i = 0;
 
         foreach (var power in bundle.SubPowers
-                     .Where(x => CanUsePower(rulesetCharacter, x)))
+                     .Where(x => CanUsePower(rulesetCharacter, x) &&
+                                 rulesetCharacter.GetFeaturesByType<FeatureDefinitionPower>().Contains(x)))
         {
             reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundle.GetSpell(power));
             SubOptionsAvailability.Add(i, true);
