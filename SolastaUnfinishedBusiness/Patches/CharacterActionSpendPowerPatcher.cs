@@ -32,7 +32,7 @@ public static class CharacterActionSpendPowerPatcher
             foreach (var spendPowerFinishedByMe in __instance.ActingCharacter.RulesetCharacter
                          .GetSubFeaturesByType<ISpendPowerFinishedByMe>())
             {
-                spendPowerFinishedByMe.OnSpendPowerFinishedByMe(__instance, power);
+                yield return spendPowerFinishedByMe.OnSpendPowerFinishedByMe(__instance, power);
             }
 
             //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered

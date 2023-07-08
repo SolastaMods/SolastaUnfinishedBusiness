@@ -78,49 +78,14 @@ public static class CharacterActionPanelPatcher
         private static int FilterActions(List<ActionDefinitions.Id> actions, CharacterActionPanel panel)
         {
             var character = panel.GuiCharacter.RulesetCharacter;
-            var battle = Gui.Battle != null;
+            var inBattle = Gui.Battle != null;
 
             //PATCH: reorder the actions panel in case we have custom toggles
-            void DoReorder(ActionDefinitions.Id actionId, int overrideIndex = -1)
-            {
-                var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
-
-                if (powerNdx < 0)
-                {
-                    return;
-                }
-
-                actions.Remove(actionId);
-                actions.Insert(overrideIndex < 0 ? powerNdx : overrideIndex, actionId);
-            }
-
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
-            {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle);
-            }
-
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
-            {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
-            }
-
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
-            {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
-            }
-
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle))
-            {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle);
-            }
-
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle))
-            {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle);
-            }
+            CustomActionIdContext.ReorderToggles(actions);
 
             //PATCH: hide power button on action panel if no valid powers to use or see
-            actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
+            actions.RemoveAll(id => ActionIsInvalid(id, character, inBattle));
+
             return actions.Count;
         }
 

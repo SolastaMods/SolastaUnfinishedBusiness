@@ -1,0 +1,94 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetMartialArcaneArcherArcaneLore:1b25ca2f-a8f5-558c-be52-656e8c893668",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetMartialArcaneArcherArcaneShot:9597a560-a007-5384-b91e-102df94ec256",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellMartialArcaneArcherArcaneMagic:cb4c4b62-73cf-5124-b93a-326972ea9e5f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolArcaneShotChoice1:90b1032c-068d-5efc-ac62-d13626da1128",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialArcaneArcherGuidedShot:c2ad00e9-0c5d-5bbf-b2ad-2db7ef2cccb0",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialArcaneArcherMagicArrow:f4d7a163-2f4d-59dd-8694-ecaedb2d1995",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolArcaneShotChoice1:90b1032c-068d-5efc-ac62-d13626da1128",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialArcaneArcherImprovedArcaneShot:6e6e0ed5-8d4f-5d20-9d82-3d55f4f36962",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolArcaneShotChoice1:90b1032c-068d-5efc-ac62-d13626da1128",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolArcaneShotChoice1:90b1032c-068d-5efc-ac62-d13626da1128",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialArcaneArcherEverReadyShot:519f93ff-4ec1-5398-aee0-ae7255736dbf",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialArcaneArcherMasterArcaneShot:e039e449-acb8-569f-a003-18aaa89e53ac",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&MartialArcaneArcherTitle",
+    "description": "Subclass/&MartialArcaneArcherDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
+      "m_SubObjectName": "Ranger_SwiftBlade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ec73664e-e0d9-550f-a1a2-fe786c393392",
+  "contentPack": 9999,
+  "name": "MartialArcaneArcher"
+}

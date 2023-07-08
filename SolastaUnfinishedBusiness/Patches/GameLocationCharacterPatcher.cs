@@ -339,12 +339,7 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix(GameLocationCharacter __instance, ref bool __result, ActionDefinitions.Id actionId)
         {
-            if (actionId != (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle &&
-                actionId != (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle &&
-                actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
-                actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
-                actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle &&
-                actionId != (ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
+            if (!CustomActionIdContext.IsCustomActionIdToggle(actionId))
             {
                 return true;
             }
