@@ -93,7 +93,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
         var attributeModifierDefensiveWhirl = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DefensiveWhirl")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
+            //amount needs to be above 0 or AC tooltip won't include this bonus, actual value would be taken from condition amount
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass, 100)
             .AddToDB();
 
         var conditionDefensiveWhirl = ConditionDefinitionBuilder
