@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
+internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource
 {
     internal const string Name = "ReactionSpendPowerBundle";
     private readonly GuiCharacter guiCharacter;
@@ -191,4 +191,6 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         base.OnSetInvalid();
         ReactionParams.RulesetEffect?.Terminate(false);
     }
+
+    public ICustomReactionResource Resource { get; set; }
 }
