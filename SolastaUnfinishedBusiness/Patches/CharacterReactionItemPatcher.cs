@@ -57,6 +57,11 @@ public static class CharacterReactionItemPatcher
             __instance.GetComponent<RectTransform>()
                 .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
 
+            if (request is ReactionRequestSpendBundlePower)
+            {
+                __instance.powerReactionGroup.gameObject.SetActive(false);
+            }
+
             //PATCH: support for displaying custom resources on reaction popup
             if (__instance.ReactionRequest is IReactionRequestWithResource attack)
             {
