@@ -45,8 +45,7 @@ internal static class RaceMalakhBuilder
                         AttributeDefinitions.Intelligence,
                         AttributeDefinitions.Wisdom,
                         AttributeDefinitions.Constitution)
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
 
         var featureSetMalakhDivineResistance = FeatureDefinitionFeatureSetBuilder
@@ -127,6 +126,18 @@ internal static class RaceMalakhBuilder
         var powerMalakhAngelicRadiance = BuildAngelicRadiance(additionalDamageMalakhAngelicForm);
         var powerMalakhAngelicVisage = BuildAngelicVisage(additionalDamageMalakhAngelicForm);
 
+        var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AngelicForm")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerMalakhAngelicFlight, powerMalakhAngelicRadiance, powerMalakhAngelicVisage)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddToDB();
+
+        var featureAngelicForm = FeatureDefinitionBuilder
+            .Create($"Feature{Name}AngelicForm")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         var racePresentation = Human.RacePresentation.DeepCopy();
         // disables the origin image from appearing
         racePresentation.originOptions.RemoveRange(1, racePresentation.originOptions.Count - 1);
@@ -143,35 +154,12 @@ internal static class RaceMalakhBuilder
                 featureSetMalakhDivineResistance,
                 featureSetMalakhLanguages,
                 castSpellMalakhMagic,
-                powerMalakhHealingTouch
-            )
+                powerMalakhHealingTouch,
+                featureAngelicForm)
+            .AddFeaturesAtLevel(3, featureSetAngelicForm)
             .AddToDB();
-
-        // refactored to subrace because featureSet doesn't seem to work in higher levels
-        raceMalakh.subRaces =
-            new List<CharacterRaceDefinition>
-            {
-                BuildMalakhSubrace(raceMalakh, "Herald", powerMalakhAngelicFlight),
-                BuildMalakhSubrace(raceMalakh, "Guardian", powerMalakhAngelicRadiance),
-                BuildMalakhSubrace(raceMalakh, "Judgement", powerMalakhAngelicVisage)
-            };
 
         return raceMalakh;
-    }
-
-    private static CharacterRaceDefinition BuildMalakhSubrace(
-        CharacterRaceDefinition raceMalakh,
-        string suffix,
-        FeatureDefinition powerAngelicForm)
-    {
-        var subraceName = $"Race{Name}{suffix}";
-
-        return CharacterRaceDefinitionBuilder
-            .Create(raceMalakh, subraceName)
-            .SetOrUpdateGuiPresentation(subraceName, Category.Race)
-            .SetFeaturesAtLevel(3,
-                powerAngelicForm)
-            .AddToDB();
     }
 
     private static FeatureDefinition BuildAngelicVisage(FeatureDefinition additionalDamageMalakhAngelicForm)
@@ -242,7 +230,7 @@ internal static class RaceMalakhBuilder
         var featureMalakhRadiantAura = FeatureDefinitionBuilder
             .Create($"Feature{Name}RadiantAura")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new MalakhRadiantDamageOnTurnEnd())
+            .SetCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
             .AddToDB();
 
         var conditionAngelicRadiance = ConditionDefinitionBuilder
@@ -280,7 +268,7 @@ internal static class RaceMalakhBuilder
         return powerMalakhAngelicRadiance;
     }
 
-    private class MalakhRadiantDamageOnTurnEnd : ICharacterTurnEndListener
+    private class CharacterTurnEndListenerAngelicRadiance : ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {

@@ -15,6 +15,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMalakhAngelicForm:7e10a87e-79b3-5105-893e-5ee9f0930754",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
       "level": 1
     },
@@ -47,13 +52,14 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellMalakhMagic:64f2e760-6f2c-5306-a6ed-ef34a3cc63e4",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetMalakhAngelicForm:0b52f2d8-66a3-5233-b26c-18be72c49d81",
+      "level": 3
     }
   ],
-  "subRaces": [
-    "Definition:RaceMalakhHerald:a5b24f2c-1670-5a7e-99e0-fc2642773b83",
-    "Definition:RaceMalakhGuardian:3497039e-38f0-58e1-a3ad-9008c6737a13",
-    "Definition:RaceMalakhJudgement:931da594-5a96-5937-89bc-480c7cdff391"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
