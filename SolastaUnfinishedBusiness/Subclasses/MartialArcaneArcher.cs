@@ -145,7 +145,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerImprovedArcaneShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedArcaneShot")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"Power{Name}ArcaneShot", Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitWithBow, RechargeRate.ShortRest, 1, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -159,7 +159,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerImprovedArcaneShot, true, arcaneShotPowers);
-        
+
         // LEVEL 15
 
         // Ever-Ready Shot
@@ -175,7 +175,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerMasterArcaneShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MasterArcaneShot")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"Power{Name}ArcaneShot", Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitWithBow, RechargeRate.ShortRest, 1, 4)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -189,7 +189,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerMasterArcaneShot, true, arcaneShotPowers);
-        
+
         featureEverReadyShot.SetCustomSubFeatures(new BattleStartedListenerEverReadyShot(
             featureEverReadyShot, powerImprovedArcaneShot, powerMasterArcaneShot));
 
@@ -234,7 +234,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerBanishingArrow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BanishingArrow")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Banishment)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -265,7 +265,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerBeguilingArrow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BeguilingArrow")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.CharmPerson)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -296,7 +296,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerBurstingArrow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstingArrow")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -309,14 +309,17 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
+
+        powerBurstingArrow.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            new SpendPowerFinishedByMeBurstingArrow(powerBurstingArrow));
 
         // Enfeebling Arrow
 
         var powerEnfeeblingArrow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EnfeeblingArrow")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.RayOfEnfeeblement)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -347,7 +350,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerGraspingArrow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GraspingArrow")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Entangle)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -378,7 +381,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerShadowArrow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ShadowArrow")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Blindness)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -405,7 +408,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        return new List<FeatureDefinitionPower>
+        var powers = new List<FeatureDefinitionPower>
         {
             powerBanishingArrow,
             powerBeguilingArrow,
@@ -414,6 +417,8 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             powerGraspingArrow,
             powerShadowArrow
         };
+
+        return powers;
     }
 
     private static IEnumerable<FeatureDefinitionPower> BuildArcaneShotPowersWithoutAttackRoll()
@@ -452,6 +457,69 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
         }
     }
 
+    private sealed class SpendPowerFinishedByMeBurstingArrow : ISpendPowerFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerBurstingArrow;
+
+        public SpendPowerFinishedByMeBurstingArrow(FeatureDefinitionPower powerBurstingArrow)
+        {
+            _powerBurstingArrow = powerBurstingArrow;
+        }
+
+        public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+        {
+            if (power != _powerBurstingArrow)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            // add targets
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
+            var damageRoll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
+            var dices = new List<int> { damageRoll };
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = 1, BonusDamage = 0
+            };
+
+            // apply damage to all targets
+            foreach (var rulesetDefender in gameLocationBattleService.Battle.EnemyContenders
+                         .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
+                         .ToList() // avoid changing enumerator
+                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
+            {
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    DamageTypeForce,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    rulesetDefender,
+                    false,
+                    rulesetCharacter.Guid,
+                    false,
+                    new List<string>(),
+                    new RollInfo(DieType.D6, dices, 0),
+                    false,
+                    out _);
+            }
+        }
+    }
+
     private sealed class ModifyWeaponAttackModeMagicArrow : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
@@ -461,7 +529,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                 return;
             }
 
-            attackMode.AttackTags.TryAdd("MagicalWeapon");
+            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
         }
     }
 
