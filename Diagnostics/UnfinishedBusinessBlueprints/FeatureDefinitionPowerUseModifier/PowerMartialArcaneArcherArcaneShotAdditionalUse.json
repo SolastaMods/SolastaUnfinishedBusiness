@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureMartialArcaneArcherImprovedArcaneShotTitle",
-    "description": "Feature/&FeatureMartialArcaneArcherImprovedArcaneShotDescription",
+    "title": "Feature/&PowerMartialArcaneArcherArcaneShotAdditionalUseTitle",
+    "description": "Feature/&PowerMartialArcaneArcherArcaneShotAdditionalUseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8ba70abb-7517-55b9-97f7-f843bb29cc09",
+  "guid": "24c28b7d-28e5-5a3a-a19b-8b47b0a9e6cb",
   "contentPack": 9999,
-  "name": "FeatureMartialArcaneArcherImprovedArcaneShot"
+  "name": "PowerMartialArcaneArcherArcaneShotAdditionalUse"
 }

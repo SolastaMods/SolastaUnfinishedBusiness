@@ -251,7 +251,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "36d5d555454acc244851481824b85f49",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -275,7 +275,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b730c0933efd80d4e810a986f3fa156d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -468,9 +468,9 @@
     "description": "Feature/&PowerMartialArcaneArcherShadowArrowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "2f63c0981457f2c4e80fd3f061cde8b4",
+      "m_SubObjectName": "Blindness",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
