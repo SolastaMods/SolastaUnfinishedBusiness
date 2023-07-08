@@ -149,7 +149,7 @@ public static class CustomActionIdContext
 
     internal static void ReorderToggles(List<Id> actions)
     {
-        var powerNdx = actions.FindIndex(x => x == Id.PowerMain);
+        var powerNdx = actions.FindIndex(x => x == Id.Cautious);
 
         if (powerNdx < 0)
         {
