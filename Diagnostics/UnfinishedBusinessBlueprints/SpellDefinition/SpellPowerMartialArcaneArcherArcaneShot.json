@@ -172,9 +172,9 @@
   "vocalSpellSemeType": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMartialArcaneArcherArcaneShotTitle",
+    "description": "Feature/&FeatureSetMartialArcaneArcherArcaneShotDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

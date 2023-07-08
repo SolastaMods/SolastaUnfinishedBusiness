@@ -196,33 +196,6 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionRestrained",
-          "conditionDefinition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",

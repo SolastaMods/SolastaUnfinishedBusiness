@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerMartialArcaneArcherArcaneShotAdditionalUseTitle",
-    "description": "Feature/&PowerMartialArcaneArcherArcaneShotAdditionalUseDescription",
+    "title": "Feature/&PowerUseModifierMartialArcaneArcherArcaneShotUse1Title",
+    "description": "Feature/&PowerUseModifierMartialArcaneArcherArcaneShotUse1Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "24c28b7d-28e5-5a3a-a19b-8b47b0a9e6cb",
+  "guid": "46ab2bfe-feb4-516c-8600-f9f62c875c0d",
   "contentPack": 9999,
-  "name": "PowerMartialArcaneArcherArcaneShotAdditionalUse"
+  "name": "PowerUseModifierMartialArcaneArcherArcaneShotUse1"
 }

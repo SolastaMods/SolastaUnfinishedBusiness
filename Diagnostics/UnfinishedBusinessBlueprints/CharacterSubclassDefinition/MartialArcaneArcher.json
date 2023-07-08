@@ -38,7 +38,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMartialArcaneArcherArcaneShotAdditionalUse:24c28b7d-28e5-5a3a-a19b-8b47b0a9e6cb",
+      "featureDefinition": "Definition:PowerUseModifierMartialArcaneArcherArcaneShotUse1:46ab2bfe-feb4-516c-8600-f9f62c875c0d",
       "level": 10
     },
     {
@@ -58,7 +58,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerMartialArcaneArcherArcaneShotAdditionalUse:24c28b7d-28e5-5a3a-a19b-8b47b0a9e6cb",
+      "featureDefinition": "Definition:PowerUseModifierMartialArcaneArcherArcaneShotUse1:46ab2bfe-feb4-516c-8600-f9f62c875c0d",
       "level": 18
     }
   ],
