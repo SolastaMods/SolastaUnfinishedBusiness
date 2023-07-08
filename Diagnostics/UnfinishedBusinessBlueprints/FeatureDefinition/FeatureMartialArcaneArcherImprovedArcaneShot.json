@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolArcaneArcherChoice1Title",
-    "description": "Feature/&InvocationPoolArcaneArcherChoice1Description",
+    "title": "Feature/&FeatureMartialArcaneArcherImprovedArcaneShotTitle",
+    "description": "Feature/&FeatureMartialArcaneArcherImprovedArcaneShotDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c441ce08-f70c-57e5-b984-3f2765b9d24c",
+  "guid": "8ba70abb-7517-55b9-97f7-f843bb29cc09",
   "contentPack": 9999,
-  "name": "InvocationPoolArcaneArcherChoice1"
+  "name": "FeatureMartialArcaneArcherImprovedArcaneShot"
 }

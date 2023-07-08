@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolArcaneArcherChoice2Title",
-    "description": "Feature/&InvocationPoolArcaneArcherChoice2Description",
+    "title": "Feature/&FeatureMartialArcaneArcherEverReadyShotTitle",
+    "description": "Feature/&FeatureMartialArcaneArcherEverReadyShotDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c646df6-3274-5cc1-83ff-beff429847dc",
+  "guid": "519f93ff-4ec1-5398-aee0-ae7255736dbf",
   "contentPack": 9999,
-  "name": "InvocationPoolArcaneArcherChoice2"
+  "name": "FeatureMartialArcaneArcherEverReadyShot"
 }
