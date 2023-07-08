@@ -21,6 +21,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class CollegeOfAudacity : AbstractSubclass
 {
     private const string Name = "CollegeOfAudacity";
+    private const string WhirlMarker = "Whirl";
 
     private const ActionDefinitions.Id AudaciousWhirlToggle = (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle;
     private const ActionDefinitions.Id MasterfulWhirlToggle = (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle;
@@ -99,7 +100,9 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
             .Create($"Condition{Name}DefensiveWhirl")
             .SetGuiPresentation($"AttributeModifier{Name}DefensiveWhirl", Category.Feature, Gui.NoLocalization,
                 ConditionDefinitions.ConditionMagicallyArmored.GuiPresentation.SpriteReference)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(attributeModifierDefensiveWhirl)
             .AddToDB();
 
@@ -112,8 +115,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionDefensiveWhirl, applyToSelf: true))
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
@@ -144,8 +145,6 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging, applyToSelf: true))
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
@@ -172,7 +171,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 powerSlashingWhirl,
                 powerMobileWhirl),
             new RestrictReactionAttackMode((_, character, _) =>
-                character.OnceInMyTurnIsValid("Whirl") &&
+                character.OnceInMyTurnIsValid(WhirlMarker) &&
                 (character.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
                  character.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
 
@@ -335,31 +334,64 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
-            actingCharacter.UsedSpecialFeatures.TryAdd("Whirl", 1);
+            // targets
+            var originalTarget = action.ActionParams.TargetCharacters[0];
+            var targetCharacters = new List<GameLocationCharacter>();
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
 
             var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
                 ? DieType.D6
                 : rulesetCharacter.GetBardicInspirationDieValue();
             var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            // add damage roll to AC if defensive whirl
-            if (action.activePower.PowerDefinition == _powerDefensiveWhirl)
+            // add damage whirl condition and target
+            if (power == _powerDefensiveWhirl)
             {
-                var usableCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition == _conditionDefensiveWhirl);
+                targetCharacters.Add(originalTarget);
 
-                if (usableCondition != null)
-                {
-                    usableCondition.amount = damageRoll;
-                }
+                rulesetCharacter.InflictCondition(
+                    _conditionDefensiveWhirl.Name,
+                    _conditionDefensiveWhirl.DurationType,
+                    _conditionDefensiveWhirl.DurationParameter,
+                    _conditionDefensiveWhirl.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    damageRoll,
+                    0,
+                    0);
             }
 
-            // add targets
-            var originalTarget = action.ActionParams.TargetCharacters[0];
-            var targetCharacters = new List<GameLocationCharacter>();
-
-            if (power == _powerSlashingWhirl)
+            // add mobile whirl condition and target
+            else if (power == _powerMobileWhirl)
             {
+                targetCharacters.Add(originalTarget);
+
+                var conditionDisengaging = ConditionDefinitions.ConditionDisengaging;
+
+                rulesetCharacter.InflictCondition(
+                    conditionDisengaging.Name,
+                    conditionDisengaging.DurationType,
+                    conditionDisengaging.DurationParameter,
+                    conditionDisengaging.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
+
+            // add slashing whirl targets
+            else if (power == _powerSlashingWhirl)
+            {
+                targetCharacters.Add(originalTarget);
+
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
                 if (gameLocationBattleService != null)
@@ -369,11 +401,8 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                         .ToList());
                 }
             }
-            else
-            {
-                targetCharacters.Add(originalTarget);
-            }
 
+            // prepare damage form
             var dices = new List<int> { damageRoll };
             var diceNumber = _criticalHit ? 2 : 1;
 
@@ -385,7 +414,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 dices.Add(criticalDamageRoll);
             }
 
-            // apply damage to all targets
+            // apply damage to targets
             foreach (var targetCharacter in targetCharacters)
             {
                 var rulesetDefender = targetCharacter.RulesetCharacter;
