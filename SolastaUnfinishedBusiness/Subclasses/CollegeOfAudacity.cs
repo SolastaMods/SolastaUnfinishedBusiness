@@ -275,7 +275,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
 
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
-            _damageType = damageForm.damageType;
+            _damageType = damageForm?.damageType;
             _criticalHit = criticalHit;
         }
 
