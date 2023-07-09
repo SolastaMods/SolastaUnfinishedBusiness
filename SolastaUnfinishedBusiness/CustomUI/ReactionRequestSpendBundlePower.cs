@@ -48,6 +48,8 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(target) &&
         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
 
+    public ICustomReactionResource Resource { get; set; }
+
     private void BuildSuboptions()
     {
         SubOptionsAvailability.Clear();
@@ -191,6 +193,4 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         base.OnSetInvalid();
         ReactionParams.RulesetEffect?.Terminate(false);
     }
-
-    public ICustomReactionResource Resource { get; set; }
 }
