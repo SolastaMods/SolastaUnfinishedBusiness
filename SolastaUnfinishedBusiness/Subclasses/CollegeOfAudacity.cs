@@ -172,10 +172,10 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
                 powerSlashingWhirl,
                 powerMobileWhirl),
             ReactionResourceBardicInspiration.Instance,
-            new RestrictReactionAttackMode((_, character, _) =>
-                character.OnceInMyTurnIsValid(WhirlMarker) &&
-                (character.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
-                 character.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
+            new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                attacker.OnceInMyTurnIsValid(WhirlMarker) &&
+                (attacker.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
+                 attacker.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
 
         PowerBundle.RegisterPowerBundle(
             powerAudaciousWhirl,

@@ -477,12 +477,14 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static void Prefix(
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackMode)
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             //PATCH: support for `IReactionAttackModeRestriction`
-            RestrictReactionAttackMode.ReactionContext = (attacker, defender, attackMode);
+            RestrictReactionAttackMode.ReactionContext = (action, attacker, defender, attackMode, rulesetEffect);
         }
 
         [UsedImplicitly]
@@ -495,7 +497,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            RestrictReactionAttackMode.ReactionContext = (null, null, null);
+            RestrictReactionAttackMode.ReactionContext = (null, null, null, null, null);
         }
     }
 

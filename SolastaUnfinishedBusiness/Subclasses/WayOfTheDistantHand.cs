@@ -47,11 +47,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetCustomSubFeatures(
                 IsPowerPool.Marker,
-                new RestrictReactionAttackMode((mode, character, _) =>
-                    mode != null &&
-                    mode.AttackTags.Contains(ZenArrowTag) &&
-                    character.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
+                new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                    attackMode != null &&
+                    attackMode.AttackTags.Contains(ZenArrowTag) &&
+                    attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -209,11 +209,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(
                 IsPowerPool.Marker,
-                new RestrictReactionAttackMode((mode, character, _) =>
-                    mode != null &&
-                    mode.AttackTags.Contains(ZenArrowTag) &&
-                    character.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
+                new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                    attackMode != null &&
+                    attackMode.AttackTags.Contains(ZenArrowTag) &&
+                    attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

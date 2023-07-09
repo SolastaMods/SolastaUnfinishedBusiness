@@ -99,9 +99,9 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                 HasModifiedUses.Marker,
                 ReactionResourceArcaneShot.Instance,
                 new SpendPowerFinishedByMeArcaneShot(),
-                new RestrictReactionAttackMode((_, character, _) =>
-                    character.OnceInMyTurnIsValid(ArcaneShotMarker) &&
-                    character.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle)))
+                new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                    attacker.OnceInMyTurnIsValid(ArcaneShotMarker) &&
+                    attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle)))
             .AddToDB();
 
         BuildArcaneShotPowers(PowerArcaneShot);
