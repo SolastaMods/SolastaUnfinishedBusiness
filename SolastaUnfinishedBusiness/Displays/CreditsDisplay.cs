@@ -54,7 +54,7 @@ internal static class CreditsDisplay
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
         ("Holic75", "spells, Bolgrif"),
         ("Taco",
-            "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
+            "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
         ("team-waldo", "korean font")
@@ -99,6 +99,11 @@ internal static class CreditsDisplay
         }
         else
         {
+            UI.Label(
+                "<b><color=#D89555>SPECIAL THANKS:</color></b> Tactical Adventures / JetBrains <i><color=#F0DAA0>[development licenses]</color></i> / DemonicDuck, Gwizzz, Vess <i><color=#F0DAA0>[hardware acquisition]</color></i> / Balmz <i><color=#F0DAA0>[coffee eh!]</color></i>");
+
+            UI.Label();
+
             // credits
             foreach (var (author, content) in CreditsTable)
             {
