@@ -27,8 +27,9 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
     private static readonly Dictionary<FeatureDefinitionPower, ArcaneArcherData> ArcaneShotPowers = new();
 
-    internal static FeatureDefinitionPower PowerArcaneShot;
+    private static FeatureDefinitionPowerSharedPool PowerBurstingArrow;
 
+    internal static FeatureDefinitionPower PowerArcaneShot;
     internal static FeatureDefinitionPowerUseModifier PowerArcaneShotAdditionalUse1;
     internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
     internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice1;
@@ -288,7 +289,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         // Bursting Arrow
 
-        var powerBurstingArrow = FeatureDefinitionPowerSharedPoolBuilder
+        PowerBurstingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BurstingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast)
             .SetSharedPool(ActivationTime.NoCost, pool)
@@ -306,7 +307,8 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerBurstingArrow, new ArcaneArcherData());
+        ArcaneShotPowers.Add(PowerBurstingArrow,
+            new ArcaneArcherData { EffectSpell = SpellDefinitions.EldritchBlast });
 
         // Enfeebling Arrow
 
@@ -509,7 +511,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             arcaneArcherData.DebuffCondition.Name,
             DurationType.Round,
             1,
-            TurnOccurenceType.EndOfTurn,
+            TurnOccurenceType.EndOfSourceTurn,
             AttributeDefinitions.TagCombat,
             rulesetAttacker.guid,
             rulesetAttacker.CurrentFaction.Name,
@@ -520,7 +522,10 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             0);
     }
 
-    private static void InflictBurstingArrowAreaDamage(GameLocationCharacter attacker, GameLocationCharacter defender)
+    private static void InflictBurstingArrowAreaDamage(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ArcaneArcherData arcaneArcherData)
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
@@ -542,6 +547,8 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                      .ToList() // avoid changing enumerator
                      .Select(targetCharacter => targetCharacter.RulesetCharacter))
         {
+            EffectHelpers.StartVisualEffect(
+                attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
@@ -598,9 +605,9 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             }
 
             // apply arrow behaviors after attack is complete
-            if (PowerSpent.Name == $"Power{Name}BurstingArrow")
+            if (PowerSpent == PowerBurstingArrow)
             {
-                InflictBurstingArrowAreaDamage(attacker, defender);
+                InflictBurstingArrowAreaDamage(attacker, defender, arcaneArcherData);
             }
             else
             {
