@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionCastSpell, Assembly-CSharp",
   "spellCastingOrigin": "Race",
-  "spellcastingAbility": "Wisdom",
+  "spellcastingAbility": "Intelligence",
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,

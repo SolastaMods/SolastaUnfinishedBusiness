@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -185,7 +185,7 @@
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamagePsychic",
+          "damageType": "DamageSlashing",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -224,7 +224,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "36d5d555454acc244851481824b85f49",
+        "m_AssetGUID": "f1b52bd99e9db3f469abde55aa71ed35",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -248,7 +248,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b730c0933efd80d4e810a986f3fa156d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -260,7 +260,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c88f62febf1ce354a9fbfb01a4a88c0a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -302,13 +302,13 @@
       },
       "activeEffectSurfaceStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b7f8a9ad515573d4da0ad6b67623b39d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1729c3874306d324997d51f4fa4e4b61",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -358,19 +358,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b9a7b49165a2d4a4a8269ba50de2ed57",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "4f7aac5a0d8b3a74aa5c75817922ef5e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ad634b16a4ab2c349a82fbd60cc1846d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -417,7 +417,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -437,12 +437,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerMartialArcaneArcherShadowArrowTitle",
-    "description": "Feature/&PowerMartialArcaneArcherShadowArrowDescription",
+    "title": "Feature/&PowerMartialArcaneArcherGraspingArrowTitle",
+    "description": "Feature/&PowerMartialArcaneArcherGraspingArrowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2f63c0981457f2c4e80fd3f061cde8b4",
-      "m_SubObjectName": "Blindness",
+      "m_AssetGUID": "3567ccebbdb2bc043a8e651701b16bbc",
+      "m_SubObjectName": "Entangle",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -458,7 +458,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2adb393a-5a0f-5318-a50f-ddac741cf275",
+  "guid": "9a6d044c-2b02-58dd-beb5-8f372d93b12d",
   "contentPack": 9999,
-  "name": "PowerMartialArcaneArcherShadowArrow"
+  "name": "PowerMartialArcaneArcherGraspingArrow"
 }

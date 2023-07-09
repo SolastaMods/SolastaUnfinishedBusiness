@@ -1,16 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellPowerMartialArcaneArcherBanishingArrow:7533a28f-2e3a-5ba2-be91-795980d40391",
-    "Definition:SpellPowerMartialArcaneArcherBeguilingArrow:bb414215-db39-5969-97b3-794f31345e71",
-    "Definition:SpellPowerMartialArcaneArcherBurstingArrow:ee017088-5f13-5f8a-a47b-54fad8f96022",
-    "Definition:SpellPowerMartialArcaneArcherEnfeeblingArrow:18b538ea-8354-5bc4-a7bf-2fbbffb4b3e9",
-    "Definition:SpellPowerMartialArcaneArcherGraspingArrow:bd8a986d-5be8-507f-ad94-45d04e688ecc",
-    "Definition:SpellPowerMartialArcaneArcherInsightArrow:2c1bd15a-6419-5220-9f51-128fc1807fed",
-    "Definition:SpellPowerMartialArcaneArcherShadowArrow:70a6fbf6-618f-57fa-8803-7c7990ecdde1",
-    "Definition:SpellPowerMartialArcaneArcherSlowingArrow:ddb3c6ad-f1f6-5a5f-b17b-69a1ca7672a4"
-  ],
+  "subspellsList": [],
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
@@ -175,13 +166,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetMartialArcaneArcherArcaneShotTitle",
-    "description": "Feature/&FeatureSetMartialArcaneArcherArcaneShotDescription",
+    "title": "Feature/&PowerMartialArcaneArcherSlowingArrowTitle",
+    "description": "Feature/&PowerMartialArcaneArcherSlowingArrowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "15b3b9ebce8c9534f8816eebc12179fe",
+      "m_SubObjectName": "Slow",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -196,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "be1a21df-46d4-5eba-89fb-e8e881bb80ba",
+  "guid": "ddb3c6ad-f1f6-5a5f-b17b-69a1ca7672a4",
   "contentPack": 9999,
-  "name": "SpellPowerMartialArcaneArcherArcaneShot"
+  "name": "SpellPowerMartialArcaneArcherSlowingArrow"
 }
