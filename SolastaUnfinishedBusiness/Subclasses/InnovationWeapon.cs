@@ -259,7 +259,7 @@ public static class InnovationWeapon
                 //Generic bonuses
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderGeneric")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(savingThrows, skills)
@@ -276,7 +276,7 @@ public static class InnovationWeapon
                 //Bonuses from Inventor's Proficiency Bonus
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
@@ -284,7 +284,7 @@ public static class InnovationWeapon
                 //Bonuses from Inventor's level
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderLevel")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, InventorClass.ClassName)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus) // 5 HP per level
@@ -292,7 +292,7 @@ public static class InnovationWeapon
                 //Bonuses from Inventor's INT
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderIntelligence")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
                     .SetFeatures(hpBonus) // 1 hp per INT mod
@@ -417,7 +417,7 @@ public static class InnovationWeapon
     {
         var condition = ConditionDefinitionBuilder
             .Create(CommandSteelDefenderCondition)
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();

@@ -57,7 +57,7 @@ internal static class CustomConditionsContext
     {
         ConditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
             .Create("ConditionInvisibilityEveryRoundRevealed")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
@@ -74,7 +74,7 @@ internal static class CustomConditionsContext
 
         var conditionInvisibilityEveryRound = ConditionDefinitionBuilder
             .Create("ConditionInvisibilityEveryRound")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(FeatureDefinitionBuilder

@@ -508,21 +508,21 @@ internal sealed class RangerWildMaster : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastCopyCharacterLevel")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
                         AttributeDefinitions.CharacterLevel)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastCopyProficiencyBonus")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
                         AttributeDefinitions.ProficiencyBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastLevel")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceCharacterLevel)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus) // 4 HP per level
@@ -548,7 +548,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetAddedConditions(
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastSaving")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(
@@ -571,7 +571,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
     {
         var condition = ConditionDefinitionBuilder
             .Create(CommandSpiritBeastCondition)
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
