@@ -79,8 +79,9 @@ internal static class RaceKoboldBuilder
         var conditionDarkKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
             .Create(CustomConditionsContext.Distracted, "ConditionDarkKoboldGrovelCowerAndBeg")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
+
+        conditionDarkKoboldGrovelCowerAndBeg.SpecialInterruptions.Clear();
 
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
