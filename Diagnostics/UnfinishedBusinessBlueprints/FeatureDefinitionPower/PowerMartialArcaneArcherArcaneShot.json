@@ -286,7 +286,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 2,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,

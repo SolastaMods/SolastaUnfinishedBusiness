@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=免疫移动限制以及被束缚。
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
+Feat/&FeatArcaneArcherAdeptDescription=你拥有奥术魔法和弓箭训练，可以让你执行特殊的战斗动作。
+Feat/&FeatArcaneArcherAdeptTitle=奥术弓箭手熟练者
 Feat/&FeatAstralArmsDescription=将你的感知提高 1，最大为 20。\n当你在你的回合进行攻击时，你的攻击范围为 10 尺。其他生物进入你的徒手攻击范围时会引发你的借机攻击.
 Feat/&FeatAstralArmsTitle=星灵延伸
 Feat/&FeatCriticalVirtuosoDescription=你的重击阈值降低了 1。

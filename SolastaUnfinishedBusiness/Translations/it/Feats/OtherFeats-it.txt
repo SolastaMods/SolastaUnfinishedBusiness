@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento oltre a essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
+Feat/&FeatArcaneArcherAdeptDescription=Hai la magia arcana e l'addestramento con l'arco che ti consente di eseguire manovre di combattimento speciali.
+Feat/&FeatArcaneArcherAdeptTitle=Arcano Arciere Adepto
 Feat/&FeatAstralArmsDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nQuando effettui un colpo senz'armi nel tuo turno, la tua portata è di 3 metri. Altre creature provocano un tuo attacco di opportunità quando entrano nella portata che hai con .
 Feat/&FeatAstralArmsTitle=Portata Astrale
 Feat/&FeatCriticalVirtuosoDescription=La tua soglia critica è abbassata di 1.

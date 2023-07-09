@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Обеспечивает иммунитет к ограничению передвижения, а также к состоянию "Опутанный".
 Condition/&ConditionFeatMobileAfterDashTitle=Свобода
+Feat/&FeatArcaneArcherAdeptDescription=У вас есть тайная магия и обучение стрельбе из лука, что позволяет вам выполнять специальные боевые маневры.
+Feat/&FeatArcaneArcherAdeptTitle=Магический лучник-адепт
 Feat/&FeatAstralArmsDescription=Увеличьте значение Мудрости на 1 при максимуме 20.\nКогда вы совершаете безоружную атаку в свой ход, ваша досягаемость для неё равна 10 футам. Другие существа провоцируют атаку по возможности от вас, когда входят в область досягаемости вашей безоружной атаки.
 Feat/&FeatAstralArmsTitle=Астральная досягаемость
 Feat/&FeatCriticalVirtuosoDescription=Ваш порог критического попадания снижен на 1.

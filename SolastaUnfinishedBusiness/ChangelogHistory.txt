@@ -8,6 +8,7 @@ ATTENTION:
 
 CHANGES:
 
+- added Arcane Archer Adept feat
 - added Martial Arcane Archer subclass
 - fixed College of Audacity missing damages and AC tooltip
 - fixed Innovation Artillerist refund cannon behavior

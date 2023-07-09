@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restrições de movimento, além de ser contido.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
+Feat/&FeatArcaneArcherAdeptDescription=Você tem magia arcana e treinamento com arco que lhe permite realizar manobras de combate especiais.
+Feat/&FeatArcaneArcherAdeptTitle=Adepto Arqueiro Arcano
 Feat/&FeatAstralArmsDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nQuando você faz um ataque desarmado em seu turno, seu alcance é de 3 metros. Outras criaturas provocam um ataque de oportunidade quando entram no alcance que você tem com desarmado .
 Feat/&FeatAstralArmsTitle=Alcance astral
 Feat/&FeatCriticalVirtuosoDescription=Seu limite crítico é reduzido em 1.

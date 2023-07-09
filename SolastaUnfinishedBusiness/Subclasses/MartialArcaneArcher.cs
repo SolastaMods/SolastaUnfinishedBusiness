@@ -25,9 +25,13 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
 
-    private static readonly Dictionary<FeatureDefinitionPower, ConditionDefinition> ArcaneShotPowers = new();
+    private static readonly Dictionary<FeatureDefinitionPower, ArcaneArcherData> ArcaneShotPowers = new();
 
     internal static FeatureDefinitionPower PowerArcaneShot;
+
+    internal static FeatureDefinitionPowerUseModifier PowerArcaneShotAdditionalUse1;
+    internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
+    internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice1;
 
     internal MartialArcaneArcher()
     {
@@ -74,7 +78,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot
 
-        var actionAffinityArcaneArcherToggle = FeatureDefinitionActionAffinityBuilder
+        ActionAffinityArcaneArcherToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle)
@@ -83,7 +87,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
         PowerArcaneShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneShot")
             .SetGuiPresentation($"FeatureSet{Name}ArcaneShot", Category.Feature)
-            .SetUsesFixed(ActivationTime.OnAttackHitWithBow, RechargeRate.ShortRest, 1, 2)
+            .SetUsesFixed(ActivationTime.OnAttackHitWithBow, RechargeRate.ShortRest, 1, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -103,13 +107,19 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
         CreateArcaneArcherChoices(ArcaneShotPowers.Keys);
         PowerBundle.RegisterPowerBundle(PowerArcaneShot, true, ArcaneShotPowers.Keys);
 
-        var powerArcaneShotAdditionalUse1 = FeatureDefinitionPowerUseModifierBuilder
+        PowerArcaneShotAdditionalUse1 = FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifier{Name}ArcaneShotUse1")
             .SetGuiPresentation(Category.Feature)
             .SetFixedValue(PowerArcaneShot, 1)
             .AddToDB();
 
-        var invocationPoolArcaneShotChoice1 =
+        var powerArcaneShotAdditionalUse2 = FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifier{Name}ArcaneShotUse2")
+            .SetGuiPresentationNoContent(true)
+            .SetFixedValue(PowerArcaneShot, 2)
+            .AddToDB();
+
+        InvocationPoolArcaneShotChoice1 =
             CustomInvocationPoolDefinitionBuilder
                 .Create("InvocationPoolArcaneShotChoice1")
                 .SetGuiPresentation(Category.Feature)
@@ -127,8 +137,9 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"FeatureSet{Name}ArcaneShot")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                actionAffinityArcaneArcherToggle,
+                ActionAffinityArcaneArcherToggle,
                 invocationPoolArcaneShotChoice2,
+                powerArcaneShotAdditionalUse2,
                 PowerArcaneShot)
             .AddToDB();
 
@@ -186,16 +197,16 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .AddFeaturesAtLevel(7,
                 featureMagicArrow,
                 featureGuidedShot,
-                invocationPoolArcaneShotChoice1)
+                InvocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(10,
-                powerArcaneShotAdditionalUse1,
-                invocationPoolArcaneShotChoice1)
+                PowerArcaneShotAdditionalUse1,
+                InvocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(15,
                 featureEverReadyShot,
-                invocationPoolArcaneShotChoice1)
+                InvocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(18,
-                powerArcaneShotAdditionalUse1,
-                invocationPoolArcaneShotChoice1)
+                PowerArcaneShotAdditionalUse1,
+                InvocationPoolArcaneShotChoice1)
             .AddToDB();
     }
 
@@ -237,7 +248,11 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerBanishingArrow, ConditionDefinitions.ConditionBanished);
+        ArcaneShotPowers.Add(powerBanishingArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionBanished, EffectSpell = SpellDefinitions.Banishment
+            });
 
         // Beguiling Arrow
 
@@ -265,7 +280,11 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerBeguilingArrow, ConditionDefinitions.ConditionCharmed);
+        ArcaneShotPowers.Add(powerBeguilingArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionCharmed, EffectSpell = SpellDefinitions.CharmPerson
+            });
 
         // Bursting Arrow
 
@@ -287,7 +306,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerBurstingArrow, null);
+        ArcaneShotPowers.Add(powerBurstingArrow, new ArcaneArcherData());
 
         // Enfeebling Arrow
 
@@ -315,7 +334,12 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerEnfeeblingArrow, ConditionDefinitions.ConditionEnfeebled);
+        ArcaneShotPowers.Add(powerEnfeeblingArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionEnfeebled,
+                EffectSpell = SpellDefinitions.RayOfEnfeeblement
+            });
 
         // Grasping Arrow
 
@@ -343,7 +367,11 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerGraspingArrow, ConditionDefinitions.ConditionRestrained);
+        ArcaneShotPowers.Add(powerGraspingArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionRestrained, EffectSpell = SpellDefinitions.Entangle
+            });
 
 
         // Insight Arrow
@@ -372,7 +400,12 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerInsightArrow, ConditionDefinitions.ConditionHighlighted);
+        ArcaneShotPowers.Add(powerInsightArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionHighlighted,
+                EffectSpell = SpellDefinitions.TrueStrike
+            });
 
         // Shadow Arrow
 
@@ -400,7 +433,11 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerShadowArrow, ConditionDefinitions.ConditionBlinded);
+        ArcaneShotPowers.Add(powerShadowArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionBlinded, EffectSpell = SpellDefinitions.Blindness
+            });
 
         // Slowing Arrow
 
@@ -428,7 +465,11 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerSlowingArrow, ConditionDefinitions.ConditionSlowed);
+        ArcaneShotPowers.Add(powerSlowingArrow,
+            new ArcaneArcherData
+            {
+                DebuffCondition = ConditionDefinitions.ConditionSlowed, EffectSpell = SpellDefinitions.Slow
+            });
     }
 
     private static void CreateArcaneArcherChoices(IEnumerable<FeatureDefinitionPower> powers)
@@ -449,10 +490,9 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
     }
 
     private static void TryInflictArcaneShotCondition(
-        IControllableCharacter attacker,
-        IControllableCharacter defender,
-        // ReSharper disable once SuggestBaseTypeForParameter
-        ConditionDefinition conditionDefinition)
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ArcaneArcherData arcaneArcherData)
     {
         var rulesetAttacker = attacker.RulesetCharacter;
         var rulesetDefender = defender.RulesetCharacter;
@@ -463,8 +503,10 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             return;
         }
 
+        EffectHelpers.StartVisualEffect(
+            attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
         rulesetDefender.InflictCondition(
-            conditionDefinition.Name,
+            arcaneArcherData.DebuffCondition.Name,
             DurationType.Round,
             1,
             TurnOccurenceType.EndOfTurn,
@@ -516,6 +558,12 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
         }
     }
 
+    private struct ArcaneArcherData
+    {
+        public ConditionDefinition DebuffCondition;
+        public SpellDefinition EffectSpell;
+    }
+
     //
     // Arcane Shot
     //
@@ -535,7 +583,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (PowerSpent == null || !ArcaneShotPowers.TryGetValue(PowerSpent, out var conditionDefinition))
+            if (PowerSpent == null || !ArcaneShotPowers.TryGetValue(PowerSpent, out var arcaneArcherData))
             {
                 yield break;
             }
@@ -556,7 +604,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             }
             else
             {
-                TryInflictArcaneShotCondition(attacker, defender, conditionDefinition);
+                TryInflictArcaneShotCondition(attacker, defender, arcaneArcherData);
             }
 
             PowerSpent = null;
