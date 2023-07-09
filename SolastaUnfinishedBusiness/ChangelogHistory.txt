@@ -1,11 +1,22 @@
-﻿1.5.92.12:
+﻿1.5.92.13:
 
-CHARISMA CHECK:
+ATTENTION:
 
-- Zappastuff is looking for a wealthy contributor to donate a SteamDeck [10% off] to the UB cause
-- It would help a lot to make UB compatible with controllers [as well as allow to play on trips]
-- Your name will be immortalized on UB credits, and custom content requests will be prioritized
-- THANKS if you are the chosen one! If so reach out to Zappastuff on STEAM or DISCORD for address
+- RESPEC any Malakh race hero or save
+
+CHANGES:
+
+- added Martial Arcane Archer subclass
+- fixed College of Audacity missing damage and AC tooltip
+- fixed Innovation Artillerist refund cannon 
+- fixed Kobold Grovel, Cower, and Beg duration
+- fixed Mystic Arcanum spells not available on selection panel
+- fixed Way of the Weal and Woe missing brutal damage
+- refactored College of Valiance heroic inspiration
+- refactored Malakh to select the angelic form on a level up stage
+- refactored power bundle reaction UI [Audacity, Arcane Archer]
+
+1.5.92.12:
 
 CHANGES:
 
