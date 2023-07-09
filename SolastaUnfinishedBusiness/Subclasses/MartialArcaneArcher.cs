@@ -534,19 +534,19 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                PowerSpent = null;
-
-                yield break;
-            }
-
             if (PowerSpent == null || !ArcaneShotPowers.TryGetValue(PowerSpent, out var conditionDefinition))
             {
                 yield break;
             }
 
             attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
+
+            if (SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                PowerSpent = null;
+
+                yield break;
+            }
 
             // apply arrow behaviors after attack is complete
             if (PowerSpent.Name == $"Power{Name}BurstingArrow")
@@ -704,7 +704,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
             var levels = character.GetClassLevel(CharacterClassDefinitions.Fighter);
 
-            if (levels < 18)
+            if (levels < 15)
             {
                 yield break;
             }
