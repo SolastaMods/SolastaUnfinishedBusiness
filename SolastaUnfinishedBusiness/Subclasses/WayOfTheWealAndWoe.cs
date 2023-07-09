@@ -194,14 +194,27 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
 
                 case RollOutcome.CriticalFailure:
                     // Their Woe / Woe
-                    rulesetAttacker.LogCharacterUsedFeature(level >= 17 ? _featureTheirWoe : _featureWoe);
-                    InflictMartialArtDieDamage(
-                        rulesetAttacker,
-                        level >= 17 && rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
-                            ? rulesetDefender
-                            : rulesetAttacker,
-                        attackMode,
-                        attackModifier);
+                    if (level >= 17)
+                    {
+                        if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
+                        {
+                            rulesetAttacker.LogCharacterUsedFeature(_featureTheirWoe);
+                            InflictMartialArtDieDamage(
+                                rulesetAttacker,
+                                rulesetDefender,
+                                attackMode,
+                                attackModifier);
+                        }
+                    }
+                    else
+                    {
+                        rulesetAttacker.LogCharacterUsedFeature(_featureWoe);
+                        InflictMartialArtDieDamage(
+                            rulesetAttacker,
+                            rulesetAttacker,
+                            attackMode,
+                            attackModifier);
+                    }
 
                     // Weal (RESET)
                     rulesetAttacker.RemoveAllConditionsOfType(_conditionWeal.Name);
@@ -217,7 +230,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
                     }
 
                     // Brutal Weal
-                    if (level >= 11 && rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+                    if (level >= 11 && rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
                         InflictMartialArtDieDamage(
