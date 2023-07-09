@@ -224,6 +224,7 @@ internal enum ExtraActionId
     UseHeroicInspiration = 9030,
     FlightSuspend = 9031,
     FlightResume = 9032,
+    ArcaneArcherToggle = 9033,
     PrioritizeAction
 }
 

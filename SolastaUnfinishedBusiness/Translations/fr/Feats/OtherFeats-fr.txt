@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restrictions de mouvement ainsi qu'à la contention.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
+Feat/&FeatArcaneArcherAdeptDescription=Vous avez une formation à la magie des arcanes et à l'arc qui vous permet d'effectuer des manœuvres de combat spéciales.
+Feat/&FeatArcaneArcherAdeptTitle=Adepte archer des arcanes
 Feat/&FeatAstralArmsDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nLorsque vous portez une frappe à mains nues à votre tour, votre portée est de 3 mètres. Les autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez à mains nues. .
 Feat/&FeatAstralArmsTitle=Portée astrale
 Feat/&FeatCriticalVirtuosoDescription=Votre seuil critique est abaissé de 1.

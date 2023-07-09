@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegenüber Bewegungseinschränkungen und Zurückhaltung.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
+Feat/&FeatArcaneArcherAdeptDescription=Du verfügst über arkane Magie und eine Bogenausbildung, die es dir ermöglicht, spezielle Kampfmanöver durchzuführen.
+Feat/&FeatArcaneArcherAdeptTitle=Arkaner Bogenschützen-Adept
 Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 auf maximal 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, beträgt deine Reichweite dafür 10 Fuß. Andere Kreaturen provozieren einen Gelegenheitsangriff von dir, wenn sie in die Reichweite gelangen, die du mit unbewaffnetem Angriff hast .
 Feat/&FeatAstralArmsTitle=Astralreichweite
 Feat/&FeatCriticalVirtuosoDescription=Ihr kritischer Schwellenwert wird um 1 gesenkt.

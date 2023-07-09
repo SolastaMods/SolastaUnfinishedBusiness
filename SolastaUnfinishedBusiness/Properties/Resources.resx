@@ -162,7 +162,7 @@
         </value>
     </data>
     <data name="Inventor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>../Resources/Inventor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        <value>../Resources/Classes/Inventor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
         </value>
     </data>
@@ -172,10 +172,10 @@
         </value>
     </data>
     <data name="Malakh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>
-        ../Resources/Races/Malakh.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      </value>
+        <value>
+            ../Resources/Races/Malakh.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
     </data>
     <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>../Resources/Spells/BurstOfRadiance.png;System.Byte[], mscorlib, Version=4.0.0.0,
@@ -700,7 +700,7 @@
         </value>
     </data>
     <data name="InventorPictogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>../Resources/InventorPictogram.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        <value>../Resources/Classes/InventorPictogram.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>
@@ -922,7 +922,7 @@
         </value>
     </data>
     <data name="GambitResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>../Resources/GambitResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        <value>../Resources/UI/GambitResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>
@@ -1920,6 +1920,11 @@
     </data>
     <data name="TutorialActionSwitching" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>..\Resources\UI\TutorialActionSwitching.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a
+        </value>
+    </data>
+    <data name="BardicDiceResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+        <value>..\Resources\UI\BardicDiceResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>

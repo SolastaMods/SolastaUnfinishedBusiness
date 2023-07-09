@@ -51,6 +51,7 @@ internal static class SubclassesContext
         LoadSubclass(new CircleOfTheNight());
 
         // Fighter
+        LoadSubclass(new MartialArcaneArcher());
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());

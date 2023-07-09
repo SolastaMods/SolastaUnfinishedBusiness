@@ -334,14 +334,14 @@
     <string>RaceFairy</string>
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
+    <string>RaceIronbornDwarf</string>
     <string>RaceKobold</string>
     <string>RaceMalakh</string>
-    <string>RaceTiefling</string>
+    <string>RaceObsidianDwarf</string>
     <string>RaceOligath</string>
+    <string>RaceTiefling</string>
     <string>RaceWendigo</string>
     <string>RaceWyrmkin</string>
-    <string>RaceIronbornDwarf</string>
-    <string>RaceObsidianDwarf</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -359,9 +359,11 @@
     <string>PathOfTheSavagery</string>
     <string>PathOfTheSpirits</string>
     <string>PathOfTheYeoman</string>
+    <string>CollegeOfAudacity</string>
     <string>CollegeOfGuts</string>
     <string>CollegeOfHarlequin</string>
     <string>CollegeOfLife</string>
+    <string>CollegeOfValiance</string>
     <string>CollegeOfWarDancer</string>
     <string>DomainDefiler</string>
     <string>DomainSmith</string>
@@ -369,6 +371,7 @@
     <string>CircleOfTheForestGuardian</string>
     <string>CircleOfTheLife</string>
     <string>CircleOfTheNight</string>
+    <string>MartialArcaneArcher</string>
     <string>MartialMarshal</string>
     <string>MartialRoyalKnight</string>
     <string>MartialSpellShield</string>
@@ -376,11 +379,14 @@
     <string>MartialWeaponMaster</string>
     <string>OathOfAltruism</string>
     <string>OathOfAncients</string>
+    <string>OathOfDemonHunter</string>
     <string>OathOfDread</string>
     <string>OathOfHatred</string>
+    <string>OathOfThunder</string>
     <string>RangerArcanist</string>
     <string>RangerLightBearer</string>
     <string>RangerHellWalker</string>
+    <string>RangerSkyWarrior</string>
     <string>RangerSurvivalist</string>
     <string>RangerWildMaster</string>
     <string>RoguishAcrobat</string>
@@ -398,8 +404,11 @@
     <string>WayOfTheDragon</string>
     <string>WayOfSilhouette</string>
     <string>WayOfTheTempest</string>
+    <string>WayOfWealAndWoe</string>
+    <string>PatronEldritchSurge</string>
     <string>PatronElementalist</string>
     <string>PatronMoonlit</string>
+    <string>PatronMountain</string>
     <string>PatronRiftWalker</string>
     <string>PatronSoulBlade</string>
     <string>WizardArcaneFighter</string>
@@ -407,14 +416,6 @@
     <string>WizardDeadMaster</string>
     <string>WizardGraviturgist</string>
     <string>WizardSpellMaster</string>
-    <string>OathOfThunder</string>
-    <string>OathOfDemonHunter</string>
-    <string>PatronEldritchSurge</string>
-    <string>RangerSkyWarrior</string>
-    <string>CollegeOfAudacity</string>
-    <string>WayOfWealAndWoe</string>
-    <string>PatronMountain</string>
-    <string>CollegeOfValiance</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -437,6 +438,7 @@
     <string>FeatCleavingAttack</string>
     <string>FeatGroupCloseQuarters</string>
     <string>FeatCrippling</string>
+    <string>FeatCrossbowMastery</string>
     <string>FeatGroupCrusher</string>
     <string>FeatCunningEscape</string>
     <string>FeatDeadeye</string>
@@ -457,9 +459,11 @@
     <string>FeatExploiter</string>
     <string>FeatGroupFadeAway</string>
     <string>FeatFellHanded</string>
+    <string>FeatFencer</string>
     <string>FeatGroupTeleportation</string>
     <string>FeatGroupFlameTouched</string>
     <string>FeatGreatWeapon</string>
+    <string>FeatHammerThePoint</string>
     <string>FeatHandAndAHalf</string>
     <string>FeatGroupHardy</string>
     <string>FeatHealer</string>
@@ -473,11 +477,13 @@
     <string>FeatLunger</string>
     <string>FeatGroupMagicInitiate</string>
     <string>FeatGroupMediumArmor</string>
+    <string>FeatMediumArmorMaster</string>
     <string>FeatMerciless</string>
     <string>FeatMetamagicAdept</string>
     <string>FeatMobile</string>
     <string>FeatMonkInitiate</string>
     <string>FeatNaturalFluidity</string>
+    <string>FeatGroupOldTactics</string>
     <string>FeatGroupPeregrinationTouched</string>
     <string>FeatPickPocket</string>
     <string>FeatGroupPiercer</string>
@@ -519,11 +525,6 @@
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
-    <string>FeatMediumArmorMaster</string>
-    <string>FeatHammerThePoint</string>
-    <string>FeatGroupOldTactics</string>
-    <string>FeatCrossbowMastery</string>
-    <string>FeatFencer</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -545,10 +546,6 @@
     <string>FeatGroupEnchanter</string>
     <string>FeatGroupFightingStyle</string>
     <string>FeatGroupGeneralAdept</string>
-    <string>FeatGroupPlaneTouchedMagic</string>
-    <string>FeatGroupRaceBound</string>
-    <string>FeatGroupSkills</string>
-    <string>FeatGroupTools</string>
     <string>FeatGroupHalfAttributes</string>
     <string>FeatGroupHalfCharisma</string>
     <string>FeatGroupHalfConstitution</string>
@@ -556,6 +553,10 @@
     <string>FeatGroupHalfIntelligence</string>
     <string>FeatGroupHalfStrength</string>
     <string>FeatGroupHalfWisdom</string>
+    <string>FeatGroupPlaneTouchedMagic</string>
+    <string>FeatGroupRaceBound</string>
+    <string>FeatGroupSkills</string>
+    <string>FeatGroupTools</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -1148,4 +1149,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

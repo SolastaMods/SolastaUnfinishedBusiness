@@ -210,9 +210,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (battleService is not { IsBattleInProgress: true })
+            if (!battleManager.IsBattleInProgress)
             {
                 yield break;
             }
@@ -252,7 +250,7 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
 
             actionService.AddInterruptRequest(reactionRequest);
 
-            yield return battleService.WaitForReactions(attacker, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

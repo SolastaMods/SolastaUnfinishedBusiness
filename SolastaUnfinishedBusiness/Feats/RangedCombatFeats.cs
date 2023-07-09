@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
@@ -31,11 +30,7 @@ internal static class RangedCombatFeats
 
         feats.AddRange(featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim);
 
-        GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
-            GroupFeats.FeatGroupPiercer,
-            TakeAim,
-            DiscretionOfTheCoedymwarth,
-            UncannyAccuracy,
+        GroupFeats.FeatGroupRangedCombat.AddFeats(
             featBowMastery,
             featCrossbowMastery,
             featDeadEye,
