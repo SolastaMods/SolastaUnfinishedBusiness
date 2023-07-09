@@ -451,6 +451,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
     private static void TryInflictArcaneShotCondition(
         IControllableCharacter attacker,
         IControllableCharacter defender,
+        // ReSharper disable once SuggestBaseTypeForParameter
         ConditionDefinition conditionDefinition)
     {
         var rulesetAttacker = attacker.RulesetCharacter;
