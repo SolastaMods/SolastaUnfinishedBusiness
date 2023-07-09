@@ -541,7 +541,7 @@ internal static class GameLocationBattleManagerTweaks
         additionalDamageForm = hero.GetSubFeaturesByType<IModifyAdditionalDamageForm>()
             .Aggregate(additionalDamageForm,
                 (current, modifyAdditionalDamageForm) =>
-                    modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, current));
+                    modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, provider, current));
         /*
          * Support for IModifyAdditionalDamageForm
          * [CE] EDIT END
