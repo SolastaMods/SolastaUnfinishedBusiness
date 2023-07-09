@@ -111,6 +111,7 @@ ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ 他のクラスからすでに学習したキャントリップまたは呪文を選択できます</i>
 ModUi/&EnableRespec=休息後の RESPEC アクションを有効にする
+ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>をクラスレベル5で有効にします<i><color=#F0DAA0>[追加のヒット効果を得るために急所攻撃ダイスを1つ省略します]</color ></i>
 ModUi/&EnableSaveByLocation=キャンペーン/場所ごとの保存を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>

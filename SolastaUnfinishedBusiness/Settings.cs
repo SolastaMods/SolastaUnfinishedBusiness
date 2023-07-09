@@ -126,6 +126,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
+    public bool EnableRogueCunningStrike { get; set; }
     public bool EnableLevel20 { get; set; }
     public bool EnableMulticlass { get; set; }
     public int MaxAllowedClasses { get; set; }

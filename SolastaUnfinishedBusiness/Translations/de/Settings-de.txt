@@ -111,6 +111,7 @@ ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmu
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen von 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen gelernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
+ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Schurke</color> <b>Clistiger Schlag</b> auf Klassenstufe 5 <i><color=#F0DAA0>[Sie verzichten auf 1 Schleichangriffswürfel für zusätzliche Treffereffekte]</color ></i>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>

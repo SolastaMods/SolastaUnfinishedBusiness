@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRogueCunningStrike:cc6e6ef3-2d3a-59c7-bb1f-7c39208fd465",
+    "Definition:PowerRogueCunningStrikeDisarm:dde2e9da-2884-568f-8c9c-dfd3d079a36e",
+    "Definition:PowerRogueCunningStrikePoison:1c82a6e4-7c57-552e-8c1f-71545573e41a",
+    "Definition:PowerRogueCunningStrikeTrip:5fa142a1-b1f9-5a63-910b-93d0e6c1c5b5",
+    "Definition:PowerRogueCunningStrikeWithdraw:5a0366e5-5c4f-5d76-af31-4f6840dd9c82"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerRogueCunningStrikeTitle",
+    "description": "Feature/&PowerRogueCunningStrikeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d1a863af-0777-579c-b70d-ae55f20efd98",
+  "contentPack": 9999,
+  "name": "FeatureSetRogueCunningStrike"
+}
