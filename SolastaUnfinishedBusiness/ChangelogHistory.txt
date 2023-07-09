@@ -7,12 +7,13 @@ ATTENTION:
 CHANGES:
 
 - added Martial Arcane Archer subclass
-- fixed College of Audacity missing damage and AC tooltip
-- fixed Innovation Artillerist refund cannon 
-- fixed Kobold Grovel, Cower, and Beg duration
+- fixed College of Audacity missing damages and AC tooltip
+- fixed Innovation Artillerist refund cannon behavior
+- fixed Kobold Grovel, Cower, and Beg condition interruption
 - fixed Mystic Arcanum spells not available on selection panel
 - fixed Way of the Weal and Woe missing brutal damage
-- refactored College of Valiance heroic inspiration
+- fixed War Caster reaction with cantrips obtained as bonus
+- refactored College of Valiance heroic inspiration to 2 fixed uses
 - refactored Malakh to select the angelic form on a level up stage
 - refactored power bundle reaction UI [Audacity, Arcane Archer]
 
