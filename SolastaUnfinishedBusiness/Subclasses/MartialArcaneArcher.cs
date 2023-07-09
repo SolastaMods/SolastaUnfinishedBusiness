@@ -387,7 +387,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetParticleEffectParameters(SpellDefinitions.TrueStrike)
+                    .SetParticleEffectParameters(SpellDefinitions.FaerieFire)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence,
@@ -406,7 +406,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             new ArcaneArcherData
             {
                 DebuffCondition = ConditionDefinitions.ConditionHighlighted,
-                EffectSpell = SpellDefinitions.TrueStrike
+                EffectSpell = SpellDefinitions.FaerieFire
             });
 
         // Shadow Arrow
