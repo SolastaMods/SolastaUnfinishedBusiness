@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
@@ -531,6 +532,21 @@ internal static class GameLocationBattleManagerTweaks
         {
             attacker.UsedSpecialFeatures[featureDefinition.Name] = 1;
         }
+
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for IModifyAdditionalDamageForm
+         */
+        additionalDamageForm = hero.GetSubFeaturesByType<IModifyAdditionalDamageForm>()
+            .Aggregate(additionalDamageForm,
+                (current, modifyAdditionalDamageForm) =>
+                    modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, current));
+        /*
+         * Support for IModifyAdditionalDamageForm
+         * [CE] EDIT END
+         * ######################################
+         */
 
         if (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0)
         {
