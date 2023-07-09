@@ -4,6 +4,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -122,16 +124,16 @@ internal static class RaceMalakhBuilder
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .AddToDB();
 
-        var powerMalakhAngelicFlight = BuildAngelicFlight(additionalDamageMalakhAngelicForm);
-        var powerMalakhAngelicRadiance = BuildAngelicRadiance(additionalDamageMalakhAngelicForm);
-        var powerMalakhAngelicVisage = BuildAngelicVisage(additionalDamageMalakhAngelicForm);
+        CreateAngelicFormChoice(BuildAngelicFlight(additionalDamageMalakhAngelicForm));
+        CreateAngelicFormChoice(BuildAngelicRadiance(additionalDamageMalakhAngelicForm));
+        CreateAngelicFormChoice(BuildAngelicVisage(additionalDamageMalakhAngelicForm));
 
-        var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}AngelicForm")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerMalakhAngelicFlight, powerMalakhAngelicRadiance, powerMalakhAngelicVisage)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddToDB();
+        var customInvocationPoolAngelicForm =
+            CustomInvocationPoolDefinitionBuilder
+                .Create($"CustomInvocationPool{Name}AngelicForm")
+                .SetGuiPresentation(Category.Feature)
+                .Setup(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
+                .AddToDB();
 
         var featureAngelicForm = FeatureDefinitionBuilder
             .Create($"Feature{Name}AngelicForm")
@@ -156,10 +158,24 @@ internal static class RaceMalakhBuilder
                 castSpellMalakhMagic,
                 powerMalakhHealingTouch,
                 featureAngelicForm)
-            .AddFeaturesAtLevel(3, featureSetAngelicForm)
+            .AddFeaturesAtLevel(3, customInvocationPoolAngelicForm)
             .AddToDB();
 
         return raceMalakh;
+    }
+
+    private static void CreateAngelicFormChoice(FeatureDefinition power)
+    {
+        var name = power.Name.Replace("Power", string.Empty);
+        var guiPresentation = power.guiPresentation;
+
+        _ = CustomInvocationDefinitionBuilder
+            .Create($"CustomInvocation{name}")
+            .SetGuiPresentation(guiPresentation)
+            .SetPoolType(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
+            .SetGrantedFeature(power)
+            .SetCustomSubFeatures(HiddenInvocation.Marker)
+            .AddToDB();
     }
 
     private static FeatureDefinition BuildAngelicVisage(FeatureDefinition additionalDamageMalakhAngelicForm)
@@ -175,8 +191,7 @@ internal static class RaceMalakhBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicVisage")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainOblivionMarkOfFate)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
@@ -246,8 +261,7 @@ internal static class RaceMalakhBuilder
             SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
         var powerMalakhAngelicRadiance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicRadiance")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainLawHolyRetribution)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)

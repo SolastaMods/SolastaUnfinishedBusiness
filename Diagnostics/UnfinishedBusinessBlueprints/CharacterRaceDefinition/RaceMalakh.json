@@ -55,7 +55,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetMalakhAngelicForm:0b52f2d8-66a3-5233-b26c-18be72c49d81",
+      "featureDefinition": "Definition:CustomInvocationPoolMalakhAngelicForm:89a4a18c-0d51-526b-aecf-1b7ff85e2bae",
       "level": 3
     }
   ],

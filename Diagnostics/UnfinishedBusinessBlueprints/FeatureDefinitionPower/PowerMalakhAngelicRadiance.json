@@ -371,9 +371,9 @@
     "description": "Feature/&PowerMalakhAngelicRadianceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa6bed47-7b43-51d5-a765-5f5219cfce7b",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "bd766c705f7771040960fdd1ceecf414",
+      "m_SubObjectName": "HolyRetribution",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
