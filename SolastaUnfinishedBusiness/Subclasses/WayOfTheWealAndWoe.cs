@@ -268,12 +268,7 @@ internal sealed class WayOfTheWealAndWoe : AbstractSubclass
                 >= 5 => DieType.D6,
                 _ => DieType.D4
             };
-            var advantage = attackModifier.AttackAdvantageTrend switch
-            {
-                > 0 => AdvantageType.Advantage,
-                < 0 => AdvantageType.Disadvantage,
-                _ => AdvantageType.None
-            };
+            var advantage = ComputeAdvantage(attackModifier.attackAdvantageTrends);
             var damage = new DamageForm { DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0 };
             var dieRoll = RollDie(dieType, advantage, out _, out _);
             var rolls = new List<int> { dieRoll };
