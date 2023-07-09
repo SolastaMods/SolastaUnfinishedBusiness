@@ -222,6 +222,8 @@ internal enum ExtraActionId
     TempestFury = 9028,
     MasterfulWhirlToggle = 9029,
     UseHeroicInspiration = 9030,
+    FlightSuspend = 9031,
+    FlightResume = 9032,
     PrioritizeAction
 }
 

@@ -1,7 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
@@ -20,6 +27,11 @@ internal static class CustomConditionsContext
     internal static ConditionDefinition LightSensitivity;
 
     internal static ConditionDefinition StopMovement;
+
+    internal static ConditionDefinition FlightSuspended;
+
+    internal static FeatureDefinitionPower FlightSuspend { get; private set; }
+    internal static FeatureDefinitionPower FlightResume { get; private set; }
 
     private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
 
@@ -51,6 +63,8 @@ internal static class CustomConditionsContext
                     .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
+
+        FlightSuspended = BuildFlightSuspended();
     }
 
     private static ConditionDefinition BuildInvisibilityEveryRound()
@@ -233,5 +247,181 @@ internal static class CustomConditionsContext
                     hero.CurrentFaction.Name),
                 false);
         }
+    }
+
+
+    private static ConditionDefinition BuildFlightSuspended()
+    {
+        const string NAMELAND = "FlightSuspend";
+
+        var conditionFlightSuspend = ConditionDefinitionBuilder
+            .Create("ConditionFlightSuspended")
+            .SetGuiPresentation(NAMELAND, Category.Condition, Sprites.GetSprite("ConditionFlightSuspended", Resources.ConditionFlightSuspended, 32))
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 10)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureFlightSuspended")
+                .SetGuiPresentationNoContent()
+                .SetCustomSubFeatures(new FlightSuspendBehavior())
+                .AddToDB())
+            .AddToDB();
+
+        // I ran into sync issues if I didn't generate the actions here
+        BuildFlightSuspendAction(conditionFlightSuspend);
+
+        return conditionFlightSuspend;
+    }
+
+    private static void BuildFlightSuspendAction(ConditionDefinition conditionFlightSuspend)
+    {
+
+        const string NAMELAND = "FlightSuspend";
+        const string NAMETAKEOFF = "FlightResume";
+
+        FlightSuspend = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAMELAND}")
+            .SetGuiPresentation(NAMELAND, Category.Feature, Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .DelegatedToAction()
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionFlightSuspend,
+                            ConditionForm.ConditionOperation.Add),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlying,
+                            ConditionForm.ConditionOperation.Remove)
+                    )
+                    .UseQuickAnimations()
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasNoneOfConditions(conditionFlightSuspend.Name)))
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create($"Action{NAMELAND}")
+            .SetGuiPresentation(NAMELAND, Category.Action, Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
+            .SetActionId(ExtraActionId.FlightSuspend)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionScope.All)
+            .SetActionType(ActionType.NoCost)
+            .SetFormType(ActionFormType.Small)
+            .SetActivatedPower(FlightSuspend)
+            .AddToDB();
+
+        FlightResume = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAMETAKEOFF}")
+            .SetGuiPresentation(NAMETAKEOFF, Category.Feature, Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .DelegatedToAction()
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionFlightSuspend,
+                            ConditionForm.ConditionOperation.Remove)
+                    )
+                    .UseQuickAnimations()
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasAnyOfConditions(conditionFlightSuspend.Name)))
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create($"Action{NAMETAKEOFF}")
+            .SetGuiPresentation(NAMETAKEOFF, Category.Action, Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
+            .SetActionId(ExtraActionId.FlightResume)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionScope.All)
+            .SetActionType(ActionType.NoCost)
+            .SetFormType(ActionFormType.Small)
+            .SetActivatedPower(FlightResume)
+            .AddToDB();
+    }
+
+    private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
+    {
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (target is RulesetCharacterMonster m)
+            {
+                var monster = target as RulesetCharacterMonster;
+
+                int speedWalk;
+                if (monster.MoveModes.TryGetValue((int)MoveMode.Walk, out speedWalk))
+                {
+                    //WILDSHAPE CHANGE TO MOVE MODE WALKING GOES HERE
+                    //For now, remove to avoid issues when wildshape is cancelled while flight suspended
+                    monster.RemoveCondition(rulesetCondition);
+                }
+            }
+            else
+            { 
+                List<RulesetCondition> conditions = target.allConditionsForEnumeration;
+                foreach (var condition in conditions)
+                {
+                    if (condition.ConditionDefinition.IsSubtypeOf("ConditionFlying"))
+                    {
+
+                        if (condition.DurationType == DurationType.Permanent)
+                        {
+                            target.RemoveCondition(rulesetCondition);
+                            return;
+                        }
+
+                        //Using effectDefinitionName to store suspended condition, safe?
+                        rulesetCondition.effectDefinitionName = condition.Name;
+                        rulesetCondition.remainingRounds = condition.remainingRounds;
+                        rulesetCondition.endOccurence = condition.endOccurence;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (target is RulesetCharacterMonster m)
+            {
+                //Do nothing for now
+            }
+            else
+            {
+                //Serialization fails here sometimes when the game is completely closed and then game reloaded
+                try
+                {
+                    var condition = target.InflictCondition(
+                        rulesetCondition.effectDefinitionName,
+                        DurationType.Round,
+                        rulesetCondition.remainingRounds,
+                        rulesetCondition.endOccurence,
+                        "11Effect",
+                        target.guid,
+                        target.CurrentFaction.Name,
+                        1,
+                        null,
+                        0,
+                        0,
+                        0);
+                } catch(Exception e)
+                {
+                    Main.Log($">>>> FlightSuspendBehavior EXCEPTION {e.Message} {e.StackTrace}");
+                }
+                
+            }
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            removedFrom.RemoveCondition(rulesetCondition);
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            rulesetActor.RemoveCondition( rulesetCondition );
+        }
+
     }
 }

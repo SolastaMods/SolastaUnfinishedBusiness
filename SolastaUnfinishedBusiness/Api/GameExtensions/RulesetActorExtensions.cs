@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -179,6 +180,22 @@ internal static class RulesetActorExtensions
                && !actor.HasConditionOfType(RuleDefinitions.ConditionLevitate)
                && !(actor is RulesetCharacter character &&
                     character.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly));
+    }
+
+    internal static bool IsTemporarilyFlying(this RulesetActor actor)
+    {
+        return (actor is RulesetCharacter character
+                    && character.HasTemporaryConditionOfType(RuleDefinitions.ConditionFlying)
+                    && !character.HasConditionOfType(RuleDefinitions.ConditionLevitate));
+                /*
+                 * For future use, when can allow flying wildshape to temporarily walk
+                 * 
+                || (actor.HasConditionOfType(RuleDefinitions.ConditionWildShapeSubstituteForm)
+                        && actor is RulesetCharacterMonster monster
+                        && monster.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly)
+                        && !actor.HasConditionOfType("ConditionFlightSuspended")
+                
+                );*/
     }
 
     internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)
