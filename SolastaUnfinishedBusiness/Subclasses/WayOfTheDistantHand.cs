@@ -46,6 +46,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetCustomSubFeatures(
+                IsPowerPool.Marker,
                 new RestrictReactionAttackMode((mode, character, _) =>
                     mode != null &&
                     mode.AttackTags.Contains(ZenArrowTag) &&
@@ -80,6 +81,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
@@ -104,6 +106,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
@@ -141,6 +144,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -204,6 +208,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(
+                IsPowerPool.Marker,
                 new RestrictReactionAttackMode((mode, character, _) =>
                     mode != null &&
                     mode.AttackTags.Contains(ZenArrowTag) &&
@@ -253,6 +258,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                 .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
@@ -275,6 +281,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
                         .Build())
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
@@ -309,6 +316,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                 .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -343,13 +351,19 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 GameUiContext.ActionAffinityMonkKiPointsToggle,
                 featureWayOfTheDistantHandCombat,
-                powerWayOfTheDistantHandZenArrowTechnique)
+                powerWayOfTheDistantHandZenArrowTechnique,
+                powerWayOfTheDistantHandZenArrowDistract,
+                powerWayOfTheDistantHandZenArrowProne,
+                powerWayOfTheDistantHandZenArrowPush)
             .AddFeaturesAtLevel(6,
                 wayOfDistantHandsKiPoweredArrows,
                 powerWayOfTheDistantHandZenArcherFlurryOfArrows)
             .AddFeaturesAtLevel(11,
                 wayOfDistantHandsZenArcherStunningArrows,
-                powerWayOfTheDistantHandZenArrowUpgradedTechnique)
+                powerWayOfTheDistantHandZenArrowUpgradedTechnique,
+                powerWayOfTheDistantHandZenArrowUpgradedProne,
+                powerWayOfTheDistantHandUpgradedPush,
+                powerWayOfTheDistantHandUpgradedDistract)
             .AddFeaturesAtLevel(17,
                 attackModifierWayOfTheDistantHandUnseenEyes)
             .AddToDB();
