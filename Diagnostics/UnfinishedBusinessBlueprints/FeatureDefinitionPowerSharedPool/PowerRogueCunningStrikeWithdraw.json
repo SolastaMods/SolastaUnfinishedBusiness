@@ -2,11 +2,11 @@
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 1,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Self",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -32,8 +32,8 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Round",
-    "durationParameter": 0,
-    "endOfEffect": "StartOfTurn",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionDisengaging:9d3de19ca17c6554ea5485fbc3eabd25",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -109,8 +109,8 @@
           "conditionDefinition": "Definition:ConditionRogueCunningStrikeWithdraw:35bd50aa-a3e7-53ad-bb8f-b106a8f574e5",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

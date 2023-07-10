@@ -15,16 +15,17 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -1172,6 +1173,12 @@ internal static class CharacterContext
     {
         const string Name = "RogueCunningStrike";
 
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCunningStrikeToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle)
+            .AddToDB();
+
         var featureReduceSneakDice = FeatureDefinitionBuilder
             .Create($"Feature{Name}ReduceSneakDice")
             .SetGuiPresentationNoContent(true)
@@ -1182,7 +1189,7 @@ internal static class CharacterContext
             .Create($"Condition{Name}ReduceSneakDice")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(featureReduceSneakDice)
             .AddToDB();
@@ -1308,13 +1315,11 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 1, TargetType.Individuals)
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging,
-                            ConditionForm.ConditionOperation.Add, true, true),
-                        EffectFormBuilder.ConditionForm(conditionWithdraw,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
+                        EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
@@ -1326,7 +1331,7 @@ internal static class CharacterContext
         _featureSetRogueCunningStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}")
             .SetGuiPresentation($"Power{Name}", Category.Feature)
-            .AddFeatureSet(powerPool, powerDisarm, powerPoison, powerTrip, powerWithdraw)
+            .AddFeatureSet(powerPool, powerDisarm, powerPoison, powerTrip, powerWithdraw, actionAffinityToggle)
             .AddToDB();
     }
 
@@ -1423,14 +1428,19 @@ internal static class CharacterContext
             bool firstTarget,
             bool criticalHit)
         {
-            if (!IsRogueCunningStrikeValid(attackModifier, attacker, defender, attackMode))
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
+            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle))
+            {
+                yield break;
+            }
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (!IsRogueCunningStrikeValid(attackModifier, attacker, defender, attackMode))
             {
                 yield break;
             }

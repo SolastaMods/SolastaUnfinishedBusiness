@@ -223,6 +223,7 @@ internal enum ExtraActionId
     MasterfulWhirlToggle = 9029,
     UseHeroicInspiration = 9030,
     ArcaneArcherToggle = 9031,
+    CunningStrikeToggle = 9032,
     PrioritizeAction
 }
 
