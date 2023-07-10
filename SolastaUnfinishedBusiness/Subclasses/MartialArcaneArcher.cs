@@ -306,7 +306,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         ArcaneShotPowers.Add(_powerBurstingArrow,
-            new ArcaneArcherData { EffectSpell = SpellDefinitions.EldritchBlast });
+            new ArcaneArcherData { EffectSpell = SpellDefinitions.Harm });
 
         // Enfeebling Arrow
 
@@ -404,7 +404,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             new ArcaneArcherData
             {
                 DebuffCondition = ConditionDefinitions.ConditionHighlighted,
-                EffectSpell = SpellDefinitions.FaerieFire
+                EffectSpell = SpellDefinitions.GuidingBolt
             });
 
         // Shadow Arrow
