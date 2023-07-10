@@ -21,6 +21,7 @@ Action/&PaladinSmiteToggleTitle=Desbaratar
 Action/&TacticianGambitDescription=Selecione manobra especial
 Action/&TacticianGambitTitle=Gambitos
 BlueprintCategory/&FlatRoomsTitle=Quartos Planos
+Condition/&ConditionRogueCunningStrikeWithdrawTitle=Retirado
 Condition/&ConditionRogueCunningStrikeDisarmedDescription=Você foi desarmado e seus ataques têm desvantagem até o final do seu próximo turno.
 Condition/&ConditionRogueCunningStrikeDisarmedTitle=Desarmado
 ContentPack/&9999Description=O pacote Unfinished Business adiciona multiclasse, raças, subclasses, talentos, estilo de luta e feitiços. Há um limite de nível mais alto, recursos de qualidade de vida, correções e muito mais. É um verdadeiro Horn of Plenty (TM)...

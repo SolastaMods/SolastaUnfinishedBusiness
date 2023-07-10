@@ -1387,6 +1387,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition GuardianOfFaith { get; } = GetDefinition<SpellDefinition>("GuardianOfFaith");
         internal static SpellDefinition Guidance { get; } = GetDefinition<SpellDefinition>("Guidance");
         internal static SpellDefinition GuidingBolt { get; } = GetDefinition<SpellDefinition>("GuidingBolt");
+        internal static SpellDefinition Harm { get; } = GetDefinition<SpellDefinition>("Harm");
         internal static SpellDefinition Haste { get; } = GetDefinition<SpellDefinition>("Haste");
         internal static SpellDefinition Heal { get; } = GetDefinition<SpellDefinition>("Heal");
         internal static SpellDefinition HealingWord { get; } = GetDefinition<SpellDefinition>("HealingWord");

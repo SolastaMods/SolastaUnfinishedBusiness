@@ -1,22 +1,23 @@
-﻿1.5.92.13:
+﻿1.5.92.14:
 
-SPECIAL THANKS to Gwizzz, Vesss and DemonicDuck for the hardware offering
+SPECIAL THANKS to Gwizzz, Vesss and DemonicDuck for the SteamDeck offering
 
 ATTENTION:
 
-- RESPEC any Malakh race hero or save
+- RESPEC any Malakh race hero or save before update
+- RESPEC Way of Distant Hand if distant hand stops working
 
 CHANGES:
 
 - added Arcane Archer Adept feat
-- added Martial Arcane Archer subclass
 - added "Enable Rogue Cunning Strike at level 5" setting
+- added Martial Arcane Archer subclass
 - fixed College of Audacity missing damages and AC tooltip
 - fixed Innovation Artillerist refund cannon behavior
 - fixed Kobold Grovel, Cower, and Beg condition interruption
 - fixed Mystic Arcanum spells not available on selection panel
-- fixed Way of the Weal and Woe missing brutal damage
 - fixed War Caster reaction with cantrips obtained as bonus
+- fixed Way of the Weal and Woe missing brutal damage
 - refactored College of Valiance heroic inspiration to 2 fixed uses
 - refactored Malakh to select the angelic form on a level up stage
 - refactored power bundle reaction UI [Audacity, Arcane Archer]

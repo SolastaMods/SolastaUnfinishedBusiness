@@ -21,6 +21,7 @@ Action/&PaladinSmiteToggleTitle=Colpisci
 Action/&TacticianGambitDescription=Seleziona una manovra speciale
 Action/&TacticianGambitTitle=Gambetti
 BlueprintCategory/&FlatRoomsTitle=Camere piatte
+Condition/&ConditionRogueCunningStrikeWithdrawTitle=Ritirato
 Condition/&ConditionRogueCunningStrikeDisarmedDescription=Sei stato disarmato e i tuoi attacchi hanno svantaggio fino alla fine del tuo prossimo turno.
 Condition/&ConditionRogueCunningStrikeDisarmedTitle=Disarmato
 ContentPack/&9999Description=Il pacchetto Unfinished Business aggiunge multiclasse, razze, sottoclassi, talenti, stile di combattimento e incantesimi. C'è un limite di livello superiore, funzionalità QOL, correzioni e altro ancora. È un vero corno dell'abbondanza (TM)...

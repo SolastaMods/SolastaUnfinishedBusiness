@@ -21,6 +21,7 @@ Action/&PaladinSmiteToggleTitle=Châtiment
 Action/&TacticianGambitDescription=Sélectionnez la manœuvre spéciale
 Action/&TacticianGambitTitle=Pari
 BlueprintCategory/&FlatRoomsTitle=Chambres à plat
+Condition/&ConditionRogueCunningStrikeWithdrawTitle=Retiré
 Condition/&ConditionRogueCunningStrikeDisarmedDescription=Vous avez été désarmé et vos attaques ont un désavantage jusqu'à la fin de votre prochain tour.
 Condition/&ConditionRogueCunningStrikeDisarmedTitle=Désarmé
 ContentPack/&9999Description=Le pack Unfinished Business ajoute la multiclasse, les races, les sous-classes, les exploits, le style de combat et les sorts. Il y a un plafond de niveau plus élevé, des fonctionnalités QOL, des correctifs et plus encore. C'est une véritable corne d'abondance (TM)...

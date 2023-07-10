@@ -21,6 +21,7 @@ Action/&PaladinSmiteToggleTitle=강타
 Action/&TacticianGambitDescription=특수 기동 선택
 Action/&TacticianGambitTitle=갬빗
 BlueprintCategory/&FlatRoomsTitle=플랫룸
+Condition/&ConditionRogueCunningStrikeWithdrawTitle=빼는
 Condition/&ConditionRogueCunningStrikeDisarmedDescription=당신은 무장해제되었고 당신의 공격은 당신의 다음 차례가 끝날 때까지 불이익을 받습니다.
 Condition/&ConditionRogueCunningStrikeDisarmedTitle=무장해제
 ContentPack/&9999Description=Unfinished Business 팩은 멀티클래스, 종족, 하위 클래스, 업적, 격투 스타일 및 주문을 추가합니다. 더 높은 수준의 캡, QOL 기능, 수정 사항 등이 있습니다. 진정한 Horn of Plenty(TM)입니다...

@@ -21,6 +21,7 @@ Action/&PaladinSmiteToggleTitle=暴击
 Action/&TacticianGambitDescription=选择特殊机动
 Action/&TacticianGambitTitle=策略
 BlueprintCategory/&FlatRoomsTitle=平坦房间
+Condition/&ConditionRogueCunningStrikeWithdrawTitle=取消
 Condition/&ConditionRogueCunningStrikeDisarmedDescription=你已经被解除武装，并且你的攻击在你的下一个回合结束之前处于劣势。
 Condition/&ConditionRogueCunningStrikeDisarmedTitle=解除武装
 ContentPack/&9999Description=未竟之业包增加了多职业、种族、子职业、专长、战斗风格和法术。有更高的等级上限、快捷功能、修复等。这是名副其实的丰饶号角 (TM)......

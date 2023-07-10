@@ -21,6 +21,7 @@ Action/&PaladinSmiteToggleTitle=Кара
 Action/&TacticianGambitDescription=Выберите специальный манёвр
 Action/&TacticianGambitTitle=Уловки
 BlueprintCategory/&FlatRoomsTitle=Простые комнаты
+Condition/&ConditionRogueCunningStrikeWithdrawTitle=Отозван
 Condition/&ConditionRogueCunningStrikeDisarmedDescription=Вы разоружены, и ваши атаки имеют помеху до конца вашего следующего хода.
 Condition/&ConditionRogueCunningStrikeDisarmedTitle=Разоружен
 ContentPack/&9999Description=Мод Неоконченное Дело добавляет мультикласс, расы, архетипы, черты, боевые стили и заклинания. Максимальный уровень увеличен, добавлены улучшения, исправления и т.д. Это настоящий рог изобилия (TM)...
