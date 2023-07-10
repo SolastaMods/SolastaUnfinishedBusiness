@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -14,16 +15,17 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -127,6 +129,7 @@ internal static class CharacterContext
         .SetUniqueInstance()
         .AddToDB();
 
+    private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
@@ -143,6 +146,7 @@ internal static class CharacterContext
         LoadMonkWeaponSpecialization();
         LoadVision();
         LoadVisuals();
+        BuildRogueCunningStrike();
         SwitchAsiAndFeat();
         SwitchBarbarianFightingStyle();
         SwitchDragonbornElementalBreathUsages();
@@ -156,6 +160,7 @@ internal static class CharacterContext
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
+        SwitchRogueCunningStrike();
         SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
@@ -1161,4 +1166,346 @@ internal static class CharacterContext
                     (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition));
         }
     }
+
+    #region Rogue Cunning Strike
+
+    private static void BuildRogueCunningStrike()
+    {
+        const string Name = "RogueCunningStrike";
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCunningStrikeToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle)
+            .AddToDB();
+
+        var featureReduceSneakDice = FeatureDefinitionBuilder
+            .Create($"Feature{Name}ReduceSneakDice")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
+            .AddToDB();
+
+        var conditionReduceSneakDice = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ReduceSneakDice")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(featureReduceSneakDice)
+            .AddToDB();
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .Build())
+            .AddToDB();
+
+        powerPool.SetCustomSubFeatures(
+            IsPowerPool.Marker,
+            new PhysicalAttackInitiatedByMeCunningStrike(powerPool, conditionReduceSneakDice));
+
+        // Disarm
+
+        var combatAffinityDisarmed = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}Disarmed")
+            .SetGuiPresentation($"Condition{Name}Disarmed", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .AddToDB();
+
+        var conditionDisarmed = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Disarmed")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .AddFeatures(combatAffinityDisarmed)
+            .AddToDB();
+
+        var powerDisarm = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}Disarm")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionDisarmed, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddToDB();
+
+        // Poison
+
+        var powerPoison = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}Poison")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddToDB();
+
+        // Trip
+
+        var powerTrip = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}Trip")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddToDB();
+
+        // Withdraw
+
+        var movementAffinityWithdraw = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}Withdraw")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .AddToDB();
+
+        var conditionWithdraw = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Withdraw")
+            .SetGuiPresentation($"Condition/&Condition{Name}WithdrawTitle", Gui.NoLocalization,
+                ConditionDefinitions.ConditionDisengaging)
+            .SetPossessive()
+            .AddFeatures(movementAffinityWithdraw, FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var powerWithdraw = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}Withdraw")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
+                    .Build())
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddToDB();
+
+        // MAIN
+
+        PowerBundle.RegisterPowerBundle(powerPool, true, powerDisarm, powerPoison, powerTrip, powerWithdraw);
+
+        _featureSetRogueCunningStrike = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}")
+            .SetGuiPresentation($"Power{Name}", Category.Feature)
+            .AddFeatureSet(powerPool, powerDisarm, powerPoison, powerTrip, powerWithdraw, actionAffinityToggle)
+            .AddToDB();
+    }
+
+    private static bool IsRogueCunningStrikeValid(
+        ActionModifier attackModifier,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetAttackMode attackMode)
+    {
+        // only trigger if haven't used sneak attack yet
+        if (!attacker.OnceInMyTurnIsValid("AdditionalDamageRogueSneakAttack"))
+        {
+            return false;
+        }
+
+        if (attackMode == null)
+        {
+            return false;
+        }
+
+        var gameLocationBattleManager =
+            ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (gameLocationBattleManager == null)
+        {
+            return false;
+        }
+
+        var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
+        var duelistLevels = attacker.RulesetCharacter.GetSubclassLevel(Rogue, RoguishDuelist.Name);
+        var validTrigger = duelistLevels > 0 &&
+                           advantageType != AdvantageType.Disadvantage &&
+                           gameLocationBattleManager.IsWithin1Cell(attacker, defender) &&
+                           Gui.Battle.AllContenders
+                               .Where(x => x != attacker && x != defender)
+                               .All(x => !gameLocationBattleManager.IsWithin1Cell(attacker, x));
+
+        // it's a Duelist and target is dueling with him
+        if (validTrigger)
+        {
+            return true;
+        }
+
+        // it's advantage or there is a nearby ally
+        validTrigger = advantageType == AdvantageType.Advantage ||
+                       (advantageType != AdvantageType.Disadvantage &&
+                        gameLocationBattleManager.IsConsciousCharacterOfSideNextToCharacter(defender,
+                            attacker.Side, attacker));
+
+        return validTrigger;
+    }
+
+
+    private sealed class ModifyAdditionalDamageFormRogueCunningStrike : IModifyAdditionalDamageForm
+    {
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            IAdditionalDamageProvider provider,
+            DamageForm damageForm)
+        {
+            if (provider.NotificationTag == TagsDefinitions.AdditionalDamageSneakAttackTag)
+            {
+                damageForm.diceNumber = Math.Max(damageForm.diceNumber - 1, 0);
+            }
+
+            return damageForm;
+        }
+    }
+
+    private sealed class PhysicalAttackInitiatedByMeCunningStrike : IAttackBeforeHitConfirmedOnEnemy
+    {
+        private readonly ConditionDefinition _conditionReduceSneakDice;
+        private readonly FeatureDefinitionPower _powerRogueCunningStrike;
+
+        public PhysicalAttackInitiatedByMeCunningStrike(
+            FeatureDefinitionPower powerRogueCunningStrike,
+            ConditionDefinition conditionReduceSneakDice)
+        {
+            _powerRogueCunningStrike = powerRogueCunningStrike;
+            _conditionReduceSneakDice = conditionReduceSneakDice;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager gameLocationBattleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle))
+            {
+                yield break;
+            }
+
+            if (!IsRogueCunningStrikeValid(attackModifier, attacker, defender, attackMode))
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            var usablePower = UsablePowersProvider.Get(_powerRogueCunningStrike, rulesetAttacker);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                StringParameter = _powerRogueCunningStrike.Name,
+                TargetCharacters = { defender },
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .AddAsActivePowerToSource()
+                //UsablePower = usablePower
+            };
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleManager.WaitForReactions(attacker, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                _conditionReduceSneakDice.Name,
+                _conditionReduceSneakDice.durationType,
+                _conditionReduceSneakDice.durationParameter,
+                _conditionReduceSneakDice.turnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    internal static void SwitchRogueCunningStrike()
+    {
+        if (Main.Settings.EnableRogueCunningStrike)
+        {
+            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetRogueCunningStrike, 5));
+        }
+        else
+        {
+            Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == _featureSetRogueCunningStrike);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    #endregion
 }

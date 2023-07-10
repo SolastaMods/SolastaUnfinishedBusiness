@@ -257,6 +257,7 @@ internal static class MeleeCombatFeats
         var conditionDamage = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Damage")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}")
                 .SetGuiPresentationNoContent(true)
@@ -424,6 +425,7 @@ internal static class MeleeCombatFeats
         var conditionHammerThePoint = ConditionDefinitionBuilder
             .Create($"Condition{Name}HammerThePoint")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AllowMultipleInstances()
@@ -1253,7 +1255,9 @@ internal static class MeleeCombatFeats
 
             var bonusDamage = 0;
 
-            if (attackModifier.AttackAdvantageTrend > 0)
+            var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
+
+            if (advantageType == AdvantageType.Advantage)
             {
                 var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
                 var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
@@ -1301,13 +1305,6 @@ internal static class MeleeCombatFeats
 
             if (outcome is RollOutcome.CriticalSuccess)
             {
-                var advantageType = attackModifier.AttackAdvantageTrend switch
-                {
-                    > 0 => AdvantageType.Advantage,
-                    < 0 => AdvantageType.Disadvantage,
-                    _ => AdvantageType.None
-                };
-
                 dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
                 damage.DiceNumber = 1;
                 rolls.Add(dieRoll);
@@ -1412,10 +1409,11 @@ internal static class MeleeCombatFeats
             }
 
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
+            var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
-            switch (attackModifier.AttackAdvantageTrend)
+            switch (advantageType)
             {
-                case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                case AdvantageType.Advantage when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
 
                     var lowOutcome =
@@ -1444,7 +1442,7 @@ internal static class MeleeCombatFeats
                     }
 
                     break;
-                case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
+                case AdvantageType.Disadvantage when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     var higherRoll = Math.Max(Global.FirstAttackRoll, Global.SecondAttackRoll);
 
                     var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
@@ -1481,6 +1479,9 @@ internal static class MeleeCombatFeats
                         true,
                         out _);
 
+                    break;
+                case AdvantageType.None:
+                default:
                     break;
             }
         }

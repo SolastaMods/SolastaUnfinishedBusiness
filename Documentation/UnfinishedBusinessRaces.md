@@ -401,7 +401,58 @@ Common, Draconic.
 
 
 
-# 17. - Mephistopheles
+# 17. - Malakh
+
+Malakh are divine creations formed in the shape of men to perform the will of their Deities. When they mature, they are able to take an Angelic Form depending on their nature.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Charisma +2, increase 1 other score by 1 point.
+
+* Angelic Form
+
+When you reach 3rd level, you can choose an Angelic Form. All Angelic forms use your bonus action:
+• Angelic Flight: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. You also gain flying speed equal to your movement speed.
+• Angelic Radiance: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On the end of each of your turn, you deal 1d4 Radiant damage to enemies 10 feat around you. This damage increases to 1d6, 1d8, 1d10, and 1d12 every four levels.
+• Angelic Visage: You can use your Action to heal an ally you can touch. The target will regain HP equal to your character level.
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Divine Resistance
+
+You are resistant to Radiant and Necrotic damage.
+
+* Healing Touch
+
+You can use your Action to heal an ally you can touch. The target will regain HP equal to your character level. Once you use this power, you can't use it again until you finish a long rest.
+
+* Languages
+
+Common and one language of your choice.
+
+* Move
+
+6◎
+
+* Malakh Magic
+
+You know the Light cantrip.
+
+
+## Level 3
+
+* Angelic Form
+
+You may choose one of Malakh's Angelic Forms.
+
+
+
+# 18. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
@@ -418,7 +469,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 
 
-# 18. - Obsidian Dwarf
+# 19. - Obsidian Dwarf
 
 In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen.  The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors.  The dwarves rebelled, won their freedom, and retreated to the Badlands.  Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
@@ -439,7 +490,7 @@ Common, Dwarvish, and Giant
 
 
 
-# 19. - Oligath
+# 20. - Oligath
 
 Oligaths share ancestry with the giants that live in the northern regions of Solasta.
 
@@ -480,7 +531,7 @@ When you take damage, you can use your reaction to roll a d12. Add your Constitu
 
 
 
-# 20. - Tiefling
+# 21. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
@@ -505,7 +556,7 @@ You have resistance to fire damage.
 
 
 
-# 21. - Wendigo
+# 22. - Wendigo
 
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
@@ -550,7 +601,7 @@ On the first round of combat, if you hit a creature with an attack roll and it's
 
 
 
-# 22. - Wyrmkin
+# 23. - Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -571,7 +622,7 @@ Common, Draconic.
 
 
 
-# 23. - Zariel
+# 24. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 

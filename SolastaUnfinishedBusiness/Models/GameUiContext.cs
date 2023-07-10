@@ -378,7 +378,8 @@ internal static class GameUiContext
                     spellDefinition.SpellLevel == level
                     && spellDefinition.ActivationTime == spellActivationTime):
             case RuleDefinitions.SpellReadyness.AllKnown
-                when spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level):
+                when spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level)
+                     || spellRepertoire.ExtraSpellsByTag.Any(x => x.Value.Any(s => s.SpellLevel == level)):
 
                 return true;
 

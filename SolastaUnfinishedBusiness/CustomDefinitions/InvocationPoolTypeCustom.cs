@@ -166,6 +166,12 @@ internal class InvocationPoolTypeCustom
 
     internal static class Pools
     {
+        internal static readonly InvocationPoolTypeCustom ArcaneShotChoice =
+            Register("ArcaneShotChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom AngelicFormChoice =
+            Register("AngelicFormChoice", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom PathClawDraconicChoice =
             Register("PathClawDraconicChoice", hidden: true);
 

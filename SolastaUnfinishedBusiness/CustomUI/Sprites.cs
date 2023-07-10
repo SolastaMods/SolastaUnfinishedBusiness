@@ -33,6 +33,9 @@ public static class Sprites
     internal static AssetReferenceSprite ChannelDivinityResourceIcon =>
         GetSprite("ChannelDivinityResourceIcon", Resources.ChannelDivinityResourceIcon, 64);
 
+    internal static AssetReferenceSprite BardicDiceResourceIcon =>
+        GetSprite("BardicDiceResourceIcon", Resources.BardicDiceResourceIcon, 64);
+
     #endregion
 
     #region UI

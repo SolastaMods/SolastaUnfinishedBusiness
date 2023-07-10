@@ -48,7 +48,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetCustomSubFeatures(new RefreshSneakAttackOnKill(),
                 new KillingSpree(ConditionDefinitionBuilder
                     .Create("ConditionRavenKillingSpree")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetFeatures(FeatureDefinitionAdditionalActionBuilder
                         .Create("AdditionalActionRavenKillingSpree2")

@@ -18,4 +18,4 @@ Feedback/&AdditionalDamageBlastOverloadFormat=Blast Overload!
 Feedback/&AdditionalDamageBlastOverloadLine={0} pours arcane power into {1} (+{2})!
 Feedback/&BlastPursuitExtraAction={1} grants {0} an extra action! 
 Subclass/&PatronEldritchSurgeDescription=You have made a pact with a mysterious entity that grants you the power to unleash the ferocious arcane energy of <b>Eldritch Blast</b>. This patron is not a specific being, but rather a manifestation of the raw surge of magic itself. Chosen by this being, you are devoted to focus on enhancing your signature spell and destroy your enemies with the devastating force to prove its boundless power. And thus, your patron only grants you <b>Eldritch Blast</b>.
-Subclass/&PatronEldritchSurgeTitle=Eldritch Surge
+Subclass/&PatronEldritchSurgeTitle=The Eldritch Surge

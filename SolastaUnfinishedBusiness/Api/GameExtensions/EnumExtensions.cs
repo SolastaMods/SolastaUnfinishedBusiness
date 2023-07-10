@@ -222,6 +222,8 @@ internal enum ExtraActionId
     TempestFury = 9028,
     MasterfulWhirlToggle = 9029,
     UseHeroicInspiration = 9030,
+    ArcaneArcherToggle = 9031,
+    CunningStrikeToggle = 9032,
     PrioritizeAction
 }
 

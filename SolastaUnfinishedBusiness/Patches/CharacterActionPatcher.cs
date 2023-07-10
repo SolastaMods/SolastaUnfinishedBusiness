@@ -126,7 +126,7 @@ public static class CharacterActionPatcher
 
             //PATCH: support for character action tracking
             Global.CurrentAction = null;
-            
+
             // BUGFIX: saving throw not passing correct saving delta on attack actions
             Global.CurrentAttackAction = null;
         }

@@ -97,6 +97,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     private static readonly ConditionDefinition ConditionBlastReloadSupport = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastReloadSupport")
         .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
         .AddToDB();
 
     public static readonly FeatureDefinition FeatureBlastReload = FeatureDefinitionBuilder

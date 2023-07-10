@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
+internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource
 {
     internal const string Name = "ReactionSpendPowerBundle";
     private readonly GuiCharacter guiCharacter;
@@ -48,6 +48,8 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(target) &&
         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
 
+    public ICustomReactionResource Resource { get; set; }
+
     private void BuildSuboptions()
     {
         SubOptionsAvailability.Clear();
@@ -67,7 +69,8 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
         var i = 0;
 
         foreach (var power in bundle.SubPowers
-                     .Where(x => CanUsePower(rulesetCharacter, x)))
+                     .Where(x => CanUsePower(rulesetCharacter, x) &&
+                                 rulesetCharacter.GetFeaturesByType<FeatureDefinitionPower>().Contains(x)))
         {
             reactionParams.SpellRepertoire.KnownSpells.Add(PowerBundle.GetSpell(power));
             SubOptionsAvailability.Add(i, true);

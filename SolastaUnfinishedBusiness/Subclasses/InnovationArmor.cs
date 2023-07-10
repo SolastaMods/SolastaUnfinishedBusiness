@@ -194,15 +194,16 @@ public static class InnovationArmor
         var guardian = FeatureDefinitionPowerBuilder
             .Create("PowerInventorArmorerPerfectedArmorGuardian")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
-            {
-                if (mode.sourceDefinition is not ItemDefinition weapon)
+            .SetCustomSubFeatures(new RestrictReactionAttackMode(
+                (_, _, _, attackMode, _) =>
                 {
-                    return false;
-                }
+                    if (attackMode.sourceDefinition is not ItemDefinition weapon)
+                    {
+                        return false;
+                    }
 
-                return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name;
-            }))
+                    return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name;
+                }))
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -217,15 +218,16 @@ public static class InnovationArmor
         var infiltrator = FeatureDefinitionPowerBuilder
             .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
             .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
-            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
-            {
-                if (mode.sourceDefinition is not ItemDefinition weapon)
+            .SetCustomSubFeatures(new RestrictReactionAttackMode(
+                (_, _, _, attackMode, _) =>
                 {
-                    return false;
-                }
+                    if (attackMode.sourceDefinition is not ItemDefinition weapon)
+                    {
+                        return false;
+                    }
 
-                return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name;
-            }))
+                    return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name;
+                }))
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)

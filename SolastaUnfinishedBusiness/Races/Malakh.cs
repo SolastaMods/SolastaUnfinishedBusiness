@@ -4,6 +4,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -45,8 +47,7 @@ internal static class RaceMalakhBuilder
                         AttributeDefinitions.Intelligence,
                         AttributeDefinitions.Wisdom,
                         AttributeDefinitions.Constitution)
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
 
         var featureSetMalakhDivineResistance = FeatureDefinitionFeatureSetBuilder
@@ -123,9 +124,21 @@ internal static class RaceMalakhBuilder
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .AddToDB();
 
-        var powerMalakhAngelicFlight = BuildAngelicFlight(additionalDamageMalakhAngelicForm);
-        var powerMalakhAngelicRadiance = BuildAngelicRadiance(additionalDamageMalakhAngelicForm);
-        var powerMalakhAngelicVisage = BuildAngelicVisage(additionalDamageMalakhAngelicForm);
+        CreateAngelicFormChoice(BuildAngelicFlight(additionalDamageMalakhAngelicForm));
+        CreateAngelicFormChoice(BuildAngelicRadiance(additionalDamageMalakhAngelicForm));
+        CreateAngelicFormChoice(BuildAngelicVisage(additionalDamageMalakhAngelicForm));
+
+        var customInvocationPoolAngelicForm =
+            CustomInvocationPoolDefinitionBuilder
+                .Create($"CustomInvocationPool{Name}AngelicForm")
+                .SetGuiPresentation(Category.Feature)
+                .Setup(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
+                .AddToDB();
+
+        var featureAngelicForm = FeatureDefinitionBuilder
+            .Create($"Feature{Name}AngelicForm")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
         var racePresentation = Human.RacePresentation.DeepCopy();
         // disables the origin image from appearing
@@ -143,34 +156,25 @@ internal static class RaceMalakhBuilder
                 featureSetMalakhDivineResistance,
                 featureSetMalakhLanguages,
                 castSpellMalakhMagic,
-                powerMalakhHealingTouch
-            )
+                powerMalakhHealingTouch,
+                featureAngelicForm)
+            .AddFeaturesAtLevel(3, customInvocationPoolAngelicForm)
             .AddToDB();
-
-        // refactored to subrace because featureSet doesn't seem to work in higher levels
-        raceMalakh.subRaces =
-            new List<CharacterRaceDefinition>
-            {
-                BuildMalakhSubrace(raceMalakh, "Herald", powerMalakhAngelicFlight),
-                BuildMalakhSubrace(raceMalakh, "Guardian", powerMalakhAngelicRadiance),
-                BuildMalakhSubrace(raceMalakh, "Judgement", powerMalakhAngelicVisage)
-            };
 
         return raceMalakh;
     }
 
-    private static CharacterRaceDefinition BuildMalakhSubrace(
-        CharacterRaceDefinition raceMalakh,
-        string suffix,
-        FeatureDefinition powerAngelicForm)
+    private static void CreateAngelicFormChoice(FeatureDefinition power)
     {
-        var subraceName = $"Race{Name}{suffix}";
+        var name = power.Name.Replace("Power", string.Empty);
+        var guiPresentation = power.guiPresentation;
 
-        return CharacterRaceDefinitionBuilder
-            .Create(raceMalakh, subraceName)
-            .SetOrUpdateGuiPresentation(subraceName, Category.Race)
-            .SetFeaturesAtLevel(3,
-                powerAngelicForm)
+        _ = CustomInvocationDefinitionBuilder
+            .Create($"CustomInvocation{name}")
+            .SetGuiPresentation(guiPresentation)
+            .SetPoolType(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
+            .SetGrantedFeature(power)
+            .SetCustomSubFeatures(HiddenInvocation.Marker)
             .AddToDB();
     }
 
@@ -187,8 +191,7 @@ internal static class RaceMalakhBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicVisage")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainOblivionMarkOfFate)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
@@ -242,7 +245,7 @@ internal static class RaceMalakhBuilder
         var featureMalakhRadiantAura = FeatureDefinitionBuilder
             .Create($"Feature{Name}RadiantAura")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new MalakhRadiantDamageOnTurnEnd())
+            .SetCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
             .AddToDB();
 
         var conditionAngelicRadiance = ConditionDefinitionBuilder
@@ -258,8 +261,7 @@ internal static class RaceMalakhBuilder
             SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
         var powerMalakhAngelicRadiance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicRadiance")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainLawHolyRetribution)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
@@ -280,7 +282,7 @@ internal static class RaceMalakhBuilder
         return powerMalakhAngelicRadiance;
     }
 
-    private class MalakhRadiantDamageOnTurnEnd : ICharacterTurnEndListener
+    private class CharacterTurnEndListenerAngelicRadiance : ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {

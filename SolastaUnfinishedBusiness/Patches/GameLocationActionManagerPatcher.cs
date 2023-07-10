@@ -2,7 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -63,7 +65,10 @@ public static class GameLocationActionManagerPatcher
 
             if (powerEffect.PowerDefinition.IsBundlePower())
             {
-                __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams));
+                __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams)
+                {
+                    Resource = powerEffect.PowerDefinition.GetFirstSubFeatureOfType<ICustomReactionResource>()
+                });
             }
             else
             {

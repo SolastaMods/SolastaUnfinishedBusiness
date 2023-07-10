@@ -88,7 +88,7 @@ internal sealed class CollegeOfValiance : AbstractSubclass
         var powerHeroicInspiration = FeatureDefinitionPowerBuilder
             .Create(PowerBardGiveBardicInspiration, $"Power{Name}HeroicInspiration")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerBardGiveBardicInspiration)

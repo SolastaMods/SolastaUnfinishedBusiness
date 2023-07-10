@@ -45,6 +45,12 @@ internal static class GroupFeats
 
     internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
 
+    internal static FeatDefinition FeatGroupRangedCombat { get; } = MakeGroup("FeatGroupRangedCombat", null,
+        FeatGroupPiercer,
+        TakeAim,
+        DiscretionOfTheCoedymwarth,
+        UncannyAccuracy);
+
     internal static FeatDefinition FeatGroupSpellCombat { get; } = MakeGroup("FeatGroupSpellCombat", null,
         FlawlessConcentration,
         PowerfulCantrip);

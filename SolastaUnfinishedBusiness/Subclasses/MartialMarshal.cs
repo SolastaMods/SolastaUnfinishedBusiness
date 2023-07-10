@@ -229,30 +229,35 @@ internal sealed class MartialMarshal : AbstractSubclass
         var conditionMarshalEternalComradeAc = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeSavingThrow = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternalComradeSavingThrow")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeDamage = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternalComradeDamage")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeHit = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternalComradeHit")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var conditionMarshalEternalComradeHp = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, FighterClass)
             .SetFeatures(hpBonus, hpBonus) // 2 HP per level
             .AddToDB();
