@@ -10,6 +10,7 @@ CHANGES:
 
 - added Arcane Archer Adept feat
 - added Martial Arcane Archer subclass
+- added "Enable Rogue Cunning Strike at level 5" setting
 - fixed College of Audacity missing damages and AC tooltip
 - fixed Innovation Artillerist refund cannon behavior
 - fixed Kobold Grovel, Cower, and Beg condition interruption

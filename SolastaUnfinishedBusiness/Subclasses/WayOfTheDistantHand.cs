@@ -47,7 +47,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetCustomSubFeatures(
                 IsPowerPool.Marker,
-                new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                new RestrictReactionAttackMode((_, attacker, _, attackMode, _) =>
                     attackMode != null &&
                     attackMode.AttackTags.Contains(ZenArrowTag) &&
                     attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -209,7 +209,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(
                 IsPowerPool.Marker,
-                new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                new RestrictReactionAttackMode((_, attacker, _, attackMode, _) =>
                     attackMode != null &&
                     attackMode.AttackTags.Contains(ZenArrowTag) &&
                     attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&

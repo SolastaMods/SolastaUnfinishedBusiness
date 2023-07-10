@@ -7,8 +7,8 @@
     "Definition:AdditionalDamageFeatSpearMastery:2131db6e-4b24-5d25-9868-be29b048a2dc"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

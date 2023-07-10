@@ -1142,45 +1142,7 @@ Starting at 17th level, your mastery of the blade lets you turn failure into suc
 
 
 
-# 23. - Eldritch Surge
-
-You have made a pact with a mysterious entity that grants you the power to unleash the ferocious arcane energy of Eldritch Blast. This patron is not a specific being, but rather a manifestation of the raw surge of magic itself. Chosen by this being, you are devoted to focus on enhancing your signature spell and destroy your enemies with the devastating force to prove its boundless power. And thus, your patron only grants you Eldritch Blast.
-
-
-## Level 1
-
-* Blast Exclusive
-
-Your patron endows you with more powerful blasts but only if you follow its path all along. You gain Eldritch Blast as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
-
-
-## Level 6
-
-* Blast Pursuit
-
-You overdrive your self with flurries of attacks, especially when Blast Pursuit is your last resort.
-As a bonus action, You can expend a pact slot and for two rounds, you gain an extra main action or bonus action. The range of your Eldritch Blast is also decreased by 30 ft. A kill with Eldritch Blast prolongs Blast Pursuit by one round.
-Starting at 16th level, you gain an extra main action and a bonus action. The range of your Eldritch Blast is again decreased by 30 ft.
-Starting at 20th level, if you have no remaining pact slots, you are in a constant Blast Pursuit status.
-
-
-## Level 10
-
-* Blast Overload
-
-As you further master Eldritch Blast, you can burn your mana to empower your magic.
-As a bonus action, you can expend a pact slot and for 1 minute, you ignore ranged spell disadvantage if enemies are within melee range, you add your proficiency bonus to the Eldritch Blast damage, but the range of your Eldritch Blast is decreased by 30 ft.
-
-
-## Level 14
-
-* Blast Reload
-
-Your excellence in Eldritch Blast allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
-
-
-
-# 24. - Field Manipulator
+# 23. - Field Manipulator
 
 Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 
@@ -1231,7 +1193,7 @@ Beginning at 18th level, you can use your bonus action to teleport to a place of
 
 
 
-# 25. - Forceblade
+# 24. - Forceblade
 
 Forceblades combine martial prowess with inborn magical talents to outmatch their enemies.
 
@@ -1294,7 +1256,7 @@ Your armor class increases by 2, and you gain proficiency in Dexterity saving th
 
 
 
-# 26. - Graviturgist
+# 25. - Graviturgist
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
@@ -1332,7 +1294,7 @@ Starting at 14th level, you can magically emit a powerful field of gravitational
 
 
 
-# 27. - Grenadier
+# 26. - Grenadier
 
 Grenadiers study unstable substances and their use in creating explosions of various types.
 
@@ -1398,7 +1360,7 @@ You can spend 3 additional charges when creating a bomb to make it more potent. 
 
 
 
-# 28. - Hellwalker
+# 27. - Hellwalker
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -1454,7 +1416,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-# 29. - Lightbearer
+# 28. - Lightbearer
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -1506,7 +1468,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-# 30. - Marshal
+# 29. - Marshal
 
 Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 
@@ -1559,7 +1521,7 @@ Your knowledge and experience with creatures allows you to better defend yoursel
 
 
 
-# 31. - Oath of Altruism
+# 30. - Oath of Altruism
 
 Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 
@@ -1621,7 +1583,7 @@ You passively grant the following benefits:
 
 
 
-# 32. - Oath of Ancients
+# 31. - Oath of Ancients
 
 An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 
@@ -1683,7 +1645,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 33. - Oath of Demon Hunter
+# 32. - Oath of Demon Hunter
 
 Paladins of the Oath of Demon Hunter are dedicated to eradicating the evil creatures that lurk in the darkness, and maintaining peace in the world.
 
@@ -1743,7 +1705,7 @@ Starting at 20th level, you slay evil and purify demons. You gain the following 
 
 
 
-# 34. - Oath of Dread
+# 33. - Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -1807,7 +1769,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 35. - Oath of Hatred
+# 34. - Oath of Hatred
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 
@@ -1868,7 +1830,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 36. - Oath of Thunder
+# 35. - Oath of Thunder
 
 Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
 
@@ -1928,7 +1890,7 @@ You gain a flying speed of 12 cells, and are immune to Thunder and Lightning dam
 
 
 
-# 37. - Opportunist
+# 36. - Opportunist
 
 Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 
@@ -1962,7 +1924,7 @@ Starting at 17th level, any attack against a creature that fails the saving thro
 
 
 
-# 38. - Path of the Elements
+# 37. - Path of the Elements
 
 Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 
@@ -2005,7 +1967,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-# 39. - Path of the Light
+# 38. - Path of the Light
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 
@@ -2047,7 +2009,7 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-# 40. - Path of the Reaver
+# 39. - Path of the Reaver
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -2081,7 +2043,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-# 41. - Path of the Savagery
+# 40. - Path of the Savagery
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -2119,7 +2081,7 @@ Starting at 14th level, while you are raging, whenever you roll a Dexterity savi
 
 
 
-# 42. - Path Of the Spirits
+# 41. - Path Of the Spirits
 
 Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -2157,7 +2119,7 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-# 43. - Path of the Yeoman
+# 42. - Path of the Yeoman
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
@@ -2202,7 +2164,7 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 
 
-# 44. - Raven
+# 43. - Raven
 
 Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 
@@ -2244,7 +2206,7 @@ You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
 
 
 
-# 45. - Royal Knight
+# 44. - Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -2285,7 +2247,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-# 46. - Sky Warrior
+# 45. - Sky Warrior
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -2343,7 +2305,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-# 47. - Slayer
+# 46. - Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -2377,7 +2339,7 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-# 48. - Smith
+# 47. - Smith
 
 Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 
@@ -2475,7 +2437,7 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 
 
 
-# 49. - Sorr-Akkath
+# 48. - Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 
@@ -2534,7 +2496,7 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 
 
-# 50. - Spell Shield
+# 49. - Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -2583,7 +2545,7 @@ When an attacker that you can see hits you with a ranged attack or spell, you ca
 
 
 
-# 51. - Spellmaster
+# 50. - Spellmaster
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
@@ -2629,7 +2591,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-# 52. - Survivalist
+# 51. - Survivalist
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2687,7 +2649,7 @@ Gain proficiency in Wisdom saving throws.
 
 
 
-# 53. - Tactician
+# 52. - Tactician
 
 The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 
@@ -2768,6 +2730,44 @@ While you are not incapacitated, you gain the following benefits:
 • Once per turn, your weapon attack deals extra damage equal to your proficiency bonus.
 • Attacks of Opportunity you make are done with advantage.
 • Attacks of Opportunity against you are done with disadvantage.
+
+
+
+# 53. - The Eldritch Surge
+
+You have made a pact with a mysterious entity that grants you the power to unleash the ferocious arcane energy of Eldritch Blast. This patron is not a specific being, but rather a manifestation of the raw surge of magic itself. Chosen by this being, you are devoted to focus on enhancing your signature spell and destroy your enemies with the devastating force to prove its boundless power. And thus, your patron only grants you Eldritch Blast.
+
+
+## Level 1
+
+* Blast Exclusive
+
+Your patron endows you with more powerful blasts but only if you follow its path all along. You gain Eldritch Blast as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+
+
+## Level 6
+
+* Blast Pursuit
+
+You overdrive your self with flurries of attacks, especially when Blast Pursuit is your last resort.
+As a bonus action, You can expend a pact slot and for two rounds, you gain an extra main action or bonus action. The range of your Eldritch Blast is also decreased by 30 ft. A kill with Eldritch Blast prolongs Blast Pursuit by one round.
+Starting at 16th level, you gain an extra main action and a bonus action. The range of your Eldritch Blast is again decreased by 30 ft.
+Starting at 20th level, if you have no remaining pact slots, you are in a constant Blast Pursuit status.
+
+
+## Level 10
+
+* Blast Overload
+
+As you further master Eldritch Blast, you can burn your mana to empower your magic.
+As a bonus action, you can expend a pact slot and for 1 minute, you ignore ranged spell disadvantage if enemies are within melee range, you add your proficiency bonus to the Eldritch Blast damage, but the range of your Eldritch Blast is decreased by 30 ft.
+
+
+## Level 14
+
+* Blast Reload
+
+Your excellence in Eldritch Blast allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
 
 
 
@@ -3179,6 +3179,18 @@ You can manipulate your enemy's Ki when you strike it with your arrows. Whenever
 • It must succeed Strength saving throw or be pushed 10 ft away from you.
 • It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn.
 
+* Distract
+
+Target must succeed Wisdom saving throw or have disadvantage on next attack until end of its next turn.
+
+* Knock Down
+
+Target must succeed Dexterity saving throw or be knocked prone.
+
+* Push Away
+
+Target must succeed Strength saving throw or be pushed 10 ft away from you.
+
 
 ## Level 6
 
@@ -3193,12 +3205,24 @@ Your bow attacks count as magical for the purpose of overcoming resistance and i
 
 ## Level 11
 
+* Distract
+
+Target must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
+
 * Improved Distant Hand Technique
 
 You improve on your ability to manipulate Ki. All effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 Ki to impose one of the following effects on that target:
 • It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
 • It must succeed Strength saving throw or be pushed 20 ft away from you.
 • It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
+
+* Knock Down
+
+Target must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
+
+* Push Away
+
+Target must succeed on a Strength saving throw or be pushed 20 ft away from you.
 
 * Stunning Arrows
 

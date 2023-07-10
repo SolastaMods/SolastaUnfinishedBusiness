@@ -257,6 +257,7 @@ internal static class MeleeCombatFeats
         var conditionDamage = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Damage")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}")
                 .SetGuiPresentationNoContent(true)
@@ -424,6 +425,7 @@ internal static class MeleeCombatFeats
         var conditionHammerThePoint = ConditionDefinitionBuilder
             .Create($"Condition{Name}HammerThePoint")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AllowMultipleInstances()

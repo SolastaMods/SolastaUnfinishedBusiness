@@ -762,7 +762,7 @@ internal static partial class SpellBuilders
 
         var sunlitMark = ConditionDefinitionBuilder
             .Create("ConditionSunlightBladeMarked")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)

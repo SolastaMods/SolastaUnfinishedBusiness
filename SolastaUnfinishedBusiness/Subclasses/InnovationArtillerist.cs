@@ -235,7 +235,7 @@ public static class InnovationArtillerist
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}{EldritchCannon}HitPoints")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceCharacterLevel)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus)
