@@ -111,7 +111,7 @@ ModUi/&EnablePcgRandom=더 나은 임의 생성 알고리즘 <i><color=#F0DAA0>[
 ModUi/&EnableRejoinParty=아무도 선택하지 않은 경우 <color=#1E81B0>CTRL-SHIFT-(R)</color>를 활성화하여 선택한 영웅 또는 리더 주변의 파티에 다시 합류합니다. <i><color=#F0DAA0>[5명 또는 6명의 파티에 유용합니다. ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ 다른 클래스에서 이미 배운 캔트립이나 주문을 선택할 수 있습니다.</i>
 ModUi/&EnableRespec=휴식 후 RESPEC 활성화
-ModUi/&EnableRogueCunningStrike=클래스 레벨 5에서 ​​<color=#D89555>도적</color> <b>교활한 일격</b> 활성화 <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기했습니다]</color ></i>
+ModUi/&EnableRogueCunningStrike=클래스 레벨 5에서 <color=#D89555>도적</color> <b>교활한 일격</b> 활성화 <i><color=#F0DAA0>[추가 적중 효과를 위해 몰래 공격 주사위 1개를 포기했습니다]</color ></i>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
