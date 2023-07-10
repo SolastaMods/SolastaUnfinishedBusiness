@@ -195,7 +195,7 @@ public static class InnovationArmor
             .Create("PowerInventorArmorerPerfectedArmorGuardian")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new RestrictReactionAttackMode(
-                (action, attacker, defender, attackMode, rulesetEffect) =>
+                (_, _, _, attackMode, _) =>
                 {
                     if (attackMode.sourceDefinition is not ItemDefinition weapon)
                     {
@@ -219,7 +219,7 @@ public static class InnovationArmor
             .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
             .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
             .SetCustomSubFeatures(new RestrictReactionAttackMode(
-                (action, attacker, defender, attackMode, rulesetEffect) =>
+                (_, _, _, attackMode, _) =>
                 {
                     if (attackMode.sourceDefinition is not ItemDefinition weapon)
                     {

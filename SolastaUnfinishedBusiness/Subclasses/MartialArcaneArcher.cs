@@ -22,12 +22,10 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 {
     private const string Name = "MartialArcaneArcher";
     private const string ArcaneShotMarker = "ArcaneShot";
-
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
 
     private static readonly Dictionary<FeatureDefinitionPower, ArcaneArcherData> ArcaneShotPowers = new();
-
-    private static FeatureDefinitionPowerSharedPool PowerBurstingArrow;
+    private static FeatureDefinitionPowerSharedPool _powerBurstingArrow;
 
     internal static FeatureDefinitionPower PowerArcaneShot;
     internal static FeatureDefinitionPowerUseModifier PowerArcaneShotAdditionalUse1;
@@ -99,7 +97,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                 HasModifiedUses.Marker,
                 ReactionResourceArcaneShot.Instance,
                 new SpendPowerFinishedByMeArcaneShot(),
-                new RestrictReactionAttackMode((action, attacker, defender, attackMode, rulesetEffect) =>
+                new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.OnceInMyTurnIsValid(ArcaneShotMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle)))
             .AddToDB();
@@ -289,7 +287,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         // Bursting Arrow
 
-        PowerBurstingArrow = FeatureDefinitionPowerSharedPoolBuilder
+        _powerBurstingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BurstingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast)
             .SetSharedPool(ActivationTime.NoCost, pool)
@@ -307,7 +305,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(PowerBurstingArrow,
+        ArcaneShotPowers.Add(_powerBurstingArrow,
             new ArcaneArcherData { EffectSpell = SpellDefinitions.EldritchBlast });
 
         // Enfeebling Arrow
@@ -605,7 +603,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             }
 
             // apply arrow behaviors after attack is complete
-            if (PowerSpent == PowerBurstingArrow)
+            if (PowerSpent == _powerBurstingArrow)
             {
                 InflictBurstingArrowAreaDamage(attacker, defender, arcaneArcherData);
             }
