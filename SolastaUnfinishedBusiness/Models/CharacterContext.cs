@@ -1303,9 +1303,11 @@ internal static class CharacterContext
 
         var conditionWithdraw = ConditionDefinitionBuilder
             .Create($"Condition{Name}Withdraw")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(movementAffinityWithdraw)
+            .SetGuiPresentation($"Condition/&Condition{Name}WithdrawTitle", Gui.NoLocalization,
+                ConditionDefinitions.ConditionDisengaging)
+            .SetPossessive()
+            .AddFeatures(movementAffinityWithdraw, FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerWithdraw = FeatureDefinitionPowerSharedPoolBuilder
@@ -1317,9 +1319,7 @@ internal static class CharacterContext
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging),
-                        EffectFormBuilder.ConditionForm(conditionWithdraw))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
