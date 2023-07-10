@@ -46,9 +46,11 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
         character is RulesetCharacterHero && character.GetOffhandWeapon()?.ItemDefinition.IsLightSourceItem == true;
 
-    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
+    internal static readonly IsCharacterValidHandler HasFreeHandWithoutTwoHandedInMain = character =>
         character.HasFreeHandSlot() &&
         !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded);
+
+    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
