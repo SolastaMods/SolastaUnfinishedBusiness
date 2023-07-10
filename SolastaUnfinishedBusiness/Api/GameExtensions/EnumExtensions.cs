@@ -225,8 +225,7 @@ internal enum ExtraActionId
     FlightSuspend = 9031,
     FlightResume = 9032,
     ArcaneArcherToggle = 9033,
-    ArcaneArcherToggle = 9034,
-    CunningStrikeToggle = 9035,
+    CunningStrikeToggle = 9034,
     PrioritizeAction
 }
 
