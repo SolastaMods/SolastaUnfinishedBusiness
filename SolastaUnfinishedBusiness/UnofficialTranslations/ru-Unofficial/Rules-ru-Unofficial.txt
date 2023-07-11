@@ -707,6 +707,7 @@ Rules/&RateAtWillFormatTitle=по готовности
 Rules/&RateBardicInspirationFormatTitle=Долгий отдых
 Rules/&RateBindChainFormatTitle=Долгий отдых
 Rules/&RateChannelDivinityFormatTitle=короткий отдых
+Rules/&RateD6_6FormatTitle=6 на 1к6
 Rules/&RateD6_56FormatTitle=5 или 6 на 1к6
 Rules/&Rated6FormatTitle=5 или 6 на 1к6
 Rules/&RateDawnFormatTitle=рассвет
