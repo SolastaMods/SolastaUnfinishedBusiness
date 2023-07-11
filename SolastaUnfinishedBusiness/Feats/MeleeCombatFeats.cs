@@ -409,7 +409,7 @@ internal static class MeleeCombatFeats
                 new AddExtraMainHandAttack(
                     ActionDefinitions.ActionType.Bonus,
                     ValidatorsCharacter.HasAttacked,
-                    ValidatorsCharacter.HasFreeHand,
+                    ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                     ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
     }

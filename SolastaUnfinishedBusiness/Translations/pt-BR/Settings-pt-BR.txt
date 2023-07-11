@@ -111,7 +111,7 @@ ModUi/&EnablePcgRandom=Habilite um algoritmo de gerador aleatório melhor <i><co
 ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo em torno do herói ou líder selecionado se nenhum for selecionado <i><color=#F0DAA0>[útil com grupos de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Pode selecionar truques ou feitiços já aprendidos de outras classes</i>
 ModUi/&EnableRespec=Habilite o RESPEC após a ação de descanso
-ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Ladino</color> <b>Golpe Astuto</b> nos níveis de classe 5 <i><color=#F0DAA0>[você abre mão de 1 dado de ataque furtivo para efeitos de acerto adicionais]</color ></i>
+ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Rogue</color> <b>Cunning Strike</b> e <b>Devious Strike</b> nos níveis de classe 5 e 14 <i><color=#F0DAA0>[você esqueceu 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>

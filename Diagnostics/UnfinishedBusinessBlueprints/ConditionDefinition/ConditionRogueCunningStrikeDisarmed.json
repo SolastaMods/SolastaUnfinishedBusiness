@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:CombatAffinityRogueCunningStrikeDisarmed:2723f5df-17ca-5655-afa6-266028a21ace"
   ],

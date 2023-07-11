@@ -282,7 +282,7 @@ internal static class ClassFeats
         var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Int")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Einar)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Pakri)
             .SetFeatFamily(Family)
             .SetValidators(HasSneakAttack)
             .AddToDB();

@@ -363,7 +363,7 @@ public static class InnovationArmor
     private class AddGauntletAttack : AddExtraAttackBase
     {
         public AddGauntletAttack() : base(ActionDefinitions.ActionType.Main, InGuardianMode,
-            ValidatorsCharacter.HasFreeHand)
+            ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain)
         {
         }
 

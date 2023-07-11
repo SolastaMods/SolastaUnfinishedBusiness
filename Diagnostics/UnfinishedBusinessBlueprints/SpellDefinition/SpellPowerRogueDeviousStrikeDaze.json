@@ -1,15 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellPowerRogueCunningStrikeDisarm:ff460ae8-64af-5b2b-950e-3edf9b193016",
-    "Definition:SpellPowerRogueCunningStrikePoison:ad4dce36-d7e7-556a-bbe0-696f7b4711b0",
-    "Definition:SpellPowerRogueCunningStrikeTrip:fc3c8770-d775-5f21-99a5-b0d0fa2299c1",
-    "Definition:SpellPowerRogueCunningStrikeWithdraw:f3500bb0-ee9d-5d07-bd3e-10f3755ec8c5",
-    "Definition:SpellPowerRogueDeviousStrikeDaze:5bc41128-2dcf-5ef9-b74b-b444f9990a34",
-    "Definition:SpellPowerRogueDeviousStrikeKnockOut:4ad47ca1-8798-5c7e-b696-1c12ae04df11",
-    "Definition:SpellPowerRogueDeviousStrikeObscure:918b9f4f-5c1a-5d17-9fd0-f1fc8942be2f"
-  ],
+  "subspellsList": [],
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
@@ -174,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRogueCunningStrikeTitle",
-    "description": "Feature/&PowerRogueCunningStrikeDescription",
+    "title": "Feature/&PowerRogueDeviousStrikeDazeTitle",
+    "description": "Feature/&PowerRogueDeviousStrikeDazeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -195,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d2e6b4d3-fad5-50f4-b20f-8b07950d42ac",
+  "guid": "5bc41128-2dcf-5ef9-b74b-b444f9990a34",
   "contentPack": 9999,
-  "name": "SpellPowerRogueCunningStrike"
+  "name": "SpellPowerRogueDeviousStrikeDaze"
 }

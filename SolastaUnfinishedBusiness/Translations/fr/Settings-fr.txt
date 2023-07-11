@@ -111,7 +111,7 @@ ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes</i>
 ModUi/&EnableRespec=Activer l'action RESPEC après repos
-ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Rogue</color> <b>Cunning Strike</b> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color ></i>
+ModUi/&EnableRogueCunningStrike=Activez <color=#D89555>Rogue</color> <b>Cunning Strike</b> et <b>Devious Strike</b> aux niveaux de classe 5 et 14 <i><color=#F0DAA0>[vous laissez tomber 1 dé d'attaque sournoise pour des effets de coup supplémentaires]</color></i>
 ModUi/&EnableSaveByLocation=Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>

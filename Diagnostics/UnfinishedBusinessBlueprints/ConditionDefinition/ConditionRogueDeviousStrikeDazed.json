@@ -4,22 +4,20 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:FeatureRogueCunningStrikeReduceSneakDice:240c62ea-7ab7-5acd-988c-deebbc9818f2"
+    "Definition:FeatureRogueDeviousStrikeDazed:345dbda1-bee1-5417-8a7a-f15748fc7d72"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -90,7 +88,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "Fixed",
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -131,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionRogueDeviousStrikeDazedTitle",
+    "description": "Condition/&ConditionRogueDeviousStrikeDazedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
+      "m_SubObjectName": "ConditionNegative",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -153,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5eb7328f-dbce-54ef-aca6-e7488ebeedeb",
+  "guid": "60a24872-505a-51a8-b742-aaf7bd616e66",
   "contentPack": 9999,
-  "name": "ConditionRogueCunningStrikeReduceSneakDice"
+  "name": "ConditionRogueDeviousStrikeDazed"
 }
