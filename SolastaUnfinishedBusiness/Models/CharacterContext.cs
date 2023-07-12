@@ -1178,7 +1178,6 @@ internal static class CharacterContext
         const string Cunning = "RogueCunningStrike";
         const string Devious = "RogueDeviousStrike";
 
-
         var powerPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Cunning}")
             .SetGuiPresentation(Category.Feature)
@@ -1246,7 +1245,7 @@ internal static class CharacterContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfSourceTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -1283,6 +1282,7 @@ internal static class CharacterContext
             .Create(DatabaseHelper.ActionDefinitions.StepBack, "Withdraw")
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.Withdraw)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
             .SetAddedConditionName(string.Empty)
             .SetMaxCells(3)
             .RequiresAuthorization()
@@ -1294,18 +1294,13 @@ internal static class CharacterContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.Withdraw)
             .AddToDB();
 
-        var movementAffinityWithdraw = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinity{Cunning}Withdraw")
-            .SetGuiPresentationNoContent(true)
-            .SetBaseSpeedMultiplicativeModifier(1.5f)
-            .AddToDB();
-
         var conditionWithdraw = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Withdraw")
             .SetGuiPresentation($"Condition/&Condition{Cunning}WithdrawTitle", Gui.NoLocalization,
                 ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
-            .AddFeatures(movementAffinityWithdraw, actionAffinityWithdraw)
+            .SetSilent(Silent.WhenRemoved)
+            .AddFeatures(actionAffinityWithdraw)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
@@ -1415,7 +1410,7 @@ internal static class CharacterContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfSourceTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -1671,7 +1666,7 @@ internal static class CharacterContext
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (_selectedPower == null)
+            if (_selectedPower == null || _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)
             {
                 yield break;
             }
