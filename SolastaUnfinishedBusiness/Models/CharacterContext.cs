@@ -1324,47 +1324,38 @@ internal static class CharacterContext
 
         // Dazed
 
-        var movementAffinityDazed = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinity{Devious}Dazed")
+        var actionAffinityDazedOnlyMovement = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Devious}DazedOnlyMovement")
             .SetGuiPresentationNoContent(true)
-            .SetBaseSpeedMultiplicativeModifier(0)
+            .SetAllowedActionTypes(main: false, bonus: false, freeOnce: false, reaction: false, noCost: false)
             .AddToDB();
 
-        var conditionDazedNoMovement = ConditionDefinitionBuilder
-            .Create($"Condition{Devious}DazedNoMovement")
+        var conditionDazedOnlyMovement = ConditionDefinitionBuilder
+            .Create($"Condition{Devious}DazedOnlyMovement")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration()
-            .AddFeatures(movementAffinityDazed)
-            .AddToDB();
-
-        var actionAffinityDazed = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{Devious}Dazed")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(false, false, true, false, false, false)
-            .AddToDB();
-
-        var conditionDazedNoAction = ConditionDefinitionBuilder
-            .Create($"Condition{Devious}DazedNoAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration()
-            .AddFeatures(actionAffinityDazed)
+            .AddFeatures(actionAffinityDazedOnlyMovement)
             .AddToDB();
 
         var featureDazed = FeatureDefinitionBuilder
             .Create($"Feature{Devious}Dazed")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedNoAction, conditionDazedNoMovement))
+            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedOnlyMovement))
+            .AddToDB();
+
+        var actionAffinityDazed = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Devious}Dazed")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false, bonus: false)
             .AddToDB();
 
         var conditionDazed = ConditionDefinitionBuilder
             .Create($"Condition{Devious}Dazed")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(featureDazed)
+            .AddFeatures(featureDazed, actionAffinityDazed)
             .AddToDB();
 
         var powerDaze = FeatureDefinitionPowerSharedPoolBuilder
@@ -1702,29 +1693,27 @@ internal static class CharacterContext
 
     private sealed class ActionFinishedByMeDazed : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDazedNoAction;
-        private readonly ConditionDefinition _conditionDazedNoMovement;
+        private readonly ConditionDefinition _conditionDazedOnlyMovement;
 
-        public ActionFinishedByMeDazed(
-            ConditionDefinition conditionDazedNoAction,
-            ConditionDefinition conditionDazedNoMovement)
+        public ActionFinishedByMeDazed(ConditionDefinition conditionDazedOnlyMovement)
         {
-            _conditionDazedNoAction = conditionDazedNoAction;
-            _conditionDazedNoMovement = conditionDazedNoMovement;
+            _conditionDazedOnlyMovement = conditionDazedOnlyMovement;
         }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
+            if (characterAction is not CharacterActionMove)
+            {
+                yield break;
+            }
+
             var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
-            var condition = characterAction is CharacterActionMove
-                ? _conditionDazedNoAction
-                : _conditionDazedNoMovement;
 
             rulesetCharacter.InflictCondition(
-                condition.Name,
-                condition.DurationType,
-                condition.DurationParameter,
-                condition.turnOccurence,
+                _conditionDazedOnlyMovement.Name,
+                _conditionDazedOnlyMovement.DurationType,
+                _conditionDazedOnlyMovement.DurationParameter,
+                _conditionDazedOnlyMovement.turnOccurence,
                 AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -1733,8 +1722,6 @@ internal static class CharacterContext
                 0,
                 0,
                 0);
-
-            yield break;
         }
     }
 
