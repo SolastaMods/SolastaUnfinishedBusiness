@@ -563,14 +563,12 @@ internal static class RulesetCharacterExtensions
 
     internal static bool HasTemporaryConditionOfType(this RulesetCharacter character, string conditionName)
     {
-        foreach (KeyValuePair<string, List<RulesetCondition>> item in character.ConditionsByCategory)
+        
+        foreach(var condition in character.AllConditions)
         {
-            foreach (RulesetCondition item2 in item.Value)
+            if (condition.ConditionDefinition.IsSubtypeOf(conditionName) && condition.DurationType != DurationType.Permanent)
             {
-                if (item2.ConditionDefinition.IsSubtypeOf(conditionName) && item2.DurationType != DurationType.Permanent)
-                {
-                    return true;
-                }
+                return true;
             }
         }
 
