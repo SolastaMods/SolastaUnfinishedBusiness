@@ -1,4 +1,13 @@
-﻿1.5.92.14:
+﻿1.5.92.15:
+
+- added Rogue Devious Strikes at 14th under same Cunning Strikes setting
+- fixed Close Quarters granting strength instead of intelligence
+- fixed Pugilist to allow bonus shove with two handed melee
+- improved French translations by Ermite_Crabe
+- improved Malakh with a permanent halo effect
+- improved Oath of Thunder additional damage description
+
+1.5.92.14:
 
 SPECIAL THANKS to Gwizzz, Vesss and DemonicDuck for the SteamDeck offering
 
