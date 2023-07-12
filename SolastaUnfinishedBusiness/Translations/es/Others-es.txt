@@ -149,6 +149,7 @@ Rules/&SituationalContext1010Format=El destino no es la fuente del efecto:
 Rules/&SituationalContext1011Format=Sin armadura o armadura ligera sin escudo:
 Rules/&SituationalContext1012Format=Sin armadura o armadura ligera con bastón a dos manos:
 Rules/&SituationalContext1013Format=El objetivo es el enemigo favorito:
+Rules/&TurnOccurenceEndOfSourceTurnFormat=Origen final del giro
 Screen/&ClassExtraSpellDescriptionFormat=Conoces este hechizo de la clase {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODIFICADO]

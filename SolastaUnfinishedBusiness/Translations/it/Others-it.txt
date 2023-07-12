@@ -149,6 +149,7 @@ Rules/&SituationalContext1010Format=Il bersaglio non è la fonte dell'effetto:
 Rules/&SituationalContext1011Format=Non indossano armature o armature leggere senza scudo:
 Rules/&SituationalContext1012Format=Non indossare armature o armature leggere con bastone ferrato a due mani:
 Rules/&SituationalContext1013Format=Il bersaglio è il nemico preferito:
+Rules/&TurnOccurenceEndOfSourceTurnFormat=Sorgente finale del turno
 Screen/&ClassExtraSpellDescriptionFormat=Conosci questo incantesimo dalla classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICATO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODIFICATO]

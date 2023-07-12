@@ -149,6 +149,7 @@ Rules/&SituationalContext1010Format=O alvo não é a fonte do efeito:
 Rules/&SituationalContext1011Format=Sem armadura ou armadura leve sem escudo:
 Rules/&SituationalContext1012Format=Sem armadura ou armadura leve com bordão de duas mãos:
 Rules/&SituationalContext1013Format=O alvo é o inimigo favorito:
+Rules/&TurnOccurenceEndOfSourceTurnFormat=Origem Final da Volta
 Screen/&ClassExtraSpellDescriptionFormat=Você conhece este feitiço da classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODADO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODDED]

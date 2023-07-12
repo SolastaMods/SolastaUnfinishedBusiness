@@ -149,6 +149,7 @@ Rules/&SituationalContext1010Format=대상이 효과 소스가 아님:
 Rules/&SituationalContext1011Format=갑옷을 입지 않거나 방패 없이 가벼운 갑옷을 입는 경우:
 Rules/&SituationalContext1012Format=갑옷을 입지 않거나 가벼운 갑옷을 입고 양손 쿼터스태프를 사용하는 경우:
 Rules/&SituationalContext1013Format=목표는 좋아하는 적입니다:
+Rules/&TurnOccurenceEndOfSourceTurnFormat=턴 종료 소스
 Screen/&ClassExtraSpellDescriptionFormat={0} 클래스에서 이 주문을 알고 있습니다.
 Screen/&EditorLocationSize3Title=거대한 [수정됨]
 Screen/&EditorLocationSize4Title=거대한 [MODDED]

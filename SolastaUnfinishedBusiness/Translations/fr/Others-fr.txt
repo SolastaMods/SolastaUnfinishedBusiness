@@ -149,6 +149,7 @@ Rules/&SituationalContext1010Format=La cible n'est pas la source de l'effet :
 Rules/&SituationalContext1011Format=Ne pas porter d'armure ou d'armure légère sans bouclier :
 Rules/&SituationalContext1012Format=Ne pas porter d'armure ou d'armure légère avec un bâton à deux mains :
 Rules/&SituationalContext1013Format=La cible est l'ennemi favori :
+Rules/&TurnOccurenceEndOfSourceTurnFormat=Source finale du virage
 Screen/&ClassExtraSpellDescriptionFormat=Vous connaissez ce sort de la classe {0}.
 Screen/&EditorLocationSize3Title=Énorme [MODÉ]
 Screen/&EditorLocationSize4Title=Gargantuesque [MODÉ]
