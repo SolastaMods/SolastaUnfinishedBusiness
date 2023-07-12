@@ -61,12 +61,6 @@ internal static class RulesDisplay
             Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
-        toggle = Main.Settings.AllowFlightSuspend;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowFlightSuspend = toggle;
-        }
-
         UI.Label();
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;
