@@ -10,7 +10,9 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -99,6 +101,17 @@ public static class GameLocationManagerPatcher
             if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Bolts))
             {
                 gameLoreService.LearnRecipe(RecipeBasic_Bolts);
+            }
+
+            //PATCH: start halo effect on Malakh
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters
+                         .Where(x => x.RulesetCharacter is RulesetCharacterHero hero &&
+                                     hero.RaceDefinition == RaceMalakhBuilder.RaceMalakh))
+            {
+                EffectHelpers.StartVisualEffect(
+                    gameLocationCharacter, gameLocationCharacter, DeathWard, EffectHelpers.EffectType.Condition);
             }
 
             //PATCH: remove carefully tracked dynamic item properties that have effect guid, but effect is removed

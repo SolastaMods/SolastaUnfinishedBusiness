@@ -31,12 +31,12 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Instantaneous",
-    "durationParameter": 0,
+    "durationType": "Round",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,12 +76,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "FallProne",
-          "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionRogueDeviousStrikeDazed",
+          "conditionDefinition": "Definition:ConditionRogueDeviousStrikeDazed:60a24872-505a-51a8-b742-aaf7bd616e66",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -307,7 +309,7 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "costPerUse": 2,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -326,8 +328,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRogueCunningStrikeTripTitle",
-    "description": "Feature/&PowerRogueCunningStrikeTripDescription",
+    "title": "Feature/&PowerRogueDeviousStrikeDazeTitle",
+    "description": "Feature/&PowerRogueDeviousStrikeDazeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5fa142a1-b1f9-5a63-910b-93d0e6c1c5b5",
+  "guid": "218ca04c-9a43-56b2-98f7-26aead7b248e",
   "contentPack": 9999,
-  "name": "PowerRogueCunningStrikeTrip"
+  "name": "PowerRogueDeviousStrikeDaze"
 }

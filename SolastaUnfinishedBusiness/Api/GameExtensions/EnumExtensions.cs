@@ -224,6 +224,7 @@ internal enum ExtraActionId
     UseHeroicInspiration = 9030,
     ArcaneArcherToggle = 9031,
     CunningStrikeToggle = 9032,
+    Withdraw = 9033,
     PrioritizeAction
 }
 

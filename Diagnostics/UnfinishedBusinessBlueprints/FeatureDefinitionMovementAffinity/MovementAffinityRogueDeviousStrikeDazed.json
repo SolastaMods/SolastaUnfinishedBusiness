@@ -7,7 +7,7 @@
   "additiveModifierByLevelTable": [],
   "forceMinimalBaseSpeed": false,
   "minimalBaseSpeed": 6,
-  "baseSpeedMultiplicativeModifier": 0.5,
+  "baseSpeedMultiplicativeModifier": 0.0,
   "minMaxMoves": 0,
   "speedAddBase": false,
   "fastClimber": false,
@@ -50,7 +50,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a377523b-2b34-5799-9a93-fbf5008c9f27",
+  "guid": "fef26f37-753c-5c24-b9a6-288e4760e237",
   "contentPack": 9999,
-  "name": "MovementAffinityRogueCunningStrikeWithdraw"
+  "name": "MovementAffinityRogueDeviousStrikeDazed"
 }

@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:CombatAffinityRogueCunningStrikeDisarmed:2723f5df-17ca-5655-afa6-266028a21ace"
   ],
@@ -131,7 +131,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionRogueCunningStrikeDisarmedTitle",
-    "description": "Condition/&ConditionRogueCunningStrikeDisarmedDescription",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",

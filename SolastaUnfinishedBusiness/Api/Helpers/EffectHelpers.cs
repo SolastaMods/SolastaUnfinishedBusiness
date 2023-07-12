@@ -25,6 +25,7 @@ internal static class EffectHelpers
             EffectType.Caster => magicEffect.EffectDescription.EffectParticleParameters.CasterParticle,
             EffectType.Effect => magicEffect.EffectDescription.EffectParticleParameters.EffectParticle,
             EffectType.Impact => magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle,
+            EffectType.Condition => magicEffect.EffectDescription.EffectParticleParameters.ConditionParticle,
             _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
         };
 
@@ -232,6 +233,7 @@ internal static class EffectHelpers
     {
         Caster = 0,
         Effect = 1,
-        Impact = 2
+        Impact = 2,
+        Condition = 3
     }
 }

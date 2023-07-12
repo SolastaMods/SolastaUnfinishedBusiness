@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRogueDeviousStrikeDaze:218ca04c-9a43-56b2-98f7-26aead7b248e",
+    "Definition:PowerRogueDeviousStrikeKnockOut:3bac4667-3210-578f-bd3e-6a0eff859141",
+    "Definition:PowerRogueDeviousStrikeObscure:3dc12746-52fa-5906-9126-b1d59ad196a7"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerRogueDeviousStrikeTitle",
+    "description": "Feature/&PowerRogueDeviousStrikeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c281bfb2-6ed6-5ce0-819c-c25026db775d",
+  "contentPack": 9999,
+  "name": "FeatureSetRogueDeviousStrike"
+}

@@ -31,12 +31,12 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Instantaneous",
-    "durationParameter": 0,
+    "durationType": "Minute",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -74,14 +74,16 @@
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "FallProne",
-          "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionRogueDeviousStrikeKnockOut",
+          "conditionDefinition": "Definition:ConditionRogueDeviousStrikeKnockOut:8276a494-262e-545d-953e-203075253407",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -307,7 +309,7 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "costPerUse": 6,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -326,8 +328,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRogueCunningStrikeTripTitle",
-    "description": "Feature/&PowerRogueCunningStrikeTripDescription",
+    "title": "Feature/&PowerRogueDeviousStrikeKnockOutTitle",
+    "description": "Feature/&PowerRogueDeviousStrikeKnockOutDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5fa142a1-b1f9-5a63-910b-93d0e6c1c5b5",
+  "guid": "3bac4667-3210-578f-bd3e-6a0eff859141",
   "contentPack": 9999,
-  "name": "PowerRogueCunningStrikeTrip"
+  "name": "PowerRogueDeviousStrikeKnockOut"
 }
