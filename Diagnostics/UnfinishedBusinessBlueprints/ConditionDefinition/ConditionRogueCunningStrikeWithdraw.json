@@ -4,12 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityWithdraw:ea2fd04d-e230-5340-9792-6197124b9431",
-    "Definition:MovementAffinityRogueCunningStrikeWithdraw:a377523b-2b34-5799-9a93-fbf5008c9f27"
+    "Definition:ActionAffinityWithdraw:ea2fd04d-e230-5340-9792-6197124b9431"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

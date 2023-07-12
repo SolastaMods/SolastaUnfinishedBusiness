@@ -55,6 +55,9 @@ public class CharacterActionWithdraw : CharacterAction
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
+        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+            "ConditionRogueCunningStrikeWithdraw");
+
         if (!wasAlreadyDisengaging)
         {
             rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, ConditionDisengaging);
