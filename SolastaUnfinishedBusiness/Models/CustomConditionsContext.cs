@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Net.Mail;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -254,11 +257,18 @@ internal static class CustomConditionsContext
     {
         const string NAMELAND = "FlightSuspend";
 
+        var conditionFlightSuspendConcentrationTracker = ConditionDefinitionBuilder
+            .Create("ConditionFlightSuspendedConcentrationTracker")
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .AddToDB();
+
         var conditionFlightSuspend = ConditionDefinitionBuilder
             .Create("ConditionFlightSuspended")
-            .SetGuiPresentation(NAMELAND, Category.Condition, Sprites.GetSprite("ConditionFlightSuspended", Resources.ConditionFlightSuspended, 32))
+            .SetGuiPresentation(NAMELAND, Category.Condition, Sprites.GetSprite("ConditionFlightSuspended", Properties.Resources.ConditionFlightSuspended, 32))
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 10)
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("FeatureFlightSuspended")
                 .SetGuiPresentationNoContent()
@@ -267,12 +277,12 @@ internal static class CustomConditionsContext
             .AddToDB();
 
         // I ran into sync issues if I didn't generate the actions here
-        BuildFlightSuspendAction(conditionFlightSuspend);
+        BuildFlightSuspendAction(conditionFlightSuspend, conditionFlightSuspendConcentrationTracker);
 
         return conditionFlightSuspend;
     }
 
-    private static void BuildFlightSuspendAction(ConditionDefinition conditionFlightSuspend)
+    private static void BuildFlightSuspendAction(ConditionDefinition conditionFlightSuspend, ConditionDefinition conditionFlightSuspendConcentrationTracker)
     {
 
         const string NAMELAND = "FlightSuspend";
@@ -280,7 +290,7 @@ internal static class CustomConditionsContext
 
         FlightSuspend = FeatureDefinitionPowerBuilder
             .Create($"Power{NAMELAND}")
-            .SetGuiPresentation(NAMELAND, Category.Feature, Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
+            .SetGuiPresentation(NAMELAND, Category.Feature, Sprites.GetSprite("ActionFlightSuspend", Properties.Resources.ActionFlightSuspend, 80), 71)
             .SetUsesFixed(ActivationTime.NoCost)
             .DelegatedToAction()
             .SetEffectDescription(
@@ -301,7 +311,7 @@ internal static class CustomConditionsContext
 
         ActionDefinitionBuilder
             .Create($"Action{NAMELAND}")
-            .SetGuiPresentation(NAMELAND, Category.Action, Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
+            .SetGuiPresentation(NAMELAND, Category.Action, Sprites.GetSprite("ActionFlightSuspend", Properties.Resources.ActionFlightSuspend, 80), 71)
             .SetActionId(ExtraActionId.FlightSuspend)
             .OverrideClassName("UsePower")
             .SetActionScope(ActionScope.All)
@@ -312,7 +322,7 @@ internal static class CustomConditionsContext
 
         FlightResume = FeatureDefinitionPowerBuilder
             .Create($"Power{NAMETAKEOFF}")
-            .SetGuiPresentation(NAMETAKEOFF, Category.Feature, Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
+            .SetGuiPresentation(NAMETAKEOFF, Category.Feature, Sprites.GetSprite("ActionFlightResume", Properties.Resources.ActionFlightResume, 80), 71)
             .SetUsesFixed(ActivationTime.NoCost)
             .DelegatedToAction()
             .SetEffectDescription(
@@ -321,6 +331,8 @@ internal static class CustomConditionsContext
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionFlightSuspend,
+                            ConditionForm.ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(conditionFlightSuspendConcentrationTracker,
                             ConditionForm.ConditionOperation.Remove)
                     )
                     .UseQuickAnimations()
@@ -331,7 +343,7 @@ internal static class CustomConditionsContext
 
         ActionDefinitionBuilder
             .Create($"Action{NAMETAKEOFF}")
-            .SetGuiPresentation(NAMETAKEOFF, Category.Action, Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
+            .SetGuiPresentation(NAMETAKEOFF, Category.Action, Sprites.GetSprite("ActionFlightResume", Properties.Resources.ActionFlightResume, 80), 71)
             .SetActionId(ExtraActionId.FlightResume)
             .OverrideClassName("UsePower")
             .SetActionScope(ActionScope.All)
@@ -341,10 +353,73 @@ internal static class CustomConditionsContext
             .AddToDB();
     }
 
+    private static bool TryAddFlightCondition(RulesetCharacter source, RulesetCharacter target, RulesetCondition rulesetCondition, out RulesetCondition condition)
+    {
+        condition = null;
+        try
+        {
+            condition = target.InflictCondition(
+                rulesetCondition.effectDefinitionName,
+                DurationType.Round,
+                rulesetCondition.remainingRounds,
+                rulesetCondition.endOccurence,
+                "11Effect",
+                source.guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Main.Log($">>>> TryAddFlightSuspendedCondition EXCEPTION {e.Message} {e.StackTrace}");
+        }
+
+        return false;
+
+    }
+
+    private static bool TryAddFlightSuspendedConcentrationTracker(RulesetCharacter source, RulesetCharacter target, RulesetEffectSpell effect, out RulesetCondition condition)
+    {
+        condition = null;
+        try
+        {
+            condition = target.InflictCondition(
+                "ConditionFlightSuspendedConcentrationTracker",
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                "11Effect",
+                source.guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            condition.effectDefinitionName = effect.Name;
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Main.Log($">>>> TryAddFlightSuspendedConcentrationTracker EXCEPTION {e.Message} {e.StackTrace}");
+        }
+
+        return false;
+
+    }
+
     private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
     {
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+
             if (target is RulesetCharacterMonster m)
             {
                 var monster = target as RulesetCharacterMonster;
@@ -358,21 +433,56 @@ internal static class CustomConditionsContext
                 }
             }
             else
-            { 
+            {
                 List<RulesetCondition> conditions = target.allConditionsForEnumeration;
                 foreach (var condition in conditions)
                 {
                     if (condition.ConditionDefinition.IsSubtypeOf("ConditionFlying"))
                     {
-
+                        //We are not interested in permanent effects
                         if (condition.DurationType == DurationType.Permanent)
                         {
                             target.RemoveCondition(rulesetCondition);
                             return;
                         }
 
+                        RulesetCharacter source = target;
+                        try
+                        {
+                            //Ensure we keep tabs on source and target in case someone else is concentrating on us
+                            if (condition.sourceGuid != condition.TargetGuid)
+                            {
+                                RulesetCharacter newSource = null;
+                                if (RulesetEntity.TryGetEntity<RulesetCharacter>(condition.sourceGuid, out newSource))
+                                {
+                                    source = newSource;
+                                }
+                            }
+
+                            //Check if there is an effect tracked by the source for concentration purposes
+                            RulesetEffect effect = source.FindEffectTrackingCondition(condition);
+                            if (effect != null && effect is RulesetEffectSpell spell && spell.SpellDefinition.RequiresConcentration)
+                            {
+                                effect.TrackCondition(source, source.Guid, target, target.Guid, rulesetCondition, "FlightSuspended");
+
+                                RulesetCondition trackerCondition = null;
+                                if (TryAddFlightSuspendedConcentrationTracker(source, target, effect as RulesetEffectSpell, out trackerCondition))
+                                {
+                                    trackerCondition.remainingRounds = condition.remainingRounds;
+                                    effect.TrackCondition(source, source.Guid, target, target.Guid, trackerCondition, "FlightSuspendedConcentrationTracker");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Main.Log($"FlightSuspendBehavior ApplyFeature EXCEPTION Tracker {ex} {ex.StackTrace}");
+                            return;
+                        }
+
                         //Using effectDefinitionName to store suspended condition, safe?
                         rulesetCondition.effectDefinitionName = condition.Name;
+                        rulesetCondition.sourceGuid = source.Guid;
+                        rulesetCondition.targetGuid = target.Guid;
                         rulesetCondition.remainingRounds = condition.remainingRounds;
                         rulesetCondition.endOccurence = condition.endOccurence;
                         break;
@@ -385,31 +495,58 @@ internal static class CustomConditionsContext
         {
             if (target is RulesetCharacterMonster m)
             {
-                //Do nothing for now
+                //Do nothing for now for wildshape
             }
             else
             {
-                //Serialization fails here sometimes when the game is completely closed and then game reloaded
+
                 try
                 {
-                    var condition = target.InflictCondition(
-                        rulesetCondition.effectDefinitionName,
-                        DurationType.Round,
-                        rulesetCondition.remainingRounds,
-                        rulesetCondition.endOccurence,
-                        "11Effect",
-                        target.guid,
-                        target.CurrentFaction.Name,
-                        1,
-                        null,
-                        0,
-                        0,
-                        0);
-                } catch(Exception e)
+                    //Ensure we keep tabs on source and target in case someone else is concentrating on us
+                    RulesetCharacter source = target;
+                    if (rulesetCondition.sourceGuid != rulesetCondition.TargetGuid)
+                    {
+                        RulesetCharacter newSource = null;
+                        if (RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.sourceGuid, out newSource))
+                        {
+                            source = newSource;
+                        }
+                    }
+
+                    //If we have a concentration tracker, but the source is no longer concentrating on our effect, do not renew flight
+                    if (target.HasConditionOfType("ConditionFlightSuspendedConcentrationTracker"))
+                    {
+                        RulesetCondition trackerCondition = null;
+                        List<RulesetCondition> conditions = new List<RulesetCondition>();
+                        target.GetAllConditionsOfType(conditions, "ConditionFlightSuspendedConcentrationTracker");
+                        if (conditions.Count > 0)
+                        {
+                            trackerCondition = conditions.First();
+                            RulesetEffectSpell concentratedSpell = source.concentratedSpell;
+                            if (concentratedSpell == null || (concentratedSpell != null && concentratedSpell.Name != trackerCondition.effectDefinitionName))
+                            {
+                                target.RemoveCondition(trackerCondition);
+                                return;
+                            }
+                        }
+                    }
+                    
+                    //Add the flight condition, and track if there is an effect
+                    RulesetCondition newFlightCondition = null;
+                    if (TryAddFlightCondition(source, target, rulesetCondition, out newFlightCondition))
+                    {
+                        //Restore concentration tracking
+                        RulesetEffect effect = source.FindEffectTrackingCondition(rulesetCondition);
+                        if (effect != null && effect is RulesetEffectSpell spell && spell.SpellDefinition.RequiresConcentration)
+                        {
+                            effect.TrackCondition(source, source.Guid, target, target.Guid, newFlightCondition, "FlightResumed");
+                        }
+                    }
+                } catch (Exception ex)
                 {
-                    Main.Log($">>>> FlightSuspendBehavior EXCEPTION {e.Message} {e.StackTrace}");
+                    Main.Log($"FlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
+                    return;
                 }
-                
             }
         }
 
