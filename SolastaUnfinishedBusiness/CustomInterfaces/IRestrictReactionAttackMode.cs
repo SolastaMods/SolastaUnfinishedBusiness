@@ -3,12 +3,16 @@
 public interface IRestrictReactionAttackMode
 {
     public bool ValidReactionMode(
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
         RulesetAttackMode attackMode,
-        GameLocationCharacter character,
-        GameLocationCharacter target);
+        RulesetEffect rulesetEffect);
 }
 
 public delegate bool ValidReactionModeHandler(
+    CharacterAction action,
+    GameLocationCharacter attacker,
+    GameLocationCharacter defender,
     RulesetAttackMode attackMode,
-    GameLocationCharacter character,
-    GameLocationCharacter target);
+    RulesetEffect rulesetEffect);

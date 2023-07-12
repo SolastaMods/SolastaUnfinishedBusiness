@@ -321,9 +321,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!battleManager.IsBattleInProgress)
             {
                 yield break;
             }
@@ -347,11 +345,11 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedPower(_powerMightyShot);
 
-            foreach (var target in gameLocationBattleService.Battle.AllContenders
+            foreach (var target in battleManager.Battle.AllContenders
                          .Where(x =>
                              x.Side != attacker.Side &&
                              x != defender &&
-                             gameLocationBattleService.IsWithinXCells(defender, x, 3))
+                             battleManager.IsWithinXCells(defender, x, 3))
                          .ToList())
             {
                 StartVisualEffect(attacker, defender, SpellDefinitions.CallLightning, EffectType.Effect);

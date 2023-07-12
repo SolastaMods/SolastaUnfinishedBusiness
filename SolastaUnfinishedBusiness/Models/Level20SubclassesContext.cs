@@ -834,20 +834,17 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationBattleService == null)
+            if (!battleManager.IsBattleInProgress)
             {
                 yield break;
             }
 
             attacker.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
 
-            foreach (var ally in gameLocationBattleService.Battle.AllContenders
+            foreach (var ally in battleManager.Battle.AllContenders
                          .Where(x => x.Side == attacker.Side &&
                                      x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(attacker, x, 4))
+                                     battleManager.IsWithinXCells(attacker, x, 4))
                          .ToList()) // avoid changing enumerator
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);

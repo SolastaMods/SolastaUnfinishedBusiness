@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,6 +16,18 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomActionIdContext
 {
+    private static readonly List<Id> ExtraActionIdToggles = new()
+    {
+        (Id)ExtraActionId.ArcaneArcherToggle,
+        (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.MasterfulWhirlToggle,
+        (Id)ExtraActionId.FeatCrusherToggle,
+        (Id)ExtraActionId.MonkKiPointsToggle,
+        (Id)ExtraActionId.PaladinSmiteToggle,
+        (Id)ExtraActionId.QuiveringPalmToggle
+    };
+
     internal static FeatureDefinitionPower FarStep { get; private set; }
 
     internal static void Load()
@@ -129,13 +143,53 @@ public static class CustomActionIdContext
             .AddToDB();
     }
 
+    internal static bool IsCustomActionIdToggle(Id action)
+    {
+        return ExtraActionIdToggles.Contains(action);
+    }
+
+    internal static void ReorderToggles(List<Id> actions)
+    {
+        var powerNdx = actions.FindIndex(x => x == Id.Cautious);
+
+        if (powerNdx < 0)
+        {
+            return;
+        }
+
+        void DoReorder(Id actionId, int overrideIndex = -1)
+        {
+            actions.Remove(actionId);
+            actions.Insert(overrideIndex < 0 ? powerNdx : overrideIndex, actionId);
+        }
+
+        foreach (var id in ExtraActionIdToggles.Where(actions.Contains))
+        {
+            DoReorder(id);
+        }
+    }
+
     private static void BuildCustomToggleActions()
     {
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "ArcaneArcherToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ArcaneArcherToggle)
+            .AddToDB();
+
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "AudaciousWhirlToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CunningStrikeToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CunningStrikeToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -356,10 +410,15 @@ public static class CustomActionIdContext
         }
     }
 
-    private static ActionStatus CanUseInvocationAction(Id actionId, ActionScope scope,
-        GameLocationCharacter locationCharacter, bool canCastSpells, bool canOnlyUseCantrips)
+    private static ActionStatus CanUseInvocationAction(
+        Id actionId,
+        ActionScope scope,
+        GameLocationCharacter locationCharacter,
+        bool canCastSpells,
+        bool canOnlyUseCantrips)
     {
         var character = locationCharacter.RulesetCharacter;
+
         if (IsGambitActionId(actionId)
             && character.HasPower(GambitsBuilders.GambitPool)
             && character.KnowsAnyInvocationOfActionId(actionId, scope)

@@ -1,0 +1,47 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:ActionAffinityArcaneArcherToggle:be08f921-ba8c-5368-948c-f9a7ae0eef85",
+    "Definition:InvocationPoolArcaneShotChoice1:90b1032c-068d-5efc-ac62-d13626da1128",
+    "Definition:PowerMartialArcaneArcherArcaneShot:3bd8b406-0722-5aa1-9e50-f2e5b2d100ae",
+    "Definition:PowerUseModifierMartialArcaneArcherArcaneShotUse1:46ab2bfe-feb4-516c-8600-f9f62c875c0d"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatArcaneArcherAdeptTitle",
+    "description": "Feat/&FeatArcaneArcherAdeptDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b699f6ba-7f04-56ba-bc5e-7e90f585b4fe",
+  "contentPack": 9999,
+  "name": "FeatArcaneArcherAdept"
+}

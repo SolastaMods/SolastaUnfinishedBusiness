@@ -8,12 +8,27 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowDistract:f2d8d83c-99b7-566c-9017-d0c3b59f7796",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowProne:911d06c9-e07c-5963-be3b-2ee663723835",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityMonkKiPointsToggle:24119a53-4162-52ce-977c-2ca89ed88c28",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureWayOfTheDistantHandCombat:e5d6e488-9bba-5766-b298-4f26d4723f09",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowPush:6095b139-722d-5043-bc78-3edf943e0963",
       "level": 3
     },
     {
@@ -28,7 +43,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandUpgradedDistract:f8e441d5-0940-5c71-924f-8eb3b367f614",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowUpgradedTechnique:75ccd86a-0b92-5944-8a4f-bcc7272b1aea",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowUpgradedProne:d67bd9f0-756f-50bb-adb8-208c0b5ad8b4",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandUpgradedPush:6d173460-db7e-599a-9f6d-6082e820b502",
       "level": 11
     },
     {

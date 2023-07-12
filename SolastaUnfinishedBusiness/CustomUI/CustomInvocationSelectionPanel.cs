@@ -538,6 +538,19 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             );
         }
 
+        var gainedRace = currentHero.RaceDefinition;
+
+        if (gainedRace != null)
+        {
+            gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedRace.FeatureUnlocks
+                    .Where(f => f.Level == gainedClassLevel)
+                    .Select(f => f.FeatureDefinition))
+                .OfType<FeatureDefinitionCustomInvocationPool>()
+                .Where(x => x.PoolType != null)
+                .Select(f => (AttributeDefinitions.TagRace, f))
+            );
+        }
+
         InvocationPoolTypeCustom.RefreshAll();
     }
 

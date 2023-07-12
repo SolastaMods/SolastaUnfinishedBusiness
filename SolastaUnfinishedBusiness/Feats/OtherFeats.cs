@@ -35,6 +35,7 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
@@ -56,6 +57,7 @@ internal static class OtherFeats
         BuildMagicInitiate(feats);
 
         feats.AddRange(
+            featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
             featHealer,
@@ -79,6 +81,9 @@ internal static class OtherFeats
             featHealer,
             featInspiringLeader);
 
+        GroupFeats.FeatGroupRangedCombat.AddFeats(
+            featArcaneArcherAdept);
+
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             featMobile);
 
@@ -89,6 +94,7 @@ internal static class OtherFeats
             spellSniperGroup);
 
         GroupFeats.FeatGroupGeneralAdept.AddFeats(
+            featArcaneArcherAdept,
             featEldritchAdept,
             featInfusionAdept,
             featMetamagicAdept,
@@ -110,6 +116,24 @@ internal static class OtherFeats
             featHealer,
             featPickPocket);
     }
+
+    #region Arcane Archer Adept
+
+    private static FeatDefinition BuildArcaneArcherAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatArcaneArcherAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                MartialArcaneArcher.PowerArcaneShot,
+                MartialArcaneArcher.InvocationPoolArcaneShotChoice1,
+                MartialArcaneArcher.PowerArcaneShotAdditionalUse1,
+                MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .AddToDB();
+    }
+
+    #endregion
 
     #region Eldritch Adept
 

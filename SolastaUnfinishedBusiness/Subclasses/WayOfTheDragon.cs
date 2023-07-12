@@ -81,6 +81,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var conditionAscension = ConditionDefinitionBuilder
             .Create($"Condition{Name}Ascension")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}Ascension")

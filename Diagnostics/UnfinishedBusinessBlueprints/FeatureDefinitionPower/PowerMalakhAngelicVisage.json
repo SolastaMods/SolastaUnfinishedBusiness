@@ -359,9 +359,9 @@
     "description": "Feature/&PowerMalakhAngelicVisageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa6bed47-7b43-51d5-a765-5f5219cfce7b",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "68106d6ed2629634a96c2d7c0d0a55ad",
+      "m_SubObjectName": "MarkOfFate",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

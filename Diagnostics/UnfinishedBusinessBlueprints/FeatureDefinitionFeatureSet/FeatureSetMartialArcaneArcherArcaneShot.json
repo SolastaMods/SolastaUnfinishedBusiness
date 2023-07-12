@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:InvocationPoolArcaneShotChoice2:3197b363-e7f9-5762-b54f-70123fb9fe88",
+    "Definition:PowerMartialArcaneArcherArcaneShot:3bd8b406-0722-5aa1-9e50-f2e5b2d100ae",
+    "Definition:ActionAffinityArcaneArcherToggle:be08f921-ba8c-5368-948c-f9a7ae0eef85",
+    "Definition:PowerUseModifierMartialArcaneArcherArcaneShotUse2:20f9a5dc-986d-5a99-8c76-fb3582782725"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMartialArcaneArcherArcaneShotTitle",
+    "description": "Feature/&FeatureSetMartialArcaneArcherArcaneShotDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9597a560-a007-5384-b91e-102df94ec256",
+  "contentPack": 9999,
+  "name": "FeatureSetMartialArcaneArcherArcaneShot"
+}

@@ -88,11 +88,10 @@ public static class CharacterActionMagicEffectPatcher
             var actionParams = __instance.ActionParams;
 
             //PATCH: allow modify magic attacks from spells or powers cast from non heroes
-            var attackModifiers = definition.GetAllSubFeaturesOfType<IModifyMagicEffectOnActionStart>();
-
-            foreach (var feature in attackModifiers)
+            foreach (var modifyMagicEffectOnActionStart in definition
+                         .GetAllSubFeaturesOfType<IModifyMagicEffectOnActionStart>())
             {
-                feature.OnMagicalEffectActionStarted(__instance);
+                modifyMagicEffectOnActionStart.OnMagicalEffectActionStarted(__instance);
             }
 
             //PATCH: skip spell animation if this is "attack after cast" spell
@@ -124,14 +123,16 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+
             //PATCH: supports `IUsePowerInitiatedByMe`
             if (__instance is CharacterActionUsePower characterActionUsePower1)
             {
                 var power = characterActionUsePower1.activePower.PowerDefinition;
 
-                foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerInitiatedByMe>())
+                foreach (var usePowerFinished in rulesetCharacter.GetSubFeaturesByType<IUsePowerInitiatedByMe>())
                 {
-                    usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
+                    yield return usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
                 }
             }
 
@@ -145,9 +146,9 @@ public static class CharacterActionMagicEffectPatcher
             {
                 var power = characterActionUsePower2.activePower.PowerDefinition;
 
-                foreach (var usePowerFinished in power.GetAllSubFeaturesOfType<IUsePowerFinishedByMe>())
+                foreach (var usePowerFinished in rulesetCharacter.GetSubFeaturesByType<IUsePowerFinishedByMe>())
                 {
-                    usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
+                    yield return usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
                 }
             }
 

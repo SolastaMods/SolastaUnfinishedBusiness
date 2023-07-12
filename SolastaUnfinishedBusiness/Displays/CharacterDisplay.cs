@@ -176,6 +176,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchScimitarWeaponSpecialization();
         }
 
+        toggle = Main.Settings.EnableRogueCunningStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueCunningStrike = toggle;
+            CharacterContext.SwitchRogueCunningStrike();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableLevel20;
