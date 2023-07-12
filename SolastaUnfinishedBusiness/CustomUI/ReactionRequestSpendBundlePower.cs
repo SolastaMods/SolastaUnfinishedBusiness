@@ -136,6 +136,13 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
 
         var effectDescription = power.EffectDescription;
 
+        // We let targets collection be empty with RangeType MeleeHit on sub power so it can be handled manually in code
+        // i.e.: Cunning / Devious Strike powers that need to be applied on attack finished not before hit
+        if (effectDescription.RangeType == RuleDefinitions.RangeType.MeleeHit)
+        {
+            return;
+        }
+
         if (effectDescription.RangeType == RuleDefinitions.RangeType.Self
             || effectDescription.TargetType == RuleDefinitions.TargetType.Self)
         {

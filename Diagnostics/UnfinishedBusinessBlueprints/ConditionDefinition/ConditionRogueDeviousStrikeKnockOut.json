@@ -20,7 +20,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "Attacked"
+    "Damaged"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -226,7 +226,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -269,12 +269,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionIncapacitatedTitle",
-    "description": "Rules/&ConditionIncapacitatedDescription",
+    "title": "Condition/&ConditionRogueDeviousStrikeKnockOutTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
-      "m_SubObjectName": "ConditionIncapacitated",
+      "m_AssetGUID": "ea73a6110352c3b4db96f64cb84ca709",
+      "m_SubObjectName": "ConditionUnconscious",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
+    "Definition:ActionAffinityWithdraw:ea2fd04d-e230-5340-9792-6197124b9431",
     "Definition:MovementAffinityRogueCunningStrikeWithdraw:a377523b-2b34-5799-9a93-fbf5008c9f27"
   ],
   "allowMultipleInstances": false,
