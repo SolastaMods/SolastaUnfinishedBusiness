@@ -222,6 +222,12 @@ internal static class GameUiDisplay
             }
         }
 
+        toggle = Main.Settings.EnableDistanceOnTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
+        {
+            Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
         #endregion
 
         #region Formation
