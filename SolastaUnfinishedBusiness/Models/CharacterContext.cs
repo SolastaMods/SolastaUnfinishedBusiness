@@ -1494,7 +1494,8 @@ internal static class CharacterContext
         }
 
         // only trigger if haven't used sneak attack yet
-        if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack"))
+        if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel"))
         {
             return false;
         }
