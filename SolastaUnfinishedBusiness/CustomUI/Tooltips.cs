@@ -105,7 +105,8 @@ internal static class Tooltips
 
     internal static void AddDistanceToTooltip(GameLocationCharacter instance, EntityDescription entityDescription)
     {
-        entityDescription.header += "<br><br>";
+        if (entityDescription is not null)
+            entityDescription.header += "<br><br>";
 
         TooltipInfoCharacterDescription ??= GameObject.Find("TooltipFeatureCharacterDescription");
 
