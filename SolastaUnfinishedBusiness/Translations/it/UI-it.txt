@@ -11,3 +11,4 @@ UI/&PartyEditorUnavailable=****** Party Editor non disponibile: carica un salvat
 UI/&Quickies=Sveltine
 UI/&Remove=Rimuovere
 UI/&Skilled=Abile
+UI/&Distance=distanza

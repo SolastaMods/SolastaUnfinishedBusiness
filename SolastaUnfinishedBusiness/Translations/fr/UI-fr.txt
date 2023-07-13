@@ -11,3 +11,4 @@ UI/&PartyEditorUnavailable=****** Party Editor indisponible : veuillez charger 
 UI/&Quickies=Rapides
 UI/&Remove=Retirer
 UI/&Skilled=Qualifié
+UI/&Distance=Distance

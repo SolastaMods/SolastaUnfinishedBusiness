@@ -11,3 +11,4 @@ UI/&PartyEditorUnavailable=****** Party-Editor nicht verfügbar: Bitte laden Sie
 UI/&Quickies=Quickies
 UI/&Remove=Entfernen
 UI/&Skilled=Geschickt
+UI/&Distance=Distanz

@@ -11,7 +11,6 @@ internal static class Tooltips
     internal static GameObject TooltipInfoCharacterDescription = null;
     internal static GameObject DistanceObject = null;
     internal static GameObject DistanceTextObject;
-    internal static GameObject DistanceImageObject;
     internal static GameObject CellImageObject = null;
     internal static TextMeshProUGUI TMPUGUI = null;
 
@@ -121,14 +120,9 @@ internal static class Tooltips
             CellImageObject ??= GameObject.Find("CellImage").gameObject;
 
             if (DistanceObject is null)
-            {
                 GenerateDistanceObjects(distance, TMPUGUI, CellImageObject);
-            }
-            else
-            {
-                DistanceTextObject.GetComponent<TextMeshProUGUI>().text = "Distance : " + distance.ToString();
-                DistanceImageObject.transform.localPosition = GetCellIconCorrectPosition(distance);
-            }
+
+            DistanceTextObject.GetComponent<TextMeshProUGUI>().text = Gui.Localize("UI/&Distance") + " : " + Gui.FormatDistance(distance);
 
             DistanceObject?.SetActive(true);
         }
@@ -146,19 +140,11 @@ internal static class Tooltips
         DistanceObject.transform.localPosition = new Vector3(0, -10, 0);
         DistanceTextObject = GameObject.Instantiate(TMPUGUI).gameObject;
         DistanceTextObject.name = "DistanceTextObject";
-        DistanceTextObject.GetComponent<TextMeshProUGUI>().text = "Distance : " + distance.ToString();
+        DistanceTextObject.GetComponent<TextMeshProUGUI>().text = "Distance : " + Gui.FormatDistance(distance);
         DistanceTextObject.transform.SetParent(DistanceObject.transform);
         DistanceTextObject.transform.position = Vector3.zero;
         DistanceTextObject.transform.localPosition = Vector3.zero;
-        DistanceImageObject = GameObject.Instantiate(CellImageObject);
-        DistanceImageObject.name = "DistanceImageObject";
-        DistanceImageObject.transform.SetParent(DistanceObject.transform);
-        DistanceImageObject.transform.position = Vector3.zero;
-        DistanceImageObject.transform.localPosition = GetCellIconCorrectPosition(distance);
     }
-
-    private static Vector3 GetCellIconCorrectPosition(int distance)
-        => new Vector3(-47 + (int)distance.ToString().Length * 9, 7, 0);
 
     private static int GetDistanceToCharacter()
     {
