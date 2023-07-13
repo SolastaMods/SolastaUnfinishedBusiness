@@ -2,16 +2,18 @@
   "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
   "allowedActionTypes": [
     true,
-    false,
     true,
     true,
-    false,
+    true,
+    true,
     true
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
-  "authorizedActions": [],
+  "authorizedActions": [
+    9033
+  ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -42,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4acf5836-6199-5c3c-8686-7d2b1ba9858f",
+  "guid": "ea2fd04d-e230-5340-9792-6197124b9431",
   "contentPack": 9999,
-  "name": "ActionAffinityRogueDeviousStrikeDazed"
+  "name": "ActionAffinityWithdraw"
 }

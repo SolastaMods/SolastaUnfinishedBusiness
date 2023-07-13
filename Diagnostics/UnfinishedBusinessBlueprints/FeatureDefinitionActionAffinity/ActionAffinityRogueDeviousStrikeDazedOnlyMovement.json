@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
   "allowedActionTypes": [
-    true,
+    false,
     false,
     true,
-    true,
     false,
-    true
+    false,
+    false
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
@@ -42,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4acf5836-6199-5c3c-8686-7d2b1ba9858f",
+  "guid": "287a07de-dab8-5761-9d93-cf44c7f4ed60",
   "contentPack": 9999,
-  "name": "ActionAffinityRogueDeviousStrikeDazed"
+  "name": "ActionAffinityRogueDeviousStrikeDazedOnlyMovement"
 }

@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
+    "Definition:ActionAffinityRogueDeviousStrikeDazed:4acf5836-6199-5c3c-8686-7d2b1ba9858f",
     "Definition:FeatureRogueDeviousStrikeDazed:345dbda1-bee1-5417-8a7a-f15748fc7d72"
   ],
   "allowMultipleInstances": false,
@@ -134,8 +135,8 @@
     "description": "Condition/&ConditionRogueDeviousStrikeDazedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
-      "m_SubObjectName": "ConditionNegative",
+      "m_AssetGUID": "3b24b98087e888a4584553215450c700",
+      "m_SubObjectName": "ConditionDazzled",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

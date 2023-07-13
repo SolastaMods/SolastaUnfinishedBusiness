@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityRogueDeviousStrikeDazed:4acf5836-6199-5c3c-8686-7d2b1ba9858f"
+    "Definition:ActionAffinityRogueDeviousStrikeDazedOnlyMovement:287a07de-dab8-5761-9d93-cf44c7f4ed60"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -13,13 +13,11 @@
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D1",
-  "durationParameter": 1,
+  "durationParameterDie": "D4",
+  "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -153,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2060f3b6-c484-519a-aa47-bbd1ca05377f",
+  "guid": "c9e7bdb1-4db9-5ea2-a682-b3be1e2e4c20",
   "contentPack": 9999,
-  "name": "ConditionRogueDeviousStrikeDazedNoAction"
+  "name": "ConditionRogueDeviousStrikeDazedOnlyMovement"
 }

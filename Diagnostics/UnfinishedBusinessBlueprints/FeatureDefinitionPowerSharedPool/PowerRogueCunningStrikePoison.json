@@ -2,7 +2,7 @@
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
+    "rangeType": "MeleeHit",
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
@@ -75,7 +75,7 @@
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": true,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPoisoned",

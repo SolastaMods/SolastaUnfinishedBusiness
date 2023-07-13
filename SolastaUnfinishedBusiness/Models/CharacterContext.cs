@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -1177,7 +1178,6 @@ internal static class CharacterContext
         const string Cunning = "RogueCunningStrike";
         const string Devious = "RogueDeviousStrike";
 
-
         var powerPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Cunning}")
             .SetGuiPresentation(Category.Feature)
@@ -1187,7 +1187,7 @@ internal static class CharacterContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
                     .Build())
             .AddToDB();
 
@@ -1203,7 +1203,7 @@ internal static class CharacterContext
 
         var conditionDisarmed = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Disarmed")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityDisarmed)
             .AddToDB();
@@ -1215,7 +1215,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1238,14 +1238,14 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -1262,7 +1262,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1278,10 +1278,20 @@ internal static class CharacterContext
 
         // Withdraw
 
-        var movementAffinityWithdraw = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinity{Cunning}Withdraw")
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.StepBack, "Withdraw")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetActionId(ExtraActionId.Withdraw)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
+            .SetAddedConditionName(string.Empty)
+            .SetMaxCells(3)
+            .RequiresAuthorization()
+            .AddToDB();
+
+        var actionAffinityWithdraw = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityWithdraw")
             .SetGuiPresentationNoContent(true)
-            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.Withdraw)
             .AddToDB();
 
         var conditionWithdraw = ConditionDefinitionBuilder
@@ -1289,7 +1299,8 @@ internal static class CharacterContext
             .SetGuiPresentation($"Condition/&Condition{Cunning}WithdrawTitle", Gui.NoLocalization,
                 ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
-            .AddFeatures(movementAffinityWithdraw, FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
+            .SetSilent(Silent.WhenRemoved)
+            .AddFeatures(actionAffinityWithdraw)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
@@ -1313,49 +1324,38 @@ internal static class CharacterContext
 
         // Dazed
 
-        var movementAffinityDazed = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinity{Devious}Dazed")
+        var actionAffinityDazedOnlyMovement = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Devious}DazedOnlyMovement")
             .SetGuiPresentationNoContent(true)
-            .SetBaseSpeedMultiplicativeModifier(0)
+            .SetAllowedActionTypes(main: false, bonus: false, freeOnce: false, reaction: false, noCost: false)
             .AddToDB();
 
-        var conditionDazedNoMovement = ConditionDefinitionBuilder
-            .Create($"Condition{Devious}DazedNoMovement")
+        var conditionDazedOnlyMovement = ConditionDefinitionBuilder
+            .Create($"Condition{Devious}DazedOnlyMovement")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .AddFeatures(movementAffinityDazed)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        var actionAffinityDazed = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{Devious}Dazed")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(false, false, true, false, false, false)
-            .AddToDB();
-
-        var conditionDazedNoAction = ConditionDefinitionBuilder
-            .Create($"Condition{Devious}DazedNoAction")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .AddFeatures(actionAffinityDazed)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialDuration()
+            .AddFeatures(actionAffinityDazedOnlyMovement)
             .AddToDB();
 
         var featureDazed = FeatureDefinitionBuilder
             .Create($"Feature{Devious}Dazed")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedNoAction, conditionDazedNoMovement))
+            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedOnlyMovement))
+            .AddToDB();
+
+        var actionAffinityDazed = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Devious}Dazed")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false, bonus: false)
             .AddToDB();
 
         var conditionDazed = ConditionDefinitionBuilder
             .Create($"Condition{Devious}Dazed")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(featureDazed)
+            .AddFeatures(featureDazed, actionAffinityDazed)
             .AddToDB();
 
         var powerDaze = FeatureDefinitionPowerSharedPoolBuilder
@@ -1365,7 +1365,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1383,7 +1383,8 @@ internal static class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionAsleep)
+            .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 
         var powerKnockOut = FeatureDefinitionPowerSharedPoolBuilder
@@ -1393,14 +1394,14 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -1416,7 +1417,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1484,7 +1485,8 @@ internal static class CharacterContext
         }
 
         // only trigger if haven't used sneak attack yet
-        if (!attacker.OnceInMyTurnIsValid("AdditionalDamageRogueSneakAttack"))
+        if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel"))
         {
             return false;
         }
@@ -1548,9 +1550,12 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class PhysicalAttackInitiatedByMeCunningStrike : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalAttackInitiatedByMeCunningStrike :
+        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerRogueCunningStrike;
+
+        private FeatureDefinitionPower _selectedPower;
 
         public PhysicalAttackInitiatedByMeCunningStrike(FeatureDefinitionPower powerRogueCunningStrike)
         {
@@ -1570,6 +1575,8 @@ internal static class CharacterContext
             bool firstTarget,
             bool criticalHit)
         {
+            _selectedPower = null;
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
@@ -1624,7 +1631,7 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var selectedPower = subPowers[option];
+            _selectedPower = subPowers[option];
 
             // inflict condition passing power cost on amount to be deducted later on from sneak dice
             rulesetAttacker.InflictCondition(
@@ -1637,37 +1644,76 @@ internal static class CharacterContext
                 rulesetAttacker.CurrentFaction.Name,
                 1,
                 null,
-                selectedPower.CostPerUse,
+                _selectedPower.CostPerUse,
                 0,
                 0);
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (_selectedPower == null || _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)
+            {
+                yield break;
+            }
+
+            var power = _selectedPower;
+
+            _selectedPower = null;
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            if (rulesetImplementationService == null)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var effectPower = rulesetImplementationService
+                .InstantiateEffectPower(rulesetAttacker, usablePower, true)
+                .AddAsActivePowerToSource();
+
+            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
         }
     }
 
     private sealed class ActionFinishedByMeDazed : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDazedNoAction;
-        private readonly ConditionDefinition _conditionDazedNoMovement;
+        private readonly ConditionDefinition _conditionDazedOnlyMovement;
 
-        public ActionFinishedByMeDazed(
-            ConditionDefinition conditionDazedNoAction,
-            ConditionDefinition conditionDazedNoMovement)
+        public ActionFinishedByMeDazed(ConditionDefinition conditionDazedOnlyMovement)
         {
-            _conditionDazedNoAction = conditionDazedNoAction;
-            _conditionDazedNoMovement = conditionDazedNoMovement;
+            _conditionDazedOnlyMovement = conditionDazedOnlyMovement;
         }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
+            if (characterAction is not CharacterActionMove)
+            {
+                yield break;
+            }
+
             var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
-            var condition = characterAction is CharacterActionMove
-                ? _conditionDazedNoAction
-                : _conditionDazedNoMovement;
 
             rulesetCharacter.InflictCondition(
-                condition.Name,
-                condition.DurationType,
-                condition.DurationParameter,
-                condition.turnOccurence,
+                _conditionDazedOnlyMovement.Name,
+                _conditionDazedOnlyMovement.DurationType,
+                _conditionDazedOnlyMovement.DurationParameter,
+                _conditionDazedOnlyMovement.turnOccurence,
                 AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -1676,8 +1722,6 @@ internal static class CharacterContext
                 0,
                 0,
                 0);
-
-            yield break;
         }
     }
 
