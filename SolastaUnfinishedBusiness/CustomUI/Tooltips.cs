@@ -11,7 +11,6 @@ internal static class Tooltips
     internal static GameObject TooltipInfoCharacterDescription = null;
     internal static GameObject DistanceObject = null;
     internal static GameObject DistanceTextObject;
-    internal static GameObject CellImageObject = null;
     internal static TextMeshProUGUI TMPUGUI = null;
 
     internal static void AddContextToRecoveredFeature(RecoveredFeatureItem item, RulesetCharacterHero character)
@@ -116,34 +115,34 @@ internal static class Tooltips
             var distance = GetDistanceToCharacter();
             entityDescription.header += "<br><br>";
 
-            TMPUGUI ??= TooltipInfoCharacterDescription.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
-            CellImageObject ??= GameObject.Find("CellImage").gameObject;
+            TMPUGUI ??= TooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
 
-            if (DistanceObject is null)
-                GenerateDistanceObjects(distance, TMPUGUI, CellImageObject);
+            if (DistanceTextObject is null)
+                GenerateDistanceText(distance, TMPUGUI);
+            else
+                UpdateDistanceText(distance);
 
-            DistanceTextObject.GetComponent<TextMeshProUGUI>().text = Gui.Localize("UI/&Distance") + " : " + Gui.FormatDistance(distance);
-
-            DistanceObject?.SetActive(true);
+            DistanceTextObject?.SetActive(true);
         }
         else if (!Main.Settings.EnableDistanceOnTooltip || (GameObject.Find("TooltipFeatureCharacterDescription") && ServiceRepository.GetService<IGameLocationBattleService>().Battle.ActiveContender.Side == RuleDefinitions.Side.Enemy))
         {
-            DistanceObject?.SetActive(false);
+            DistanceTextObject?.SetActive(false);
         }
     }
 
-    private static void GenerateDistanceObjects(int distance, TextMeshProUGUI TMPUGUI, GameObject CellImageObject)
+
+    private static void GenerateDistanceText(int distance, TextMeshProUGUI TMPUGUI)
     {
-        DistanceObject = new GameObject("DistanceObject");
-        DistanceObject.transform.SetParent(TMPUGUI.transform);
-        DistanceObject.transform.position = Vector3.zero;
-        DistanceObject.transform.localPosition = new Vector3(0, -10, 0);
+        var anchorObject = new GameObject();
+        anchorObject.transform.SetParent(TMPUGUI.transform);
+        anchorObject.transform.localPosition = Vector3.zero;
         DistanceTextObject = GameObject.Instantiate(TMPUGUI).gameObject;
         DistanceTextObject.name = "DistanceTextObject";
-        DistanceTextObject.GetComponent<TextMeshProUGUI>().text = "Distance : " + Gui.FormatDistance(distance);
-        DistanceTextObject.transform.SetParent(DistanceObject.transform);
+        DistanceTextObject.transform.SetParent(anchorObject.transform);
         DistanceTextObject.transform.position = Vector3.zero;
-        DistanceTextObject.transform.localPosition = Vector3.zero;
+        DistanceTextObject.transform.localPosition = new Vector3(0, -10, 0);
+
+        UpdateDistanceText(distance);
     }
 
     private static int GetDistanceToCharacter()
@@ -161,4 +160,7 @@ internal static class Tooltips
 
         return distance;
     }
+
+    private static void UpdateDistanceText(int distance)
+        => DistanceTextObject.GetComponent<TextMeshProUGUI>().text = Gui.Format("{0} : {1}", Gui.Localize("UI/&Distance"), Gui.FormatDistance(distance));
 }
