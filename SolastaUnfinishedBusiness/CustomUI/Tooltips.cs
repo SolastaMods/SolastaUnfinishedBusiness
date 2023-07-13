@@ -158,9 +158,7 @@ internal static class Tooltips
     }
 
     private static Vector3 GetCellIconCorrectPosition(int distance)
-    {
-        return new Vector3(-47 + (int)distance.ToString().Length * 9, 7, 0);
-    }
+        => new Vector3(-47 + (int)distance.ToString().Length * 9, 7, 0);
 
     private static int GetDistanceToCharacter()
     {
