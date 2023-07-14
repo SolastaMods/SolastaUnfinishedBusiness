@@ -82,6 +82,26 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ActionFlightResume {
+            get {
+                object obj = ResourceManager.GetObject("ActionFlightResume", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ActionFlightSuspend {
+            get {
+                object obj = ResourceManager.GetObject("ActionFlightSuspend", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ActionGambit {
             get {
                 object obj = ResourceManager.GetObject("ActionGambit", resourceCulture);
@@ -715,6 +735,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] ColorBurst {
             get {
                 object obj = ResourceManager.GetObject("ColorBurst", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ConditionFlightSuspended {
+            get {
+                object obj = ResourceManager.GetObject("ConditionFlightSuspended", resourceCulture);
                 return ((byte[])(obj));
             }
         }

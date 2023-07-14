@@ -560,4 +560,18 @@ internal static class RulesetCharacterExtensions
     {
         return character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
     }
+
+    internal static bool HasTemporaryConditionOfType(this RulesetCharacter character, string conditionName)
+    {
+        
+        foreach(var condition in character.AllConditions)
+        {
+            if (condition.ConditionDefinition.IsSubtypeOf(conditionName) && condition.DurationType != DurationType.Permanent)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
