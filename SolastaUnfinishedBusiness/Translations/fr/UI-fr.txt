@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Actions multiples
 UI/&Add=Ajout
 UI/&AdditionalActionSource=Accordé par : {0}
 UI/&Current Party=Groupe sélectionné
+UI/&DistanceFormat=Distance: {0}
 UI/&Experimental Preview:=Aperçu expérimental <i><color=Yellow>[sauvegarder avant d'utiliser]</color></i> :
 UI/&Expert=Expert
 UI/&PartyEditor=Éditeur de groupe
@@ -11,4 +12,3 @@ UI/&PartyEditorUnavailable=****** Éditeur de groupe indisponible : veuillez ch
 UI/&Quickies=Questions rapides
 UI/&Remove=Retirer
 UI/&Skilled=Qualifié
-UI/&DistanceFormat=Distance: {0}

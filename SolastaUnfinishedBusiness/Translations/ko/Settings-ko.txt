@@ -118,6 +118,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정�
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 활성화하여 파티 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있음]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀에서 토글을 활성화하십시오.
+ModUi/&EnableTooltipDistance=전투 중인 캐릭터 위로 마우스를 가져갈 때 패널의 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환</color> 및 <color=#D89555>페이 소환</color> 업캐스트 활성화
 ModUi/&EnablesAsiAndFeat=<i><color=#F0DAA0>[독점적인 선택 대신]</color></i> 속성 점수 증가 및 재주 선택 활성화
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 비율 설정</color>

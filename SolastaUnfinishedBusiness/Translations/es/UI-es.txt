@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Acciones múltiples
 UI/&Add=Add
 UI/&AdditionalActionSource=Otorgado por: {0}
 UI/&Current Party=Partido actual
+UI/&DistanceFormat=Distancia: {0}
 UI/&Experimental Preview:=Vista previa experimental <i><color=Yellow>[guardar copia de seguridad antes de usar]</color></i>:
 UI/&Expert=Experto
 UI/&PartyEditor=Editor de fiestas
@@ -11,4 +12,3 @@ UI/&PartyEditorUnavailable=****** Party Editor no disponible: Cargue un juego gu
 UI/&Quickies=Rapiditos
 UI/&Remove=Eliminar
 UI/&Skilled=Experto
-UI/&DistanceFormat=Distancia: {0}

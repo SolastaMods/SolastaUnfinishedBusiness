@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=複数のアクション
 UI/&Add=Add
 UI/&AdditionalActionSource=付与者: {0}
 UI/&Current Party=現在のパーティー
+UI/&DistanceFormat=距離: {0}
 UI/&Experimental Preview:=実験的プレビュー <i><color=Yellow>[使用前にバックアップ保存]</color></i>:
 UI/&Expert=エキスパート
 UI/&PartyEditor=パーティーエディター
@@ -11,4 +12,3 @@ UI/&PartyEditorUnavailable=****** パーティー エディターは利用でき
 UI/&Quickies=クイックキー
 UI/&Remove=削除
 UI/&Skilled=熟練した
-UI/&DistanceFormat=距離: {0}

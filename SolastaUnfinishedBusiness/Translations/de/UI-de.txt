@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Mehrere Aktionen
 UI/&Add=Add
 UI/&AdditionalActionSource=Gewährt von: {0}
 UI/&Current Party=Aktuelle Partei
+UI/&DistanceFormat=Distanz: {0}
 UI/&Experimental Preview:=Experimentelle Vorschau <i><color=Yellow>[Sicherungskopie vor Verwendung speichern]</color></i>:
 UI/&Expert=Experte
 UI/&PartyEditor=Parteiredakteur
@@ -11,4 +12,3 @@ UI/&PartyEditorUnavailable=****** Party-Editor nicht verfügbar: Bitte laden Sie
 UI/&Quickies=Quickies
 UI/&Remove=Entfernen
 UI/&Skilled=Geschickt
-UI/&DistanceFormat=Distanz: {0}
