@@ -36,6 +36,7 @@ internal static class InventoryManagementContext
     private static GuiDropdown TaggedGuiDropdown { get; set; }
 
     private static Toggle UnidentifiedToggle { get; set; }
+    private static GameObject UnidentifiedText { get; set; }
 
     internal static Action SelectionChanged { get; private set; }
 
@@ -79,7 +80,7 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.name = "IdentifiedToggle";
         UnidentifiedToggle.gameObject.SetActive(true);
         UnidentifiedToggle.onValueChanged.RemoveAllListeners();
-        var unidentified = Object.Instantiate(byTextMesh.gameObject, rightGroup);
+        UnidentifiedText = Object.Instantiate(byTextMesh.gameObject, rightGroup);
 
         //
         // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
@@ -222,9 +223,9 @@ internal static class InventoryManagementContext
         UnidentifiedToggle.isOn = false;
         UnidentifiedToggle.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-        unidentified.GetComponentInChildren<TextMeshProUGUI>()
+        UnidentifiedText.GetComponentInChildren<TextMeshProUGUI>()
             .SetText(Gui.Localize("UI/&InventoryFilterUnidentifiedMagical"));
-        unidentified.transform.localPosition = new Vector3(-332f, 340f, 0f);
+        UnidentifiedText.transform.localPosition = new Vector3(-332f, 340f, 0f);
     }
 
     internal static void ResetControls()
@@ -251,6 +252,7 @@ internal static class InventoryManagementContext
         SortGuiDropdown.gameObject.SetActive(active);
         TaggedGuiDropdown.gameObject.SetActive(active);
         UnidentifiedToggle.gameObject.SetActive(active);
+        UnidentifiedText.gameObject.SetActive(active);
     }
 
     private static void Sort(List<RulesetItem> items)

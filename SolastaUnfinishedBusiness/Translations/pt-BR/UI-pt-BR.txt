@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Múltiplas Ações
 UI/&Add=Add
 UI/&AdditionalActionSource=Concedido por: {0}
 UI/&Current Party=Parte Atual
+UI/&DistanceFormat=Distância: {0}
 UI/&Experimental Preview:=Visualização experimental <i><color=Yellow>[salvar backup antes de usar]</color></i>:
 UI/&Expert=Especialista
 UI/&PartyEditor=Editor de festas

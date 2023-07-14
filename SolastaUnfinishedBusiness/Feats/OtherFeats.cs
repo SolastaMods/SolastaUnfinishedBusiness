@@ -549,7 +549,7 @@ internal static class OtherFeats
                     .SetGuiPresentation(guiPresentation)
                     .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
                         "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
-                    .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
+                    .SetCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
                     .AddToDB())
                 .SetMustCastSpellsPrerequisite()
                 .SetFeatFamily("ElementalAdept")
@@ -566,19 +566,20 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class IgnoreDamageResistanceElementalAdept : IIgnoreDamageAffinity
+    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity
     {
         private readonly List<string> _damageTypes = new();
 
-        public IgnoreDamageResistanceElementalAdept(params string[] damageTypes)
+        public ModifyDamageResistanceElementalAdept(params string[] damageTypes)
         {
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor)
+        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Resistance &&
-                   _damageTypes.Contains(provider.DamageType);
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance } y &&
+                _damageTypes.Contains(y.DamageType));
         }
     }
 
@@ -615,7 +616,7 @@ internal static class OtherFeats
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
                             "Feature/&DieRollModifierFeatElementalMasterReroll", damageType)
-                        .SetCustomSubFeatures(new IgnoreDamageResistanceElementalMaster(damageType))
+                        .SetCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     FeatureDefinitionDamageAffinityBuilder
                         .Create($"DamageAffinity{NAME}{damageType}")
@@ -639,20 +640,20 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class IgnoreDamageResistanceElementalMaster : IIgnoreDamageAffinity
+    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity
     {
         private readonly List<string> _damageTypes = new();
 
-        public IgnoreDamageResistanceElementalMaster(params string[] damageTypes)
+        public ModifyDamageResistanceElementalMaster(params string[] damageTypes)
         {
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Immunity &&
-                   _damageTypes.Contains(provider.DamageType);
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity } y &&
+                _damageTypes.Contains(y.DamageType));
         }
     }
 

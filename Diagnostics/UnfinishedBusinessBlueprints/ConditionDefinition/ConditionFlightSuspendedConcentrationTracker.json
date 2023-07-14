@@ -2,10 +2,8 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
-  "features": [
-    "Definition:ActionAffinityRogueDeviousStrikeDazed:4acf5836-6199-5c3c-8686-7d2b1ba9858f"
-  ],
+  "conditionType": "Beneficial",
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -13,8 +11,8 @@
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameterDie": "D1",
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -129,7 +127,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2060f3b6-c484-519a-aa47-bbd1ca05377f",
+  "guid": "8e1bf118-5a8f-56b3-a55c-5aff0e89ce3e",
   "contentPack": 9999,
-  "name": "ConditionRogueDeviousStrikeDazedNoAction"
+  "name": "ConditionFlightSuspendedConcentrationTracker"
 }

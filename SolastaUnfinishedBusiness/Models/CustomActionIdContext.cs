@@ -322,6 +322,33 @@ public static class CustomActionIdContext
 
                 return;
             }
+            case (Id)ExtraActionId.FlightSuspend:
+            {
+                if (Main.Settings.AllowFlightSuspend && character.IsTemporarilyFlying())
+                {
+                    result = ActionStatus.Available;
+                }
+                else
+                {
+                    result = ActionStatus.Unavailable;
+                }
+
+                return;
+            }
+            case (Id)ExtraActionId.FlightResume:
+            {
+                if (Main.Settings.AllowFlightSuspend &&
+                    character.HasConditionOfTypeOrSubType(CustomConditionsContext.FlightSuspended.Name))
+                {
+                    result = ActionStatus.Available;
+                }
+                else
+                {
+                    result = ActionStatus.Unavailable;
+                }
+
+                return;
+            }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);

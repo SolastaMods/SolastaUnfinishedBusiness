@@ -1,7 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
@@ -20,6 +28,11 @@ internal static class CustomConditionsContext
     internal static ConditionDefinition LightSensitivity;
 
     internal static ConditionDefinition StopMovement;
+
+    internal static ConditionDefinition FlightSuspended;
+
+    private static FeatureDefinitionPower FlightSuspend { get; set; }
+    private static FeatureDefinitionPower FlightResume { get; set; }
 
     private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
 
@@ -51,6 +64,8 @@ internal static class CustomConditionsContext
                     .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
+
+        FlightSuspended = BuildFlightSuspended();
     }
 
     private static ConditionDefinition BuildInvisibilityEveryRound()
@@ -115,6 +130,182 @@ internal static class CustomConditionsContext
             .AddToDB();
 
         return conditionLightSensitive;
+    }
+
+    private static ConditionDefinition BuildFlightSuspended()
+    {
+        const string Name = "FlightSuspend";
+
+        var conditionFlightSuspendConcentrationTracker = ConditionDefinitionBuilder
+            .Create("ConditionFlightSuspendedConcentrationTracker")
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .AddToDB();
+
+        var conditionFlightSuspend = ConditionDefinitionBuilder
+            .Create("ConditionFlightSuspended")
+            .SetGuiPresentation(Name, Category.Condition,
+                Sprites.GetSprite("ConditionFlightSuspended", Resources.ConditionFlightSuspended, 32))
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureFlightSuspended")
+                .SetGuiPresentationNoContent()
+                .SetCustomSubFeatures(new FlightSuspendBehavior())
+                .AddToDB())
+            .AddToDB();
+
+        // I ran into sync issues if I didn't generate the actions here
+        BuildFlightSuspendAction(conditionFlightSuspend, conditionFlightSuspendConcentrationTracker);
+
+        return conditionFlightSuspend;
+    }
+
+    private static void BuildFlightSuspendAction(ConditionDefinition conditionFlightSuspend,
+        ConditionDefinition conditionFlightSuspendConcentrationTracker)
+    {
+        const string FlightSuspendName = "FlightSuspend";
+        const string FlightResumeName = "FlightResume";
+
+        FlightSuspend = FeatureDefinitionPowerBuilder
+            .Create($"Power{FlightSuspendName}")
+            .SetGuiPresentation(FlightSuspendName, Category.Feature,
+                Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .DelegatedToAction()
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionFlightSuspend),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlying,
+                            ConditionForm.ConditionOperation.Remove)
+                    )
+                    .UseQuickAnimations()
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasNoneOfConditions(conditionFlightSuspend.Name)))
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create($"Action{FlightSuspendName}")
+            .SetGuiPresentation(FlightSuspendName, Category.Action,
+                Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
+            .SetActionId(ExtraActionId.FlightSuspend)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionScope.All)
+            .SetActionType(ActionType.NoCost)
+            .SetFormType(ActionFormType.Small)
+            .SetActivatedPower(FlightSuspend)
+            .AddToDB();
+
+        FlightResume = FeatureDefinitionPowerBuilder
+            .Create($"Power{FlightResumeName}")
+            .SetGuiPresentation(FlightResumeName, Category.Feature,
+                Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .DelegatedToAction()
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionFlightSuspend,
+                            ConditionForm.ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(conditionFlightSuspendConcentrationTracker,
+                            ConditionForm.ConditionOperation.Remove)
+                    )
+                    .UseQuickAnimations()
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(
+                ValidatorsCharacter.HasAnyOfConditions(conditionFlightSuspend.Name)))
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create($"Action{FlightResumeName}")
+            .SetGuiPresentation(FlightResumeName, Category.Action,
+                Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
+            .SetActionId(ExtraActionId.FlightResume)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionScope.All)
+            .SetActionType(ActionType.NoCost)
+            .SetFormType(ActionFormType.Small)
+            .SetActivatedPower(FlightResume)
+            .AddToDB();
+    }
+
+    private static bool TryAddFlightCondition(
+        RulesetEntity source,
+        RulesetCharacter target,
+        RulesetCondition rulesetCondition,
+        out RulesetCondition condition)
+    {
+        condition = null;
+
+        try
+        {
+            condition = target.InflictCondition(
+                rulesetCondition.effectDefinitionName,
+                DurationType.Round,
+                rulesetCondition.remainingRounds,
+                rulesetCondition.endOccurence,
+                "11Effect",
+                source.guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            // ReSharper disable once InvocationIsSkipped
+            Main.Log($">>>> TryAddFlightSuspendedCondition EXCEPTION {e.Message} {e.StackTrace}");
+        }
+
+        return false;
+    }
+
+    private static bool TryAddFlightSuspendedConcentrationTracker(
+        RulesetEntity source,
+        RulesetCharacter target,
+        RulesetEntity effect,
+        out RulesetCondition condition)
+    {
+        condition = null;
+
+        try
+        {
+            condition = target.InflictCondition(
+                "ConditionFlightSuspendedConcentrationTracker",
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                "11Effect",
+                source.guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            condition.effectDefinitionName = effect.Name;
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            // ReSharper disable once InvocationIsSkipped
+            Main.Log($">>>> TryAddFlightSuspendedConcentrationTracker EXCEPTION {e.Message} {e.StackTrace}");
+        }
+
+        return false;
     }
 
     private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, ICustomConditionFeature
@@ -232,6 +423,158 @@ internal static class CustomConditionsContext
                     hero.Guid,
                     hero.CurrentFaction.Name),
                 false);
+        }
+    }
+
+    private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
+    {
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (target is RulesetCharacterMonster monster)
+            {
+                if (monster.MoveModes.TryGetValue((int)MoveMode.Walk, out _))
+                {
+                    //WILDSHAPE CHANGE TO MOVE MODE WALKING GOES HERE
+                    //For now, remove to avoid issues when wildshape is cancelled while flight suspended
+                    monster.RemoveCondition(rulesetCondition);
+                }
+            }
+            else
+            {
+                var conditions = target.allConditionsForEnumeration;
+
+                foreach (var condition in conditions
+                             .Where(condition => condition.ConditionDefinition.IsSubtypeOf("ConditionFlying")))
+                {
+                    //We are not interested in permanent effects
+                    if (condition.DurationType == DurationType.Permanent)
+                    {
+                        target.RemoveCondition(rulesetCondition);
+
+                        return;
+                    }
+
+                    var source = target;
+
+                    try
+                    {
+                        //Ensure we keep tabs on source and target in case someone else is concentrating on us
+                        if (condition.sourceGuid != condition.TargetGuid &&
+                            RulesetEntity.TryGetEntity(condition.sourceGuid, out RulesetCharacter newSource))
+                        {
+                            source = newSource;
+                        }
+
+                        //Check if there is an effect tracked by the source for concentration purposes
+                        var effect = source.FindEffectTrackingCondition(condition);
+
+                        if (effect is RulesetEffectSpell spell &&
+                            spell.SpellDefinition.RequiresConcentration)
+                        {
+                            spell.TrackCondition(source, source.Guid, target, target.Guid, rulesetCondition,
+                                "FlightSuspended");
+
+                            if (TryAddFlightSuspendedConcentrationTracker(
+                                    source, target, spell, out var trackerCondition))
+                            {
+                                trackerCondition.remainingRounds = condition.remainingRounds;
+                                spell.TrackCondition(source, source.Guid, target, target.Guid, trackerCondition,
+                                    "FlightSuspendedConcentrationTracker");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // ReSharper disable once InvocationIsSkipped
+                        Main.Log($"FlightSuspendBehavior ApplyFeature EXCEPTION Tracker {ex} {ex.StackTrace}");
+                        return;
+                    }
+
+                    //Using effectDefinitionName to store suspended condition, safe?
+                    rulesetCondition.effectDefinitionName = condition.Name;
+                    rulesetCondition.sourceGuid = source.Guid;
+                    rulesetCondition.targetGuid = target.Guid;
+                    rulesetCondition.remainingRounds = condition.remainingRounds;
+                    rulesetCondition.endOccurence = condition.endOccurence;
+                    break;
+                }
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (target is RulesetCharacterMonster)
+            {
+                //Do nothing for now for wildshape
+            }
+            else
+            {
+                try
+                {
+                    //Ensure we keep tabs on source and target in case someone else is concentrating on us
+                    var source = target;
+
+                    if (rulesetCondition.sourceGuid != rulesetCondition.TargetGuid)
+                    {
+                        if (RulesetEntity.TryGetEntity(rulesetCondition.sourceGuid, out RulesetCharacter newSource))
+                        {
+                            source = newSource;
+                        }
+                    }
+
+                    //If we have a concentration tracker, but the source is no longer concentrating on our effect, do not renew flight
+                    if (target.HasConditionOfType("ConditionFlightSuspendedConcentrationTracker"))
+                    {
+                        var conditions = new List<RulesetCondition>();
+
+                        target.GetAllConditionsOfType(conditions, "ConditionFlightSuspendedConcentrationTracker");
+
+                        if (conditions.Count > 0)
+                        {
+                            var trackerCondition = conditions.First();
+                            var concentratedSpell = source.concentratedSpell;
+
+                            if (concentratedSpell == null || concentratedSpell.Name !=
+                                trackerCondition.effectDefinitionName)
+                            {
+                                target.RemoveCondition(trackerCondition);
+                                return;
+                            }
+                        }
+                    }
+
+                    //Add the flight condition, and track if there is an effect
+                    if (!TryAddFlightCondition(source, target, rulesetCondition, out var newFlightCondition))
+                    {
+                        return;
+                    }
+
+                    //Restore concentration tracking
+                    var effect = source.FindEffectTrackingCondition(rulesetCondition);
+
+                    if (effect is RulesetEffectSpell spell &&
+                        spell.SpellDefinition.RequiresConcentration)
+                    {
+                        effect.TrackCondition(source, source.Guid, target, target.Guid, newFlightCondition,
+                            "FlightResumed");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // ReSharper disable once InvocationIsSkipped
+                    Main.Log($"FlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
+                }
+            }
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            removedFrom.RemoveCondition(rulesetCondition);
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            rulesetActor.RemoveCondition(rulesetCondition);
         }
     }
 }

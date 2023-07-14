@@ -211,6 +211,12 @@ internal static class GameUiDisplay
             Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
 
+        toggle = Main.Settings.AllowFlightSuspend;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowFlightSuspend = toggle;
+        }
+
         if (Main.Settings.EnableBetaContent)
         {
             UI.Label();
@@ -220,6 +226,12 @@ internal static class GameUiDisplay
             {
                 Main.Settings.EnableActionSwitching = toggle;
             }
+        }
+
+        toggle = Main.Settings.EnableDistanceOnTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
+        {
+            Main.Settings.EnableDistanceOnTooltip = toggle;
         }
 
         #endregion

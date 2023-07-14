@@ -365,4 +365,16 @@ public static class GameLocationCharacterPatcher
             EffectWithConcentrationCheck.ProcessConcentratedEffects(__instance, damage, damageType, stillConscious);
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.GenerateCharacterDescription))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GenerateCharacterDescription_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(EntityDescription entityDescription)
+        {
+            Tooltips.AddDistanceToTooltip(entityDescription);
+        }
+    }
 }

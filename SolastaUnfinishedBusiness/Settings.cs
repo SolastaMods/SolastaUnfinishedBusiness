@@ -159,6 +159,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
+    public bool AllowFlightSuspend { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
@@ -282,6 +283,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
+    public bool EnableDistanceOnTooltip { get; set; }
 
     public int[][][] FormationGridSets { get; set; } =
     {

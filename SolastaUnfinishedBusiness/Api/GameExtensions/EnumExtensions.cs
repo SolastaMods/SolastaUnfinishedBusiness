@@ -222,9 +222,11 @@ internal enum ExtraActionId
     TempestFury = 9028,
     MasterfulWhirlToggle = 9029,
     UseHeroicInspiration = 9030,
-    ArcaneArcherToggle = 9031,
-    CunningStrikeToggle = 9032,
-    Withdraw = 9033,
+    FlightSuspend = 9031,
+    FlightResume = 9032,
+    ArcaneArcherToggle = 9033,
+    CunningStrikeToggle = 9034,
+    Withdraw = 9035,
     PrioritizeAction
 }
 

@@ -115,6 +115,9 @@ internal static class FixesContext
 
         ItemDefinitions.DivineBladeWeapon.weaponDefinition.weaponType = ConjuredWeaponTypeName;
 
+        //BUGFIX: extend the fix to Flame Blade
+        ItemDefinitions.FlameBlade.weaponDefinition.weaponType = ConjuredWeaponTypeName;
+
         //BUGFIX: allows classes without simple weapon proficiency to wield divine blade
         FeatureDefinitionProficiencys.ProficiencyDruidWeapon.proficiencies.Add(ConjuredWeaponTypeName);
         FeatureDefinitionProficiencys.ProficiencySorcererWeapon.proficiencies.Add(ConjuredWeaponTypeName);

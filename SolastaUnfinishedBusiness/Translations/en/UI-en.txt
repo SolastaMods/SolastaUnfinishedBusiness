@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Multiple Actions
 UI/&Add=Add
 UI/&AdditionalActionSource=Granted by: {0}
 UI/&Current Party=Current Party
+UI/&DistanceFormat=Distance: {0}
 UI/&Experimental Preview:=Experimental Preview <i><color=Yellow>[backup save before using]</color></i>: 
 UI/&Expert=Expert
 UI/&PartyEditor=Party Editor

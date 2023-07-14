@@ -1129,8 +1129,8 @@ internal static class MeleeCombatFeats
 
         var featureDevastatingStrikes = FeatureDefinitionBuilder
             .Create("FeatureDevastatingStrikes")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new IgnoreDamageAffinityDevastatingStrikes())
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
             .AddToDB();
 
         var conditionDevastatingStrikes = ConditionDefinitionBuilder
@@ -1154,11 +1154,12 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class IgnoreDamageAffinityDevastatingStrikes : IIgnoreDamageAffinity
+    private sealed class ModifyDamageAffinityDevastatingStrikes : IModifyDamageAffinity
     {
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Resistance;
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
         }
     }
 

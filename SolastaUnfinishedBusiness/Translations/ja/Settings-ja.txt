@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>�
 ModUi/&AllowClubsToBeThrown=<color=#D89555>こん棒</color>を<color=#D89555>短剣</color>や<color=#D89555>手斧</color>のように投げられるようにする
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可します
+ModUi/&AllowFlightSuspend=アイテムや呪文による飛行の一時停止を許可します<i><color=#F0DAA0>[ワイルドシェイプや飛行種族には影響しません]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> クリックを有効にして、ガジェットやプロップを配置する際のチェックを回避します
 ModUi/&AllowHasteCasting=追加のアクションを持つ呪文をヘイスト状態からキャストできるようにします<color=#F0DAA0>（メインアクションの呪文はラウンドごとに1つまでに制限されています）</color>
 ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可<i><color=#F0DAA0>[種族、頭、角によってはひどい結果になる可能性があります]</color></i>
@@ -117,6 +118,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセッ
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color> を有効にしてパーティをテレポートします。<i><color=#F0DAA0>[未発見の場所にテレポートするとクエストが中断される可能性があります]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
+ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置くと、パネルのツールチップに距離が表示されるようになります。
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と特技の選択の両方を有効にします<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムな遭遇確率を設定する</color>

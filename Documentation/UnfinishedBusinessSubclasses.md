@@ -1868,7 +1868,7 @@ In your list and always prepared:
 
 * God of Thunder
 
-You deal an additional 1d4 thunder damage with Battle Axes and War Hammers. This damage increases to 2d4 at 15th.
+Once per turn, you deal an additional 1d4 thunder damage with Battle Axes and War Hammers. This damage increases to 2d4 at 15th.
 
 * Stormbreaker
 
@@ -3065,7 +3065,63 @@ You can use Soul Hex twice times per short rest now.
 
 
 
-# 59. - Vivisectionist
+# 59. - Vitriolist
+
+All Inventors use various forms of acids and other magical means to break down ingredients, creature parts or even objects into their base components for their experiments, Some Inventors became focused on the deconstruction process, especially when using acid in this function and have experimented with how it could be used in a far greater capacity when it comes to offensive and defensive capabilities.
+
+
+## Level 3
+
+* Vitriolist Spells
+
+Learn and have always prepared:
+
+	I	Caustic Zap, Shield
+
+	II	Acid Arrow, Blindness
+
+	III	Protection from Energy, Stinking Cloud
+
+	IV	Blight, Stoneskin
+
+	V	Cloudkill, Contagion
+
+
+
+* Vitriolic Mixtures
+
+Starting at 3rd level, you gain the ability to use a Vitriolic Mixture of your own making:
+• Affliction: On a hit the creature takes 2d4 acid damage and 2d4 poison damage. The creature is also poisoned until the end of their next turn.
+• Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
+• Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
+• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
+All damage dice increase at 7th, 14th, and 18th levels.
+
+
+## Level 5
+
+* Vitriolic Infusion
+
+Starting at 5th level, your consistent exposure to acid has infused your body with Acid Resistance. Your exposure to acid has also granted you an affinity for it and you now add your proficiency bonus as extra damage to any dealt acid damage.
+
+
+## Level 9
+
+* Vitriolist Arsenal
+
+Starting at 9th level, you have learned how to break down your own magic to create additional Vitriolic Mixtures. As an action you can convert a spell slot into uses of your Vitriolic Mixture feature. You regain one use per spell slot level converted.
+You have learned to make your Vitriolic Mixture's so potent that they are able to bypass acid resistance and deal half damage to creatures with acid immunity. Additionally due to their increased potency each Mixture now also shocks the targets system removing their ability to use reactions until the start of their next turn.
+
+
+## Level 15
+
+* Vitriolist Paragon
+
+Starting at 15th level, you have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Wisdom Saving throw or it will become Paralyzed as your mixture slowly consumes it.
+
+
+
+# 60. - Vivisectionist
 
 A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist's goals are not always related to healing, but rather to experimentation and knowledge with body parts.
 
@@ -3131,7 +3187,7 @@ You can take a free action to use Lesser Restoration or Remove Curse on an ally 
 
 
 
-# 60. - Way of Discordance
+# 61. - Way of Discordance
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -3165,7 +3221,7 @@ Starting at 17th level, when a creature receives damage from your Discordance fe
 
 
 
-# 61. - Way of Distant Hand
+# 62. - Way of Distant Hand
 
 Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 
@@ -3237,7 +3293,7 @@ Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Addi
 
 
 
-# 62. - Way of Dragon
+# 63. - Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -3280,7 +3336,7 @@ You can use your bonus action to sprout a pair of wings, gaining flying speed eq
 
 
 
-# 63. - Way of Silhouette
+# 64. - Way of Silhouette
 
 Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -3322,7 +3378,7 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-# 64. - Way of Tempest
+# 65. - Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -3356,7 +3412,7 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-# 65. - Way of Weal and Woe
+# 66. - Way of Weal and Woe
 
 Monks of the Way of Weal and Woe focus on both prosperity and adversity to engage their enemies in battle.
 
@@ -3394,7 +3450,7 @@ After you make an attack roll with a monk weapon or a unarmed attack, and critic
 
 
 
-# 66. - Weapon Master
+# 67. - Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -3448,7 +3504,7 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 
 
-# 67. - Weaponsmith
+# 68. - Weaponsmith
 
 Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 
@@ -3506,7 +3562,7 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-# 68. - Wildmaster
+# 69. - Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 

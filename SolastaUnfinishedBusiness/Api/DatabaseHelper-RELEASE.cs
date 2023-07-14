@@ -235,6 +235,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition TraditionFreedom { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionFreedom");
 
+        internal static CharacterSubclassDefinition TraditionShockArcanist { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionShockArcanist");
+
         internal static CharacterSubclassDefinition TraditionLight { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionLight");
 
@@ -358,6 +361,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionEnfeebled { get; } =
             GetDefinition<ConditionDefinition>("ConditionEnfeebled");
 
+        internal static ConditionDefinition ConditionFlying { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFlying");
+
         internal static ConditionDefinition ConditionFlying12 { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying12");
 
@@ -384,6 +390,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted");
+
+        internal static ConditionDefinition ConditionHeavilyEncumbered { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHeavilyEncumbered");
 
         internal static ConditionDefinition ConditionHeraldOfBattle { get; } =
             GetDefinition<ConditionDefinition>("ConditionHeraldOfBattle");
@@ -3069,6 +3078,7 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition AcidArrow { get; } = GetDefinition<SpellDefinition>("AcidArrow");
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
         internal static SpellDefinition AnimalFriendship { get; } = GetDefinition<SpellDefinition>("AnimalFriendship");

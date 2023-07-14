@@ -1,10 +1,18 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using TMPro;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class Tooltips
 {
+    private static GameObject _tooltipInfoCharacterDescription;
+    private static GameObject _distanceTextObject;
+    private static TextMeshProUGUI _tmpUGui;
+
     internal static void AddContextToRecoveredFeature(RecoveredFeatureItem item, RulesetCharacterHero character)
     {
         item.GuiTooltip.Context = character;
@@ -93,5 +101,94 @@ internal static class Tooltips
             description.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text,
                 guiRecipeDefinition.Title, guiRecipeDefinition.IngredientsText);
         }
+    }
+
+    internal static void AddDistanceToTooltip(EntityDescription entityDescription)
+    {
+        _tooltipInfoCharacterDescription ??= GameObject.Find("TooltipFeatureCharacterDescription");
+
+        if (_tooltipInfoCharacterDescription is null)
+        {
+            return;
+        }
+
+        if (Main.Settings.EnableDistanceOnTooltip &&
+            ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side ==
+            RuleDefinitions.Side.Ally)
+        {
+            entityDescription.header += "<br><br>";
+
+            var distance = GetDistanceToCharacter();
+
+            // don't use ? on a type deriving from an unity object
+            if (_tooltipInfoCharacterDescription != null)
+            {
+                _tmpUGui ??= _tooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
+            }
+
+            if (_distanceTextObject == null)
+            {
+                GenerateDistanceText(distance, _tmpUGui);
+            }
+            else
+            {
+                UpdateDistanceText(distance);
+            }
+
+            // don't use ? on a type deriving from an unity object
+            if (_distanceTextObject != null)
+            {
+                _distanceTextObject.SetActive(true);
+            }
+        }
+        else if (!Main.Settings.EnableDistanceOnTooltip ||
+                 ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side ==
+                 RuleDefinitions.Side.Enemy)
+        {
+            // don't use ? on a type deriving from an unity object
+            if (_distanceTextObject != null)
+            {
+                _distanceTextObject.SetActive(false);
+            }
+        }
+    }
+
+    private static void GenerateDistanceText(int distance, TextMeshProUGUI tmpUGui)
+    {
+        var anchorObject = new GameObject();
+
+        anchorObject.transform.SetParent(tmpUGui.transform);
+        anchorObject.transform.localPosition = Vector3.zero;
+        _distanceTextObject = Object.Instantiate(tmpUGui).gameObject;
+        _distanceTextObject.name = "DistanceTextObject";
+        _distanceTextObject.transform.SetParent(anchorObject.transform);
+        _distanceTextObject.transform.position = Vector3.zero;
+        _distanceTextObject.transform.localPosition = new Vector3(0, -10, 0);
+
+        UpdateDistanceText(distance);
+    }
+
+    private static int GetDistanceToCharacter()
+    {
+        var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
+
+        if (gameLocationSelectionService.SelectedCharacters.Count is 0 ||
+            gameLocationSelectionService.HoveredCharacters.Count is 0)
+        {
+            return 0;
+        }
+
+        var selectedCharacter = gameLocationSelectionService.SelectedCharacters[0];
+        var hoveredCharacter = gameLocationSelectionService.HoveredCharacters[0];
+        var rawDistance = selectedCharacter.LocationPosition - hoveredCharacter.LocationPosition;
+        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
+
+        return distance;
+    }
+
+    private static void UpdateDistanceText(int distance)
+    {
+        _distanceTextObject.GetComponent<TextMeshProUGUI>().text =
+            Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance));
     }
 }

@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=여러 작업
 UI/&Add=Add
 UI/&AdditionalActionSource=부여자: {0}
 UI/&Current Party=현재 파티
+UI/&DistanceFormat=거리: {0}
 UI/&Experimental Preview:=실험적 미리보기 <i><color=Yellow>[사용하기 전에 백업 저장]</color></i>:
 UI/&Expert=전문가
 UI/&PartyEditor=파티 에디터

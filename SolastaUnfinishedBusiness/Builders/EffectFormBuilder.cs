@@ -72,6 +72,18 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal EffectFormBuilder SetDiceAdvancement(
+        LevelSourceType levelType,
+        int minRank = 0,
+        int maxRank = 20,
+        params (int level, int dice)[] steps)
+    {
+        effectForm.levelType = levelType;
+        effectForm.applyLevel = EffectForm.LevelApplianceType.DiceNumberByLevelTable;
+        effectForm.DiceByLevelTable.SetRange(DiceByRankBuilder.InterpolateDiceByRankTable(minRank, maxRank, steps));
+        return this;
+    }
+
     internal EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
     {
         var alterationForm = new AlterationForm { alterationType = alterationType };

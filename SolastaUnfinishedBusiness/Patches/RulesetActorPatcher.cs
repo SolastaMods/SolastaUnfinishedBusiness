@@ -387,12 +387,11 @@ public static class RulesetActorPatcher
 
             if (caster != null)
             {
-                var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
+                var features = caster.GetSubFeaturesByType<IModifyDamageAffinity>();
 
                 foreach (var feature in features)
                 {
-                    featuresToBrowse.RemoveAll(x =>
-                        x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+                    feature.ModifyDamageAffinity(actor, caster, featuresToBrowse);
                 }
             }
 
