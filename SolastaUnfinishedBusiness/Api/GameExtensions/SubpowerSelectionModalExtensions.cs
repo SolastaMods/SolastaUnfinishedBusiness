@@ -69,15 +69,15 @@ internal static class SubpowerSelectionModalExtensions
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(mainPanel.RectTransform);
 
-        Task.Run(async () =>
-        {
-            await Task.Delay(0);
+        // Task.Run(async () =>
+        // {
+        //     await Task.Delay(50);
             var fourCornersArray = new Vector3[4];
 
             attachment.GetWorldCorners(fourCornersArray);
             mainPanel.RectTransform.position =
                 (0.5f * (fourCornersArray[1] + fourCornersArray[2])) + new Vector3(0.0f, 4f, 0.0f);
-        });
+        // });
 
         instance.gameObject.SetActive(wasActive);
         mainPanel.gameObject.SetActive(wasActive);
