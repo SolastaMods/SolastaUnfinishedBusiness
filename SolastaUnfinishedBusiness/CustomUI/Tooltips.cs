@@ -105,16 +105,14 @@ internal static class Tooltips
 
     internal static void AddDistanceToTooltip(GameLocationCharacter instance, EntityDescription entityDescription)
     {
-        if (entityDescription is not null)
-            entityDescription.header += "<br><br>";
-
         TooltipInfoCharacterDescription ??= GameObject.Find("TooltipFeatureCharacterDescription");
-
         if (TooltipInfoCharacterDescription is null || !TooltipInfoCharacterDescription.activeInHierarchy)
             return;
         
         if (Main.Settings.EnableDistanceOnTooltip && TooltipInfoCharacterDescription.activeInHierarchy && ServiceRepository.GetService<IGameLocationBattleService>().Battle.ActiveContender.Side == RuleDefinitions.Side.Ally)
         {
+            entityDescription.header += "<br><br>";
+
             var distance = GetDistanceToCharacter();
 
             TMPUGUI ??= TooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
@@ -126,7 +124,7 @@ internal static class Tooltips
 
             DistanceTextObject?.SetActive(true);
         }
-        else if (!Main.Settings.EnableDistanceOnTooltip || (TooltipInfoCharacterDescription.activeInHierarchy && ServiceRepository.GetService<IGameLocationBattleService>().Battle.ActiveContender.Side == RuleDefinitions.Side.Enemy))
+        else if (!Main.Settings.EnableDistanceOnTooltip || !TooltipInfoCharacterDescription.activeInHierarchy || ServiceRepository.GetService<IGameLocationBattleService>().Battle.ActiveContender.Side == RuleDefinitions.Side.Enemy)
         {
             DistanceTextObject?.SetActive(false);
         }
