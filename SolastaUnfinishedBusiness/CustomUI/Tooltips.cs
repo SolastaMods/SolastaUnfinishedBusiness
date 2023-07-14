@@ -109,13 +109,13 @@ internal static class Tooltips
         if (TooltipInfoCharacterDescription is null)
             return;
         
-        if (Main.Settings.EnableDistanceOnTooltip && ServiceRepository.GetService<IGameLocationBattleService>().Battle.ActiveContender.Side == RuleDefinitions.Side.Ally)
+        if (Main.Settings.EnableDistanceOnTooltip && ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side == RuleDefinitions.Side.Ally)
         {
             entityDescription.header += "<br><br>";
 
             var distance = GetDistanceToCharacter();
 
-            TMPUGUI ??= TooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
+            TMPUGUI ??= TooltipInfoCharacterDescription?.transform?.GetComponentInChildren<TextMeshProUGUI>();
 
             if (DistanceTextObject is null)
                 GenerateDistanceText(distance, TMPUGUI);
@@ -124,7 +124,7 @@ internal static class Tooltips
 
             DistanceTextObject?.SetActive(true);
         }
-        else if (!Main.Settings.EnableDistanceOnTooltip || ServiceRepository.GetService<IGameLocationBattleService>().Battle.ActiveContender.Side == RuleDefinitions.Side.Enemy)
+        else if (!Main.Settings.EnableDistanceOnTooltip || ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side == RuleDefinitions.Side.Enemy)
         {
             DistanceTextObject?.SetActive(false);
         }
