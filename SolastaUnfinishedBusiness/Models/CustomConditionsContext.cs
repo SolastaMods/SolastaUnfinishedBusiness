@@ -534,8 +534,8 @@ internal static class CustomConditionsContext
                             var trackerCondition = conditions.First();
                             var concentratedSpell = source.concentratedSpell;
 
-                            if (concentratedSpell == null || (concentratedSpell.Name !=
-                                                              trackerCondition.effectDefinitionName))
+                            if (concentratedSpell == null || concentratedSpell.Name !=
+                                trackerCondition.effectDefinitionName)
                             {
                                 target.RemoveCondition(trackerCondition);
                                 return;
