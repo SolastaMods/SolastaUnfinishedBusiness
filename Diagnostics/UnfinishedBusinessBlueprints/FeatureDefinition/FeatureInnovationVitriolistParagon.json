@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureInnovationVitriolistParagonTitle",
+    "description": "Feature/&FeatureInnovationVitriolistParagonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "369f5dae-69c4-5318-886e-30e62ecab82b",
+  "guid": "a37b435a-22b1-504e-bb25-80b766059ecb",
   "contentPack": 9999,
-  "name": "PowerUseModifierInnovationVitriolistMixtureIntMod"
+  "name": "FeatureInnovationVitriolistParagon"
 }

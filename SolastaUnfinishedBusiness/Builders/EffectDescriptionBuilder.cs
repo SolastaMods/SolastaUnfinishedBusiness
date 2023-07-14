@@ -63,6 +63,12 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder RollSaveOnlyIfRelevantForms()
+    {
+        effect.RollSaveOnlyIfRelevantForms = true;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params string[] values)
     {
         effect.RestrictedCreatureFamilies.SetRange(values);
