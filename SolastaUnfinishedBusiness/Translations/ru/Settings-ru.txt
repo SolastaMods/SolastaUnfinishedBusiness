@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=Разрешить безбородых <color=#D89
 ModUi/&AllowClubsToBeThrown=Позволить метать <color=#D89555>дубинки</color>, как <color=#D89555>кинжалы</color> или <color=#D89555>топорики</color>
 ModUi/&AllowDruidToWearMetalArmor=Позволить <color=#D89555>Друидам</color> носить металлическую броню
 ModUi/&AllowDungeonsMaxLevel20=Разрешить подземелья с максимальным уровнем 20
+ModUi/&AllowFlightSuspend=Разрешить временно приостанавливать полёт при использовании предметов и заклинаний <i><color=#F0DAA0>[не затрагивает Дикий облик и летающие расы]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Включить <color=#1E81B0>CTRL</color>-клик для обхода любого требования при размещении устройств или реквизита
 ModUi/&AllowHasteCasting=Позволять накладывать заклинания дополнительный действием из-за Ускорения <color=#F0DAA0>(вы всё ещё ограничены одним заклинанием основного действия за раунд)</color>
 ModUi/&AllowHornsOnAllRaces=Разрешить всем расам носить рога <i><color=#F0DAA0>[результат может быть ужасным, в зависимости от расы, головы и рогов]</color></i>
