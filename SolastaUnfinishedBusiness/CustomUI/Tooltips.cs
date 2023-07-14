@@ -3,15 +3,15 @@ using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using TMPro;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal static class Tooltips
 {
-    internal static GameObject TooltipInfoCharacterDescription = null;
-    internal static GameObject DistanceObject = null;
-    internal static GameObject DistanceTextObject;
-    internal static TextMeshProUGUI TMPUGUI = null;
+    private static GameObject _tooltipInfoCharacterDescription;
+    private static GameObject _distanceTextObject;
+    private static TextMeshProUGUI _tmpUGui;
 
     internal static void AddContextToRecoveredFeature(RecoveredFeatureItem item, RulesetCharacterHero character)
     {
@@ -103,44 +103,67 @@ internal static class Tooltips
         }
     }
 
-    internal static void AddDistanceToTooltip(GameLocationCharacter instance, EntityDescription entityDescription)
+    internal static void AddDistanceToTooltip(EntityDescription entityDescription)
     {
-        TooltipInfoCharacterDescription ??= GameObject.Find("TooltipFeatureCharacterDescription");
-        if (TooltipInfoCharacterDescription is null)
+        _tooltipInfoCharacterDescription ??= GameObject.Find("TooltipFeatureCharacterDescription");
+
+        if (_tooltipInfoCharacterDescription is null)
+        {
             return;
-        
-        if (Main.Settings.EnableDistanceOnTooltip && ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side == RuleDefinitions.Side.Ally)
+        }
+
+        if (Main.Settings.EnableDistanceOnTooltip &&
+            ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side ==
+            RuleDefinitions.Side.Ally)
         {
             entityDescription.header += "<br><br>";
 
             var distance = GetDistanceToCharacter();
 
-            TMPUGUI ??= TooltipInfoCharacterDescription?.transform?.GetComponentInChildren<TextMeshProUGUI>();
+            // don't use ? on a type deriving from an unity object
+            if (_tooltipInfoCharacterDescription != null)
+            {
+                _tmpUGui ??= _tooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
+            }
 
-            if (DistanceTextObject is null)
-                GenerateDistanceText(distance, TMPUGUI);
+            if (_distanceTextObject == null)
+            {
+                GenerateDistanceText(distance, _tmpUGui);
+            }
             else
+            {
                 UpdateDistanceText(distance);
+            }
 
-            DistanceTextObject?.SetActive(true);
+            // don't use ? on a type deriving from an unity object
+            if (_distanceTextObject != null)
+            {
+                _distanceTextObject.SetActive(true);
+            }
         }
-        else if (!Main.Settings.EnableDistanceOnTooltip || ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side == RuleDefinitions.Side.Enemy)
+        else if (!Main.Settings.EnableDistanceOnTooltip ||
+                 ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side ==
+                 RuleDefinitions.Side.Enemy)
         {
-            DistanceTextObject?.SetActive(false);
+            // don't use ? on a type deriving from an unity object
+            if (_distanceTextObject != null)
+            {
+                _distanceTextObject.SetActive(false);
+            }
         }
     }
 
-
-    private static void GenerateDistanceText(int distance, TextMeshProUGUI TMPUGUI)
+    private static void GenerateDistanceText(int distance, TextMeshProUGUI tmpUGui)
     {
         var anchorObject = new GameObject();
-        anchorObject.transform.SetParent(TMPUGUI.transform);
+
+        anchorObject.transform.SetParent(tmpUGui.transform);
         anchorObject.transform.localPosition = Vector3.zero;
-        DistanceTextObject = GameObject.Instantiate(TMPUGUI).gameObject;
-        DistanceTextObject.name = "DistanceTextObject";
-        DistanceTextObject.transform.SetParent(anchorObject.transform);
-        DistanceTextObject.transform.position = Vector3.zero;
-        DistanceTextObject.transform.localPosition = new Vector3(0, -10, 0);
+        _distanceTextObject = Object.Instantiate(tmpUGui).gameObject;
+        _distanceTextObject.name = "DistanceTextObject";
+        _distanceTextObject.transform.SetParent(anchorObject.transform);
+        _distanceTextObject.transform.position = Vector3.zero;
+        _distanceTextObject.transform.localPosition = new Vector3(0, -10, 0);
 
         UpdateDistanceText(distance);
     }
@@ -149,12 +172,14 @@ internal static class Tooltips
     {
         var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
 
-        if (gameLocationSelectionService.SelectedCharacters.Count is 0 || gameLocationSelectionService.HoveredCharacters.Count is 0)
+        if (gameLocationSelectionService.SelectedCharacters.Count is 0 ||
+            gameLocationSelectionService.HoveredCharacters.Count is 0)
+        {
             return 0;
+        }
 
-        GameLocationCharacter selectedCharacter = gameLocationSelectionService.SelectedCharacters[0];
-        GameLocationCharacter hoveredCharacter = gameLocationSelectionService.HoveredCharacters[0];
-
+        var selectedCharacter = gameLocationSelectionService.SelectedCharacters[0];
+        var hoveredCharacter = gameLocationSelectionService.HoveredCharacters[0];
         var rawDistance = selectedCharacter.LocationPosition - hoveredCharacter.LocationPosition;
         var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
 
@@ -162,5 +187,8 @@ internal static class Tooltips
     }
 
     private static void UpdateDistanceText(int distance)
-        => DistanceTextObject.GetComponent<TextMeshProUGUI>().text = Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance));
+    {
+        _distanceTextObject.GetComponent<TextMeshProUGUI>().text =
+            Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance));
+    }
 }
