@@ -372,10 +372,9 @@ public static class GameLocationCharacterPatcher
     public static class GenerateCharacterDescription_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(GameLocationCharacter __instance,
-            EntityDescription entityDescription)
+        public static void Postfix(EntityDescription entityDescription)
         {
-            Tooltips.AddDistanceToTooltip(__instance, entityDescription);
+            Tooltips.AddDistanceToTooltip(entityDescription);
         }
     }
 }
