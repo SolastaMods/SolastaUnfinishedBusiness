@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IModifyDamageAffinity
 {
-    public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features);
+    public void ModifyDamageAffinity(
+        [UsedImplicitly] RulesetActor defender,
+        RulesetActor attacker,
+        List<FeatureDefinition> features);
 }

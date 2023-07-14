@@ -1,4 +1,6 @@
-﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IModifyMagicEffectAny
 {
@@ -6,5 +8,5 @@ public interface IModifyMagicEffectAny
         BaseDefinition definition,
         EffectDescription effectDescription,
         RulesetCharacter character,
-        RulesetEffect rulesetEffect);
+        [UsedImplicitly] RulesetEffect rulesetEffect);
 }

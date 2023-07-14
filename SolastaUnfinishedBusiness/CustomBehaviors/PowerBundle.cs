@@ -393,7 +393,6 @@ internal static class PowerBundle
                 (current, f) => f.ModifyEffect(definition, current, caster, effect));
         }
 
-                
         //process features from caster
         result = caster.GetSubFeaturesByType<IModifyMagicEffectAny>().Aggregate(
             EffectDescriptionBuilder
