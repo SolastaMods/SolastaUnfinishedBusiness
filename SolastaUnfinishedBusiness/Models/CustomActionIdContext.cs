@@ -29,7 +29,7 @@ public static class CustomActionIdContext
     };
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
- 
+
     internal static void Load()
     {
         BuildCustomInvocationActions();
@@ -224,7 +224,7 @@ public static class CustomActionIdContext
     private static void BuildFarStepAction()
     {
         const string NAME = "FarStep";
-        
+
         FarStep = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Action, Sprites.PowerFarStep)
@@ -323,7 +323,7 @@ public static class CustomActionIdContext
                 return;
             }
             case (Id)ExtraActionId.FlightSuspend:
-            {                
+            {
                 if (Main.Settings.AllowFlightSuspend && character.IsTemporarilyFlying())
                 {
                     result = ActionStatus.Available;
@@ -337,7 +337,8 @@ public static class CustomActionIdContext
             }
             case (Id)ExtraActionId.FlightResume:
             {
-                if (Main.Settings.AllowFlightSuspend && character.HasConditionOfTypeOrSubType("ConditionFlightSuspended"))
+                if (Main.Settings.AllowFlightSuspend &&
+                    character.HasConditionOfTypeOrSubType(CustomConditionsContext.FlightSuspended.Name))
                 {
                     result = ActionStatus.Available;
                 }

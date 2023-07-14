@@ -23,7 +23,7 @@ internal static class RulesetActorExtensions
     internal static ICollection<T> EnumerateFeaturesToBrowse<T>(
         [NotNull] this RulesetActor actor,
         bool populateActorFeaturesToBrowse = false,
-        [CanBeNull] Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+        [CanBeNull] Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin = null)
     {
         var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : new List<FeatureDefinition>();
 
@@ -176,26 +176,26 @@ internal static class RulesetActorExtensions
 
     internal static bool IsTouchingGround(this RulesetActor actor)
     {
-        return !actor.HasConditionOfType(RuleDefinitions.ConditionFlying)
-               && !actor.HasConditionOfType(RuleDefinitions.ConditionLevitate)
+        return !actor.HasConditionOfType(ConditionFlying)
+               && !actor.HasConditionOfType(ConditionLevitate)
                && !(actor is RulesetCharacter character &&
-                    character.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly));
+                    character.MoveModes.ContainsKey((int)MoveMode.Fly));
     }
 
     internal static bool IsTemporarilyFlying(this RulesetActor actor)
     {
-        return (actor is RulesetCharacter character
-                    && character.HasTemporaryConditionOfType(RuleDefinitions.ConditionFlying)
-                    && !character.HasConditionOfType(RuleDefinitions.ConditionLevitate));
-                /*
-                 * For future use, when can allow flying wildshape to temporarily walk
-                 * 
-                || (actor.HasConditionOfType(RuleDefinitions.ConditionWildShapeSubstituteForm)
-                        && actor is RulesetCharacterMonster monster
-                        && monster.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly)
-                        && !actor.HasConditionOfType("ConditionFlightSuspended")
-                
-                );*/
+        return actor is RulesetCharacter character
+               && character.HasTemporaryConditionOfType(ConditionFlying)
+               && !character.HasConditionOfType(ConditionLevitate);
+        /*
+         * For future use, when can allow flying wildshape to temporarily walk
+         * 
+        || (actor.HasConditionOfType(RuleDefinitions.ConditionWildShapeSubstituteForm)
+                && actor is RulesetCharacterMonster monster
+                && monster.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly)
+                && !actor.HasConditionOfType("ConditionFlightSuspended")
+        
+        );*/
     }
 
     internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)

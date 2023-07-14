@@ -563,15 +563,8 @@ internal static class RulesetCharacterExtensions
 
     internal static bool HasTemporaryConditionOfType(this RulesetCharacter character, string conditionName)
     {
-        
-        foreach(var condition in character.AllConditions)
-        {
-            if (condition.ConditionDefinition.IsSubtypeOf(conditionName) && condition.DurationType != DurationType.Permanent)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return character.AllConditions
+            .Any(condition => condition.ConditionDefinition.IsSubtypeOf(conditionName) &&
+                              condition.DurationType != DurationType.Permanent);
     }
 }

@@ -361,6 +361,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionEnfeebled { get; } =
             GetDefinition<ConditionDefinition>("ConditionEnfeebled");
 
+        internal static ConditionDefinition ConditionFlying { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFlying");
+
         internal static ConditionDefinition ConditionFlying12 { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying12");
 
@@ -387,7 +390,7 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted");
-        
+
         internal static ConditionDefinition ConditionHeavilyEncumbered { get; } =
             GetDefinition<ConditionDefinition>("ConditionHeavilyEncumbered");
 
