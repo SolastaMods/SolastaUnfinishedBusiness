@@ -266,13 +266,8 @@ internal sealed class OathOfHatred : AbstractSubclass
 
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            var resistanceCount = features.RemoveAll(x =>
+            features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
-
-            if (attacker is RulesetCharacter rulesetCharacter && resistanceCount > 0)
-            {
-                rulesetCharacter.LogCharacterUsedPower(_power);
-            }
         }
 
         public IEnumerator OnAttackTryAlterOutcome(

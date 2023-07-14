@@ -1130,10 +1130,8 @@ internal static class MeleeCombatFeats
         var featureDevastatingStrikes = FeatureDefinitionBuilder
             .Create("FeatureDevastatingStrikes")
             .SetGuiPresentation(NAME, Category.Feat)
+            .SetCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
             .AddToDB();
-
-        featureDevastatingStrikes.SetCustomSubFeatures(
-            new ModifyDamageAffinityDevastatingStrikes(featureDevastatingStrikes));
 
         var conditionDevastatingStrikes = ConditionDefinitionBuilder
             .Create("ConditionDevastatingStrikes")
@@ -1158,22 +1156,10 @@ internal static class MeleeCombatFeats
 
     private sealed class ModifyDamageAffinityDevastatingStrikes : IModifyDamageAffinity
     {
-        private readonly FeatureDefinition _devastatingStrikes;
-
-        public ModifyDamageAffinityDevastatingStrikes(FeatureDefinition devastatingStrikes)
-        {
-            _devastatingStrikes = devastatingStrikes;
-        }
-
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            var resistanceCount = features.RemoveAll(x =>
+            features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
-
-            if (attacker is RulesetCharacter rulesetCharacter && resistanceCount > 0)
-            {
-                rulesetCharacter.LogCharacterUsedFeature(_devastatingStrikes);
-            }
         }
     }
 

@@ -346,16 +346,11 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 return;
             }
 
-            var fireImmunityCount = features.RemoveAll(x =>
+            features.RemoveAll(x =>
                 x is IDamageAffinityProvider
                 {
                     DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
                 });
-
-            if (attacker is RulesetCharacter rulesetCharacter && fireImmunityCount > 0)
-            {
-                rulesetCharacter.LogCharacterUsedPower(_featureDefinitionPower);
-            }
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
