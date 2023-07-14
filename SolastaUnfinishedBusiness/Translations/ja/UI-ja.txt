@@ -11,4 +11,4 @@ UI/&PartyEditorUnavailable=****** パーティー エディターは利用でき
 UI/&Quickies=クイックキー
 UI/&Remove=削除
 UI/&Skilled=熟練した
-UI/&Distance=距離
+UI/&DistanceFormat=距離: {0}

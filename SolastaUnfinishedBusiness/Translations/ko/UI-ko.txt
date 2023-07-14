@@ -11,4 +11,4 @@ UI/&PartyEditorUnavailable=****** 파티 편집기 사용 불가: 세이브 게�
 UI/&Quickies=퀵키
 UI/&Remove=제거하다
 UI/&Skilled=숙련된
-UI/&Distance=거리
+UI/&DistanceFormat=거리: {0}

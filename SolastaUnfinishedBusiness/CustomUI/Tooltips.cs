@@ -162,5 +162,5 @@ internal static class Tooltips
     }
 
     private static void UpdateDistanceText(int distance)
-        => DistanceTextObject.GetComponent<TextMeshProUGUI>().text = Gui.Format("{0} : {1}", Gui.Localize("UI/&Distance"), Gui.FormatDistance(distance));
+        => DistanceTextObject.GetComponent<TextMeshProUGUI>().text = Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance));
 }
