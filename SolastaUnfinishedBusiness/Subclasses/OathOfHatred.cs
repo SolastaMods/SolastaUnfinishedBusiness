@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -254,7 +255,7 @@ internal sealed class OathOfHatred : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorArdentHate : IIgnoreDamageAffinity, IPhysicalAttackTryAlterOutcome
+    private sealed class CustomBehaviorArdentHate : IModifyDamageAffinity, IPhysicalAttackTryAlterOutcome
     {
         private readonly FeatureDefinitionPower _power;
 
@@ -263,9 +264,15 @@ internal sealed class OathOfHatred : AbstractSubclass
             _power = power;
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Resistance;
+            var resistanceCount = features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
+
+            if (attacker is RulesetCharacter rulesetCharacter && resistanceCount > 0)
+            {
+                rulesetCharacter.LogCharacterUsedPower(_power);
+            }
         }
 
         public IEnumerator OnAttackTryAlterOutcome(

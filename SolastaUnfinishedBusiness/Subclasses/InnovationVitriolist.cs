@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
@@ -269,13 +270,21 @@ public static class InnovationVitriolist
                     mixturePowers.Contains(effect.SourceDefinition))))
             .AddToDB();
 
+        // Vitriolic Arsenal - Bypass Resistance and Change Immunity to Resistance
+
+        var featureArsenal = FeatureDefinitionBuilder
+            .Create($"Feature{Name}Arsenal")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureArsenal.SetCustomSubFeatures(new ModifyDamageAffinityArsenal(featureArsenal));
+
         // Vitriolic Arsenal
 
         var featureSetArsenal = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Arsenal")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerRefundMixture, additionalDamageArsenal)
-            .SetCustomSubFeatures(new IgnoreDamageAffinityArsenal())
+            .AddFeatureSet(powerRefundMixture, additionalDamageArsenal, featureArsenal)
             .AddToDB();
 
         // LEVEL 15
@@ -384,12 +393,38 @@ public static class InnovationVitriolist
     // Arsenal
     //
 
-    private sealed class IgnoreDamageAffinityArsenal : IIgnoreDamageAffinity
+    private sealed class ModifyDamageAffinityArsenal : IModifyDamageAffinity
     {
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        private readonly FeatureDefinition _featureArsenal;
+
+        public ModifyDamageAffinityArsenal(FeatureDefinition featureArsenal)
         {
-            return provider.DamageType == DamageTypeAcid &&
-                   provider.DamageAffinityType == DamageAffinityType.Resistance;
+            _featureArsenal = featureArsenal;
+        }
+
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            var resistanceCount = features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Resistance, DamageType: DamageTypeAcid
+                });
+
+            var immunityCount = features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeAcid
+                });
+
+            if (immunityCount > 0)
+            {
+                features.Add(DamageAffinityAcidResistance);
+            }
+
+            if (attacker is RulesetCharacter rulesetCharacter && (resistanceCount > 0 || immunityCount > 0))
+            {
+                rulesetCharacter.LogCharacterUsedFeature(_featureArsenal);
+            }
         }
     }
 

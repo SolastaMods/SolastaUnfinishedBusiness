@@ -1129,9 +1129,11 @@ internal static class MeleeCombatFeats
 
         var featureDevastatingStrikes = FeatureDefinitionBuilder
             .Create("FeatureDevastatingStrikes")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new IgnoreDamageAffinityDevastatingStrikes())
+            .SetGuiPresentation(NAME, Category.Feat)
             .AddToDB();
+
+        featureDevastatingStrikes.SetCustomSubFeatures(
+            new ModifyDamageAffinityDevastatingStrikes(featureDevastatingStrikes));
 
         var conditionDevastatingStrikes = ConditionDefinitionBuilder
             .Create("ConditionDevastatingStrikes")
@@ -1154,11 +1156,24 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class IgnoreDamageAffinityDevastatingStrikes : IIgnoreDamageAffinity
+    private sealed class ModifyDamageAffinityDevastatingStrikes : IModifyDamageAffinity
     {
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        private readonly FeatureDefinition _devastatingStrikes;
+
+        public ModifyDamageAffinityDevastatingStrikes(FeatureDefinition devastatingStrikes)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Resistance;
+            _devastatingStrikes = devastatingStrikes;
+        }
+
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            var resistanceCount = features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
+
+            if (attacker is RulesetCharacter rulesetCharacter && resistanceCount > 0)
+            {
+                rulesetCharacter.LogCharacterUsedFeature(_devastatingStrikes);
+            }
         }
     }
 

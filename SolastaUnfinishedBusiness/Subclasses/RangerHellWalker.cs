@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -302,7 +303,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IIgnoreDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
+        IModifyDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -338,16 +339,23 @@ internal sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            if (rulesetActor.HasConditionOfType(_conditionDefinition.Name))
+            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
             {
-                return provider.DamageAffinityType == DamageAffinityType.Resistance &&
-                       provider.DamageType == DamageTypeFire;
+                return;
             }
 
-            return false;
+            var fireImmunityCount = features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
+                });
+
+            if (attacker is RulesetCharacter rulesetCharacter && fireImmunityCount > 0)
+            {
+                rulesetCharacter.LogCharacterUsedPower(_featureDefinitionPower);
+            }
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
