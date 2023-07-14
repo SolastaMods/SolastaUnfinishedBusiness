@@ -309,7 +309,7 @@ public static class InnovationVitriolist
         // BEHAVIORS
 
         powerMixture.AddCustomSubFeatures(new SpendPowerFinishedByMeParagon(powerParagon, mixturePowers));
-        PowerBundle.RegisterPowerBundle(powerMixture, true, (FeatureDefinitionPower[])mixturePowers);
+        PowerBundle.RegisterPowerBundle(powerMixture, true, mixturePowers.OfType<FeatureDefinitionPower>());
 
         // MAIN
 
