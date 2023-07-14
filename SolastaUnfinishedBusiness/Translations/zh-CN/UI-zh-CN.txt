@@ -11,3 +11,4 @@ UI/&PartyEditorUnavailable=****** 队伍编辑器不可用：请加载游戏存�
 UI/&Quickies=快捷
 UI/&Remove=移除
 UI/&Skilled=技能
+UI/&DistanceFormat=距离: {0}

@@ -11,3 +11,4 @@ UI/&PartyEditorUnavailable=****** Party Editor unavailable: Please load a save g
 UI/&Quickies=Quickies
 UI/&Remove=Remove
 UI/&Skilled=Skilled
+UI/&DistanceFormat=Distance: {0}

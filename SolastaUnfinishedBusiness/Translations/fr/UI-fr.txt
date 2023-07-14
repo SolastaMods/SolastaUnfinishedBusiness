@@ -11,3 +11,4 @@ UI/&PartyEditorUnavailable=****** Éditeur de groupe indisponible : veuillez ch
 UI/&Quickies=Questions rapides
 UI/&Remove=Retirer
 UI/&Skilled=Qualifié
+UI/&DistanceFormat=Distance: {0}
