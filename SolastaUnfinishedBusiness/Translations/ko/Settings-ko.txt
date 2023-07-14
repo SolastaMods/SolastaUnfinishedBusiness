@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> �
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있습니다.
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 입도록 허용
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20의 던전 허용
+ModUi/&AllowFlightSuspend=일시적으로 아이템 및 주문으로부터의 도피를 허용합니다. <i><color=#F0DAA0>[야생 모양 또는 비행 경주에는 영향을 미치지 않습니다]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> 클릭을 활성화하여 가젯이나 소품을 배치할 때 확인을 건너뜁니다.
 ModUi/&AllowHasteCasting=추가 행동이 있는 주문 시전이 가속되지 않도록 허용 <color=#F0DAA0>(여전히 라운드당 주요 행동 주문은 1개로 제한됩니다.)</color>
 ModUi/&AllowHornsOnAllRaces=모든 종족에 뿔 허용 <i><color=#F0DAA0>[인종, 머리, 뿔에 따라 결과가 끔찍해 보일 수 있음]</color></i>

@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
 ModUi/&AllowClubsToBeThrown=Consenti il lancio di <color=#D89555>mazze</color> come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
+ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influisce sulle forme selvatiche o sulle razze volanti]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il <color=#1E81B0>CTRL</color> clic per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
 ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'essere affrettati <color=#F0DAA0> (sei ancora limitato a 1 incantesimo di azione principale per round)</color>
 ModUi/&AllowHornsOnAllRaces=Consenti le corna a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e delle corna]</color></i>

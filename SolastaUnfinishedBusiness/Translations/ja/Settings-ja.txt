@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>�
 ModUi/&AllowClubsToBeThrown=<color=#D89555>こん棒</color>を<color=#D89555>短剣</color>や<color=#D89555>手斧</color>のように投げられるようにする
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可します
+ModUi/&AllowFlightSuspend=アイテムや呪文による飛行の一時停止を許可します<i><color=#F0DAA0>[ワイルドシェイプや飛行種族には影響しません]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> クリックを有効にして、ガジェットやプロップを配置する際のチェックを回避します
 ModUi/&AllowHasteCasting=追加のアクションを持つ呪文をヘイスト状態からキャストできるようにします<color=#F0DAA0>（メインアクションの呪文はラウンドごとに1つまでに制限されています）</color>
 ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可<i><color=#F0DAA0>[種族、頭、角によってはひどい結果になる可能性があります]</color></i>
