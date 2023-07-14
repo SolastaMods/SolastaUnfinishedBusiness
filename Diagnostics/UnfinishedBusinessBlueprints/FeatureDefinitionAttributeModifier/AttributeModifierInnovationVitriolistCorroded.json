@@ -1,20 +1,17 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "InnovationAlchemy",
-    "InnovationArmor",
-    "InnovationArtillerist",
-    "InnovationVitriolist",
-    "InnovationVivisectionist",
-    "InnovationWeapon"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "InventorInnovation",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "Additive",
+  "modifierValue": -2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&InventorInnovationTitle",
-    "description": "Subclass/&InventorInnovationDescription",
+    "title": "Condition/&ConditionInnovationVitriolistCorrodedTitle",
+    "description": "Condition/&ConditionInnovationVitriolistCorrodedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00e82007-cb39-5d19-a903-551a8fa5e13e",
+  "guid": "b689df6c-2f0b-569f-b57b-4ffacf145d2a",
   "contentPack": 9999,
-  "name": "SubclassChoiceInventor"
+  "name": "AttributeModifierInnovationVitriolistCorroded"
 }

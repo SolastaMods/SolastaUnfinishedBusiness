@@ -1,20 +1,10 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "InnovationAlchemy",
-    "InnovationArmor",
-    "InnovationArtillerist",
-    "InnovationVitriolist",
-    "InnovationVivisectionist",
-    "InnovationWeapon"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "InventorInnovation",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Subclass/&InventorInnovationTitle",
-    "description": "Subclass/&InventorInnovationDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00e82007-cb39-5d19-a903-551a8fa5e13e",
+  "guid": "369f5dae-69c4-5318-886e-30e62ecab82b",
   "contentPack": 9999,
-  "name": "SubclassChoiceInventor"
+  "name": "PowerUseModifierInnovationVitriolistMixtureIntMod"
 }

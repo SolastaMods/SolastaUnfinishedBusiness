@@ -373,6 +373,7 @@ internal static class InventorClass
                 InnovationAlchemy.Build(),
                 InnovationArmor.Build(),
                 InnovationArtillerist.Build(),
+                InnovationVitriolist.Build(),
                 InnovationVivisectionist.Build(),
                 InnovationWeapon.Build()
             )

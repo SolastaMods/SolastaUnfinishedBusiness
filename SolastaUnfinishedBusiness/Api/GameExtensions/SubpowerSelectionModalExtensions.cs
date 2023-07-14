@@ -71,7 +71,7 @@ internal static class SubpowerSelectionModalExtensions
 
         Task.Run(async () =>
         {
-            await Task.Delay(50);
+            await Task.Delay(0);
             var fourCornersArray = new Vector3[4];
 
             attachment.GetWorldCorners(fourCornersArray);
