@@ -212,6 +212,7 @@ public static class InnovationVitriolist
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetSpecificDamageType(DamageTypeAcid)
             .SetCustomSubFeatures(
+                new ModifyMagicEffectOnTargetInfusion(),
                 new RestrictedContextValidator((_, _, _, _, _, mode, effect) =>
                     (OperationType.Set, (mode != null && mode.EffectDescription.EffectForms.Any(x =>
                                             x.FormType == EffectForm.EffectFormType.Damage &&
@@ -274,7 +275,7 @@ public static class InnovationVitriolist
 
         var featureArsenal = FeatureDefinitionBuilder
             .Create($"Feature{Name}Arsenal")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"FeatureSet{Name}Arsenal", Category.Feature)
             .AddToDB();
 
         featureArsenal.SetCustomSubFeatures(new ModifyDamageAffinityArsenal(featureArsenal));
@@ -333,10 +334,41 @@ public static class InnovationVitriolist
     }
 
     //
+    // Infusion
+    //
+
+    private sealed class ModifyMagicEffectOnTargetInfusion : IModifyMagicEffectAny
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (definition is not SpellDefinition spellDefinition ||
+                spellDefinition.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
+            {
+                return effectDescription;
+            }
+
+            var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            foreach (var effectForm in effectDescription.EffectForms
+                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeAcid))
+            {
+                effectForm.DamageForm.bonusDamage += pb;
+            }
+
+            return effectDescription;
+        }
+    }
+
+    //
     // Refund Mixture
     //
 
-    private class CustomBehaviorRefundMixture : IPowerUseValidity, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorRefundMixture : IPowerUseValidity, IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerMixture;
         private readonly FeatureDefinitionPower _powerRefundMixture;
@@ -402,7 +434,8 @@ public static class InnovationVitriolist
             _featureArsenal = featureArsenal;
         }
 
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker,
+            List<FeatureDefinition> features)
         {
             var resistanceCount = features.RemoveAll(x =>
                 x is IDamageAffinityProvider

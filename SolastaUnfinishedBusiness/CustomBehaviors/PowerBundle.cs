@@ -379,6 +379,11 @@ internal static class PowerBundle
             modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
         }
 
+        if (metamagic != null)
+        {
+            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+        }
+
         if (!modifiers.Empty())
         {
             result = modifiers.Aggregate(
@@ -387,6 +392,14 @@ internal static class PowerBundle
                     .Build(),
                 (current, f) => f.ModifyEffect(definition, current, caster, effect));
         }
+
+                
+        //process features from caster
+        result = caster.GetSubFeaturesByType<IModifyMagicEffectAny>().Aggregate(
+            EffectDescriptionBuilder
+                .Create(result)
+                .Build(),
+            (current, f) => f.ModifyEffect(definition, current, caster, effect));
 
         CacheEffect(caster, definition, metamagic, result);
 
