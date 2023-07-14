@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatDevastatingStrikesTitle",
-    "description": "Feat/&FeatDevastatingStrikesDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf6f150a-b861-5f9c-b474-49e2cd4cc9a3",
+  "guid": "f9943ec5-4c18-55dd-a0b5-7fa43a609209",
   "contentPack": 9999,
-  "name": "FeatureDevastatingStrikes"
+  "name": "FeatureFlightSuspended"
 }
