@@ -586,6 +586,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionSurprised { get; } =
             GetDefinition<ConditionDefinition>("ConditionSurprised");
 
+        internal static ConditionDefinition ConditionTargetedByGuidingBolt { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTargetedByGuidingBolt");
+
         internal static ConditionDefinition ConditionTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBody");
 

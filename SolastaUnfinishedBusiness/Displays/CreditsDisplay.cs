@@ -16,12 +16,13 @@ internal static class CreditsDisplay
     {
         ("Zappastuff",
             "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
-            "Fairy, Half-elf, Tiefling, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Audacity, College of Guts, " +
-            "College of Life, College of Valiance, Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, " +
-            "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Oath of Thunder, Path of the Elements, " +
-            "Path of the Reaver, Path of the Savagery, Path of the Yeoman, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, " +
-            "Ranger Wildmaster, Martial Arcane Archer, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, " +
-            "Way of the Tempest, Way of Weal and Woe, Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, Patron Mountain, Level 20, Multiclass"),
+            "Fairy, Half-elf, Tiefling, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, " +
+            "College of Audacity, College of Guts, College of Life, College of Valiance, Circle of the Ancient Forest, Circle of the Eternal Grove, " +
+            "Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, " +
+            "Oath of Hatred, Oath of Thunder, Path of the Elements, Path of the Reaver, Path of the Savagery, Path of the Yeoman, Ranger Hellwalker, " +
+            "Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, Martial Arcane Archer, Martial Royal Knight, " +
+            "Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Way of Weal and Woe, Innovation Artillerist, " +
+            "Innovation Vitriolist, Innovation Vivisectionist, Patron Mountain, Level 20, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, " +
@@ -30,15 +31,17 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
         ("HiddenHax",
-            "homebrew design [feats, spells, Circle of the Eternal Grove, College of Audacity, College of Valiance, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, " +
-            "Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, " +
-            "Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
+            "homebrew design [feats, spells, Circle of the Eternal Grove, College of Audacity, College of Valiance, Path of the Elemental Fury, " +
+            "Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, " +
+            "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, " +
+            "Way of the Tempest]"),
         ("DemonicDuck",
             "homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Hammer, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
         ("Earandil", "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
+        ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("Otearaisu", "Malakh, Oligath, Wendigo, Wyrmkin"),
         ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
@@ -46,11 +49,10 @@ internal static class CreditsDisplay
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
         ("magicSword", "chinese translations, asian languages support, Oath of Demon Hunter"),
         ("HIEROT", "fixes, Patron Eldritch Surge"),
-        ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("Kiloku", "quality of life"),
-        ("Andargor", "quality of life"),
+        ("Andargor", "rules, quality of life"),
         ("TheRev", "quality of life"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
