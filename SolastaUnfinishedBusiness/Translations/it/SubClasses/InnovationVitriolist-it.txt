@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=Lancia una miscela contro
 Feature/&PowerInnovationVitriolistViscosityTitle=Miscela di viscosità
 Feedback/&AdditionalDamageInfusionFormat=Infusione di vetriolo!
 Feedback/&AdditionalDamageInfusionLine={0} esegue un attacco di infusione su {1}
+Screen/&InnovationVitriolistSpellDescription=Questo incantesimo Vitriolist è sempre considerato preparato.\nNon conta per il limite di preparazione degli incantesimi.
+Screen/&InnovationVitriolistSpellTitle=Vitriolista
 Subclass/&InnovationVitriolistDescription=Tutti gli inventori usano varie forme di acidi e altri mezzi magici per abbattere ingredienti, parti di creature o persino oggetti nei loro componenti di base per i loro esperimenti, alcuni inventori si sono concentrati sul processo di decostruzione, specialmente quando usano l'acido in questa funzione e hanno sperimentato come potrebbe essere utilizzato in una capacità molto maggiore quando si tratta di capacità offensive e difensive.
 Subclass/&InnovationVitriolistTitle=Vitriolista

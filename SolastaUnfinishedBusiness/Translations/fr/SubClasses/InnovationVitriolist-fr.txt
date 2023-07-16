@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=Lancez un mélange sur un
 Feature/&PowerInnovationVitriolistViscosityTitle=Mélange de viscosité
 Feedback/&AdditionalDamageInfusionFormat=Infusion vitrioliste !
 Feedback/&AdditionalDamageInfusionLine={0} effectue une attaque d'infusion sur {1}
+Screen/&InnovationVitriolistSpellDescription=Ce sort Vitriolist est toujours considéré comme préparé.\nIl ne compte pas dans votre limite de préparation de sorts.
+Screen/&InnovationVitriolistSpellTitle=Vitriolist
 Subclass/&InnovationVitriolistDescription=Tous les inventeurs utilisent diverses formes d'acides et d'autres moyens magiques pour décomposer des ingrédients, des parties de créatures ou même des objets dans leurs composants de base pour leurs expériences. Certains inventeurs se sont concentrés sur le processus de déconstruction, en particulier lors de l'utilisation d'acide dans cette fonction et ont expérimenté comment il pourrait être utilisé dans une capacité beaucoup plus grande en ce qui concerne les capacités offensives et défensives.
 Subclass/&InnovationVitriolistTitle=Vitriolist
