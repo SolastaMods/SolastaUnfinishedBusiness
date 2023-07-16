@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using TA;
-using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -1079,7 +1078,8 @@ internal static class FlankingAndHigherGroundRules
         }
 
         var attackerCenter = new FlankingMathExtensions.Point3D(attacker.LocationBattleBoundingBox.Center);
-        var defenderCube = new FlankingMathExtensions.Cube(new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Min),
+        var defenderCube = new FlankingMathExtensions.Cube(
+            new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Min),
             new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
@@ -1183,8 +1183,4 @@ internal static class FlankingAndHigherGroundRules
         actionModifier.attackToHitTrends.Add(
             new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&HigherGroundAttack", null));
     }
-
-
-
-
 }

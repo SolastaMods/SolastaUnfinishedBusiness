@@ -33,7 +33,7 @@ internal static class RulesDisplay
             {
                 Main.Settings.UseMathFlankingRules = toggle;
             }
-            
+
             toggle = Main.Settings.UseOfficialFlankingRulesAlsoForReach;
             if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForReach"), ref toggle, UI.AutoWidth()))
             {

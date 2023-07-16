@@ -1,8 +1,9 @@
 ﻿using System;
-using UnityEngine;
 using TA;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
+
 internal static class FlankingMathExtensions
 {
     internal static bool LineIntersectsCubeOppositeSides(Point3D p1, Point3D p2, Cube cube)
@@ -30,7 +31,7 @@ internal static class FlankingMathExtensions
         return intersectsTopBottom;
     }
 
-    internal static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
+    private static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
     {
         // Check if the line intersects the plane of the face
         if (!LineIntersectsPlane(p1, p2, face))
@@ -45,7 +46,7 @@ internal static class FlankingMathExtensions
         return PointIsWithinFace(intersection, face);
     }
 
-    internal static bool LineIntersectsPlane(Point3D p1, Point3D p2, Plane plane)
+    private static bool LineIntersectsPlane(Point3D p1, Point3D p2, Plane plane)
     {
         // Compute the direction vector of the line
         var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
@@ -57,7 +58,7 @@ internal static class FlankingMathExtensions
         return !(Math.Abs(dotProduct) < double.Epsilon);
     }
 
-    internal static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
+    private static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
     {
         // Compute the direction vector of the line
         var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
@@ -74,7 +75,7 @@ internal static class FlankingMathExtensions
         return new Point3D(x, y, z);
     }
 
-    internal static bool PointIsWithinFace(Point3D point, Plane face)
+    private static bool PointIsWithinFace(Point3D point, Plane face)
     {
         // Check if the point is within the boundaries of the face
         return point.X >= face.MinX && point.X <= face.MaxX &&
