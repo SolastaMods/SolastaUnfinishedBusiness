@@ -77,6 +77,7 @@ internal static class SubclassesContext
         // Rogue
         LoadSubclass(new RoguishAcrobat());
         LoadSubclass(new RoguishArcaneScoundrel());
+        LoadSubclass(new RoguishBladeCaller());
         LoadSubclass(new RoguishDuelist());
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());

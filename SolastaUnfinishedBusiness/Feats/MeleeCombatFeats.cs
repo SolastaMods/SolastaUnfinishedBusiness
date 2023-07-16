@@ -691,7 +691,7 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatBladeMastery";
 
-        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
+        var weaponTypes = new[] { DaggerType, ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
         var feat = FeatDefinitionBuilder
             .Create(NAME)

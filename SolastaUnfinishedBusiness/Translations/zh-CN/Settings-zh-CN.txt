@@ -106,6 +106,8 @@ ModUi/&EnableLevel20=启用20级<b><i><color=#C04040E0>[需要重启]</color></i
 ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游戏控制台
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制能力得分最低的前置条件</i>
+ModUi/&EnableMonkAbundantKi=在1级启用<color=#D89555>武僧</color><b>丰富的Ki</b><i><color=#F0DAA0>[获得额外的Ki等于熟练加值的一半]</color> </i>
+ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>武僧</color><b>战斗风格</b>选择
 ModUi/&EnableMonkWeaponSpecialization=在等级2和11启用<color=#D89555>僧侣</color><b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的僧侣武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
@@ -245,6 +247,7 @@ ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&Update=<b><color=#D89555>更新</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<color=#D89555>精灵</color>的面部模型
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>尖峰生长</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
+ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学来确定侧翼 <color=#F0DAA0>[可能会对慢速机器产生性能影响]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
 ModUi/&UseOfficialFlankingRules=使用官方 DnD 夹击规则<i><color=#F0DAA0>[如果与盟友前后夹击，攻击具有优势]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 对远程攻击生效</i>

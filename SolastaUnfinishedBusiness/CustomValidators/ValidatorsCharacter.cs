@@ -106,6 +106,11 @@ internal static class ValidatorsCharacter
             LocationDefinitions.LightingState.Unlit,
             LocationDefinitions.LightingState.Dim)(character);
 
+    internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
+    {
+        return character => character.CanUsePower(power);
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {

@@ -1,0 +1,120 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Formal",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:BonusCantripsBackgroundDevoted:315853d3-914c-573c-b20a-9ef383292631",
+    "Definition:ProficiencyBackgroundDevotedSkills:6468a3eb-08e7-5d65-b2ed-a57c245c532e"
+  ],
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesNoble_Valley:678210a968263d246860ca9ee42dcfad",
+              "defaultChoice": "ClothesNoble_Valley",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
+              "defaultChoice": "PotionOfHealing",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+              "defaultChoice": "Torch",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+              "defaultChoice": "Food_Ration",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Slang"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Friendliness"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Pragmatism",
+    "Friendliness"
+  ],
+  "forbiddenAlignments": [],
+  "hasBackgroundQuest": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Background/&BackgroundDevotedTitle",
+    "description": "Background/&BackgroundDevotedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "035aabe5-c782-563e-87bc-024c9c4af2a7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b90d813e-4866-5cc7-a619-185811de36bb",
+  "contentPack": 9999,
+  "name": "BackgroundDevoted"
+}

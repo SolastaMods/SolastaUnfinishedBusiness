@@ -124,6 +124,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
+    public bool EnableMonkAbundantKi { get; set; }
+    public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
@@ -155,6 +157,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
+    public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
