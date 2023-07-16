@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -70,15 +71,9 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
 
         // LEVEL 09 - Hail of Blades
 
-        var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityHailOfBladesToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
-            .AddToDB();
-
         var powerHailOfBlades = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HailOfBlades")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
@@ -98,6 +93,14 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionBladeMark))
                     .Build())
+            .AddToDB();
+
+        var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityHailOfBladesToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
+            .SetCustomSubFeatures(
+                new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerHailOfBlades)))
             .AddToDB();
 
         var featureSetHailOfBlades = FeatureDefinitionFeatureSetBuilder
@@ -337,7 +340,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.CanReact()) // || !rulesetAttacker.CanUsePower(_powerHailOfBlades))
+            if (!attacker.CanReact() || !rulesetAttacker.CanUsePower(_powerHailOfBlades))
             {
                 yield break;
             }
@@ -378,6 +381,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                                      battleManager.IsWithinXCells(x, defender, 3))
                          .ToList())
             {
+                EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger);
                 effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
             }
         }
