@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -71,6 +72,14 @@ internal static class CharacterContext
                 "Pugilist",
                 "RopeItUp",
                 "Sentinel")
+            .AddToDB();
+
+    private static readonly FeatureDefinitionAttributeModifier AttributeModifierMonkAbundantKi =
+        FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierMonkAbundantKi")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus,
+                AttributeDefinitions.KiPoints)
             .AddToDB();
 
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
@@ -172,6 +181,7 @@ internal static class CharacterContext
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
         SwitchHelpPower();
+        SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
@@ -705,6 +715,26 @@ internal static class CharacterContext
                 characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
+        }
+    }
+
+    internal static void SwitchMonkAbundantKi()
+    {
+        if (Main.Settings.EnableMonkAbundantKi)
+        {
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(AttributeModifierMonkAbundantKi, 1));
+        }
+        else
+        {
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 1 &&
+                                x.FeatureDefinition == AttributeModifierMonkAbundantKi);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 

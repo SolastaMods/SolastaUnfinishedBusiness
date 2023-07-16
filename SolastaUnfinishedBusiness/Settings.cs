@@ -123,8 +123,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
-    public bool EnableMonkFightingStyle { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
+    public bool EnableMonkAbundantKi { get; set; }
+    public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableRogueCunningStrike { get; set; }

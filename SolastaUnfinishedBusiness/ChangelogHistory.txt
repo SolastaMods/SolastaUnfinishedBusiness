@@ -2,12 +2,13 @@
 
 - added Daggers to Blade Mastery feat
 - added Devoted background
+- added "Enable Monk Abundant Ki at level 1" setting
 - added "Enable Monk Fighting Style at level 2" setting
 - added Flanking additional calculation method [by Andargor]
 - added Roguish Blade Caller subclass
 - fixed Oath of Thunder returning weapon behavior
 - fixed Wildshape interaction with "action switching"
-- improved French [by Ermite_Crabe] and Russian translations [by Kranay]
+- improved French [by Ermite_Crabe], and Russian translations [by Kranay]
 
 1.5.92.16:
 
@@ -15,7 +16,7 @@
 - added "Enable showing distance on tooltips when hovering over a character in combat" setting [by TheRev]
 - added Innovation Vitriolist subclass [BETA, only for QA team]
 - fixed Cunning / Devious Strike interaction with Duelist
-- improved French [by Ermite_Crabe] and Russian translations [by Kranay]
+- improved French [by Ermite_Crabe], and Russian translations [by Kranay]
 
 1.5.92.15:
 

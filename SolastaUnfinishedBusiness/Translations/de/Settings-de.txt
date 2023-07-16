@@ -106,6 +106,7 @@ ModUi/&EnableLevel20=Aktivieren Sie Level 20 <b><i><color=#C04040E0>[Neustart er
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie die Protokollierung von Dialogen während Erzählsequenzen auf der Spielekonsole
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokollierung ungültiger Referenzen in benutzerdefinierten Kampagnen
 ModUi/&EnableMinInOutAttributes=<i>+ Erzwingen Sie die Mindestein- und -aus-Voraussetzungen für Fähigkeitswerte</i>
+ModUi/&EnableMonkAbundantKi=Aktivieren Sie <color=#D89555>Mönch</color> <b>reichlich vorhandenes Ki</b> auf Stufe 1 <i><color=#F0DAA0>[Sie erhalten zusätzliches Ki, das der Hälfte des aufgerundeten Fähigkeitsbonus entspricht]</color> </i>
 ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

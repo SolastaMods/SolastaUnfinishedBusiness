@@ -162,6 +162,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFighterWeaponSpecialization();
         }
 
+        toggle = Main.Settings.EnableMonkAbundantKi;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkAbundantKi"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkAbundantKi = toggle;
+            CharacterContext.SwitchMonkAbundantKi();
+        }
+
         toggle = Main.Settings.EnableMonkFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
         {
