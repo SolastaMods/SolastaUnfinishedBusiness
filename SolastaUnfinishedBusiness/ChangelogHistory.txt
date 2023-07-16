@@ -1,10 +1,11 @@
 ﻿1.5.92.17:
 
+- added Daggers to Blade Mastery feat
 - added Devoted background
 - added "Enable Monk Fighting Style at level 2" setting
 - added Flanking additional calculation method [by Andargor]
 - added Roguish Blade Caller subclass
-- fixed Oath of Thunder returning weapon
+- fixed Oath of Thunder returning weapon behavior
 - fixed Wildshape interaction with "action switching"
 - improved French [by Ermite_Crabe] and Russian translations [by Kranay]
 
