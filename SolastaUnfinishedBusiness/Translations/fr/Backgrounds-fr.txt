@@ -1,5 +1,11 @@
+Background/&BackgroundDevotedDescription=Après des années d'errances sans but et de recherches infructueuses, vous avez trouvé votre cause. Qu'il s'agisse d'une divinité ou d'une religion, d'une campagne politique, d'un mouvement philosophique ou simplement de la promotion des bonnes bières et de l'hydromel de Maître Tuckin, vous avez vu la lumière et vous vous consacrez de tout cœur à faire avancer la cause que vous avez choisie.
+Background/&BackgroundDevotedTitle=Dévoué
 Background/&BackgroundFarmerDescription=Vous avez travaillé la terre et élevé du bétail à la main depuis votre naissance pour nourrir la bouche de beaucoup. En tant qu'agriculteur, vous vous êtes réveillé avant le soleil et êtes revenu des champs après son coucher. Vous avez laissé derrière vous une vie mondaine pour chercher l'aventure pour le frisson ou la gloire ou la fortune.
 Background/&BackgroundFarmerTitle=Agriculteur
+Feature/&BonusCantripsBackgroundDevotedDescription=Gagnez le tour mineur <b>Flamme sacrée</b>.
+Feature/&BonusCantripsBackgroundDevotedTitle=Cantrips dévoués
+Feature/&ProficiencyBackgroundDevotedSkillsDescription=Perspicacité, enquête et religion
+Feature/&ProficiencyBackgroundDevotedSkillsTitle=Compétences dévouées
 Feature/&ProficiencyBackgroundFarmerSkillsDescription=Manipulation des animaux, nature et perception
 Feature/&ProficiencyBackgroundFarmerSkillsTitle=Compétences des agriculteurs
 Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Maîtrise des massues et haches à main. +1 pour frapper avec eux.

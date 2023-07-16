@@ -1,5 +1,11 @@
+Background/&BackgroundDevotedDescription=После многих лет бесцельных скитаний и бесплодных поисков вы нашли свое дело. Будь то божество или религия, политическая кампания, философское движение или просто реклама прекрасного эля и медовухи Мастера Такина, вы увидели свет и всем сердцем посвятили себя продвижению выбранного вами дела.
+Background/&BackgroundDevotedTitle=Преданный
 Background/&BackgroundFarmerDescription=Вы с детства возделывали землю и разводили домашний скот, чтобы накормить многих. Будучи фермером, вы просыпались до восхода солнца и возвращались с полей после заката. Вы оставили мирскую жизнь в поисках приключений ради острых ощущений, славы или богатства.
 Background/&BackgroundFarmerTitle=Фермер
+Feature/&BonusCantripsBackgroundDevotedDescription=Получите колдовство <b>Священное пламя</b>.
+Feature/&BonusCantripsBackgroundDevotedTitle=Преданные колдовства
+Feature/&ProficiencyBackgroundDevotedSkillsDescription=Прозрение, исследование и религия
+Feature/&ProficiencyBackgroundDevotedSkillsTitle=Преданные навыки
 Feature/&ProficiencyBackgroundFarmerSkillsDescription=Уход за животными, природа и восприятие
 Feature/&ProficiencyBackgroundFarmerSkillsTitle=Навыки фермера
 Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Владение дубинами и ручными топорами. +1 к броскам атаки этим оружием.

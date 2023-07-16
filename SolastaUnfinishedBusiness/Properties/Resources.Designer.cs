@@ -482,6 +482,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] BackgroundDevoted {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundDevoted", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] BackgroundFarmer {
             get {
                 object obj = ResourceManager.GetObject("BackgroundFarmer", resourceCulture);
@@ -595,16 +605,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] CausticZap {
             get {
                 object obj = ResourceManager.GetObject("CausticZap", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static byte[] Cell {
-            get {
-                object obj = ResourceManager.GetObject("Cell", resourceCulture);
                 return ((byte[])(obj));
             }
         }
