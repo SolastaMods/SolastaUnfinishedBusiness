@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,6 +12,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Api.Helpers.EffectHelpers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -375,13 +375,15 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                 .AddAsActivePowerToSource();
 
             rulesetAttacker.UsePower(usablePower);
+            StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger,
+                EffectType.Caster);
 
             foreach (var target in Gui.Battle.GetOpposingContenders(rulesetAttacker.Side)
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                                      battleManager.IsWithinXCells(x, defender, 3))
                          .ToList())
             {
-                EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger);
+                StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger);
                 effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
             }
         }
