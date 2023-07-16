@@ -106,6 +106,8 @@ ModUi/&EnableLevel20=Habilitar nível 20 <b><i><color=#C04040E0>[Requer reinicia
 ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jogo durante as sequências narrativas
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Ativar o registro de referências inválidas em campanhas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações mínimas de habilidade dentro e fora dos pré-requisitos</i>
+ModUi/&EnableMonkAbundantKi=Habilite <color=#D89555>Monk</color> <b>Abundant Ki</b> no nível 1 <i><color=#F0DAA0>[ganhe Ki adicional igual a metade do bônus de proficiência arredondado]</color> </i>
+ModUi/&EnableMonkFightingStyle=Habilite a opção <color=#D89555>Monge</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Monge</color> <b>Especialização em Arma</b> nos níveis de classe 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado se torna uma arma de monge para você]</color></i>
 ModUi/&EnableMulticlass=Ativar multiclasse <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnablePcgRandom=Habilite um algoritmo de gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
@@ -244,6 +246,7 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualizar</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Use modelos de face <color=#D89555>Elf</color> em <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
+ModUi/&UseMathFlankingRules=<i>+ Use matemática precisa para determinar o flanqueamento <color=#F0DAA0>[pode ter um impacto no desempenho em máquinas lentas]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem <i><color=#F0DAA0>[se as circunstâncias fizerem com que um teste tenha ambos, considera-se que você não tem nenhum deles]</color></i>
 ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento <i><color=#F0DAA0>[um atacante tem vantagem se um aliado estiver no lado oposto do alvo]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à distância</i>

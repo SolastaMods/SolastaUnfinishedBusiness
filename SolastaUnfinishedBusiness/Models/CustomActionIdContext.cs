@@ -25,7 +25,8 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
-        (Id)ExtraActionId.QuiveringPalmToggle
+        (Id)ExtraActionId.QuiveringPalmToggle,
+        (Id)ExtraActionId.HailOfBladesToggle
     };
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
@@ -171,6 +172,13 @@ public static class CustomActionIdContext
 
     private static void BuildCustomToggleActions()
     {
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "HailOfBladesToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.HailOfBladesToggle)
+            .AddToDB();
+
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "ArcaneArcherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)

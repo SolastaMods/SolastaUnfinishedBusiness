@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomValidators;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -9,14 +11,17 @@ internal class ReturningWeapon
     private const string ActivateReturningFormat = "Feedback/&ReturningWeaponActivates";
     private const string TagReturningWeapon = "ReturningWeapon";
 
-    private ReturningWeapon()
+    internal static readonly ReturningWeapon AlwaysValid = new(ValidatorsWeapon.AlwaysValid);
+    private readonly IsWeaponValidHandler _isWeaponValidHandler;
+
+    internal ReturningWeapon(IsWeaponValidHandler isWeaponValidHandler)
     {
-        // Empty
+        _isWeaponValidHandler = isWeaponValidHandler;
     }
 
-    internal static ReturningWeapon Instance { get; } = new();
-
-    internal static RuleDefinitions.AttackProximity Process(RulesetCharacterHero hero, RulesetAttackMode mode,
+    internal static RuleDefinitions.AttackProximity Process(
+        RulesetCharacterHero hero,
+        RulesetAttackMode mode,
         RuleDefinitions.AttackProximity proximity)
     {
         if (proximity != RuleDefinitions.AttackProximity.Range || !mode.Thrown)
@@ -57,7 +62,15 @@ internal class ReturningWeapon
             return proximity;
         }
 
-        if (!droppedItem.HasSubFeatureOfType<ReturningWeapon>() && !hero.HasSubFeatureOfType<ReturningWeapon>())
+        var isWeaponValid = droppedItem.GetSubFeaturesByType<ReturningWeapon>().Aggregate(
+            false,
+            (current, returningWeapon) => current || returningWeapon._isWeaponValidHandler(mode, null, hero));
+
+        isWeaponValid = hero.GetSubFeaturesByType<ReturningWeapon>().Aggregate(
+            isWeaponValid,
+            (current, returningWeapon) => current || returningWeapon._isWeaponValidHandler(mode, null, hero));
+
+        if (!isWeaponValid)
         {
             return proximity;
         }
