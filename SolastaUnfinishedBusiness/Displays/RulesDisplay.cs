@@ -28,6 +28,12 @@ internal static class RulesDisplay
 
         if (Main.Settings.UseOfficialFlankingRules)
         {
+            toggle = Main.Settings.UseMathFlankingRules;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseMathFlankingRules"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseMathFlankingRules = toggle;
+            }
+            
             toggle = Main.Settings.UseOfficialFlankingRulesAlsoForReach;
             if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForReach"), ref toggle, UI.AutoWidth()))
             {
