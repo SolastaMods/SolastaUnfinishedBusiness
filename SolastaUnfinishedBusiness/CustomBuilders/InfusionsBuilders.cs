@@ -108,7 +108,7 @@ internal static class InventorInfusions
         BuildInfuseItemPowerInvocation(1, name, sprite, IsThrownWeapon, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
-            .SetCustomSubFeatures(ReturningWeapon.Instance)
+            .SetCustomSubFeatures(ReturningWeapon.AlwaysValid)
             .SetAttackRollModifier(1)
             .SetDamageRollModifier(1)
             .SetMagicalWeapon()
@@ -215,7 +215,7 @@ internal static class InventorInfusions
                     .SetGuiPresentation($"Feature/&{name}Title",
                         Gui.Format("Feature/&DamageResistanceFormat", Gui.Localize($"Rules/&{element}Title")),
                         ConditionDefinitions.ConditionProtectedFromEnergyLightning)
-                    .SetCustomSubFeatures(ReturningWeapon.Instance)
+                    .SetCustomSubFeatures(ReturningWeapon.AlwaysValid)
                     .SetDamageAffinityType(DamageAffinityType.Resistance)
                     .SetDamageType(element)
                     .AddToDB());

@@ -62,7 +62,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             .AddToDB();
 
         featureHammersBoon.SetCustomSubFeatures(
-            ReturningWeapon.Instance,
+            new ReturningWeapon(IsOathOfThunderWeapon),
             new ModifyWeaponModifyAttackModeHammerAndAxeBoon(featureHammersBoon));
 
         // ThunderousRebuke

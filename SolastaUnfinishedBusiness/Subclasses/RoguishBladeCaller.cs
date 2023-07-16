@@ -149,7 +149,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
         // MAIN
 
         featureBladeBond.SetCustomSubFeatures(
-            ReturningWeapon.Instance,
+            new ReturningWeapon(IsBladeCallerWeapon),
             new ModifyWeaponAttackModeBladeBond(),
             new CustomBehaviorBladeMark(conditionBladeMark, conditionBladeSurge, powerHailOfBlades));
 
