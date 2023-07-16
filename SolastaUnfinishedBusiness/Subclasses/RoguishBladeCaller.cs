@@ -375,8 +375,6 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                 .AddAsActivePowerToSource();
 
             rulesetAttacker.UsePower(usablePower);
-            StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger,
-                EffectType.Caster);
 
             foreach (var target in Gui.Battle.GetOpposingContenders(rulesetAttacker.Side)
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -384,6 +382,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                          .ToList())
             {
                 StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger);
+                StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger, EffectType.Effect);
                 effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
             }
         }
