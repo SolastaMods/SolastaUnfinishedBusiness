@@ -244,7 +244,7 @@ ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&Update=<b><color=#D89555>Aggiorna</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del viso <color=#D89555>Elfo</color> sui <color=#D89555>Tiefling</color>
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseMathFlankingRules=Usa calcoli precisi per determinare il fiancheggiamento <i><color=#F0DAA0>[può avere un impatto sulle prestazioni su macchine lente]</color></i>
+ModUi/&UseMathFlankingRules=<i>+ Usa calcoli precisi per determinare il fiancheggiamento <color=#F0DAA0>[può avere un impatto sulle prestazioni su macchine lente]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio <i><color=#F0DAA0>[se le circostanze fanno sì che un tiro abbia entrambi, sei considerato non avere nessuno dei due]</color></i>
 ModUi/&UseOfficialFlankingRules=Usa le regole ufficiali sui fianchi <i><color=#F0DAA0>[un attaccante ha vantaggio se un alleato si trova sul lato opposto del bersaglio]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche per attacchi a distanza</i>
