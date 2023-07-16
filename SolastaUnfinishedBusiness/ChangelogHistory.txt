@@ -1,10 +1,19 @@
-﻿1.5.92.16:
+﻿1.5.92.17:
 
-- added "Allow temporarily suspending flight from items and spells" setting [by TheRev]
-- added "Enable showing distance on tooltips when hovering over a character in combat" setting [by Andargor]
+- added Devoted background
+- added Flanking additional calculation method [by Andargor]
+- added Roguish Blade Caller subclass
+- fixed Oath of Thunder returning weapon
+- fixed Wildshape interaction with "action switching"
+- improved French [by Ermite_Crabe] and Russian translations [by Kranay]
+
+1.5.92.16:
+
+- added "Allow temporarily suspending flight from items and spells" setting [by Andargor]
+- added "Enable showing distance on tooltips when hovering over a character in combat" setting [by TheRev]
 - added Innovation Vitriolist subclass [BETA, only for QA team]
 - fixed Cunning / Devious Strike interaction with Duelist
-- improved French [Ermite_Crabe] and Russian translations [Kranay]
+- improved French [by Ermite_Crabe] and Russian translations [by Kranay]
 
 1.5.92.15:
 

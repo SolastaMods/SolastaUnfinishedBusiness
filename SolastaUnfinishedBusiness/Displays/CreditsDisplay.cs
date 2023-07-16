@@ -15,7 +15,7 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
+            "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, backgrounds, feats, fighting styles, invocations, metamagic, spells, " +
             "Fairy, Half-elf, Tiefling, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, " +
             "College of Audacity, College of Guts, College of Life, College of Valiance, Circle of the Ancient Forest, Circle of the Eternal Grove, " +
             "Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, " +
@@ -31,12 +31,12 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
         ("HiddenHax",
-            "homebrew design [feats, spells, Circle of the Eternal Grove, College of Audacity, College of Valiance, Path of the Elemental Fury, " +
+            "QA, homebrew design [feats, spells, Circle of the Eternal Grove, College of Audacity, College of Valiance, Path of the Elemental Fury, " +
             "Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, " +
             "Way of the Tempest]"),
         ("DemonicDuck",
-            "homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Hammer, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+            "QA, homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Hammer, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
         ("Earandil", "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior]"),
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
@@ -56,7 +56,7 @@ internal static class CreditsDisplay
         ("TheRev", "quality of life"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
-        ("Vess", "homebrew design [Innovation Vitriolist]"),
+        ("Vess", "QA, homebrew design [Innovation Vitriolist]"),
         ("Holic75", "spells, Bolgrif"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
