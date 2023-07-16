@@ -1,6 +1,7 @@
 ﻿1.5.92.17:
 
 - added Devoted background
+- added "Enable Monk Fighting Style at level 2" setting
 - added Flanking additional calculation method [by Andargor]
 - added Roguish Blade Caller subclass
 - fixed Oath of Thunder returning weapon

@@ -57,6 +57,22 @@ internal static class CharacterContext
                 "RopeItUp")
             .AddToDB();
 
+    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceMonk =
+        FeatureDefinitionFightingStyleChoiceBuilder
+            .Create("FightingStyleChoiceMonk")
+            .SetGuiPresentation("FighterFightingStyle", Category.Feature)
+            .SetFightingStyles(
+                "Archery",
+                "BlindFighting",
+                "Crippling",
+                "Dueling",
+                "Executioner",
+                "Lunger",
+                "Pugilist",
+                "RopeItUp",
+                "Sentinel")
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolMonkWeaponSpecialization")
@@ -156,6 +172,7 @@ internal static class CharacterContext
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
         SwitchHelpPower();
+        SwitchMonkFightingStyle();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
@@ -688,6 +705,26 @@ internal static class CharacterContext
                 characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
+        }
+    }
+
+    internal static void SwitchMonkFightingStyle()
+    {
+        if (Main.Settings.EnableMonkFightingStyle)
+        {
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FightingStyleChoiceMonk, 2));
+        }
+        else
+        {
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 2 &&
+                                x.FeatureDefinition == FightingStyleChoiceMonk);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 

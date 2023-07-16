@@ -106,6 +106,7 @@ ModUi/&EnableLevel20=레벨 20 활성화 <b><i><color=#C04040E0>[다시 시작�
 ModUi/&EnableLogDialoguesToConsole=내러티브 시퀀스 중에 게임 콘솔에 대한 로그 대화 활성화
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=맞춤 캠페인에서 잘못된 참조 로깅 사용
 ModUi/&EnableMinInOutAttributes=<i>+ 능력 점수 최소 인앤아웃 전제 조건 적용</i>
+ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>수도사</color> <b>전투 스타일</b> 선택 활성화
 ModUi/&EnableMonkWeaponSpecialization=클래스 레벨 2 및 11에서 <color=#D89555>수도사</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 수도사 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=다중 클래스 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnablePcgRandom=더 나은 임의 생성 알고리즘 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i> 사용

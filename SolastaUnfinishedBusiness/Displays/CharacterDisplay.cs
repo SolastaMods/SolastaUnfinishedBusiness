@@ -162,6 +162,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFighterWeaponSpecialization();
         }
 
+        toggle = Main.Settings.EnableMonkFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkFightingStyle = toggle;
+            CharacterContext.SwitchMonkFightingStyle();
+        }
+
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
@@ -169,18 +176,18 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkWeaponSpecialization();
         }
 
-        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
-        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
-            CharacterContext.SwitchScimitarWeaponSpecialization();
-        }
-
         toggle = Main.Settings.EnableRogueCunningStrike;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRogueCunningStrike = toggle;
             CharacterContext.SwitchRogueCunningStrike();
+        }
+
+        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
+            CharacterContext.SwitchScimitarWeaponSpecialization();
         }
 
         UI.Label();

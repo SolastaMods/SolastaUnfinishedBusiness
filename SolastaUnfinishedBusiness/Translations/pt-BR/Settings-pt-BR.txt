@@ -106,6 +106,7 @@ ModUi/&EnableLevel20=Habilitar nível 20 <b><i><color=#C04040E0>[Requer reinicia
 ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jogo durante as sequências narrativas
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Ativar o registro de referências inválidas em campanhas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações mínimas de habilidade dentro e fora dos pré-requisitos</i>
+ModUi/&EnableMonkFightingStyle=Habilite a opção <color=#D89555>Monge</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Monge</color> <b>Especialização em Arma</b> nos níveis de classe 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado se torna uma arma de monge para você]</color></i>
 ModUi/&EnableMulticlass=Ativar multiclasse <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnablePcgRandom=Habilite um algoritmo de gerador aleatório melhor <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
