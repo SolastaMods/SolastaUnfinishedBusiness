@@ -244,6 +244,7 @@ ModUi/&UnlockSkinColors=Разблокировать цвета кожи
 ModUi/&Update=<b><color=#D89555>Обновить</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Использовать <color=#D89555>Эльфийские</color> лица на <color=#D89555>Тифлингах</color>
 ModUi/&UseHeightOneCylinderEffect=Ограничить высоту эффекта одним уровнем при накладывании <color=#D89555>Чёрных щупалец, Опутывания, Смазки</color> <i><color=#F0DAA0>[квадрат]</color></i> или <color=#D89555>Шипов</color> <i><color=#F0DAA0>[круг]</color></i>
+ModUi/&UseMathFlankingRules=Используйте точную математику для определения фланкирования <i><color=#F0DAA0>[может повлиять на производительность на медленных компьютерах]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использовать официальные правила для преимущества/помехи <i><color=#F0DAA0>[если условия вызывают бросок одновременно с преимуществом и помехой, вы не получаете ни того, ни другого]</color></i>
 ModUi/&UseOfficialFlankingRules=Использовать официальные правила положения <i><color=#F0DAA0>[атакующий получает преимущество, если союзник находится на противоположной стороне от цели]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти правила для дальнобойных атак</i>

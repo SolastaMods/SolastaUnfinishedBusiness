@@ -244,6 +244,7 @@ ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&Update=<b><color=#D89555>Mettre à jour</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Utiliser les modèles de visage <color=#D89555>Elfes</color> sur les <color=#D89555>Tieffelins</color>
 ModUi/&UseHeightOneCylinderEffect=Utiliser un gabarit cylindrique de 1 de hauteur lors du lancement des sorts <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance d'épines</color> <i><color=#F0DAA0>[rond]</color></i>
+ModUi/&UseMathFlankingRules=Utilisez des calculs précis pour déterminer le contournement <i><color=#F0DAA0>[peut avoir un impact sur les performances des machines lentes]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage <i><color=#F0DAA0>[si les circonstances font qu'un jet est soumis aux deux, vous êtes considéré comme n'ayant ni l'un ni l'autre]</color></i>
 ModUi/&UseOfficialFlankingRules=Utiliser les règles officielles de prise en tenaille <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé de la cible]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance</i>

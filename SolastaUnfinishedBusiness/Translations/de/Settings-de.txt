@@ -244,6 +244,7 @@ ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&Update=<b><color=#D89555>Update</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Gesichtsmodelle für <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555 wirken>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
+ModUi/&UseMathFlankingRules=Verwenden Sie präzise Mathematik, um flankierende <i><color=#F0DAA0>[kann sich auf langsamen Maschinen auf die Leistung auswirken]</color></i> zu bestimmen
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils-/Nachteilregeln <i><color=#F0DAA0>[Wenn Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines davon haben]</color></i>
 ModUi/&UseOfficialFlankingRules=Verwenden Sie die offiziellen Flankierungsregeln <i><color=#F0DAA0>[ein Angreifer hat einen Vorteil, wenn sich ein Verbündeter auf der gegenüberliegenden Seite des Ziels befindet]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe aktivieren</i>
