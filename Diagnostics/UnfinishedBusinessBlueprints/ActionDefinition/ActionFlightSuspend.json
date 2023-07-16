@@ -1,59 +1,46 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9035,
+  "id": 9031,
   "actionType": "NoCost",
-  "actionScope": "Battle",
+  "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "",
-  "requiresAuthorization": true,
+  "classNameOverride": "UsePower",
+  "requiresAuthorization": false,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
-  "parameter": "Destination",
-  "formType": "Large",
+  "parameter": "ActivatePower",
+  "formType": "Small",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
-  "focusCameraOnAction": false,
+  "focusCameraOnAction": true,
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": null,
-  "displayPowerTooltip": false,
+  "activatedPower": "Definition:PowerFlightSuspend:52e27cc9-6edc-5f97-879f-18e5a9c70e09",
+  "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",
   "addLevel": false,
-  "maxCells": 3,
+  "maxCells": 1,
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "soundEvent": {
-    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
-    "idInternal": 0,
-    "valueGuidInternal": {
-      "$type": "System.Byte[], mscorlib",
-      "$value": ""
-    }
-  },
+  "particlePrefab": null,
+  "soundEvent": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&WithdrawTitle",
-    "description": "Action/&WithdrawDescription",
+    "title": "Action/&FlightSuspendTitle",
+    "description": "Action/&FlightSuspendDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "56c590fbbd5de4e4f806c7e13e6279c7",
-      "m_SubObjectName": "StepBack",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "383354fa-2eb5-5a6a-b6f7-8d5965927285",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -63,12 +50,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 71,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e84585ff-116f-5417-93e4-260af9117624",
+  "guid": "96a9408b-be09-5105-a287-1ca3f08ea5b0",
   "contentPack": 9999,
-  "name": "Withdraw"
+  "name": "ActionFlightSuspend"
 }

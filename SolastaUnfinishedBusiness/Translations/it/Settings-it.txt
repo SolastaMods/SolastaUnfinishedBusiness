@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
 ModUi/&AllowClubsToBeThrown=Consenti il lancio di <color=#D89555>mazze</color> come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
+ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influisce sulle forme selvatiche o sulle razze volanti]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il <color=#1E81B0>CTRL</color> clic per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
 ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'essere affrettati <color=#F0DAA0> (sei ancora limitato a 1 incantesimo di azione principale per round)</color>
 ModUi/&AllowHornsOnAllRaces=Consenti le corna a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e delle corna]</color></i>
@@ -117,6 +118,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(T)</color> per teletrasportare il gruppo <i><color=#F0DAA0>[potresti interrompere le missioni se ti teletrasporti in un luogo sconosciuto]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
+ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza sulla descrizione comandi del pannello quando passi sopra un personaggio in combattimento
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Evoca Elementale</color> e <color=#D89555> Evoca Folletto</color>
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta probabilità percentuali di incontri casuali</color>

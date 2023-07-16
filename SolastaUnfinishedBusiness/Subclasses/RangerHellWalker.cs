@@ -302,7 +302,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IIgnoreDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
+        IModifyDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -338,16 +338,18 @@ internal sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            if (rulesetActor.HasConditionOfType(_conditionDefinition.Name))
+            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
             {
-                return provider.DamageAffinityType == DamageAffinityType.Resistance &&
-                       provider.DamageType == DamageTypeFire;
+                return;
             }
 
-            return false;
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
+                });
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)

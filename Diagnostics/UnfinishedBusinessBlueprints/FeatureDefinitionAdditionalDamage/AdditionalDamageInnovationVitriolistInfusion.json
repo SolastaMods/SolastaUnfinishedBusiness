@@ -7,7 +7,7 @@
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
-  "attackModeOnly": false,
+  "attackModeOnly": true,
   "attackOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",

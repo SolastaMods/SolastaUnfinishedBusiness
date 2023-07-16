@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Несколько действий
 UI/&Add=Добавить
 UI/&AdditionalActionSource=Получено от: {0}
 UI/&Current Party=Текущая группа
+UI/&DistanceFormat=Расстояние: {0}
 UI/&Experimental Preview:=Экспериментальное превью <i><color=Yellow>[сделайте бэкап сохранений перед использованием]</color></i>:
 UI/&Expert=Компетентность
 UI/&PartyEditor=Редактор группы

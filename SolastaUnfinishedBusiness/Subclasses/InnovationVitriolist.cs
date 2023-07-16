@@ -55,8 +55,8 @@ public static class InnovationVitriolist
             .SetCustomSubFeatures(HasModifiedUses.Marker)
             .AddToDB();
 
-        var powerUseModifierMixtureIntMod = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureIntMod")
+        var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifier{Name}MixtureIntelligenceModifier")
             .SetGuiPresentationNoContent(true)
             .SetModifier(powerMixture, PowerPoolBonusCalculationType.AttributeMod, AttributeDefinitions.Intelligence)
             .AddToDB();
@@ -90,6 +90,9 @@ public static class InnovationVitriolist
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(AcidSplash)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -126,6 +129,9 @@ public static class InnovationVitriolist
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(AcidArrow)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -150,6 +156,9 @@ public static class InnovationVitriolist
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(AcidSplash)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -179,6 +188,9 @@ public static class InnovationVitriolist
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(PowerDragonBreath_Acid)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -191,12 +203,15 @@ public static class InnovationVitriolist
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
+        // Mixture
+
         var mixturePowers = new FeatureDefinition[] { powerCorrosion, powerMisery, powerAffliction, powerViscosity };
 
         var featureSetMixture = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Mixture")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerMixture, powerUseModifierMixtureIntMod, powerUseModifierMixtureProficiencyBonus)
+            .AddFeatureSet(
+                powerMixture, powerUseModifierMixtureIntelligenceModifier, powerUseModifierMixtureProficiencyBonus)
             .AddFeatureSet(mixturePowers)
             .AddToDB();
 
@@ -208,16 +223,9 @@ public static class InnovationVitriolist
             .Create($"AdditionalDamage{Name}Infusion")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("Infusion")
+            .SetAttackModeOnly()
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetSpecificDamageType(DamageTypeAcid)
-            .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, _, _, _, mode, effect) =>
-                    (OperationType.Set, (mode != null && mode.EffectDescription.EffectForms.Any(x =>
-                                            x.FormType == EffectForm.EffectFormType.Damage &&
-                                            x.DamageForm.DamageType == DamageTypeAcid)) ||
-                                        (effect != null && effect.EffectDescription.EffectForms.Any(x =>
-                                            x.FormType == EffectForm.EffectFormType.Damage &&
-                                            x.DamageForm.DamageType == DamageTypeAcid)))))
             .AddToDB();
 
         var featureSetVitriolicInfusion = FeatureDefinitionFeatureSetBuilder
@@ -258,57 +266,35 @@ public static class InnovationVitriolist
                     .AddToDB())
             .AddToDB();
 
-        var additionalDamageArsenal = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}Arsenal")
-            .SetGuiPresentationNoContent(true)
-            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionArsenal)
-            .SetCustomSubFeatures(new RestrictedContextValidator((_, _, _, _, _, _, effect) =>
-                (OperationType.Set,
-                    effect != null &&
-                    effect.SourceDefinition != null &&
-                    mixturePowers.Contains(effect.SourceDefinition))))
+        // Vitriolic Arsenal - Bypass Resistance and Change Immunity to Resistance
+
+        var featureArsenal = FeatureDefinitionBuilder
+            .Create($"Feature{Name}Arsenal")
+            .SetGuiPresentation($"FeatureSet{Name}Arsenal", Category.Feature)
             .AddToDB();
+
+        featureArsenal.SetCustomSubFeatures(new ModifyDamageAffinityArsenal());
 
         // Vitriolic Arsenal
 
         var featureSetArsenal = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Arsenal")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerRefundMixture, additionalDamageArsenal)
-            .SetCustomSubFeatures(new IgnoreDamageAffinityArsenal())
+            .AddFeatureSet(powerRefundMixture, featureArsenal)
             .AddToDB();
 
         // LEVEL 15
 
         // Vitriolic Paragon
 
-        var powerParagon = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Paragon")
+        var featureParagon = FeatureDefinitionBuilder
+            .Create($"Feature{Name}Paragon")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetUseSpellAttack()
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
-                    .SetDurationData(DurationType.Round, 5)
-                    .SetParticleEffectParameters(HoldMonster)
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(ConditionDefinitions.ConditionParalyzed,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        // BEHAVIORS
+        // Vitriolic Mixtures - Behavior
 
-        powerMixture.AddCustomSubFeatures(new SpendPowerFinishedByMeParagon(powerParagon, mixturePowers));
+        powerMixture.AddCustomSubFeatures(new ModifyMagicEffectAnyOnTargetMixture(conditionArsenal, mixturePowers));
         PowerBundle.RegisterPowerBundle(powerMixture, true, mixturePowers.OfType<FeatureDefinitionPower>());
 
         // MAIN
@@ -319,15 +305,74 @@ public static class InnovationVitriolist
             .AddFeaturesAtLevel(3, autoPreparedSpells, featureSetMixture)
             .AddFeaturesAtLevel(5, featureSetVitriolicInfusion)
             .AddFeaturesAtLevel(9, featureSetArsenal)
-            .AddFeaturesAtLevel(15, powerParagon)
+            .AddFeaturesAtLevel(15, featureParagon)
             .AddToDB();
+    }
+
+    //
+    // Mixtures - Add additional PB damage to any acid damage / Add additional conditions at 9 and 15
+    //
+
+    private sealed class ModifyMagicEffectAnyOnTargetMixture : IModifyMagicEffectAny
+    {
+        private readonly ConditionDefinition _conditionArsenal;
+        private readonly List<FeatureDefinition> _mixturePowers = new();
+
+        public ModifyMagicEffectAnyOnTargetMixture(
+            ConditionDefinition conditionArsenal,
+            params FeatureDefinition[] mixturePowers)
+        {
+            _conditionArsenal = conditionArsenal;
+            _mixturePowers.AddRange(mixturePowers);
+        }
+
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var levels = character.GetClassLevel(InventorClass.Class);
+
+            // Infusion - add additional PB damage to any acid damage
+            if (levels >= 5)
+            {
+                var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+                foreach (var effectForm in effectDescription.EffectForms
+                             .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                         x.DamageForm.DamageType == DamageTypeAcid))
+                {
+                    effectForm.DamageForm.bonusDamage += pb;
+                }
+            }
+
+            // Arsenal - add shocked at 9
+            if (levels >= 9 && _mixturePowers.Contains(definition))
+            {
+                effectDescription.EffectForms.Add(EffectFormBuilder.ConditionForm(_conditionArsenal));
+            }
+
+            // Paragon - add paralyzed at 15
+            if (levels >= 15 && _mixturePowers.Contains(definition))
+            {
+                effectDescription.EffectForms.Add(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(ConditionDefinitions.ConditionParalyzed, ConditionForm.ConditionOperation.Add)
+                        .Build());
+            }
+
+            return effectDescription;
+        }
     }
 
     //
     // Refund Mixture
     //
 
-    private class CustomBehaviorRefundMixture : IPowerUseValidity, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorRefundMixture : IPowerUseValidity, IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerMixture;
         private readonly FeatureDefinitionPower _powerRefundMixture;
@@ -381,58 +426,32 @@ public static class InnovationVitriolist
     }
 
     //
-    // Arsenal
+    // Arsenal - Bypass Acid Resistance / Change Acid Immunity to Acid Resistance
     //
 
-    private sealed class IgnoreDamageAffinityArsenal : IIgnoreDamageAffinity
+    private sealed class ModifyDamageAffinityArsenal : IModifyDamageAffinity
     {
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public void ModifyDamageAffinity(
+            RulesetActor defender,
+            RulesetActor attacker,
+            List<FeatureDefinition> features)
         {
-            return provider.DamageType == DamageTypeAcid &&
-                   provider.DamageAffinityType == DamageAffinityType.Resistance;
-        }
-    }
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Resistance, DamageType: DamageTypeAcid
+                });
 
-    //
-    // Paragon
-    //
+            var immunityCount = features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeAcid
+                });
 
-    private sealed class SpendPowerFinishedByMeParagon : IUsePowerFinishedByMe
-    {
-        private readonly List<FeatureDefinition> _mixturePowers = new();
-        private readonly FeatureDefinitionPower _powerParagon;
-
-        public SpendPowerFinishedByMeParagon(
-            FeatureDefinitionPower powerParagon,
-            params FeatureDefinition[] mixturePowers)
-        {
-            _powerParagon = powerParagon;
-            _mixturePowers.AddRange(mixturePowers);
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            var gameLocationDefender = action.actionParams.TargetCharacters[0];
-            var rulesetDefender = gameLocationDefender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (immunityCount > 0)
             {
-                yield break;
+                features.Add(DamageAffinityAcidResistance);
             }
-
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            if (!_mixturePowers.Contains(power) || rulesetAttacker.GetClassLevel(InventorClass.Class) < 15)
-            {
-                yield break;
-            }
-
-            var usablePower = UsablePowersProvider.Get(_powerParagon, rulesetAttacker);
-
-            ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource()
-                .ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
         }
     }
 }

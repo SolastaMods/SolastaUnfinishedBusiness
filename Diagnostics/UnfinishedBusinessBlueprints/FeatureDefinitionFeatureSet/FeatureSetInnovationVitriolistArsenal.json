@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageInnovationVitriolistArsenal:b617b0d0-7fba-5bcf-bd87-a9c7082db8e2",
-    "Definition:PowerInnovationVitriolistRefundMixture:60b34b0e-0cb1-5718-8442-dd68b8676c5d"
+    "Definition:PowerInnovationVitriolistRefundMixture:60b34b0e-0cb1-5718-8442-dd68b8676c5d",
+    "Definition:FeatureInnovationVitriolistArsenal:f73d688b-f292-5c39-a2dd-71812e2a5bc1"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

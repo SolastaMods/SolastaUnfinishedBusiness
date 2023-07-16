@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatDevastatingStrikesTitle",
-    "description": "Feat/&FeatDevastatingStrikesDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf6f150a-b861-5f9c-b474-49e2cd4cc9a3",
+  "guid": "cdbd45b1-2550-5ba0-abd3-e46904ff1a90",
   "contentPack": 9999,
-  "name": "FeatureDevastatingStrikes"
+  "name": "PowerUseModifierInnovationVitriolistMixtureIntelligenceModifier"
 }

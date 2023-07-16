@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=Molteplici azioni
 UI/&Add=Add
 UI/&AdditionalActionSource=Concesso da: {0}
 UI/&Current Party=Partito attuale
+UI/&DistanceFormat=Distanza: {0}
 UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
 UI/&Expert=Esperto
 UI/&PartyEditor=Redattore di partito

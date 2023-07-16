@@ -21,7 +21,7 @@ internal static class CreditsDisplay
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Oath of Thunder, Path of the Elements, " +
             "Path of the Reaver, Path of the Savagery, Path of the Yeoman, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, " +
             "Ranger Wildmaster, Martial Arcane Archer, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, " +
-            "Way of the Tempest, Way of Weal and Woe, Innovation Artillerist, Innovation Vivisectionist, Patron Mountain, Level 20, Multiclass"),
+            "Way of the Tempest, Way of Weal and Woe, Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, Patron Mountain, Level 20, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, " +
@@ -50,8 +50,11 @@ internal static class CreditsDisplay
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("Kiloku", "quality of life"),
+        ("Andargor", "quality of life"),
+        ("TheRev", "quality of life"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
+        ("Vess", "homebrew design [Innovation Vitriolist]"),
         ("Holic75", "spells, Bolgrif"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),

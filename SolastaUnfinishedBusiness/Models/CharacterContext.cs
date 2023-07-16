@@ -1327,7 +1327,7 @@ internal static class CharacterContext
         var actionAffinityDazedOnlyMovement = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Devious}DazedOnlyMovement")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(main: false, bonus: false, freeOnce: false, reaction: false, noCost: false)
+            .SetAllowedActionTypes(false, false, freeOnce: false, reaction: false, noCost: false)
             .AddToDB();
 
         var conditionDazedOnlyMovement = ConditionDefinitionBuilder

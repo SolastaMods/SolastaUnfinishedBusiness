@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> �
 ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color>이나 <color=#D89555>손도끼</color>처럼 던질 수 있습니다.
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 입도록 허용
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20의 던전 허용
+ModUi/&AllowFlightSuspend=일시적으로 아이템 및 주문으로부터의 도피를 허용합니다. <i><color=#F0DAA0>[야생 모양 또는 비행 경주에는 영향을 미치지 않습니다]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> 클릭을 활성화하여 가젯이나 소품을 배치할 때 확인을 건너뜁니다.
 ModUi/&AllowHasteCasting=추가 행동이 있는 주문 시전이 가속되지 않도록 허용 <color=#F0DAA0>(여전히 라운드당 주요 행동 주문은 1개로 제한됩니다.)</color>
 ModUi/&AllowHornsOnAllRaces=모든 종족에 뿔 허용 <i><color=#F0DAA0>[인종, 머리, 뿔에 따라 결과가 끔찍해 보일 수 있음]</color></i>
@@ -117,6 +118,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정�
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 활성화하여 파티 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있음]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀에서 토글을 활성화하십시오.
+ModUi/&EnableTooltipDistance=전투 중인 캐릭터 위로 마우스를 가져갈 때 패널의 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환</color> 및 <color=#D89555>페이 소환</color> 업캐스트 활성화
 ModUi/&EnablesAsiAndFeat=<i><color=#F0DAA0>[독점적인 선택 대신]</color></i> 속성 점수 증가 및 재주 선택 활성화
 ModUi/&EncounterPercentageChance=<color=white>무작위 만남 비율 설정</color>

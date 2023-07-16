@@ -20,6 +20,7 @@ ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
 ModUi/&AllowClubsToBeThrown=Ermöglichen Sie das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolchen</color> oder <color=#D89555>Handäxten</color>
 ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit maximalem Level 20
+ModUi/&AllowFlightSuspend=Ermöglicht die vorübergehende Aussetzung des Fluges von Gegenständen und Zaubersprüchen <i><color=#F0DAA0>[betrifft nicht Wildformen oder fliegende Rassen]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>, um jegliche Prüfung beim Platzieren von Gadgets oder Requisiten zu umgehen
 ModUi/&AllowHasteCasting=Erlaube das Wirken von Zaubersprüchen mit zusätzlicher Aktion, bevor du beschleunigt <color=#F0DAA0>wirdst (du bist immer noch auf 1 Hauptaktionszauber pro Runde beschränkt)</color>
 ModUi/&AllowHornsOnAllRaces=Erlaube Hörner bei allen Rennen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Hupe schrecklich aussehen]</color></i>
@@ -117,6 +118,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Du
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
+ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Distanz im Tooltip des Panels, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Leistungsauswahl <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>

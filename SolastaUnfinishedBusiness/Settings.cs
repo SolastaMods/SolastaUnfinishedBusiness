@@ -284,6 +284,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
+    public bool EnableDistanceOnTooltip { get; set; }
 
     public int[][][] FormationGridSets { get; set; } =
     {

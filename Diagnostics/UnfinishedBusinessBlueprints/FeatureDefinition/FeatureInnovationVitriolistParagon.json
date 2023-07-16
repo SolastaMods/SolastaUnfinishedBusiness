@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatDevastatingStrikesTitle",
-    "description": "Feat/&FeatDevastatingStrikesDescription",
+    "title": "Feature/&FeatureInnovationVitriolistParagonTitle",
+    "description": "Feature/&FeatureInnovationVitriolistParagonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf6f150a-b861-5f9c-b474-49e2cd4cc9a3",
+  "guid": "a37b435a-22b1-504e-bb25-80b766059ecb",
   "contentPack": 9999,
-  "name": "FeatureDevastatingStrikes"
+  "name": "FeatureInnovationVitriolistParagon"
 }

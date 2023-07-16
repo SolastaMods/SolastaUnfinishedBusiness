@@ -3,6 +3,7 @@ Tutorial/&TutorialActionSwitchingTitle=多重动作
 UI/&Add=添加
 UI/&AdditionalActionSource=来源：{0}
 UI/&Current Party=当前队伍
+UI/&DistanceFormat=距离: {0}
 UI/&Experimental Preview:=实验预览<i><color=Yellow>[使用前备份存档]</color></i>：
 UI/&Expert=专家
 UI/&PartyEditor=队伍编辑
