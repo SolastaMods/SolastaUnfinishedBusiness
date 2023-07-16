@@ -155,6 +155,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
+    public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
