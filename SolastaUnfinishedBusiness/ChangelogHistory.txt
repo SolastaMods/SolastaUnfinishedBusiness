@@ -8,6 +8,7 @@
 - added Roguish Blade Caller subclass
 - fixed Oath of Thunder returning weapon behavior
 - fixed Wildshape interaction with "action switching"
+- improved vanilla logic to allow all damage forms from weapon to reroll
 - improved French [by Ermite_Crabe], and Russian translations [by Kranay]
 
 1.5.92.16:

@@ -219,8 +219,17 @@ public static class RulesetImplementationManagerPatcher
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
-            bool canRerollDice)
+            bool canRerollDice,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
+            //BUGFIX: allow all damage forms from weapons to allow reroll dice (i.e.: Great Weapon Fighting)
+            if (!canRerollDice)
+            {
+                canRerollDice = formsParams.attackMode != null &&
+                                formsParams.attackMode.EffectDescription.EffectForms.Any(
+                                    x => x.DamageForm == damageForm);
+            }
+
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
             {
                 return rulesetActor.RollDamage(
@@ -280,11 +289,13 @@ public static class RulesetImplementationManagerPatcher
             var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
             var myRollDamageMethod =
                 new Func<RulesetActor,
-                    DamageForm, int, bool, int, int, float, bool, bool, bool, List<int>, bool, int>(
+                    DamageForm, int, bool, int, int, float, bool, bool, bool, List<int>, bool,
+                    RulesetImplementationDefinitions.ApplyFormsParams, int>(
                     RollDamage).Method;
 
             return instructions.ReplaceCalls(rollDamageMethod,
                 "RulesetImplementationManager.ApplyDamageForm",
+                new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, myRollDamageMethod));
         }
     }
