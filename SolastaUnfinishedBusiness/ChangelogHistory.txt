@@ -1,4 +1,11 @@
-﻿1.5.92.17:
+﻿1.5.92.18:
+
+- added Arctic Adaptation feat [by @otearaisu]
+- fixed Innovation Vitriolist missing autoprepared spells tag
+- fixed concentration related features not working under wildshape
+- improved Oligath with immunity to cold weather [by @otearaisu]
+
+1.5.92.17:
 
 - added Daggers to Blade Mastery feat
 - added Devoted background
