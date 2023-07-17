@@ -463,7 +463,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerRoguishBladeCallerHailOfBladesTitle",
     "description": "Feature/&PowerRoguishBladeCallerHailOfBladesDescription",
     "spriteReference": {

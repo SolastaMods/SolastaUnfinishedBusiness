@@ -11,12 +11,17 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierFeatFrostAdaptation:b499b6ea-17e6-583d-9532-b1bff792c577",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupBodyResilienceTitle",
-    "description": "Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough",
+    "title": "Feat/&FeatFrostAdaptationTitle",
+    "description": "Feat/&FeatFrostAdaptationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53158993-e0b8-5031-afc1-fbeaebc70fc1",
+  "guid": "d2739d75-961f-597c-a279-7f5e672e50e7",
   "contentPack": 9999,
-  "name": "FeatGroupBodyResilience"
+  "name": "FeatFrostAdaptation"
 }
