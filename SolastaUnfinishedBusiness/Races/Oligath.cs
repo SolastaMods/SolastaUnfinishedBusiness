@@ -57,11 +57,15 @@ internal static class RaceOligathBuilder
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
             .AddToDB();
 
-        var damageAffinityOligathHotBlooded = FeatureDefinitionDamageAffinityBuilder
+        var damageAffinityOligathHotBlooded = FeatureDefinitionFeatureSetBuilder
             .Create($"DamageAffinity{Name}HotBlooded")
             .SetGuiPresentation(Category.Feature)
-            .SetDamageAffinityType(DamageAffinityType.Resistance)
-            .SetDamageType(DamageTypeCold)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddFeatureSet(
+                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherFrozenImmunity,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherChilledImmunity
+                )
             .AddToDB();
 
         var powerOligathStoneEndurance = BuildPowerOligathStoneEndurance();
