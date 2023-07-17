@@ -64,8 +64,7 @@ internal static class RaceOligathBuilder
             .AddFeatureSet(
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherFrozenImmunity,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherChilledImmunity
-                )
+                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherChilledImmunity)
             .AddToDB();
 
         var powerOligathStoneEndurance = BuildPowerOligathStoneEndurance();

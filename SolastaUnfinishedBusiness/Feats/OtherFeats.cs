@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -159,16 +158,17 @@ internal static class OtherFeats
     #endregion
 
     #region Frost Adaptation
+
     private static FeatDefinition BuildFrostAdaptation()
     {
         return FeatDefinitionBuilder
             .Create("FeatFrostAdaptation")
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierFeatFrostAdaptation")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.Constitution, 1)
-                .AddToDB(),
+                    .Create("AttributeModifierFeatFrostAdaptation")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.Constitution, 1)
+                    .AddToDB(),
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherChilledImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherFrozenImmunity)

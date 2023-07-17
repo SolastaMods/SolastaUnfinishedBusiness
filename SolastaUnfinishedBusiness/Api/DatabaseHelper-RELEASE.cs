@@ -1152,6 +1152,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledImmunity");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherFrozenImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherFrozenImmunity");
     }
 
     internal static class FeatureDefinitionDamageAffinitys
