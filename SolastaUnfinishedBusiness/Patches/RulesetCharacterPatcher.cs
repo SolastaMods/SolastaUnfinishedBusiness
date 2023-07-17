@@ -31,10 +31,28 @@ public static class RulesetCharacterPatcher
     private static void EnumerateISpellCastingAffinityProvider(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin,
+        bool feature)
     {
-        __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
+        //TODO: ideally we make this more generic
+        if (feature)
+        {
+            EnumerateISpellCastingAffinityProviderImpl<FeatureDefinitionMagicAffinity>(__instance, featuresToBrowse,
+                featuresOrigin);
+        }
+        else
+        {
+            EnumerateISpellCastingAffinityProviderImpl<ISpellCastingAffinityProvider>(__instance, featuresToBrowse,
+                featuresOrigin);
+        }
+    }
 
+    private static void EnumerateISpellCastingAffinityProviderImpl<T>(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin) where T : class
+    {
+        __instance.EnumerateFeaturesToBrowse<T>(featuresToBrowse, featuresOrigin);
         if (__instance is not RulesetCharacterHero hero)
         {
             return;
@@ -46,7 +64,7 @@ public static class RulesetCharacterPatcher
                      .Select(slot => slot.EquipedItem)
                      .SelectMany(equipedItem => equipedItem.DynamicItemProperties
                          .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
-                         .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
+                         .Where(definition => definition != null && definition is T)))
         {
             featuresToBrowse.Add(definition);
 
@@ -873,12 +891,14 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>,
+                bool
             >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
                 -1, "RulesetCharacter.RefreshSpellRepertoires",
+                new CodeInstruction(OpCodes.Ldc_I4_0),
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -1421,7 +1441,8 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>,
+                bool
             >(EnumerateISpellCastingAffinityProvider).Method;
 
             var myComputeBaseSavingThrowBonus =
@@ -1456,6 +1477,7 @@ public static class RulesetCharacterPatcher
                 //PATCH: allow modifiers from items to be considered on concentration checks
                 .ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
                     -1, "RulesetCharacter.RollConcentrationCheck",
+                    new CodeInstruction(OpCodes.Ldc_I4_0),
                     new CodeInstruction(OpCodes.Call, enumerate));
         }
 
@@ -1538,12 +1560,14 @@ public static class RulesetCharacterPatcher
             var enumerate = new Action<
                 RulesetCharacter,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
+                Dictionary<FeatureDefinition, FeatureOrigin>,
+                bool
             >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionMagicAffinity",
                 -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
+                new CodeInstruction(OpCodes.Ldc_I4_1),
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
