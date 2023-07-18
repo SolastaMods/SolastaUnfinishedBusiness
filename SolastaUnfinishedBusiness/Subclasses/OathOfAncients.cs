@@ -147,7 +147,7 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         var featureAuraWarding = FeatureDefinitionBuilder
             .Create($"Feature{Name}AuraWarding")
-            .SetCustomSubFeatures(new AuraWardingModifyMagic(conditionAuraWardingResistance))
+            .SetCustomSubFeatures(new OnMagicEffectAppliedAuraWarding(conditionAuraWardingResistance))
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -313,16 +313,16 @@ internal sealed class OathOfAncients : AbstractSubclass
             0);
     }
 
-    private sealed class AuraWardingModifyMagic : IModifyMagicEffectOnTarget
+    private sealed class OnMagicEffectAppliedAuraWarding : IOnMagicEffectApplied
     {
         private readonly ConditionDefinition _conditionWardingAura;
 
-        internal AuraWardingModifyMagic(ConditionDefinition conditionWardingAura)
+        internal OnMagicEffectAppliedAuraWarding(ConditionDefinition conditionWardingAura)
         {
             _conditionWardingAura = conditionWardingAura;
         }
 
-        public EffectDescription ModifyEffect(
+        public void OnMagicEffectApplied(
             BaseDefinition definition,
             EffectDescription effect,
             RulesetCharacter caster,
@@ -330,7 +330,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         {
             if (definition is not SpellDefinition)
             {
-                return effect;
+                return;
             }
 
             target.InflictCondition(
@@ -346,8 +346,6 @@ internal sealed class OathOfAncients : AbstractSubclass
                 0,
                 0,
                 0);
-
-            return effect;
         }
     }
 
