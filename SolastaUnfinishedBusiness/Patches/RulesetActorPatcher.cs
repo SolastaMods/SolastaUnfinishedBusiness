@@ -360,8 +360,8 @@ public static class RulesetActorPatcher
             >(EnumerateIDamageAffinityProvider).Method;
 
             return instructions
-                .ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
-                    -1, "RulesetActor.ModulateSustainedDamage",
+                .ReplaceEnumerateFeaturesToBrowse<IDamageAffinityProvider>(-1,
+                    "RulesetActor.ModulateSustainedDamage",
                     new CodeInstruction(OpCodes.Ldarg, 4), // source guid
                     new CodeInstruction(OpCodes.Call, myEnumerate));
         }
@@ -472,20 +472,14 @@ public static class RulesetActorPatcher
         {
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateIDieRollModificationProvider).Method;
 
             return instructions
                 .ReplaceCalls(rollDieMethod, "RulesetActor.RollDie.1",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Call, myRollDieMethod))
-                .ReplaceEnumerateFeaturesToBrowse("IDieRollModificationProvider",
-                    -1, "RulesetCharacter.RefreshSpellRepertoires",
-                    new CodeInstruction(OpCodes.Call, enumerate));
+                .ReplaceEnumerateFeaturesToBrowse<IDieRollModificationProvider>("RulesetCharacter.RollDie.2",
+                    EnumerateIDieRollModificationProvider);
         }
 
         [UsedImplicitly]
@@ -696,16 +690,9 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
-
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("ISavingThrowAffinityProvider",
-                -1, "RulesetActor.ComputeSavingThrowModifier",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(
+                "RulesetActor.ComputeSavingThrowModifier", EnumerateFeatureDefinitionSavingThrowAffinity);
         }
 
         private static void EnumerateFeatureDefinitionSavingThrowAffinity(
