@@ -1,6 +1,9 @@
 ﻿1.5.94.0:
 
-- fixed Devoted background missing burning hands cantrip
+- fixed Cave Wyrmkin powerful claws triggering on opportunity attacks / hitting multiple times
+- fixed Devoted missing spell repertoire assignment [RESPEC required to reacquire repertoire]
+- fixed modify effect behavior causing soft lock under certain scenarios [i.e.: Sunbeam]
+- fixed Wendigo sucker punch triggering on opportunity attacks
 
 1.5.92.18:
 
