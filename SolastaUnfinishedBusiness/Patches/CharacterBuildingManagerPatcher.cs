@@ -151,6 +151,16 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: grants race features
             LevelUpContext.GrantRaceFeatures(__instance, hero);
 
+            //PATCH: grants repertoires from backgrounds
+            if (hero.ClassesHistory.Count == 1)
+            {
+                foreach (var featureDefinitionCastSpell in hero.BackgroundDefinition.Features
+                             .OfType<FeatureDefinitionCastSpell>())
+                {
+                    hero.GrantSpellRepertoire(featureDefinitionCastSpell, null, null, hero.RaceDefinition);
+                }
+            }
+
             //PATCH: grants custom features
             LevelUpContext.GrantCustomFeaturesFromFeats(hero);
             LevelUpContext.GrantCustomFeatures(hero);

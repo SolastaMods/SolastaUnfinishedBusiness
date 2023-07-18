@@ -5,7 +5,9 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
+using static RuleDefinitions;
 using static SkillDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -39,12 +41,12 @@ internal static class BackgroundsBuilders
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundFarmer}Weapons")
                     .SetGuiPresentation(Category.Feature)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, ClubType.Name, HandaxeType.Name)
+                    .SetProficiencies(ProficiencyType.Weapon, ClubType.Name, HandaxeType.Name)
                     .AddToDB(),
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundFarmer}Skills")
                     .SetGuiPresentation(Category.Feature)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Skill,
+                    .SetProficiencies(ProficiencyType.Skill,
                         AnimalHandling,
                         Nature,
                         Perception)
@@ -84,14 +86,15 @@ internal static class BackgroundsBuilders
                         .Create($"SpellList{BackgroundDevoted}")
                         .SetGuiPresentationNoContent(true)
                         .ClearSpells()
-                        .SetSpellsAtLevel(0, SacredFlame_B)
+                        .SetSpellsAtLevel(0, SacredFlame)
                         .FinalizeSpells()
                         .AddToDB())
+                    .SetCustomSubFeatures(new OtherFeats.SpellTag(AttributeDefinitions.TagBackground))
                     .AddToDB(),
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundDevoted}Skills")
                     .SetGuiPresentation(Category.Feature)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Skill,
+                    .SetProficiencies(ProficiencyType.Skill,
                         Religion,
                         Insight,
                         Investigation)

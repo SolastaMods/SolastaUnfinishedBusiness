@@ -13,6 +13,7 @@ internal static class BackgroundsContext
     {
         BackgroundsBuilders.BuildBackgroundDevoted(); // LoadBackground(BackgroundsBuilders.BuildBackgroundDevoted());
         LoadBackground(BackgroundsBuilders.BuildBackgroundFarmer());
+        Main.Settings.BackgroundEnabled.Remove("BackgroundDevoted");
 
         // sorting
         Backgrounds = Backgrounds.OrderBy(x => x.FormatTitle()).ToHashSet();
