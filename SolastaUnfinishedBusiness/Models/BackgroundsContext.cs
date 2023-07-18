@@ -11,7 +11,7 @@ internal static class BackgroundsContext
 
     internal static void Load()
     {
-        LoadBackground(BackgroundsBuilders.BuildBackgroundDevoted());
+        BackgroundsBuilders.BuildBackgroundDevoted(); // LoadBackground(BackgroundsBuilders.BuildBackgroundDevoted());
         LoadBackground(BackgroundsBuilders.BuildBackgroundFarmer());
 
         // sorting
