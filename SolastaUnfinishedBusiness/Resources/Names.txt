@@ -627,3 +627,6 @@ RaceWyrmkin	Sur	Uksar
 RaceWyrmkin	Sur	Strukssar
 RaceWyrmkin	Sur	Thraksaeurt
 RaceWyrmkin	Sur	Vernart
+RaceWyrmkin	Sur	Maeradok
+RaceWyrmkin	Sur	Rhubarb
+RaceWyrmkin	Sur	Mossy
