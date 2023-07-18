@@ -2,7 +2,6 @@
 
 - added Arctic Adaptation feat [by @otearaisu]
 - fixed concentration related features not working under wildshape
-- fixed Devoted background missing learned cantrip on action UI
 - fixed Innovation Vitriolist missing autoprepared spells tag
 - improved Oligath with immunity to cold weather [by @otearaisu]
 
