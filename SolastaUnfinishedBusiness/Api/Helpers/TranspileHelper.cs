@@ -59,17 +59,31 @@ internal static class TranspileHelper
     }
 
     // 4 replace call EnumerateFeaturesToBrowse
-    public static IEnumerable<CodeInstruction> ReplaceEnumerateFeaturesToBrowse(
+    public static IEnumerable<CodeInstruction> ReplaceEnumerateFeaturesToBrowse<T>(
         this IEnumerable<CodeInstruction> instructions,
-        string featureToBrowse,
         int occurrence,
         string patchContext,
         params CodeInstruction[] codeInstructions)
     {
-        return instructions.ReplaceCodeImpl(i => i.opcode == OpCodes.Callvirt &&
-                                                 i.operand.ToString().Contains("EnumerateFeaturesToBrowse") &&
-                                                 i.operand.ToString().Contains(featureToBrowse),
-            occurrence, 0, patchContext, codeInstructions);
+        return instructions.ReplaceCodeImpl(i => i.opcode == OpCodes.Callvirt
+                                                 && i.operand is MethodInfo
+                                                 {
+                                                     Name: nameof(RulesetActor.EnumerateFeaturesToBrowse),
+                                                     IsGenericMethod: true
+                                                 } method
+                                                 && method.GetGenericArguments().Contains(typeof(T)),
+            occurrence, 0, patchContext,
+            codeInstructions);
+    }
+
+    public static IEnumerable<CodeInstruction> ReplaceEnumerateFeaturesToBrowse<T>(
+        this IEnumerable<CodeInstruction> instructions,
+        string patchContext,
+        Action<RulesetCharacter, List<FeatureDefinition>, Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>>
+            handler) where T : class
+    {
+        return instructions.ReplaceEnumerateFeaturesToBrowse<T>(-1, patchContext,
+            new CodeInstruction(OpCodes.Call, handler.GetMethodInfo()));
     }
 
     public static IEnumerable<CodeInstruction> ReplaceAdd(

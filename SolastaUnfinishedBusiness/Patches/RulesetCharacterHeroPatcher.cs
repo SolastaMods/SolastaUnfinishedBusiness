@@ -962,16 +962,9 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
-
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
-                -1, "RulesetCharacterHero.FindBestRegenerationFeature",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions.ReplaceEnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(
+                "RulesetCharacterHero.FindBestRegenerationFeature", EnumerateFeatureDefinitionSavingThrowAffinity);
         }
     }
 
@@ -984,16 +977,9 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
-
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
-                -1, "RulesetCharacterHero.ComputeBaseSavingThrowBonus",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions.ReplaceEnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(
+                "RulesetCharacterHero.ComputeBaseSavingThrowBonus", EnumerateFeatureDefinitionSavingThrowAffinity);
         }
     }
 

@@ -201,27 +201,15 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate1 = new Action<
-                RulesetActor,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(FeatureApplicationValidation.EnumerateActionPerformanceProviders).Method;
-
-            var enumerate2 = new Action<
-                RulesetActor,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(FeatureApplicationValidation.EnumerateAdditionalActionProviders).Method;
-
             return instructions
                 //PATCH: Support for `IDefinitionApplicationValidator`
-                .ReplaceEnumerateFeaturesToBrowse("IActionPerformanceProvider",
-                    -1, "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
-                    new CodeInstruction(OpCodes.Call, enumerate1))
+                .ReplaceEnumerateFeaturesToBrowse<IActionPerformanceProvider>(
+                    "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
+                    FeatureApplicationValidation.EnumerateActionPerformanceProviders)
                 //PATCH: Support for action switching
-                .ReplaceEnumerateFeaturesToBrowse("IAdditionalActionsProvider",
-                    -1, "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
-                    new CodeInstruction(OpCodes.Call, enumerate2));
+                .ReplaceEnumerateFeaturesToBrowse<IAdditionalActionsProvider>(
+                    "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
+                    FeatureApplicationValidation.EnumerateAdditionalActionProviders);
         }
 
         [UsedImplicitly]
