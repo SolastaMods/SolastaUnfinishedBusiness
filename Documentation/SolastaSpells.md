@@ -1020,7 +1020,7 @@ Each enemy must make a Wisdom saving throw or become stunned for 1 minute.
 
 # 256. - Thunderstorm
 
-You create a blast of thunder in a sphere that causes thunder and lighting damage to everyone, and can blind or stun those who fail a CON saving throw.
+You create a blast of thunder in a sphere that causes thunder and lightning damage to everyone, and can blind or stun those who fail a CON saving throw.
 
 # 257. - Thunderwave
 
