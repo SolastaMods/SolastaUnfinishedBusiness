@@ -252,6 +252,16 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
+            if (Gui.Battle?.ActiveContender != attacker)
+            {
+                yield break;
+            }
+
+            if (character.HasConditionOfType(_conditionDefinition.Name))
+            {
+                yield break;
+            }
+
             character.LogCharacterUsedFeature(_parentFeature);
             character.InflictCondition(
                 _conditionDefinition.Name,

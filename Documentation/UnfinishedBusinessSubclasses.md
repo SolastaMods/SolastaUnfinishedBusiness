@@ -328,7 +328,7 @@ You have learned how to use your artificer infusions to specially modify armors 
 * Perfected Armor
 
 You improve your armor modes:
-• Guardian:  Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against inventor's spellcasting DC.
+• Guardian: Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against inventor's spellcasting DC.
 • Infiltrator: Creatures attacked by your Lightning Launcher glimmer with magical light until the start of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.
 
 
@@ -1488,7 +1488,7 @@ You can cast light as an action and gain bonus spells that are considered ranger
 
 * Blessed Glow
 
-You have the ability to conjure holy light. When you cast Light, you can force all creatures within 20 ft of the light source to succeed on a Constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend have disadvantage on this saving throw. You can use this power once per long rest.                      
+You have the ability to conjure holy light. When you cast Light, you can force all creatures within 20 ft of the light source to succeed on a Constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend have disadvantage on this saving throw. You can use this power once per long rest. 
 
 
 ## Level 11
@@ -1979,8 +1979,8 @@ Starting at 3rd level, choose one elemental calamity. The calamity dictates the 
 * Elemental Blessing
 
 Starting at 6th level, your devotion to the elemental calamity chosen at 3rd level provides both you and your allies with resistance to that damage type.
-• Storm:  While you are raging, you and all allies within 10 feet of you gain lightning resistance.
-• Blizzard:  While you are raging, you and all allies within 10 feet of you gain cold resistance.
+• Storm: While you are raging, you and all allies within 10 feet of you gain lightning resistance.
+• Blizzard: While you are raging, you and all allies within 10 feet of you gain cold resistance.
 • Wildfire: While you are raging, you and all allies within 10 feet of you gain fire resistance.
 
 

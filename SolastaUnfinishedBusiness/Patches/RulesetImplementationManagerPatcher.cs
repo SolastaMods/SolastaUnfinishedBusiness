@@ -640,16 +640,9 @@ public static class RulesetImplementationManagerPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
-
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("ISavingThrowAffinityProvider",
-                -1, "RulesetImplementationManager.TryRollSavingThrow",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(
+                "RulesetImplementationManager.TryRollSavingThrow", EnumerateFeatureDefinitionSavingThrowAffinity);
         }
 
         private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)

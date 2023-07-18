@@ -988,7 +988,7 @@ You can use a bonus action to catch a target within 1 cell of you off guard. The
 
 ## Level 17
 
-* Brutal Assault           
+* Brutal Assault 
 
 Starting at 17th level, you gain the following benefits:
 • Whenever the target of your Dirty Fighting fails the saving throw, you can immediately make one weapon attack against that creature as a part of the same bonus action.
@@ -1158,6 +1158,14 @@ On a failed WIS saving throw, restrains a creature and inflicts force damage eac
 * Divine Intervention
 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+## Level 14
+
+* Anathema
+
+On a failed WIS saving throw, restrains a creature and inflicts force damage each turn equal to your WIS modifier. The creature can make a WIS saving throw at the end of their turn. Can be used once per short rest. 
+  At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
 
 
 ## Level 20

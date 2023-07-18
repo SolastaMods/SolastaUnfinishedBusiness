@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018",
   "conditionType": "Detrimental",
   "features": [
     "Definition:ActionAffinityConditionBanished:b11840e0e3f0bbc47b0e7598135dde9f"

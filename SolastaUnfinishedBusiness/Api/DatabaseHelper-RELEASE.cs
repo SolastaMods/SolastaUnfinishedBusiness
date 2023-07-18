@@ -1152,6 +1152,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledImmunity");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherFrozenImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherFrozenImmunity");
     }
 
     internal static class FeatureDefinitionDamageAffinitys
@@ -3282,6 +3288,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition RemoveCurse { get; } = GetDefinition<SpellDefinition>("RemoveCurse");
         internal static SpellDefinition Resistance { get; } = GetDefinition<SpellDefinition>("Resistance");
         internal static SpellDefinition Revivify { get; } = GetDefinition<SpellDefinition>("Revivify");
+        internal static SpellDefinition SacredFlame { get; } = GetDefinition<SpellDefinition>("SacredFlame");
         internal static SpellDefinition SacredFlame_B { get; } = GetDefinition<SpellDefinition>("SacredFlame_B");
         internal static SpellDefinition ScorchingRay { get; } = GetDefinition<SpellDefinition>("ScorchingRay");
         internal static SpellDefinition SeeInvisibility { get; } = GetDefinition<SpellDefinition>("SeeInvisibility");

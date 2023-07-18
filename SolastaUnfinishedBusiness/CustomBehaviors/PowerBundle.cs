@@ -330,11 +330,12 @@ internal static class PowerBundle
         {
             foreach (var target in currentAction.actionParams.TargetCharacters
                          .Select(x => x.RulesetCharacter)
-                         .Where(x => x.HasSubFeatureOfType<IModifyMagicEffectOnTarget>()))
+                         .Where(x => x.HasSubFeatureOfType<IOnMagicEffectApplied>())
+                         .ToList())
             {
-                foreach (var modifyMagicEffectOnTarget in target.GetSubFeaturesByType<IModifyMagicEffectOnTarget>())
+                foreach (var onMagicEffectApplied in target.GetSubFeaturesByType<IOnMagicEffectApplied>())
                 {
-                    modifyMagicEffectOnTarget.ModifyEffect(definition, original, caster, target);
+                    onMagicEffectApplied.OnMagicEffectApplied(definition, original, caster, target);
                 }
             }
         }
@@ -346,7 +347,6 @@ internal static class PowerBundle
             return result;
         }
 
-
         var metamagic = effect is RulesetEffectSpell spell ? spell.MetamagicOption : null;
 
         var cached = GetCachedEffect(caster, definition, metamagic);
@@ -355,15 +355,6 @@ internal static class PowerBundle
         {
             return cached;
         }
-
-#if false
-        var baseDefinition = definition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
-
-        if (baseDefinition != null)
-        {
-            result = baseDefinition.GetCustomEffect(caster) ?? original;
-        }
-#endif
 
         //ignore features from powers, they would be processed later
         var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(
@@ -379,26 +370,30 @@ internal static class PowerBundle
             modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
         }
 
-        if (metamagic != null)
-        {
-            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
-        }
+        //process features that modify any magic effect
+        var modifiersAny = caster.GetSubFeaturesByType<IModifyMagicEffectAny>();
 
-        if (!modifiers.Empty())
+        //only creates a copy if any of the modifiers are non empty
+        if (!modifiers.Empty() || !modifiersAny.Empty())
         {
-            result = modifiers.Aggregate(
-                EffectDescriptionBuilder
-                    .Create(result)
-                    .Build(),
-                (current, f) => f.ModifyEffect(definition, current, caster, effect));
-        }
-
-        //process features from caster
-        result = caster.GetSubFeaturesByType<IModifyMagicEffectAny>().Aggregate(
-            EffectDescriptionBuilder
+            result = EffectDescriptionBuilder
                 .Create(result)
-                .Build(),
-            (current, f) => f.ModifyEffect(definition, current, caster, effect));
+                .Build();
+
+            if (!modifiers.Empty())
+            {
+                result = modifiers.Aggregate(
+                    result,
+                    (current, f) => f.ModifyEffect(definition, current, caster, effect));
+            }
+
+            if (!modifiersAny.Empty())
+            {
+                result = modifiersAny.Aggregate(
+                    result,
+                    (current, f) => f.ModifyEffect(definition, current, caster, effect));
+            }
+        }
 
         CacheEffect(caster, definition, metamagic, result);
 

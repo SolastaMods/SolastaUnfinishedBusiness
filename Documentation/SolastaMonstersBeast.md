@@ -960,6 +960,7 @@ Size: *Large*
 * Keen Smell
 * Pack Tactics
 * Resistant to cold weather
+* Resistant to cold weather
 * Blizzard Resistance
 * Damage Affinity Cold Resistance
 * Movement Affinity No Climb
