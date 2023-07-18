@@ -1,4 +1,8 @@
-﻿1.5.92.18:
+﻿1.5.94.0:
+
+- fixed Devoted background missing burning hands cantrip
+
+1.5.92.18:
 
 - added Arctic Adaptation feat [by @otearaisu]
 - fixed concentration related features not working under wildshape

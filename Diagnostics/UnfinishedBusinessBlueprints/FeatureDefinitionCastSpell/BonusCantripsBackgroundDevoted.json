@@ -7,19 +7,15 @@
   "staticToHitValue": 4,
   "spellListDefinition": "Definition:SpellListBackgroundDevoted:7d820750-3307-591e-9b98-44ae3a6f0d52",
   "restrictedSchools": [],
-  "spellKnowledge": "Selection",
-  "fixedSpellTag": "",
+  "spellKnowledge": "FixedList",
+  "fixedSpellTag": "Feature/&CastSpellGnomeShadowFixedTagTitle",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
-  "slotsRecharge": "AtWill",
+  "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
-  "cantripsOnly": true,
+  "cantripsOnly": false,
   "knownCantrips": [
-    1,
-    1,
-    1,
-    1,
     1,
     1,
     1,
@@ -53,17 +49,9 @@
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
     0
   ],
   "scribedSpells": [
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     0,
@@ -339,69 +327,9 @@
         0,
         0
       ]
-    },
-    {
-      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
-      "level": 17,
-      "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
-      "level": 18,
-      "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
-      "level": 19,
-      "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
-      "level": 20,
-      "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
     }
   ],
-  "focusType": "Arcane",
+  "focusType": "None",
   "hasAccessToInvocations": false,
   "cannotUpcast": false,
   "guiPresentation": {

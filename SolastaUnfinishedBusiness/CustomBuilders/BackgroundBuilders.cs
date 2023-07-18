@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SkillDefinitions;
@@ -79,7 +78,7 @@ internal static class BackgroundsBuilders
             .SetFeatures(
                 FeatureDefinitionCastSpellBuilder
                     // keep name for backward compatibility
-                    .Create(CastSpellElfHigh, $"BonusCantrips{BackgroundDevoted}")
+                    .Create(CastSpellGnomeShadow, $"BonusCantrips{BackgroundDevoted}")
                     .SetGuiPresentation(Category.Feature)
                     .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
                     .SetSpellList(SpellListDefinitionBuilder
@@ -89,7 +88,6 @@ internal static class BackgroundsBuilders
                         .SetSpellsAtLevel(0, SacredFlame)
                         .FinalizeSpells()
                         .AddToDB())
-                    .SetCustomSubFeatures(new OtherFeats.SpellTag(AttributeDefinitions.TagBackground))
                     .AddToDB(),
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundDevoted}Skills")

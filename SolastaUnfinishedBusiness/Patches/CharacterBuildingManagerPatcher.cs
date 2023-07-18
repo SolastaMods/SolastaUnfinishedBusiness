@@ -151,13 +151,18 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: grants race features
             LevelUpContext.GrantRaceFeatures(__instance, hero);
 
-            //PATCH: grants repertoires from backgrounds
+            //PATCH: grants repertoires and cantrips from backgrounds
             if (hero.ClassesHistory.Count == 1)
             {
                 foreach (var featureDefinitionCastSpell in hero.BackgroundDefinition.Features
                              .OfType<FeatureDefinitionCastSpell>())
                 {
                     hero.GrantSpellRepertoire(featureDefinitionCastSpell, null, null, hero.RaceDefinition);
+
+                    var buildingData = hero.GetHeroBuildingData();
+
+                    __instance.GrantCantripsAndSpellsByTag(buildingData, AttributeDefinitions.TagBackground,
+                        featureDefinitionCastSpell);
                 }
             }
 

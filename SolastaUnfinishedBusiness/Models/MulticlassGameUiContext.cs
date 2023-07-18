@@ -458,6 +458,12 @@ internal static class MulticlassGameUiContext
         TooltipDefinitions.AnchorMode anchorMode,
         CharacterStageSpellSelectionPanel panel)
     {
+        // allow cantrips from background to be offered
+        if (spellTag == AttributeDefinitions.TagBackground)
+        {
+            spellTag = AttributeDefinitions.TagRace;
+        }
+
         var localHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
         var heroBuildingData = localHeroCharacter.GetHeroBuildingData();
         var pointPool = GetCurrentPool(panel, heroBuildingData);
