@@ -4,7 +4,13 @@
   "isRandomEncounter": false,
   "dungeonMakerPresence": false,
   "alwaysHidden": false,
-  "registeredFactions": [],
+  "registeredFactions": [
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_ElvenClan_Dragons",
+      "initialRelation": 0
+    }
+  ],
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {

@@ -139,7 +139,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_GarradSoldier_male_04:7d0f316da7a9c2548bb36055576c65ed"
+      "Definition:NPC_Presentation_GarradSoldier_female_01:82eb1794de39f604c82750f3f0e85658"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -237,7 +237,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&NPC_DL3_GarradSoldier_01",
+    "title": "NPC/&NPC_DL3_GarradSoldier_09",
     "description": "NPC/&NPC_DLC3_PrincipalitySoldier_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

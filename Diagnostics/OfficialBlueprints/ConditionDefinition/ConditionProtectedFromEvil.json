@@ -7,7 +7,8 @@
     "Definition:CombatAffinityProtectedFromEvil:671e2e203ec78ac4f9949bb2e21ecec9",
     "Definition:ConditionAffinityProtectedFromEvilCharmImmunity:bf41fdbba71ead741a2031129b024627",
     "Definition:ConditionAffinityProtectedFromEvilFrightenedImmunity:155b352dde8e8b540acf96463dda490a",
-    "Definition:ConditionAffinityProtectedFromEvilPossessedImmunity:48b1d13b62aa1db4db7813dc142309aa"
+    "Definition:ConditionAffinityProtectedFromEvilPossessedImmunity:48b1d13b62aa1db4db7813dc142309aa",
+    "Definition:ConditionAffinityProtectedFromEvilUnderDemonicInfluenceImmunity:fd377580dbb3f3f4e91fe536aa2de795"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

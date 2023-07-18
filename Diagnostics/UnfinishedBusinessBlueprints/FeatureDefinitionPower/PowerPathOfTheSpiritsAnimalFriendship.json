@@ -48,7 +48,7 @@
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "damageAffinitiesByFamily": [],
-    "advantageForEnemies": true,
+    "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
