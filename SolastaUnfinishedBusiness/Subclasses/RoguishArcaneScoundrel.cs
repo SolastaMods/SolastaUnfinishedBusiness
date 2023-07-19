@@ -125,9 +125,14 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"Power{Name}ArcaneBackslashCounterSpell")
             .SetGuiPresentation(Counterspell.GuiPresentation)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetEffectDescription(Counterspell.EffectDescription)
-            .SetCustomSubFeatures(new ModifyMagicEffectArcaneBackslashCounterSpell())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Counterspell.EffectDescription)
+                    .Build())
             .AddToDB();
+
+        powerArcaneBackslashCounterSpell.SetCustomSubFeatures(
+            new ModifyEffectDescriptionArcaneBackslashCounterSpell(powerArcaneBackslashCounterSpell));
 
         var powerArcaneBacklash = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneBackslash")
@@ -267,21 +272,31 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyMagicEffectArcaneBackslashCounterSpell : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionArcaneBackslashCounterSpell : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        private readonly FeatureDefinitionPower _powerArcaneBackslashCounterSpell;
+
+        public ModifyEffectDescriptionArcaneBackslashCounterSpell(
+            FeatureDefinitionPower powerArcaneBackslashCounterSpell)
+        {
+            _powerArcaneBackslashCounterSpell = powerArcaneBackslashCounterSpell;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == _powerArcaneBackslashCounterSpell 
+                   && character.GetClassLevel(CharacterClassDefinitions.Rogue) >= 19;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var level = character.GetClassLevel(CharacterClassDefinitions.Rogue);
-
-            if (level < 19)
-            {
-                return effectDescription;
-            }
-
             effectDescription.effectForms[0].CounterForm.automaticSpellLevel = 4;
 
             return effectDescription;

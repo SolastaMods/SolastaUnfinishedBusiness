@@ -326,6 +326,7 @@ internal static class PowerBundle
     {
         var currentAction = Global.CurrentAction;
 
+        // TODO: refactor this using IAttackBeforeHitConfirmedOnMe / IMagicalAttackBeforeHitConfirmedOnMe
         if (currentAction != null)
         {
             foreach (var target in currentAction.actionParams.TargetCharacters
@@ -356,43 +357,26 @@ internal static class PowerBundle
             return cached;
         }
 
-        //ignore features from powers, they would be processed later
-        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(
-            typeof(FeatureDefinitionPower),
-            typeof(FeatureDefinitionPowerSharedPool)
-        );
-
-        //process features from spell/power
-        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+        //collect all valid modifiers from caster
+        var modifiers = caster.GetSubFeaturesByType<IModifyEffectDescription>()
+            .Where(x => x.IsValid(definition, caster, original))
+            .ToList();
 
         if (metamagic != null)
         {
-            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+            // all metamagic from metamagic feature are valid so no need to filter
+            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyEffectDescription>());
         }
 
-        //process features that modify any magic effect
-        var modifiersAny = caster.GetSubFeaturesByType<IModifyMagicEffectAny>();
-
-        //only creates a copy if any of the modifiers are non empty
-        if (!modifiers.Empty() || !modifiersAny.Empty())
+        if (modifiers.Count > 0)
         {
             result = EffectDescriptionBuilder
                 .Create(result)
                 .Build();
 
-            if (!modifiers.Empty())
-            {
-                result = modifiers.Aggregate(
-                    result,
-                    (current, f) => f.ModifyEffect(definition, current, caster, effect));
-            }
-
-            if (!modifiersAny.Empty())
-            {
-                result = modifiersAny.Aggregate(
-                    result,
-                    (current, f) => f.ModifyEffect(definition, current, caster, effect));
-            }
+            result = modifiers.Aggregate(
+                result,
+                (current, f) => f.GetEffectDescription(definition, current, caster, effect));
         }
 
         CacheEffect(caster, definition, metamagic, result);
@@ -401,7 +385,8 @@ internal static class PowerBundle
     }
 
     /**Modifies spell/power description for GUI purposes.*/
-    internal static EffectDescription ModifyMagicEffectGui(EffectDescription original,
+    internal static EffectDescription ModifyMagicEffectGui(
+        EffectDescription original,
         [NotNull] BaseDefinition definition)
     {
         return ModifyMagicEffect(original, definition, Global.CurrentCharacter, null);
@@ -414,6 +399,7 @@ internal static class PowerBundle
         [NotNull] out List<string> prerequisites)
     {
         var result = true;
+
         prerequisites = new List<string>();
 
         foreach (var validator in validators)

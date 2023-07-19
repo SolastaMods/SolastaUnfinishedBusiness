@@ -572,7 +572,7 @@ internal static partial class SpellBuilders
                                 .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
                                 .Build())
                         .Build())
-                .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
+                .SetCustomSubFeatures(new ModifyEffectDescriptionSkinOfRetribution())
                 .AddToDB();
 
             var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
@@ -641,17 +641,28 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class ModifyMagicEffectSkinOfRetribution : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionSkinOfRetribution : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition,
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return effectDescription.HasDamageForm()
+                   && character.HasConditionOfType("SkinOfRetribution");
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
             EffectDescription effectDescription,
-            RulesetCharacter character, RulesetEffect rulesetEffect)
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             var rulesetCondition =
                 character.AllConditions.FirstOrDefault(x =>
                     x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
 
-            if (rulesetCondition == null || !effectDescription.HasDamageForm())
+            if (rulesetCondition == null)
             {
                 return effectDescription;
             }
@@ -673,12 +684,7 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            foreach (var condition in target.AllConditions
-                         .FindAll(x =>
-                             x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution")))
-            {
-                target.RemoveCondition(condition);
-            }
+            target.RemoveAllConditionsOfType("SkinOfRetribution");
         }
     }
 

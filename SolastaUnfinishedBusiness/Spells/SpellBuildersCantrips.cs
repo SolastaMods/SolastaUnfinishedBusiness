@@ -825,22 +825,42 @@ internal static partial class SpellBuilders
     }
 
 
-    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
+    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            if (character is not RulesetCharacterHero)
+            {
+                return false;
+            }
+            var caster = GameLocationCharacter.GetFromActor(character);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode is not { SourceObject: RulesetItem })
+            {
+                return false;
+            }
+
+            if (attackMode.Ranged || !attackMode.Reach)
+            {
+                return false;
+            }
+
+            var reach = attackMode.reachRange;
+
+            return reach > 1;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
             var caster = GameLocationCharacter.GetFromActor(character);
-
-            //Should we try making it compatible with Monsters? Like enemies with custom spell lists, or potential casting while wild-shaped?
-            if (caster == null || character is not RulesetCharacterHero)
-            {
-                return effectDescription;
-            }
-
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode is not { SourceObject: RulesetItem })

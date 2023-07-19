@@ -591,8 +591,6 @@ public static class InnovationAlchemy
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
-                InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
@@ -609,6 +607,13 @@ public static class InnovationAlchemy
                 .Build())
             .SetUseSpellAttack()
             .AddToDB();
+
+        power.SetCustomSubFeatures(
+            PowerVisibilityModifier.Visible,
+            new AddPBToDamage(power),
+            new Overcharge(),
+            validator,
+            InventorClassHolder.Marker);
 
         return power;
     }
@@ -627,8 +632,6 @@ public static class InnovationAlchemy
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
-                InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
@@ -650,6 +653,13 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
+        power.SetCustomSubFeatures(
+            PowerVisibilityModifier.Visible,
+            new AddPBToDamage(power),
+            new Overcharge(),
+            validator,
+            InventorClassHolder.Marker);
+
         return power;
     }
 
@@ -666,8 +676,6 @@ public static class InnovationAlchemy
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
-                InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
@@ -688,6 +696,13 @@ public static class InnovationAlchemy
                 .SetSpeed(SpeedType.CellsPerSeconds, 8)
                 .Build())
             .AddToDB();
+
+        power.SetCustomSubFeatures(
+            PowerVisibilityModifier.Visible,
+            new AddPBToDamage(power),
+            new Overcharge(),
+            validator,
+            InventorClassHolder.Marker);
 
         return power;
     }
@@ -775,9 +790,24 @@ public static class InnovationAlchemy
     }
 }
 
-internal sealed class AddPBToDamage : IModifyMagicEffect
+internal sealed class AddPBToDamage : IModifyEffectDescription
 {
-    public EffectDescription ModifyEffect(
+    private readonly FeatureDefinitionPower _baseDefinition;
+
+    public AddPBToDamage(FeatureDefinitionPower baseDefinition)
+    {
+        _baseDefinition = baseDefinition;
+    }
+
+    public bool IsValid(
+        BaseDefinition definition,
+        RulesetCharacter character,
+        EffectDescription effectDescription)
+    {
+        return definition == _baseDefinition;
+    }
+
+    public EffectDescription GetEffectDescription(
         BaseDefinition definition,
         EffectDescription effectDescription,
         RulesetCharacter character,
