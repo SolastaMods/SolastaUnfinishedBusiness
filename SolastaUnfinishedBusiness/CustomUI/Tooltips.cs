@@ -120,7 +120,7 @@ internal static class Tooltips
             entityDescription.header += "<br><br>";
 
             GameLocationCharacter characterToMeasureFrom = null;
-            var distance = GetDistanceToCharacter(ref characterToMeasureFrom, battleService);
+            var distance = GetDistanceFromCharacter(ref characterToMeasureFrom, battleService);
 
             if (characterToMeasureFrom is null)
             {
@@ -173,7 +173,7 @@ internal static class Tooltips
         UpdateDistanceText(distance, characterToMeasureFrom);
     }
 
-    private static int GetDistanceToCharacter(ref GameLocationCharacter characterToMeasureFrom, IGameLocationBattleService battleService)
+    private static int GetDistanceFromCharacter(ref GameLocationCharacter characterToMeasureFrom, IGameLocationBattleService battleService)
     {
         var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
         if (gameLocationSelectionService.HoveredCharacters.Count is 0)

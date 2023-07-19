@@ -20,11 +20,12 @@ internal static class DistanceCalculation
         var closestCharacter1Position = character1.LocationBattleBoundingBox.Min;
         var closestDistance = (closestCharacter1Position - position).magnitude;
 
-        var character1NumberOfBoxes = (character1.LocationBattleBoundingBox.Size.x) *
+        var character1NumberOfCubes = (character1.LocationBattleBoundingBox.Size.x) *
                                       (character1.LocationBattleBoundingBox.Size.y) *
                                       (character1.LocationBattleBoundingBox.Size.z);
 
-        return character1NumberOfBoxes is 1 ? closestCharacter1Position : GetBigCharacterClosestCubePosition(character1, position, closestDistance, closestCharacter1Position);
+        return character1NumberOfCubes is 1 ? closestCharacter1Position 
+            : GetBigCharacterClosestCubePosition(character1, position, closestDistance, closestCharacter1Position);
     }
 
     private static int3 GetBigCharacterClosestCubePosition(GameLocationCharacter character1, int3 position, float closestDistance,
