@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -128,7 +129,9 @@ internal sealed class OathOfAncients : AbstractSubclass
         var conditionAuraWardingResistance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AuraWardingResistance")
             .SetGuiPresentationNoContent(true)
-            .AddFeatures(DamageAffinityAcidResistance,
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(
+                DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
@@ -142,12 +145,11 @@ internal sealed class OathOfAncients : AbstractSubclass
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
             .AddSpecialInterruptions(ConditionInterruption.Damaged)
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         var featureAuraWarding = FeatureDefinitionBuilder
             .Create($"Feature{Name}AuraWarding")
-            .SetCustomSubFeatures(new OnMagicEffectAppliedAuraWarding(conditionAuraWardingResistance))
+            .SetCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnMeAuraWarding(conditionAuraWardingResistance))
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -313,39 +315,41 @@ internal sealed class OathOfAncients : AbstractSubclass
             0);
     }
 
-    private sealed class OnMagicEffectAppliedAuraWarding : IOnMagicEffectApplied
+    private sealed class MagicalAttackBeforeHitConfirmedOnMeAuraWarding : IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionWardingAura;
 
-        internal OnMagicEffectAppliedAuraWarding(ConditionDefinition conditionWardingAura)
+        internal MagicalAttackBeforeHitConfirmedOnMeAuraWarding(ConditionDefinition conditionWardingAura)
         {
             _conditionWardingAura = conditionWardingAura;
         }
 
-        public void OnMagicEffectApplied(
-            BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter caster,
-            RulesetCharacter target)
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (definition is not SpellDefinition)
-            {
-                return;
-            }
+            var rulesetDefender = defender.RulesetCharacter;
 
-            target.InflictCondition(
+            rulesetDefender.InflictCondition(
                 _conditionWardingAura.Name,
                 DurationType.Round,
-                1,
+                0,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
-                target.guid,
-                target.CurrentFaction.Name,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
                 1,
                 null,
                 0,
                 0,
                 0);
+
+            yield break;
         }
     }
 

@@ -5,7 +5,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -324,32 +323,12 @@ internal static class PowerBundle
         [CanBeNull] RulesetCharacter caster,
         [CanBeNull] RulesetEffect effect)
     {
-        var currentAction = Global.CurrentAction;
-
-        // TODO: refactor this using IAttackBeforeHitConfirmedOnMe / IMagicalAttackBeforeHitConfirmedOnMe
-        if (currentAction != null)
-        {
-            foreach (var target in currentAction.actionParams.TargetCharacters
-                         .Select(x => x.RulesetCharacter)
-                         .Where(x => x.HasSubFeatureOfType<IOnMagicEffectApplied>())
-                         .ToList())
-            {
-                foreach (var onMagicEffectApplied in target.GetSubFeaturesByType<IOnMagicEffectApplied>())
-                {
-                    onMagicEffectApplied.OnMagicEffectApplied(definition, original, caster, target);
-                }
-            }
-        }
-
-        var result = original;
-
         if (caster == null)
         {
-            return result;
+            return original;
         }
 
         var metamagic = effect is RulesetEffectSpell spell ? spell.MetamagicOption : null;
-
         var cached = GetCachedEffect(caster, definition, metamagic);
 
         if (cached != null)
@@ -358,8 +337,9 @@ internal static class PowerBundle
         }
 
         //collect all valid modifiers from caster
+        var result = original;
         var modifiers = caster.GetSubFeaturesByType<IModifyEffectDescription>()
-            .Where(x => x.IsValid(definition, caster, original))
+            .Where(x => x.IsValid(definition, caster, result))
             .ToList();
 
         if (metamagic != null)
@@ -370,12 +350,11 @@ internal static class PowerBundle
 
         if (modifiers.Count > 0)
         {
-            result = EffectDescriptionBuilder
-                .Create(result)
-                .Build();
-
             result = modifiers.Aggregate(
-                result,
+                // ensure we get a copy as directly modifying blueprints can cause nasty effects
+                EffectDescriptionBuilder
+                    .Create(result)
+                    .Build(),
                 (current, f) => f.GetEffectDescription(definition, current, caster, effect));
         }
 
