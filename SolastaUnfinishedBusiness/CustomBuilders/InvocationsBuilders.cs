@@ -627,10 +627,7 @@ internal static class InvocationsBuilders
         {
             var damage = effectDescription.FindFirstDamageForm();
 
-            if (damage != null)
-            {
-                damage.DamageType = _damageType;
-            }
+            damage.DamageType = _damageType;
 
             return effectDescription;
         }

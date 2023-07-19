@@ -138,7 +138,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var featureRevitalizingBoom = FeatureDefinitionBuilder
             .Create($"Feature{Name}RevitalizingBoon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyEffectDescriptionRevitalizingBoon(conditionRevitalizingBoom))
+            .SetCustomSubFeatures(new ModifyEffectDescriptionRevitalizingBoon(conditionRevitalizingBoom, powerSeedOfLife))
             .AddToDB();
 
         // MAIN
@@ -305,10 +305,14 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     private sealed class ModifyEffectDescriptionRevitalizingBoon : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionRevitalizingBoon;
+        private readonly FeatureDefinitionPower _powerSeedOfLife;
 
-        public ModifyEffectDescriptionRevitalizingBoon(ConditionDefinition conditionRevitalizingBoon)
+        public ModifyEffectDescriptionRevitalizingBoon(
+            ConditionDefinition conditionRevitalizingBoon,
+            FeatureDefinitionPower powerSeedOfLife)
         {
             _conditionRevitalizingBoon = conditionRevitalizingBoon;
+            _powerSeedOfLife = powerSeedOfLife;
         }
 
         public bool IsValid(
@@ -316,8 +320,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition is FeatureDefinitionPower { Name: $"Power{Name}SeedOfLife" } ||
-                   !IsAuthorizedSpell(effectDescription, definition);
+            return definition == _powerSeedOfLife || IsAuthorizedSpell(effectDescription, definition);
         }
 
         public EffectDescription GetEffectDescription(
