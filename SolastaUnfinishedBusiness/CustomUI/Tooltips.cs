@@ -112,9 +112,9 @@ internal static class Tooltips
         {
             return;
         }
-        
+
         var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-        
+
         if (Main.Settings.EnableDistanceOnTooltip && battleService.Battle is not null)
         {
             entityDescription.header += "<br><br>";
@@ -158,7 +158,8 @@ internal static class Tooltips
         }
     }
 
-    private static void GenerateDistanceText(int distance, TextMeshProUGUI tmpUGui, GameLocationCharacter characterToMeasureFrom)
+    private static void GenerateDistanceText(int distance, TextMeshProUGUI tmpUGui,
+        GameLocationCharacter characterToMeasureFrom)
     {
         var anchorObject = new GameObject();
 
@@ -173,46 +174,47 @@ internal static class Tooltips
         UpdateDistanceText(distance, characterToMeasureFrom);
     }
 
-    private static int GetDistanceFromCharacter(ref GameLocationCharacter characterToMeasureFrom, IGameLocationBattleService battleService)
+    private static int GetDistanceFromCharacter(
+        ref GameLocationCharacter characterToMeasureFrom,
+        IGameLocationBattleService battleService)
     {
         var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
+
         if (gameLocationSelectionService.HoveredCharacters.Count is 0)
         {
             return 0;
         }
 
         var hoveredCharacter = gameLocationSelectionService.HoveredCharacters[0];
-        
         var initiativeSortedContenders = battleService.Battle.InitiativeSortedContenders;
-
         var activePlayerController = ServiceRepository.GetService<IPlayerControllerService>().ActivePlayerController;
         var activePlayerControlledCharacters = activePlayerController.ControlledCharacters;
         var actingCharacter = battleService.Battle?.activeContender;
 
         if (actingCharacter is null)
+        {
             return 0;
-        
-        if (activePlayerControlledCharacters.Contains(actingCharacter))
-        {
-            characterToMeasureFrom = actingCharacter;
         }
-        else
-        {
-            characterToMeasureFrom = GetNextControlledCharacterInInitiative(initiativeSortedContenders, activePlayerController, actingCharacter);
-        }
+
+        characterToMeasureFrom = activePlayerControlledCharacters.Contains(actingCharacter)
+            ? actingCharacter
+            : GetNextControlledCharacterInInitiative(
+                initiativeSortedContenders, activePlayerController, actingCharacter);
 
         if (Main.Settings.UseOfficialDistanceCalculation)
         {
             return DistanceCalculation.CalculateDistanceFromTwoCharacters(characterToMeasureFrom, hoveredCharacter);
         }
-        else
-        {
-            var rawDistance = characterToMeasureFrom.LocationPosition - hoveredCharacter.LocationPosition;
-            return Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
-        }
+
+        var rawDistance = characterToMeasureFrom.LocationPosition - hoveredCharacter.LocationPosition;
+
+        return Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
     }
 
-    private static GameLocationCharacter GetNextControlledCharacterInInitiative(List<GameLocationCharacter> initiativeSortedContenders, PlayerController activePlayerController, GameLocationCharacter actingCharacter)
+    private static GameLocationCharacter GetNextControlledCharacterInInitiative(
+        List<GameLocationCharacter> initiativeSortedContenders,
+        PlayerController activePlayerController,
+        GameLocationCharacter actingCharacter)
     {
         return initiativeSortedContenders.Find(character =>
             character.controllerId == activePlayerController.controllerId
@@ -222,13 +224,15 @@ internal static class Tooltips
     private static void UpdateDistanceText(int distance, GameLocationCharacter characterToMeasureFrom)
     {
         _distanceTextObject.GetComponent<TextMeshProUGUI>().text =
-            Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance)) 
+            Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance))
             + $" {Gui.Localize("UI/&From")} "
             + GetReducedName(characterToMeasureFrom.Name);
     }
 
     private static string GetReducedName(string characterName)
-        => characterName.Length >= 12
+    {
+        return characterName.Length >= 12
             ? characterName.Substring(0, 9) + "..."
             : characterName;
+    }
 }

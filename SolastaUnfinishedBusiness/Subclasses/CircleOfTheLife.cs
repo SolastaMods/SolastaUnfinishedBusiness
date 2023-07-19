@@ -138,7 +138,8 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var featureRevitalizingBoom = FeatureDefinitionBuilder
             .Create($"Feature{Name}RevitalizingBoon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyEffectDescriptionRevitalizingBoon(conditionRevitalizingBoom, powerSeedOfLife))
+            .SetCustomSubFeatures(
+                new ModifyEffectDescriptionRevitalizingBoon(conditionRevitalizingBoom, powerSeedOfLife))
             .AddToDB();
 
         // MAIN

@@ -2,8 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -112,8 +112,8 @@ public static class AttackEvaluationParamsPatcher
             FlankingAndHigherGroundRules.HandleHigherGround(__instance);
         }
     }
-    
-    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams), 
+
+    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams),
         nameof(BattleDefinitions.AttackEvaluationParams.ComputeDistance))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -127,7 +127,9 @@ public static class AttackEvaluationParamsPatcher
                 return true;
             }
 
-            __instance.distance = DistanceCalculation.CalculateDistanceFromTwoCharacters(__instance.attacker, __instance.defender);
+            __instance.distance =
+                DistanceCalculation.CalculateDistanceFromTwoCharacters(__instance.attacker, __instance.defender);
+
             return false;
         }
     }

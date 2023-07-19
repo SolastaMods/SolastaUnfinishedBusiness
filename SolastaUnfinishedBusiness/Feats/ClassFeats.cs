@@ -857,7 +857,7 @@ internal static class ClassFeats
             EffectDescription effectDescription)
         {
             return definition is SpellDefinition { SpellLevel: 0 }
-                && effectDescription.HasDamageForm();
+                   && effectDescription.HasDamageForm();
         }
 
         public EffectDescription GetEffectDescription(
