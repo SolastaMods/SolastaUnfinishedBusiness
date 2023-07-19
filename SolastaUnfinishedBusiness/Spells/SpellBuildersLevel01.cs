@@ -648,7 +648,8 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return effectDescription.HasDamageForm();
+            return effectDescription.HasDamageForm()
+                   && character.HasConditionOfType("SkinOfRetribution");
         }
 
         public EffectDescription GetEffectDescription(
@@ -657,9 +658,6 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            //
-            // TODO: this doesn't look correct as will produce wrong results because of our caching
-            //
             var rulesetCondition =
                 character.AllConditions.FirstOrDefault(x =>
                     x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
@@ -686,12 +684,7 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            foreach (var condition in target.AllConditions
-                         .FindAll(x =>
-                             x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution")))
-            {
-                target.RemoveCondition(condition);
-            }
+            target.RemoveAllConditionsOfType("SkinOfRetribution");
         }
     }
 
