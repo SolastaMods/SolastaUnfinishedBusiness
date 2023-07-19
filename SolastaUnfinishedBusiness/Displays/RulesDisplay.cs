@@ -60,6 +60,12 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
             SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
         }
+        
+        toggle = Main.Settings.UseOfficialDistanceCalculation;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialDistanceCalculation"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialDistanceCalculation = toggle;
+        }
 
         toggle = Main.Settings.DontEndTurnAfterReady;
         if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))

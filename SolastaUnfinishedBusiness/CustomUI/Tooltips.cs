@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using TMPro;
@@ -111,14 +112,20 @@ internal static class Tooltips
         {
             return;
         }
-
-        if (Main.Settings.EnableDistanceOnTooltip &&
-            ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side ==
-            RuleDefinitions.Side.Ally)
+        
+        var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        
+        if (Main.Settings.EnableDistanceOnTooltip && battleService.Battle is not null)
         {
             entityDescription.header += "<br><br>";
 
-            var distance = GetDistanceToCharacter();
+            GameLocationCharacter characterToMeasureFrom = null;
+            var distance = GetDistanceFromCharacter(ref characterToMeasureFrom, battleService);
+
+            if (characterToMeasureFrom is null)
+            {
+                return;
+            }
 
             // don't use ? on a type deriving from an unity object
             if (_tooltipInfoCharacterDescription != null)
@@ -128,11 +135,11 @@ internal static class Tooltips
 
             if (_distanceTextObject == null)
             {
-                GenerateDistanceText(distance, _tmpUGui);
+                GenerateDistanceText(distance, _tmpUGui, characterToMeasureFrom);
             }
             else
             {
-                UpdateDistanceText(distance);
+                UpdateDistanceText(distance, characterToMeasureFrom);
             }
 
             // don't use ? on a type deriving from an unity object
@@ -141,9 +148,7 @@ internal static class Tooltips
                 _distanceTextObject.SetActive(true);
             }
         }
-        else if (!Main.Settings.EnableDistanceOnTooltip ||
-                 ServiceRepository.GetService<IGameLocationBattleService>().Battle?.ActiveContender?.Side ==
-                 RuleDefinitions.Side.Enemy)
+        else if (!Main.Settings.EnableDistanceOnTooltip || battleService.Battle is null)
         {
             // don't use ? on a type deriving from an unity object
             if (_distanceTextObject != null)
@@ -153,7 +158,7 @@ internal static class Tooltips
         }
     }
 
-    private static void GenerateDistanceText(int distance, TextMeshProUGUI tmpUGui)
+    private static void GenerateDistanceText(int distance, TextMeshProUGUI tmpUGui, GameLocationCharacter characterToMeasureFrom)
     {
         var anchorObject = new GameObject();
 
@@ -165,30 +170,65 @@ internal static class Tooltips
         _distanceTextObject.transform.position = Vector3.zero;
         _distanceTextObject.transform.localPosition = new Vector3(0, -10, 0);
 
-        UpdateDistanceText(distance);
+        UpdateDistanceText(distance, characterToMeasureFrom);
     }
 
-    private static int GetDistanceToCharacter()
+    private static int GetDistanceFromCharacter(ref GameLocationCharacter characterToMeasureFrom, IGameLocationBattleService battleService)
     {
         var gameLocationSelectionService = ServiceRepository.GetService<IGameLocationSelectionService>();
-
-        if (gameLocationSelectionService.SelectedCharacters.Count is 0 ||
-            gameLocationSelectionService.HoveredCharacters.Count is 0)
+        if (gameLocationSelectionService.HoveredCharacters.Count is 0)
         {
             return 0;
         }
 
-        var selectedCharacter = gameLocationSelectionService.SelectedCharacters[0];
         var hoveredCharacter = gameLocationSelectionService.HoveredCharacters[0];
-        var rawDistance = selectedCharacter.LocationPosition - hoveredCharacter.LocationPosition;
-        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
+        
+        var initiativeSortedContenders = battleService.Battle.InitiativeSortedContenders;
 
-        return distance;
+        var activePlayerController = ServiceRepository.GetService<IPlayerControllerService>().ActivePlayerController;
+        var activePlayerControlledCharacters = activePlayerController.ControlledCharacters;
+        var actingCharacter = battleService.Battle?.activeContender;
+
+        if (actingCharacter is null)
+            return 0;
+        
+        if (activePlayerControlledCharacters.Contains(actingCharacter))
+        {
+            characterToMeasureFrom = actingCharacter;
+        }
+        else
+        {
+            characterToMeasureFrom = GetNextControlledCharacterInInitiative(initiativeSortedContenders, activePlayerController, actingCharacter);
+        }
+
+        if (Main.Settings.UseOfficialDistanceCalculation)
+        {
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(characterToMeasureFrom, hoveredCharacter);
+        }
+        else
+        {
+            var rawDistance = characterToMeasureFrom.LocationPosition - hoveredCharacter.LocationPosition;
+            return Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
+        }
     }
 
-    private static void UpdateDistanceText(int distance)
+    private static GameLocationCharacter GetNextControlledCharacterInInitiative(List<GameLocationCharacter> initiativeSortedContenders, PlayerController activePlayerController, GameLocationCharacter actingCharacter)
+    {
+        return initiativeSortedContenders.Find(character =>
+            character.controllerId == activePlayerController.controllerId
+            && character.lastInitiative < actingCharacter.lastInitiative);
+    }
+
+    private static void UpdateDistanceText(int distance, GameLocationCharacter characterToMeasureFrom)
     {
         _distanceTextObject.GetComponent<TextMeshProUGUI>().text =
-            Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance));
+            Gui.Format("UI/&DistanceFormat", Gui.FormatDistance(distance)) 
+            + $" {Gui.Localize("UI/&From")} "
+            + GetReducedName(characterToMeasureFrom.Name);
     }
+
+    private static string GetReducedName(string characterName)
+        => characterName.Length >= 12
+            ? characterName.Substring(0, 9) + "..."
+            : characterName;
 }

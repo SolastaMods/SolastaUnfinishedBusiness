@@ -12,3 +12,4 @@ UI/&PartyEditorUnavailable=****** Party Editor no disponible: Cargue un juego gu
 UI/&Quickies=Rapiditos
 UI/&Remove=Eliminar
 UI/&Skilled=Experto
+UI/&From=De

@@ -161,6 +161,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
+    public bool UseOfficialDistanceCalculation { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool IdentifyAfterRest { get; set; }

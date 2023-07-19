@@ -120,7 +120,7 @@ ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker ed
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
-ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
+ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat <i><color=#F0DAA0>[advised to use with the official distance calculation option under rules]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
@@ -253,4 +253,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
 ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
+ModUi/&UseOfficialDistanceCalculation=Use official distance calculation to be based on distance from one creature's cube to the other <i><color=#F0DAA0>[instead of Solasta's default distance calculation]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
