@@ -58,11 +58,17 @@ internal static class InventorClass
             .IsExtraPlanar()
             .AddToDB();
 
+        var powerUseModifierInventorInfusionPool2 = FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifierInventorInfusionPool2")
+            .SetGuiPresentationNoContent(true)
+            .SetFixedValue(InfusionPool, 2)
+            .AddToDB();
+        
         var learn2Infusion = BuildLearn(2);
         var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .AddFeatureSet(InfusionPool, BuildLearn(4), BuildInfusionPoolIncrease(), BuildInfusionPoolIncrease())
+            .AddFeatureSet(InfusionPool, BuildLearn(4), powerUseModifierInventorInfusionPool2)
             .AddToDB();
 
         var unlearn = BuildUnlearn();
