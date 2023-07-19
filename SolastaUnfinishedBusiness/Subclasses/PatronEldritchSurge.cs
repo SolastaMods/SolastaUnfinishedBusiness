@@ -252,8 +252,9 @@ internal class PatronEldritchSurge : AbstractSubclass
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == EldritchBlast &&
-                character.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) > 0;
+            return definition == EldritchBlast
+                   && character.GetOriginalHero() != null
+                   && character.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) > 0;
         }
 
         public EffectDescription GetEffectDescription(
