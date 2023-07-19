@@ -44,7 +44,7 @@
     "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 100,
+    "fixedSavingThrowDifficultyClass": 19,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "damageAffinitiesByFamily": [],

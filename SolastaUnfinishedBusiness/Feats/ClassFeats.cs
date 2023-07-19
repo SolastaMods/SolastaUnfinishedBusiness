@@ -832,7 +832,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster())
+                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster())
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -849,24 +849,28 @@ internal static class ClassFeats
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition is SpellDefinition { SpellLevel: 0 }
+                && effectDescription.HasDamageForm();
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition || spellDefinition.SpellLevel > 0)
-            {
-                return effectDescription;
-            }
-
             // this might not be correct if same spell is learned from different classes
             // if we follow other patches we should ideally identify all repertoires that can cast spell
             // and use the one with highest attribute. will revisit if this ever becomes a thing
             var spellRepertoire =
-                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spellDefinition));
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(definition as SpellDefinition));
 
             if (spellRepertoire == null)
             {

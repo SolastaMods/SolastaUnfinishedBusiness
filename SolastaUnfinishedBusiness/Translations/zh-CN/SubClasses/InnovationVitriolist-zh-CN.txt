@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=向 30 英尺内你能看
 Feature/&PowerInnovationVitriolistViscosityTitle=混合物粘度
 Feedback/&AdditionalDamageInfusionFormat=硫酸注入！
 Feedback/&AdditionalDamageInfusionLine={0} 对 {1} 执行注入攻击
+Screen/&InnovationVitriolistSpellDescription=此 Vitriolist 法术始终被视为已准备就绪。\n它不计入你的法术准备限制。
+Screen/&InnovationVitriolistSpellTitle=刻薄主义者
 Subclass/&InnovationVitriolistDescription=所有发明家都使用各种形式的酸和其他魔法手段来将成分、生物部分甚至物体分解为其实验的基本成分，一些发明家开始专注于解构过程，特别是在使用酸来实现这一功能时，并尝试了如何在进攻和防御能力方面，它可以发挥更大的作用。
 Subclass/&InnovationVitriolistTitle=刻薄主义者

@@ -38,6 +38,7 @@ internal static class OtherFeats
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
+        var featFrostAdaptation = BuildFrostAdaptation();
         var featHealer = BuildHealer();
         var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
@@ -60,6 +61,7 @@ internal static class OtherFeats
             featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
+            featFrostAdaptation,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -108,7 +110,8 @@ internal static class OtherFeats
             FeatDefinitions.HardToKill,
             FeatDefinitions.Hauler,
             FeatDefinitions.Robust,
-            featTough);
+            featTough,
+            featFrostAdaptation);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
@@ -149,6 +152,27 @@ internal static class OtherFeats
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsLevel2)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Frost Adaptation
+
+    private static FeatDefinition BuildFrostAdaptation()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatFrostAdaptation")
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierFeatFrostAdaptation")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.Constitution, 1)
+                    .AddToDB(),
+                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherChilledImmunity,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherFrozenImmunity)
+            .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
 
@@ -956,7 +980,7 @@ internal static class OtherFeats
                             FeatSpellSniperTag)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
+                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatSpellSniper())
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);
@@ -971,25 +995,25 @@ internal static class OtherFeats
         return spellSniperGroup;
     }
 
-    private sealed class ModifyMagicEffectFeatSpellSniper : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionFeatSpellSniper : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition is SpellDefinition &&
+                   effectDescription.rangeType == RangeType.RangeHit &&
+                   effectDescription.HasDamageForm();
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition)
-            {
-                return effectDescription;
-            }
-
-            if (effectDescription.rangeType != RangeType.RangeHit || !effectDescription.HasDamageForm())
-            {
-                return effectDescription;
-            }
-
-            effectDescription.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
+            effectDescription.rangeParameter = effectDescription.RangeParameter * 2;
 
             return effectDescription;
         }

@@ -361,7 +361,7 @@ When a creature hits you with an attack, you can use your reaction to attack the
 
 # 15. - Ironborn Dwarf
 
-Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves.  Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance. 
+Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance. 
 
 
 ## Level 1
@@ -471,7 +471,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 # 19. - Obsidian Dwarf
 
-In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen.  The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors.  The dwarves rebelled, won their freedom, and retreated to the Badlands.  Calling themselves the Obsidian Dwarves, they have grown and prospered.
+In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
 
 ## Level 1
@@ -507,7 +507,7 @@ Constitution +1
 
 * Hot-Blooded
 
-You have resistance to cold damage.
+You have resistance to cold damage. You are immune to the effects of moderately cold weather. You are also Chilled instead of Frozen in colder weather.
 
 * Language
 

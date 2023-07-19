@@ -825,22 +825,43 @@ internal static partial class SpellBuilders
     }
 
 
-    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
+    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            if (character is not RulesetCharacterHero)
+            {
+                return false;
+            }
+
+            var caster = GameLocationCharacter.GetFromActor(character);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode is not { SourceObject: RulesetItem })
+            {
+                return false;
+            }
+
+            if (attackMode.Ranged || !attackMode.Reach)
+            {
+                return false;
+            }
+
+            var reach = attackMode.reachRange;
+
+            return reach > 1;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
             var caster = GameLocationCharacter.GetFromActor(character);
-
-            //Should we try making it compatible with Monsters? Like enemies with custom spell lists, or potential casting while wild-shaped?
-            if (caster == null || character is not RulesetCharacterHero)
-            {
-                return effectDescription;
-            }
-
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode is not { SourceObject: RulesetItem })
@@ -900,28 +921,45 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetCustomSubFeatures(new ModifyMagicAttackOnActionStartTollTheDead())
             .AddToDB();
+
+        spell.SetCustomSubFeatures(new ModifyEffectDescriptionTollTheDead(spell));
 
         return spell;
     }
 
-    private sealed class ModifyMagicAttackOnActionStartTollTheDead : IModifyMagicEffectOnActionStart
+    private sealed class ModifyEffectDescriptionTollTheDead : IModifyEffectDescription
     {
-        public void OnMagicalEffectActionStarted(CharacterActionMagicEffect characterActionMagicEffect)
+        private readonly SpellDefinition _spellTollTheDead;
+
+        public ModifyEffectDescriptionTollTheDead(SpellDefinition spellTollTheDead)
         {
+            _spellTollTheDead = spellTollTheDead;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return Global.CurrentMagicEffectAction != null &&
+                   Global.CurrentMagicEffectAction.ActionParams.TargetCharacters.Count > 0 &&
+                   Global.CurrentMagicEffectAction.ActionParams.TargetCharacters[0].RulesetCharacter != null &&
+                   definition == _spellTollTheDead;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var characterActionMagicEffect = Global.CurrentMagicEffectAction;
             var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
             var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
-            var damageForm =
-                characterActionMagicEffect.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+            var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.DieType = rulesetDefender.MissingHitPoints == 0 ? DieType.D8 : DieType.D12;
+
+            return effectDescription;
         }
     }
 

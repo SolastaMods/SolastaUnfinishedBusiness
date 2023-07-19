@@ -1928,7 +1928,9 @@
   "startingQuests": [
     "Definition:DLC3_Campaign_Scenario:7467e99432c824e42af33f8c553cf070",
     "Definition:DLC3_RetrocompatibilityScenario_RemoveAnimalShapeScroll:c9598ee7a3085c644b43d7f97c959d59",
-    "Definition:DLC3_RetrocompatibilityScenario_HumanClans03_SetRestPermission:5deb562c967e5a34188b0aae87657f65"
+    "Definition:DLC3_RetrocompatibilityScenario_HumanClans03_SetRestPermission:5deb562c967e5a34188b0aae87657f65",
+    "Definition:DLC3_RetrocompatibilityScenario_Undermountain04_BanditsJournal:4b2776c790fa765419a2e1d0abcc6bbf",
+    "Definition:DLC3_RetrocompatibilityScenario_NorthernClans_MardukAlreadyLeft_MandatoryLocations:438f8cff9689235458e3791a533ade1f"
   ],
   "journalStart": "Campaign/&DLC3_Journal_Start",
   "initialBestiaryContent": [

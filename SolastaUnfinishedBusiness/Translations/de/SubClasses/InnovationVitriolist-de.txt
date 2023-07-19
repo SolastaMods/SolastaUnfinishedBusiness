@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=Wirf eine Mischung auf ei
 Feature/&PowerInnovationVitriolistViscosityTitle=Mischung aus Viskosität
 Feedback/&AdditionalDamageInfusionFormat=Vitriolistische Infusion!
 Feedback/&AdditionalDamageInfusionLine={0} führt einen Infusionsangriff auf {1} durch
+Screen/&InnovationVitriolistSpellDescription=Dieser Vitriolist-Zauber gilt immer als vorbereitet.\nEr zählt nicht zu Ihrem Zaubervorbereitungslimit.
+Screen/&InnovationVitriolistSpellTitle=Vitriolist
 Subclass/&InnovationVitriolistDescription=Alle Erfinder verwenden für ihre Experimente verschiedene Formen von Säuren und andere magische Mittel, um Zutaten, Kreaturenteile oder sogar Objekte in ihre Grundbestandteile zu zerlegen. Einige Erfinder konzentrierten sich auf den Zerlegungsprozess, insbesondere wenn sie Säure in dieser Funktion verwendeten, und experimentierten damit, wie Es könnte in weitaus größerem Umfang eingesetzt werden, wenn es um Offensiv- und Defensivfähigkeiten geht.
 Subclass/&InnovationVitriolistTitle=Vitriolist

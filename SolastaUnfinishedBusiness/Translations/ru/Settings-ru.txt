@@ -106,6 +106,8 @@ ModUi/&EnableLevel20=Включить 20-й уровень <b><i><color=#C04040E
 ModUi/&EnableLogDialoguesToConsole=Включить лог диалогов в консоли игры во время нарративных последовательностей
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Включить лог неверных ссылок в пользовательских кампаниях
 ModUi/&EnableMinInOutAttributes=<i>+ Принудительно устанавливать минимальные характеристики для соответствия требованиям</i>
+ModUi/&EnableMonkAbundantKi=Включить <color=#D89555>Монаху</color> <b>Обильное Ци</b> на уровне 1 <i><color=#F0DAA0>[вы получаете дополнительные очки Ци, равные половине бонуса мастерства, округлённого в большую сторону]</color></i>
+ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализацию на оружии</b> для <color=#D89555>Монаха</color> на уровнях класса 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
@@ -244,6 +246,7 @@ ModUi/&UnlockSkinColors=Разблокировать цвета кожи
 ModUi/&Update=<b><color=#D89555>Обновить</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Использовать <color=#D89555>Эльфийские</color> лица на <color=#D89555>Тифлингах</color>
 ModUi/&UseHeightOneCylinderEffect=Ограничить высоту эффекта одним уровнем при накладывании <color=#D89555>Чёрных щупалец, Опутывания, Смазки</color> <i><color=#F0DAA0>[квадрат]</color></i> или <color=#D89555>Шипов</color> <i><color=#F0DAA0>[круг]</color></i>
+ModUi/&UseMathFlankingRules=<i>+ Использовать точную математику для определения окружения <color=#F0DAA0>[может повлиять на производительность на медленных компьютерах]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использовать официальные правила для преимущества/помехи <i><color=#F0DAA0>[если условия вызывают бросок одновременно с преимуществом и помехой, вы не получаете ни того, ни другого]</color></i>
 ModUi/&UseOfficialFlankingRules=Использовать официальные правила положения <i><color=#F0DAA0>[атакующий получает преимущество, если союзник находится на противоположной стороне от цели]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти правила для дальнобойных атак</i>

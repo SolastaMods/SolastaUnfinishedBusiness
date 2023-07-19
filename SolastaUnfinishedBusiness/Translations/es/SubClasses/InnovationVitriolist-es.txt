@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=Lanza una mezcla a un obj
 Feature/&PowerInnovationVitriolistViscosityTitle=Mezcla de Viscosidad
 Feedback/&AdditionalDamageInfusionFormat=¡Infusión Vitriolista!
 Feedback/&AdditionalDamageInfusionLine={0} realiza un ataque de infusión en {1}
+Screen/&InnovationVitriolistSpellDescription=Este hechizo Vitriolista siempre se considera preparado.\nNo cuenta para el límite de preparación de hechizos.
+Screen/&InnovationVitriolistSpellTitle=Vitriolista
 Subclass/&InnovationVitriolistDescription=Todos los inventores usan varias formas de ácidos y otros medios mágicos para descomponer ingredientes, partes de criaturas o incluso objetos en sus componentes base para sus experimentos. Algunos inventores se enfocaron en el proceso de deconstrucción, especialmente cuando usan ácido en esta función y han experimentado cómo podría usarse en una capacidad mucho mayor cuando se trata de capacidades ofensivas y defensivas.
 Subclass/&InnovationVitriolistTitle=Vitriolista

@@ -384,7 +384,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeCold))
+                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeCold))
                     .AddToDB())
             .AddToDB();
     }
@@ -400,7 +400,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeAcid))
+                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeAcid))
                     .AddToDB())
             .AddToDB();
     }
@@ -416,7 +416,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeFire))
+                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeFire))
                     .AddToDB())
             .AddToDB();
     }
@@ -432,7 +432,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeLightning))
+                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeLightning))
                     .AddToDB())
             .AddToDB();
     }
@@ -603,31 +603,31 @@ internal static class InvocationsBuilders
         public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
     }
 
-    private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
     {
         private readonly string _damageType;
 
-        public ModifyMagicEffectEldritchBlast(string damageType)
+        public ModifyEffectDescriptionEldritchBlast(string damageType)
         {
             _damageType = damageType;
         }
 
-        public EffectDescription ModifyEffect(BaseDefinition definition,
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == SpellDefinitions.EldritchBlast;
+        }
+
+        public EffectDescription GetEffectDescription(BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition != SpellDefinitions.EldritchBlast)
-            {
-                return effectDescription;
-            }
-
             var damage = effectDescription.FindFirstDamageForm();
 
-            if (damage != null)
-            {
-                damage.DamageType = _damageType;
-            }
+            damage.DamageType = _damageType;
 
             return effectDescription;
         }

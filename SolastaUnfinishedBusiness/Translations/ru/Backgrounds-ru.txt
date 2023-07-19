@@ -1,5 +1,11 @@
+Background/&BackgroundDevotedDescription=После долгих лет бесцельных скитаний и бесплодных поисков вы нашли своё дело. Будь то божество или религия, политическая кампания, философское течение или просто реклама прекрасного эля и медовухи Мастера Такина, вы увидели свет и от всего сердца посвятили себя выбранному делу.
+Background/&BackgroundDevotedTitle=Посвящённый
 Background/&BackgroundFarmerDescription=Вы с детства возделывали землю и разводили домашний скот, чтобы накормить многих. Будучи фермером, вы просыпались до восхода солнца и возвращались с полей после заката. Вы оставили мирскую жизнь в поисках приключений ради острых ощущений, славы или богатства.
 Background/&BackgroundFarmerTitle=Фермер
+Feature/&BonusCantripsBackgroundDevotedDescription=Вы изучаете заговор <b>Священное пламя</b>.
+Feature/&BonusCantripsBackgroundDevotedTitle=Магия посвящённого
+Feature/&ProficiencyBackgroundDevotedSkillsDescription=Проницательность, расследование и религия
+Feature/&ProficiencyBackgroundDevotedSkillsTitle=Навыки посвящённого
 Feature/&ProficiencyBackgroundFarmerSkillsDescription=Уход за животными, природа и восприятие
 Feature/&ProficiencyBackgroundFarmerSkillsTitle=Навыки фермера
 Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Владение дубинами и ручными топорами. +1 к броскам атаки этим оружием.

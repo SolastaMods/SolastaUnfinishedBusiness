@@ -61,7 +61,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .Create($"Feature{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new DeathMagicModifyMagic(effectInsidiousDeathMagic),
+                new DeathModify(effectInsidiousDeathMagic),
                 new OnDamageInsidiousMagic(conditionInsidiousDeathMagic))
             .AddToDB();
 
@@ -358,35 +358,32 @@ internal sealed class DomainDefiler : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
 
-    private sealed class DeathMagicModifyMagic : IModifyMagicEffect
+    private sealed class DeathModify : IModifyEffectDescription
     {
         private readonly EffectForm _effectInsidiousDeathMagic;
 
-        internal DeathMagicModifyMagic(EffectForm effectInsidiousDeathMagic)
+        internal DeathModify(EffectForm effectInsidiousDeathMagic)
         {
             _effectInsidiousDeathMagic = effectInsidiousDeathMagic;
         }
 
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return character.GetOriginalHero() != null
+                   && effectDescription.EffectForms.Any(x =>
+                       x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic);
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (!effectDescription.EffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic))
-            {
-                return effectDescription;
-            }
-
             var hero = character.GetOriginalHero();
-
-            if (hero == null)
-            {
-                return effectDescription;
-            }
-
-
             var levels = hero.GetClassLevel(CharacterClassDefinitions.Cleric) / 2;
 
             effectDescription.durationType = DurationType.Round;

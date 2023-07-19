@@ -1,4 +1,4 @@
-// automatically generated on 6/22/2023 12:00:00 AM
+// automatically generated on 7/18/2023 12:00:00 AM
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
@@ -5402,6 +5402,11 @@ internal static partial class DatabaseHelper
             ConditionAffinityProtectedFromEvilPossessedImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProtectedFromEvilPossessedImmunity");
 
+        internal static FeatureDefinitionConditionAffinity
+            ConditionAffinityProtectedFromEvilUnderDemonicInfluenceImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>(
+                "ConditionAffinityProtectedFromEvilUnderDemonicInfluenceImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityResistanceToShine { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityResistanceToShine");
 
@@ -5482,6 +5487,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningResistanceExceptSilver { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningResistanceExceptSilver");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningResistanceTrue { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningResistanceTrue");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningVulnerability { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningVulnerability");
@@ -5773,6 +5781,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingResistanceExceptSilver { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingResistanceExceptSilver");
+
+        internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingResistanceTrue { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingResistanceTrue");
 
         internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingVulnerability { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingVulnerability");

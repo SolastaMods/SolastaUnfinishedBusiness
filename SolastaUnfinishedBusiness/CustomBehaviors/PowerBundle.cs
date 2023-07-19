@@ -5,7 +5,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -324,31 +323,12 @@ internal static class PowerBundle
         [CanBeNull] RulesetCharacter caster,
         [CanBeNull] RulesetEffect effect)
     {
-        var currentAction = Global.CurrentAction;
-
-        if (currentAction != null)
-        {
-            foreach (var target in currentAction.actionParams.TargetCharacters
-                         .Select(x => x.RulesetCharacter)
-                         .Where(x => x.HasSubFeatureOfType<IModifyMagicEffectOnTarget>()))
-            {
-                foreach (var modifyMagicEffectOnTarget in target.GetSubFeaturesByType<IModifyMagicEffectOnTarget>())
-                {
-                    modifyMagicEffectOnTarget.ModifyEffect(definition, original, caster, target);
-                }
-            }
-        }
-
-        var result = original;
-
         if (caster == null)
         {
-            return result;
+            return original;
         }
 
-
         var metamagic = effect is RulesetEffectSpell spell ? spell.MetamagicOption : null;
-
         var cached = GetCachedEffect(caster, definition, metamagic);
 
         if (cached != null)
@@ -356,49 +336,27 @@ internal static class PowerBundle
             return cached;
         }
 
-#if false
-        var baseDefinition = definition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
-
-        if (baseDefinition != null)
-        {
-            result = baseDefinition.GetCustomEffect(caster) ?? original;
-        }
-#endif
-
-        //ignore features from powers, they would be processed later
-        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(
-            typeof(FeatureDefinitionPower),
-            typeof(FeatureDefinitionPowerSharedPool)
-        );
-
-        //process features from spell/power
-        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+        //collect all valid modifiers from caster
+        var result = original;
+        var modifiers = caster.GetSubFeaturesByType<IModifyEffectDescription>()
+            .Where(x => x.IsValid(definition, caster, result))
+            .ToList();
 
         if (metamagic != null)
         {
-            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+            // all metamagic from metamagic feature are valid so no need to filter
+            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyEffectDescription>());
         }
 
-        if (metamagic != null)
-        {
-            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
-        }
-
-        if (!modifiers.Empty())
+        if (modifiers.Count > 0)
         {
             result = modifiers.Aggregate(
+                // ensure we get a copy as directly modifying blueprints can cause nasty effects
                 EffectDescriptionBuilder
                     .Create(result)
                     .Build(),
-                (current, f) => f.ModifyEffect(definition, current, caster, effect));
+                (current, f) => f.GetEffectDescription(definition, current, caster, effect));
         }
-
-        //process features from caster
-        result = caster.GetSubFeaturesByType<IModifyMagicEffectAny>().Aggregate(
-            EffectDescriptionBuilder
-                .Create(result)
-                .Build(),
-            (current, f) => f.ModifyEffect(definition, current, caster, effect));
 
         CacheEffect(caster, definition, metamagic, result);
 
@@ -406,7 +364,8 @@ internal static class PowerBundle
     }
 
     /**Modifies spell/power description for GUI purposes.*/
-    internal static EffectDescription ModifyMagicEffectGui(EffectDescription original,
+    internal static EffectDescription ModifyMagicEffectGui(
+        EffectDescription original,
         [NotNull] BaseDefinition definition)
     {
         return ModifyMagicEffect(original, definition, Global.CurrentCharacter, null);
@@ -419,6 +378,7 @@ internal static class PowerBundle
         [NotNull] out List<string> prerequisites)
     {
         var result = true;
+
         prerequisites = new List<string>();
 
         foreach (var validator in validators)

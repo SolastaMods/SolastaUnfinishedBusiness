@@ -1,5 +1,11 @@
+Background/&BackgroundDevotedDescription=Dopo anni di vagabondaggi senza scopo e ricerche infruttuose, hai trovato la tua causa. Che si tratti di una divinità o di una religione, di una campagna politica, di un movimento filosofico o semplicemente della promozione delle ottime birre e dell'idromele del Maestro Tuckin, hai visto la luce e sei devoto con tutto il cuore a promuovere la causa che hai scelto.
+Background/&BackgroundDevotedTitle=Devoto
 Background/&BackgroundFarmerDescription=Hai lavorato la terra e allevato bestiame fin dalla nascita per sfamare la bocca di molti. Come agricoltore, ti sei svegliato prima del sole e sei rientrato dal lavoro nei campi dopo che era tramontato. Ti sei lasciato alle spalle una vita mondana per cercare l'avventura per il brivido, la fama o la fortuna.
 Background/&BackgroundFarmerTitle=Contadino
+Feature/&BonusCantripsBackgroundDevotedDescription=Ottieni il trucchetto <b>Fiamma Sacra</b>.
+Feature/&BonusCantripsBackgroundDevotedTitle=Magia devota
+Feature/&ProficiencyBackgroundDevotedSkillsDescription=Intuizione, Investigazione e Religione
+Feature/&ProficiencyBackgroundDevotedSkillsTitle=Competenze devote
 Feature/&ProficiencyBackgroundFarmerSkillsDescription=Gestione degli animali, natura e percezione
 Feature/&ProficiencyBackgroundFarmerSkillsTitle=Competenze contadine
 Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Competenza in mazze e asce a mano. +1 per colpire con loro.

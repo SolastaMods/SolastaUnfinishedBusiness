@@ -62,9 +62,17 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class MetamagicAltruisticAlly : IModifyMagicEffect
+    private sealed class MetamagicAltruisticAlly : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return true;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
@@ -80,9 +88,17 @@ internal static class MetamagicBuilders
         }
     }
 
-    private sealed class MetamagicAltruisticSelf : IModifyMagicEffect
+    private sealed class MetamagicAltruisticSelf : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return true;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
@@ -124,7 +140,7 @@ internal static class MetamagicBuilders
             .Create(MetamagicFocused)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .SetCustomSubFeatures(new ModifyMagicEffectMetamagicFocused(condition), validator)
+            .SetCustomSubFeatures(new ModifyEffectDescriptionMetamagicFocused(condition), validator)
             .AddToDB();
     }
 
@@ -147,16 +163,24 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class ModifyMagicEffectMetamagicFocused : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionMetamagicFocused : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionFocused;
 
-        public ModifyMagicEffectMetamagicFocused(ConditionDefinition conditionFocused)
+        public ModifyEffectDescriptionMetamagicFocused(ConditionDefinition conditionFocused)
         {
             _conditionFocused = conditionFocused;
         }
 
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return true;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
@@ -184,7 +208,7 @@ internal static class MetamagicBuilders
             .Create(MetamagicPowerful)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .SetCustomSubFeatures(new ModifyMagicEffectMetamagicPowerful(), validator)
+            .SetCustomSubFeatures(new ModifyEffectDescriptionMetamagicPowerful(), validator)
             .AddToDB();
     }
 
@@ -207,9 +231,17 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class ModifyMagicEffectMetamagicPowerful : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionMetamagicPowerful : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effectDescription,
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return true;
+        }
+
+        public EffectDescription GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription,
             RulesetCharacter character, RulesetEffect rulesetEffect)
         {
             foreach (var effectForm in effectDescription.EffectForms
@@ -234,7 +266,7 @@ internal static class MetamagicBuilders
             .Create(MetamagicWidened)
             .SetGuiPresentation(Category.Feature)
             .SetCost(MetamagicCostMethod.FixedValue, 2)
-            .SetCustomSubFeatures(new ModifyMagicEffectMetamagicWidened(), validator)
+            .SetCustomSubFeatures(new ModifyEffectDescriptionMetamagicWidened(), validator)
             .AddToDB();
     }
 
@@ -257,9 +289,17 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class ModifyMagicEffectMetamagicWidened : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionMetamagicWidened : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return true;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,

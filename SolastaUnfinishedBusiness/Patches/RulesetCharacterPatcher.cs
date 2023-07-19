@@ -28,13 +28,12 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class RulesetCharacterPatcher
 {
     // helper to get infusions modifiers from items
-    private static void EnumerateISpellCastingAffinityProvider(
+    private static void EnumerateFeaturesFromItems<T>(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin) where T : class
     {
-        __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
-
+        __instance.EnumerateFeaturesToBrowse<T>(featuresToBrowse, featuresOrigin);
         if (__instance is not RulesetCharacterHero hero)
         {
             return;
@@ -46,7 +45,7 @@ public static class RulesetCharacterPatcher
                      .Select(slot => slot.EquipedItem)
                      .SelectMany(equipedItem => equipedItem.DynamicItemProperties
                          .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
-                         .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
+                         .Where(definition => definition != null && definition is T)))
         {
             featuresToBrowse.Add(definition);
 
@@ -870,16 +869,9 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
-            >(EnumerateISpellCastingAffinityProvider).Method;
-
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
-                -1, "RulesetCharacter.RefreshSpellRepertoires",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                "RulesetCharacter.RefreshSpellRepertoires", EnumerateFeaturesFromItems<ISpellCastingAffinityProvider>);
         }
 
         [UsedImplicitly]
@@ -1418,12 +1410,6 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
-            >(EnumerateISpellCastingAffinityProvider).Method;
-
             var myComputeBaseSavingThrowBonus =
                 new Func<RulesetActor, string, List<TrendInfo>, int>(ComputeBaseSavingThrowBonus)
                     .Method;
@@ -1444,19 +1430,19 @@ public static class RulesetCharacterPatcher
             return instructions
                 //PATCH: supports changing the concentration attribute score
                 .ReplaceCalls(computeBaseSavingThrowBonus,
-                    "RulesetCharacter.ComputeBaseSavingThrowBonus",
+                    "RulesetCharacter.RollConcentrationCheck.ComputeBaseSavingThrowBonus",
                     new CodeInstruction(OpCodes.Call, myComputeBaseSavingThrowBonus))
                 .ReplaceCalls(computeSavingThrowModifier,
-                    "RulesetCharacter.ComputeSavingThrowModifier",
+                    "RulesetCharacter.RollConcentrationCheck.ComputeSavingThrowModifier",
                     new CodeInstruction(OpCodes.Call, myComputeSavingThrowModifier))
                 .ReplaceCalls(getSavingThrowModifier,
-                    "RulesetCharacter.GetSavingThrowModifier",
+                    "RulesetCharacter.RollConcentrationCheck.GetSavingThrowModifier",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, myGetSavingThrowModifier))
                 //PATCH: allow modifiers from items to be considered on concentration checks
-                .ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
-                    -1, "RulesetCharacter.RollConcentrationCheck",
-                    new CodeInstruction(OpCodes.Call, enumerate));
+                .ReplaceEnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                    "RulesetCharacter.RollConcentrationCheck.EnumerateSpellCastingAffinities",
+                    EnumerateFeaturesFromItems<ISpellCastingAffinityProvider>);
         }
 
         private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
@@ -1535,16 +1521,10 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
-            >(EnumerateISpellCastingAffinityProvider).Method;
-
-            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionMagicAffinity",
-                -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            //PATCH: make FeatureDefinitionMagicAffinity from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(
+                "RulesetCharacter.RollConcentrationCheckFromDamage",
+                EnumerateFeaturesFromItems<FeatureDefinitionMagicAffinity>);
         }
     }
 
@@ -1557,16 +1537,9 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var enumerate = new Action<
-                RulesetCharacter,
-                List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, FeatureOrigin>
-            >(EnumerateFeatureDefinitionRegeneration).Method;
-
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionRegeneration",
-                -1, "RulesetCharacter.FindBestRegenerationFeature",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions.ReplaceEnumerateFeaturesToBrowse<FeatureDefinitionRegeneration>(
+                "RulesetCharacter.FindBestRegenerationFeature", EnumerateFeatureDefinitionRegeneration);
         }
     }
 

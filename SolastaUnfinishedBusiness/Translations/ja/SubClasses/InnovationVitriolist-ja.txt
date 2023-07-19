@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=30フィート以内に�
 Feature/&PowerInnovationVitriolistViscosityTitle=粘度の混合物
 Feedback/&AdditionalDamageInfusionFormat=ヴィトリオリストの注入！
 Feedback/&AdditionalDamageInfusionLine={0} が {1} に対して注入攻撃を実行します
+Screen/&InnovationVitriolistSpellDescription=このヴィトリオリストの呪文は常に準備済みとみなされます。\nこれは呪文の準備制限にはカウントされません。
+Screen/&InnovationVitriolistSpellTitle=ヴィトリオリスト
 Subclass/&InnovationVitriolistDescription=すべての発明者は、さまざまな形の酸やその他の魔法の手段を使用して、材料、生き物の一部、さらには物体を実験の基本構成要素に分解します。一部の発明者は、特にこの機能で酸を使用する場合の分解プロセスに焦点を当て、どのように実験するかを実験しました。攻撃力と防御力に関しては、はるかに優れた能力で使用できる可能性があります。
 Subclass/&InnovationVitriolistTitle=ヴィトリオリスト

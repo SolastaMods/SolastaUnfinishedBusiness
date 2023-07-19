@@ -39,7 +39,7 @@
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "LongswordType",
+    "weaponType": "DaggerType",
     "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,

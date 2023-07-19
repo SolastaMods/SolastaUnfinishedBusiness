@@ -28,5 +28,7 @@ Feature/&PowerInnovationVitriolistViscosityDescription=30피트 내에서 볼 �
 Feature/&PowerInnovationVitriolistViscosityTitle=점도의 혼합물
 Feedback/&AdditionalDamageInfusionFormat=유리병 주입!
 Feedback/&AdditionalDamageInfusionLine={0}은(는) {1}에서 주입 공격을 수행합니다.
+Screen/&InnovationVitriolistSpellDescription=이 Vitriolist 주문은 항상 준비된 것으로 간주됩니다.\n주문 준비 제한에 포함되지 않습니다.
+Screen/&InnovationVitriolistSpellTitle=독설가
 Subclass/&InnovationVitriolistDescription=모든 발명가는 다양한 형태의 산 및 기타 마법 수단을 사용하여 재료, 생물 부품 또는 물체를 실험을 위해 기본 구성 요소로 분해합니다. 일부 발명가는 특히 이 기능에서 산을 사용할 때 분해 과정에 집중하고 어떻게 공격 및 방어 능력과 관련하여 훨씬 더 큰 용량으로 사용될 수 있습니다.
 Subclass/&InnovationVitriolistTitle=독설가

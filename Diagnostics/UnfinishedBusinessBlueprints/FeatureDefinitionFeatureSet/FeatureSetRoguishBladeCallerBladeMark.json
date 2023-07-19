@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:CombatAffinityRoguishBladeCallerBladeMark:39dca5c9-fd26-5e7b-b7e9-dfc2112b4c52",
+    "Definition:AdditionalDamageRoguishBladeCallerBladeMark:4f283071-43e2-5a6f-ade6-3d2f93e537dd"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRoguishBladeCallerBladeMarkTitle",
+    "description": "Feature/&FeatureSetRoguishBladeCallerBladeMarkDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5840397c-ae59-5179-acc3-15a2eb0480f8",
+  "contentPack": 9999,
+  "name": "FeatureSetRoguishBladeCallerBladeMark"
+}

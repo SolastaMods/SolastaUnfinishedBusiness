@@ -129,7 +129,8 @@ internal static class RaceWendigoBuilder
         {
             reactionParams = null;
 
-            return battleManager.Battle.CurrentRound == 1 &&
+            return battleManager.Battle.ActiveContender == attacker &&
+                   battleManager.Battle.CurrentRound == 1 &&
                    battleManager.Battle.InitiativeSortedContenders.IndexOf(attacker)
                    < battleManager.Battle.InitiativeSortedContenders.IndexOf(defender);
         }

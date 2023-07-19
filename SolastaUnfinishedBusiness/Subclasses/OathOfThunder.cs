@@ -62,7 +62,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             .AddToDB();
 
         featureHammersBoon.SetCustomSubFeatures(
-            ReturningWeapon.Instance,
+            new ReturningWeapon(IsOathOfThunderWeapon),
             new ModifyWeaponModifyAttackModeHammerAndAxeBoon(featureHammersBoon));
 
         // ThunderousRebuke
@@ -91,8 +91,9 @@ internal sealed class OathOfThunder : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 6)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectThunderousRebuke())
             .AddToDB();
+
+        powerThunderousRebuke.SetCustomSubFeatures(new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
 
         // Divine Bolt
 
@@ -314,9 +315,24 @@ internal sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ModifyMagicEffectThunderousRebuke : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionThunderousRebuke : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        private readonly FeatureDefinitionPower _powerThunderousRebuke;
+
+        public ModifyEffectDescriptionThunderousRebuke(FeatureDefinitionPower powerThunderousRebuke)
+        {
+            _powerThunderousRebuke = powerThunderousRebuke;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == _powerThunderousRebuke;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
@@ -324,10 +340,7 @@ internal sealed class OathOfThunder : AbstractSubclass
         {
             var damage = effectDescription.FindFirstDamageForm();
 
-            if (damage != null)
-            {
-                damage.bonusDamage = character.GetClassLevel(CharacterClassDefinitions.Paladin);
-            }
+            damage.bonusDamage = character.GetClassLevel(CharacterClassDefinitions.Paladin);
 
             return effectDescription;
         }

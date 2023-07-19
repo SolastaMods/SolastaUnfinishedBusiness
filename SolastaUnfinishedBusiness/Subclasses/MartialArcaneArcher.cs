@@ -77,12 +77,6 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot
 
-        ActionAffinityArcaneArcherToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle)
-            .AddToDB();
-
         PowerArcaneShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneShot")
             .SetGuiPresentation($"FeatureSet{Name}ArcaneShot", Category.Feature)
@@ -100,6 +94,14 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.OnceInMyTurnIsValid(ArcaneShotMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle)))
+            .AddToDB();
+
+        ActionAffinityArcaneArcherToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle)
+            .SetCustomSubFeatures(
+                new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
         BuildArcaneShotPowers(PowerArcaneShot);
