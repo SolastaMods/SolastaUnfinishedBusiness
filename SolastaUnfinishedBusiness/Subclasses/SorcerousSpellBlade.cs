@@ -251,6 +251,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
             effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
+            //TODO: refactor this - we should not do actions when modifying effect descriptions
             if (_baseDefinition == _powerManaShieldPoints)
             {
                 character.UsablePowers
