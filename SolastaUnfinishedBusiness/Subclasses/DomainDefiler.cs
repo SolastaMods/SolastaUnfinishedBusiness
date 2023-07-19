@@ -372,8 +372,9 @@ internal sealed class DomainDefiler : AbstractSubclass
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return effectDescription.EffectForms.Any(x =>
-                x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic);
+            return character.GetOriginalHero() != null
+                   && effectDescription.EffectForms.Any(x =>
+                       x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic);
         }
 
         public EffectDescription GetEffectDescription(
