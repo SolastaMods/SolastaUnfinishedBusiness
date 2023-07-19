@@ -331,7 +331,7 @@ public static class InnovationVitriolist
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return true;
+            return character.GetClassLevel(InventorClass.Class) >= 5;
         }
 
         public EffectDescription GetEffectDescription(
