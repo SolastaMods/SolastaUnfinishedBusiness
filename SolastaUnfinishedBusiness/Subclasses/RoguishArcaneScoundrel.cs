@@ -287,9 +287,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            var level = character.GetClassLevel(CharacterClassDefinitions.Rogue);
-
-            return definition == _powerArcaneBackslashCounterSpell & level >= 19;
+            return definition == _powerArcaneBackslashCounterSpell 
+                   && character.GetClassLevel(CharacterClassDefinitions.Rogue) >= 19;
         }
 
         public EffectDescription GetEffectDescription(
