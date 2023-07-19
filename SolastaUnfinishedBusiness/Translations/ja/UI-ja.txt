@@ -12,3 +12,4 @@ UI/&PartyEditorUnavailable=****** パーティー エディターは利用でき
 UI/&Quickies=クイックキー
 UI/&Remove=削除
 UI/&Skilled=熟練した
+UI/&From=から

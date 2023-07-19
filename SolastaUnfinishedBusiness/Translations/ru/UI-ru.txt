@@ -12,3 +12,4 @@ UI/&PartyEditorUnavailable=****** Редактор группы недоступ
 UI/&Quickies=Быстрые обновления
 UI/&Remove=Удалить
 UI/&Skilled=Владение
+UI/&From=от

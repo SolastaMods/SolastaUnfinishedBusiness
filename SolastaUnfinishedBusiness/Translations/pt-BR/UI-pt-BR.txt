@@ -12,3 +12,4 @@ UI/&PartyEditorUnavailable=****** Party Editor indisponível: Por favor, carregu
 UI/&Quickies=Rapidinhas
 UI/&Remove=Remover
 UI/&Skilled=Especializado
+UI/&From=De
