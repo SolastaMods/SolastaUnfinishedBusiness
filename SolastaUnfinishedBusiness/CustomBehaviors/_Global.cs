@@ -51,6 +51,8 @@ internal static class Global
     // BUGFIX: saving throw not passing correct saving delta on attack actions
     internal static CharacterAction CurrentAttackAction { get; set; }
 
+    internal static CharacterAction CurrentMagicEffectAction { get; set; }
+
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 
