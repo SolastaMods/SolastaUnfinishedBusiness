@@ -129,7 +129,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
-                MartialArcaneArcher.InvocationPoolArcaneShotChoice1,
+                MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
                 MartialArcaneArcher.PowerArcaneShotAdditionalUse1,
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
@@ -202,7 +202,10 @@ internal static class OtherFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(InventorClass.InfusionPool, InventorClass.BuildLearn(2, "FeatInfusionsAdept"))
+            .SetFeatures(
+                InventorClass.InfusionPool,
+                InventorClass.BuildLearn(2, "FeatInfusionsAdept"),
+                InventorClass.BuildInfusionPoolIncrease())
             .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }

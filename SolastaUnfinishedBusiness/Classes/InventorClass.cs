@@ -62,7 +62,7 @@ internal static class InventorClass
         var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .AddFeatureSet(InfusionPool, BuildLearn(4))
+            .AddFeatureSet(InfusionPool, BuildLearn(4), BuildInfusionPoolIncrease(), BuildInfusionPoolIncrease())
             .AddToDB();
 
         var unlearn = BuildUnlearn();
@@ -468,7 +468,7 @@ internal static class InventorClass
     }
 
     //TODO: rework to be 1 feature
-    private static FeatureDefinition BuildInfusionPoolIncrease()
+    internal static FeatureDefinition BuildInfusionPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifierInventorInfusionPool{_infusionPoolIncreases++:D2}")
@@ -604,8 +604,11 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
+            .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                IsPowerPool.Marker,
+                HasModifiedUses.Marker)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 0)
             .AddToDB();
     }
 

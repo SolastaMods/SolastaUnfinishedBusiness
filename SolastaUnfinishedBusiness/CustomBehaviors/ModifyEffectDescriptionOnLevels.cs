@@ -7,8 +7,8 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 {
     private readonly string className;
-    private readonly FeatureDefinitionPower power;
     private readonly (int level, EffectDescription description)[] effects;
+    private readonly FeatureDefinitionPower power;
 
     public ModifyEffectDescriptionOnLevels(
         string className,
