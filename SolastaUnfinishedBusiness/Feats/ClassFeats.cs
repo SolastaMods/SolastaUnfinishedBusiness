@@ -856,7 +856,8 @@ internal static class ClassFeats
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition is SpellDefinition { SpellLevel: 0 };
+            return definition is SpellDefinition { SpellLevel: 0 }
+                && effectDescription.HasDamageForm();
         }
 
         public EffectDescription GetEffectDescription(
