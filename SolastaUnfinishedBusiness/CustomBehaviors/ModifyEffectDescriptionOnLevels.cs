@@ -7,11 +7,16 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 {
     private readonly string className;
+    private readonly FeatureDefinitionPower power;
     private readonly (int level, EffectDescription description)[] effects;
 
-    public ModifyEffectDescriptionOnLevels(string className, params (int, EffectDescription)[] effects)
+    public ModifyEffectDescriptionOnLevels(
+        string className,
+        FeatureDefinitionPower power,
+        params (int, EffectDescription)[] effects)
     {
         this.className = className;
+        this.power = power;
         this.effects = effects;
     }
 
@@ -21,7 +26,8 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
         EffectDescription effectDescription)
     {
         var level = GetLevel(character);
-        return effects.Any(effect => level >= effect.level);
+
+        return definition == power && effects.Any(effect => level >= effect.level);
     }
 
     public EffectDescription GetEffectDescription(
