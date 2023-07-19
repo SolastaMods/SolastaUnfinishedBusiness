@@ -832,7 +832,26 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return character is not RulesetCharacterHero;
+            if (character is not RulesetCharacterHero)
+            {
+                return false;
+            }
+            var caster = GameLocationCharacter.GetFromActor(character);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode is not { SourceObject: RulesetItem })
+            {
+                return false;
+            }
+
+            if (attackMode.Ranged || !attackMode.Reach)
+            {
+                return false;
+            }
+
+            var reach = attackMode.reachRange;
+
+            return reach > 1;
         }
 
         public EffectDescription GetEffectDescription(
