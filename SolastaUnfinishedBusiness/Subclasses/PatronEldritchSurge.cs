@@ -112,12 +112,11 @@ internal class PatronEldritchSurge : AbstractSubclass
 
         // Blast Exclusive
 
-        EldritchBlast.SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast());
-
         var bonusCantripsEldritchSurgeBlastExclusive = FeatureDefinitionBonusCantripsBuilder
             .Create($"BonusCantrips{Name}BlastExclusive")
             .SetGuiPresentation(Category.Feature)
             .SetBonusCantrips(EldritchBlast)
+            .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
             .AddToDB();
 
         // LEVEL 06
@@ -253,7 +252,8 @@ internal class PatronEldritchSurge : AbstractSubclass
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return character.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) > 0;
+            return definition == EldritchBlast &&
+                character.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) > 0;
         }
 
         public EffectDescription GetEffectDescription(
