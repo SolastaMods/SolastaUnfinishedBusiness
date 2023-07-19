@@ -97,11 +97,11 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .AddToDB();
 
         powerManaShield.SetCustomSubFeatures(
-            new ModifyMagicEffectManaShield(false, powerManaShieldPoints),
+            new ModifyEffectDescriptionManaShield(powerManaShield, powerManaShieldPoints),
             new PowerVisibilityModifierManaShield());
 
         powerManaShieldPoints.SetCustomSubFeatures(
-            new ModifyMagicEffectManaShield(true, powerManaShieldPoints),
+            new ModifyEffectDescriptionManaShield(powerManaShieldPoints, powerManaShieldPoints),
             new PowerVisibilityModifierManaShieldPoints(powerManaShield));
 
         var featureSetManaShield = FeatureDefinitionFeatureSetBuilder
@@ -217,18 +217,28 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
         }
     }
 
-    private sealed class ModifyMagicEffectManaShield : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionManaShield : IModifyEffectDescription
     {
-        private readonly bool _consumedSlots;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinitionPower _baseDefinition;
+        private readonly FeatureDefinitionPower _powerManaShieldPoints;
 
-        public ModifyMagicEffectManaShield(bool consumedSlots, FeatureDefinitionPower featureDefinitionPower)
+        public ModifyEffectDescriptionManaShield(
+            FeatureDefinitionPower baseDefinition,
+            FeatureDefinitionPower powerManaShieldPoints)
         {
-            _consumedSlots = consumedSlots;
-            _featureDefinitionPower = featureDefinitionPower;
+            _baseDefinition = baseDefinition;
+            _powerManaShieldPoints = powerManaShieldPoints;
         }
 
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
@@ -241,10 +251,10 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
             effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
-            if (_consumedSlots)
+            if (_baseDefinition == _powerManaShieldPoints)
             {
                 character.UsablePowers
-                    .FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower)
+                    .FirstOrDefault(x => x.PowerDefinition == _powerManaShieldPoints)
                     ?.RepayUse();
             }
 

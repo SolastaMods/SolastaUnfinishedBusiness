@@ -44,8 +44,9 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetGuiPresentation(SpellsContext.EnduringSting.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(SpellsContext.EnduringSting.EffectDescription)
-            .SetCustomSubFeatures(new ModifyMagicEffectFireBolt())
             .AddToDB();
+
+        powerFirebolt.SetCustomSubFeatures(new ModifyEffectDescriptionFireBolt(powerFirebolt));
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Firebolt")
@@ -238,21 +239,30 @@ internal sealed class RangerHellWalker : AbstractSubclass
     // FireBolt
     //
 
-    private sealed class ModifyMagicEffectFireBolt : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionFireBolt : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        private readonly FeatureDefinitionPower _powerFireBolt;
+
+        public ModifyEffectDescriptionFireBolt(FeatureDefinitionPower powerFireBolt)
+        {
+            _powerFireBolt = powerFireBolt;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == _powerFireBolt;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
             var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
             var levels = character.GetClassLevel(CharacterClassDefinitions.Ranger);
             var diceNumber = levels switch
             {

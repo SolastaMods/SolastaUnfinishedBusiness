@@ -85,7 +85,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var featureVerdancy = FeatureDefinitionBuilder
             .Create($"Feature{Name}Verdancy")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyMagicEffectVerdancy(conditionVerdancy, conditionVerdancy14))
+            .SetCustomSubFeatures(new ModifyEffectDescriptionVerdancy(conditionVerdancy, conditionVerdancy14))
             .AddToDB();
 
         // Seed of Life
@@ -138,7 +138,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var featureRevitalizingBoom = FeatureDefinitionBuilder
             .Create($"Feature{Name}RevitalizingBoon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyMagicEffectRevitalizingBoon(conditionRevitalizingBoom))
+            .SetCustomSubFeatures(new ModifyEffectDescriptionRevitalizingBoon(conditionRevitalizingBoom))
             .AddToDB();
 
         // MAIN
@@ -242,28 +242,33 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class ModifyMagicEffectVerdancy : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionVerdancy : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionVerdancy;
         private readonly ConditionDefinition _conditionVerdancy14;
 
-        public ModifyMagicEffectVerdancy(ConditionDefinition conditionVerdancy, ConditionDefinition conditionVerdancy14)
+        public ModifyEffectDescriptionVerdancy(
+            ConditionDefinition conditionVerdancy,
+            ConditionDefinition conditionVerdancy14)
         {
             _conditionVerdancy = conditionVerdancy;
             _conditionVerdancy14 = conditionVerdancy14;
         }
 
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return IsAuthorizedSpell(effectDescription, definition);
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (!IsAuthorizedSpell(effectDescription, definition))
-            {
-                return effectDescription;
-            }
-
             var levels = character.GetClassLevel(Druid);
             var condition = levels >= 14 ? _conditionVerdancy14 : _conditionVerdancy;
 
@@ -297,30 +302,35 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class ModifyMagicEffectRevitalizingBoon : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionRevitalizingBoon : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionRevitalizingBoon;
 
-        public ModifyMagicEffectRevitalizingBoon(ConditionDefinition conditionRevitalizingBoon)
+        public ModifyEffectDescriptionRevitalizingBoon(ConditionDefinition conditionRevitalizingBoon)
         {
             _conditionRevitalizingBoon = conditionRevitalizingBoon;
         }
 
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition is FeatureDefinitionPower { Name: $"Power{Name}SeedOfLife" } ||
+                   !IsAuthorizedSpell(effectDescription, definition);
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is FeatureDefinitionPower { Name: $"Power{Name}SeedOfLife" } ||
-                IsAuthorizedSpell(effectDescription, definition))
-            {
-                effectDescription.EffectForms.Add(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
-                        .Build());
-            }
+            effectDescription.EffectForms.Add(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
+                    .Build());
 
             return effectDescription;
         }

@@ -426,7 +426,7 @@ internal static class InventorInfusions
         params FeatureDefinition[] features)
     {
         power.AddCustomSubFeatures(
-            new ModifyMagicEffectOnLevels(InventorClass.ClassName,
+            new ModifyEffectDescriptionOnLevels(InventorClass.ClassName,
                 (level, BuildInfuseItemWithFeaturesEffect(features))));
     }
 

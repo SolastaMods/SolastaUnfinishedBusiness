@@ -357,42 +357,30 @@ internal static class PowerBundle
         }
 
         //ignore features from powers, they would be processed later
-        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(
+        var modifiers = caster.GetSubFeaturesByType<IModifyEffectDescription>(
             typeof(FeatureDefinitionPower),
             typeof(FeatureDefinitionPowerSharedPool)
         );
 
         //process features from spell/power
-        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+        modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyEffectDescription>()
+            .Where(x => x.IsValid(definition, caster, original)));
 
         if (metamagic != null)
         {
-            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+            // all metamagic from metamagic feature are valid so no need to filter
+            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyEffectDescription>());
         }
 
-        //process features that modify any magic effect
-        var modifiersAny = caster.GetSubFeaturesByType<IModifyMagicEffectAny>();
-
-        //only creates a copy if any of the modifiers are non empty
-        if (!modifiers.Empty() || !modifiersAny.Empty())
+        if (modifiers.Count > 0)
         {
             result = EffectDescriptionBuilder
                 .Create(result)
                 .Build();
 
-            if (!modifiers.Empty())
-            {
-                result = modifiers.Aggregate(
-                    result,
-                    (current, f) => f.ModifyEffect(definition, current, caster, effect));
-            }
-
-            if (!modifiersAny.Empty())
-            {
-                result = modifiersAny.Aggregate(
-                    result,
-                    (current, f) => f.ModifyEffect(definition, current, caster, effect));
-            }
+            result = modifiers.Aggregate(
+                result,
+                (current, f) => f.GetEffectDescription(definition, current, caster, effect));
         }
 
         CacheEffect(caster, definition, metamagic, result);

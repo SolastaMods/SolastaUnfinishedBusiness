@@ -3,22 +3,30 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class ModifyMagicEffectOnLevels : IModifyMagicEffect
+public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 {
     private readonly string className;
     private readonly (int, EffectDescription)[] effects;
 
-    public ModifyMagicEffectOnLevels(string className, params (int, EffectDescription)[] effects)
+    public ModifyEffectDescriptionOnLevels(string className, params (int, EffectDescription)[] effects)
     {
         this.className = className;
         this.effects = effects;
+    }
+
+    public bool IsValid(
+        BaseDefinition definition,
+        RulesetCharacter character,
+        EffectDescription effectDescription)
+    {
+        return true;
     }
 
     // public ModifyMagicEffectOnLevels(params (int, EffectDescription)[] effects) : this(null, effects)
     // {
     // }
 
-    public EffectDescription ModifyEffect(
+    public EffectDescription GetEffectDescription(
         BaseDefinition definition,
         EffectDescription effectDescription,
         RulesetCharacter character,

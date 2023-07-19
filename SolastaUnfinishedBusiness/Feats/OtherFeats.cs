@@ -980,7 +980,7 @@ internal static class OtherFeats
                             FeatSpellSniperTag)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
+                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatSpellSniper())
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);
@@ -995,25 +995,25 @@ internal static class OtherFeats
         return spellSniperGroup;
     }
 
-    private sealed class ModifyMagicEffectFeatSpellSniper : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionFeatSpellSniper : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition is SpellDefinition &&
+                   effectDescription.rangeType == RangeType.RangeHit &&
+                   effectDescription.HasDamageForm();
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition)
-            {
-                return effectDescription;
-            }
-
-            if (effectDescription.rangeType != RangeType.RangeHit || !effectDescription.HasDamageForm())
-            {
-                return effectDescription;
-            }
-
-            effectDescription.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
+            effectDescription.rangeParameter = effectDescription.RangeParameter * 2;
 
             return effectDescription;
         }

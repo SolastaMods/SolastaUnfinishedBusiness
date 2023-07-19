@@ -313,7 +313,7 @@ public static class InnovationVitriolist
     // Mixtures - Add additional PB damage to any acid damage / Add additional conditions at 9 and 15
     //
 
-    private sealed class ModifyMagicEffectAnyOnTargetMixture : IModifyMagicEffectAny
+    private sealed class ModifyMagicEffectAnyOnTargetMixture : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionArsenal;
         private readonly List<FeatureDefinition> _mixturePowers = new();
@@ -326,7 +326,15 @@ public static class InnovationVitriolist
             _mixturePowers.AddRange(mixturePowers);
         }
 
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return true;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
