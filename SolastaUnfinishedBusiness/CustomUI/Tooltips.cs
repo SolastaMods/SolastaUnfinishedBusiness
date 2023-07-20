@@ -211,7 +211,10 @@ internal static class Tooltips
         return Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
     }
 
-    private static GameLocationCharacter GetNextControlledCharacterInInitiative(List<GameLocationCharacter> initiativeSortedContenders, PlayerController activePlayerController, GameLocationCharacter actingCharacter)
+    private static GameLocationCharacter GetNextControlledCharacterInInitiative(
+        List<GameLocationCharacter> initiativeSortedContenders,
+        PlayerController activePlayerController,
+        GameLocationCharacter actingCharacter)
         => initiativeSortedContenders.Find(character =>
             character.controllerId == activePlayerController.controllerId
             && character.lastInitiative < actingCharacter.lastInitiative) ?? initiativeSortedContenders.Find(character =>
