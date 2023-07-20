@@ -215,11 +215,10 @@ internal static class Tooltips
         List<GameLocationCharacter> initiativeSortedContenders,
         PlayerController activePlayerController,
         GameLocationCharacter actingCharacter)
-    {
-        return initiativeSortedContenders.Find(character =>
+        => initiativeSortedContenders.Find(character =>
             character.controllerId == activePlayerController.controllerId
-            && character.lastInitiative < actingCharacter.lastInitiative);
-    }
+            && character.lastInitiative < actingCharacter.lastInitiative) ?? initiativeSortedContenders.Find(character =>
+            character.controllerId == activePlayerController.controllerId);
 
     private static void UpdateDistanceText(int distance, GameLocationCharacter characterToMeasureFrom)
     {
