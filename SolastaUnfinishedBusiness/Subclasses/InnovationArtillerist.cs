@@ -84,6 +84,7 @@ public static class InnovationArtillerist
             .Create($"Power{Name}{ForceBallista}")
             .SetGuiPresentation(Category.Feature, EldritchBlast)
             .SetUsesFixed(ActivationTime.Action)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(EldritchBlast)
@@ -101,7 +102,7 @@ public static class InnovationArtillerist
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectOnActionStartForceBallista())
+            .SetCustomSubFeatures(InventorClassHolder.Marker)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -855,37 +856,6 @@ public static class InnovationArtillerist
         monster.guiPresentation.description = GuiPresentationBuilder.EmptyString;
 
         return monster;
-    }
-
-    private sealed class ModifyMagicEffectOnActionStartForceBallista : IModifyMagicEffectOnActionStart
-    {
-        public void OnMagicalEffectActionStarted(CharacterActionMagicEffect characterActionMagicEffect)
-        {
-            var rulesetCharacter = characterActionMagicEffect.ActingCharacter.RulesetCharacter;
-            var rulesetCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature);
-
-            if (rulesetCondition != null &&
-                RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var rulesetCaster))
-            {
-                rulesetCharacter = rulesetCaster;
-            }
-
-            if (characterActionMagicEffect.ActionParams.ActionModifiers.Count <= 0)
-            {
-                return;
-            }
-
-            var actionModifier = characterActionMagicEffect.ActionParams.actionModifiers[0];
-            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intelligenceModifier = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
-            var attackModifier = pb + intelligenceModifier;
-
-            actionModifier.attackRollModifier += attackModifier;
-            actionModifier.attackToHitTrends.Add(
-                new TrendInfo(attackModifier, FeatureSourceType.Power, "Screen/&SpellAttackBonusTitle", null));
-        }
     }
 
     #endregion

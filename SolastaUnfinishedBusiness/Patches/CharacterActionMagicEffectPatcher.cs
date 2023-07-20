@@ -89,13 +89,6 @@ public static class CharacterActionMagicEffectPatcher
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
 
-            //PATCH: allow modify magic attacks from spells or powers cast from non heroes
-            foreach (var modifyMagicEffectOnActionStart in definition
-                         .GetAllSubFeaturesOfType<IModifyMagicEffectOnActionStart>())
-            {
-                modifyMagicEffectOnActionStart.OnMagicalEffectActionStarted(__instance);
-            }
-
             //PATCH: skip spell animation if this is "attack after cast" spell
             if (definition.HasSubFeatureOfType<IAttackAfterMagicEffect>())
             {

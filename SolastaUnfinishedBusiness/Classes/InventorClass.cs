@@ -59,11 +59,11 @@ internal static class InventorClass
             .AddToDB();
 
         var powerUseModifierInventorInfusionPool2 = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierInventorInfusionPool2")
+            .Create("PowerUseModifierInventorInfusionPool2")
             .SetGuiPresentationNoContent(true)
             .SetFixedValue(InfusionPool, 2)
             .AddToDB();
-        
+
         var learn2Infusion = BuildLearn(2);
         var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
