@@ -18,7 +18,7 @@ internal static class DistanceCalculation
 
     private static int3 GetCharacterClosestCubeToPosition(GameLocationCharacter character1, int3 position)
     {
-        var closestCharacter1Position = character1.LocationBattleBoundingBox.Min;
+        var closestCharacter1Position = character1.LocationPosition;
         var closestDistance = (closestCharacter1Position - position).magnitude;
 
         var character1NumberOfCubes = character1.LocationBattleBoundingBox.Size.x *
