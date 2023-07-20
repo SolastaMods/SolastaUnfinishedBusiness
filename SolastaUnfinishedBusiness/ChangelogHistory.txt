@@ -2,6 +2,7 @@
 
 - added setting to calculate distance as tabletop would do [by TheRev]
 - changed Arcane Archer Adept feat to offer 2 choices and 1 usage
+- changed Healer medical kit and stabilize to be long rest
 - changed Infusion Adept feat to offer 2 choices and 1 usage
 
 1.5.94.0:
