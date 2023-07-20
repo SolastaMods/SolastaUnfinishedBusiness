@@ -74,10 +74,10 @@ internal static class RaceOligathBuilder
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Oligath, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(Elf.RacePresentation.DeepCopy())
-            .SetBaseWeight(35)
-            .SetBaseHeight(3)
-            .SetMinimalAge(6)
-            .SetMaximalAge(120)
+            .SetBaseHeight(90)
+            .SetBaseWeight(310)
+            .SetMinimalAge(18)
+            .SetMaximalAge(80)
             .SetFeaturesAtLevel(1,
                 attributeModifierOligathStrengthAbilityScoreIncrease,
                 attributeModifierOligathConstitutionAbilityScoreIncrease,

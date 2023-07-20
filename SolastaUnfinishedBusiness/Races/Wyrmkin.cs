@@ -42,10 +42,10 @@ internal static class RaceWyrmkinBuilder
             .Create(Dragonborn, RaceName)
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wyrmkin, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
-            .SetBaseWeight(35)
-            .SetBaseHeight(3)
-            .SetMinimalAge(6)
-            .SetMaximalAge(200)
+            .SetBaseHeight(72)
+            .SetBaseWeight(185)
+            .SetMinimalAge(18)
+            .SetMaximalAge(750)
             .SetFeaturesAtLevel(1,
                 MoveModeMove6,
                 SenseNormalVision,

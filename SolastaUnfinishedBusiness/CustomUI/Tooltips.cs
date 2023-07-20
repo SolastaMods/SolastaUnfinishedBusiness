@@ -147,6 +147,26 @@ internal static class Tooltips
             {
                 _distanceTextObject.SetActive(true);
             }
+
+            var characterVector3 = new Vector3(characterToMeasureFrom.LocationPosition.x,
+                characterToMeasureFrom.LocationPosition.y,
+                characterToMeasureFrom.LocationPosition.z);
+
+            var hoveredCharacterVector3 = new Vector3(
+                ServiceRepository.GetService<IGameLocationSelectionService>().HoveredCharacters[0].LocationPosition.x,
+                ServiceRepository.GetService<IGameLocationSelectionService>().HoveredCharacters[0].LocationPosition.y,
+                ServiceRepository.GetService<IGameLocationSelectionService>().HoveredCharacters[0].LocationPosition.z);
+            
+            var isCellPerceivedByCharacter = ServiceRepository.GetService<IGameLocationVisibilityService>().IsCellPerceivedByCharacter(
+                ServiceRepository.GetService<IGameLocationSelectionService>().HoveredCharacters[0].LocationPosition,
+                characterToMeasureFrom);
+            
+            var isPositionPerceivedByCharacter = ServiceRepository.GetService<IGameLocationVisibilityService>().IsPositionPerceivedByCharacter(
+                hoveredCharacterVector3,
+                characterVector3,
+                characterToMeasureFrom.RulesetCharacter);
+            
+            Debug.DrawLine(characterVector3, ServiceRepository.GetService<ICursorService>().CurrentCursor.transform.position, Color.red);
         }
         else if (!Main.Settings.EnableDistanceOnTooltip || battleService.Battle is null)
         {

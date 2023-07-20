@@ -86,10 +86,10 @@ internal static class RaceWendigoBuilder
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Wendigo, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(racePresentation)
-            .SetBaseWeight(35)
-            .SetBaseHeight(3)
-            .SetMinimalAge(6)
-            .SetMaximalAge(80)
+            .SetBaseHeight(96)
+            .SetBaseWeight(260)
+            .SetMinimalAge(20)
+            .SetMaximalAge(200)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionSenses.SenseNormalVision,
                 FeatureDefinitionSenses.SenseDarkvision,
