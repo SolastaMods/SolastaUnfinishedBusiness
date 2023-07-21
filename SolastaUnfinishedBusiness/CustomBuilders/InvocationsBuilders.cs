@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -25,7 +26,7 @@ internal static class InvocationsBuilders
     {
         return InvocationDefinitionBuilder
             .Create("InvocationEldritchSmite")
-            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
+            .SetGuiPresentation(Category.Invocation, DatabaseHelper.InvocationDefinitions.EldritchSpear)
             .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")
@@ -384,7 +385,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeCold))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeCold,
+                            SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -400,7 +404,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeAcid))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeAcid,
+                            SpellDefinitions.AcidSplash.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -416,7 +423,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeFire))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeFire,
+                            SpellDefinitions.FireBolt.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -432,7 +442,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast(DamageTypeLightning))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeLightning,
+                            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -606,10 +619,14 @@ internal static class InvocationsBuilders
     private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
     {
         private readonly string _damageType;
+        private readonly EffectParticleParameters _effectParticleParameters;
 
-        public ModifyEffectDescriptionEldritchBlast(string damageType)
+        public ModifyEffectDescriptionEldritchBlast(
+            string damageType,
+            EffectParticleParameters effectParticleParameters)
         {
             _damageType = damageType;
+            _effectParticleParameters = effectParticleParameters;
         }
 
         public bool IsValid(
@@ -628,6 +645,7 @@ internal static class InvocationsBuilders
             var damage = effectDescription.FindFirstDamageForm();
 
             damage.DamageType = _damageType;
+            effectDescription.effectParticleParameters = _effectParticleParameters;
 
             return effectDescription;
         }
