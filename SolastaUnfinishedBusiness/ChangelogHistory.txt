@@ -4,6 +4,8 @@
 - changed Arcane Archer Adept feat to offer 2 choices and 1 usage
 - changed Healer medical kit and stabilize to be long rest
 - changed Infusion Adept feat to offer 2 choices and 1 usage
+- changed Eldritch Blast related invocations effects
+- fixed all races height data causing wrong targeting calculations [by TheRev]
 
 1.5.94.0:
 
