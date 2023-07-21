@@ -5,8 +5,8 @@
   "dualSex": true,
   "minimalAge": 120,
   "maximalAge": 80,
-  "baseHeight": 3,
-  "baseWeight": 35,
+  "baseHeight": 30,
+  "baseWeight": 30,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
