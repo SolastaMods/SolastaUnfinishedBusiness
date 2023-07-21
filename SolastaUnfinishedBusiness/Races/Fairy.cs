@@ -141,9 +141,9 @@ internal static class RaceFairyBuilder
             .Create(Elf, "RaceFairy")
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Fairy, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetBaseWeight(35)
-            .SetBaseHeight(1)
-            .SetMinimalAge(6)
+            .SetBaseHeight(24)
+            .SetBaseWeight(25)
+            .SetMinimalAge(18)
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 castSpellFairy,

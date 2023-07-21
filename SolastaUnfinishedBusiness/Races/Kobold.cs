@@ -35,8 +35,8 @@ internal static class RaceKoboldBuilder
             .Create(Dragonborn, "RaceKobold")
             .SetGuiPresentation(Category.Race, koboldSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetBaseWeight(35)
-            .SetBaseHeight(3)
+            .SetBaseHeight(30)
+            .SetBaseWeight(30)
             .SetMinimalAge(6)
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
