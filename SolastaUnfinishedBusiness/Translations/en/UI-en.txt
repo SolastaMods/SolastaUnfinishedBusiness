@@ -6,10 +6,10 @@ UI/&Current Party=Current Party
 UI/&DistanceFormat=Distance: {0}
 UI/&Experimental Preview:=Experimental Preview <i><color=Yellow>[backup save before using]</color></i>: 
 UI/&Expert=Expert
-UI/&From=From
 UI/&PartyEditor=Party Editor
 UI/&PartyEditorMessage=This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:
 UI/&PartyEditorUnavailable=****** Party Editor unavailable: Please load a save game ******
 UI/&Quickies=Quickies
 UI/&Remove=Remove
 UI/&Skilled=Skilled
+UI/&From=From

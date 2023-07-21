@@ -248,7 +248,6 @@ ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다.>스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 정확한 수학을 사용하여 플랭킹 <color=#F0DAA0>[느린 시스템에서 성능에 영향을 미칠 수 있음]</color></i> 결정
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 이점/불이익 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 판정에 둘 다 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
-ModUi/&UseOfficialDistanceCalculation=한 생물체의 큐브에서 다른 생물체까지의 거리를 기준으로 공식 거리 계산을 사용합니다. <i><color=#F0DAA0>[Solasta의 기본 거리 계산 대신]</color></i>
 ModUi/&UseOfficialFlankingRules=공식 플랭킹 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 유리함]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 가능</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 범위 공격에도 사용 가능</i>

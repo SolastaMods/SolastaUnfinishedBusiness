@@ -6,10 +6,10 @@ UI/&Current Party=Parte Atual
 UI/&DistanceFormat=Distância: {0}
 UI/&Experimental Preview:=Visualização experimental <i><color=Yellow>[salvar backup antes de usar]</color></i>:
 UI/&Expert=Especialista
-UI/&From=De
 UI/&PartyEditor=Editor de festas
 UI/&PartyEditorMessage=Este editor de festa simples permite editar personagens em uma sessão de jogo carregada. Por favor, clique no seguinte para relatar problemas:
 UI/&PartyEditorUnavailable=****** Party Editor indisponível: Por favor, carregue um jogo salvo ******
 UI/&Quickies=Rapidinhas
 UI/&Remove=Remover
 UI/&Skilled=Especializado
+UI/&From=De

@@ -6,10 +6,10 @@ UI/&Current Party=当前队伍
 UI/&DistanceFormat=距离: {0}
 UI/&Experimental Preview:=实验预览<i><color=Yellow>[使用前备份存档]</color></i>：
 UI/&Expert=专家
-UI/&From=从
 UI/&PartyEditor=队伍编辑
 UI/&PartyEditorMessage=这个简单的队伍编辑器可让你在加载的游戏会话中编辑角色。请点击以下报告问题：
 UI/&PartyEditorUnavailable=****** 队伍编辑器不可用：请加载游戏存档 ******
 UI/&Quickies=快捷
 UI/&Remove=移除
 UI/&Skilled=技能
+UI/&From=从
