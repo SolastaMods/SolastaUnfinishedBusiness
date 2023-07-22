@@ -241,7 +241,9 @@ internal static class RulesetCharacterExtensions
     }
 
     [CanBeNull]
-    internal static RulesetSpellRepertoire GetClassSpellRepertoire(this RulesetCharacter instance, string className)
+    internal static RulesetSpellRepertoire GetClassSpellRepertoire(
+        this RulesetCharacter instance,
+        string className)
     {
         if (string.IsNullOrEmpty(className))
         {
@@ -254,14 +256,17 @@ internal static class RulesetCharacterExtensions
     }
 
     [CanBeNull]
-    internal static RulesetSpellRepertoire GetClassSpellRepertoire(this RulesetCharacter instance,
+    internal static RulesetSpellRepertoire GetClassSpellRepertoire(
+        this RulesetCharacter instance,
         CharacterClassDefinition classDefinition)
     {
         var className = classDefinition == null ? string.Empty : classDefinition.name;
+        var gameLocationCharacter = instance.GetMySummoner();
+        var rulesetCharacter = gameLocationCharacter?.RulesetCharacter ?? instance;
 
         if (string.IsNullOrEmpty(className) || instance is not RulesetCharacterHero hero)
         {
-            return instance.GetClassSpellRepertoire();
+            return rulesetCharacter.GetClassSpellRepertoire();
         }
 
         CharacterSubclassDefinition subclassDefinition = null;
@@ -271,7 +276,7 @@ internal static class RulesetCharacterExtensions
             hero.ClassesAndSubclasses.TryGetValue(classDefinition, out subclassDefinition);
         }
 
-        return instance.SpellRepertoires.FirstOrDefault(r =>
+        return rulesetCharacter.SpellRepertoires.FirstOrDefault(r =>
             (r.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class &&
              r.SpellCastingClass == classDefinition) ||
             (r.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass &&

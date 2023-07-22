@@ -87,10 +87,10 @@ internal static class RaceBolgrifBuilder
             .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(bolgrifRacePresentation)
+            .SetBaseHeight(90)
+            .SetBaseWeight(280)
             .SetMinimalAge(30)
             .SetMaximalAge(500)
-            .SetBaseHeight(84)
-            .SetBaseWeight(170)
             .SetFeaturesAtLevel(1,
                 attributeModifierBolgrifStrengthAbilityScoreIncrease,
                 attributeModifierBolgrifWisdomAbilityScoreIncrease,

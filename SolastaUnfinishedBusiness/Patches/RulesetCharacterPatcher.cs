@@ -1640,4 +1640,37 @@ public static class RulesetCharacterPatcher
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindClassHoldingFeature))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FindClassHoldingFeature_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(
+            RulesetCharacter __instance,
+            FeatureDefinition featureDefinition,
+            ref CharacterClassDefinition __result)
+        {
+            var gameLocationCharacter = __instance.GetMySummoner();
+            var rulesetCharacter = gameLocationCharacter?.RulesetCharacter ?? __instance;
+
+            //PATCH: replaces feature holding class with one provided by custom interface
+            //used for features that are not granted directly through class but need to scale with class levels
+            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>()?.Class;
+
+            if (classHolder == null)
+            {
+                return;
+            }
+
+            // Only override if the character actually has levels in the class, to prevent errors
+            var levels = rulesetCharacter.GetClassLevel(classHolder);
+
+            if (levels > 0)
+            {
+                __result = classHolder;
+            }
+        }
+    }
 }

@@ -30,7 +30,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
     internal static FeatureDefinitionPower PowerArcaneShot;
     internal static FeatureDefinitionPowerUseModifier PowerArcaneShotAdditionalUse1;
     internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
-    internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice1;
+    internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2;
 
     internal MartialArcaneArcher()
     {
@@ -120,14 +120,14 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetFixedValue(PowerArcaneShot, 2)
             .AddToDB();
 
-        InvocationPoolArcaneShotChoice1 =
+        var invocationPoolArcaneShotChoice1 =
             CustomInvocationPoolDefinitionBuilder
                 .Create("InvocationPoolArcaneShotChoice1")
                 .SetGuiPresentation(Category.Feature)
                 .Setup(InvocationPoolTypeCustom.Pools.ArcaneShotChoice)
                 .AddToDB();
 
-        var invocationPoolArcaneShotChoice2 =
+        InvocationPoolArcaneShotChoice2 =
             CustomInvocationPoolDefinitionBuilder
                 .Create("InvocationPoolArcaneShotChoice2")
                 .SetGuiPresentation(Category.Feature)
@@ -139,7 +139,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 ActionAffinityArcaneArcherToggle,
-                invocationPoolArcaneShotChoice2,
+                InvocationPoolArcaneShotChoice2,
                 powerArcaneShotAdditionalUse2,
                 PowerArcaneShot)
             .AddToDB();
@@ -198,16 +198,16 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .AddFeaturesAtLevel(7,
                 featureMagicArrow,
                 featureGuidedShot,
-                InvocationPoolArcaneShotChoice1)
+                invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(10,
                 PowerArcaneShotAdditionalUse1,
-                InvocationPoolArcaneShotChoice1)
+                invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(15,
                 featureEverReadyShot,
-                InvocationPoolArcaneShotChoice1)
+                invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(18,
                 PowerArcaneShotAdditionalUse1,
-                InvocationPoolArcaneShotChoice1)
+                invocationPoolArcaneShotChoice1)
             .AddToDB();
     }
 

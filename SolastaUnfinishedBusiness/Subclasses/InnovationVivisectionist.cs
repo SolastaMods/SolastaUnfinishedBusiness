@@ -72,8 +72,9 @@ public static class InnovationVivisectionist
                                 HealingComputation.Dice, 0, DieType.D6, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectEmergencySurgery())
             .AddToDB();
+
+        powerEmergencySurgery.SetCustomSubFeatures(new ModifyEffectDescriptionEmergencySurgery(powerEmergencySurgery));
 
         // LEVEL 05
 
@@ -139,9 +140,11 @@ public static class InnovationVivisectionist
             .Create(powerEmergencySurgery, $"Power{Name}MasterEmergencySurgery")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetCustomSubFeatures(new ModifyMagicEffectEmergencySurgery())
             .SetOverriddenPower(powerEmergencySurgery)
             .AddToDB();
+
+        powerMasterEmergencySurgery.SetCustomSubFeatures(
+            new ModifyEffectDescriptionEmergencySurgery(powerMasterEmergencySurgery));
 
         // Master Emergency Cure
 
@@ -186,9 +189,24 @@ public static class InnovationVivisectionist
             .AddToDB();
     }
 
-    private sealed class ModifyMagicEffectEmergencySurgery : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionEmergencySurgery : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        private readonly FeatureDefinitionPower _baseDefinition;
+
+        public ModifyEffectDescriptionEmergencySurgery(FeatureDefinitionPower baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,

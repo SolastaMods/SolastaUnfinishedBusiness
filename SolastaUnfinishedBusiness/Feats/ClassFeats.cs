@@ -674,10 +674,9 @@ internal static class ClassFeats
                             .AddToDB(), ConditionForm.ConditionOperation.Add)
                         .Build())
                     .Build())
-                .SetCustomSubFeatures(SpendWildShapeUse.Mark,
-                    new ValidatorsPowerUse(c => c.GetRemainingPowerUses(PowerDruidWildShape) > 0))
                 .AddToDB();
 
+            powerGainSlot.SetCustomSubFeatures(new SpendWildShapeUse(powerGainSlot));
             powerGainSlotPoolList.Add(powerGainSlot);
         }
 
@@ -713,9 +712,10 @@ internal static class ClassFeats
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
                         wildShapeAmount.ToString(), i.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetCustomSubFeatures(new GainWildShapeCharges(i, wildShapeAmount))
                 .AddToDB();
 
+            powerGainWildShapeFromSlot.SetCustomSubFeatures(new GainWildShapeCharges(powerGainWildShapeFromSlot, i,
+                wildShapeAmount));
             powerGainWildShapeList.Add(powerGainWildShapeFromSlot);
         }
 
@@ -729,30 +729,20 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : ICustomMagicEffectAction, IPowerUseValidity
+    private sealed class GainWildShapeCharges : IUsePowerFinishedByMe, IPowerUseValidity
     {
+        private readonly FeatureDefinitionPower powerGainWildShapeFromSlot;
         private readonly int slotLevel;
         private readonly int wildShapeAmount;
 
-        public GainWildShapeCharges(int slotLevel, int wildShapeAmount)
+        public GainWildShapeCharges(
+            FeatureDefinitionPower powerGainWildShapeFromSlot,
+            int slotLevel,
+            int wildShapeAmount)
         {
+            this.powerGainWildShapeFromSlot = powerGainWildShapeFromSlot;
             this.slotLevel = slotLevel;
             this.wildShapeAmount = wildShapeAmount;
-        }
-
-        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
-        {
-            var character = action.ActingCharacter.RulesetCharacter;
-            var repertoire = character.GetClassSpellRepertoire(Druid);
-            var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
-
-            if (repertoire == null || rulesetUsablePower == null)
-            {
-                yield break;
-            }
-
-            repertoire.SpendSpellSlot(slotLevel);
-            character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
@@ -767,18 +757,49 @@ internal static class ClassFeats
 
             return remaining > 0 && notMax;
         }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != powerGainWildShapeFromSlot)
+            {
+                yield break;
+            }
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var repertoire = character.GetClassSpellRepertoire(Druid);
+            var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
+
+            if (repertoire == null || rulesetUsablePower == null)
+            {
+                yield break;
+            }
+
+            repertoire.SpendSpellSlot(slotLevel);
+            character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
+        }
     }
 
-    private sealed class SpendWildShapeUse : ICustomMagicEffectAction
+    private sealed class SpendWildShapeUse : IUsePowerFinishedByMe, IPowerUseValidity
     {
-        private SpendWildShapeUse()
+        private readonly FeatureDefinitionPower powerSpendWildShapeUse;
+
+        public SpendWildShapeUse(FeatureDefinitionPower powerSpendWildShapeUse)
         {
+            this.powerSpendWildShapeUse = powerSpendWildShapeUse;
         }
 
-        public static SpendWildShapeUse Mark { get; } = new();
-
-        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
+            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
+        }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != powerSpendWildShapeUse)
+            {
+                yield break;
+            }
+
             var character = action.ActingCharacter.RulesetCharacter;
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
 
@@ -786,8 +807,6 @@ internal static class ClassFeats
             {
                 character.UpdateUsageForPowerPool(1, rulesetUsablePower);
             }
-
-            yield break;
         }
     }
 
@@ -832,7 +851,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster())
+                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster())
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -849,24 +868,28 @@ internal static class ClassFeats
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition is SpellDefinition { SpellLevel: 0 }
+                   && effectDescription.HasDamageForm();
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition || spellDefinition.SpellLevel > 0)
-            {
-                return effectDescription;
-            }
-
             // this might not be correct if same spell is learned from different classes
             // if we follow other patches we should ideally identify all repertoires that can cast spell
             // and use the one with highest attribute. will revisit if this ever becomes a thing
             var spellRepertoire =
-                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spellDefinition));
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(definition as SpellDefinition));
 
             if (spellRepertoire == null)
             {

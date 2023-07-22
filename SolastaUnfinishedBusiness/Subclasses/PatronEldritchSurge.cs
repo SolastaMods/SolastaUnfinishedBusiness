@@ -112,12 +112,11 @@ internal class PatronEldritchSurge : AbstractSubclass
 
         // Blast Exclusive
 
-        EldritchBlast.SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast());
-
         var bonusCantripsEldritchSurgeBlastExclusive = FeatureDefinitionBonusCantripsBuilder
             .Create($"BonusCantrips{Name}BlastExclusive")
             .SetGuiPresentation(Category.Feature)
             .SetBonusCantrips(EldritchBlast)
+            .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
             .AddToDB();
 
         // LEVEL 06
@@ -246,9 +245,19 @@ internal class PatronEldritchSurge : AbstractSubclass
         return rulesetCondition;
     }
 
-    private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == EldritchBlast
+                   && character.GetOriginalHero() != null
+                   && character.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) > 0;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter rulesetCharacter,
@@ -256,8 +265,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         {
             var rulesetHero = rulesetCharacter.GetOriginalHero();
 
-            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) == 0)
+            if (rulesetHero == null)
             {
                 return effectDescription;
             }

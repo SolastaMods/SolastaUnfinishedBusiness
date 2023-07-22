@@ -1,5 +1,8 @@
 {
-  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
+  "damageTypes": [
+    "DamagePiercing"
+  ],
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
@@ -16,9 +19,9 @@
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionFeatPiercerNonMagicTitle",
-    "description": "Condition/&ConditionFeatPiercerNonMagicDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e949f790-e923-5d56-a2bf-f817a80790ad",
+  "guid": "338a8e7d-d1be-5434-b3b1-8d23c2346a90",
   "contentPack": 9999,
-  "name": "DieRollModifierFeatPiercerNonMagic"
+  "name": "FeatureFeatPiercer"
 }

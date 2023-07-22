@@ -3,10 +3,10 @@
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "defaultAlignement": "Neutral",
   "dualSex": true,
-  "minimalAge": 200,
+  "minimalAge": 750,
   "maximalAge": 80,
-  "baseHeight": 3,
-  "baseWeight": 35,
+  "baseHeight": 72,
+  "baseWeight": 185,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

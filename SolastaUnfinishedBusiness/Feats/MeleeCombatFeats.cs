@@ -1492,35 +1492,22 @@ internal static class MeleeCombatFeats
 
     #region Piercer
 
-    private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder
-        .Create("FeatureFeatPiercer")
-        .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(
-            new PhysicalAttackInitiatedByMeFeatPiercer(
-                ConditionDefinitionBuilder
-                    .Create("ConditionFeatPiercerNonMagic")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
-                    .SetFeatures(
-                        FeatureDefinitionDieRollModifierBuilder
-                            .Create("DieRollModifierFeatPiercerNonMagic")
-                            .SetGuiPresentation("ConditionFeatPiercerNonMagic", Category.Condition)
-                            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
-                            .AddToDB())
-                    .AddToDB(),
-                DamageTypePiercing),
-            new CustomAdditionalDamageFeatPiercer(
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create("AdditionalDamageFeatPiercer")
-                    .SetGuiPresentationNoContent(true)
-                    .SetNotificationTag(GroupFeats.Piercer)
-                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                    .SetIgnoreCriticalDoubleDice(true)
-                    .AddToDB(),
-                DamageTypePiercing))
-        .AddToDB();
+    private static readonly FeatureDefinition FeatureFeatPiercer =
+        FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+            .Create("FeatureFeatPiercer")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll", DamageTypePiercing)
+            .SetCustomSubFeatures(
+                new CustomAdditionalDamageFeatPiercer(
+                    FeatureDefinitionAdditionalDamageBuilder
+                        .Create("AdditionalDamageFeatPiercer")
+                        .SetGuiPresentationNoContent(true)
+                        .SetNotificationTag(GroupFeats.Piercer)
+                        .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                        .SetIgnoreCriticalDoubleDice(true)
+                        .AddToDB(),
+                    DamageTypePiercing))
+            .AddToDB();
 
     private static FeatDefinition BuildPiercerDex()
     {
@@ -1546,50 +1533,6 @@ internal static class MeleeCombatFeats
             .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
-    }
-
-    private sealed class PhysicalAttackInitiatedByMeFeatPiercer : IPhysicalAttackInitiatedByMe
-    {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly string _damageType;
-
-        internal PhysicalAttackInitiatedByMeFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
-        {
-            _conditionDefinition = conditionDefinition;
-            _damageType = damageType;
-        }
-
-        public IEnumerator OnAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null || damage.DamageType != _damageType)
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            rulesetAttacker.InflictCondition(
-                _conditionDefinition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
     }
 
     private sealed class CustomAdditionalDamageFeatPiercer : CustomAdditionalDamage

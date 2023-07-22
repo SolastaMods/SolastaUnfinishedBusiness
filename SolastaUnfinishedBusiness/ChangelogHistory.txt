@@ -1,4 +1,15 @@
-﻿1.5.94.0:
+﻿1.5.94.1:
+
+- added Imp race [by otearaisu]
+- added setting to calculate distance as tabletop would do [by TheRev]
+- changed Arcane Archer Adept feat to offer 2 choices and 1 usage
+- changed Eldritch Blast related invocations effects
+- changed Healer medical kit and stabilize to recharge at long rest
+- changed Infusion Adept feat to offer 2 choices and 1 usage
+- changed Innovation Alchemy with new refund charge power at 5th
+- fixed all races height data causing wrong targeting calculations [by TheRev]
+
+1.5.94.0:
 
 - fixed Cave Wyrmkin powerful claws triggering on opportunity attacks / hitting multiple times
 - fixed Devoted missing spell repertoire assignment [RESPEC required to reacquire repertoire]

@@ -83,16 +83,11 @@ public static class CharacterActionMagicEffectPatcher
         [UsedImplicitly]
         public static void Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
+            Global.CurrentMagicEffectAction = __instance;
+
             var definition = __instance.GetBaseDefinition();
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
-
-            //PATCH: allow modify magic attacks from spells or powers cast from non heroes
-            foreach (var modifyMagicEffectOnActionStart in definition
-                         .GetAllSubFeaturesOfType<IModifyMagicEffectOnActionStart>())
-            {
-                modifyMagicEffectOnActionStart.OnMagicalEffectActionStarted(__instance);
-            }
 
             //PATCH: skip spell animation if this is "attack after cast" spell
             if (definition.HasSubFeatureOfType<IAttackAfterMagicEffect>())
@@ -213,22 +208,6 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             __instance.actionParams.activeEffect.EffectDescription.rangeType = saveRangeType;
-
-            var customAction = definition.GetFirstSubFeatureOfType<ICustomMagicEffectAction>();
-
-            if (customAction == null)
-            {
-                yield break;
-            }
-
-            {
-                var enums = customAction.ProcessCustomEffect(__instance);
-
-                while (enums.MoveNext())
-                {
-                    yield return enums.Current;
-                }
-            }
         }
     }
 

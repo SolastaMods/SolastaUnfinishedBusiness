@@ -74,11 +74,13 @@ internal static class ToolsDisplay
             }
         }
 
+#if false
         toggle = Main.Settings.EnableBetaContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBetaContent = toggle;
         }
+#endif
 
         UI.Label();
 

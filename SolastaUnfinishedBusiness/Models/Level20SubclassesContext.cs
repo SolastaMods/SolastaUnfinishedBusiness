@@ -409,9 +409,13 @@ internal static class Level20SubclassesContext
                 EffectFormBuilder
                     .Create()
                     .SetBonusMode(AddBonusMode.Proficiency)
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.HalfMaximumHitPoints)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetBonusMode(AddBonusMode.Proficiency)
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
                     .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectRecurrentPhysicalPerfection())
             .AddToDB();
 
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
@@ -684,37 +688,6 @@ internal static class Level20SubclassesContext
     #endregion
 
     #region Monk
-
-    //
-    // Physical Perfection
-    //
-
-    private sealed class ModifyMagicEffectRecurrentPhysicalPerfection : IModifyMagicEffectRecurrent
-    {
-        public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
-        {
-            if (rulesetActor is not RulesetCharacter rulesetCharacter)
-            {
-                return;
-            }
-
-            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
-
-            if (monkLevel < 17)
-            {
-                return;
-            }
-
-            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
-            {
-                return;
-            }
-
-            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            effectForm.HealingForm.bonusHealing = pb;
-        }
-    }
 
     private sealed class OnSourceReducedToZeroHpPhysicalPerfection : IOnSourceReducedToZeroHp
     {

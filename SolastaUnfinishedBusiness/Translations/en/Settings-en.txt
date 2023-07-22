@@ -75,7 +75,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of scre
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
-ModUi/&EnableActionSwitching=Enable action switching bar <b><color=#C04040E0>[BETA]</color></b> 
+ModUi/&EnableActionSwitching=Enable action switching bar
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
@@ -120,12 +120,12 @@ ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker ed
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
-ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
+ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat <i><color=#F0DAA0>[advised to use with the official distance calculation option under rules]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
-ModUi/&EnumerateOriginSubFeatures=Allow features from heroes to work while in <color=#D89555>Wildshape</color> form <b><color=#C04040E0>[BETA]</color></b>
+ModUi/&EnumerateOriginSubFeatures=Allow features from heroes to work while in <color=#D89555>Wildshape</color> form
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
@@ -216,7 +216,7 @@ ModUi/&SettingsLoad=. Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
-ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i> <b><color=#C04040E0>[BETA]</color></b>
+ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory <i><color=#F0DAA0>[Hovering over it will show tooltip for crafted item]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
@@ -248,6 +248,7 @@ ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use precise math to determine flanking <color=#F0DAA0>[may have a performance impact on slow machines]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialDistanceCalculation=Use official distance calculation to be based on distance from one creature's cube to the other <i><color=#F0DAA0>[instead of Solasta's default distance calculation]</color></i>
 ModUi/&UseOfficialFlankingRules=Use official flanking rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>

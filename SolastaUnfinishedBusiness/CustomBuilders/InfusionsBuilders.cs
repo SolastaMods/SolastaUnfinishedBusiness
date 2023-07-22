@@ -422,11 +422,15 @@ internal static class InventorInfusions
             .AddToDB();
     }
 
-    private static void UpgradeInfusionPower(FeatureDefinitionPower power, int level,
+    private static void UpgradeInfusionPower(
+        FeatureDefinitionPower power,
+        int level,
         params FeatureDefinition[] features)
     {
         power.AddCustomSubFeatures(
-            new ModifyMagicEffectOnLevels(InventorClass.ClassName,
+            new ModifyEffectDescriptionOnLevels(
+                InventorClass.ClassName,
+                power,
                 (level, BuildInfuseItemWithFeaturesEffect(features))));
     }
 

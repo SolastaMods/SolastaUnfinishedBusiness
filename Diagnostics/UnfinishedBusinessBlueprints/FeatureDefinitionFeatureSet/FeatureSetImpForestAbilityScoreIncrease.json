@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierHalflingAbilityScoreIncrease:572006887bc6cc94e982dc0ed8e5d903",
+    "Definition:AttributeModifierHalfOrcAbilityScoreIncreaseCon:8c41b17c1681bf248a3c7ab7140dbb70"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetImpForestAbilityScoreIncreaseTitle",
+    "description": "Feature/&FeatureSetImpForestAbilityScoreIncreaseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e61dad67-6ced-5b20-b629-30a7405dc162",
+  "contentPack": 9999,
+  "name": "FeatureSetImpForestAbilityScoreIncrease"
+}

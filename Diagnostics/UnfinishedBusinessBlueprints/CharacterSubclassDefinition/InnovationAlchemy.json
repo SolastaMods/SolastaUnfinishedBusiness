@@ -33,6 +33,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationAlchemyRefundPool:d4b4cf3d-b2f9-51d2-a467-f6e587206c53",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerInnovationAlchemyBombsAdvanced:d9893368-bd29-545f-8fd6-7721c1d94004",
       "level": 9
     },

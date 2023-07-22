@@ -6,6 +6,7 @@ UI/&Current Party=Partito attuale
 UI/&DistanceFormat=Distanza: {0}
 UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
 UI/&Expert=Esperto
+UI/&From=Da
 UI/&PartyEditor=Redattore di partito
 UI/&PartyEditorMessage=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. Fare clic su quanto segue per segnalare problemi:
 UI/&PartyEditorUnavailable=****** Party Editor non disponibile: carica un salvataggio ******

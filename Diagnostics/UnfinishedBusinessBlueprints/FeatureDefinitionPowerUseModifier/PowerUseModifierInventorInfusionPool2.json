@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "338a8e7d-d1be-5434-b3b1-8d23c2346a90",
+  "guid": "d990e923-ae81-5f22-bf73-fdea8c5655e1",
   "contentPack": 9999,
-  "name": "FeatureFeatPiercer"
+  "name": "PowerUseModifierInventorInfusionPool2"
 }

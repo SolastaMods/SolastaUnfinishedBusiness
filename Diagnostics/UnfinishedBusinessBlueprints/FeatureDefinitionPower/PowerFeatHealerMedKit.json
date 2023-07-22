@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "AbilityBonusPlusFixed",

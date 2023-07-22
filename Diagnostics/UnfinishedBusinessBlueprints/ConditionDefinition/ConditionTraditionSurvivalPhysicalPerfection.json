@@ -48,6 +48,33 @@
         "dieType": "D1",
         "bonusHealing": 0,
         "variablePool": false,
+        "healingCap": "HalfMaximumHitPoints"
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    },
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Healing",
+      "addBonusMode": "Proficiency",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 1,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": false,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn",
+      "healingForm": {
+        "$type": "HealingForm, Assembly-CSharp",
+        "healingComputation": "Dice",
+        "diceNumber": 0,
+        "dieType": "D1",
+        "bonusHealing": 0,
+        "variablePool": false,
         "healingCap": "MaximumHitPoints"
       },
       "hasFilterId": false,

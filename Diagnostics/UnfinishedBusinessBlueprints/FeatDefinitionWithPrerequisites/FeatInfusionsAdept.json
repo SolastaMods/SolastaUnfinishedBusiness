@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:InvocationPoolInfusionLearnFeatInfusionsAdept:8b26617b-1e24-55fa-aa1f-421572b7c12f",
-    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f"
+    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
+    "Definition:PowerUseModifierInventorInfusionPool04:fdeb77d1-5995-5972-9dfb-58d53d6d319d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

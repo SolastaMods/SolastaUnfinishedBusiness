@@ -37,6 +37,7 @@ internal static class FlexibleRacesContext
         // unofficial races
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
+        { "RaceImp", AttributeChoiceThree },
         { "RaceKobold", AttributeChoiceThree },
         { "RaceMalakh", AttributeChoiceThree },
         { "RaceFairy", AttributeChoiceThree },
@@ -93,6 +94,8 @@ internal static class FlexibleRacesContext
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
         { "RaceMalakh", new List<string> { "FeatureSetMalakhAbilityScoreIncrease" } },
+        { "RaceImpInfernal", new List<string> { "FeatureSetImpInfernalAbilityScoreIncrease" } },
+        { "RaceImpForest", new List<string> { "FeatureSetImpForestAbilityScoreIncrease" } },
         { "RaceIronbornDwarf", new List<string> { "AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease" } },
         { "RaceObsidianDwarf", new List<string> { "AttributeModifierObsidianDwarfStrengthAbilityScoreIncrease" } },
         {

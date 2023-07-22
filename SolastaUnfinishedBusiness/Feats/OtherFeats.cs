@@ -129,7 +129,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
-                MartialArcaneArcher.InvocationPoolArcaneShotChoice1,
+                MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
                 MartialArcaneArcher.PowerArcaneShotAdditionalUse1,
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
@@ -202,7 +202,10 @@ internal static class OtherFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(InventorClass.InfusionPool, InventorClass.BuildLearn(2, "FeatInfusionsAdept"))
+            .SetFeatures(
+                InventorClass.InfusionPool,
+                InventorClass.BuildLearn(2, "FeatInfusionsAdept"),
+                InventorClass.BuildInfusionPoolIncrease())
             .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
@@ -217,7 +220,7 @@ internal static class OtherFeats
         var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerMedKit")
             .SetGuiPresentation(Category.Feature, spriteMedKit)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
@@ -262,7 +265,7 @@ internal static class OtherFeats
         var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerStabilize")
             .SetGuiPresentation(Category.Feature, spriteStabilize)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
             .AddToDB();
 
@@ -980,7 +983,7 @@ internal static class OtherFeats
                             FeatSpellSniperTag)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
+                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatSpellSniper())
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);
@@ -995,25 +998,25 @@ internal static class OtherFeats
         return spellSniperGroup;
     }
 
-    private sealed class ModifyMagicEffectFeatSpellSniper : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionFeatSpellSniper : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition is SpellDefinition &&
+                   effectDescription.rangeType == RangeType.RangeHit &&
+                   effectDescription.HasDamageForm();
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition)
-            {
-                return effectDescription;
-            }
-
-            if (effectDescription.rangeType != RangeType.RangeHit || !effectDescription.HasDamageForm())
-            {
-                return effectDescription;
-            }
-
-            effectDescription.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
+            effectDescription.rangeParameter = effectDescription.RangeParameter * 2;
 
             return effectDescription;
         }

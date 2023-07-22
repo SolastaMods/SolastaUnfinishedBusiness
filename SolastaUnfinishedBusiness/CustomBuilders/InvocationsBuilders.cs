@@ -384,7 +384,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeCold))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeCold,
+                            SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -400,7 +403,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeAcid))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeAcid,
+                            SpellDefinitions.AcidSplash.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -416,7 +422,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeFire))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeFire,
+                            SpellDefinitions.FireBolt.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -432,7 +441,10 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeLightning))
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeLightning,
+                            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
@@ -603,31 +615,36 @@ internal static class InvocationsBuilders
         public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
     }
 
-    private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
     {
         private readonly string _damageType;
+        private readonly EffectParticleParameters _effectParticleParameters;
 
-        public ModifyMagicEffectEldritchBlast(string damageType)
+        public ModifyEffectDescriptionEldritchBlast(
+            string damageType,
+            EffectParticleParameters effectParticleParameters)
         {
             _damageType = damageType;
+            _effectParticleParameters = effectParticleParameters;
         }
 
-        public EffectDescription ModifyEffect(BaseDefinition definition,
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == SpellDefinitions.EldritchBlast;
+        }
+
+        public EffectDescription GetEffectDescription(BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition != SpellDefinitions.EldritchBlast)
-            {
-                return effectDescription;
-            }
-
             var damage = effectDescription.FindFirstDamageForm();
 
-            if (damage != null)
-            {
-                damage.DamageType = _damageType;
-            }
+            damage.DamageType = _damageType;
+            effectDescription.effectParticleParameters = _effectParticleParameters;
 
             return effectDescription;
         }

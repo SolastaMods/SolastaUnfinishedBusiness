@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -109,6 +110,27 @@ public static class AttackEvaluationParamsPatcher
         {
             //PATCH: apply higher ground rules
             FlankingAndHigherGroundRules.HandleHigherGround(__instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams),
+        nameof(BattleDefinitions.AttackEvaluationParams.ComputeDistance))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeDistance_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(ref BattleDefinitions.AttackEvaluationParams __instance)
+        {
+            if (!Main.Settings.UseOfficialDistanceCalculation)
+            {
+                return true;
+            }
+
+            __instance.distance =
+                DistanceCalculation.CalculateDistanceFromTwoCharacters(__instance.attacker, __instance.defender);
+
+            return false;
         }
     }
 }

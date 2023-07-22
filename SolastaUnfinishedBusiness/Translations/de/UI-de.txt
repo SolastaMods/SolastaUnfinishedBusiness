@@ -6,6 +6,7 @@ UI/&Current Party=Aktuelle Partei
 UI/&DistanceFormat=Distanz: {0}
 UI/&Experimental Preview:=Experimentelle Vorschau <i><color=Yellow>[Sicherungskopie vor Verwendung speichern]</color></i>:
 UI/&Expert=Experte
+UI/&From=Aus
 UI/&PartyEditor=Parteiredakteur
 UI/&PartyEditorMessage=Mit diesem einfachen Party-Editor können Sie Charaktere in einer geladenen Spielsitzung bearbeiten. Bitte klicken Sie auf Folgendes, um Probleme zu melden:
 UI/&PartyEditorUnavailable=****** Party-Editor nicht verfügbar: Bitte laden Sie ein gespeichertes Spiel ******

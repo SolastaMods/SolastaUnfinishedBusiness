@@ -121,11 +121,9 @@ internal static class GambitsBuilders
         var name = "GambitBlind";
         var sprite = Sprites.GetSprite(name, Resources.GambitBlind, 128);
 
-        ICustomConditionFeature reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        var reactionPower = FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
-                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -143,7 +141,14 @@ internal static class GambitsBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB());
+            .AddToDB();
+
+        reactionPower.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ModifyEffectDescriptionSavingThrow(reactionPower));
+
+        ICustomConditionFeature reaction = new AddUsablePowerFromCondition(reactionPower);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -182,11 +187,9 @@ internal static class GambitsBuilders
         name = "GambitKnockdown";
         sprite = Sprites.GetSprite(name, Resources.GambitKnockdown, 128);
 
-        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        reactionPower = FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
-                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -204,7 +207,14 @@ internal static class GambitsBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB());
+            .AddToDB();
+
+        reactionPower.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ModifyEffectDescriptionSavingThrow(reactionPower));
+
+        reaction = new AddUsablePowerFromCondition(reactionPower);
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -245,11 +255,9 @@ internal static class GambitsBuilders
         name = "GambitRepel";
         sprite = Sprites.GetSprite(name, Resources.GambitRepel, 128);
 
-        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        reactionPower = FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
-                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -273,7 +281,14 @@ internal static class GambitsBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB());
+            .AddToDB();
+
+        reactionPower.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ModifyEffectDescriptionSavingThrow(reactionPower));
+
+        reaction = new AddUsablePowerFromCondition(reactionPower);
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -314,10 +329,9 @@ internal static class GambitsBuilders
         name = "GambitThreaten";
         sprite = Sprites.GetSprite(name, Resources.GambitThreaten, 128);
 
-        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        reactionPower = FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -335,7 +349,13 @@ internal static class GambitsBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB());
+            .AddToDB();
+
+        reactionPower.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            new ModifyEffectDescriptionSavingThrow(reactionPower));
+
+        reaction = new AddUsablePowerFromCondition(reactionPower);
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -374,10 +394,9 @@ internal static class GambitsBuilders
         name = "GambitDebilitate";
         sprite = Sprites.GetSprite(name, Resources.GambitDebilitate, 128);
 
-        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        reactionPower = FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -401,7 +420,13 @@ internal static class GambitsBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB());
+            .AddToDB();
+
+        reactionPower.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            new ModifyEffectDescriptionSavingThrow(reactionPower));
+
+        reaction = new AddUsablePowerFromCondition(reactionPower);
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -441,11 +466,9 @@ internal static class GambitsBuilders
         name = "GambitGoading";
         sprite = Sprites.GetSprite(name, Resources.GambitProvoke, 128);
 
-        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        reactionPower = FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
-                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -476,7 +499,14 @@ internal static class GambitsBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB());
+            .AddToDB();
+
+        reactionPower.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ModifyEffectDescriptionSavingThrow(reactionPower));
+
+        reaction = new AddUsablePowerFromCondition(reactionPower);
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -664,7 +694,6 @@ internal static class GambitsBuilders
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice, new ModifyMagicEffectSavingThrow())
             .SetUniqueInstance()
             .SetShowCasting(false)
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
@@ -696,6 +725,11 @@ internal static class GambitsBuilders
                     .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
             .AddToDB();
+
+        power.SetCustomSubFeatures(
+            PowerFromInvocation.Marker,
+            hasGambitDice,
+            new ModifyEffectDescriptionSavingThrow(power));
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -810,19 +844,29 @@ internal static class GambitsBuilders
         };
     }
 
-    private sealed class ModifyMagicEffectSavingThrow : IModifyMagicEffect
+    private sealed class ModifyEffectDescriptionSavingThrow : IModifyEffectDescription
     {
-        public EffectDescription ModifyEffect(
+        private readonly FeatureDefinitionPower _baseDefinition;
+
+        public ModifyEffectDescriptionSavingThrow(FeatureDefinitionPower baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower)
-            {
-                return effectDescription;
-            }
-
             var proficiencyBonus = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
             var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);
@@ -832,7 +876,10 @@ internal static class GambitsBuilders
             var intDC = ComputeAbilityScoreBasedDC(intelligence, proficiencyBonus);
             var saveDC = Math.Max(intDC, Math.Max(strDC, dexDC));
 
-            rulesetEffectPower.usablePower.saveDC = saveDC;
+            if (rulesetEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                rulesetEffectPower.usablePower.saveDC = saveDC;
+            }
 
             return effectDescription;
         }

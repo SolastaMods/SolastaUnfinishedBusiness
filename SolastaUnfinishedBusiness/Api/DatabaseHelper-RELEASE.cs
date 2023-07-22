@@ -939,6 +939,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Solasta { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta");
 
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseCha { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseCha");
+
         internal static FeatureDefinitionAttributeModifier
             AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>(
@@ -952,6 +955,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierHalflingAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHalflingAbilityScoreIncrease");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierHalfOrcAbilityScoreIncreaseCon { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHalfOrcAbilityScoreIncreaseCon");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierHumanAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease");
@@ -1249,11 +1258,17 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
+
         internal static FeatureDefinitionFeatureSet FeatureSetElfHighLanguages { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfHighLanguages");
 
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetHumanLanguages { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetHumanLanguages");
 
         internal static FeatureDefinitionFeatureSet FeatureSetKindredSpiritChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritChoice");

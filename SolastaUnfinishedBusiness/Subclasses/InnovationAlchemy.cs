@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -35,7 +37,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("InventorAlchemist", Resources.InventorAlchemist, 256))
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
-            .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
+            .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature(), BuildRefundPool(AlchemyPool))
             .AddFeaturesAtLevel(9, AdvancedBombs, BuildExtraOverchargeFeature())
             .AddFeaturesAtLevel(15, BuildMasterOverchargeFeature())
             .AddToDB();
@@ -591,8 +593,6 @@ public static class InnovationAlchemy
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
-                InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
@@ -609,6 +609,13 @@ public static class InnovationAlchemy
                 .Build())
             .SetUseSpellAttack()
             .AddToDB();
+
+        power.SetCustomSubFeatures(
+            PowerVisibilityModifier.Visible,
+            new AddPBToDamage(power),
+            new Overcharge(),
+            validator,
+            InventorClassHolder.Marker);
 
         return power;
     }
@@ -627,8 +634,6 @@ public static class InnovationAlchemy
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
-                InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
@@ -650,6 +655,13 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
+        power.SetCustomSubFeatures(
+            PowerVisibilityModifier.Visible,
+            new AddPBToDamage(power),
+            new Overcharge(),
+            validator,
+            InventorClassHolder.Marker);
+
         return power;
     }
 
@@ -666,8 +678,6 @@ public static class InnovationAlchemy
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
-                InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
@@ -689,6 +699,13 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
+        power.SetCustomSubFeatures(
+            PowerVisibilityModifier.Visible,
+            new AddPBToDamage(power),
+            new Overcharge(),
+            validator,
+            InventorClassHolder.Marker);
+
         return power;
     }
 
@@ -706,6 +723,37 @@ public static class InnovationAlchemy
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });
         return power;
+    }
+
+    private static FeatureDefinition BuildRefundPool(FeatureDefinitionPower powerPool)
+    {
+        var powerRefundPool = FeatureDefinitionPowerBuilder
+            .Create("PowerInnovationAlchemyRefundPool")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainInsightForeknowledge)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .AddToDB();
+
+        var powerRefundFromSlotList = new List<FeatureDefinitionPower>();
+
+        for (var i = 5; i >= 1; i--)
+        {
+            var title = Gui.Format("Feature/&PowerInnovationAlchemyRefundFromSlotTitle", i.ToString());
+            var description = Gui.Format("Feature/&PowerInnovationAlchemyRefundFromSlotDescription", i.ToString());
+            var powerRefundFromSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerInnovationAlchemyRefundFromSlot{i}")
+                .SetGuiPresentation(title, description)
+                .SetSharedPool(ActivationTime.BonusAction, powerRefundPool, i)
+                .SetCustomSubFeatures(new PowerUseValidityRefundAlchemyPool(powerPool))
+                .AddToDB();
+
+            powerRefundFromSlotList.Add(powerRefundFromSlot);
+        }
+
+        powerRefundPool.SetCustomSubFeatures(
+            new UsePowerFinishedByMeRefundAlchemyPool(powerPool, powerRefundFromSlotList));
+        PowerBundle.RegisterPowerBundle(powerRefundPool, false, powerRefundFromSlotList);
+
+        return powerRefundPool;
     }
 
     private static FeatureDefinition BuildOverchargeFeature()
@@ -733,6 +781,59 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(OverchargeFeature.Marker)
             .AddToDB();
+    }
+
+    private sealed class PowerUseValidityRefundAlchemyPool : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerAlchemyPool;
+
+        public PowerUseValidityRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool)
+        {
+            _powerAlchemyPool = powerAlchemyPool;
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
+        {
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var slotLevel = power.CostPerUse;
+            var used =
+                rulesetCharacter.GetMaxUsesForPool(_powerAlchemyPool) -
+                rulesetCharacter.GetRemainingPowerUses(_powerAlchemyPool);
+
+            rulesetRepertoire!.GetSlotsNumber(slotLevel, out var remaining, out _);
+
+            return remaining > 0 && slotLevel <= used;
+        }
+    }
+
+    private sealed class UsePowerFinishedByMeRefundAlchemyPool : IUsePowerFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerAlchemyPool;
+        private readonly List<FeatureDefinitionPower> _powerRefundFromSlotList;
+
+        public UsePowerFinishedByMeRefundAlchemyPool(
+            FeatureDefinitionPower powerAlchemyPool,
+            List<FeatureDefinitionPower> powerRefundFromSlotList)
+        {
+            _powerAlchemyPool = powerAlchemyPool;
+            _powerRefundFromSlotList = powerRefundFromSlotList;
+        }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (!_powerRefundFromSlotList.Contains(power))
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
+            var slotLevel = power.CostPerUse;
+
+            rulesetRepertoire!.SpendSpellSlot(slotLevel);
+            rulesetUsablePower.remainingUses += slotLevel;
+        }
     }
 
     private sealed class OverchargeFeature
@@ -775,9 +876,24 @@ public static class InnovationAlchemy
     }
 }
 
-internal sealed class AddPBToDamage : IModifyMagicEffect
+internal sealed class AddPBToDamage : IModifyEffectDescription
 {
-    public EffectDescription ModifyEffect(
+    private readonly FeatureDefinitionPower _baseDefinition;
+
+    public AddPBToDamage(FeatureDefinitionPower baseDefinition)
+    {
+        _baseDefinition = baseDefinition;
+    }
+
+    public bool IsValid(
+        BaseDefinition definition,
+        RulesetCharacter character,
+        EffectDescription effectDescription)
+    {
+        return definition == _baseDefinition;
+    }
+
+    public EffectDescription GetEffectDescription(
         BaseDefinition definition,
         EffectDescription effectDescription,
         RulesetCharacter character,
