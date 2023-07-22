@@ -729,7 +729,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : ICustomMagicEffectAction, IPowerUseValidity
+    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IPowerUseValidity
     {
         private readonly int slotLevel;
         private readonly int wildShapeAmount;
@@ -740,7 +740,7 @@ internal static class ClassFeats
             this.wildShapeAmount = wildShapeAmount;
         }
 
-        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
@@ -769,7 +769,7 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : ICustomMagicEffectAction
+    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe
     {
         private SpendWildShapeUse()
         {
@@ -777,7 +777,7 @@ internal static class ClassFeats
 
         public static SpendWildShapeUse Mark { get; } = new();
 
-        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);

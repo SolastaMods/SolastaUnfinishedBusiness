@@ -147,9 +147,21 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
+            var definition = __instance.GetBaseDefinition();
+            var customAction = definition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
+
+            if (customAction != null)
+            {
+                var enums = customAction.OnMagicEffectFinishedByMe(__instance);
+
+                while (enums.MoveNext())
+                {
+                    yield return enums.Current;
+                }
+            }
+
             //PATCH: supports `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
             // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
-            var definition = __instance.GetBaseDefinition();
 
             //TODO: add possibility to get attack via feature
             //TODO: add possibility to process multiple attack features
@@ -208,22 +220,6 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             __instance.actionParams.activeEffect.EffectDescription.rangeType = saveRangeType;
-
-            var customAction = definition.GetFirstSubFeatureOfType<ICustomMagicEffectAction>();
-
-            if (customAction == null)
-            {
-                yield break;
-            }
-
-            {
-                var enums = customAction.ProcessCustomEffect(__instance);
-
-                while (enums.MoveNext())
-                {
-                    yield return enums.Current;
-                }
-            }
         }
     }
 

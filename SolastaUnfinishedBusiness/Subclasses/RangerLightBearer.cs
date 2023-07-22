@@ -153,7 +153,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
-            .SetCustomSubFeatures(new CustomMagicEffectActionBlessedGlow(powerBlessedGlow))
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
             .SetOverriddenPower(powerLight)
             .AddToDB();
 
@@ -353,16 +353,16 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class CustomMagicEffectActionBlessedGlow : ICustomMagicEffectAction
+    private class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public CustomMagicEffectActionBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
+        public MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action)
         {
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
