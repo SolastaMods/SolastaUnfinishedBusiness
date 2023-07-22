@@ -3,10 +3,10 @@
 - added Imp race [by otearaisu]
 - added setting to calculate distance as tabletop would do [by TheRev]
 - changed Arcane Archer Adept feat to offer 2 choices and 1 usage
-- changed Healer medical kit and stabilize to be long rest
+- changed Eldritch Blast related invocations effects
+- changed Healer medical kit and stabilize to recharge at long rest
 - changed Infusion Adept feat to offer 2 choices and 1 usage
 - changed Innovation Alchemy with new refund charge power at 5th
-- changed Eldritch Blast related invocations effects
 - fixed all races height data causing wrong targeting calculations [by TheRev]
 
 1.5.94.0:
