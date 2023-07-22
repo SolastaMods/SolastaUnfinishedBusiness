@@ -674,10 +674,9 @@ internal static class ClassFeats
                             .AddToDB(), ConditionForm.ConditionOperation.Add)
                         .Build())
                     .Build())
-                .SetCustomSubFeatures(SpendWildShapeUse.Mark,
-                    new ValidatorsPowerUse(c => c.GetRemainingPowerUses(PowerDruidWildShape) > 0))
                 .AddToDB();
 
+            powerGainSlot.SetCustomSubFeatures(new SpendWildShapeUse(powerGainSlot));
             powerGainSlotPoolList.Add(powerGainSlot);
         }
 
@@ -713,9 +712,10 @@ internal static class ClassFeats
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
                         wildShapeAmount.ToString(), i.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetCustomSubFeatures(new GainWildShapeCharges(i, wildShapeAmount))
                 .AddToDB();
 
+            powerGainWildShapeFromSlot.SetCustomSubFeatures(new GainWildShapeCharges(powerGainWildShapeFromSlot, i,
+                wildShapeAmount));
             powerGainWildShapeList.Add(powerGainWildShapeFromSlot);
         }
 
@@ -729,19 +729,29 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IPowerUseValidity
+    private sealed class GainWildShapeCharges : IUsePowerFinishedByMe, IPowerUseValidity
     {
+        private readonly FeatureDefinitionPower powerGainWildShapeFromSlot;
         private readonly int slotLevel;
         private readonly int wildShapeAmount;
 
-        public GainWildShapeCharges(int slotLevel, int wildShapeAmount)
+        public GainWildShapeCharges(
+            FeatureDefinitionPower powerGainWildShapeFromSlot,
+            int slotLevel,
+            int wildShapeAmount)
         {
+            this.powerGainWildShapeFromSlot = powerGainWildShapeFromSlot;
             this.slotLevel = slotLevel;
             this.wildShapeAmount = wildShapeAmount;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != powerGainWildShapeFromSlot)
+            {
+                yield break;
+            }
+
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
@@ -769,16 +779,22 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe
+    private sealed class SpendWildShapeUse : IUsePowerFinishedByMe, IPowerUseValidity
     {
-        private SpendWildShapeUse()
+        private readonly FeatureDefinitionPower powerSpendWildShapeUse;
+
+        public SpendWildShapeUse(FeatureDefinitionPower powerSpendWildShapeUse)
         {
+            this.powerSpendWildShapeUse = powerSpendWildShapeUse;
         }
 
-        public static SpendWildShapeUse Mark { get; } = new();
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != powerSpendWildShapeUse)
+            {
+                yield break;
+            }
+
             var character = action.ActingCharacter.RulesetCharacter;
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
 
@@ -786,8 +802,11 @@ internal static class ClassFeats
             {
                 character.UpdateUsageForPowerPool(1, rulesetUsablePower);
             }
+        }
 
-            yield break;
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
         }
     }
 

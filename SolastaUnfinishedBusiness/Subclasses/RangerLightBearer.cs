@@ -153,9 +153,11 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
             .SetOverriddenPower(powerLight)
             .AddToDB();
+
+        powerLightEnhanced.SetCustomSubFeatures(
+            new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow, powerLightEnhanced));
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BlessedGlow")
@@ -353,21 +355,30 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
+    private class MagicEffectFinishedByMeBlessedGlow : IUsePowerFinishedByMe
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinitionPower _powerBlessedGlow;
+        private readonly FeatureDefinitionPower _powerLightEnhanced;
 
-        public MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
+        public MagicEffectFinishedByMeBlessedGlow(
+            FeatureDefinitionPower featureDefinitionPower,
+            FeatureDefinitionPower powerLightEnhanced)
         {
-            _featureDefinitionPower = featureDefinitionPower;
+            _powerBlessedGlow = featureDefinitionPower;
+            _powerLightEnhanced = powerLightEnhanced;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != _powerLightEnhanced)
+            {
+                yield break;
+            }
+
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            if (rulesetAttacker.GetRemainingPowerCharges(_powerBlessedGlow) <= 0)
             {
                 yield break;
             }
@@ -400,11 +411,11 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
 
-            rulesetAttacker.LogCharacterUsedPower(_featureDefinitionPower);
+            rulesetAttacker.LogCharacterUsedPower(_powerBlessedGlow);
 
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(_powerBlessedGlow, rulesetAttacker);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
