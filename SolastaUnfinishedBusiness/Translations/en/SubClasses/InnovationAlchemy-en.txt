@@ -52,7 +52,8 @@ Feature/&PowerInnovationAlchemyPoolTitle=Alchemy Points
 Feature/&PowerInnovationAlchemyRefundFromSlotDescription=Refund {0} alchemy charges by spending one slot of level {0}.
 Feature/&PowerInnovationAlchemyRefundFromSlotTitle=Refund {0} Alchemy Charges
 Feature/&PowerInnovationAlchemyRefundPoolDescription=Gain up to 5 alchemy charges by spending spell slots.
-Feature/&PowerInnovationAlchemyRefundPoolTitle=Refund Alchemy ChargeScreen/&InventorGrenadierSpellDescription=This Grenadier spell is always considered prepared.\nIt does not count towards your spell preparation limit.
+Feature/&PowerInnovationAlchemyRefundPoolTitle=Refund Alchemy Charge
+Screen/&InventorGrenadierSpellDescription=This Grenadier spell is always considered prepared.\nIt does not count towards your spell preparation limit.
 Screen/&InventorGrenadierSpellTitle=Grenadier
 Subclass/&InnovationAlchemyDescription=Grenadiers study unstable substances and their use in creating explosions of various types.
 Subclass/&InnovationAlchemyTitle=Grenadier
