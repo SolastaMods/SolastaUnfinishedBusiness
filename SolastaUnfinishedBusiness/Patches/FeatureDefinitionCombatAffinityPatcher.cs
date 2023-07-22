@@ -13,7 +13,7 @@ public static class FeatureDefinitionCombatAffinityPatcher
         nameof(FeatureDefinitionCombatAffinity.ComputeAttackModifier))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class IsSituationalContextValid_Patch
+    public static class ComputeAttackModifier_Patch
     {
         [UsedImplicitly]
         public static void Postfix(

@@ -14,7 +14,7 @@ internal class ShieldExpert : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(ShieldExpertName)
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("ShieldExpert", Resources.ShieldExpert, 256))
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(ShieldExpertName, Resources.ShieldExpert, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("AddExtraAttackShieldExpert")
