@@ -113,6 +113,8 @@ Message/&CharacterExportModalContentDescription=Saisissez le nom du héros à ex
 Message/&CharacterExportModalTitleDescription=Exporter {0}
 Message/&MessageModWelcomeDescription=Le module Unfinished Business regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface utilisateur de l'Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de "Unfinished Business" pour ouvrir les pages de paramètres. Découvrez les options et sélectionnez celles que vous intéressent.\nLe bouton Faire un don vous redirigera vers PayPal par défaut. Il existe d'autres options de donation sous Mod UI> Character.
 Message/&MessageModWelcomeTitle=Mod Unfinished Business
+Message/&ModErrorWarningDescription=Solasta a détecté une instabilité. Veuillez demander à chaque joueur de fermer le jeu, de récupérer le fichier <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> et de partager ces journaux, ainsi que le fichier de sauvegarde avec la communauté des mods Unfinished Business.
+Message/&ModErrorWarningTitle=Avertissement de jeu !
 Message/&RespecMultiplayerAbortDescription=Impossible de respécialiser une partie ou une carte multijoueur...
 Message/&RespecSuccessfulDescription=La respécialisation a réussie. N'oubliez pas de ramasser vos affaires au sol.
 Message/&SpawnCustomEncounterDescription=Générer une rencontre aux coordonnées ({0}, {1}) ?

@@ -75,7 +75,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of scre
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
-ModUi/&EnableActionSwitching=Enable action switching bar <b><color=#C04040E0>[BETA]</color></b> 
+ModUi/&EnableActionSwitching=Enable action switching bar
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
@@ -125,7 +125,7 @@ ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjur
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
-ModUi/&EnumerateOriginSubFeatures=Allow features from heroes to work while in <color=#D89555>Wildshape</color> form <b><color=#C04040E0>[BETA]</color></b>
+ModUi/&EnumerateOriginSubFeatures=Allow features from heroes to work while in <color=#D89555>Wildshape</color> form
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
@@ -216,7 +216,7 @@ ModUi/&SettingsLoad=. Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
-ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i> <b><color=#C04040E0>[BETA]</color></b>
+ModUi/&ShowButtonWithControlledMonsterInfo=Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory <i><color=#F0DAA0>[Hovering over it will show tooltip for crafted item]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
