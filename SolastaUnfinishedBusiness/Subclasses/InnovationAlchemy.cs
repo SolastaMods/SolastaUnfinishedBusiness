@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -35,7 +38,7 @@ public static class InnovationAlchemy
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("InventorAlchemist", Resources.InventorAlchemist, 256))
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
-            .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
+            .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature(), BuildRefundPool(AlchemyPool))
             .AddFeaturesAtLevel(9, AdvancedBombs, BuildExtraOverchargeFeature())
             .AddFeaturesAtLevel(15, BuildMasterOverchargeFeature())
             .AddToDB();
@@ -721,6 +724,90 @@ public static class InnovationAlchemy
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });
         return power;
+    }
+
+    private static FeatureDefinition BuildRefundPool(FeatureDefinitionPower powerPool)
+    {
+        var powerRefundPool = FeatureDefinitionPowerBuilder
+            .Create($"PowerInnovationAlchemyRefundPool")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainInsightForeknowledge)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .AddToDB();
+
+        var powerRefundFromSlotList = new List<FeatureDefinitionPower>();
+
+        for (var i = 5; i >= 1; i--)
+        {
+            var title = Gui.Format("Feature/&PowerInnovationAlchemyRefundFromSlotTitle", i.ToString());
+            var description = Gui.Format("Feature/&PowerInnovationAlchemyRefundFromSlotDescription", i.ToString());
+            var powerRefundFromSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"PowerInnovationAlchemyRefundFromSlot{i}")
+                .SetGuiPresentation(title, description)
+                .SetSharedPool(ActivationTime.BonusAction, powerRefundPool, i)
+                .SetCustomSubFeatures(new PowerUseValidityRefundAlchemyPool(powerPool))
+                .AddToDB();
+
+            powerRefundFromSlotList.Add(powerRefundFromSlot);
+        }
+
+        powerRefundPool.SetCustomSubFeatures(
+            new UsePowerFinishedByMeRefundAlchemyPool(powerPool, powerRefundFromSlotList));
+        PowerBundle.RegisterPowerBundle(powerRefundPool, false, powerRefundFromSlotList);
+
+        return powerRefundPool;
+    }
+
+    private sealed class PowerUseValidityRefundAlchemyPool : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerAlchemyPool;
+
+        public PowerUseValidityRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool)
+        {
+            _powerAlchemyPool = powerAlchemyPool;
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
+        {
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var slotLevel = power.CostPerUse;
+            var used =
+                rulesetCharacter.GetMaxUsesForPool(_powerAlchemyPool) -
+                rulesetCharacter.GetRemainingPowerUses(_powerAlchemyPool);
+
+            rulesetRepertoire!.GetSlotsNumber(slotLevel, out var remaining, out _);
+
+            return remaining > 0 && slotLevel <= used;
+        }
+    }
+
+    private sealed class UsePowerFinishedByMeRefundAlchemyPool : IUsePowerFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerAlchemyPool;
+        private readonly List<FeatureDefinitionPower> _powerRefundFromSlotList;
+
+        public UsePowerFinishedByMeRefundAlchemyPool(
+            FeatureDefinitionPower powerAlchemyPool,
+            List<FeatureDefinitionPower> powerRefundFromSlotList)
+        {
+            _powerAlchemyPool = powerAlchemyPool;
+            _powerRefundFromSlotList = powerRefundFromSlotList;
+        }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (!_powerRefundFromSlotList.Contains(power))
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
+            var slotLevel = power.CostPerUse;
+
+            rulesetRepertoire!.SpendSpellSlot(slotLevel);
+            rulesetUsablePower.remainingUses += slotLevel;
+        }
     }
 
     private static FeatureDefinition BuildOverchargeFeature()
