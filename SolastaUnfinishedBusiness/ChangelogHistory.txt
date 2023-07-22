@@ -1,4 +1,8 @@
-﻿1.5.94.1:
+﻿1.5.94.2:
+
+- added Monastic Shield Training fighting style
+
+1.5.94.1:
 
 - added Imp race [by otearaisu]
 - added setting to calculate distance as tabletop would do [by TheRev]

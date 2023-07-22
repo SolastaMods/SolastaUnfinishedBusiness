@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -23,7 +24,7 @@ public static class RulesetImplementationManagerPatcher
     private static void EnumerateFeatureDefinitionSavingThrowAffinity(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
         __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
         featuresToBrowse.RemoveAll(x =>
@@ -67,10 +68,10 @@ public static class RulesetImplementationManagerPatcher
             bool canRerollDice)
         {
             var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
-            var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
+            var diceMaxValue = DiceMaxValue[(int)damageForm.dieType];
 
             if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
-                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+                hero.GetBardicInspirationDieValue() != DieType.D1)
             {
                 diceType = hero.GetBardicInspirationDieValue();
             }
@@ -78,8 +79,8 @@ public static class RulesetImplementationManagerPatcher
             var totalDamage = rulesetActor.RollDiceAndSum(
                 diceType,
                 attackModeDamage
-                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
-                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                    ? RollContext.AttackDamageValueRoll
+                    : RollContext.MagicDamageValueRoll,
                 damageForm.DiceNumber + addDice,
                 rolledValues, canRerollDice, maximumDamage);
 
@@ -94,8 +95,8 @@ public static class RulesetImplementationManagerPatcher
 
         private static int RollDiceKeepRollingMaxAndSum(
             RulesetActor rulesetActor,
-            RuleDefinitions.DieType diceType,
-            RuleDefinitions.RollContext context,
+            DieType diceType,
+            RollContext context,
             int diceNumber,
             ICollection<int> rolledValues = null,
             bool canRerollDice = true,
@@ -103,7 +104,7 @@ public static class RulesetImplementationManagerPatcher
         {
             rulesetActor.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(rulesetActor.featuresToBrowse);
 
-            var maxDie = RuleDefinitions.DiceMaxValue[(int)diceType];
+            var maxDie = DiceMaxValue[(int)diceType];
             var total = 0;
 
             for (var index = 0; index < diceNumber; ++index)
@@ -114,7 +115,7 @@ public static class RulesetImplementationManagerPatcher
                 {
                     while (roll == maxDie)
                     {
-                        roll = rulesetActor.RollDie(diceType, context, false, RuleDefinitions.AdvantageType.None,
+                        roll = rulesetActor.RollDie(diceType, context, false, AdvantageType.None,
                             out _, out _, false, canRerollDice, skill);
                         rolledValues?.Add(roll);
                         total += roll;
@@ -146,7 +147,7 @@ public static class RulesetImplementationManagerPatcher
             var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
 
             if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
-                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+                hero.GetBardicInspirationDieValue() != DieType.D1)
             {
                 diceType = hero.GetBardicInspirationDieValue();
             }
@@ -154,8 +155,8 @@ public static class RulesetImplementationManagerPatcher
             var totalDamage = RollDiceKeepRollingMaxAndSum(rulesetActor,
                 diceType,
                 attackModeDamage
-                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
-                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                    ? RollContext.AttackDamageValueRoll
+                    : RollContext.MagicDamageValueRoll,
                 (damageForm.DiceNumber + addDice) * 2, // 2 as it's a critical hit
                 rolledValues, canRerollDice);
 
@@ -182,7 +183,7 @@ public static class RulesetImplementationManagerPatcher
             var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
 
             if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
-                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+                hero.GetBardicInspirationDieValue() != DieType.D1)
             {
                 diceType = hero.GetBardicInspirationDieValue();
             }
@@ -191,8 +192,8 @@ public static class RulesetImplementationManagerPatcher
             var totalDamage = rulesetActor.RollDiceAndSum(
                 diceType,
                 attackModeDamage
-                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
-                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                    ? RollContext.AttackDamageValueRoll
+                    : RollContext.MagicDamageValueRoll,
                 damageForm.DiceNumber + addDice,
                 rolledValues, canRerollDice, maximumDamage);
 
@@ -242,7 +243,7 @@ public static class RulesetImplementationManagerPatcher
             //TODO: make this a proper interface in case we need to support other use cases
             if (hero != null &&
                 hero.TrainedFeats.Any(x => x.Name is "FeatPiercerDex" or "FeatPiercerStr") &&
-                damageForm.damageType == RuleDefinitions.DamageTypePiercing)
+                damageForm.damageType == DamageTypePiercing)
             {
                 canRerollDice = true;
             }
@@ -257,9 +258,9 @@ public static class RulesetImplementationManagerPatcher
 
             var rollDamageOption = rulesetActor.Side switch
             {
-                RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies,
-                RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies,
-                RuleDefinitions.Side.Neutral => Main.Settings.CriticalHitModeNeutral,
+                Side.Ally => Main.Settings.CriticalHitModeAllies,
+                Side.Enemy => Main.Settings.CriticalHitModeEnemies,
+                Side.Neutral => Main.Settings.CriticalHitModeNeutral,
                 _ => 0
             };
 
@@ -321,7 +322,7 @@ public static class RulesetImplementationManagerPatcher
                 || summonForm.ItemDefinition == null
                 || summonForm.Number != 1
                 || !summonForm.TrackItem
-                || formsParams.targetType != RuleDefinitions.TargetType.Self
+                || formsParams.targetType != TargetType.Self
                 || formsParams.sourceCharacter is not RulesetCharacterHero)
             {
                 return true;
@@ -655,7 +656,7 @@ public static class RulesetImplementationManagerPatcher
             var savingThrowBonus =
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetCharacter.TryGetAttributeValue(attributeScore)) +
-                rulesetCharacter.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+                rulesetCharacter.ComputeBaseSavingThrowBonus(attributeScore, new List<TrendInfo>());
 
             var attr = attributeScore;
 
@@ -666,7 +667,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 var newSavingThrowBonus =
                     AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attribute)) +
-                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<TrendInfo>());
 
                 // get the last one instead unless we start using this with other subs and then need to decide which one is better
                 if (newSavingThrowBonus <= savingThrowBonus)
@@ -708,7 +709,7 @@ public static class RulesetImplementationManagerPatcher
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter caster,
-            RuleDefinitions.Side sourceSide,
+            Side sourceSide,
             RulesetActor target,
             ActionModifier actionModifier,
             bool hasHitVisual,
@@ -718,7 +719,7 @@ public static class RulesetImplementationManagerPatcher
             bool disableSavingThrowOnAllies,
             bool advantageForEnemies,
             bool ignoreCover,
-            RuleDefinitions.FeatureSourceType featureSourceType,
+            FeatureSourceType featureSourceType,
             List<EffectForm> effectForms,
             List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
             List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
@@ -726,7 +727,7 @@ public static class RulesetImplementationManagerPatcher
             BaseDefinition sourceDefinition,
             string schoolOfMagic,
             MetamagicOptionDefinition metamagicOption,
-            ref RuleDefinitions.RollOutcome saveOutcome,
+            ref RollOutcome saveOutcome,
             ref int saveOutcomeDelta)
         {
             // BUGFIX: saving throw not passing correct saving delta on attack actions
@@ -839,6 +840,34 @@ public static class RulesetImplementationManagerPatcher
             }
 
             return codes.AsEnumerable();
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetImplementationManager),
+        nameof(RulesetImplementationManager.IsValidContextForAttackModificationProvider))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsValidContextForAttackModificationProvider_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetImplementationManager __instance,
+            out bool __result,
+            IAttackModificationProvider provider,
+            RulesetCharacterHero hero,
+            ItemDefinition itemDefinition,
+            WeaponTypeDefinition weaponTypeDefinition,
+            RulesetAttackMode attackMode)
+        {
+            __result =
+                (provider.TriggerCondition != AttackModificationTriggerCondition.NotWearingArmorOrMageArmorOrShield ||
+                 (!hero.IsWearingArmor() &&
+                  !hero.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
+                  (!hero.IsWearingShield() || hero.HasMonkShieldExpert()))) &&
+                __instance.IsValidContextForRestrictedContextProvider(
+                    provider, hero, itemDefinition, attackMode.Ranged, attackMode, null);
+
+            return false;
         }
     }
 }

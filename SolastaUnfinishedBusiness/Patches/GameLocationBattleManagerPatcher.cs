@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -239,7 +240,7 @@ public static class GameLocationBattleManagerPatcher
                 foreach (var extraEvents in attacker.RulesetCharacter
                              .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
                              .TakeWhile(_ =>
-                                 action.AttackRollOutcome == RuleDefinitions.RollOutcome.Failure &&
+                                 action.AttackRollOutcome == RollOutcome.Failure &&
                                  action.AttackSuccessDelta < 0)
                              .Select(feature =>
                                  feature.OnAttackTryAlterOutcome(__instance, action, attacker, target, attackModifier)))
@@ -276,7 +277,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             if (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is
-                    not (RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit))
+                    not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield break;
             }
@@ -343,7 +344,7 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
-            RuleDefinitions.AdvantageType advantageType,
+            AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
             bool criticalHit,
@@ -591,12 +592,12 @@ public static class GameLocationBattleManagerPatcher
                 switch (feature.TriggerCondition)
                 {
                     // Can I always reduce a fixed damage amount (i.e.: Heavy Armor Feat)
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive:
+                    case AdditionalDamageTriggerCondition.AlwaysActive:
                         totalReducedDamage = feature.ReducedDamage(attacker, defender);
                         break;
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
+                    case AdditionalDamageTriggerCondition.SpendSpellSlot:
                     {
                         if (!canReact)
                         {
@@ -638,37 +639,37 @@ public static class GameLocationBattleManagerPatcher
                         break;
                     }
 
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
+                    case AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
+                    case AdditionalDamageTriggerCondition.SpecificCharacterFamily:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe:
+                    case AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition:
+                    case AdditionalDamageTriggerCondition.TargetHasCondition:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetIsWounded:
+                    case AdditionalDamageTriggerCondition.TargetIsWounded:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasSenseType:
+                    case AdditionalDamageTriggerCondition.TargetHasSenseType:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCreatureTag:
+                    case AdditionalDamageTriggerCondition.TargetHasCreatureTag:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround:
+                    case AdditionalDamageTriggerCondition.RangeAttackFromHigherGround:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage:
+                    case AdditionalDamageTriggerCondition.EvocationSpellDamage:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
+                    case AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
+                    case AdditionalDamageTriggerCondition.SpellDamagesTarget:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
+                    case AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
+                    case AdditionalDamageTriggerCondition.CriticalHit:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster:
+                    case AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
+                    case AdditionalDamageTriggerCondition.Raging:
                         break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
+                    case AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
                         break;
                     default:
                         throw new ArgumentException("feature.TriggerCondition");
@@ -788,10 +789,10 @@ public static class GameLocationBattleManagerPatcher
             }
 
             attackParams.attackModifier.AttackAdvantageTrends.Add(
-                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                new TrendInfo(1, FeatureSourceType.Lighting, lightingState.ToString(),
                     attacker.TargetSource, (string)null));
             attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(
-                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                new TrendInfo(1, FeatureSourceType.Lighting, lightingState.ToString(),
                     attacker.TargetSource, (string)null));
         }
     }
@@ -811,7 +812,7 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
-            RuleDefinitions.AdvantageType advantageType,
+            AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
             bool criticalHit,
@@ -1137,9 +1138,9 @@ public static class GameLocationBattleManagerPatcher
             }
         }
 
-        private static bool IsFailed(RuleDefinitions.RollOutcome outcome)
+        private static bool IsFailed(RollOutcome outcome)
         {
-            return outcome is RuleDefinitions.RollOutcome.Failure or RuleDefinitions.RollOutcome.CriticalFailure;
+            return outcome is RollOutcome.Failure or RollOutcome.CriticalFailure;
         }
     }
 
@@ -1163,141 +1164,182 @@ public static class GameLocationBattleManagerPatcher
 
             ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
 
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
             //PATCH: allow custom behavior when physical attack initiates
 
-            if (__instance.battle == null)
+            if (__instance.battle != null)
             {
-                yield break;
-            }
-
-            foreach (var attackInitiated in
-                     attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
-            {
-                yield return attackInitiated.OnAttackInitiatedByMe(
-                    __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+                foreach (var attackInitiated in
+                         attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
+                {
+                    yield return attackInitiated.OnAttackInitiatedByMe(
+                        __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+                }
             }
 
             //PATCH: allow custom behavior when physical attack initiates on me
 
-            if (__instance.battle == null)
+            if (__instance.battle != null)
             {
-                yield break;
-            }
-
-            foreach (var attackInitiated in
-                     defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMe>())
-            {
-                yield return attackInitiated.OnAttackInitiatedOnMe(
-                    __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+                foreach (var attackInitiated in
+                         defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMe>())
+                {
+                    yield return attackInitiated.OnAttackInitiatedOnMe(
+                        __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+                }
             }
 
             //PATCH: allow custom behavior when physical attack initiates on me or ally
 
-            if (__instance.battle == null)
+            if (__instance.battle != null)
             {
-                yield break;
-            }
-
-            foreach (var ally in __instance.battle.GetOpposingContenders(attacker.Side)
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
-            {
-                foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
-                {
-                    yield return physicalAttackInitiatedOnMeOrAlly.OnAttackInitiatedOnMeOrAlly(
-                        __instance, action, attacker, defender, ally, attackModifier, attackerAttackMode);
-                }
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(GameLocationBattleManager),
-        nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleCharacterPhysicalAttackFinished_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            CharacterAction attackAction,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RuleDefinitions.RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
-            {
-                //PATCH: allow custom behavior when physical attack finished
-                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
-                {
-                    yield return feature.OnAttackFinishedByMe(
-                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
-                        damageAmount);
-                }
-            }
-
-            if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
-            {
-                //PATCH: allow custom behavior when physical attack finished on defender
-                foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
-                {
-                    yield return feature.OnAttackFinishedOnMe(
-                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
-                        damageAmount);
-                }
-            }
-
-            if (__instance.Battle != null)
-            {
-                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                foreach (var gameLocationAlly in Gui.Battle.GetMyContenders(attacker.Side)
+                foreach (var ally in __instance.battle.GetOpposingContenders(attacker.Side)
                              .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
-                    var allyFeatures =
-                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
-
-                    foreach (var feature in allyFeatures)
+                    foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
+                                 .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
                     {
-                        yield return feature.OnPhysicalAttackFinishedByMeOrAlly(
-                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
-                            attackRollOutcome,
-                            damageAmount);
+                        yield return physicalAttackInitiatedOnMeOrAlly.OnAttackInitiatedOnMeOrAlly(
+                            __instance, action, attacker, defender, ally, attackModifier, attackerAttackMode);
                     }
                 }
             }
 
-            // ReSharper disable once InvertIf
-            if (__instance.Battle != null)
+            if (__instance.battle != null)
             {
-                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(attacker.Side)
-                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
-                {
-                    var allyFeatures =
-                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
+                ++defender.SustainedAttacks;
 
-                    foreach (var feature in allyFeatures)
+                var rulesetCharacter = attacker.RulesetCharacter;
+
+                if (rulesetCharacter != null)
+                {
+                    foreach (var usablePower in rulesetCharacter.UsablePowers)
                     {
-                        yield return feature.OnAttackFinishedOnMeOrAlly(
-                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
-                            attackRollOutcome,
+                        if (__instance.CanCharacterUsePower(rulesetCharacter, defender, usablePower) &&
+                            usablePower.PowerDefinition.ActivationTime ==
+                            ActivationTime.OnAttackHitMartialArts && attackerAttackMode != null &&
+                            action.ActionId != ActionDefinitions.Id.AttackReadied &&
+                            rulesetCharacter.IsWieldingMonkWeapon() &&
+                            !rulesetCharacter.IsWearingArmor() &&
+                            !rulesetCharacter.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
+                            // BEGIN PATCH
+                            (!rulesetCharacter.IsWearingShield() || rulesetCharacter.HasMonkShieldExpert()) &&
+                            // END PATCH
+                            !rulesetCharacter.HasConditionOfType(ConditionMonkDeflectMissile) &&
+                            !rulesetCharacter.HasConditionOfType(ConditionMonkMartialArtsUnarmedStrikeBonus) &&
+                            attacker.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
+                            ActionDefinitions.ActionStatus.Available)
+                        {
+                            __instance.PrepareAndExecuteSpendPowerAction(attacker, defender, usablePower);
+                        }
+                    }
+                }
+
+                foreach (var opposingContender in __instance.battle.GetOpposingContenders(
+                             attacker.Side))
+                {
+                    if (opposingContender != defender && opposingContender.RulesetCharacter != null &&
+                        !opposingContender.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                        opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                        ActionDefinitions.ActionStatus.Available &&
+                        __instance.IsWithin1Cell(opposingContender, defender) &&
+                        opposingContender.GetActionStatus(ActionDefinitions.Id.BlockAttack,
+                            ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) ==
+                        ActionDefinitions.ActionStatus.Available)
+                    {
+                        yield return __instance.PrepareAndReact(
+                            opposingContender, attacker, attacker, ActionDefinitions.Id.BlockAttack, attackModifier,
+                            additionalTargetCharacter: defender);
+                        break;
+                    }
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(GameLocationBattleManager),
+            nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        [UsedImplicitly]
+        public static class HandleCharacterPhysicalAttackFinished_Patch
+        {
+            [UsedImplicitly]
+            public static IEnumerator Postfix(
+                IEnumerator values,
+                GameLocationBattleManager __instance,
+                CharacterAction attackAction,
+                GameLocationCharacter attacker,
+                GameLocationCharacter defender,
+                RulesetAttackMode attackerAttackMode,
+                RollOutcome attackRollOutcome,
+                int damageAmount)
+            {
+                while (values.MoveNext())
+                {
+                    yield return values.Current;
+                }
+
+                if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
+                {
+                    //PATCH: allow custom behavior when physical attack finished
+                    foreach (var feature in attacker.RulesetCharacter
+                                 .GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
+                    {
+                        yield return feature.OnAttackFinishedByMe(
+                            __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                             damageAmount);
+                    }
+                }
+
+                if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
+                {
+                    //PATCH: allow custom behavior when physical attack finished on defender
+                    foreach (var feature in defender.RulesetCharacter
+                                 .GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+                    {
+                        yield return feature.OnAttackFinishedOnMe(
+                            __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                            damageAmount);
+                    }
+                }
+
+                if (__instance.Battle != null)
+                {
+                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                    foreach (var gameLocationAlly in Gui.Battle.GetMyContenders(attacker.Side)
+                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                                 .ToList()) // avoid changing enumerator
+                    {
+                        var allyFeatures =
+                            gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
+
+                        foreach (var feature in allyFeatures)
+                        {
+                            yield return feature.OnPhysicalAttackFinishedByMeOrAlly(
+                                __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                                attackRollOutcome,
+                                damageAmount);
+                        }
+                    }
+                }
+
+                // ReSharper disable once InvertIf
+                if (__instance.Battle != null)
+                {
+                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                    foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(attacker.Side)
+                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                                 .ToList()) // avoid changing enumerator
+                    {
+                        var allyFeatures =
+                            gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
+
+                        foreach (var feature in allyFeatures)
+                        {
+                            yield return feature.OnAttackFinishedOnMeOrAlly(
+                                __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                                attackRollOutcome,
+                                damageAmount);
+                        }
                     }
                 }
             }
