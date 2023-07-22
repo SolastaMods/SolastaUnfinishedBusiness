@@ -6,10 +6,10 @@ UI/&Current Party=Groupe sélectionné
 UI/&DistanceFormat=Distance: {0}
 UI/&Experimental Preview:=Aperçu expérimental <i><color=Yellow>[sauvegarder avant d'utiliser]</color></i> :
 UI/&Expert=Expert
+UI/&From=Depuis
 UI/&PartyEditor=Éditeur de groupe
 UI/&PartyEditorMessage=Cet éditeur de groupe simple vous permet de modifier des personnages dans une session de jeu chargée. Veuillez cliquer sur les éléments suivants pour signaler un problème rencontré :
 UI/&PartyEditorUnavailable=****** Éditeur de groupe indisponible : veuillez charger une sauvegarde ******
 UI/&Quickies=Questions rapides
 UI/&Remove=Retirer
 UI/&Skilled=Qualifié
-UI/&From=Depuis

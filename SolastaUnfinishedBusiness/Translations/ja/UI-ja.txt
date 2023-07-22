@@ -6,10 +6,10 @@ UI/&Current Party=現在のパーティー
 UI/&DistanceFormat=距離: {0}
 UI/&Experimental Preview:=実験的プレビュー <i><color=Yellow>[使用前にバックアップ保存]</color></i>:
 UI/&Expert=エキスパート
+UI/&From=から
 UI/&PartyEditor=パーティーエディター
 UI/&PartyEditorMessage=このシンプルなパーティー エディターを使用すると、ロードされたゲーム セッションでキャラクターを編集できます。問題を報告するには、次をクリックしてください。
 UI/&PartyEditorUnavailable=****** パーティー エディターは利用できません: セーブ ゲームをロードしてください ******
 UI/&Quickies=クイックキー
 UI/&Remove=削除
 UI/&Skilled=熟練した
-UI/&From=から
