@@ -15,7 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal class RaceImpBuilder
+internal static class RaceImpBuilder
 {
     private const string Name = "Imp";
     internal static CharacterRaceDefinition RaceImp { get; } = BuildImp();
@@ -151,7 +151,7 @@ internal class RaceImpBuilder
         return raceImpForest;
     }
 
-    internal class AttackBeforeHitConfirmedImpishWrath : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+    private class AttackBeforeHitConfirmedImpishWrath : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerPool;
 

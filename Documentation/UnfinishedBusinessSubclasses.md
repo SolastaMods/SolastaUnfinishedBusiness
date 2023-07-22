@@ -1378,6 +1378,10 @@ You've learned how to change damage type of a bomb into Cold, Lightning, Acid or
 
 You can spend additional charge when creating a bomb to make it more potent. Precise bombs allow targeting more enemies. Splash bombs increase explosion radius. Cone bombs increase their damage.
 
+* Refund Alchemy Charge
+
+Gain up to 5 alchemy charges by spending spell slots.
+
 
 ## Level 9
 

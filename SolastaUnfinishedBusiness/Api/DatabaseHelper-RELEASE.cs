@@ -958,10 +958,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierHalflingAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHalflingAbilityScoreIncrease");
-        
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierHalfOrcAbilityScoreIncreaseCon { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHalfOrcAbilityScoreIncreaseCon");
-        
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierHumanAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease");
 
@@ -1260,16 +1260,16 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
-        
+
         internal static FeatureDefinitionFeatureSet FeatureSetElfHighLanguages { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfHighLanguages");
 
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
-        
+
         internal static FeatureDefinitionFeatureSet FeatureSetHumanLanguages { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetHumanLanguages");
-        
+
         internal static FeatureDefinitionFeatureSet FeatureSetKindredSpiritChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritChoice");
 

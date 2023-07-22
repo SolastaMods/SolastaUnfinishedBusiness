@@ -218,7 +218,33 @@ At 3rd level you learn Burning Hands. It can be used once per long rest.
 
 
 
-# 9. - Gray Dwarf
+# 9. - Forest Imp
+
+Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Dexterity +2, Constitution +1
+
+* Fey Ancestry
+
+Saving throw advantage against Charm
+ Immunity to magical sleep
+
+* Impish Wrath
+
+When you damage an enemy, you can choose to deal additional damage equal to your proficiency bonus. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+* Innate Cunning
+
+You use your bonus action to Disengage or Hide.
+
+
+
+# 10. - Gray Dwarf
 
 The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 
@@ -261,7 +287,7 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 
 
 
-# 10. - Half-Dark Elf
+# 11. - Half-Dark Elf
 
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 
@@ -278,7 +304,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 11. - Half-Elf
+# 12. - Half-Elf
 
 Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
@@ -304,7 +330,7 @@ Common, Elvish, and one language of your choice
 
 
 
-# 12. - Half-High Elf
+# 13. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
 
@@ -321,7 +347,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# 13. - Half-Sylvan Elf
+# 14. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
@@ -334,7 +360,7 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 
 
 
-# 14. - High Wyrmkin
+# 15. - High Wyrmkin
 
 High Wyrmkins descended from a race of wyrms that have psionic abilities. Instead of dragon's breath, they can use their psionic powers to deal damage.
 
@@ -359,7 +385,49 @@ When a creature hits you with an attack, you can use your reaction to attack the
 
 
 
-# 15. - Ironborn Dwarf
+# 16. - Imp
+
+Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
+
+
+## Level 1
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Languages
+
+Common and one language of your choice.
+
+* Move
+
+6◎
+
+
+
+# 17. - Infernal Imp
+
+Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Dexterity +2, Charisma +1
+
+* Fiendish Resistance
+
+You have resistance to Fire and Poison damage.
+
+* Fiendish Trickster
+
+You know the Vicious Mockery cantrip. When you reach level 3, you can cast Invisibility once every long rest. Charisma is your spellcasting ability for these spells.
+
+
+
+# 18. - Ironborn Dwarf
 
 Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance. 
 
@@ -380,7 +448,7 @@ Common, Dwarvish
 
 
 
-# 16. - Kobold
+# 19. - Kobold
 
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -401,7 +469,7 @@ Common, Draconic.
 
 
 
-# 17. - Malakh
+# 20. - Malakh
 
 Malakh are divine creations formed in the shape of men to perform the will of their Deities. When they mature, they are able to take an Angelic Form depending on their nature.
 
@@ -452,7 +520,7 @@ You may choose one of Malakh's Angelic Forms.
 
 
 
-# 18. - Mephistopheles
+# 21. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
@@ -469,7 +537,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 
 
-# 19. - Obsidian Dwarf
+# 22. - Obsidian Dwarf
 
 In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
@@ -490,7 +558,7 @@ Common, Dwarvish, and Giant
 
 
 
-# 20. - Oligath
+# 23. - Oligath
 
 Oligaths share ancestry with the giants that live in the northern regions of Solasta.
 
@@ -531,7 +599,7 @@ When you take damage, you can use your reaction to roll a d12. Add your Constitu
 
 
 
-# 21. - Tiefling
+# 24. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
@@ -556,7 +624,7 @@ You have resistance to fire damage.
 
 
 
-# 22. - Wendigo
+# 25. - Wendigo
 
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
@@ -601,7 +669,7 @@ On the first round of combat, if you hit a creature with an attack roll and it's
 
 
 
-# 23. - Wyrmkin
+# 26. - Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -622,7 +690,7 @@ Common, Draconic.
 
 
 
-# 24. - Zariel
+# 27. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 
