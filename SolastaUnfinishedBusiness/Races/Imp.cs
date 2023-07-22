@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 namespace SolastaUnfinishedBusiness.Races;
@@ -49,6 +48,8 @@ internal class RaceImpBuilder
     {
         var Name = "ImpInfernal";
 
+        var spriteReference = Sprites.GetSprite(Name, Resources.ImpInfernal, 1024, 512);
+
         var featureSetImpInfernalFiendishResistance = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}FiendishResistance")
             .SetGuiPresentation(Category.Feature)
@@ -86,7 +87,7 @@ internal class RaceImpBuilder
         var raceImpInfernal = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{Name}")
             .SetBaseHeight(42)
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, spriteReference)
             .SetFeaturesAtLevel(1,
                 featureSetImpInfernalAbilityScoreIncrease,
                 featureSetImpInfernalFiendishResistance,
@@ -102,6 +103,8 @@ internal class RaceImpBuilder
     private static CharacterRaceDefinition BuildImpForest(CharacterRaceDefinition raceImp)
     {
         var Name = "ImpForest";
+
+        var spriteReference = Sprites.GetSprite(Name, Resources.ImpForest, 1024, 512);
 
         var featureSetImpForestAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AbilityScoreIncrease")
@@ -133,7 +136,7 @@ internal class RaceImpBuilder
 
         var raceImpForest = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{Name}")
-            .SetOrUpdateGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, spriteReference)
             .SetFeaturesAtLevel(1,
                 featureSetImpForestAbilityScoreIncrease,
                 actionAffinityImpForestInnateCunning,
