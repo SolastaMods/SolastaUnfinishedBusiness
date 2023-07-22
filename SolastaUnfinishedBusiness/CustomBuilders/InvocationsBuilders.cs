@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -26,7 +25,7 @@ internal static class InvocationsBuilders
     {
         return InvocationDefinitionBuilder
             .Create("InvocationEldritchSmite")
-            .SetGuiPresentation(Category.Invocation, DatabaseHelper.InvocationDefinitions.EldritchSpear)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
             .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")

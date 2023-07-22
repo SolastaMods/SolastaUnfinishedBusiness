@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -729,7 +728,7 @@ public static class InnovationAlchemy
     private static FeatureDefinition BuildRefundPool(FeatureDefinitionPower powerPool)
     {
         var powerRefundPool = FeatureDefinitionPowerBuilder
-            .Create($"PowerInnovationAlchemyRefundPool")
+            .Create("PowerInnovationAlchemyRefundPool")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainInsightForeknowledge)
             .SetUsesFixed(ActivationTime.BonusAction)
             .AddToDB();
@@ -755,6 +754,33 @@ public static class InnovationAlchemy
         PowerBundle.RegisterPowerBundle(powerRefundPool, false, powerRefundFromSlotList);
 
         return powerRefundPool;
+    }
+
+    private static FeatureDefinition BuildOverchargeFeature()
+    {
+        return FeatureDefinitionBuilder
+            .Create("FeatureInnovationAlchemyOverchargeBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildExtraOverchargeFeature()
+    {
+        return FeatureDefinitionBuilder
+            .Create("FeatureInnovationAlchemyExtraOverchargeBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildMasterOverchargeFeature()
+    {
+        return FeatureDefinitionBuilder
+            .Create("FeatureInnovationAlchemyMasterOverchargeBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddToDB();
     }
 
     private sealed class PowerUseValidityRefundAlchemyPool : IPowerUseValidity
@@ -808,33 +834,6 @@ public static class InnovationAlchemy
             rulesetRepertoire!.SpendSpellSlot(slotLevel);
             rulesetUsablePower.remainingUses += slotLevel;
         }
-    }
-
-    private static FeatureDefinition BuildOverchargeFeature()
-    {
-        return FeatureDefinitionBuilder
-            .Create("FeatureInnovationAlchemyOverchargeBombs")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(OverchargeFeature.Marker)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildExtraOverchargeFeature()
-    {
-        return FeatureDefinitionBuilder
-            .Create("FeatureInnovationAlchemyExtraOverchargeBombs")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(OverchargeFeature.Marker)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildMasterOverchargeFeature()
-    {
-        return FeatureDefinitionBuilder
-            .Create("FeatureInnovationAlchemyMasterOverchargeBombs")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(OverchargeFeature.Marker)
-            .AddToDB();
     }
 
     private sealed class OverchargeFeature

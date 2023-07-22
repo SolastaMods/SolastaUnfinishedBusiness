@@ -745,6 +745,19 @@ internal static class ClassFeats
             this.wildShapeAmount = wildShapeAmount;
         }
 
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var remaining = 0;
+
+            character.GetClassSpellRepertoire(Druid)?
+                .GetSlotsNumber(slotLevel, out remaining, out _);
+
+            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
+                         character.GetRemainingPowerUses(PowerDruidWildShape);
+
+            return remaining > 0 && notMax;
+        }
+
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
             if (power != powerGainWildShapeFromSlot)
@@ -764,19 +777,6 @@ internal static class ClassFeats
             repertoire.SpendSpellSlot(slotLevel);
             character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
         }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var remaining = 0;
-
-            character.GetClassSpellRepertoire(Druid)?
-                .GetSlotsNumber(slotLevel, out remaining, out _);
-
-            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
-                         character.GetRemainingPowerUses(PowerDruidWildShape);
-
-            return remaining > 0 && notMax;
-        }
     }
 
     private sealed class SpendWildShapeUse : IUsePowerFinishedByMe, IPowerUseValidity
@@ -786,6 +786,11 @@ internal static class ClassFeats
         public SpendWildShapeUse(FeatureDefinitionPower powerSpendWildShapeUse)
         {
             this.powerSpendWildShapeUse = powerSpendWildShapeUse;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
@@ -802,11 +807,6 @@ internal static class ClassFeats
             {
                 character.UpdateUsageForPowerPool(1, rulesetUsablePower);
             }
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
         }
     }
 
