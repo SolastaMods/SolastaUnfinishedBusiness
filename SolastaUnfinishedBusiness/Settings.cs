@@ -16,9 +16,6 @@ public sealed class Core
 [XmlRoot(ElementName = "Settings")]
 public class Settings : UnityModManager.ModSettings
 {
-    public bool enumerateOriginSubFeatures;
-    public bool showButtonWithControlledMonsterInfo;
-
     //
     // UI Saved State
     //
@@ -111,12 +108,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
-
-    public bool EnumerateOriginSubFeatures
-    {
-        get => enumerateOriginSubFeatures && EnableBetaContent;
-        set => enumerateOriginSubFeatures = value;
-    }
+    public bool EnumerateOriginSubFeatures { get; set; }
 
     // Progression
     public bool EnablesAsiAndFeat { get; set; }
@@ -342,11 +334,7 @@ public class Settings : UnityModManager.ModSettings
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
 
-    public bool ShowButtonWithControlledMonsterInfo
-    {
-        get => showButtonWithControlledMonsterInfo && EnableBetaContent;
-        set => showButtonWithControlledMonsterInfo = value;
-    }
+    public bool ShowButtonWithControlledMonsterInfo { get; set; }
 
     //
     // Interface - Dungeon Maker

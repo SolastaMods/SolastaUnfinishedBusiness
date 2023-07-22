@@ -217,15 +217,12 @@ internal static class GameUiDisplay
             Main.Settings.AllowFlightSuspend = toggle;
         }
 
-        if (Main.Settings.EnableBetaContent)
-        {
-            UI.Label();
+        UI.Label();
 
-            toggle = Main.Settings.EnableActionSwitching;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableActionSwitching = toggle;
-            }
+        toggle = Main.Settings.EnableActionSwitching;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableActionSwitching = toggle;
         }
 
         toggle = Main.Settings.EnableDistanceOnTooltip;
@@ -391,16 +388,13 @@ internal static class GameUiDisplay
             Main.Settings.RemoveBugVisualModels = toggle;
         }
 
-        if (Main.Settings.EnableBetaContent)
+        toggle = Main.Settings.ShowButtonWithControlledMonsterInfo;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowButtonWithControlledMonsterInfo"), ref toggle, UI.AutoWidth()))
         {
-            toggle = Main.Settings.ShowButtonWithControlledMonsterInfo;
-            if (UI.Toggle(Gui.Localize("ModUi/&ShowButtonWithControlledMonsterInfo"), ref toggle, UI.AutoWidth()))
+            Main.Settings.ShowButtonWithControlledMonsterInfo = toggle;
+            if (!toggle)
             {
-                Main.Settings.ShowButtonWithControlledMonsterInfo = toggle;
-                if (!toggle)
-                {
-                    CustomCharacterStatsPanel.MaybeInstance?.Unbind();
-                }
+                CustomCharacterStatsPanel.MaybeInstance?.Unbind();
             }
         }
 

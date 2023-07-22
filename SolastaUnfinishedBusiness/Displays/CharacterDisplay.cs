@@ -139,13 +139,10 @@ internal static class CharacterDisplay
             CharacterContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
-        if (Main.Settings.EnableBetaContent)
+        toggle = Main.Settings.EnumerateOriginSubFeatures;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
         {
-            toggle = Main.Settings.EnumerateOriginSubFeatures;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnumerateOriginSubFeatures = toggle;
-            }
+            Main.Settings.EnumerateOriginSubFeatures = toggle;
         }
 
         toggle = Main.Settings.EnableBarbarianFightingStyle;
