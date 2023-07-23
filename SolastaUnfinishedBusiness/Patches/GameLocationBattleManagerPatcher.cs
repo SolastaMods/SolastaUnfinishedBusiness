@@ -1205,54 +1205,56 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            if (__instance.battle != null)
+            if (__instance.battle == null)
             {
-                ++defender.SustainedAttacks;
+                yield break;
+            }
 
-                var rulesetCharacter = attacker.RulesetCharacter;
+            ++defender.SustainedAttacks;
 
-                if (rulesetCharacter != null)
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter != null)
+            {
+                foreach (var usablePower in rulesetCharacter.UsablePowers
+                             .Where(usablePower =>
+                                 __instance.CanCharacterUsePower(rulesetCharacter, defender, usablePower) &&
+                                 usablePower.PowerDefinition.ActivationTime ==
+                                 ActivationTime.OnAttackHitMartialArts && attackerAttackMode != null &&
+                                 action.ActionId != ActionDefinitions.Id.AttackReadied &&
+                                 rulesetCharacter.IsWieldingMonkWeapon() &&
+                                 !rulesetCharacter.IsWearingArmor() &&
+                                 !rulesetCharacter.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
+                                 // BEGIN PATCH
+                                 (!rulesetCharacter.IsWearingShield() || rulesetCharacter.HasMonkShieldExpert()) &&
+                                 // END PATCH
+                                 !rulesetCharacter.HasConditionOfType(ConditionMonkDeflectMissile) &&
+                                 !rulesetCharacter.HasConditionOfType(ConditionMonkMartialArtsUnarmedStrikeBonus) &&
+                                 attacker.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
+                                 ActionDefinitions.ActionStatus.Available))
                 {
-                    foreach (var usablePower in rulesetCharacter.UsablePowers)
-                    {
-                        if (__instance.CanCharacterUsePower(rulesetCharacter, defender, usablePower) &&
-                            usablePower.PowerDefinition.ActivationTime ==
-                            ActivationTime.OnAttackHitMartialArts && attackerAttackMode != null &&
-                            action.ActionId != ActionDefinitions.Id.AttackReadied &&
-                            rulesetCharacter.IsWieldingMonkWeapon() &&
-                            !rulesetCharacter.IsWearingArmor() &&
-                            !rulesetCharacter.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
-                            // BEGIN PATCH
-                            (!rulesetCharacter.IsWearingShield() || rulesetCharacter.HasMonkShieldExpert()) &&
-                            // END PATCH
-                            !rulesetCharacter.HasConditionOfType(ConditionMonkDeflectMissile) &&
-                            !rulesetCharacter.HasConditionOfType(ConditionMonkMartialArtsUnarmedStrikeBonus) &&
-                            attacker.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
-                            ActionDefinitions.ActionStatus.Available)
-                        {
-                            __instance.PrepareAndExecuteSpendPowerAction(attacker, defender, usablePower);
-                        }
-                    }
+                    __instance.PrepareAndExecuteSpendPowerAction(attacker, defender, usablePower);
                 }
+            }
 
-                foreach (var opposingContender in __instance.battle.GetOpposingContenders(
-                             attacker.Side))
-                {
-                    if (opposingContender != defender && opposingContender.RulesetCharacter != null &&
-                        !opposingContender.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
-                        opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                        ActionDefinitions.ActionStatus.Available &&
-                        __instance.IsWithin1Cell(opposingContender, defender) &&
-                        opposingContender.GetActionStatus(ActionDefinitions.Id.BlockAttack,
-                            ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) ==
-                        ActionDefinitions.ActionStatus.Available)
-                    {
-                        yield return __instance.PrepareAndReact(
-                            opposingContender, attacker, attacker, ActionDefinitions.Id.BlockAttack, attackModifier,
-                            additionalTargetCharacter: defender);
-                        break;
-                    }
-                }
+            foreach (var opposingContender in __instance.battle
+                         .GetOpposingContenders(attacker.Side)
+                         .Where(opposingContender =>
+                             opposingContender != defender && opposingContender.RulesetCharacter is
+                             {
+                                 IsDeadOrDyingOrUnconscious: false
+                             } &&
+                             opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                             ActionDefinitions.ActionStatus.Available &&
+                             __instance.IsWithin1Cell(opposingContender, defender) &&
+                             opposingContender.GetActionStatus(ActionDefinitions.Id.BlockAttack,
+                                 ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) ==
+                             ActionDefinitions.ActionStatus.Available))
+            {
+                yield return __instance.PrepareAndReact(
+                    opposingContender, attacker, attacker, ActionDefinitions.Id.BlockAttack, attackModifier,
+                    additionalTargetCharacter: defender);
+                break;
             }
         }
 

@@ -654,6 +654,8 @@ internal static class CustomWeaponsContext
         baseDescription.EffectDescription.effectParticleParameters =
             SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters;
 
+        baseDescription.EffectDescription.effectParticleParameters.casterParticleReference = new AssetReference();
+
         ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, 0, true, Common, basePresentation, baseDescription,
             Sprites.ItemThunderGauntlet, properties: new[] { ThunderImpactVFX });
         ThunderGauntlet.inDungeonEditor = false;

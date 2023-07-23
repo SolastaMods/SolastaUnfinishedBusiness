@@ -377,7 +377,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
 
 internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 {
-    internal AddBonusShieldAttack(params IsCharacterValidHandler[] validators) : base(ActionDefinitions.ActionType.Bonus, validators)
+    internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus)
     {
         // Empty
     }

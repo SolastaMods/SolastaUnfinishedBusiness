@@ -1570,9 +1570,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerEyebiteSickened { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerEyebiteSickened");
 
-        internal static FeatureDefinitionPower PowerFeatRaiseShield { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFeatRaiseShield");
-
         internal static FeatureDefinitionPower PowerFiendishResilienceCold { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceCold");
 
