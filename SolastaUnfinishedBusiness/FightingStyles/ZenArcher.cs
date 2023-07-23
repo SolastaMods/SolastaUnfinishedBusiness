@@ -31,10 +31,6 @@ internal class ZenArcher : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        CharacterContext.FightingStyleChoiceMonk,
-        FightingStyleChampionAdditional,
-        FightingStyleFighter,
-        FightingStylePaladin,
-        FightingStyleRanger
+        CharacterContext.FightingStyleChoiceMonk
     };
 }
