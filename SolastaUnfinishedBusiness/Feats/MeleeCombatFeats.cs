@@ -518,6 +518,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Einar)
             .SetCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .SetFeatFamily(GroupFeats.OldTactics)
             .AddToDB();
     }
 
@@ -530,6 +531,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Misaye)
             .SetCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .SetFeatFamily(GroupFeats.OldTactics)
             .AddToDB();
     }
 
