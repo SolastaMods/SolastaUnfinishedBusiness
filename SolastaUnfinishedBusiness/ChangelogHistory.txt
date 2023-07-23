@@ -1,10 +1,10 @@
 ﻿1.5.94.2:
 
 - added Martial Defender subclass
-- added Monastic Shield Training fighting style
-- added Zen Archer fighting style
-- fixed Monk Fighting Style choice to respect fighting style choices on mod UI
-- fixed Old Tactics feat family allowing both versions to be chosen
+- added Monastic Shield Training and Zen Archer fighting styles [only Monks]
+- added SFX to Innovation Armor lightning launcher and thunder gauntlet attacks
+- fixed Monk Fighting Style feature to respect fighting style choices on mod UI
+- fixed Old Tactics missing feat family allowing both versions to be chosen
 - fixed Sunlit Blade not allowing reach weapons to attack further than 5 ft
 
 1.5.94.1:
