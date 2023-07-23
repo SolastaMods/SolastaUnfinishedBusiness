@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -33,7 +34,10 @@ internal sealed class Pugilist : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
+        CharacterContext.FightingStyleChoiceMonk,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStyleRanger
     };
 
     private sealed class AdditionalUnarmedDice : IModifyWeaponAttackMode

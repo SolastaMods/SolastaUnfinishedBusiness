@@ -31,7 +31,11 @@ internal sealed class Sentinel : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
+        CharacterContext.FightingStyleChoiceMonk,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStylePaladin,
+        FightingStyleRanger
     };
 
     private sealed class OnPhysicalAttackHitFeatSentinel : IPhysicalAttackAfterDamage
