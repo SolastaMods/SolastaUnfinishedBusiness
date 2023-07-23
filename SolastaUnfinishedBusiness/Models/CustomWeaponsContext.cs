@@ -651,6 +651,9 @@ internal static class CustomWeaponsContext
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build());
 
+        baseDescription.EffectDescription.effectParticleParameters =
+            SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters;
+
         ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, 0, true, Common, basePresentation, baseDescription,
             Sprites.ItemThunderGauntlet, properties: new[] { ThunderImpactVFX });
         ThunderGauntlet.inDungeonEditor = false;
@@ -687,6 +690,9 @@ internal static class CustomWeaponsContext
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .AddToDB(), ConditionForm.ConditionOperation.Add, true)
             .Build());
+
+        baseDescription.EffectDescription.effectParticleParameters =
+            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters;
 
         LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, 0, true, Common, basePresentation,
             baseDescription, Sprites.ItemGemLightning, properties: new[] { LightningImpactVFX });
