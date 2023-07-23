@@ -52,6 +52,7 @@ internal static class SubclassesContext
 
         // Fighter
         LoadSubclass(new MartialArcaneArcher());
+        LoadSubclass(new MartialDefender());
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
