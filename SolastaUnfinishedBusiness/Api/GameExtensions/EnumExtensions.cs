@@ -27,7 +27,8 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithoutShield = 1011,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012,
     TargetIsFavoriteEnemy = 1013,
-    HasShieldInHands = 1014
+    HasShieldInHands = 1014,
+    TargetDoesNotHaveCondition = 1015
 }
 
 internal enum ExtraCombatAffinityValueDetermination
