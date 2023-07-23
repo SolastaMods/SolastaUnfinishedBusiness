@@ -5,6 +5,7 @@
 - added Zen Archer fighting style
 - fixed Monk Fighting Style choice to respect fighting style choices on mod UI
 - fixed Old Tactics feat family allowing both versions to be chosen
+- fixed Sunlit Blade not allowing reach weapons to attack further than 5 ft
 
 1.5.94.1:
 

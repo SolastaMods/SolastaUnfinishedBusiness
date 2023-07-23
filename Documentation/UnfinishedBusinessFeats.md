@@ -297,213 +297,221 @@ You learn two metamagic options of your choice from the sorcerer class and gain 
 
 You are exceptionally speedy and agile. Your speed increases by 10 ft and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 
-# 65. - Monk Initiate
+# 65. - Monastic Shield Training
+
+You gain Shield proficiency, and they don't stop you from making unarmed attacks with that hand. In addition, all your monk abilities work even when wielding a Shield.
+
+# 66. - Monk Initiate
 
 You have learned some of the ways of the monk. You gain Ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
 
-# 66. - Natural Fluidity
+# 67. - Natural Fluidity
 
 You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
 
-# 67. - Old Tactics
+# 68. - Old Tactics
 
 Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.
 
-# 68. - Peregrination Touched
+# 69. - Peregrination Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
 
-# 69. - Pickpocket
+# 70. - Pickpocket
 
 You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 
-# 70. - Piercer
+# 71. - Piercer
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 
-# 71. - Poison Expert
+# 72. - Poison Expert
 
 You have a profound understanding on how to manipulate poisons:
 • You gain proficiency with the poisoner's kit, or expertise if already proficient.
 • You gain the ability to apply a poison to your weapon as a bonus action.
 • You add twice your proficiency bonus to any ability checks you make to craft poisons and you craft them in half of the time.
 
-# 72. - Poisonous Skin
+# 73. - Poisonous Skin
 
 Any creature that hits you in melee or is hit by your unarmed attack, shoves you or is shoved by you needs to succeed on Constitution saving throw against DC 8 + your Proficiency Bonus + your Constitution modifier or become Poisoned for 1 minute.
 
-# 73. - Polearm Expert
+# 74. - Polearm Expert
 
 Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
 
-# 74. - Potent Spellcaster
+# 75. - Potent Spellcaster
 
 You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.
 
-# 75. - Power Attack
+# 76. - Power Attack
 
 You have learned to trade accuracy to land deadlier blows. When attacking unarmed or with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 
-# 76. - Precision Focused
+# 77. - Precision Focused
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 
-# 77. - Primal Rage
+# 78. - Primal Rage
 
 Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
 
-# 78. - Protection
+# 79. - Protection
 
 When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 
-# 79. - Pugilist
+# 80. - Pugilist
 
 Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 
-# 80. - Ranged Expert
+# 81. - Ranged Expert
 
 Your expert training with ranged weapons grants you these benefits:
 • Attacks at melee range don't impose disadvantage.
 • If you take the attack action on your turn, you can make one one-handed ranged bonus attack adding your attribute modifier to damage.
 
-# 81. - Reckless Attack
+# 82. - Reckless Attack
 
 Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 
-# 82. - Retinue Touched
+# 83. - Retinue Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.
 
-# 83. - Revenant Great Sword
+# 84. - Revenant Great Sword
 
 You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity or Strength score by 1, to a maximum of 20.
 • While you are holding a great sword, you gain a +1 bonus to armor class.
 • Great sword has the finesse property when you wield it.
 
-# 84. - Rope it Up
+# 85. - Rope it Up
 
 Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
 
-# 85. - Savage Attack
+# 86. - Savage Attack
 
 Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 
-# 86. - Scriber
+# 87. - Scriber
 
 Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
 
-# 87. - Sentinel
+# 88. - Sentinel
 
 You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
 • You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
 
-# 88. - Shadow Touched
+# 89. - Shadow Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 
-# 89. - Shield Expert
+# 90. - Shield Expert
 
 You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 
-# 90. - Slasher
+# 91. - Slasher
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 
-# 91. - Slay thy Enemies
+# 92. - Slay thy Enemies
 
 You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. Against favored enemies you gain advantage on attack rolls instead pf attack roll bonus. This effect lasts for 2 rounds, plus 1 round per slot level used.
 
-# 92. - Spear Mastery
+# 93. - Spear Mastery
 
 Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 
-# 93. - Spell Sniper
+# 94. - Spell Sniper
 
 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 
-# 94. - Spiritual Fluidity
+# 95. - Spiritual Fluidity
 
 You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
 
-# 95. - Squat Nimbleness
+# 96. - Squat Nimbleness
 
 You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
-# 96. - Steady Aim
+# 97. - Steady Aim
 
 Increase your Dexterity by 1, to a maximum of 20. As a bonus action, you give yourself advantage on your next attack roll on the current turn. You can use this bonus action only if you haven't moved during this turn, and after you use the bonus action, your speed is 0 until the end of the current turn.
 
-# 97. - Superior Critical
+# 98. - Superior Critical
 
 Your critical threshold is lowered by 1.
 
-# 98. - Tactician Adept
+# 99. - Tactician Adept
 
 You have martial training that allows you to perform special combat maneuvers:
 • You learn two maneuvers of your choice from the Tactician subclass. If the maneuver requires a saving throw, the DC is equal to 8 + your proficiency bonus + your Intelligence modifier.
 • You gain 2 superiority die. The type is a d4, and it doesn't increase, if you are not a Tactician. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 
-# 99. - Telekinetic
+# 100. - Telekinetic
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
 
-# 100. - Torchbearer
+# 101. - Torchbearer
 
 You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 3 turns or until extinguished.
 
-# 101. - Tough
+# 102. - Tough
 
 Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 
-# 102. - Toxicologist
+# 103. - Toxicologist
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 
-# 103. - Two Weapon Fighting
+# 104. - Two Weapon Fighting
 
 When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 
-# 104. - Unarmored Expert
+# 105. - Unarmored Expert
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
 
-# 105. - Verdant Touched
+# 106. - Verdant Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 
-# 106. - War Caster
+# 107. - War Caster
 
 You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 
-# 107. - Wise Defense
+# 108. - Wise Defense
 
 Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Wisdom modifier.
 
-# 108. - Wise Precision
+# 109. - Wise Precision
 
 Increase your Wisdom by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
+
+# 110. - Zen Archer
+
+Your intuition guides your hand when using a Longbow, Shortbow or Hand Crossbow. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
 
 
