@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
 using static ActionDefinitions;
 using static RuleDefinitions;
 
@@ -571,5 +572,12 @@ internal static class RulesetCharacterExtensions
         return character.AllConditions
             .Any(condition => condition.ConditionDefinition.IsSubtypeOf(conditionName) &&
                               condition.DurationType != DurationType.Permanent);
+    }
+
+    internal static bool HasMonkShieldExpert(this RulesetCharacter character)
+    {
+        var hero = character.GetOriginalHero();
+
+        return hero != null && hero.TrainedFightingStyles.Any(x => x.Name == MonkShieldExpert.ShieldExpertName);
     }
 }

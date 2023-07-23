@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
@@ -36,7 +37,11 @@ internal sealed class Executioner : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
+        CharacterContext.FightingStyleChoiceMonk,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStylePaladin,
+        FightingStyleRanger
     };
 
     private sealed class CustomAdditionalDamageExecutioner : CustomAdditionalDamage

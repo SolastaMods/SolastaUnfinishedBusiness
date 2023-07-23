@@ -338,9 +338,16 @@ internal static class PowerBundle
 
         //collect all valid modifiers from caster
         var result = original;
-        var modifiers = caster.GetSubFeaturesByType<IModifyEffectDescription>()
-            .Where(x => x.IsValid(definition, caster, result))
-            .ToList();
+        var modifiers = new List<IModifyEffectDescription>();
+
+        // caster doesn't collect modifiers from spells so add it directly here
+        if (definition is SpellDefinition)
+        {
+            modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyEffectDescription>());
+        }
+
+        modifiers.AddRange(caster.GetSubFeaturesByType<IModifyEffectDescription>()
+            .Where(x => x.IsValid(definition, caster, result)));
 
         if (metamagic != null)
         {

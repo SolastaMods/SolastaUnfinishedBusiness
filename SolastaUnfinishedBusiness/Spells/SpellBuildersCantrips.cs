@@ -769,7 +769,7 @@ internal static partial class SpellBuilders
             .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
-        return SpellDefinitionBuilder
+        var spell = SpellDefinitionBuilder
             .Create("SunlightBlade")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
             .SetSpellLevel(0)
@@ -777,9 +777,6 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(false)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCustomSubFeatures(
-                AttackAfterMagicEffect.MeleeAttackCanTwin,
-                new UpgradeRangeBasedOnWeaponReach())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
@@ -790,7 +787,9 @@ internal static partial class SpellBuilders
                     additionalDicePerIncrement: 1,
                     incrementMultiplier: 1)
                 .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(EffectFormBuilder.Create()
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
                         .HasSavingThrow(EffectSavingThrowType.None)
                         .SetConditionForm(
                             ConditionDefinitionBuilder
@@ -822,17 +821,29 @@ internal static partial class SpellBuilders
                         .Build())
                 .Build())
             .AddToDB();
-    }
 
+        spell.SetCustomSubFeatures(
+            AttackAfterMagicEffect.MeleeAttackCanTwin,
+            new UpgradeRangeBasedOnWeaponReach(spell));
+
+        return spell;
+    }
 
     private sealed class UpgradeRangeBasedOnWeaponReach : IModifyEffectDescription
     {
+        private readonly BaseDefinition _baseDefinition;
+
+        public UpgradeRangeBasedOnWeaponReach(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            if (character is not RulesetCharacterHero)
+            if (_baseDefinition != definition)
             {
                 return false;
             }
@@ -863,23 +874,7 @@ internal static partial class SpellBuilders
         {
             var caster = GameLocationCharacter.GetFromActor(character);
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode is not { SourceObject: RulesetItem })
-            {
-                return effectDescription;
-            }
-
-            if (attackMode.Ranged || !attackMode.Reach)
-            {
-                return effectDescription;
-            }
-
             var reach = attackMode.reachRange;
-
-            if (reach <= 1)
-            {
-                return effectDescription;
-            }
 
             effectDescription.rangeParameter = reach;
 

@@ -74,6 +74,23 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow =>
                 MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(contextParams),
 
+            ExtraSituationalContext.HasShieldInHands => contextParams.source.IsWearingShield(),
+
+            ExtraSituationalContext.TargetDoesNotHaveCondition => contextParams.condition != null &&
+                                                                  !contextParams.target.HasConditionOfType(contextParams
+                                                                      .condition),
+
+            // supports Monk Shield Expert scenarios
+            (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
+                !contextParams.source.IsWearingArmor() &&
+                (!contextParams.source.IsWearingShield() || contextParams.source.HasMonkShieldExpert()),
+
+            // supports Monk Shield Expert scenarios
+            (ExtraSituationalContext)SituationalContext.NotWearingArmorOrMageArmorOrShield =>
+                !contextParams.source.IsWearingArmor() &&
+                !contextParams.source.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
+                (!contextParams.source.IsWearingShield() || contextParams.source.HasMonkShieldExpert()),
+
             _ => def
         };
     }

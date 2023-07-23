@@ -58,7 +58,7 @@ internal static class CharacterContext
                 "RopeItUp")
             .AddToDB();
 
-    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceMonk =
+    internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceMonk =
         FeatureDefinitionFightingStyleChoiceBuilder
             .Create("FightingStyleChoiceMonk")
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
@@ -69,6 +69,7 @@ internal static class CharacterContext
                 "Dueling",
                 "Executioner",
                 "Lunger",
+                "MonkShieldExpert",
                 "Pugilist",
                 "RopeItUp",
                 "Sentinel")
@@ -1227,10 +1228,14 @@ internal static class CharacterContext
             bool rangedAttack, RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
+            var hero = character.GetOriginalHero();
+            var attackModeWeaponType =
+                (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition;
+
             return (OperationType.Or,
-                character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(x =>
-                    x._weaponTypeDefinition ==
-                    (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition));
+                hero.HasMonkShieldExpert() ||
+                character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(
+                    x => x._weaponTypeDefinition == attackModeWeaponType));
         }
     }
 

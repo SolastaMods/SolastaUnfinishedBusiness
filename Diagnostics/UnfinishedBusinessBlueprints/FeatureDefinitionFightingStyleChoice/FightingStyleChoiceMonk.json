@@ -2,14 +2,7 @@
   "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
   "fightingStyles": [
     "Archery",
-    "BlindFighting",
-    "Crippling",
-    "Dueling",
-    "Executioner",
-    "Lunger",
-    "Pugilist",
-    "RopeItUp",
-    "Sentinel"
+    "Dueling"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

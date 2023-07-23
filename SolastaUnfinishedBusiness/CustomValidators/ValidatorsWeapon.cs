@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
@@ -109,6 +110,16 @@ internal static class ValidatorsWeapon
         }
 
         return !attackMode.Ranged;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsShield(
+        RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter rulesetCharacter)
+    {
+        return (attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
+                IsShield(itemDefinition)) ||
+               IsShield(rulesetItem) ||
+               IsShield(rulesetCharacter?.GetOffhandWeapon());
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

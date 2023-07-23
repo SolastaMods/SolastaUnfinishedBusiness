@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
@@ -21,6 +22,10 @@ internal class BlindFighting : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
+        CharacterContext.FightingStyleChoiceMonk,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStylePaladin,
+        FightingStyleRanger
     };
 }
