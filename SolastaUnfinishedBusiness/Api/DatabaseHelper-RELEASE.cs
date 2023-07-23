@@ -2004,6 +2004,9 @@ internal static partial class DatabaseHelper
 
     internal static class FightingStyleDefinitions
     {
+        internal static FightingStyleDefinition Archery { get; } =
+            GetDefinition<FightingStyleDefinition>("Archery");
+
         internal static FightingStyleDefinition TwoWeapon { get; } =
             GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }
