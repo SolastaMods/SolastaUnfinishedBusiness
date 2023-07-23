@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureMartialDefenderReactiveAegisTitle",
-    "description": "Feature/&FeatureMartialDefenderReactiveAegisDescription",
+    "title": "Feature/&FeatureMartialDefenderBrutalAegisTitle",
+    "description": "Feature/&FeatureMartialDefenderBrutalAegisDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a6bd348e-bb49-5d57-b9f2-a742d9983d1a",
+  "guid": "eaeb4924-1762-5755-88de-fa4f7f8b1367",
   "contentPack": 9999,
-  "name": "FeatureMartialDefenderReactiveAegis"
+  "name": "FeatureMartialDefenderBrutalAegis"
 }

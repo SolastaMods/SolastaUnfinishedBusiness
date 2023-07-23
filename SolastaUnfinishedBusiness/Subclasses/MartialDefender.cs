@@ -135,12 +135,13 @@ internal sealed class MartialDefender : AbstractSubclass
 
         // LEVEL 15
 
-        // Reactive Aegis
+        // Brutal Aegis
 
-        var featureReactiveAegis = FeatureDefinitionBuilder
-            .Create($"Feature{Name}ReactiveAegis")
+        var featureBrutalAegis = FeatureDefinitionBuilder
+            .Create($"Feature{Name}BrutalAegis")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ActionFinishedByMeReactiveAegis())
+            .SetCustomSubFeatures(new UpgradeWeaponDice(
+                (_, damage) => (damage.diceNumber, DieType.D6, DieType.D6), ValidatorsWeapon.IsShield))
             .AddToDB();
 
         // LEVEL 18
@@ -161,7 +162,6 @@ internal sealed class MartialDefender : AbstractSubclass
             .SetGuiPresentation($"Feature{Name}AegisParagon", Category.Feature)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddFeatures(additionalActionAegisParagon)
             .AddToDB();
 
@@ -193,7 +193,7 @@ internal sealed class MartialDefender : AbstractSubclass
                 attributeModifierShieldMastery,
                 powerAegisAssault)
             .AddFeaturesAtLevel(15,
-                featureReactiveAegis)
+                featureBrutalAegis)
             .AddFeaturesAtLevel(18,
                 attributeModifierShieldMastery,
                 featureAegisParagon)
@@ -306,6 +306,13 @@ internal sealed class MartialDefender : AbstractSubclass
 
     private sealed class ActionFinishedByMeReactiveAegis : IActionFinishedByMe
     {
+        private readonly ConditionDefinition _conditionReactiveAegis;
+
+        public ActionFinishedByMeReactiveAegis(ConditionDefinition conditionReactiveAegis)
+        {
+            _conditionReactiveAegis = conditionReactiveAegis;
+        }
+
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionType != ActionDefinitions.ActionType.Reaction)
@@ -313,18 +320,30 @@ internal sealed class MartialDefender : AbstractSubclass
                 yield break;
             }
 
-            var actionId = characterAction.ActionId;
+            var rulesetAttacker = characterAction.ActingCharacter.RulesetCharacter;
 
-            if (actionId != ActionDefinitions.Id.BlockAttack &&
+            if (characterAction.ActionId != ActionDefinitions.Id.BlockAttack &&
                 (characterAction.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                  rulesetEffectPower.PowerDefinition != FeatureDefinitionPowers.PowerFeatRaiseShield))
             {
+                rulesetAttacker.RemoveAllConditionsOfType(_conditionReactiveAegis.Name);
+
                 yield break;
             }
 
-            var character = characterAction.ActingCharacter;
-
-            character.RefundActionUse(ActionDefinitions.ActionType.Reaction);
+            rulesetAttacker.InflictCondition(
+                _conditionReactiveAegis.Name,
+                _conditionReactiveAegis.DurationType,
+                _conditionReactiveAegis.DurationParameter,
+                _conditionReactiveAegis.turnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }
