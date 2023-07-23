@@ -74,6 +74,8 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow =>
                 MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(contextParams),
 
+            ExtraSituationalContext.HasShieldInHands => contextParams.source.IsWearingShield(),
+
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
                 !contextParams.source.IsWearingArmor() &&
