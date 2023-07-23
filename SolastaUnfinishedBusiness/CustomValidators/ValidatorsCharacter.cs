@@ -166,6 +166,18 @@ internal static class ValidatorsCharacter
                    !gameLocationCharacter.OncePerTurnIsValid(weaponTypeDefinition.Name);
         };
     }
+    
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static IsCharacterValidHandler HasUsedWeaponType(ArmorTypeDefinition armorTypeDefinition)
+    {
+        return character =>
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null &&
+                   !gameLocationCharacter.OncePerTurnIsValid(armorTypeDefinition.Name);
+        };
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static void RegisterWeaponTypeUsed(
