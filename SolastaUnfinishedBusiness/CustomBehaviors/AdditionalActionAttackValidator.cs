@@ -19,6 +19,9 @@ internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidato
     internal static readonly IAdditionalActionAttackValidator TwoHandedRanged =
         new AdditionalActionAttackValidator(ValidatorsWeapon.IsTwoHandedRanged);
 
+    internal static readonly IAdditionalActionAttackValidator Shield =
+        new AdditionalActionAttackValidator(ValidatorsWeapon.IsShield);
+
     private readonly IsWeaponValidHandler validator;
 
     private AdditionalActionAttackValidator(IsWeaponValidHandler validator)

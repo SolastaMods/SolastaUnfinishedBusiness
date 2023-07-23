@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -10,7 +11,6 @@ using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -120,7 +120,7 @@ internal sealed class MartialDefender : AbstractSubclass
 
         // Aegis Assault
 
-        var powerShieldAttackExpert = FeatureDefinitionPowerBuilder
+        var powerAegisAssault = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AegisAssault")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
@@ -132,10 +132,6 @@ internal sealed class MartialDefender : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.MotionForm(MotionForm.MotionType.FallProne))
                     .Build())
             .AddToDB();
-
-        powerShieldAttackExpert.SetCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
-            new PhysicalAttackFinishedByMeAegisAssault(powerShieldAttackExpert));
 
         // LEVEL 15
 
@@ -151,11 +147,35 @@ internal sealed class MartialDefender : AbstractSubclass
 
         // Aegis Paragon
 
+        var additionalActionAegisParagon = FeatureDefinitionAdditionalActionBuilder
+            .Create($"AdditionalAction{Name}AegisParagon")
+            .SetGuiPresentation($"Feature{Name}AegisParagon", Category.Feature)
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+            .SetMaxAttacksNumber(-1)
+            .SetCustomSubFeatures(AdditionalActionAttackValidator.Shield)
+            .AddToDB();
+
+        var conditionAegisParagon = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AegisParagon")
+            .SetGuiPresentation($"Feature{Name}AegisParagon", Category.Feature)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddFeatures(additionalActionAegisParagon)
+            .AddToDB();
+
         var featureAegisParagon = FeatureDefinitionBuilder
             .Create($"Feature{Name}AegisParagon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AddBonusShieldAttack(ValidatorsCharacter.HasUsedWeaponType(ShieldType)))
+            .SetCustomSubFeatures()
             .AddToDB();
+
+        // BEHAVIORS
+
+        powerAegisAssault.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            new PhysicalAttackFinishedByMeAegisAssault(powerAegisAssault, conditionAegisParagon));
 
         // MAIN
 
@@ -171,7 +191,7 @@ internal sealed class MartialDefender : AbstractSubclass
                 powerShoutOfProvocation)
             .AddFeaturesAtLevel(10,
                 attributeModifierShieldMastery,
-                powerShieldAttackExpert)
+                powerAegisAssault)
             .AddFeaturesAtLevel(15,
                 featureReactiveAegis)
             .AddFeaturesAtLevel(18,
@@ -189,16 +209,20 @@ internal sealed class MartialDefender : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Aegis Assault
+    // Aegis Assault / Aegis Paragon
     //
 
     private sealed class PhysicalAttackFinishedByMeAegisAssault : IPhysicalAttackFinishedByMe
     {
+        private readonly ConditionDefinition _conditionAegisParagon;
         private readonly FeatureDefinitionPower _powerAegisAssault;
 
-        public PhysicalAttackFinishedByMeAegisAssault(FeatureDefinitionPower powerAegisAssault)
+        public PhysicalAttackFinishedByMeAegisAssault(
+            FeatureDefinitionPower powerAegisAssault,
+            ConditionDefinition conditionAegisParagon)
         {
             _powerAegisAssault = powerAegisAssault;
+            _conditionAegisParagon = conditionAegisParagon;
         }
 
         public IEnumerator OnAttackFinishedByMe(
@@ -210,6 +234,10 @@ internal sealed class MartialDefender : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
+            //
+            // Validators
+            //
+
             if (attackRollOutcome != RollOutcome.Success && attackRollOutcome != RollOutcome.CriticalSuccess)
             {
                 yield break;
@@ -221,10 +249,44 @@ internal sealed class MartialDefender : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            //
+            // Aegis Paragon
+            //
+
+            var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
+
+            if (levels >= 18 && attacker.OncePerTurnIsValid("AegisParagon"))
+            {
+                attacker.UsedSpecialFeatures.TryAdd("AegisParagon", 1);
+
+                rulesetAttacker.InflictCondition(
+                    _conditionAegisParagon.Name,
+                    _conditionAegisParagon.DurationType,
+                    _conditionAegisParagon.DurationParameter,
+                    _conditionAegisParagon.turnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
+
+            //
+            // Aegis Assault
+            //
+
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -251,11 +313,18 @@ internal sealed class MartialDefender : AbstractSubclass
                 yield break;
             }
 
-            var attackMode = characterAction.actionParams.attackMode;
+            var actionId = characterAction.ActionId;
 
-            if (!ValidatorsWeapon.IsShield(attackMode.SourceDefinition as ItemDefinition))
+            if (actionId != ActionDefinitions.Id.BlockAttack &&
+                (characterAction.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                 rulesetEffectPower.PowerDefinition != FeatureDefinitionPowers.PowerFeatRaiseShield))
             {
+                yield break;
             }
+
+            var character = characterAction.ActingCharacter;
+
+            character.RefundActionUse(ActionDefinitions.ActionType.Reaction);
         }
     }
 }

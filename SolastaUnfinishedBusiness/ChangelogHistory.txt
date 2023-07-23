@@ -1,5 +1,6 @@
 ﻿1.5.94.2:
 
+- added Martial Defender subclass
 - added Monastic Shield Training fighting style
 - added Zen Archer fighting style
 - fixed Monk Fighting Style choice to respect fighting style choices on mod UI
