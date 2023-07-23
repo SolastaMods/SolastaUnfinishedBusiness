@@ -52,7 +52,7 @@ internal static class TwoWeaponCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
-                    .SetMaxAttacksNumber(1)
+                    .SetMaxAttacksNumber(-1)
                     .AddToDB())
             .AddToDB();
 

@@ -6,7 +6,7 @@
   "restrictedActions": [
     "AttackOff"
   ],
-  "maxAttacksNumber": 1,
+  "maxAttacksNumber": -1,
   "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
