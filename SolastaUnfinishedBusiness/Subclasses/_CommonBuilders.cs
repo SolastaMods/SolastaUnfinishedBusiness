@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
@@ -155,6 +156,7 @@ internal static class CommonBuilders
         return mode.ActionType != ActionDefinitions.ActionType.Bonus ||
                ValidatorsWeapon.IsPolearmType(mode) ||
                ValidatorsWeapon.IsTwoHandedRanged(mode) ||
+               hero.TrainedFeats.Contains(MeleeCombatFeats.FeatFencer) ||
                hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
     }
 
