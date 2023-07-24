@@ -27,7 +27,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 internal static class MeleeCombatFeats
 {
     internal static FeatDefinition FeatFencer;
-    
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAlwaysReady = BuildAlwaysReady();
