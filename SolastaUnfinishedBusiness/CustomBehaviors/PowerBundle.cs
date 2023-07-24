@@ -343,7 +343,8 @@ internal static class PowerBundle
         // caster doesn't collect modifiers from spells so add it directly here
         if (definition is SpellDefinition)
         {
-            modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyEffectDescription>());
+            modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyEffectDescription>()
+                .Where(x => x.IsValid(definition, caster, result)));
         }
 
         modifiers.AddRange(caster.GetSubFeaturesByType<IModifyEffectDescription>()
