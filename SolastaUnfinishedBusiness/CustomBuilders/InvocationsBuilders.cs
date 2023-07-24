@@ -91,6 +91,23 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildVerdantArmor()
+    {
+        const string NAME = "InvocationVerdantArmor";
+
+        var barkskinNoConcentration = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Barkskin, "BarkskinNoConcentration")
+            .SetRequiresConcentration(false)
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, barkskinNoConcentration)
+            .SetRequirements(level: 5)
+            .SetGrantedSpell(barkskinNoConcentration, longRestRecharge: true)
+            .AddToDB();
+    }
+
     internal static InvocationDefinition BuildCallOfTheBeast()
     {
         const string NAME = "InvocationCallOfTheBeast";
@@ -361,9 +378,8 @@ internal static class InvocationsBuilders
 
         var spellStasis = SpellDefinitionBuilder
             .Create(SpellDefinitions.Slow, "Stasis")
+            .SetRequiresConcentration(false)
             .AddToDB();
-
-        spellStasis.requiresConcentration = false;
 
         return InvocationDefinitionBuilder
             .Create(NAME)

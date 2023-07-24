@@ -1,10 +1,12 @@
 ﻿1.5.94.3:
 
 - added Hand XBows to Crossbow Mastery feat
+- added Verdant Armor invocation at 5th [Barkskin, no concentration, once per long rest]
 - fixed Empowered Weapons interaction with Fencer feat
 - fixed Fade Away missing reaction translation terms
 - fixed game soft locks introduced by a wrong fix on previous version
 - fixed Hand XBow to be a simple weapon instead of a martial one
+- fixed mod booting under Korean language
 
 1.5.94.2:
 
