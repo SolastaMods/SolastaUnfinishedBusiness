@@ -486,7 +486,7 @@ internal static class CustomWeaponsContext
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
-            .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
+            .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();
 
@@ -651,10 +651,11 @@ internal static class CustomWeaponsContext
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build());
 
-        baseDescription.EffectDescription.effectParticleParameters =
-            SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters;
+        var effectParticleParameters = new EffectParticleParameters();
 
-        baseDescription.EffectDescription.effectParticleParameters.casterParticleReference = new AssetReference();
+        effectParticleParameters.Copy(SpellDefinitions.Shatter.EffectDescription.EffectParticleParameters);
+        effectParticleParameters.casterParticleReference = new AssetReference();
+        baseDescription.EffectDescription.effectParticleParameters = effectParticleParameters;
 
         ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, 0, true, Common, basePresentation, baseDescription,
             Sprites.ItemThunderGauntlet, properties: new[] { ThunderImpactVFX });

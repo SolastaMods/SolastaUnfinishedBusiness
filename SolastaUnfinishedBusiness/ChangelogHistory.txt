@@ -1,4 +1,12 @@
-﻿1.5.94.2:
+﻿1.5.94.3:
+
+- added Hand XBows to Crossbow Mastery feat
+- fixed Empowered Weapons interaction with Fencer feat
+- fixed Fade Away missing reaction translation terms
+- fixed game soft locks introduced by a wrong fix on previous version
+- fixed Hand XBow to be a simple weapon instead of a martial one
+
+1.5.94.2:
 
 - added Martial Defender subclass
 - added Monastic Shield Training and Zen Archer fighting styles [only Monks]

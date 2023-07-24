@@ -90,7 +90,11 @@ internal static class RangedCombatFeats
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(LightCrossbowType),
-                            ValidatorsCharacter.HasUsedWeaponType(LightCrossbowType)))
+                            ValidatorsCharacter.HasUsedWeaponType(LightCrossbowType)),
+                        new AddExtraRangedAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                            ValidatorsCharacter.HasUsedWeaponType(CustomWeaponsContext.HandXbowWeaponType)))
                     .AddToDB())
             .AddToDB();
     }
