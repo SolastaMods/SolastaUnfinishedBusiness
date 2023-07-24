@@ -70,7 +70,8 @@ internal static class RangedCombatFeats
     {
         const string NAME = "FeatCrossbowMastery";
 
-        var isCrossbow = ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType, LightCrossbowType);
+        var isCrossbow = ValidatorsWeapon.IsOfWeaponType(
+            HeavyCrossbowType, LightCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
 
         return FeatDefinitionBuilder
             .Create(NAME)
@@ -89,7 +90,11 @@ internal static class RangedCombatFeats
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(LightCrossbowType),
-                            ValidatorsCharacter.HasUsedWeaponType(LightCrossbowType)))
+                            ValidatorsCharacter.HasUsedWeaponType(LightCrossbowType)),
+                        new AddExtraRangedAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                            ValidatorsCharacter.HasUsedWeaponType(CustomWeaponsContext.HandXbowWeaponType)))
                     .AddToDB())
             .AddToDB();
     }

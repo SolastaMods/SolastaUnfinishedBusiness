@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=Sie sind für Ihre Rasse ungewöhnlich f
 Feat/&FeatSquatNimblenessStrTitle=Gedränge-Flinkheit [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Solange du ein Großschwert trägst, erhältst du einen Bonus von +1 auf die Rüstungsklasse.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Wiedergänger-Großschwert
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Nutzen Sie Ihre Reaktion, um unsichtbar zu werden.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Nutzen Sie Ihre Reaktion, um unsichtbar zu werden.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Verblassen
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Verblassen

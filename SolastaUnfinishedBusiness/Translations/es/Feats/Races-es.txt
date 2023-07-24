@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=Eres extraordinariamente ágil para tu r
 Feat/&FeatSquatNimblenessStrTitle=Agilidad en sentadillas [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Mientras sostienes una gran espada, obtienes una bonificación de +1 a la clase de armadura.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Gran espada de resucitado
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Usa tu reacción para volverte invisible.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Usa tu reacción para volverte invisible.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Desvanecerse
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Desvanecerse

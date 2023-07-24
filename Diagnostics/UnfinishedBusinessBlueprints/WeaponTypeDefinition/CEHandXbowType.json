@@ -1,6 +1,6 @@
 {
   "$type": "WeaponTypeDefinition, Assembly-CSharp",
-  "weaponCategory": "MartialWeaponCategory",
+  "weaponCategory": "SimpleWeaponCategory",
   "weaponProximity": "Range",
   "isBow": false,
   "isCrossbow": true,

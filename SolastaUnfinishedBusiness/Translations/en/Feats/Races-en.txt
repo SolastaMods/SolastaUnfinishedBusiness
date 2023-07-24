@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=You are uncommonly nimble for your race.
 Feat/&FeatSquatNimblenessStrTitle=Squat Nimbleness [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=While you are holding a great sword, you gain a +1 bonus to armor class.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Revenant Great Sword
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Use your reaction to become invisible.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Use your reaction to become invisible.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Fade Away
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Fade Away

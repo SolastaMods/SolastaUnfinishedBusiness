@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=Вы необычайно проворн
 Feat/&FeatSquatNimblenessStrTitle=Низкорослое проворство [СИЛ]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Пока вы держите двуручный меч, вы получаете бонус +1 к классу доспеха.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Призрак двуручного меча
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Используйте свою реакцию, чтобы стать невидимым.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Используйте свою реакцию, чтобы стать невидимым.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Исчезать
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Исчезать

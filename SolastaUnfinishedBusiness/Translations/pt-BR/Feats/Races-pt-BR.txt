@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=Você é extraordinariamente ágil para 
 Feat/&FeatSquatNimblenessStrTitle=Agilidade no agachamento [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Enquanto estiver segurando uma grande espada, você ganha um bônus de +1 na classe de armadura.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Grande Espada Revenant
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Use sua reação para se tornar invisível.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Use sua reação para se tornar invisível.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Desaparecer
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Desaparecer

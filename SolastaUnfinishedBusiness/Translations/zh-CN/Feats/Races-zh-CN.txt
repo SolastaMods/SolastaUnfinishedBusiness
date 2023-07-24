@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=你在你的种族中异常敏捷。将�
 Feat/&FeatSquatNimblenessStrTitle=下盘灵巧 [力量]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=当你手持一把大剑时，你的护甲等级(AC)获得+1加值。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=英魂之刃
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=利用你的反应来变得隐形。
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=利用你的反应来变得隐形。
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=淡出
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=淡出

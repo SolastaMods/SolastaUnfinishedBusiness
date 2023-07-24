@@ -26,6 +26,8 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
+    internal static FeatDefinition FeatFencer;
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAlwaysReady = BuildAlwaysReady();
@@ -36,7 +38,7 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
-        var featFencer = BuildFencer();
+        FeatFencer = BuildFencer();
         var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
@@ -59,7 +61,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            featFencer,
+            FeatFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featOldTacticsDex,
@@ -108,7 +110,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            featFencer,
+            FeatFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,

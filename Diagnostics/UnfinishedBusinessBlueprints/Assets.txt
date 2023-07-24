@@ -5676,6 +5676,7 @@ InvocationTenaciousPlague	InvocationDefinition	InvocationDefinition	27cbcfca-a66
 InvocationTrickstersEscape	InvocationDefinition	InvocationDefinition	44b65b2f-7681-5a95-aada-7742d710c6be
 InvocationUltimatePactWeapon	InvocationDefinition	InvocationDefinition	8a8af1e5-f3ec-5545-a3ef-c2d4ed220cf8
 InvocationUndyingServitude	InvocationDefinition	InvocationDefinition	8e4430cf-3b6d-5504-ac46-97324eeee3e0
+InvocationVerdantArmor	InvocationDefinition	InvocationDefinition	dba6f87b-f9c3-5412-b32b-73150f09473a
 BarbarianClothes_Deflection	ItemDefinition	ItemDefinition	287546a0-78d7-532e-b5b1-d441e04a5b1f
 BarbarianClothes_FlameDancing	ItemDefinition	ItemDefinition	c8f3eaa3-6b8f-5ffa-a7d5-003bb153f4c3
 BarbarianClothes_FrostWalking	ItemDefinition	ItemDefinition	f7da25dc-6341-5a6e-8cad-2e45e5ab6791
@@ -9936,6 +9937,7 @@ AtWillFaerieFire	SpellDefinition	SpellDefinition	34525fb8-5a60-5868-9be9-16dcb71
 AtWillMoonbeam	SpellDefinition	SpellDefinition	2425d934-12c1-581a-81d3-90935d89fefd
 AtWillWardingBond	SpellDefinition	SpellDefinition	f9cf5a06-1274-5606-8762-f726ee8ec761
 BanishingSmite	SpellDefinition	SpellDefinition	ee3bc0bd-17a3-5c6f-ab87-978f4e86e3ab
+BarkskinNoConcentration	SpellDefinition	SpellDefinition	c58f111b-71d9-5a88-bd08-db286a89d525
 BindingIce	SpellDefinition	SpellDefinition	3da5bb90-e40c-5a0e-bead-a7441de13d55
 BladeWard	SpellDefinition	SpellDefinition	5d04caa2-64a0-587e-a0d2-6c9ab52a56ca
 BlindingSmite	SpellDefinition	SpellDefinition	4840cef2-e39f-58f6-8a1d-0968f87008e7

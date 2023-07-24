@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=당신은 당신의 인종에 대해 드
 Feat/&FeatSquatNimblenessStrTitle=스쿼트 민첩성 [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=대검을 들고 있는 동안 갑옷 등급에 +1 보너스를 얻습니다.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=레버넌트 대검
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=당신의 반응을 사용하여 보이지 않게 되십시오.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=당신의 반응을 사용하여 보이지 않게 되십시오.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=페이드 어웨이
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=페이드 어웨이
