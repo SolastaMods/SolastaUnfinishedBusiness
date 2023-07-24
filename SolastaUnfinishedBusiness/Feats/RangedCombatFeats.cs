@@ -70,7 +70,8 @@ internal static class RangedCombatFeats
     {
         const string NAME = "FeatCrossbowMastery";
 
-        var isCrossbow = ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType, LightCrossbowType);
+        var isCrossbow = ValidatorsWeapon.IsOfWeaponType(
+            HeavyCrossbowType, LightCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
 
         return FeatDefinitionBuilder
             .Create(NAME)
