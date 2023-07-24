@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=Vous êtes exceptionnellement agile pour
 Feat/&FeatSquatNimblenessStrTitle=Agilité en squat [For]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Tant que vous tenez une grande épée, vous gagnez un bonus de +1 à la classe d'armure.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Grande épée de revenant
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Utilisez votre réaction pour devenir invisible.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Utilisez votre réaction pour devenir invisible.
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Fondu
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Fondu

@@ -16,3 +16,7 @@ Feat/&FeatSquatNimblenessStrDescription=あなたは種族にしては珍しく�
 Feat/&FeatSquatNimblenessStrTitle=スクワットの敏捷性[Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=あなたがグレートソードを持っている間、あなたはアーマークラスに+1のボーナスを獲得します。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=レヴナントの大剣
+Reaction/&UsePowerFeatFadeAwayInvisibleDescription=あなたの反応を利用して透明になります。
+Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=あなたの反応を利用して透明になります。
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=フェードアウェイ
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=フェードアウェイ
