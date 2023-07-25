@@ -1,9 +1,0 @@
-SpellList/&SpellListClericTitle=성직자 주문
-SpellList/&SpellListDruidTitle=드루이드 주문
-SpellList/&SpellListPaladinTitle=성기사 주문
-SpellList/&SpellListRangerTitle=레인저 주문
-SpellList/&SpellListSorcererTitle=마법사 주문
-SpellList/&SpellListSpellbladeTitle=스펠블레이드 주문
-SpellList/&SpellListTraditionLightTitle=몽크(빛의 길) 주문
-SpellList/&SpellListWarlockTitle=워록 주문
-SpellList/&SpellListWizardTitle=마법사 주문

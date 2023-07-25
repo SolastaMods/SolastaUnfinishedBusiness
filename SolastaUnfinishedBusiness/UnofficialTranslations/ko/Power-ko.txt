@@ -1,9 +1,0 @@
-Power/&DemonicInfluence_Description=적이 당신의 악마적 영향력을 떨쳐버릴 때까지 당신을 위해 싸우도록 적을 사로잡으십시오.
-Power/&PowerStoneGolemSlow_Description=돌 골렘은 근처의 적을 느리게 할 수 있습니다.
-Power/&PowerStoneGolemSlow_Title=느린
-Power/&Vrock_Screech_Description=Vrock은 주변의 적을 기절시킬 수 있는 강력한 비명을 내뿜습니다.
-Power/&Vrock_Screech_Title=진한 럼주
-Power/&Vrock_Spores_Description=Vrock 독은 매 턴마다 1d10 독 피해를 입힙니다.
-Power/&Vrock_Spores_Title=포자
-Power/&WightLifeDrain_Description=Wights는 근접 공격에 성공하면 생명의 정수를 흡수할 수 있습니다.
-Power/&WightLordCircleofDeath_Description=와이트 로드는 주변의 적에게서 생명의 정수를 흡수할 수 있습니다.

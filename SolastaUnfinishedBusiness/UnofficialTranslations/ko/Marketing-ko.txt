@@ -1,8 +1,0 @@
-Marketing/&DisclaimerSteamFestivalDescription=당신이 플레이하려는 것은 아직 개발 중인 Solasta: Crown of the Magister 비디오 게임의 초기 알파 데모라는 것을 알고 있습니다. 우리 팀은 현재 Solasta: Crown of the Magister를 완전히 새로운 차원으로 끌어올리기 위해 열심히 노력하고 있습니다. 우리는 또한 완벽하게 작동하는 캐릭터 생성기를 제공하기 위해 노력하고 있으며, 이를 통해 훨씬 더 다양한 옵션으로 완전한 파티를 만들고 레벨을 올릴 수 있습니다. 초기 알파 데모는 제한된 기간 동안만 무료로 제공됩니다.\n\n초기 알파 데모는 Solasta: Crown of the Magister 비디오 게임의 초기 맛보기를 제공하기 위해 수작업으로 제작되었으며 드물게 버그가 포함될 수 있습니다. 피드백을 공유하고 Steam 플랫폼에서 또는 당사 웹사이트 www.solasta-game.com에서 직접 문제나 버그를 보고하는 것을 환영합니다. 커뮤니티가 원하는 것을 대표하는 게임을 만들기 위해서는 여러분의 의견을 들어야 합니다.\n\n초기 알파 데모에서는 일부 규칙과 기능이 누락되었거나 구현되지 않았습니다. 예를 들어 일부 주문 및 효과가 누락되었습니다. 초기 알파 데모를 사용하면 캐릭터 생성기 도구를 사용하여 완전한 캐릭터 파티를 만들 수 있지만 아직 영웅에게 생명을 불어넣지는 못할 것입니다. 물론 이 문제를 수정하고 최종 게임에 최대한 많은 콘텐츠와 규칙을 통합하기 위해 최선을 다할 것입니다. 게임 기능 중 일부는 초기 알파 데모에서도 전혀 시연되지 않지만 최종 게임의 일부가 될 것입니다. 다양한 옵션으로 생성된 전체 파티의 레벨 업, 캠페인 스토리라인을 통한 플레이 등이 있습니다.
-Marketing/&DisclaimerSteamFestivalTitle=중요한 면책 조항
-Marketing/&JoinCommunityAddress=Https://forums.solasta-game.com/
-Marketing/&JoinCommunityTitle=우리 커뮤니티에 가입하세요
-Marketing/&SteamWishlistAddress=Https://store.steampowered.com/app/1096530/Solasta_Crown_of_the_Magister/
-Marketing/&SteamWishlistTitle=Steam에서 찜 목록에 추가하세요
-Marketing/&YoutubeAddress=Https://www.youtube.com/tacticaladventures
-Marketing/&YoutubeTitle=YouTube에서 구독

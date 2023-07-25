@@ -1,5 +1,0 @@
-TutorialSection/&BasicsTitle=기초
-TutorialSection/&CombatTitle=전투
-TutorialSection/&ExplorationTitle=탐구
-TutorialSection/&InventoryTitle=목록
-TutorialSection/&TravelTitle=여행하다

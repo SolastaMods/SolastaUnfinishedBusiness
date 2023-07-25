@@ -1,8 +1,0 @@
-Label/&CampfireLocationRestDescription=
-Label/&CampfireLocationRestTitle=
-Label/&CampfireResumeTravelRestDescription=
-Label/&CampfireResumeTravelRestTitle=
-Label/&EnterLocationDescription=파티가 이 위치에 들어가게 하십시오.
-Label/&EnterLocationTitle=입력하다
-Label/&TravelToLocationDescription=이 위치로 이동할 준비를 하십시오.
-Label/&TravelToLocationTitle=여행하다
