@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -104,8 +106,59 @@ internal static class RaceOligathBuilder
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
+        var conditionOligathStoneEndurance = ConditionDefinitionBuilder
+            .Create($"Condition{Name}StoneEndurance")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        var reduceDamageOligathStoneEndurance = FeatureDefinitionReduceDamageBuilder
+            .Create($"ReduceDamage{Name}StoneEndurance")
+            .SetGuiPresentation($"Power{Name}StoneEndurance", Category.Feature)
+            .SetAlwaysActiveReducedDamage((attacker, defender) =>
+            {
+                var rulesetDefender = defender.RulesetCharacter;
+
+                if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    return 0;
+                }
+
+                var usableCondition =
+                    rulesetDefender.AllConditions.FirstOrDefault(x =>
+                        x.ConditionDefinition == conditionOligathStoneEndurance);
+
+                if (usableCondition == null)
+                {
+                    return 0;
+                }
+
+                var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
+                var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
+
+                var result = rulesetDefender.RollDie(
+                    DieType.D12, RollContext.None, false, AdvantageType.None, out _, out _);
+
+                var totalReducedDamage = result + constitutionModifier;
+
+                if (totalReducedDamage < 0)
+                {
+                    totalReducedDamage = 0;
+                }
+
+                return totalReducedDamage;
+            })
+            .AddToDB();
+
+        conditionOligathStoneEndurance.Features.Add(reduceDamageOligathStoneEndurance);
+
         powerOligathStoneEndurance
-            .SetCustomSubFeatures(new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
+            .SetCustomSubFeatures(
+                new AttackBeforeHitConfirmedOnMeStoneEndurance(
+                    powerOligathStoneEndurance, 
+                    conditionOligathStoneEndurance));
 
         return powerOligathStoneEndurance;
     }
@@ -114,10 +167,13 @@ internal static class RaceOligathBuilder
         IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly ConditionDefinition _conditionDefinition;
 
-        public AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower featureDefinitionPower)
+        public AttackBeforeHitConfirmedOnMeStoneEndurance(
+            FeatureDefinitionPower featureDefinitionPower, ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
@@ -161,10 +217,19 @@ internal static class RaceOligathBuilder
             {
                 yield break;
             }
+            
+            if (!me.IsReactionAvailable())
+            {
+                yield break;
+            }
 
             var rulesetMe = me.RulesetCharacter;
 
-            if (rulesetMe is not { IsDeadOrUnconscious: false })
+            // allow stone endurance when prone
+            if (rulesetMe is not { IsDeadOrUnconscious: false }
+               || rulesetMe.HasConditionOfType(ConditionIncapacitated)
+               || rulesetMe.HasConditionOfType(ConditionStunned)
+               || rulesetMe.HasConditionOfType(ConditionParalyzed))
             {
                 yield break;
             }
@@ -174,10 +239,12 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
+
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
-                StringParameter = Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription")
+                StringParameter = Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription"),
+                UsablePower = usablePower
             };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("StoneEndurance", reactionParams);
@@ -192,34 +259,21 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            var totalReducedDamage = CalculateReducedDamage(rulesetMe);
 
             rulesetMe.UsePower(usablePower);
-            attackModifier.DamageRollReduction += totalReducedDamage;
-            rulesetMe.DamageReduced(rulesetMe, _featureDefinitionPower, totalReducedDamage);
-        }
-
-        private static int CalculateReducedDamage(RulesetActor rulesetDefender, int damageAmount = -1)
-        {
-            var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
-            var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
-
-            var result = rulesetDefender.RollDie(
-                DieType.D12, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            var totalReducedDamage = result + constitutionModifier;
-
-            if (totalReducedDamage < 0)
-            {
-                totalReducedDamage = 0;
-            }
-
-            if (damageAmount > 0 && damageAmount < totalReducedDamage)
-            {
-                totalReducedDamage = damageAmount;
-            }
-
-            return totalReducedDamage;
+            rulesetMe.InflictCondition(
+                _conditionDefinition.Name,
+                _conditionDefinition.DurationType,
+                _conditionDefinition.DurationParameter,
+                _conditionDefinition.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetMe.Guid,
+                rulesetMe.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }
