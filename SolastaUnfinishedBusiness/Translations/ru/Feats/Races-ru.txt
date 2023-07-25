@@ -18,5 +18,5 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Пока �
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Призрак двуручного меча
 Reaction/&UsePowerFeatFadeAwayInvisibleDescription=Используйте свою реакцию, чтобы стать невидимым.
 Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=Используйте свою реакцию, чтобы стать невидимым.
-Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Исчезать
-Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Исчезать
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=Исчезновение
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=Исчезновение
