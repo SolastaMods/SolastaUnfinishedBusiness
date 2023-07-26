@@ -103,7 +103,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, barkskinNoConcentration)
-            .SetRequirements(level: 5)
+            .SetRequirements(5)
             .SetGrantedSpell(barkskinNoConcentration, longRestRecharge: true)
             .AddToDB();
     }

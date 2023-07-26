@@ -106,7 +106,7 @@ ModUi/&EnableLevel20=Autoriser le niveau 20 <b><i><color=#C04040E0>[Nécessite u
 ModUi/&EnableLogDialoguesToConsole=Activer l'affichage du journal des dialogues dans la console pendant les séquences narratives
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer l'inscription au journal des références invalides dans les campagnes personnalisées
 ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
-ModUi/&EnableMonkAbundantKi=Activez <color=#D89555>Moine</color> <b>Ki abondant</b> au niveau 1 <i><color=#F0DAA0>[gagnez du Ki supplémentaire égal à la moitié du bonus de compétence arrondi]</color> </i>
+ModUi/&EnableMonkAbundantKi=Activez <color=#D89555>Moine</color> <b>Ki abondant</b> au niveau 2 <i><color=#F0DAA0>[gagnez du Ki supplémentaire égal à la moitié du bonus de compétence arrondi]</color> </i>
 ModUi/&EnableMonkFightingStyle=Activer le choix <color=#D89555>Moine</color> <b>Style de combat</b> au niveau 2
 ModUi/&EnableMonkWeaponSpecialization=Activez la <b>Spécialisation d'arme</b> pour le <color=#D89555>Moine</color> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer la possibilité de multiclasser son personnage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

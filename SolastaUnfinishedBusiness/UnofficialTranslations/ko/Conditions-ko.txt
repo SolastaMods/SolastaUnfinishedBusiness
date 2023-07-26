@@ -1,2 +1,0 @@
-Conditions/&ConditionPOI_Description=얼음과 악마 왕국의 궁전에 있는 동안 악마가 아닌 사람은 여러 벌칙을 받습니다.
-Conditions/&ConditionPOI_Title=궁전 얼음 은신처 효과

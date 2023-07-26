@@ -1,6 +1,0 @@
-Status/&ConcentrationFormat={0}은(는) 주문 "{1}"을(를) 유지하기 위해 집중하고 있습니다.
-Status/&ConcentrationStopDescription=집중하지마.
-Status/&HealthStatusFormat=건강: {0}
-Status/&ReadiedCantripAttackFormat={0}는 기회가 생기면 캔트립 공격을 사용할 준비가 되어 있습니다.
-Status/&ReadiedMeleeAttackFormat={0}은(는) 기회가 생기면 근접 공격을 할 준비가 되어 있습니다.
-Status/&ReadiedRangedAttackFormat={0}은(는) 기회가 생기면 원거리 공격을 사용할 준비가 되어 있습니다.

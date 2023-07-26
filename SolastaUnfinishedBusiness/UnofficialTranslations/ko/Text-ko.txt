@@ -1,3 +1,0 @@
-Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=소울 미싱 - 게이트 비활성
-Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=Soul Linked - 게이트 준비 완료
-Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=희생 준비

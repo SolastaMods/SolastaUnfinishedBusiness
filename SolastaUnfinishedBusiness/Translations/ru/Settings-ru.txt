@@ -106,7 +106,7 @@ ModUi/&EnableLevel20=Включить 20-й уровень <b><i><color=#C04040E
 ModUi/&EnableLogDialoguesToConsole=Включить лог диалогов в консоли игры во время нарративных последовательностей
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Включить лог неверных ссылок в пользовательских кампаниях
 ModUi/&EnableMinInOutAttributes=<i>+ Принудительно устанавливать минимальные характеристики для соответствия требованиям</i>
-ModUi/&EnableMonkAbundantKi=Включить <color=#D89555>Монаху</color> <b>Обильное Ци</b> на уровне 1 <i><color=#F0DAA0>[вы получаете дополнительные очки Ци, равные половине бонуса мастерства, округлённого в большую сторону]</color></i>
+ModUi/&EnableMonkAbundantKi=Включить <color=#D89555>Монаху</color> <b>Обильное Ци</b> на уровне 2 <i><color=#F0DAA0>[вы получаете дополнительные очки Ци, равные половине бонуса мастерства, округлённого в большую сторону]</color></i>
 ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализацию на оружии</b> для <color=#D89555>Монаха</color> на уровнях класса 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>

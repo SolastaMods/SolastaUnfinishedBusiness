@@ -168,13 +168,8 @@ public static class GameLocationCharacterExtensions
                && !character.HasConditionOfType(RuleDefinitions.ConditionParalyzed);
     }
 
-    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
+    internal static bool IsReactionAvailable(this GameLocationCharacter instance, bool ignoreReactionUses = false)
     {
-        if (!instance.CanAct())
-        {
-            return false;
-        }
-
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
         if (actionService == null)
@@ -211,6 +206,16 @@ public static class GameLocationCharacterExtensions
         }
 
         return canReact;
+    }
+
+    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
+    {
+        if (!instance.CanAct())
+        {
+            return false;
+        }
+
+        return IsReactionAvailable(instance, ignoreReactionUses);
     }
 
     internal static bool OnceInMyTurnIsValid(this GameLocationCharacter instance, string key)

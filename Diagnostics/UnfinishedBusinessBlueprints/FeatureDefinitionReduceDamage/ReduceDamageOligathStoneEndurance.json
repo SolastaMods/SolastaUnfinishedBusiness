@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "KiPoints",
-  "modifierOperation": "AddHalfProficiencyBonus",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "NotWearingArmorOrShield",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierMonkAbundantKiTitle",
-    "description": "Feature/&AttributeModifierMonkAbundantKiDescription",
+    "title": "Feature/&PowerOligathStoneEnduranceTitle",
+    "description": "Feature/&PowerOligathStoneEnduranceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7d85e97f-7eac-5312-a52d-dce830986119",
+  "guid": "69ee2195-3532-5d37-8113-db9488ec5bc2",
   "contentPack": 9999,
-  "name": "AttributeModifierMonkAbundantKi"
+  "name": "ReduceDamageOligathStoneEndurance"
 }

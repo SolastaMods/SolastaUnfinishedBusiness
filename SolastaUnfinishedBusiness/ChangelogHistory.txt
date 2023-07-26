@@ -1,4 +1,18 @@
-﻿1.5.94.3:
+﻿1.5.94.4:
+
+ATTENTION: 
+
+- reinstall mod from ZIP if Korean
+- uninstall Team Waldo Korean mod
+- use vanilla game settings to select the KO language
+
+CHANGES:
+
+- fixed Monk Abundant Ki
+- fixed Oligath stone endurance
+- fixed Korean translations [by Team Waldo]
+
+1.5.94.3:
 
 - added Hand XBows to Crossbow Mastery feat
 - added Verdant Armor invocation at 5th [Barkskin, no concentration, once per long rest]

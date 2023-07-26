@@ -1,5 +1,0 @@
-BodyHairStyle/&Hairstyle_A=픽시 컷
-BodyHairStyle/&Hairstyle_B=중간
-BodyHairStyle/&Hairstyle_C=짧은
-BodyHairStyle/&Hairstyle_D=Bun
-BodyHairStyle/&Hairstyle_E=크라운 브레이드

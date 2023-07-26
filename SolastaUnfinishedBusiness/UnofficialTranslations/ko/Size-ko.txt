@@ -1,6 +1,0 @@
-Size/&GargantuanTitle=거대한
-Size/&HugeTitle=거대한
-Size/&LargeTitle=크기가 큰
-Size/&MediumTitle=중간
-Size/&SmallTitle=작은
-Size/&TinyTitle=매우 작은

@@ -79,8 +79,8 @@ internal static class CharacterContext
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMonkAbundantKi")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus,
-                AttributeDefinitions.KiPoints)
+            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.KiPoints, 1)
+            .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
 
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
@@ -724,12 +724,12 @@ internal static class CharacterContext
         if (Main.Settings.EnableMonkAbundantKi)
         {
             Monk.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(AttributeModifierMonkAbundantKi, 1));
+                new FeatureUnlockByLevel(AttributeModifierMonkAbundantKi, 2));
         }
         else
         {
             Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 1 &&
+                .RemoveAll(x => x.level == 2 &&
                                 x.FeatureDefinition == AttributeModifierMonkAbundantKi);
         }
 
