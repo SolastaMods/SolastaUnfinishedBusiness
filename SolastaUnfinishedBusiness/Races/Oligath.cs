@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -157,7 +156,7 @@ internal static class RaceOligathBuilder
         powerOligathStoneEndurance
             .SetCustomSubFeatures(
                 new AttackBeforeHitConfirmedOnMeStoneEndurance(
-                    powerOligathStoneEndurance, 
+                    powerOligathStoneEndurance,
                     conditionOligathStoneEndurance));
 
         return powerOligathStoneEndurance;
@@ -166,8 +165,8 @@ internal static class RaceOligathBuilder
     private class AttackBeforeHitConfirmedOnMeStoneEndurance :
         IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
         public AttackBeforeHitConfirmedOnMeStoneEndurance(
             FeatureDefinitionPower featureDefinitionPower, ConditionDefinition conditionDefinition)
@@ -190,7 +189,7 @@ internal static class RaceOligathBuilder
         {
             if (rulesetEffect == null)
             {
-                yield return HandlePowerStoneEndurance(me, attackModifier);
+                yield return HandlePowerStoneEndurance(me);
             }
         }
 
@@ -203,10 +202,10 @@ internal static class RaceOligathBuilder
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandlePowerStoneEndurance(defender, magicModifier);
+            yield return HandlePowerStoneEndurance(defender);
         }
 
-        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me, ActionModifier attackModifier)
+        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me)
         {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -217,7 +216,7 @@ internal static class RaceOligathBuilder
             {
                 yield break;
             }
-            
+
             if (!me.IsReactionAvailable())
             {
                 yield break;
@@ -227,9 +226,9 @@ internal static class RaceOligathBuilder
 
             // allow stone endurance when prone
             if (rulesetMe is not { IsDeadOrUnconscious: false }
-               || rulesetMe.HasConditionOfType(ConditionIncapacitated)
-               || rulesetMe.HasConditionOfType(ConditionStunned)
-               || rulesetMe.HasConditionOfType(ConditionParalyzed))
+                || rulesetMe.HasConditionOfType(ConditionIncapacitated)
+                || rulesetMe.HasConditionOfType(ConditionStunned)
+                || rulesetMe.HasConditionOfType(ConditionParalyzed))
             {
                 yield break;
             }
