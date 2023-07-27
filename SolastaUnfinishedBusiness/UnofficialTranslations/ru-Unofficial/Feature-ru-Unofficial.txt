@@ -1153,6 +1153,7 @@ Feature/&RegenerationChildOfDarknessTitle=Регенерация
 Feature/&RegenerationDefilerDescription=Осквернители восстанавливают 10 ОЗ в каждом раунде, если находятся в темноте.
 Feature/&RegenerationDefilerTitle=Регенерация
 Feature/&RegenerationLapseFormat=Восстанавливает {0} очк. здоровья раз в {1}.
+Feature/&RegenerationVampireDescription=Восстанавливает 10 хитов в конце хода.
 Feature/&RejectMagicTitle=Отвержение магии
 Feature/&RelentlessEnduranceDescription=Если вы не умираете моментально, когда ваши очки здоровья снижаются до 0, ваши очки здоровья вместо этого снижаются до 1. Вы сможете использовать эту особенность повторно только после завершения долгого отдыха.
 Feature/&RelentlessEnduranceTitle=Непоколебимая стойкость
