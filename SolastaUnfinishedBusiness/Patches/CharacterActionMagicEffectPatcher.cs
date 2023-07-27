@@ -83,8 +83,6 @@ public static class CharacterActionMagicEffectPatcher
         [UsedImplicitly]
         public static void Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
-            Global.CurrentMagicEffectAction = __instance;
-
             var definition = __instance.GetBaseDefinition();
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
