@@ -2,7 +2,19 @@
   "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
   "poolType": "Language",
   "poolAmount": 1,
-  "restrictedChoices": [],
+  "restrictedChoices": [
+    "Language_Draconic",
+    "Language_Dwarvish",
+    "Language_Elvish",
+    "Language_Giant",
+    "Language_Gnomish",
+    "Language_Goblin",
+    "Language_Halfling",
+    "Language_Infernal",
+    "Language_Orc",
+    "Language_Terran",
+    "Language_Tirmarian"
+  ],
   "uniqueChoices": false,
   "spellListOverride": null,
   "ritualOnly": false,
@@ -33,7 +45,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a542d7ce-03eb-5348-8734-c9454684373a",
+  "guid": "15fb3c12-4452-5227-a72a-12ee722f4e15",
   "contentPack": 9999,
-  "name": "PointPoolMalakhLanguageAdditional"
+  "name": "PointPoolLanguageChoice_one"
 }

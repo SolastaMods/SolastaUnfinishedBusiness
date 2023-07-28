@@ -15,7 +15,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetHumanLanguages:6e66fbb7e912e664db535ce59f1f12be",
+      "featureDefinition": "Definition:FeatureSetLanguageCommonPlusOne:1126ecfe-540b-5e61-a9b9-923a1c0da0e8",
       "level": 1
     },
     {

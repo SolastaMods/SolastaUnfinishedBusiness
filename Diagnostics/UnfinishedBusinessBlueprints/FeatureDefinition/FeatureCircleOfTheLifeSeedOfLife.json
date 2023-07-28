@@ -1,10 +1,5 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Language",
-  "proficiencies": [
-    "Language_Common"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5b58cbe4-e0f0-5653-b512-bd4ec42c0504",
+  "guid": "ef33a783-8a01-5959-956d-1c41d183628e",
   "contentPack": 9999,
-  "name": "ProficiencyMalakhLanguageCommon"
+  "name": "FeatureCircleOfTheLifeSeedOfLife"
 }
