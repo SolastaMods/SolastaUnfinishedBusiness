@@ -1035,4 +1035,39 @@ public static class RulesetCharacterHeroPatcher
             }
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeAttackModeAbilityScoreReplacement))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+
+    public static class ComputeAttackModeAbilityScoreReplacement_Patch
+    {
+        public static void Postfix(RulesetCharacterHero __instance,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            string __state)
+        {
+            // PATCH: Use Weapon original ability score if higher than spellcasting ability
+            var originalAbilityScore = __state;
+            var updatedAbilityScore = attackMode.AbilityScore;
+            if (updatedAbilityScore == originalAbilityScore)
+            {
+                return;
+            }
+            if (__instance.GetAttribute(originalAbilityScore).CurrentValue > 
+                __instance.GetAttribute(updatedAbilityScore).CurrentValue)
+            {
+                attackMode.AbilityScore = originalAbilityScore;
+            }
+        }
+        public static void Prefix(RulesetCharacterHero __instance,
+            RulesetAttackMode attackMode,
+            RulesetItem weapon,
+            out string __state)
+        {
+            __state = attackMode.AbilityScore;
+        }
+
+
+    }
 }
