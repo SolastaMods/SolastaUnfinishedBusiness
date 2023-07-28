@@ -129,7 +129,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     modifiers.TryAdd(powerModifier);
                 }
-                
+
                 foreach (var usePowerFinished in modifiers)
                 {
                     yield return usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);

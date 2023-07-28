@@ -1729,6 +1729,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionProficiencys
     {
+        internal static FeatureDefinitionProficiency ProficiencyHumanStaticLanguages { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyHumanStaticLanguages");
+
         internal static FeatureDefinitionProficiency ProficienctSpySkillsTool { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficienctSpySkillsTool");
 

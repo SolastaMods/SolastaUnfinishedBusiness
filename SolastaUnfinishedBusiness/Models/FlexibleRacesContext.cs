@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -25,9 +24,9 @@ internal static class FlexibleRacesContext
             .AddToDB(),
         1);
 
-    internal static readonly FeatureDefinitionPointPool PointPoolLanguageChoice_one =
+    private static readonly FeatureDefinitionPointPool PointPoolLanguageChoiceOne =
         FeatureDefinitionPointPoolBuilder
-            .Create($"PointPoolLanguageChoice_one")
+            .Create("PointPoolLanguageChoice_one")
             .SetGuiPresentationNoContent(true)
             .SetPool(HeroDefinitions.PointsPoolType.Language, 1)
             .RestrictChoices(
@@ -42,16 +41,16 @@ internal static class FlexibleRacesContext
                 "Language_Tirmarian",
                 "Language_Elvish",
                 "Language_Draconic"
-                )
+            )
             .AddToDB();
 
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetLanguageCommonPlusOne 
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetLanguageCommonPlusOne
         = FeatureDefinitionFeatureSetBuilder
-        .Create(FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, $"FeatureSetLanguageCommonPlusOne")
-        .SetFeatureSet(
-            FeatureDefinitionProficiencys.ProficiencyHumanStaticLanguages,
-            PointPoolLanguageChoice_one)
-        .AddToDB();
+            .Create(FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetLanguageCommonPlusOne")
+            .SetFeatureSet(
+                FeatureDefinitionProficiencys.ProficiencyHumanStaticLanguages,
+                PointPoolLanguageChoiceOne)
+            .AddToDB();
 
     private static readonly Dictionary<string, FeatureUnlockByLevel> AddedFeatures = new()
     {
@@ -210,8 +209,7 @@ internal static class FlexibleRacesContext
 
             foreach (var featureDefinitionName in keyValuePair.Value)
             {
-                if (!DatabaseHelper.TryGetDefinition<FeatureDefinition>(featureDefinitionName,
-                        out var featureDefinition))
+                if (!TryGetDefinition<FeatureDefinition>(featureDefinitionName, out var featureDefinition))
                 {
                     continue;
                 }

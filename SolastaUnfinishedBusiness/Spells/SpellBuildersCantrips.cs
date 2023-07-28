@@ -938,8 +938,8 @@ internal static partial class SpellBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
-            RulesetEffect rulesetEffect, 
-            List<EffectForm> actualEffectForms, 
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool criticalHit)
         {
@@ -947,7 +947,7 @@ internal static partial class SpellBuilders
             {
                 yield break;
             }
-            
+
             var rulesetDefender = defender.RulesetCharacter;
 
             actualEffectForms[0].DamageForm.dieType = rulesetDefender.MissingHitPoints == 0 ? DieType.D8 : DieType.D12;
