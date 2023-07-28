@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -59,19 +60,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
 
         var featureSetMalakhLanguages = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Languages")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}LanguageCommon")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.Language, "Language_Common")
-                    .AddToDB(),
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{Name}LanguageAdditional")
-                    .SetGuiPresentationNoContent(true)
-                    .SetPool(HeroDefinitions.PointsPoolType.Language, 1)
-                    .AddToDB())
+            .Create(FlexibleRacesContext.FeatureSetLanguageCommonPlusOne, $"FeatureSet{Name}Languages")
             .AddToDB();
 
         var spellListMalakh = SpellListDefinitionBuilder

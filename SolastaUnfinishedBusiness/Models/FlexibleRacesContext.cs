@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -23,6 +24,34 @@ internal static class FlexibleRacesContext
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 4)
             .AddToDB(),
         1);
+
+    internal static readonly FeatureDefinitionPointPool PointPoolLanguageChoice_one =
+        FeatureDefinitionPointPoolBuilder
+            .Create($"PointPoolLanguageChoice_one")
+            .SetGuiPresentationNoContent(true)
+            .SetPool(HeroDefinitions.PointsPoolType.Language, 1)
+            .RestrictChoices(
+                "Language_Gnomish",
+                "Language_Infernal",
+                "Language_Dwarvish",
+                "Language_Halfling",
+                "Language_Orc",
+                "Language_Goblin",
+                "Language_Giant",
+                "Language_Terran",
+                "Language_Tirmarian",
+                "Language_Elvish",
+                "Language_Draconic"
+                )
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetLanguageCommonPlusOne 
+        = FeatureDefinitionFeatureSetBuilder
+        .Create(FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, $"FeatureSetLanguageCommonPlusOne")
+        .SetFeatureSet(
+            FeatureDefinitionProficiencys.ProficiencyHumanStaticLanguages,
+            PointPoolLanguageChoice_one)
+        .AddToDB();
 
     private static readonly Dictionary<string, FeatureUnlockByLevel> AddedFeatures = new()
     {
