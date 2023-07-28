@@ -50,6 +50,12 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         // Verdancy
 
+        var featureVerdancyTarget = FeatureDefinitionBuilder
+            .Create($"Feature{Name}VerdancyTarget")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new CharacterTurnStartListenerVerdancy())
+            .AddToDB();
+
         var conditionVerdancy = ConditionDefinitionBuilder
             .Create(ConditionVerdancy)
             .SetGuiPresentation(Category.Condition, ConditionChildOfDarkness_DimLight)
@@ -58,28 +64,15 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .SetRecurrentEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetHealingForm(HealingComputation.Dice, 1, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
-                    .Build())
-            .SetCustomSubFeatures(new CustomBehaviorConditionVerdancy())
+            .SetCustomSubFeatures(new NotifyConditionRemovalVerdancy())
+            .AddFeatures(featureVerdancyTarget)
             .AddToDB();
 
         var conditionVerdancy14 = ConditionDefinitionBuilder
-            .Create(ConditionVerdancy14)
-            .SetGuiPresentation(ConditionVerdancy, Category.Condition, ConditionChildOfDarkness_DimLight)
+            .Create(conditionVerdancy, ConditionVerdancy14)
             // uses 4 but it will trigger 5 times as required because of the time we add it
             .SetSpecialDuration(DurationType.Round, 4, TurnOccurenceType.EndOfSourceTurn)
-            .SetPossessive()
-            .CopyParticleReferences(ConditionAided)
-            .AllowMultipleInstances()
-            .SetRecurrentEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetHealingForm(HealingComputation.Dice, 1, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
-                    .Build())
-            .SetCustomSubFeatures(new CustomBehaviorConditionVerdancy())
+            .SetCustomSubFeatures(new NotifyConditionRemovalVerdancy())
             .AddToDB();
 
         var featureVerdancy = FeatureDefinitionBuilder
@@ -90,17 +83,18 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         // Seed of Life
 
+        var featureSeedOfLife = FeatureDefinitionBuilder
+            .Create($"Feature{Name}SeedOfLife")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new CharacterTurnStartListenerSeedOfLife())
+            .AddToDB();
+
         var conditionSeedOfLife = ConditionDefinitionBuilder
             .Create(ConditionSeedOfLife)
             .SetGuiPresentation(Category.Condition, ConditionBlessed)
             .SetPossessive()
             .CopyParticleReferences(ConditionGuided)
-            .SetRecurrentEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetBonusMode(AddBonusMode.Proficiency)
-                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
-                    .Build())
+            .AddFeatures(featureSeedOfLife)
             .AddToDB();
 
         conditionSeedOfLife.SetCustomSubFeatures(new NotifyConditionRemovalSeedOfLife());
@@ -217,21 +211,38 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorConditionVerdancy : IModifyMagicEffectRecurrent, INotifyConditionRemoval
+    private sealed class CharacterTurnStartListenerVerdancy : ICharacterTurnStartListener
     {
-        public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            if (effectForm.FormType != EffectForm.EffectFormType.Healing)
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
-            var druidLevel = GetDruidLevel(rulesetCondition.sourceGuid);
-            var bonus = rulesetCondition.EffectLevel;
+            foreach (var rulesetCondition in rulesetCharacter.AllConditions
+                         .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14)
+                         .ToList())
+            {
+                var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-            effectForm.HealingForm.bonusHealing = bonus + (druidLevel >= 14 ? 1 : 0);
+                if (caster is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                var levels = caster.GetClassLevel(Druid);
+                var bonus = rulesetCondition.EffectLevel;
+
+                rulesetCharacter.ReceiveHealing(levels + bonus, true, caster.Guid);
+            }
         }
+    }
 
+    private sealed class NotifyConditionRemovalVerdancy : INotifyConditionRemoval
+    {
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
             RemoveRevitalizingBoonIfRequired(removedFrom);
@@ -280,6 +291,35 @@ internal sealed class CircleOfTheLife : AbstractSubclass
                     .Build());
 
             return effectDescription;
+        }
+    }
+
+    private sealed class CharacterTurnStartListenerSeedOfLife : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            foreach (var rulesetCondition in rulesetCharacter.AllConditions
+                         .Where(x => x.ConditionDefinition.Name == ConditionSeedOfLife)
+                         .ToList())
+            {
+                var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+                if (caster is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                var pb = caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+                rulesetCharacter.ReceiveHealing(pb, true, caster.Guid);
+            }
         }
     }
 
