@@ -14,6 +14,11 @@ internal class FeatureDefinitionFeatureSetBuilder
         Definition.FeatureSet.Sort(Sorting.CompareTitle);
         return this;
     }
+    internal FeatureDefinitionFeatureSetBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
+    {
+        Definition.featureSet.Clear();
+        return AddFeatureSet(featureDefinitions);
+    }
 
     internal FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
