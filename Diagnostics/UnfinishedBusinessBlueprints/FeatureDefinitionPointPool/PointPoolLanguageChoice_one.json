@@ -1,0 +1,51 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Language",
+  "poolAmount": 1,
+  "restrictedChoices": [
+    "Language_Draconic",
+    "Language_Dwarvish",
+    "Language_Elvish",
+    "Language_Giant",
+    "Language_Gnomish",
+    "Language_Goblin",
+    "Language_Halfling",
+    "Language_Infernal",
+    "Language_Orc",
+    "Language_Terran",
+    "Language_Tirmarian"
+  ],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "15fb3c12-4452-5227-a72a-12ee722f4e15",
+  "contentPack": 9999,
+  "name": "PointPoolLanguageChoice_one"
+}

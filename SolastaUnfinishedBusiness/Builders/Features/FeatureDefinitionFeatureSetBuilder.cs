@@ -15,6 +15,12 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
+    internal FeatureDefinitionFeatureSetBuilder SetFeatureSet(params FeatureDefinition[] featureDefinitions)
+    {
+        Definition.featureSet.Clear();
+        return AddFeatureSet(featureDefinitions);
+    }
+
     internal FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
         Definition.mode = mode;

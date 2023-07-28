@@ -65,7 +65,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             new ReturningWeapon(IsOathOfThunderWeapon),
             new ModifyWeaponModifyAttackModeHammerAndAxeBoon(featureHammersBoon));
 
-        // ThunderousRebuke
+        // Thunderous Rebuke
 
         var powerThunderousRebuke = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ThunderousRebuke")
@@ -83,7 +83,8 @@ internal sealed class OathOfThunder : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeLightning)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (15, 2), (20, 3))
+                            .SetDamageForm(DamageTypeLightning, 2, DieType.D6)
                             .Build(),
                         EffectFormBuilder
                             .Create()

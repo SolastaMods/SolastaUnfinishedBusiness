@@ -210,12 +210,7 @@ public static class GameLocationCharacterExtensions
 
     internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
     {
-        if (!instance.CanAct())
-        {
-            return false;
-        }
-
-        return IsReactionAvailable(instance, ignoreReactionUses);
+        return instance.CanAct() && IsReactionAvailable(instance, ignoreReactionUses);
     }
 
     internal static bool OnceInMyTurnIsValid(this GameLocationCharacter instance, string key)

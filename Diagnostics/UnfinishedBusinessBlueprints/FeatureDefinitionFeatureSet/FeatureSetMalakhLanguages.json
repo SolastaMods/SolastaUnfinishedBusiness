@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ProficiencyMalakhLanguageCommon:5b58cbe4-e0f0-5653-b512-bd4ec42c0504",
-    "Definition:PointPoolMalakhLanguageAdditional:a542d7ce-03eb-5348-8734-c9454684373a"
+    "Definition:ProficiencyHumanStaticLanguages:02222a9bf6de8bf41ad758bea29829f8",
+    "Definition:PointPoolLanguageChoice_one:15fb3c12-4452-5227-a72a-12ee722f4e15"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,13 +14,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetMalakhLanguagesTitle",
-    "description": "Feature/&FeatureSetMalakhLanguagesDescription",
+    "title": "Feature/&HumanLanguagesTitle",
+    "description": "Feature/&HumanLanguagesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

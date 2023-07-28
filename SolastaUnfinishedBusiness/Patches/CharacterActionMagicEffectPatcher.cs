@@ -83,8 +83,6 @@ public static class CharacterActionMagicEffectPatcher
         [UsedImplicitly]
         public static void Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
-            Global.CurrentMagicEffectAction = __instance;
-
             var definition = __instance.GetBaseDefinition();
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
@@ -124,8 +122,15 @@ public static class CharacterActionMagicEffectPatcher
             if (__instance is CharacterActionUsePower characterActionUsePower1)
             {
                 var power = characterActionUsePower1.activePower.PowerDefinition;
+                var modifiers = rulesetCharacter.GetSubFeaturesByType<IUsePowerInitiatedByMe>();
+                var powerModifier = power.GetFirstSubFeatureOfType<IUsePowerInitiatedByMe>();
 
-                foreach (var usePowerFinished in rulesetCharacter.GetSubFeaturesByType<IUsePowerInitiatedByMe>())
+                if (powerModifier != null)
+                {
+                    modifiers.TryAdd(powerModifier);
+                }
+
+                foreach (var usePowerFinished in modifiers)
                 {
                     yield return usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
                 }
@@ -140,8 +145,15 @@ public static class CharacterActionMagicEffectPatcher
             if (__instance is CharacterActionUsePower characterActionUsePower2)
             {
                 var power = characterActionUsePower2.activePower.PowerDefinition;
+                var modifiers = rulesetCharacter.GetSubFeaturesByType<IUsePowerFinishedByMe>();
+                var powerModifier = power.GetFirstSubFeatureOfType<IUsePowerFinishedByMe>();
 
-                foreach (var usePowerFinished in rulesetCharacter.GetSubFeaturesByType<IUsePowerFinishedByMe>())
+                if (powerModifier != null)
+                {
+                    modifiers.TryAdd(powerModifier);
+                }
+
+                foreach (var usePowerFinished in modifiers)
                 {
                     yield return usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
                 }

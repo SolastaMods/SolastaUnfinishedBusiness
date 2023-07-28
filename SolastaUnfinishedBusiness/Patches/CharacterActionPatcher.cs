@@ -129,8 +129,6 @@ public static class CharacterActionPatcher
 
             // BUGFIX: saving throw not passing correct saving delta on attack actions
             Global.CurrentAttackAction = null;
-
-            Global.CurrentMagicEffectAction = null;
         }
     }
 }

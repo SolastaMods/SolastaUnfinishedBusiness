@@ -955,6 +955,14 @@ public static class GameLocationBattleManagerPatcher
                     yield return feature.OnMagicalAttackBeforeHitConfirmedOnEnemy(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
+
+                if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
+                {
+                    var modifier = spellDefinition.GetFirstSubFeatureOfType<IMagicalAttackBeforeHitConfirmedOnEnemy>();
+
+                    yield return modifier?.OnMagicalAttackBeforeHitConfirmedOnEnemy(
+                        attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
             }
 
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMe`

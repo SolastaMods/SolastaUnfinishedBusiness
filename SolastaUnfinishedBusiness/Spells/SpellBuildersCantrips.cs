@@ -1,4 +1,6 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -918,43 +920,37 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .AddToDB();
 
-        spell.SetCustomSubFeatures(new ModifyEffectDescriptionTollTheDead(spell));
+        spell.SetCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(spell));
 
         return spell;
     }
 
-    private sealed class ModifyEffectDescriptionTollTheDead : IModifyEffectDescription
+    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead : IMagicalAttackBeforeHitConfirmedOnEnemy
     {
         private readonly SpellDefinition _spellTollTheDead;
 
-        public ModifyEffectDescriptionTollTheDead(SpellDefinition spellTollTheDead)
+        public MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
         {
             _spellTollTheDead = spellTollTheDead;
         }
 
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            return Global.CurrentMagicEffectAction != null &&
-                   Global.CurrentMagicEffectAction.ActionParams.TargetCharacters.Count > 0 &&
-                   Global.CurrentMagicEffectAction.ActionParams.TargetCharacters[0].RulesetCharacter != null &&
-                   definition == _spellTollTheDead;
-        }
+            if (rulesetEffect == null || rulesetEffect.SourceDefinition != _spellTollTheDead)
+            {
+                yield break;
+            }
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var characterActionMagicEffect = Global.CurrentMagicEffectAction;
-            var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
-            var rulesetDefender = gameLocationDefender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.DieType = rulesetDefender.MissingHitPoints == 0 ? DieType.D8 : DieType.D12;
-
-            return effectDescription;
+            actualEffectForms[0].DamageForm.dieType = rulesetDefender.MissingHitPoints == 0 ? DieType.D8 : DieType.D12;
         }
     }
 

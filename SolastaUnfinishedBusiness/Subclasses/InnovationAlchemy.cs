@@ -730,7 +730,7 @@ public static class InnovationAlchemy
         var powerRefundPool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyRefundPool")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainInsightForeknowledge)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .AddToDB();
 
         var powerRefundFromSlotList = new List<FeatureDefinitionPower>();
@@ -742,15 +742,15 @@ public static class InnovationAlchemy
             var powerRefundFromSlot = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"PowerInnovationAlchemyRefundFromSlot{i}")
                 .SetGuiPresentation(title, description)
-                .SetSharedPool(ActivationTime.BonusAction, powerRefundPool, i)
-                .SetCustomSubFeatures(new PowerUseValidityRefundAlchemyPool(powerPool))
+                .SetSharedPool(ActivationTime.BonusAction, powerRefundPool)
                 .AddToDB();
+
+            powerRefundFromSlot.SetCustomSubFeatures(
+                new CustomBehaviorRefundAlchemyPool(powerRefundFromSlot, powerPool, i));
 
             powerRefundFromSlotList.Add(powerRefundFromSlot);
         }
 
-        powerRefundPool.SetCustomSubFeatures(
-            new UsePowerFinishedByMeRefundAlchemyPool(powerPool, powerRefundFromSlotList));
         PowerBundle.RegisterPowerBundle(powerRefundPool, false, powerRefundFromSlotList);
 
         return powerRefundPool;
@@ -783,45 +783,37 @@ public static class InnovationAlchemy
             .AddToDB();
     }
 
-    private sealed class PowerUseValidityRefundAlchemyPool : IPowerUseValidity
+    private sealed class CustomBehaviorRefundAlchemyPool : IPowerUseValidity, IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerAlchemyPool;
+        private readonly FeatureDefinitionPower _powerRefundFromSlot;
+        private readonly int _slotLevel;
 
-        public PowerUseValidityRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool)
+        public CustomBehaviorRefundAlchemyPool(
+            FeatureDefinitionPower powerRefundFromSlot,
+            FeatureDefinitionPower powerAlchemyPool,
+            int slotLevel)
         {
+            _powerRefundFromSlot = powerRefundFromSlot;
             _powerAlchemyPool = powerAlchemyPool;
+            _slotLevel = slotLevel;
         }
 
         public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
         {
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-            var slotLevel = power.CostPerUse;
             var used =
                 rulesetCharacter.GetMaxUsesForPool(_powerAlchemyPool) -
                 rulesetCharacter.GetRemainingPowerUses(_powerAlchemyPool);
 
-            rulesetRepertoire!.GetSlotsNumber(slotLevel, out var remaining, out _);
+            rulesetRepertoire!.GetSlotsNumber(_slotLevel, out var remaining, out _);
 
-            return remaining > 0 && slotLevel <= used;
-        }
-    }
-
-    private sealed class UsePowerFinishedByMeRefundAlchemyPool : IUsePowerFinishedByMe
-    {
-        private readonly FeatureDefinitionPower _powerAlchemyPool;
-        private readonly List<FeatureDefinitionPower> _powerRefundFromSlotList;
-
-        public UsePowerFinishedByMeRefundAlchemyPool(
-            FeatureDefinitionPower powerAlchemyPool,
-            List<FeatureDefinitionPower> powerRefundFromSlotList)
-        {
-            _powerAlchemyPool = powerAlchemyPool;
-            _powerRefundFromSlotList = powerRefundFromSlotList;
+            return remaining > 0 && _slotLevel <= used;
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (!_powerRefundFromSlotList.Contains(power))
+            if (power != _powerRefundFromSlot)
             {
                 yield break;
             }
@@ -829,10 +821,9 @@ public static class InnovationAlchemy
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
             var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
-            var slotLevel = power.CostPerUse;
 
-            rulesetRepertoire!.SpendSpellSlot(slotLevel);
-            rulesetUsablePower.remainingUses += slotLevel;
+            rulesetRepertoire!.SpendSpellSlot(_slotLevel);
+            rulesetUsablePower.remainingUses += _slotLevel;
         }
     }
 

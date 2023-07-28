@@ -31,7 +31,7 @@ internal static class RaceImpBuilder
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 FeatureDefinitionSenses.SenseNormalVision,
                 FeatureDefinitionSenses.SenseDarkvision,
-                FeatureDefinitionFeatureSets.FeatureSetHumanLanguages)
+                FlexibleRacesContext.FeatureSetLanguageCommonPlusOne)
             .AddToDB();
 
         RacesContext.RaceScaleMap[raceImp] = 7f / 9.4f;

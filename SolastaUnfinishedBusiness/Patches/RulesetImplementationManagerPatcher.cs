@@ -223,6 +223,8 @@ public static class RulesetImplementationManagerPatcher
             bool canRerollDice,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
+            // commented out as causing issues with other features
+#if false
             //BUGFIX: allow all damage forms from weapons to allow reroll dice (i.e.: Great Weapon Fighting)
             if (!canRerollDice)
             {
@@ -230,6 +232,7 @@ public static class RulesetImplementationManagerPatcher
                                 formsParams.attackMode.EffectDescription.EffectForms.Any(
                                     x => x.DamageForm == damageForm);
             }
+#endif
 
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
             {

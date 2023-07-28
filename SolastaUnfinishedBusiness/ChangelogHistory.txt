@@ -1,4 +1,15 @@
-﻿1.5.94.4:
+﻿1.5.94.5:
+
+- fixed Circle of the Eternal Grove conditions on self
+- fixed Elemental Adept applying to other damage types
+- fixed Ethereal Knell behavior under multiplayer
+- fixed Imp and Malakh selectable languages
+- fixed Innovation Grenadier recharge feature behavior
+- fixed Sonic Boom area of effect to 30 feet
+- fixed Thunderous Rebuke additional lightning damage
+- fixed Voracious Fury triggering on thrown attacks
+
+1.5.94.4:
 
 ATTENTION: 
 

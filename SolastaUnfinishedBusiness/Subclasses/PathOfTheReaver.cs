@@ -274,6 +274,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
         {
             var isValid =
+                attackMode?.thrown == false &&
                 (ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
                 ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
                 ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
