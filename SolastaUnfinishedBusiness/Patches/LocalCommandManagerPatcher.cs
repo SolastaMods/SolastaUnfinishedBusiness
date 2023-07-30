@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -35,6 +36,35 @@ public static class LocalCommandManagerPatcher
             {
                 character.SpendActionType(type);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(LocalCommandManager), nameof(LocalCommandManager.TogglePermanentInvocation))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TogglePermanentInvocation_Patch
+    {
+        [NotNull]
+        [UsedImplicitly]
+
+        public static bool Prefix(GameLocationCharacter character, RulesetInvocation invocation)
+        {
+            if (character != null)
+            {
+                RulesetCharacter rulesetCharacter = character.RulesetCharacter;
+                if (rulesetCharacter != null && invocation != null)
+                {
+                    invocation.Toggle();
+                    // PATCH BEGIN
+                    foreach (var toggledBehaviour in invocation.invocationDefinition.GrantedFeature.GetAllSubFeaturesOfType<IInvocationToggled>())
+                    {
+                        toggledBehaviour.OnInvocationToggled(character, invocation);
+                    }
+                    // PATCH END
+                    rulesetCharacter.RefreshAll();
+                }
+            }
+            return false;
         }
     }
 }

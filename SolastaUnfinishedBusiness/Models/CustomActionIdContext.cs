@@ -124,6 +124,30 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
             .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(CastInvocation, "EldritchVersatilityMain")
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionGambit, 20)
+            .SetActionId(ExtraActionId.EldritchVersatilityMain)
+            .SetActionType(ActionType.Main)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(CastInvocation, "EldritchVersatilityBonus")
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionGambit, 20)
+            .SetActionId(ExtraActionId.EldritchVersatilityBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(CastInvocation, "EldritchVersatilityNoCost")
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionGambit, 20)
+            .SetActionId(ExtraActionId.EldritchVersatilityNoCost)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
     }
 
     private static void BuildCustomPushedAction()
@@ -479,7 +503,18 @@ public static class CustomActionIdContext
                    or ExtraActionId.CastPlaneMagicBonus
                    or ExtraActionId.CastSpellMasteryMain
                    or ExtraActionId.CastSignatureSpellsMain
-               || IsGambitActionId(id);
+               || IsGambitActionId(id)
+               || IsEldritchVersatilityId(id)
+               || IsEldritchVersatilityId(id);
+    }
+
+    private static bool IsEldritchVersatilityId(Id id)
+    {
+        var extra = (ExtraActionId)id;
+
+        return extra is ExtraActionId.EldritchVersatilityMain
+            or ExtraActionId.EldritchVersatilityBonus
+            or ExtraActionId.EldritchVersatilityNoCost;
     }
 
     private static bool IsGambitActionId(Id id)

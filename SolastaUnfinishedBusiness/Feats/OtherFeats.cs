@@ -50,7 +50,8 @@ internal static class OtherFeats
         var featTacticianAdept = BuildTacticianAdept();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
-
+        // Static build elsewhere for convenience
+        var featEldritchVersatilityAdept = EldritchVersatility.FeatEldritchVersatilityAdept;
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -100,7 +101,9 @@ internal static class OtherFeats
             featEldritchAdept,
             featInfusionAdept,
             featMetamagicAdept,
-            featTacticianAdept);
+            featTacticianAdept,
+            featEldritchVersatilityAdept
+            );
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -477,7 +480,16 @@ internal static class OtherFeats
                 .SetHandsFullCastingModifiers(true, true, true)
                 .AddToDB())
             .SetMustCastSpellsPrerequisite()
+            .SetCustomSubFeatures(WarCasterMarker.Mark)
             .AddToDB();
+    }
+    internal class WarCasterMarker
+    {
+        private WarCasterMarker()
+        {
+        }
+
+        public static WarCasterMarker Mark { get; } = new();
     }
 
     #endregion

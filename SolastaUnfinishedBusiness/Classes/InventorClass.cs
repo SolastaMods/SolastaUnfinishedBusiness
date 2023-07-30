@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -78,7 +79,7 @@ internal static class InventorClass
         var builder = CharacterClassDefinitionBuilder
             .Create(ClassName)
 
-            #region Presentation
+        #region Presentation
 
             .SetGuiPresentation(Category.Class, Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576))
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
@@ -121,13 +122,13 @@ internal static class InventorClass
                 "PowerfulCantrip",
                 "FlawlessConcentration")
 
-            #endregion
+        #endregion
 
             .SetBattleAI(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
             .SetIngredientGatheringOdds(Wizard.IngredientGatheringOdds)
             .SetHitDice(DieType.D8)
 
-            #region Equipment
+        #region Equipment
 
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
@@ -192,9 +193,9 @@ internal static class InventorClass
                 }
             )
 
-            #endregion
+        #endregion
 
-            #region Proficiencies
+        #region Proficiencies
 
             // Weapons
             .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
@@ -263,97 +264,97 @@ internal static class InventorClass
                 )
                 .AddToDB())
 
-            #endregion
+        #endregion
 
-            #region Level 01
+        #region Level 01
 
             .AddFeaturesAtLevel(1, SpellCasting, BuildBonusCantrips(), BuildRitualCasting())
 
-            #endregion
+        #endregion
 
-            #region Level 02
+        #region Level 02
 
             .AddFeaturesAtLevel(2, featureSetInventorInfusions)
 
-            #endregion
+        #endregion
 
-            #region Level 03
+        #region Level 03
 
             .AddFeaturesAtLevel(3, BuildRightToolForTheJob())
 
-            #endregion
+        #endregion
 
-            #region Level 04
+        #region Level 04
 
             .AddFeaturesAtLevel(4,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
 
-            #endregion
+        #endregion
 
-            #region Level 06
+        #region Level 06
 
             .AddFeaturesAtLevel(6, learn2Infusion, BuildInfusionPoolIncrease(), BuildToolExpertise())
 
-            #endregion
+        #endregion
 
-            #region Level 07
+        #region Level 07
 
             .AddFeaturesAtLevel(7, BuildFlashOfGenius())
 
-            #endregion
+        #endregion
 
-            #region Level 08
+        #region Level 08
 
             .AddFeaturesAtLevel(8,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
 
-            #endregion
+        #endregion
 
-            #region Level 10
+        #region Level 10
 
             .AddFeaturesAtLevel(10, learn2Infusion, BuildMagicAdept(),
                 BuildInfusionPoolIncrease())
 
-            #endregion
+        #endregion
 
-            #region Level 11
+        #region Level 11
 
             // this is now handled on late load
             //.AddFeaturesAtLevel(11, BuildSpellStoringItem())
 
-            #endregion
+        #endregion
 
-            #region Level 12
+        #region Level 12
 
             .AddFeaturesAtLevel(12,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
 
-            #endregion
+        #endregion
 
-            #region Level 14
+        #region Level 14
 
             .AddFeaturesAtLevel(14, learn2Infusion, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
 
-            #endregion
+        #endregion
 
-            #region Level 16
+        #region Level 16
 
             .AddFeaturesAtLevel(16,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
 
-            #endregion
+        #endregion
 
-            #region Level 18
+        #region Level 18
 
             .AddFeaturesAtLevel(18, learn2Infusion, BuildInfusionPoolIncrease())
 
-            #endregion
+        #endregion
 
-            #region Level 19
+        #region Level 19
 
             .AddFeaturesAtLevel(19,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
@@ -416,7 +417,8 @@ internal static class InventorClass
             map.characterClassToLootPackMappings.Add(
                 new CharacterToLootPackMapDefinition.CharacterClassToLootPackMapping
                 {
-                    className = ClassName, lootPack = loot
+                    className = ClassName,
+                    lootPack = loot
                 });
         }
     }
@@ -827,7 +829,9 @@ internal static class InventorClass
             .AddToDB();
 
         //should be hidden from user
-        var flashOfGenius = new FlashOfGenius(bonusPower, "InventorFlashOfGenius");
+        var flashOfGenius = new FlashOfGenius(bonusPower, "InventorFlashOfGenius",
+          "ConditionInventorFlashOfGeniusAura"
+            );
 
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
@@ -880,29 +884,30 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
+// Moved logic from original patcher, no other changes made
+internal class FlashOfGenius : IMeOrAllySaveFailPossible
 {
-    internal FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
+    FeatureDefinitionPower Power { get; }
+    string ReactionName { get; }
+    string AuraConditionName { get; }
+    internal FlashOfGenius(FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
+        Power = power;
+        ReactionName = reactionName;
+        AuraConditionName = auraConditionName;
     }
 
-    private static int GetBonus(RulesetEntity helper)
+    static int GetBonus(RulesetEntity helper)
     {
         var intelligence = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
 
         return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
     }
 
-    internal override bool ShouldTrigger(
+    bool ShouldTrigger(
         CharacterAction action,
-        GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        bool hasHitVisual,
-        bool hasBorrowedLuck,
-        RollOutcome saveOutcome,
-        int saveOutcomeDelta)
+        GameLocationCharacter helper)
     {
         if (helper.IsOppositeSide(defender.Side))
         {
@@ -914,25 +919,18 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             return false;
         }
 
-        return action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
+        return action.RolledSaveThrow && action.saveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
     }
 
-    internal override bool TryModifyRoll(CharacterAction action,
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
+    bool TryModifyRoll(CharacterAction action,
         GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        CharacterActionParams reactionParams,
-        bool hasHitVisual,
-        bool hasBorrowedLuck,
-        ref RollOutcome saveOutcome,
-        ref int saveOutcomeDelta)
+        ActionModifier saveModifier)
     {
         var bonus = GetBonus(helper.RulesetActor);
 
         //reuse DC modifier from previous checks, not 100% sure this is correct
         var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDc + saveOutcomeDelta + bonus;
+        var rolled = saveDc + action.saveOutcomeDelta + bonus;
         var success = rolled >= saveDc;
 
         const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
@@ -943,8 +941,8 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         {
             result = GameConsole.SaveSuccessOutcome;
             resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
-            saveOutcome = RollOutcome.Success;
-            saveOutcomeDelta += bonus;
+            action.saveOutcome = RollOutcome.Success;
+            action.saveOutcomeDelta += bonus;
         }
         else
         {
@@ -965,21 +963,72 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         return true;
     }
 
-    internal override string FormatReactionDescription(
+    string FormatReactionDescription(
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        bool hasHitVisual,
-        bool hasBorrowedLuck,
-        RollOutcome saveOutcome,
-        int saveOutcomeDelta)
+        GameLocationCharacter helper)
     {
         var text = defender == helper
             ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
             : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+    }
+
+    public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager,
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        GameLocationCharacter featureOwner,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck)
+    {
+        var ownerCharacter = featureOwner.RulesetCharacter;
+        ownerCharacter.TryGetConditionOfCategoryAndType(
+            AttributeDefinitions.TagEffect,
+            AuraConditionName,
+            out var activeCondition
+            );
+        RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var helperCharacter);
+        var locHelper = GameLocationCharacter.GetFromActor(helperCharacter);
+
+        if (!ShouldTrigger(action, defender, locHelper))
+        {
+            yield break;
+        }
+
+        if (!helperCharacter.CanUsePower(Power))
+        {
+            yield break;
+        }
+
+        var usablePower = UsablePowersProvider.Get(Power, helperCharacter);
+        var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+        var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
+        {
+            StringParameter = ReactionName,
+            StringParameter2 = FormatReactionDescription(action, attacker, defender, locHelper),
+            RulesetEffect = rulesService
+                .InstantiateEffectPower(helperCharacter, usablePower, false)
+                .AddAsActivePowerToSource()
+        };
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactToSpendPower(reactionParams);
+
+        yield return battleManager.WaitForReactions(locHelper, actionService, count);
+
+        if (reactionParams.ReactionValidated)
+        {
+            helperCharacter.LogCharacterUsedPower(Power, indent: true);
+            // Originally here is defender use power
+            // helperCharacter.UsePower(usablePower);
+            action.RolledSaveThrow = TryModifyRoll(action, locHelper, saveModifier);
+        }
+
+        reactionParams.RulesetEffect.Terminate(true);
     }
 }

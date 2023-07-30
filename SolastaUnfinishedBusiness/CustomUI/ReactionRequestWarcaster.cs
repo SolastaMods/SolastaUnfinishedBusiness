@@ -3,6 +3,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Feats;
+using static SolastaUnfinishedBusiness.Feats.OtherFeats;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -107,10 +108,8 @@ internal class ReactionRequestWarcaster : ReactionRequest
             return null;
         }
 
-        //TODO: find better way to detect warcaster
-        var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
-
-        if (affinities.All(a => a.Name != OtherFeats.MagicAffinityFeatWarCaster))
+        // use marker to identify WarCaster
+        if (!rulesetCharacter.HasSubFeatureOfType<WarCasterMarker>())
         {
             return null;
         }

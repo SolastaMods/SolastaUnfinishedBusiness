@@ -741,7 +741,8 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionOwlsWisdom");
 
         internal static FeatureDefinitionAbilityCheckAffinity
-            AbilityCheckAffinityDomainLawUnyieldingEnforcerShove { get; } =
+            AbilityCheckAffinityDomainLawUnyieldingEnforcerShove
+        { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>(
                 "AbilityCheckAffinityDomainLawUnyieldingEnforcerShove");
 
@@ -854,7 +855,8 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
 
         internal static FeatureDefinitionAdditionalDamage
-            AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } =
+            AdditionalDamageTraditionLightRadiantStrikesLuminousKi
+        { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionLightRadiantStrikesShine { get; } =
@@ -885,7 +887,8 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus");
 
         internal static FeatureDefinitionAttackModifier
-            AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom { get; } =
+            AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
+        { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom");
 
         internal static FeatureDefinitionAttackModifier AttackModifierMonkMartialArtsImprovedDamage { get; } =
@@ -943,7 +946,8 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseCha");
 
         internal static FeatureDefinitionAttributeModifier
-            AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
+            AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3
+        { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>(
                 "AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_Dagger+3");
 
@@ -1046,6 +1050,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionCombatAffinitys
     {
+        internal static FeatureDefinitionCombatAffinity CombatAffinityEldritchSpear { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEldritchSpear");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityWandOfWarMageCover { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityWandOfWarMageCover");
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityAdamantinePlateArmor { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAdamantinePlateArmor");
 
@@ -1116,7 +1126,8 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharm");
 
         internal static FeatureDefinitionConditionAffinity
-            ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } =
+            ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern
+        { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>(
                 "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
 
@@ -1907,7 +1918,8 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfSolasta");
 
         internal static FeatureDefinitionSavingThrowAffinity
-            SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm { get; } =
+            SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm
+        { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>(
                 "SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm");
 

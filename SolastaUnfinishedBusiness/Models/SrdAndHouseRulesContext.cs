@@ -700,12 +700,12 @@ internal static class SrdAndHouseRulesContext
 
         public static IdentifyItems Mark { get; } = new();
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             (target as RulesetCharacterHero)?.AutoIdentifyInventoryItems();
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }
