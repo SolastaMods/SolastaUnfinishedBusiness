@@ -384,12 +384,14 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var summonForm = spell.EffectDescription.EffectForms[0].SummonForm;
-        var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;
-
         summonForm.itemDefinition = itemShadowBlade;
-        itemPropertyForm.FeatureBySlotLevel[1].level = 3;
-        itemPropertyForm.FeatureBySlotLevel[2].level = 5;
-        itemPropertyForm.FeatureBySlotLevel[3].level = 7;
+
+        var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;
+        itemPropertyForm.featureBySlotLevel.Clear();
+        itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(2, 0));
+        itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(3, 1));
+        itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(5, 2));
+        itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(7, 3));
 
         var featureAdvantage = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
@@ -413,6 +415,20 @@ internal static partial class SpellBuilders
                 .Build());
 
         return spell;
+    }
+
+    private static FeatureUnlockByLevel BuildShadowBladeFeatureBySlotLevel(int level, int damageDice)
+    {
+        var attackModifierShadowBladeLevel = FeatureDefinitionAttackModifierBuilder
+            .Create(FeatureDefinitionAttackModifiers.AttackModifierFlameBlade2, $"AttackModifierShadowBlade{level}")
+            .AddToDB();
+        attackModifierShadowBladeLevel.guiPresentation.description
+            = damageDice > 0 ? Gui.Format("Feature/&AttackModifierShadowBladeNDescription", damageDice.ToString())
+            : "Feature/&AttackModifierShadowBlade0Description";
+        attackModifierShadowBladeLevel.additionalDamageDice = damageDice;
+        attackModifierShadowBladeLevel.impactParticleReference = ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference;
+        attackModifierShadowBladeLevel.abilityScoreReplacement = AbilityScoreReplacement.None;
+        return new FeatureUnlockByLevel(attackModifierShadowBladeLevel, level);
     }
 
     private sealed class ModifyAttackActionModifierShadowBlade : IModifyAttackActionModifier
