@@ -686,10 +686,12 @@ internal static class GameLocationBattleManagerTweaks
          * Support for additional effects
          */
 
-        var additionalForms = featureDefinition.GetFirstSubFeatureOfType<AdditionalEffectFormOnDamageHandler>();
+        var additionalForms = featureDefinition
+            .GetFirstSubFeatureOfType<AdditionalEffectFormOnDamageHandler>()
+            ?.Invoke(attacker, defender, provider);
         if (additionalForms != null)
         {
-            actualEffectForms.AddRange(additionalForms(attacker, defender, provider));
+            actualEffectForms.AddRange(additionalForms);
         }
 
         /*
