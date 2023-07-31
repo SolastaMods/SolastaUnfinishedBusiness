@@ -35,3 +35,7 @@ Feedback/EldritchAegisGiveACBonus={0}给予AC加值！(+{1})
 Feedback/&EldritchWardGivesSaveBonus={0}给予豁免加值！新豁免结果为{1}。
 Tooltip/&EldritchVersatilityPortraitPoolFormat={0}/{2}点,其中预备{1}点。
 UI/&CustomFeatureSelectionTooltipTypeEldritchVersatilityPool=才能
+Reaction/&CustomReactionEldritchAegisTitle=魔能神盾
+Reaction/&CustomReactionEldritchAegis={0}正在遭受攻击！
+Reaction/&CustomReactionEldritchWardTitle=魔能守御
+Reaction/&CustomReactionEldritchWard={0}豁免即将失败！
