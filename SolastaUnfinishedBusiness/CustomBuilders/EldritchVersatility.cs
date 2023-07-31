@@ -38,7 +38,6 @@ static class EldritchVersatility
             BindingDefinition = ConditionDefinitionBuilder
                 .Create("ConditionEldritchVersatility")
                 .SetGuiPresentationNoContent(true)
-                .SetSpecialDuration(DurationType.Permanent)
                 .SetSpecialInterruptions(ConditionInterruption.LevelUp, ConditionInterruption.LongRest)
                 .SetCustomSubFeatures(
                     Marker,
@@ -314,9 +313,13 @@ static class EldritchVersatility
 
             // The clearing is called when next time this condition is added
             // So we can do some cleaning here
+            // This condition is removed on level up and long rest, so we reapply it.
+            // But don't do this right here beacuse if we are respec the character, this should cause a dead loop
+            // We just remove the power from power used by me list.
             public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
             {
                 Main.Info("Condition Versatility interrupted");
+                target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
             }
         }
     }
