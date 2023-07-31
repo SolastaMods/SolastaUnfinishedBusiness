@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-class PotraitPointEldritchVersatility: ICustomPortraitPointPoolProvider
+class PotraitPointEldritchVersatility : ICustomPortraitPointPoolProvider
 {
 
     public static ICustomPortraitPointPoolProvider Instance { get; } = new PotraitPointEldritchVersatility();
@@ -26,7 +26,7 @@ class PotraitPointEldritchVersatility: ICustomPortraitPointPoolProvider
         return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reserverPoints, maxPoints);
     }
 
-    public AssetReferenceSprite Icon => Sprites.ChannelDivinityResourceIcon;
+    public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
 
     public string GetPoints(RulesetCharacter character)
     {

@@ -127,7 +127,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(CastInvocation, "EldritchVersatilityMain")
-            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.EldritchVersatilityResourceIcon, 20)
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
             .SetActionId(ExtraActionId.EldritchVersatilityMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
@@ -135,7 +135,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(CastInvocation, "EldritchVersatilityBonus")
-            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.EldritchVersatilityResourceIcon, 20)
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
             .SetActionId(ExtraActionId.EldritchVersatilityBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
@@ -143,7 +143,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(CastInvocation, "EldritchVersatilityNoCost")
-            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.EldritchVersatilityResourceIcon, 20)
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
             .SetActionId(ExtraActionId.EldritchVersatilityNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)

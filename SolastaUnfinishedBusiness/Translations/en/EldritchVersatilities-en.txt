@@ -31,3 +31,4 @@ Feedback/&BattlefieldConversionCreateSlotSuccess={0} successfully restored a slo
 Feedback/&BattlefieldConversionCreateSlotFailure={0} failed to restore a slot. New DC is {1}.
 Feedback/EldritchAegisGiveACBonus={0} grants AC bonus! (+{1})
 Feedback/&EldritchWardGivesSaveBonus={0} grants save bonus! New saving throw outcome is {1}!
+Tooltip/&EldritchVersatilityPortraitPoolFormat={0}/{2} points, with {1} points reserved.
