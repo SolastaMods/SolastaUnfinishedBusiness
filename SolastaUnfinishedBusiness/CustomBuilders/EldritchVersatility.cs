@@ -323,7 +323,7 @@ static class EldritchVersatility
 
     public static FeatureDefinitionPower PowerEldritchVersatilityPointPool = FeatureDefinitionPowerBuilder
             .Create($"Power{_Name}PointPool")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Permanent)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
