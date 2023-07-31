@@ -454,6 +454,10 @@ static class EldritchVersatility
         featureOrPower = FeatureDefinitionPowerBuilder
                     .Create($"Power{_Name}{name}")
                     .SetGuiPresentation(Category.Feature)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder.Create()
+                            .SetParticleEffectParameters(SpellDefinitions.Haste)
+                            .Build())
                     .SetUsesFixed(ActivationTime.BonusAction)
                     .SetCustomSubFeatures(
                         PowerFromInvocation.Marker
