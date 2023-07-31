@@ -361,7 +361,7 @@ static class EldritchVersatility
         .AddToDB();
 
     static ConditionDefinition ConditionEldritchSurgeBlastOverload = ConditionDefinitionBuilder
-        .Create($"Condition{PatronEldritchSurge.Name}BlastOverload")
+        .Create($"Condition{Name}BlastOverload")
         .SetGuiPresentation(Category.Condition)
         .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .SetFeatures(FeatureDefinitionAdditionalActionBuilder
@@ -802,7 +802,7 @@ static class EldritchVersatility
                 var console = Gui.Game.GameConsole;
                 var entry = createSuccess ?
                     new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotSuccess", console.consoleTableDefinition) { Indent = true } :
-                    new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFail", console.consoleTableDefinition) { Indent = true };
+                    new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFailure", console.consoleTableDefinition) { Indent = true };
 
                 console.AddCharacterEntry(rulesetCharacter, entry);
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, supportCondition.CreateSlotDC.ToString());
@@ -1044,7 +1044,6 @@ static class EldritchVersatility
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{requiredSaveAddition}");
             var DC = action.GetSaveDC().ToString();
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll, Gui.Format(GameConsole.SaveSuccessOutcome, DC));
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, DC);
             console.AddEntry(entry);
 
         }
