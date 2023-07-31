@@ -80,10 +80,10 @@ static class EldritchVersatility
                 case (_, PointUsage.EldritchAegisOrWard):
                     modifyCurrent = -value;
                     break;
-                case (_, PointUsage.BattlefieldReplenishmentSuccess):
+                case (_, PointUsage.BattlefieldConversionSuccess):
                     modifyCurrent = -2 * SlotLevel;
                     break;
-                case (_, PointUsage.BattlefieldReplenishmentFailure):
+                case (_, PointUsage.BattlefieldConversionFailure):
                     modifyCurrent = -SlotLevel;
                     break;
                 case (PointAction.Reserve, PointUsage.BlastBreakthroughOrEmpower):
@@ -162,8 +162,7 @@ static class EldritchVersatility
             }
             CurrentPoints = 0;
             ReservedPoints = 0;
-            SlotLevel = Math.Max(SharedSpellsContext.GetSharedSpellLevel(ownerHero),
-                SharedSpellsContext.GetWarlockSpellLevel(ownerHero));
+            SlotLevel = SharedSpellsContext.GetWarlockSpellLevel(ownerHero);
             // Reset DC
             CreateSlotDC = 8 + proficiencyBonus;
             EarnedPointsInThisTurn = 0;
@@ -387,8 +386,8 @@ static class EldritchVersatility
     {
         EarnPoints,
         EldritchAegisOrWard,
-        BattlefieldReplenishmentSuccess,
-        BattlefieldReplenishmentFailure,
+        BattlefieldConversionSuccess,
+        BattlefieldConversionFailure,
         BlastBreakthroughOrEmpower
     }
 
@@ -436,16 +435,16 @@ static class EldritchVersatility
 
         #region Intelligence Power
 
-        name = "BattlefieldLearner";
+        name = "BattlefieldShorthand";
         sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
         featureOrPower = FeatureDefinitionBuilder
                     .Create($"Feature{_Name}{name}")
                     .SetCustomSubFeatures(
-                        new BattlefieldLearnerCopySpells())
+                        new BattlefieldShorthandCopySpells())
                     .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
 
-        name = "BattlefieldReplenishment";
+        name = "BattlefieldConversion";
         sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
         featureOrPower = FeatureDefinitionPowerBuilder
                     .Create($"Power{_Name}{name}")
@@ -454,7 +453,7 @@ static class EldritchVersatility
                         PowerFromInvocation.Marker
                         )
                     .AddToDB();
-        featureOrPower.AddCustomSubFeatures(new BattlefieldReplenishmentRestoreSlot(featureOrPower));
+        featureOrPower.AddCustomSubFeatures(new BattlefieldConversionRestoreSlot(featureOrPower));
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
         #endregion
 
@@ -683,7 +682,7 @@ static class EldritchVersatility
         }
     }
 
-    sealed class BattlefieldLearnerCopySpells : ISpellCast, IInvocationToggled
+    sealed class BattlefieldShorthandCopySpells : ISpellCast, IInvocationToggled
     {
         // Should no turn off
         public void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation)
@@ -708,6 +707,10 @@ static class EldritchVersatility
 
             var warlockRepertoire = featureOwner.GetOriginalHero()
                 .SpellRepertoires.Find(x => x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+            if (warlockRepertoire is null)
+            {
+                yield break;
+            }
             var spellLevel = selectedSpellDefinition.SpellLevel;
             var cantripOrSpell = spellLevel > 0 ?
                 warlockRepertoire.KnownSpells :
@@ -721,25 +724,28 @@ static class EldritchVersatility
                 }
                 yield break;
             }
-            // Maximum copy-able spell level is half class level
+            // Maximum copy-able spell level is half pool size
             else if (cantripOrSpell.Contains(selectedSpellDefinition) ||
                 spellLevel > supportCondition.MaxPoints / 2)
             {
                 yield break;
             }
-            // You yourself should pass a check again to copy it.
-            var checkModifier = new ActionModifier();
-            GameLocationCharacter.GetFromActor(featureOwner).RollAbilityCheck(AttributeDefinitions.Intelligence, SkillDefinitions.Arcana,
-                15 + spellLevel + Math.Max(0, spellLevel - supportCondition.CurrentPoints),
-                AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                out _, true);
-            // Fails check
-            if (abilityCheckRollOutcome > RollOutcome.Success)
+            // You yourself should pass a check again to copy it if not overload
+            if (!supportCondition.IsOverload)
             {
-                yield break;
+                var checkModifier = new ActionModifier();
+                GameLocationCharacter.GetFromActor(featureOwner).RollAbilityCheck(AttributeDefinitions.Intelligence, SkillDefinitions.Arcana,
+                    15 + spellLevel + Math.Max(0, spellLevel - supportCondition.CurrentPoints),
+                    AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
+                    out _, true);
+                // Fails check
+                if (abilityCheckRollOutcome > RollOutcome.Success)
+                {
+                    yield break;
+                }
             }
             var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry("Feedback/BattlefieldLearnerCopySpellSuccess", console.consoleTableDefinition) { Indent = true };
+            var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess", console.consoleTableDefinition) { Indent = true };
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{selectedSpellDefinition.Name}");
             console.AddEntry(entry);
@@ -748,11 +754,11 @@ static class EldritchVersatility
         }
     }
 
-    sealed class BattlefieldReplenishmentRestoreSlot : IUsePowerFinishedByMe, IPowerUseValidity
+    sealed class BattlefieldConversionRestoreSlot : IUsePowerFinishedByMe, IPowerUseValidity
     {
         private readonly FeatureDefinition TriggerPower;
 
-        public BattlefieldReplenishmentRestoreSlot(FeatureDefinition triggerPower)
+        public BattlefieldConversionRestoreSlot(FeatureDefinition triggerPower)
         {
             TriggerPower = triggerPower;
         }
@@ -768,7 +774,7 @@ static class EldritchVersatility
             // Have spent pact slot && have enough points
             return SharedSpellsContext.GetWarlockUsedSlots(rulesetHero) > 0 &&
                 character.GetVersatilitySupportCondition(out var supportCondition) &&
-                supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.BattlefieldReplenishmentSuccess);
+                supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.BattlefieldConversionSuccess);
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
@@ -779,34 +785,35 @@ static class EldritchVersatility
             }
             var gameLocationCharacter = action.ActingCharacter;
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-
-            rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
-            // Check to restore slot
-            var checkModifier = new ActionModifier();
-            gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
-                RuleDefinitions.AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                out _, true);
-
             var rulesetHero = rulesetCharacter.GetOriginalHero();
-            // If success increse DC, other wise decrese DC
-            var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
-            supportCondition.ModifySlotDC(createSuccess, rulesetHero);
-            // Log to notify outcome and new DC
-            var console = Gui.Game.GameConsole;
-            var entry = createSuccess ?
-                new GameConsoleEntry("Feedback/&BattlefieldReplenishmentCreateSlotSuccess", console.consoleTableDefinition) { Indent = true } :
-                new GameConsoleEntry("Feedback/&BattlefieldReplenishmentCreateSlotFail", console.consoleTableDefinition) { Indent = true };
-
-            console.AddCharacterEntry(rulesetCharacter, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, supportCondition.CreateSlotDC.ToString());
-            console.AddEntry(entry);
-            // If fails
-            if (abilityCheckRollOutcome > RuleDefinitions.RollOutcome.Success)
+            rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
+            if (!supportCondition.IsOverload)
             {
-                supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldReplenishmentFailure);
-                yield break;
+                // Check to restore slot
+                var checkModifier = new ActionModifier();
+                gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
+                    RuleDefinitions.AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
+                    out _, true);
+                // If success increse DC, other wise decrese DC
+                var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
+                supportCondition.ModifySlotDC(createSuccess, rulesetHero);
+                // Log to notify outcome and new DC
+                var console = Gui.Game.GameConsole;
+                var entry = createSuccess ?
+                    new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotSuccess", console.consoleTableDefinition) { Indent = true } :
+                    new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFail", console.consoleTableDefinition) { Indent = true };
+
+                console.AddCharacterEntry(rulesetCharacter, entry);
+                entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, supportCondition.CreateSlotDC.ToString());
+                console.AddEntry(entry);
+                // If fails
+                if (abilityCheckRollOutcome > RuleDefinitions.RollOutcome.Success)
+                {
+                    supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldConversionFailure);
+                    yield break;
+                }
             }
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldReplenishmentSuccess);
+            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldConversionSuccess);
             var warlockRepertoire = rulesetHero.SpellRepertoires.Find(x => x.SpellCastingClass == CharacterClassDefinitions.Warlock);
             var slotLevelIndex = SharedSpellsContext.IsMulticaster(rulesetHero)
                                 ? -1
