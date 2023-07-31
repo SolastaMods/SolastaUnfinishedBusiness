@@ -305,7 +305,7 @@ static class EldritchVersatility
                 var posDefender = defender.locationPosition;
 
                 supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
-                    int3.Distance(posOwner, posDefender) <= 6f && characterAttacker.HasAnyFeature(FeatureBlastPursuit) ?
+                    (int3.Distance(posOwner, posDefender) <= 6f && characterAttacker.HasAnyFeature(FeatureBlastPursuit)) ?
                     2 :
                     1
                     );
