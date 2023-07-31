@@ -1,6 +1,6 @@
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=You gain an extra action, and you can use all your Versatilities without spending points or making any checks.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Blast Overload
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Your patron endows you with more powerful blasts but only if you follow its path all along. You gain <b>Eldritch Blast</b> as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=You gain <b>Eldritch Blast</b> as a bonus cantrip. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=You can cast cantrips you have cast this turn with your main action as a bonus action.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
@@ -8,5 +8,5 @@ Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Once per long rest, yo
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Blast Overload
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
 Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=When you hit an enemy within 30 feet / kills an enemy with <b>Eldritch Blast</b>, you gain 1 / number of beams additional Eldritch Point.
-Subclass/&PatronEldritchSurgeDescription=You have made a pact with a mysterious entity that grants you the power to unleash the ferocious arcane energy of <b>Eldritch Blast</b>. This patron is not a specific being, but rather a manifestation of the raw surge of magic itself. Chosen by this being, you are devoted to focus on enhancing your signature spell and destroy your enemies with the devastating force to prove its boundless power. And thus, your patron only grants you <b>Eldritch Blast</b>.
+Subclass/&PatronEldritchSurgeDescription=You have made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 Subclass/&PatronEldritchSurgeTitle=The Eldritch Surge

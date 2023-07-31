@@ -1,6 +1,6 @@
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=你获得一个额外主要动作，你施展所有的才能不需要消耗魔能点，不需要进行任何检定。
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=魔爆超限
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=你将<b>魔能爆</b>作为额外戏法，且你施展的<b>魔能爆</b>射程为120尺，射线的数量改为由你的邪术师等级减去两倍其他职业等级决定，该差若每大于等于3,8,13,18，增加一条射线。
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=你将<b>魔能爆</b>作为额外戏法，其射线的数量改为由你的邪术师等级减去两倍其他职业等级决定，该差若每大于等于3,8,13,18，增加一条射线。
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=魔爆掌控
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=如果你以主要动作施展过戏法，则你也可以用附赠动作施展同样的戏法。
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=魔爆重载
@@ -8,5 +8,5 @@ Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=每次长休一次，�
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=魔爆超限
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=魔爆追击
 Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=当你以魔能爆命中30尺范围内的敌方目标/击杀敌方目标时，额外获得1/射线数点魔能点。
-Subclass/&PatronEldritchSurgeDescription=你与一神秘存在缔结契约，受赋解放魔爆汹涌奥能之力。此宗主并无定形，乃纯粹魔力之具现。受选之人须精进招牌法术，为敌人带去毁灭，以夸示宗主之无边威能。因此，祂仅授予你增强的<b>魔能爆</b>。
+Subclass/&PatronEldritchSurgeDescription=你与一神秘存在缔结契约。该存在或许是精妙交织的魔网所涌现的意识，其坚信纯粹的奥能可以产生任何现象，而你将证明这一点。
 Subclass/&PatronEldritchSurgeTitle=魔能狂涌
