@@ -416,7 +416,7 @@ static class EldritchVersatility
         sprite = Sprites.GetSprite(name, Resources.BlastEmpower, 128);
         featureOrPower = FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamageInvocationAgonizingBlast,
-                        $"Feature{_Name}{name}Switch")
+                        $"Feature{_Name}{name}")
                     .SetNotificationTag("BlastEmpower")
                     .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
                     .SetCustomSubFeatures(
@@ -428,7 +428,7 @@ static class EldritchVersatility
         name = "BlastBreakthrough";
         sprite = Sprites.GetSprite(name, Resources.BlastBreakthrough, 128);
         featureOrPower = FeatureDefinitionBuilder
-                    .Create($"Feature{_Name}{name}Switch")
+                    .Create($"Feature{_Name}{name}")
                     .SetCustomSubFeatures(
                         new BlastBreakthroughCustom($"Invocation{_Name}{name}"))
                     .AddToDB();
@@ -450,6 +450,7 @@ static class EldritchVersatility
         sprite = Sprites.GetSprite(name, Resources.BattlefieldConversion, 128);
         featureOrPower = FeatureDefinitionPowerBuilder
                     .Create($"Power{_Name}{name}")
+                    .SetGuiPresentation(Category.Feature)
                     .SetUsesFixed(ActivationTime.BonusAction)
                     .SetCustomSubFeatures(
                         PowerFromInvocation.Marker
@@ -463,25 +464,19 @@ static class EldritchVersatility
 
         name = "EldritchAegis";
         sprite = Sprites.GetSprite(name, Resources.EldritchAegis, 128);
-        featureOrPower = FeatureDefinitionPowerBuilder
-                    .Create($"Power{_Name}{name}")
-                    .SetUsesFixed(ActivationTime.Reaction)
+        featureOrPower = FeatureDefinitionBuilder
+                    .Create($"Feature{_Name}{name}")
                     .SetCustomSubFeatures(
-                        PowerFromInvocation.Marker,
                         new EldritchAegisTwistHit())
-                    .SetReactionContext(ReactionTriggerContext.None)
                     .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
 
         name = "EldritchWard";
         sprite = Sprites.GetSprite(name, Resources.EldritchWard, 128);
-        featureOrPower = FeatureDefinitionPowerBuilder
-            .Create($"Power{_Name}{name}")
-            .SetUsesFixed(ActivationTime.Reaction)
+        featureOrPower = FeatureDefinitionBuilder
+            .Create($"Feature{_Name}{name}")
             .SetCustomSubFeatures(
-                PowerFromInvocation.Marker,
                 new EldritchWardAidSave())
-            .SetReactionContext(ReactionTriggerContext.None)
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
         #endregion
@@ -683,17 +678,8 @@ static class EldritchVersatility
         }
     }
 
-    sealed class BattlefieldShorthandCopySpells : ISpellCast, IInvocationToggled
+    sealed class BattlefieldShorthandCopySpells : ISpellCast
     {
-        // Should no turn off
-        public void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation)
-        {
-            if (!rulesetInvocation.Active)
-            {
-                rulesetInvocation.Toggle();
-            }
-        }
-
         public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster, CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell, RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
             // Nobody identified the spell
