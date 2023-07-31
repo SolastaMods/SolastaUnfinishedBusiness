@@ -25,14 +25,18 @@ internal class PatronEldritchSurge : AbstractSubclass
 {
     public const string Name = "PatronEldritchSurge";
 
-    private const string PowerBlastPursuitName = $"Power{Name}BlastPursuit";
+    // LEVEL 01 Blast Exclusive
+    public static FeatureDefinitionBonusCantrips BonusCantripBlastExclusive = FeatureDefinitionBonusCantripsBuilder
+        .Create($"BonusCantrips{Name}BlastExclusive")
+        .SetGuiPresentation(Category.Feature)
+        .SetBonusCantrips(EldritchBlast)
+        .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
+        .AddToDB();
 
     // LEVEL 06 Blast Pursuit
-
-    public static readonly ConditionDefinition ConditionBlastPursuit = ConditionDefinitionBuilder
-        .Create($"Condition{Name}BlastPursuit")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHasted)
-        .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
+    public static readonly FeatureDefinition FeatureBlastPursuit = FeatureDefinitionBuilder
+        .Create($"Feature{Name}BlastPursuit")
+        .SetGuiPresentation(Category.Feature)
         .SetCustomSubFeatures(new OnTargetReducedToZeroHpBlastPursuit())
         .AddToDB();
 
@@ -45,65 +49,23 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     internal PatronEldritchSurge()
     {
-        // LEVEL 01
-
-        // Blast Exclusive
-
-        var bonusCantripsEldritchSurgeBlastExclusive = FeatureDefinitionBonusCantripsBuilder
-            .Create($"BonusCantrips{Name}BlastExclusive")
-            .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(EldritchBlast)
-            .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
-            .AddToDB();
-
-        // LEVEL 06
-
-        // Blast Pursuit
-
-        var powerBlastPursuit = FeatureDefinitionPowerBuilder
-            .Create(PowerBlastPursuitName)
-            .SetUsesFixed(ActivationTime.Permanent)
-            .SetGuiPresentation(Category.Feature, EldritchBlast)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(ConditionBlastPursuit))
-                .Build())
-            .AddToDB();
-
-        // LEVEL 10
-
-
-        // Blast Reload
-        // Moved to static definitions
-
-
-        // LEVEL 14
-
-        // Blast Overload
-        // Definied elsewhere
-        // MAIN
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronEldritchSurge, 256))
             .AddFeaturesAtLevel(1,
-                bonusCantripsEldritchSurgeBlastExclusive,
+                BonusCantripBlastExclusive,
                 Learn2Versatility,
                 PowerEldritchVersatilityPointPool)
             .AddFeaturesAtLevel(6,
-                powerBlastPursuit,
+                FeatureBlastPursuit,
                 Learn1Versatility)
             .AddFeaturesAtLevel(10,
                 FeatureBlastReload,
                 Learn1Versatility)
             .AddFeaturesAtLevel(14,
-                PowerEldritchSurgeBlastOverload,
+                PowerBlastOverload,
                 Learn1Versatility)
             .AddToDB();
-
         BuildVersatilities();
     }
 
@@ -115,7 +77,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static bool IsEldritchBlast(RulesetEffect rulesetEffect)
+    public static bool IsEldritchBlast(RulesetEffect rulesetEffect)
     {
         return rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
                rulesetEffectSpell.SpellDefinition == EldritchBlast;
@@ -140,7 +102,6 @@ internal class PatronEldritchSurge : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHero = rulesetCharacter.GetOriginalHero();
-
             if (rulesetHero == null)
             {
                 return effectDescription;
@@ -148,13 +109,8 @@ internal class PatronEldritchSurge : AbstractSubclass
             var totalLevel = rulesetHero.classesHistory.Count;
             var warlockClassLevel = rulesetHero.GetClassLevel(CharacterClassDefinitions.Warlock);
             var additionalBeamCount = ComputeAdditionalBeamCount(totalLevel, warlockClassLevel);
-            var pursuitStatus = rulesetCharacter.HasConditionOfType(ConditionBlastPursuit)
-                ? 1 + (warlockClassLevel >= 16 ? 1 : 0)
-                : 0;
-
             effectDescription.effectAdvancement.Clear();
             effectDescription.targetParameter = 1 + additionalBeamCount;
-
             return effectDescription;
         }
 

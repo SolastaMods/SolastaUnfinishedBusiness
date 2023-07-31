@@ -20,6 +20,7 @@ using static ActionDefinitions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static SolastaUnfinishedBusiness.Subclasses.PatronEldritchSurge;
 using TA;
 using static FeatureDefinitionAttributeModifier;
 
@@ -55,8 +56,8 @@ static class EldritchVersatility
         public int EarnedPointsInThisTurn { get; private set; } = 0;
         public int SlotLevel { get; private set; } = 0;
         public int BeamNumber { get; private set; } = 0;
-
         public bool IsOverload { get; set; } = false;
+        public bool HasBlastPursuit { get; private set; }
 
         public void ReplaceRulesetCondition(RulesetCondition originalRulesetCondition, out RulesetCondition replacedRulesetCondition)
         {
@@ -144,11 +145,11 @@ static class EldritchVersatility
         public void InitSupportCondition([NotNull] RulesetCharacter ownerCharacter)
         {
             var ownerHero = ownerCharacter.GetOriginalHero();
-            MaxPoints = ownerHero.GetSubclassLevel(CharacterClassDefinitions.Warlock, PatronEldritchSurge.Name);
+            MaxPoints = ownerHero.GetClassLevel(CharacterClassDefinitions.Warlock);
             var classLevel = ownerHero.ClassesHistory.Count;
-            if (ownerHero.HasSubFeatureOfType<PatronEldritchSurge.ModifyEffectDescriptionEldritchBlast>())
+            if (ownerHero.HasSubFeatureOfType<ModifyEffectDescriptionEldritchBlast>())
             {
-                BeamNumber = 1 + PatronEldritchSurge.ModifyEffectDescriptionEldritchBlast
+                BeamNumber = 1 + ModifyEffectDescriptionEldritchBlast
                     .ComputeAdditionalBeamCount(classLevel, MaxPoints);
             }
             else
@@ -169,6 +170,7 @@ static class EldritchVersatility
             PointSpentOnAddingAC = 0;
             IsValidBlastBreakthrough = false;
             IsOverload = false;
+            HasBlastPursuit = ownerHero.HasAnyFeature(FeatureBlastReload);
             CopiedSpells.Clear();
         }
 
@@ -195,6 +197,7 @@ static class EldritchVersatility
             }
         }
 
+        [UsedImplicitly]
         public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
         {
             base.SerializeAttributes(serializer, versionProvider);
@@ -210,6 +213,7 @@ static class EldritchVersatility
                 PointSpentOnAddingAC = serializer.SerializeAttribute<int>("PointSpentOnAddingAC", PointSpentOnAddingAC);
                 IsValidBlastBreakthrough = serializer.SerializeAttribute<bool>("IsValidBlastBreakthrough", IsValidBlastBreakthrough);
                 IsOverload = serializer.SerializeAttribute<bool>("IsOverload", IsOverload);
+                HasBlastPursuit = serializer.SerializeAttribute<bool>("HasBlastPursuit", HasBlastPursuit);
             }
             catch (Exception ex)
             {
@@ -218,6 +222,7 @@ static class EldritchVersatility
             }
         }
 
+        [UsedImplicitly]
         public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
         {
             base.SerializeElements(serializer, versionProvider);
@@ -250,6 +255,7 @@ static class EldritchVersatility
             PointSpentOnAddingAC = 0;
             IsValidBlastBreakthrough = false;
             IsOverload = false;
+            HasBlastPursuit = false;
         }
 
         private sealed class VersatilitySupportConditionCustom : ICharacterTurnStartListener, ICustomConditionFeature, IMagicalAttackBeforeHitConfirmedOnEnemy, ICharacterBattleEndedListener
@@ -291,8 +297,7 @@ static class EldritchVersatility
             public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier magicModifier, RulesetEffect rulesetEffect, List<EffectForm> actualEffectForms, bool firstTarget, bool criticalHit)
             {
                 var characterAttacker = attacker.RulesetCharacter;
-                if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                       rulesetEffectSpell.SpellDefinition != SpellDefinitions.EldritchBlast ||
+                if (!IsEldritchBlast(rulesetEffect) ||
                        !characterAttacker.GetVersatilitySupportCondition(out var supportCondition))
                 {
                     yield break;
@@ -301,7 +306,7 @@ static class EldritchVersatility
                 var posDefender = defender.locationPosition;
 
                 supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
-                    int3.Distance(posOwner, posDefender) <= 6f && characterAttacker.HasConditionOfType(PatronEldritchSurge.ConditionBlastPursuit) ?
+                    int3.Distance(posOwner, posDefender) <= 6f && characterAttacker.HasAnyFeature(FeatureBlastPursuit) ?
                     2 :
                     1
                     );
@@ -360,27 +365,27 @@ static class EldritchVersatility
         .SetGuiPresentation(Category.Condition)
         .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-            .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
+            .Create($"AdditionalAction{Name}BlastOverload")
             .SetGuiPresentationNoContent(true)
             .SetActionType(ActionType.Main)
             .AddToDB())
         .SetCustomSubFeatures(new ConditionBlastOverloadCustom())
         .AddToDB();
 
-    public static FeatureDefinitionPower PowerEldritchSurgeBlastOverload = FeatureDefinitionPowerBuilder
-                .Create($"Power{PatronEldritchSurge.Name}BlastOverload")
-                .SetGuiPresentation(Category.Feature)
-                .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                        .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
-                        .SetEffectForms(
-                            EffectFormBuilder.ConditionForm(ConditionEldritchSurgeBlastOverload))
-                        .Build()
-                ).AddToDB();
+    public static FeatureDefinitionPower PowerBlastOverload = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}BlastOverload")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBarbarianRageStart)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionEldritchSurgeBlastOverload))
+                .Build()
+        ).AddToDB();
 
     public enum PointUsage
     {
@@ -409,9 +414,6 @@ static class EldritchVersatility
 
         name = "BlastEmpower";
         sprite = Sprites.GetSprite(name, Resources.GambitCounterAttack, 128);
-        // Don't want to use condition, because its application and removal are cumbersome, and we do no want it get removed except
-        // from methods here (if possible)
-        // And the feature is indefinitely applied until removed
         featureOrPower = FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamageInvocationAgonizingBlast,
                         $"Feature{_Name}{name}Switch")
@@ -545,8 +547,7 @@ static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
             if (Gui.Battle is null ||
-                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition != SpellDefinitions.EldritchBlast ||
+                !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 return;
@@ -1071,8 +1072,7 @@ static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
             if (Gui.Battle is null ||
-                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition != SpellDefinitions.EldritchBlast ||
+                !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 return;
@@ -1260,7 +1260,7 @@ static class EldritchVersatility
 
         public void RemoveFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
         {
-            if (hero.GetSubclassLevel(CharacterClassDefinitions.Warlock, PatronEldritchSurge.Name) < 1)
+            if (hero.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) < 1)
             {
                 hero.ActiveFeatures.Values.Select(x => x.RemoveAll(y => y == PowerEldritchVersatilityPointPool));
             }

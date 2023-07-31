@@ -65,9 +65,9 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
         customCondition.sourceFactionName = rulesetCondition.SourceFactionName;
         customCondition.effectLevel = rulesetCondition.EffectLevel;
         customCondition.effectDefinitionName = rulesetCondition.EffectDefinitionName;
-        customCondition.amount = rulesetCondition.amount;
-        customCondition.sourceAbilityBonus = rulesetCondition.sourceAbilityBonus;
-        customCondition.sourceProficiencyBonus = rulesetCondition.sourceProficiencyBonus;
+        customCondition.amount = rulesetCondition.Amount;
+        customCondition.sourceAbilityBonus = rulesetCondition.SourceAbilityBonus;
+        customCondition.sourceProficiencyBonus = rulesetCondition.SourceProficiencyBonus;
         customCondition.doNotTerminateWhenRemoved = rulesetCondition.DoNotTerminateWhenRemoved;
         return customCondition;
     }
