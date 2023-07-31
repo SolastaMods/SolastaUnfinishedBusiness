@@ -863,7 +863,7 @@ static class EldritchVersatility
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/EldritchAegisGiveACBonus", console.consoleTableDefinition) { Indent = true };
             console.AddCharacterEntry(ownerCharacter, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{requiredACAddition}");
+            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredACAddition}");
 
             // If already applied, we just auto add AC if it's not enough.
             if (alreadyBlocked)
