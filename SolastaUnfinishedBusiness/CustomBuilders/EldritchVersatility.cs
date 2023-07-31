@@ -686,11 +686,18 @@ static class EldritchVersatility
         public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster, CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell, RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
             // Nobody identified the spell
-            if (string.IsNullOrEmpty(castAction.ActiveSpell.IdentifiedBy))
+            if (string.IsNullOrEmpty(castAction.ActiveSpell.IdentifiedBy) ||
+                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
-            if (!featureOwner.GetVersatilitySupportCondition(out var supportCondition))
+
+            var owner = GameLocationCharacter.GetFromActor(featureOwner);
+            var posOwner = owner.locationPosition;
+            var posCaster = caster.locationPosition;
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+            if (int3.Distance(posOwner, posCaster) > 12f ||
+                !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
             {
                 yield break;
             }
@@ -837,14 +844,16 @@ static class EldritchVersatility
             var posOwner = featureOwner.locationPosition;
             var posDefender = defender.locationPosition;
 
-
-            if (!alreadyBlocked && int3.Distance(posOwner, posDefender) > 6f)
+            if (!alreadyBlocked &&
+                (int3.Distance(posOwner, posDefender) > 6f ||
+                !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner))
+                )
             {
                 yield break;
             }
 
             // This function also adjust AC to just enoughly block the attack, so if alreadyBlocked, we should not abort.
-            if ((!featureOwner.CanReact(true) || !featureOwner.PerceivedAllies.Contains(defender)) && !alreadyBlocked ||
+            if ((!featureOwner.CanReact(true) && !alreadyBlocked) ||
                 !featureOwner.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
