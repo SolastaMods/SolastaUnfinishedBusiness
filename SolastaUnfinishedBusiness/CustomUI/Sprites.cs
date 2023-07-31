@@ -36,6 +36,9 @@ public static class Sprites
     internal static AssetReferenceSprite BardicDiceResourceIcon =>
         GetSprite("BardicDiceResourceIcon", Resources.BardicDiceResourceIcon, 64);
 
+    internal static AssetReferenceSprite EldritchVersatilityResourceIcon =>
+        GetSprite("EldritchVersatilityResourceIcon", Resources.EldritchVersatilityResourceIcon, 64);
+
     #endregion
 
     #region UI
@@ -238,6 +241,9 @@ public static class Sprites
 
     internal static AssetReferenceSprite ActionGambit =>
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
+
+    internal static AssetReferenceSprite ActionEldritchVersatility =>
+    GetSprite("ActionEldritchVersatility", Resources.ActionEldritchVersatility, 80);
 
     #endregion
 }

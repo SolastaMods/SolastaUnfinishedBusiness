@@ -413,7 +413,7 @@ static class EldritchVersatility
         #region Strength Power
 
         name = "BlastEmpower";
-        sprite = Sprites.GetSprite(name, Resources.GambitCounterAttack, 128);
+        sprite = Sprites.GetSprite(name, Resources.BlastEmpower, 128);
         featureOrPower = FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamageInvocationAgonizingBlast,
                         $"Feature{_Name}{name}Switch")
@@ -426,7 +426,7 @@ static class EldritchVersatility
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Strength, featureOrPower);
 
         name = "BlastBreakthrough";
-        sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
+        sprite = Sprites.GetSprite(name, Resources.BlastBreakthrough, 128);
         featureOrPower = FeatureDefinitionBuilder
                     .Create($"Feature{_Name}{name}Switch")
                     .SetCustomSubFeatures(
@@ -438,7 +438,7 @@ static class EldritchVersatility
         #region Intelligence Power
 
         name = "BattlefieldShorthand";
-        sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
+        sprite = Sprites.GetSprite(name, Resources.BattlefieldShorthand, 128);
         featureOrPower = FeatureDefinitionBuilder
                     .Create($"Feature{_Name}{name}")
                     .SetCustomSubFeatures(
@@ -447,7 +447,7 @@ static class EldritchVersatility
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
 
         name = "BattlefieldConversion";
-        sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
+        sprite = Sprites.GetSprite(name, Resources.BattlefieldConversion, 128);
         featureOrPower = FeatureDefinitionPowerBuilder
                     .Create($"Power{_Name}{name}")
                     .SetUsesFixed(ActivationTime.BonusAction)
@@ -462,7 +462,7 @@ static class EldritchVersatility
         #region Wisdom Power
 
         name = "EldritchAegis";
-        sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
+        sprite = Sprites.GetSprite(name, Resources.EldritchAegis, 128);
         featureOrPower = FeatureDefinitionPowerBuilder
                     .Create($"Power{_Name}{name}")
                     .SetUsesFixed(ActivationTime.Reaction)
@@ -474,7 +474,7 @@ static class EldritchVersatility
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
 
         name = "EldritchWard";
-        sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
+        sprite = Sprites.GetSprite(name, Resources.EldritchWard, 128);
         featureOrPower = FeatureDefinitionPowerBuilder
             .Create($"Power{_Name}{name}")
             .SetUsesFixed(ActivationTime.Reaction)
@@ -962,7 +962,7 @@ static class EldritchVersatility
             RequestPoints = requestPoints;
         }
 
-        public AssetReferenceSprite Icon => Sprites.ChannelDivinityResourceIcon;
+        public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
 
         public string GetRequestPoints(RulesetCharacter character)
         {
