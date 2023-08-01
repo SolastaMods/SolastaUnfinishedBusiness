@@ -861,7 +861,7 @@ static class EldritchVersatility
             }
             // Get attack roll outcome
             var totalAttack = attackRoll
-                + attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0
+                + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                 + attackModifier.AttackRollModifier;
             var wisdomModifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom);
             // Get AC

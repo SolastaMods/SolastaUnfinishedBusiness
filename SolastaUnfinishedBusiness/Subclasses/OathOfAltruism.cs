@@ -188,7 +188,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
         }
     }
 
-    private class SpiritualShieldingBlockAttack: IAttackBeforeHitPossibleOnMeOrAlly
+    private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager, GameLocationCharacter featureOwner, GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackMode, RulesetEffect rulesetEffect, ActionModifier attackModifier, int attackRoll)
         {
@@ -228,7 +228,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
             }
 
             var totalAttack = attackRoll
-                + attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0
+                + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                 + attackModifier.AttackRollModifier;
 
             //Can shielding prevent hit?
