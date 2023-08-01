@@ -575,6 +575,7 @@ static class EldritchVersatility
         {
             if (Gui.Battle is null ||
                 caster.RulesetCharacter != featureOwner ||
+                selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !IsInvocationActive(featureOwner, InvocationName, out _) ||
                 !featureOwner.GetVersatilitySupportCondition(out var supportCondition)
                 )
@@ -689,23 +690,28 @@ static class EldritchVersatility
     {
         public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster, CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell, RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
-            // Nobody identified the spell
-            if (string.IsNullOrEmpty(castAction.ActiveSpell.IdentifiedBy) ||
-                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
+            if (!featureOwner.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
-
-            var owner = GameLocationCharacter.GetFromActor(featureOwner);
-            var posOwner = owner.locationPosition;
-            var posCaster = caster.locationPosition;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-            if (int3.Distance(posOwner, posCaster) > 12f ||
-                !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
+            if (featureOwner != caster.RulesetCharacter)
             {
-                yield break;
-            }
+                // Nobody identified the spell
+                if (string.IsNullOrEmpty(castAction.ActiveSpell.IdentifiedBy))
+                {
+                    yield break;
+                }
 
+                var owner = GameLocationCharacter.GetFromActor(featureOwner);
+                var posOwner = owner.locationPosition;
+                var posCaster = caster.locationPosition;
+                var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+                if (int3.Distance(posOwner, posCaster) > 12f ||
+                    !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
+                {
+                    yield break;
+                }
+            }
             var warlockRepertoire = featureOwner.GetOriginalHero()
                 .SpellRepertoires.Find(x => x.SpellCastingClass == CharacterClassDefinitions.Warlock);
             if (warlockRepertoire is null)
@@ -1090,6 +1096,7 @@ static class EldritchVersatility
         {
             if (Gui.Battle is null ||
                 caster.RulesetCharacter != featureOwner ||
+                selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !IsInvocationActive(featureOwner, InvocationName, out _) ||
                 !featureOwner.GetVersatilitySupportCondition(out var supportCondition)
                 )

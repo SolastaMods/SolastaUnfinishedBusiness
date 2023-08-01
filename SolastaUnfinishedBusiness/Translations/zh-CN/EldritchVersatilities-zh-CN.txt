@@ -43,3 +43,4 @@ Reaction/&CustomReactionEldritchWardTitle=魔能守御
 Reaction/&CustomReactionEldritchWardReactTitle=花费点数
 Reaction/&CustomReactionEldritchWardReactDescription=给予豁免加值
 Reaction/&CustomReactionEldritchWard={0}豁免即将失败！
+Screen/&InvocationPoolEldritchVersatilityPoolHeader=魔能多才
