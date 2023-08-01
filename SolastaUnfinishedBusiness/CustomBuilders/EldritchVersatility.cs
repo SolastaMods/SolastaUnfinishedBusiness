@@ -365,7 +365,7 @@ static class EldritchVersatility
 
     static ConditionDefinition ConditionEldritchSurgeBlastOverload = ConditionDefinitionBuilder
         .Create($"Condition{Name}BlastOverload")
-        .SetGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, ConditionRaging)
         .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
         .SetFeatures(FeatureDefinitionAdditionalActionBuilder
             .Create($"AdditionalAction{Name}BlastOverload")
@@ -838,7 +838,7 @@ static class EldritchVersatility
     {
         static ConditionDefinition ConditionEldritchAegisAddAC = ConditionDefinitionBuilder
                 .Create("ConditionEldritchAegisAddAC")
-                .SetGuiPresentation(Category.Condition)
+                .SetGuiPresentation(Category.Condition, ConditionMagicallyArmored)
                 .SetPossessive()
                 .SetCustomSubFeatures(new EldritchAegisAddACCustom())
                 .AddToDB();
