@@ -119,7 +119,7 @@ static class EldritchVersatility
                 case PointAction.Modify:
                     if (CurrentPoints + modifyCurrent >= 0)
                     {
-                        if (CurrentPoints + modifyCurrent - ReservedPoints - modifyReserve < 0)
+                        if (!IsOverload && CurrentPoints + modifyCurrent - ReservedPoints - modifyReserve < 0)
                         {
                             TurnOffPointReservingPower(GetEntity<RulesetCharacter>(this.SourceGuid), this);
                         }
