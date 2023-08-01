@@ -100,14 +100,14 @@ static class EldritchVersatility
             }
             if (IsOverload)
             {
-                modifyCurrent = 0;
+                modifyCurrent = Math.Max(0, modifyCurrent);
             }
             switch (action)
             {
                 case PointAction.Require:
                     return CurrentPoints + modifyCurrent >= 0;
                 case PointAction.Reserve:
-                    if (CurrentPoints + modifyCurrent - ReservedPoints - modifyReserve >= 0)
+                    if (IsOverload || CurrentPoints + modifyCurrent - ReservedPoints - modifyReserve >= 0)
                     {
                         ReservedPoints += modifyReserve;
                         return true;
