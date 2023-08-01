@@ -42,6 +42,7 @@ static class EldritchVersatility
                 .SetCustomSubFeatures(
                     Marker,
                     new VersatilitySupportConditionCustom())
+                .SetSilent(Silent.WhenAddedOrRemoved)
                 .AddToDB();
         }
 

@@ -41,10 +41,22 @@ internal class PatronEldritchSurge : AbstractSubclass
         .AddToDB();
 
     // LEVEL 10 Blast Reload;
-    public static readonly FeatureDefinition FeatureBlastReload = FeatureDefinitionBuilder
-        .Create($"Feature{Name}BlastReload")
+    public static readonly FeatureDefinitionPower FeatureBlastReload = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}BlastReload")
         .SetGuiPresentation(Category.Feature)
-        .SetCustomSubFeatures(new CustomBehaviorBlastReload())
+            .SetUsesFixed(ActivationTime.Permanent)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        BlastReloadSupportRulesetCondition.BindingDefinition,
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+        .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
     internal PatronEldritchSurge()
@@ -145,7 +157,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorBlastReload :
+    private sealed class BlastReloadCustom :
         IActionExecutionHandled, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
         public void OnActionExecutionHandled(
@@ -161,23 +173,19 @@ internal class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            // only collect cantrips if an Eldritch Surge of at least level 14
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetCharacter.GetOriginalHero().GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) < 14)
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
             if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(rulesetCharacter, out var supportCondition))
             {
-                rulesetCharacter.AddConditionOfCategory(BlastReloadSupportRulesetCondition.Category,
-                    RulesetCondition.CreateCondition(rulesetCharacter.guid,
-                    BlastReloadSupportRulesetCondition.BindingDefinition));
+                return;
             }
 
-            var eldritchSurgeSupportCondition = supportCondition as BlastReloadSupportRulesetCondition;
+            var eldritchSurgeSupportCondition = supportCondition;
 
             eldritchSurgeSupportCondition?.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
         }
@@ -188,8 +196,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             // combat condition will be removed automatically after combat
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetCharacter.GetOriginalHero().GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) < 14)
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -199,7 +206,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            var eldritchSurgeSupportCondition = supportCondition as BlastReloadSupportRulesetCondition;
+            var eldritchSurgeSupportCondition = supportCondition;
 
             eldritchSurgeSupportCondition?.CantripsUsedThisTurn.Clear();
         }
@@ -237,7 +244,9 @@ internal class PatronEldritchSurge : AbstractSubclass
             .Create($"Condition{PatronEldritchSurge.Name}BlastReloadSupport")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(Marker)
+            .SetCustomSubFeatures(Marker,
+                new BlastReloadCustom()
+            )
             .AddToDB();
         }
 
