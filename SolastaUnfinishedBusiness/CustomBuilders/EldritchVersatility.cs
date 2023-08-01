@@ -748,7 +748,7 @@ static class EldritchVersatility
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess", console.consoleTableDefinition) { Indent = true };
             console.AddCharacterEntry(featureOwner, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{selectedSpellDefinition.Name.Formatted(Category.Spell)}");
+            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, selectedSpellDefinition.GuiPresentation.Title);
             console.AddEntry(entry);
             supportCondition.CopiedSpells.Add(selectedSpellDefinition);
             cantripOrSpell.Add(selectedSpellDefinition);
