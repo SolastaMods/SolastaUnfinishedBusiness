@@ -269,7 +269,7 @@ static class EldritchVersatility
                     return;
                 }
                 supportCondition.InitSupportCondition(target);
-                supportCondition.TryEarnOrSpendPoints(PointAction.Modify);
+                TurnOffPointReservingPower(target, supportCondition);
             }
 
             public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
