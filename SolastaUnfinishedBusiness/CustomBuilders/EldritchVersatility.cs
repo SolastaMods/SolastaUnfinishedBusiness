@@ -377,7 +377,7 @@ static class EldritchVersatility
 
     public static FeatureDefinitionPower PowerBlastOverload = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}BlastOverload")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("BlastOverload", Resources.BlastOverload, 128))
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .SetEffectDescription(
             EffectDescriptionBuilder
