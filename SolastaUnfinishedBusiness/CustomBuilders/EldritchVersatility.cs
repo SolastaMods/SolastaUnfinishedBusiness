@@ -833,9 +833,6 @@ static class EldritchVersatility
         static ConditionDefinition ConditionEldritchAegisAddAC = ConditionDefinitionBuilder
                 .Create("ConditionEldritchAegisAddAC")
                 .SetGuiPresentation(Category.Condition)
-                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
-                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                .SetSilent(Silent.WhenRemoved)
                 .SetPossessive()
                 .SetCustomSubFeatures(new EldritchAegisAddACCustom())
                 .AddToDB();
@@ -1141,9 +1138,9 @@ static class EldritchVersatility
     {
         return targetCharacter.InflictCondition(
                         condition.Name,
-                        RuleDefinitions.DurationType.Round,
+                        DurationType.Round,
                         1,
-                        RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                        TurnOccurenceType.StartOfTurn,
                         AttributeDefinitions.TagCombat,
                         sourceCharacter.guid,
                         sourceCharacter.CurrentFaction.Name,
