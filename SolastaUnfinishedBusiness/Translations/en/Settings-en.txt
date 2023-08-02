@@ -21,6 +21,7 @@ ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>clubs</color> to be thrown like
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
 ModUi/&AllowHasteCasting=Allow casting spells with extra action from being Hasted <color=#F0DAA0>(you are still limited to 1 main action spell per round)</color>
 ModUi/&AllowHornsOnAllRaces=Allow horns on all races <i><color=#F0DAA0>[results might look terrible depending on race, head and horn]</color></i>

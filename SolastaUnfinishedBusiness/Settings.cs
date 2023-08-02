@@ -156,6 +156,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool AllowFlightSuspend { get; set; }
+    public bool FlightSuspendWingedBoots { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
