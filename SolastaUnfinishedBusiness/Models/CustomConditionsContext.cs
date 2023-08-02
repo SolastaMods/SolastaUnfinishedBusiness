@@ -496,6 +496,14 @@ internal static class CustomConditionsContext
                     rulesetCondition.targetGuid = target.Guid;
                     rulesetCondition.remainingRounds = condition.remainingRounds;
                     rulesetCondition.endOccurence = condition.endOccurence;
+
+                    if (Main.Settings.FlightSuspendWingedBoots
+                            && condition.Name == "ConditionFlyingBootsWinged")
+                    {
+                        //Stop duration counting for Winged Boots
+                        rulesetCondition.durationType = DurationType.Permanent;
+                    }
+
                     break;
                 }
             }
