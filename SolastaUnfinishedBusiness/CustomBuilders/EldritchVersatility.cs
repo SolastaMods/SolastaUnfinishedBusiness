@@ -876,7 +876,11 @@ static class EldritchVersatility
             defenderCharacter.GetAttribute("ArmorClass").ReleaseCopy();
             // Compute difference
             int requiredACAddition = totalAttack - currentValue + 1;
-
+            // If other actions already blocked it
+            if (requiredACAddition <= 0)
+            {
+                yield break;
+            }
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/EldritchAegisGiveACBonus", console.consoleTableDefinition) { Indent = true };
             console.AddCharacterEntry(ownerCharacter, entry);
