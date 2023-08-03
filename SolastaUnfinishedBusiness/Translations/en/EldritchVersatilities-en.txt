@@ -44,4 +44,5 @@ Reaction/&CustomReactionEldritchWardReactTitle=Spend Points
 Reaction/&CustomReactionEldritchWardReactDescription=Give Saving throw bonus
 Reaction/&CustomReactionEldritchWard={0} is about to fail a save!
 Screen/&InvocationPoolEldritchVersatilityPoolHeader=Eldritch Versatility
-Screen/&BattlefieldShorthandExtraSpellDescription=Shorthand
+Screen/&BattlefieldShorthandExtraSpellTitle=Shorthand
+Screen/&BattlefieldShorthandExtraSpellDescription=Temporarily learnt from Battlefield Shorthand
