@@ -2,10 +2,19 @@
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
-// Do not instantiate any of this class, except for Marker
-// The type conversion is handled (IBindToRulesetConditionCustom) when the condition definition marked by Marker is added to character
-// You should inherite GetFromPoolAndCopyOriginalRulesetCondition and use it in the interface
-// pool size is 10, since you can compress all things in this condition, you should not apply it everywhere.
+
+/// <summary>
+/// Do not instantiate any of this class, except for Marker
+/// You should inherit GetFromPoolAndCopyOriginalRulesetCondition and use it in the interface
+/// pool size is 10, since you can compress all things in this condition, you should not apply it everywhere. (But it automatically expand if needed)
+/// typical example:
+/// class MyRulesetConditionCustom: RulesetConditionCustom<MyRulesetConditionCustom>, IBindToRulesetConditionCustom
+///     Initialize Marker, BindingDefinition, Category in static constructor
+/// set BindingDefinition with custom subfeatures: Marker, ICustomConditionFeature
+///     The type conversion is handled in IBindToRulesetConditionCustom when the condition definition marked by Marker is added to character
+///     then you can handle condition added or removed in ICustomConditionFeature
+/// </summary>
+/// <typeparam name="T"></typeparam>
 internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceConditionCategory where T : RulesetConditionCustom<T>, IBindToRulesetConditionCustom
 {
     // A static object pool to prevent memory allocation (following vanilla practice)
