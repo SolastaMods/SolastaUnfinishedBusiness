@@ -720,20 +720,21 @@ static class EldritchVersatility
                 yield break;
             }
             var spellLevel = selectedSpellDefinition.SpellLevel;
-            var cantripOrSpell = spellLevel > 0 ?
-                warlockRepertoire.KnownSpells :
-                warlockRepertoire.KnownCantrips;
+            var allKnownSpells = warlockRepertoire.EnumerateAvailableExtraSpells();
+            allKnownSpells.AddRange(warlockRepertoire.KnownCantrips);
+            allKnownSpells.AddRange(warlockRepertoire.knownSpells);
+            warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", new List<SpellDefinition> { });
             // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire
             if (featureOwner == caster.RulesetCharacter)
             {
                 if (supportCondition.CopiedSpells.Remove(selectedSpellDefinition))
                 {
-                    cantripOrSpell.Remove(selectedSpellDefinition);
+                    warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Remove(selectedSpellDefinition);
                 }
                 yield break;
             }
             // Maximum copy-able spell level is half pool size
-            else if (cantripOrSpell.Contains(selectedSpellDefinition) ||
+            else if (allKnownSpells.Contains(selectedSpellDefinition) ||
                 spellLevel > supportCondition.MaxPoints / 2)
             {
                 yield break;
@@ -758,7 +759,7 @@ static class EldritchVersatility
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, selectedSpellDefinition.GuiPresentation.Title);
             console.AddEntry(entry);
             supportCondition.CopiedSpells.Add(selectedSpellDefinition);
-            cantripOrSpell.Add(selectedSpellDefinition);
+            warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Add(selectedSpellDefinition);
         }
     }
 
