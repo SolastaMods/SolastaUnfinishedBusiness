@@ -205,6 +205,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition OathOfTirmar { get; } =
             GetDefinition<CharacterSubclassDefinition>("OathOfTirmar");
 
+        internal static CharacterSubclassDefinition RangerMarksman { get; } =
+            GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
+
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
 
@@ -871,7 +874,7 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleTwoWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleTwoWeapon");
-        
+
         internal static FeatureDefinitionAttackModifier AttackModifierFlameBlade2 { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFlameBlade2");
 
