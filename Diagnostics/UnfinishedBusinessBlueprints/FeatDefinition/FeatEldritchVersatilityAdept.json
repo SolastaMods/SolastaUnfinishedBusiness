@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:FeatureEldritchVersatilityLearn1:a76ad49a-2a2e-5799-8d77-c1b5814914bc"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feat/&FeatGroupGeneralAdeptTitle",
-    "description": "Arcane Archer Adept, Eldritch Adept, Elritch Versatility Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept, Tactician Adept",
+    "hidden": false,
+    "title": "Feat/&FeatEldritchVersatilityAdeptTitle",
+    "description": "Feat/&FeatEldritchVersatilityAdeptDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9677216f-edab-5910-a6bb-0296ce05203b",
+  "guid": "1e68a070-b687-5a5b-a7f0-f69b0060b798",
   "contentPack": 9999,
-  "name": "FeatGroupGeneralAdept"
+  "name": "FeatEldritchVersatilityAdept"
 }

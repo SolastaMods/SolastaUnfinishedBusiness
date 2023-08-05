@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle",
-    "description": "Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription",
+    "title": "Feature/&FeatureEldritchVersatilityLearn2Title",
+    "description": "Feature/&FeatureEldritchVersatilityLearn2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e0083abd-e908-5593-b82b-7fd90ca71697",
+  "guid": "6308f5f2-0c91-5349-99b9-5393dec7a940",
   "contentPack": 9999,
-  "name": "FeaturePatronEldritchSurgeBlastPursuit"
+  "name": "FeatureEldritchVersatilityLearn2"
 }

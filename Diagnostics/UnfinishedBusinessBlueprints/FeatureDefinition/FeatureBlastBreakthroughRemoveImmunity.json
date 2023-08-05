@@ -1,13 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Bonus",
-  "forbiddenActions": [
-    "AttackOff"
-  ],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "76d8f712-c8ac-504b-8a58-d42d9b40b08d",
+  "guid": "2c43c25d-503a-5cb0-b7ee-58f414fde29a",
   "contentPack": 9999,
-  "name": "AdditionalActionPatronEldritchSurgeBlastPursuitOff"
+  "name": "FeatureBlastBreakthroughRemoveImmunity"
 }

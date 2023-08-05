@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionPatronEldritchSurgeBlastPursuit:1090d24a-e956-590d-969b-70ad57affefd"
+    "Definition:FeatureBlastBreakthroughRemoveImmunity:2c43c25d-503a-5cb0-b7ee-58f414fde29a"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -129,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle",
-    "description": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b49b121f-2c8f-5344-b36e-c0a27acdc2d9",
+  "guid": "2e87e03f-8ed3-548a-93c3-f3a97c6b37b0",
   "contentPack": 9999,
-  "name": "ConditionPatronEldritchSurgeExtraActionBlastPursuit"
+  "name": "ConditionBlastBreakthroughRemoveImmunity"
 }

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "BlastOverload",
+  "notificationTag": "BlastEmpower",
   "limitedUsage": "None",
   "firstTargetOnly": false,
   "targetSide": "Enemy",
@@ -15,7 +15,7 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": "ProficiencyBonus",
+  "damageValueDetermination": 1001,
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 0,
@@ -97,14 +97,14 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -119,7 +119,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c6ebcc54-3a36-5c2c-85d2-b4131d44ff98",
+  "guid": "79c3f7d9-7672-5462-abf0-e29b3764059b",
   "contentPack": 9999,
-  "name": "AdditionalDamagePatronEldritchSurgeBlastOverload"
+  "name": "FeatureEldritchVersatilityBlastEmpower"
 }

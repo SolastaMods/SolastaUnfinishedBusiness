@@ -3,12 +3,10 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AdditionalActionPatronEldritchSurgeBlastPursuitOff:76d8f712-c8ac-504b-8a58-d42d9b40b08d"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -87,7 +85,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -130,13 +128,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffTitle",
-    "description": "Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffDescription",
+    "title": "Condition/&ConditionEldritchAegisAddACTitle",
+    "description": "ConditionMagicallyArmored",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f8e5b95-3caf-53bf-9507-7c201eb7a36c",
+  "guid": "f62bc9f2-e1cc-5696-808c-3a192775f646",
   "contentPack": 9999,
-  "name": "ConditionPatronEldritchSurgeExtraActionBlastPursuitOff"
+  "name": "ConditionEldritchAegisAddAC"
 }

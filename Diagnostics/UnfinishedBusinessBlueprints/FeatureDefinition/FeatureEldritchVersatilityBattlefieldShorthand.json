@@ -3,14 +3,9 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle",
-    "description": "Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -24,7 +19,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e0083abd-e908-5593-b82b-7fd90ca71697",
+  "guid": "d19ee64d-b066-5114-9db8-c91b32f37614",
   "contentPack": 9999,
-  "name": "FeaturePatronEldritchSurgeBlastPursuit"
+  "name": "FeatureEldritchVersatilityBattlefieldShorthand"
 }

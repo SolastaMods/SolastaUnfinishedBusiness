@@ -3,14 +3,9 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeaturePatronEldritchSurgeBlastReloadTitle",
-    "description": "Feature/&FeaturePatronEldritchSurgeBlastReloadDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -24,7 +19,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "963bd94b-ab57-581b-958b-51f6f57ff331",
+  "guid": "688f7d4f-4685-5d2f-b04b-5333ce539e5a",
   "contentPack": 9999,
-  "name": "FeaturePatronEldritchSurgeBlastReload"
+  "name": "FeatureEldritchVersatilityEldritchWard"
 }

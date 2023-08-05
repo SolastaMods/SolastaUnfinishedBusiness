@@ -1,9 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
   "actionType": "Main",
-  "forbiddenActions": [
-    "AttackMain"
-  ],
+  "forbiddenActions": [],
   "authorizedActions": [],
   "restrictedActions": [],
   "maxAttacksNumber": -1,
@@ -32,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1090d24a-e956-590d-969b-70ad57affefd",
+  "guid": "3e846de2-9d03-54d2-95e6-7489533db7f4",
   "contentPack": 9999,
-  "name": "AdditionalActionPatronEldritchSurgeBlastPursuit"
+  "name": "AdditionalActionPatronEldritchSurgeBlastOverload"
 }
