@@ -1,4 +1,13 @@
-﻿1.5.94.5:
+﻿1.5.94.6:
+
+- fixed Eldritch Smite interaction with larger creatures
+- fixed Ranger Marksman extra attack at 15th
+- fixed Ranger Wildmaster beast eyebite powers
+- fixed Shadow Blade spell behavior
+- fixed Wizard Bladedancer missing reaction terms
+- refactored Patron Eldritch Surge [RESPEC is required]
+
+1.5.94.5:
 
 - fixed Circle of the Eternal Grove conditions on self
 - fixed Elemental Adept applying to other damage types
