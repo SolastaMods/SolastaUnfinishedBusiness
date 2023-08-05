@@ -8,12 +8,16 @@ Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffTitle=Persecuci
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Persecución explosiva de acción adicional
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Tu patrón te otorga explosiones más poderosas, pero solo si sigues su camino todo el tiempo. Obtienes <b>Explosión sobrenatural</b> como cantrip adicional y ahora tiene un alcance de 120 pies. En cambio, el número de haz se deriva de tu determinación calculada como [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 haces si la determinación >= 3, 3 si >= 8, 4 si >= 13 y 5 si >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosión exclusiva
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Cuando golpeas a un enemigo dentro de los 30 pies / matas a un enemigo con <b>Explosión sobrenatural</b>, obtienes 1 / número de rayos Punto sobrenatural adicional.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Persecución explosiva
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Tu excelencia en <b>Explosión sobrenatural</b> te permite lanzar dos veces seguidas. Puedes lanzar cantrips que hayas lanzado este turno con tu acción principal como acción adicional.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Recarga explosiva
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=A medida que domines <b>Explosión sobrenatural</b>, puedes quemar tu maná para potenciar tu magia.\nComo acción adicional, puedes gastar un espacio de pacto y durante 1 minuto, ignoras la desventaja de hechizos a distancia si los enemigos están dentro del rango cuerpo a cuerpo, agregas tu bonificación de competencia al daño de <b>Explosión sobrenatural</b>, pero el alcance de tu <b>Explosión sobrenatural</b> se reduce en 30 pies.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sobrecarga de explosión
 Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Te sobrecargas con ráfagas de ataques, especialmente cuando <b>Blast Pursuit</b> es tu último recurso.\nComo acción adicional, puedes gastar un espacio de pacto y durante dos rondas, obtienes una acción principal adicional o acción de bonificación. El alcance de tu <b>Explosión sobrenatural</b> también se reduce en 30 pies. Una muerte con <b>Explosión sobrenatural</b> prolonga <b>Blast Pursuit</b> en una ronda.\nInicio en el nivel 16, obtienes una acción principal adicional y una acción adicional. El alcance de tu <b>Explosión sobrenatural</b> vuelve a disminuir en 30 pies.\nA partir del nivel 20, si no te quedan espacios de pacto, estarás en una <b>Persecución de explosión</b> constante. estado.
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Persecución explosiva
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Puedes lanzar cantrips que hayas lanzado este turno con tu acción principal como acción adicional.
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Recarga explosiva
 Feedback/&AdditionalDamageBlastOverloadFormat=¡Sobrecarga de explosión!
 Feedback/&AdditionalDamageBlastOverloadLine=¡{0} vierte poder arcano en {1} (+{2})!
 Feedback/&BlastPursuitExtraAction=¡{1} otorga a {0} un ataque adicional!

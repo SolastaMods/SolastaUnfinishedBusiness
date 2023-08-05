@@ -8,12 +8,16 @@ Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffTitle=Persegui�
 Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Perseguição Explosiva de Ação Extra
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Seu patrono concede a você explosões mais poderosas, mas apenas se você seguir seu caminho o tempo todo. Você ganha <b>Eldritch Blast</b> como um truque de bônus e agora tem um alcance de 120 pés. O número do feixe é derivado de sua determinação calculada como [Níveis de bruxo] - 2 * [Níveis de outras classes]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 8, 4 se >= 13 e 5 se >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosão Exclusiva
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Quando você atinge um inimigo dentro de 30 pés / mata um inimigo com <b>Eldritch Blast</b>, você ganha 1 / número de feixes adicionais de Eldritch Point.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Perseguição Explosiva
 Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Sua excelência em <b>Eldritch Blast</b> permite que você lance duas vezes seguidas. Você pode conjurar truques que conjurou neste turno com sua ação principal como uma ação bônus.
 Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Conforme você domina <b>Eldritch Blast</b>, você pode queimar sua mana para fortalecer sua magia.\nComo uma ação bônus, você pode gastar um espaço de pacto e por 1 minuto, você ignora a desvantagem de feitiços à distância se inimigos estão dentro do alcance corpo a corpo, você adiciona seu bônus de proficiência ao dano do <b>Explosão Eldritch</b>, mas o alcance do seu <b>Explosão Eldritch</b> é reduzido em 30 pés.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sobrecarga Explosiva
 Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=Você se sobrecarrega com rajadas de ataques, especialmente quando <b>Blast Pursuit</b> é seu último recurso.\nComo uma ação bônus, você pode gastar um espaço de pacto e por duas rodadas, você ganha uma ação principal extra ou ação bônus. O alcance do seu <b>Eldritch Blast</b> também é reduzido em 30 pés. Uma morte com <b>Eldritch Blast</b> prolonga a <b>Blast Pursuit</b> em uma rodada.\nInício no 16º nível, você ganha uma ação principal extra e uma ação bônus. O alcance do seu <b>Eldritch Blast</b> é novamente reduzido em 30 pés.\nA partir do 20º nível, se você não tiver espaços de pacto restantes, você estará em uma constante <b>Blast Pursuit</b> status.
 Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Perseguição Explosiva
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Você pode conjurar truques que conjurou neste turno com sua ação principal como uma ação bônus.
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Blast Reload
 Feedback/&AdditionalDamageBlastOverloadFormat=Sobrecarga Explosiva!
 Feedback/&AdditionalDamageBlastOverloadLine={0} derrama poder arcano em {1} (+{2})!
 Feedback/&BlastPursuitExtraAction={1} concede {0} um ataque extra!
