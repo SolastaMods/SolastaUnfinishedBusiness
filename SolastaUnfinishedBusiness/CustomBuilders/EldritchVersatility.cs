@@ -118,15 +118,11 @@ internal static class EldritchVersatility
 
     internal static void BuildVersatilities()
     {
-        FeatureDefinition featureOrPower = null;
-        string name = null;
-        AssetReferenceSprite sprite = null;
-
         #region Strength Power
 
-        name = "BlastEmpower";
-        sprite = Sprites.GetSprite(name, Resources.BlastEmpower, 128);
-        featureOrPower = FeatureDefinitionAdditionalDamageBuilder
+        var name = "BlastEmpower";
+        var sprite = Sprites.GetSprite(name, Resources.BlastEmpower, 128);
+        FeatureDefinition featureOrPower = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageInvocationAgonizingBlast,
                 $"Feature{Name}{name}")
             .SetNotificationTag("BlastEmpower")
@@ -141,6 +137,7 @@ internal static class EldritchVersatility
         sprite = Sprites.GetSprite(name, Resources.BlastBreakthrough, 128);
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new BlastBreakthroughCustom($"Invocation{Name}{name}"))
             .AddToDB();
@@ -154,6 +151,7 @@ internal static class EldritchVersatility
         sprite = Sprites.GetSprite(name, Resources.BattlefieldShorthand, 128);
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new BattlefieldShorthandCopySpells())
             .AddToDB();
@@ -184,6 +182,7 @@ internal static class EldritchVersatility
         sprite = Sprites.GetSprite(name, Resources.EldritchAegis, 128);
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new EldritchAegisTwistHit())
             .AddToDB();
@@ -193,6 +192,7 @@ internal static class EldritchVersatility
         sprite = Sprites.GetSprite(name, Resources.EldritchWard, 128);
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new EldritchWardAidSave())
             .AddToDB();
