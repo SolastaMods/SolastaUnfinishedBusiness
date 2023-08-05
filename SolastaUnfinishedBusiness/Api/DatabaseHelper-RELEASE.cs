@@ -3204,6 +3204,13 @@ internal static partial class DatabaseHelper
             GetDefinition<SpellDefinition>("ExpeditiousRetreat");
 
         internal static SpellDefinition Eyebite { get; } = GetDefinition<SpellDefinition>("Eyebite");
+        
+        internal static SpellDefinition EyebiteAsleep { get; } = GetDefinition<SpellDefinition>("EyebiteAsleep");
+        
+        internal static SpellDefinition EyebitePanicked { get; } = GetDefinition<SpellDefinition>("EyebitePanicked");
+        
+        internal static SpellDefinition EyebiteSickened { get; } = GetDefinition<SpellDefinition>("EyebiteSickened");
+        
         internal static SpellDefinition FaerieFire { get; } = GetDefinition<SpellDefinition>("FaerieFire");
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");

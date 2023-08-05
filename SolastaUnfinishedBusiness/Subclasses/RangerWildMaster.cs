@@ -114,6 +114,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerSpiritBeastEyebiteAsleep = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerEyebiteAsleep, "PowerSpiritBeastEyebiteAsleep")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EyebiteAsleep)
+                    .Build())
             .AddToDB();
 
         powerSpiritBeastEyebiteAsleep.EffectDescription.difficultyClassComputation =
@@ -172,6 +176,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerSpiritBeastEyebitePanicked = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerEyebitePanicked, "PowerSpiritBeastEyebitePanicked")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EyebiteAsleep)
+                    .Build())
             .AddToDB();
 
         powerSpiritBeastEyebitePanicked.EffectDescription.difficultyClassComputation =
@@ -230,6 +238,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerSpiritBeastEyebiteSickened = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerEyebiteSickened, "PowerSpiritBeastEyebiteSickened")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EyebiteSickened)
+                    .Build())
             .AddToDB();
 
         powerSpiritBeastEyebiteSickened.EffectDescription.difficultyClassComputation =
