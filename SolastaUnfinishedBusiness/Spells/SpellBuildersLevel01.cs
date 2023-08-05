@@ -1034,7 +1034,7 @@ internal static partial class SpellBuilders
             this.removeCondition = removeCondition;
         }
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var defender = GameLocationCharacter.GetFromActor(target);
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
@@ -1057,7 +1057,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }

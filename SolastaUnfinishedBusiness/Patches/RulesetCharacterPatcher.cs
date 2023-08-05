@@ -139,11 +139,11 @@ public static class RulesetCharacterPatcher
 
             //PATCH: notifies custom condition features that condition is applied
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.ApplyFeature(__instance, activeCondition));
+                .ForEach(c => c.OnApplyCondition(__instance, activeCondition));
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .Do(c => c.ApplyFeature(__instance, activeCondition));
+                .Do(c => c.OnApplyCondition(__instance, activeCondition));
         }
     }
 
@@ -159,11 +159,11 @@ public static class RulesetCharacterPatcher
             var definition = activeCondition.ConditionDefinition;
 
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.RemoveFeature(__instance, activeCondition));
+                .ForEach(c => c.OnRemoveCondition(__instance, activeCondition));
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .Do(c => c.RemoveFeature(__instance, activeCondition));
+                .Do(c => c.OnRemoveCondition(__instance, activeCondition));
         }
     }
 

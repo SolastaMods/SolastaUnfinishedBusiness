@@ -1059,7 +1059,7 @@ internal static class GambitsBuilders
             this.bad = bad;
         }
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
 
@@ -1084,7 +1084,7 @@ internal static class GambitsBuilders
                 0);
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }
@@ -1149,7 +1149,8 @@ internal static class GambitsBuilders
                 ActionDefinitions.Id.AttackOpportunity,
                 attackMode,
                 defender,
-                attackModifier)) { Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon) };
+                attackModifier))
+            { Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon) };
         }
     }
 
@@ -1225,7 +1226,8 @@ internal static class GambitsBuilders
 
             hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
             {
-                dieType = dieType, dieFlag = TrendInfoDieFlag.None
+                dieType = dieType,
+                dieFlag = TrendInfoDieFlag.None
             });
 
             action.AttackSuccessDelta += dieRoll;

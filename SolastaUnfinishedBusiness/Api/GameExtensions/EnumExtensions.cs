@@ -168,7 +168,8 @@ internal enum ExtraAdditionalDamageAdvancement
 
 internal enum ExtraAdditionalDamageValueDetermination
 {
-    FlatWithProgression = 1000
+    FlatWithProgression = 1000,
+    AbilityScoreModifier = 1001
 }
 
 #if false
@@ -230,6 +231,9 @@ internal enum ExtraActionId
     CunningStrikeToggle = 9034,
     Withdraw = 9035,
     HailOfBladesToggle = 9036,
+    EldritchVersatilityMain = 9037,
+    EldritchVersatilityBonus = 9038,
+    EldritchVersatilityNoCost = 9039,
     PrioritizeAction
 }
 

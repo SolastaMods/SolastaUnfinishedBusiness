@@ -727,7 +727,8 @@ internal static class LevelUpContext
                 {
                     Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
                 } featureDefinitionFeatureSet:
-                    RecursiveGrantCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
+                    // Fix a typo
+                    RecursiveRemoveCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
                     break;
 
                 case FeatureDefinitionProficiency
@@ -755,6 +756,14 @@ internal static class LevelUpContext
             foreach (var feat in kvp.Value)
             {
                 RecursiveGrantCustomFeatures(hero, kvp.Key, feat.Features);
+            }
+        }
+
+        foreach (var kvp in buildingData.LevelupTrainedInvocations)
+        {
+            foreach (var invocation in kvp.Value)
+            {
+                RecursiveGrantCustomFeatures(hero, kvp.Key, new List<FeatureDefinition> { invocation.grantedFeature });
             }
         }
 

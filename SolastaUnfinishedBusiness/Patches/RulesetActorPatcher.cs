@@ -6,9 +6,11 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using Mono.CSharp;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -35,12 +37,25 @@ public static class RulesetActorPatcher
         public static void Prefix(
             RulesetActor __instance,
             ref string category,
-            RulesetCondition newCondition)
+            ref RulesetCondition newCondition)
         {
             //PATCH: allow conditions to force specific category
             if (newCondition.conditionDefinition == null)
             {
                 return;
+            }
+
+            // Enable RulesetConditionCustom
+            var replaceWithRulesetConditionCustom = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IBindToRulesetConditionCustom>();
+            if (replaceWithRulesetConditionCustom != null)
+            {
+                var originalCondtion = newCondition;
+                // The original condition is yet to register, however it is got from its pool, so we should return it
+                replaceWithRulesetConditionCustom.ReplaceRulesetCondition(originalCondtion, out newCondition);
+                if (originalCondtion != newCondition)
+                {
+                    RulesetCondition.objectPool.Return(originalCondtion);
+                }
             }
 
             var feature = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IForceConditionCategory>();
@@ -797,6 +812,78 @@ public static class RulesetActorPatcher
                 "RulesetActor.SerializeElements",
                 new CodeInstruction(OpCodes.Ldc_I4_1),
                 new CodeInstruction(OpCodes.Callvirt, replacingMethod));
+        }
+    }
+
+    //PATCH: allow ISpellAffinityProvider to be validated with IRemoveSpellOrSpellLevelImmunity
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.IsImmuneToSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsImmuneToSpell_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISpellAffinityProvider>(
+                "RulesetActor.IsImmuneToSpell", EnumerateFeatureDefinitionSpellImmunity);
+        }
+
+        private static void EnumerateFeatureDefinitionSpellImmunity(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+            foreach (var rulesetCondition in __instance.AllConditions)
+            {
+                var immunityRemovingFeatures = rulesetCondition.conditionDefinition.GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+                if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
+                {
+                    continue;
+                }
+                foreach (var immunityRemovingFeature in immunityRemovingFeatures)
+                {
+                    featuresToBrowse.RemoveAll(x => immunityRemovingFeature.ShouldRemoveImmunity((x as ISpellAffinityProvider).IsImmuneToSpell));
+                }
+
+            }
+        }
+    }
+
+    //PATCH: allow ISpellAffinityProvider to be validated with IRemoveSpellOrSpellLevelImmunity
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.IsImmuneToSpellLevel))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsImmuneToSpellLevel_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISpellAffinityProvider>(
+                "RulesetActor.IsImmuneToSpell", EnumerateFeatureDefinitionSpellImmunityLevel);
+        }
+
+        private static void EnumerateFeatureDefinitionSpellImmunityLevel(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+            foreach (var rulesetCondition in __instance.AllConditions)
+            {
+                var immunityRemovingFeatures = rulesetCondition.conditionDefinition.GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+                if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
+                {
+                    continue;
+                }
+                foreach (var immunityRemovingFeature in immunityRemovingFeatures)
+                {
+                    featuresToBrowse.RemoveAll(x => immunityRemovingFeature.ShouldRemoveImmunityLevel((x as ISpellAffinityProvider).IsImmuneToSpellLevel));
+                }
+
+            }
         }
     }
 }

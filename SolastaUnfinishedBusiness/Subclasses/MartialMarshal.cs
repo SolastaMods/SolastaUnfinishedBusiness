@@ -520,7 +520,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private sealed class StudyYourEnemy : ICustomConditionFeature
     {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(target);
@@ -587,7 +587,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, newLevel);
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }

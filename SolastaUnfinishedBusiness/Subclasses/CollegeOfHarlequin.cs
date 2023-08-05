@@ -190,7 +190,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             this.feature = feature;
         }
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
             {
@@ -216,14 +216,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             rulesetCondition.amount = dieRoll;
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }
 
     private sealed class ConditionRegainBardicInspirationDieOnKill : ICustomConditionFeature
     {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero)
             {
@@ -236,7 +236,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }

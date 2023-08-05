@@ -13,7 +13,7 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
         this.power = power;
     }
 
-    public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         if (target.UsablePowers.Any(u => u.PowerDefinition == power))
         {
@@ -27,7 +27,7 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
         target.RefreshUsablePower(usablePower);
     }
 
-    public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         target.UsablePowers.RemoveAll(usablePower => usablePower.PowerDefinition == power);
     }

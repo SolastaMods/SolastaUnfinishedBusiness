@@ -15,7 +15,7 @@ public class AddUsablePowersFromCondition : ICustomConditionFeature
 
     internal static AddUsablePowersFromCondition Marker { get; } = new();
 
-    public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         foreach (var power in rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>())
         {
@@ -32,7 +32,7 @@ public class AddUsablePowersFromCondition : ICustomConditionFeature
         }
     }
 
-    public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         var powers = rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>().ToList();
         target.UsablePowers.RemoveAll(usablePower => powers.Contains(usablePower.PowerDefinition));

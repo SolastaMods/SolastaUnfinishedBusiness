@@ -124,6 +124,30 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
             .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(CastInvocation, "EldritchVersatilityMain")
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
+            .SetActionId(ExtraActionId.EldritchVersatilityMain)
+            .SetActionType(ActionType.Main)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(CastInvocation, "EldritchVersatilityBonus")
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
+            .SetActionId(ExtraActionId.EldritchVersatilityBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(CastInvocation, "EldritchVersatilityNoCost")
+            .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
+            .SetActionId(ExtraActionId.EldritchVersatilityNoCost)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.Battle)
+            .AddToDB();
     }
 
     private static void BuildCustomPushedAction()
@@ -310,53 +334,53 @@ public static class CustomActionIdContext
         switch (actionId)
         {
             case (Id)ExtraActionId.CombatWildShape:
-            {
-                var power = character.GetPowerFromDefinition(action.ActivatedPower);
-                if (power is not { RemainingUses: > 0 } ||
-                    (character is RulesetCharacterMonster monster &&
-                     monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
                 {
-                    result = ActionStatus.Unavailable;
-                }
+                    var power = character.GetPowerFromDefinition(action.ActivatedPower);
+                    if (power is not { RemainingUses: > 0 } ||
+                        (character is RulesetCharacterMonster monster &&
+                         monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
+                    {
+                        result = ActionStatus.Unavailable;
+                    }
 
-                return;
-            }
+                    return;
+                }
             case (Id)ExtraActionId.CombatRageStart:
-            {
-                if (character.HasAnyConditionOfType(ConditionRaging))
                 {
-                    result = ActionStatus.Unavailable;
-                }
+                    if (character.HasAnyConditionOfType(ConditionRaging))
+                    {
+                        result = ActionStatus.Unavailable;
+                    }
 
-                return;
-            }
+                    return;
+                }
             case (Id)ExtraActionId.FlightSuspend:
-            {
-                if (Main.Settings.AllowFlightSuspend && character.IsTemporarilyFlying())
                 {
-                    result = ActionStatus.Available;
-                }
-                else
-                {
-                    result = ActionStatus.Unavailable;
-                }
+                    if (Main.Settings.AllowFlightSuspend && character.IsTemporarilyFlying())
+                    {
+                        result = ActionStatus.Available;
+                    }
+                    else
+                    {
+                        result = ActionStatus.Unavailable;
+                    }
 
-                return;
-            }
+                    return;
+                }
             case (Id)ExtraActionId.FlightResume:
-            {
-                if (Main.Settings.AllowFlightSuspend &&
-                    character.HasConditionOfTypeOrSubType(CustomConditionsContext.FlightSuspended.Name))
                 {
-                    result = ActionStatus.Available;
-                }
-                else
-                {
-                    result = ActionStatus.Unavailable;
-                }
+                    if (Main.Settings.AllowFlightSuspend &&
+                        character.HasConditionOfTypeOrSubType(CustomConditionsContext.FlightSuspended.Name))
+                    {
+                        result = ActionStatus.Available;
+                    }
+                    else
+                    {
+                        result = ActionStatus.Unavailable;
+                    }
 
-                return;
-            }
+                    return;
+                }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);
@@ -479,7 +503,18 @@ public static class CustomActionIdContext
                    or ExtraActionId.CastPlaneMagicBonus
                    or ExtraActionId.CastSpellMasteryMain
                    or ExtraActionId.CastSignatureSpellsMain
-               || IsGambitActionId(id);
+               || IsGambitActionId(id)
+               || IsEldritchVersatilityId(id)
+               || IsEldritchVersatilityId(id);
+    }
+
+    private static bool IsEldritchVersatilityId(Id id)
+    {
+        var extra = (ExtraActionId)id;
+
+        return extra is ExtraActionId.EldritchVersatilityMain
+            or ExtraActionId.EldritchVersatilityBonus
+            or ExtraActionId.EldritchVersatilityNoCost;
     }
 
     private static bool IsGambitActionId(Id id)

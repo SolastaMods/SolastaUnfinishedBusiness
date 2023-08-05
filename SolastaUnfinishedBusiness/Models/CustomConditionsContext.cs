@@ -331,7 +331,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster &&
                 !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
@@ -340,7 +340,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster)
             {
@@ -428,7 +428,7 @@ internal static class CustomConditionsContext
 
     private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
     {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster monster)
             {
@@ -509,7 +509,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster)
             {

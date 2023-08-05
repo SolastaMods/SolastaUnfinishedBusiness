@@ -10,6 +10,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -37,7 +40,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
         var featureSpiritualShielding = FeatureDefinitionBuilder
             .Create($"Feature{Name}SpiritualShielding")
             .SetGuiPresentation(Category.Feature, ShieldOfFaith)
-            .SetCustomSubFeatures(BlockAttacks.SpiritualShieldingMarker)
+            .SetCustomSubFeatures(new SpiritualShieldingBlockAttack())
             .AddToDB();
 
         var featureDefensiveStrike = FeatureDefinitionBuilder
@@ -182,6 +185,108 @@ internal sealed class OathOfAltruism : AbstractSubclass
                     RuleDefinitions.DurationType.UntilAnyRest, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn,
                     self.RulesetCharacter.guid);
             }
+        }
+    }
+
+    private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
+    {
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager, GameLocationCharacter featureOwner, GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackMode, RulesetEffect rulesetEffect, ActionModifier attackModifier, int attackRoll)
+        {
+            var unitCharacter = featureOwner.RulesetCharacter;
+
+            if (featureOwner == defender)
+            {
+                yield break;
+            }
+
+            //Is this unit able to react (not paralyzed, prone etc.)?
+            if (!featureOwner.CanReact(true))
+            {
+                yield break;
+            }
+
+            //Can this unit see defender?
+            if (!featureOwner.PerceivedAllies.Contains(defender))
+            {
+                yield break;
+            }
+
+            //Does this unit has enough Channel Divinity uses left?
+            var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
+
+            if (unitCharacter.UsedChannelDivinity >= maxUses)
+            {
+                yield break;
+            }
+
+            //Is defender already shielded?
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+            {
+                yield break;
+            }
+
+            var totalAttack = attackRoll
+                + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                + attackModifier.AttackRollModifier;
+
+            //Can shielding prevent hit?
+            if (!rulesetDefender.CanMagicEffectPreventHit(SpellDefinitions.Shield, totalAttack))
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            var actionParams = new CharacterActionParams(featureOwner, (Id)ExtraActionId.DoNothingReaction)
+            {
+                StringParameter = "CustomReactionSpiritualShieldingDescription"
+                    .Formatted(Category.Reaction, defender.Name, attacker.Name)
+            };
+
+            RequestCustomReaction("SpiritualShielding", actionParams);
+
+            yield return battleManager.WaitForReactions(featureOwner, actionService, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            //Spend resources
+            unitCharacter.UsedChannelDivinity++;
+
+            rulesetDefender.InflictCondition(
+                ConditionDefinitions.ConditionShielded.Name,
+                RuleDefinitions.DurationType.Round,
+                1,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                unitCharacter.guid,
+                unitCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+        private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
+        {
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null)
+            {
+                return;
+            }
+
+            var reactionRequest = new ReactionRequestCustom(type, actionParams)
+            {
+                Resource = ReactionResourceChannelDivinity.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
         }
     }
 }
