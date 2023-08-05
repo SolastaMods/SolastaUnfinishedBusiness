@@ -422,11 +422,14 @@ internal static partial class SpellBuilders
         var attackModifierShadowBladeLevel = FeatureDefinitionAttackModifierBuilder
             .Create(FeatureDefinitionAttackModifiers.AttackModifierFlameBlade2, $"AttackModifierShadowBlade{level}")
             .AddToDB();
+
         attackModifierShadowBladeLevel.guiPresentation.description
-            = damageDice > 0 ? Gui.Format("Feature/&AttackModifierShadowBladeNDescription", damageDice.ToString())
-            : "Feature/&AttackModifierShadowBlade0Description";
+            = damageDice > 0
+                ? Gui.Format("Feature/&AttackModifierShadowBladeNDescription", damageDice.ToString())
+                : "Feature/&AttackModifierShadowBlade0Description";
         attackModifierShadowBladeLevel.additionalDamageDice = damageDice;
-        attackModifierShadowBladeLevel.impactParticleReference = ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference;
+        attackModifierShadowBladeLevel.impactParticleReference =
+            ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference;
         attackModifierShadowBladeLevel.abilityScoreReplacement = AbilityScoreReplacement.None;
         return new FeatureUnlockByLevel(attackModifierShadowBladeLevel, level);
     }

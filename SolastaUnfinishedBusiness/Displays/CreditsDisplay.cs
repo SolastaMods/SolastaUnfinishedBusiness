@@ -62,7 +62,7 @@ internal static class CreditsDisplay
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
-        ("team-waldo", "korean font")
+        ("team-waldo", "korean font and translations")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

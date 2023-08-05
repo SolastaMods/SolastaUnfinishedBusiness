@@ -215,7 +215,6 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowFlightSuspend = toggle;
-
         }
 
         if (Main.Settings.AllowFlightSuspend)

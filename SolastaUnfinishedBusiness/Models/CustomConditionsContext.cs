@@ -498,7 +498,7 @@ internal static class CustomConditionsContext
                     rulesetCondition.endOccurence = condition.endOccurence;
 
                     if (Main.Settings.FlightSuspendWingedBoots
-                            && condition.Name == "ConditionFlyingBootsWinged")
+                        && condition.Name == "ConditionFlyingBootsWinged")
                     {
                         //Stop duration counting for Winged Boots
                         rulesetCondition.durationType = DurationType.Permanent;

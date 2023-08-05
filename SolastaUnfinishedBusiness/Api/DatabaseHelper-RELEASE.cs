@@ -871,6 +871,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleTwoWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleTwoWeapon");
+        
+        internal static FeatureDefinitionAttackModifier AttackModifierFlameBlade2 { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFlameBlade2");
 
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon");
