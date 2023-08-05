@@ -6,11 +6,9 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using Mono.CSharp;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -46,15 +44,16 @@ public static class RulesetActorPatcher
             }
 
             // Enable RulesetConditionCustom
-            var replaceWithRulesetConditionCustom = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IBindToRulesetConditionCustom>();
+            var replaceWithRulesetConditionCustom = newCondition.conditionDefinition
+                .GetFirstSubFeatureOfType<IBindToRulesetConditionCustom>();
             if (replaceWithRulesetConditionCustom != null)
             {
-                var originalCondtion = newCondition;
+                var originalCondition = newCondition;
                 // The original condition is yet to register, however it is got from its pool, so we should return it
-                replaceWithRulesetConditionCustom.ReplaceRulesetCondition(originalCondtion, out newCondition);
-                if (originalCondtion != newCondition)
+                replaceWithRulesetConditionCustom.ReplaceRulesetCondition(originalCondition, out newCondition);
+                if (originalCondition != newCondition)
                 {
-                    RulesetCondition.objectPool.Return(originalCondtion);
+                    RulesetCondition.objectPool.Return(originalCondition);
                 }
             }
 
@@ -835,18 +834,22 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var rulesetCondition in __instance.AllConditions)
             {
-                var immunityRemovingFeatures = rulesetCondition.conditionDefinition.GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+                var immunityRemovingFeatures = rulesetCondition.conditionDefinition
+                    .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
                 if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
                 {
                     continue;
                 }
+
                 foreach (var immunityRemovingFeature in immunityRemovingFeatures)
                 {
-                    featuresToBrowse.RemoveAll(x => immunityRemovingFeature.ShouldRemoveImmunity((x as ISpellAffinityProvider).IsImmuneToSpell));
+                    featuresToBrowse.RemoveAll(x =>
+                        immunityRemovingFeature.ShouldRemoveImmunity(((ISpellAffinityProvider)x).IsImmuneToSpell));
                 }
-
             }
         }
     }
@@ -871,18 +874,23 @@ public static class RulesetActorPatcher
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var rulesetCondition in __instance.AllConditions)
             {
-                var immunityRemovingFeatures = rulesetCondition.conditionDefinition.GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+                var immunityRemovingFeatures = rulesetCondition.conditionDefinition
+                    .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
                 if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
                 {
                     continue;
                 }
+
                 foreach (var immunityRemovingFeature in immunityRemovingFeatures)
                 {
-                    featuresToBrowse.RemoveAll(x => immunityRemovingFeature.ShouldRemoveImmunityLevel((x as ISpellAffinityProvider).IsImmuneToSpellLevel));
+                    featuresToBrowse.RemoveAll(x =>
+                        immunityRemovingFeature.ShouldRemoveImmunityLevel(((ISpellAffinityProvider)x)
+                            .IsImmuneToSpellLevel));
                 }
-
             }
         }
     }

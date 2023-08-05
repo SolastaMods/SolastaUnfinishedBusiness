@@ -460,21 +460,17 @@ public static class GameLocationBattleManagerPatcher
             {
                 //PATCH: Support for features before hit possible, e.g. spiritual shielding
 
-                var rulesetDefender = defender.RulesetCharacter;
-
-                foreach (var featureOwner in Gui.Battle.GetOpposingContenders(attacker.Side)
+                foreach (var extraEvents in Gui.Battle.GetOpposingContenders(attacker.Side)
                              .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList())
-
+                             .ToList()
+                             .SelectMany(featureOwner => featureOwner.RulesetCharacter
+                                 .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
+                                 .Select(x => x.OnAttackBeforeHitPossibleOnMeOrAlly(__instance, featureOwner, attacker,
+                                     defender, attackMode, rulesetEffect, attackModifier, attackRoll))))
                 {
-                    foreach (var extraEvents in featureOwner.RulesetCharacter
-                        .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
-                        .Select(x => x.OnAttackBeforeHitPossibleOnMeOrAlly(__instance, featureOwner, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll)))
+                    while (extraEvents.MoveNext())
                     {
-                        while (extraEvents.MoveNext())
-                        {
-                            yield return extraEvents.Current;
-                        }
+                        yield return extraEvents.Current;
                     }
                 }
             }
@@ -609,46 +605,46 @@ public static class GameLocationBattleManagerPatcher
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
                     case AdditionalDamageTriggerCondition.SpendSpellSlot:
+                    {
+                        if (!canReact)
                         {
-                            if (!canReact)
-                            {
-                                continue;
-                            }
-
-                            var repertoire = defenderCharacter.SpellRepertoires
-                                .Find(x => x.spellCastingClass == feature.SpellCastingClass);
-
-                            if (repertoire == null)
-                            {
-                                continue;
-                            }
-
-                            if (!repertoire.AtLeastOneSpellSlotAvailable())
-                            {
-                                continue;
-                            }
-
-                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-                            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
-                            {
-                                IntParameter = 1,
-                                StringParameter = feature.NotificationTag,
-                                SpellRepertoire = repertoire
-                            };
-
-                            actionService.ReactToSpendSpellSlot(reactionParams);
-
-                            yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
-
-                            if (!reactionParams.ReactionValidated)
-                            {
-                                continue;
-                            }
-
-                            totalReducedDamage = feature.ReducedDamage(attacker, defender) * reactionParams.IntParameter;
-                            break;
+                            continue;
                         }
+
+                        var repertoire = defenderCharacter.SpellRepertoires
+                            .Find(x => x.spellCastingClass == feature.SpellCastingClass);
+
+                        if (repertoire == null)
+                        {
+                            continue;
+                        }
+
+                        if (!repertoire.AtLeastOneSpellSlotAvailable())
+                        {
+                            continue;
+                        }
+
+                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+                        {
+                            IntParameter = 1,
+                            StringParameter = feature.NotificationTag,
+                            SpellRepertoire = repertoire
+                        };
+
+                        actionService.ReactToSpendSpellSlot(reactionParams);
+
+                        yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+
+                        if (!reactionParams.ReactionValidated)
+                        {
+                            continue;
+                        }
+
+                        totalReducedDamage = feature.ReducedDamage(attacker, defender) * reactionParams.IntParameter;
+                        break;
+                    }
 
                     case AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
@@ -1041,8 +1037,6 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            var saveOutcome = action.SaveOutcome;
-
             if (!IsFailed(action.SaveOutcome))
             {
                 yield break;
@@ -1058,24 +1052,23 @@ public static class GameLocationBattleManagerPatcher
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
             var allyCharacters = __instance.Battle?.GetMyContenders(defender.Side) ??
-                gameLocationCharacterService.PartyCharacters;
+                                 gameLocationCharacterService.PartyCharacters;
 
-            foreach (var featureOwner in allyCharacters
-                .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList())
+            foreach (var extraEvents in allyCharacters
+                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList()
+                         .SelectMany(featureOwner => featureOwner.RulesetCharacter
+                             .GetSubFeaturesByType<IMeOrAllySaveFailPossible>()
+                             .Select(x => x.OnMeOrAllySaveFailPossible(__instance, action, attacker, defender,
+                                 featureOwner, saveModifier, hasHitVisual,
+                                 hasBorrowedLuck))))
             {
-                foreach (var extraEvents in featureOwner.RulesetCharacter
-                        .GetSubFeaturesByType<IMeOrAllySaveFailPossible>()
-                        .Select(x => x.OnMeOrAllySaveFailPossible(__instance, action, attacker, defender, featureOwner, saveModifier, hasHitVisual,
-                        hasBorrowedLuck)))
+                while (extraEvents.MoveNext())
                 {
-                    while (extraEvents.MoveNext())
+                    yield return extraEvents.Current;
+                    if (!IsFailed(action.SaveOutcome))
                     {
-                        yield return extraEvents.Current;
-                        if (!IsFailed(action.SaveOutcome))
-                        {
-                            yield break;
-                        }
+                        yield break;
                     }
                 }
             }
@@ -1313,8 +1306,9 @@ public static class GameLocationBattleManagerPatcher
             }
         }
     }
+
     [HarmonyPatch(typeof(GameLocationBattleManager),
-    nameof(GameLocationBattleManager.HandleSpellCast))]
+        nameof(GameLocationBattleManager.HandleSpellCast))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleSpellCast_Patch
@@ -1332,8 +1326,9 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return values.Current;
             }
+
             // This also allows utilities out of battle
-            IGameLocationCharacterService gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var allyCharacters = gameLocationCharacterService.PartyCharacters.Select(x => x.RulesetCharacter);
             foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {
@@ -1341,7 +1336,8 @@ public static class GameLocationBattleManagerPatcher
 
                 foreach (var feature in allyFeatures)
                 {
-                    yield return feature.OnSpellCast(allyCharacter, caster, castAction, selectEffectSpell, selectedRepertoire, selectedSpellDefinition);
+                    yield return feature.OnSpellCast(allyCharacter, caster, castAction, selectEffectSpell,
+                        selectedRepertoire, selectedSpellDefinition);
                 }
             }
         }

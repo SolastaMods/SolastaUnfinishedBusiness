@@ -111,6 +111,7 @@ public static class RulesetCharacterHeroPatcher
 
             return codes;
         }
+
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacterHero __instance,
@@ -123,16 +124,19 @@ public static class RulesetCharacterHeroPatcher
             {
                 return;
             }
+
             foreach (var feature in __instance.GetSubFeaturesByType<IModifyAC>())
             {
-                feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier, out var trendInfo);
+                feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier,
+                    out var trendInfo);
                 __result.AddModifier(attributeModifier);
                 __result.valueTrends.Add(trendInfo);
             }
+
             RulesetAttributeModifier.SortAttributeModifiersList(__result.ActiveModifiers);
             __result.Refresh(true);
             __instance.SortArmorClassModifierTrends(__result);
-            __result.Refresh(false);
+            __result.Refresh();
             if (callRefresh && !dryRun && __instance.CharacterRefreshed != null)
             {
                 __instance.CharacterRefreshed(__instance);
@@ -671,72 +675,72 @@ public static class RulesetCharacterHeroPatcher
                     switch (featureDefinitionMagicAffinity.RitualCasting)
                     {
                         case RuleDefinitions.RitualCasting.PactTomeRitual:
+                        {
+                            var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+
+                            foreach (var kvp in spellRepertoire.ExtraSpellsByTag.Where(kvp =>
+                                         kvp.Key.Contains("PactTomeRitual")))
                             {
-                                var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+                                var spell = kvp.Value
+                                    .Where(spellDefinition =>
+                                        spellDefinition.Ritual && maxSpellLevel >= spellDefinition.SpellLevel);
 
-                                foreach (var kvp in spellRepertoire.ExtraSpellsByTag.Where(kvp =>
-                                             kvp.Key.Contains("PactTomeRitual")))
-                                {
-                                    var spell = kvp.Value
-                                        .Where(spellDefinition =>
-                                            spellDefinition.Ritual && maxSpellLevel >= spellDefinition.SpellLevel);
-
-                                    allRitualSpells.AddRange(spell);
-                                }
-
-                                break;
+                                allRitualSpells.AddRange(spell);
                             }
+
+                            break;
+                        }
 
                         case RuleDefinitions.RitualCasting.Selection:
-                            {
-                                var spells = spellRepertoire.KnownSpells
-                                    .Where(knownSpell =>
-                                        knownSpell.Ritual && spellRepertoire.MaxSpellLevelOfSpellCastingLevel >=
-                                        knownSpell.SpellLevel);
+                        {
+                            var spells = spellRepertoire.KnownSpells
+                                .Where(knownSpell =>
+                                    knownSpell.Ritual && spellRepertoire.MaxSpellLevelOfSpellCastingLevel >=
+                                    knownSpell.SpellLevel);
 
-                                allRitualSpells.AddRange(spells);
+                            allRitualSpells.AddRange(spells);
 
-                                break;
-                            }
+                            break;
+                        }
 
                         case RuleDefinitions.RitualCasting.Prepared
                             when spellRepertoire.SpellCastingFeature.SpellReadyness ==
                                  RuleDefinitions.SpellReadyness.Prepared &&
                                  spellRepertoire.SpellCastingFeature.SpellKnowledge ==
                                  RuleDefinitions.SpellKnowledge.WholeList:
-                            {
-                                var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
-                                var spells = spellRepertoire.PreparedSpells
-                                    .Where(s => s.Ritual)
-                                    .Where(s => maxSpellLevel >= s.SpellLevel);
+                        {
+                            var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+                            var spells = spellRepertoire.PreparedSpells
+                                .Where(s => s.Ritual)
+                                .Where(s => maxSpellLevel >= s.SpellLevel);
 
-                                allRitualSpells.AddRange(spells);
+                            allRitualSpells.AddRange(spells);
 
-                                break;
-                            }
+                            break;
+                        }
                         case RuleDefinitions.RitualCasting.Spellbook
                             when spellRepertoire.SpellCastingFeature.SpellKnowledge ==
                                  RuleDefinitions.SpellKnowledge.Spellbook:
-                            {
-                                __instance.CharacterInventory.EnumerateAllItems(__instance.Items);
+                        {
+                            __instance.CharacterInventory.EnumerateAllItems(__instance.Items);
 
-                                var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
-                                var spells = __instance.Items
-                                    .OfType<RulesetItemSpellbook>()
-                                    .SelectMany(x => x.ScribedSpells)
-                                    .ToList();
+                            var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
+                            var spells = __instance.Items
+                                .OfType<RulesetItemSpellbook>()
+                                .SelectMany(x => x.ScribedSpells)
+                                .ToList();
 
-                                spells = spells
-                                    .Where(s => s.Ritual)
-                                    .Where(s => maxSpellLevel >= s.SpellLevel)
-                                    .ToList();
+                            spells = spells
+                                .Where(s => s.Ritual)
+                                .Where(s => maxSpellLevel >= s.SpellLevel)
+                                .ToList();
 
-                                __instance.Items.Clear();
+                            __instance.Items.Clear();
 
-                                allRitualSpells.AddRange(spells);
+                            allRitualSpells.AddRange(spells);
 
-                                break;
-                            }
+                            break;
+                        }
 
 #if false
                         // special case for Witch

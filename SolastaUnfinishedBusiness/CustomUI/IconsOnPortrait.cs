@@ -36,9 +36,10 @@ internal static class IconsOnPortrait
         {
             pools.Add(PortraitPointChannelDivinity.Instance);
         }
+
         if (character.HasAnyFeature(EldritchVersatility.PowerEldritchVersatilityPointPool))
         {
-            pools.Add(PotraitPointEldritchVersatility.Instance);
+            pools.Add(PortraitPointEldritchVersatility.Instance);
         }
 
         foreach (var provider in pools)

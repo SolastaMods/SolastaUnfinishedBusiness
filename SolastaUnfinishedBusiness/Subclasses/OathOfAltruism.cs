@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -10,8 +12,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -155,7 +155,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            if (action.ActionType != ActionDefinitions.ActionType.Bonus)
+            if (action.ActionType != ActionType.Bonus)
             {
                 yield break;
             }
@@ -190,7 +190,9 @@ internal sealed class OathOfAltruism : AbstractSubclass
 
     private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager, GameLocationCharacter featureOwner, GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackMode, RulesetEffect rulesetEffect, ActionModifier attackModifier, int attackRoll)
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+            GameLocationCharacter featureOwner, GameLocationCharacter attacker, GameLocationCharacter defender,
+            RulesetAttackMode attackMode, RulesetEffect rulesetEffect, ActionModifier attackModifier, int attackRoll)
         {
             var unitCharacter = featureOwner.RulesetCharacter;
 
@@ -222,17 +224,17 @@ internal sealed class OathOfAltruism : AbstractSubclass
             //Is defender already shielded?
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+            if (rulesetDefender.HasConditionOfType(ConditionShielded))
             {
                 yield break;
             }
 
             var totalAttack = attackRoll
-                + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                + attackModifier.AttackRollModifier;
+                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                              + attackModifier.AttackRollModifier;
 
             //Can shielding prevent hit?
-            if (!rulesetDefender.CanMagicEffectPreventHit(SpellDefinitions.Shield, totalAttack))
+            if (!rulesetDefender.CanMagicEffectPreventHit(Shield, totalAttack))
             {
                 yield break;
             }
@@ -259,7 +261,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
             unitCharacter.UsedChannelDivinity++;
 
             rulesetDefender.InflictCondition(
-                ConditionDefinitions.ConditionShielded.Name,
+                ConditionShielded.Name,
                 RuleDefinitions.DurationType.Round,
                 1,
                 RuleDefinitions.TurnOccurenceType.StartOfTurn,
@@ -272,6 +274,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 0,
                 0);
         }
+
         private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;

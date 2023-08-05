@@ -270,14 +270,12 @@ public static class PartyEditor
                                         {
                                             chr.TrainedSkills.Remove(skill);
                                             chr.TrainedExpertises.Remove(skill.Name);
-                                        }
-                                        ,
+                                        },
                                         ToolTypeDefinition tool when chr.TrainedToolTypes.Contains(tool) => () =>
                                         {
                                             chr.TrainedToolTypes.Remove(tool);
                                             chr.TrainedExpertises.Remove(tool.Name);
-                                        }
-                                        ,
+                                        },
                                         _ => null
                                     };
                                 }
@@ -312,7 +310,7 @@ public static class PartyEditor
                                         LevelUpContext.RecursiveGrantCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
                                     }
-                                : null,
+                                    : null,
                                 (chr, feat) => chr.TrainedFeats.Contains(feat)
                                     ? () =>
                                     {
@@ -321,7 +319,7 @@ public static class PartyEditor
                                         LevelUpContext.RecursiveRemoveCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
                                     }
-                                : null
+                                    : null
                             );
                         }
 
@@ -358,7 +356,7 @@ public static class PartyEditor
                                         LevelUpContext.RecursiveGrantCustomFeatures(
                                             chr, null, new List<FeatureDefinition> { def.grantedFeature });
                                     }
-                                : null,
+                                    : null,
                                 (chr, def) => chr.TrainedInvocations.Contains(def)
                                     ? () =>
                                     {
@@ -367,10 +365,11 @@ public static class PartyEditor
                                         {
                                             chr.usablePowers.RemoveAll(x => x.PowerDefinition == power);
                                         }
+
                                         LevelUpContext.RecursiveRemoveCustomFeatures(
                                             chr, null, new List<FeatureDefinition> { def.grantedFeature });
                                     }
-                                : null
+                                    : null
                             );
                         }
 

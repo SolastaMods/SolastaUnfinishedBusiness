@@ -6,24 +6,29 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-class PotraitPointEldritchVersatility : ICustomPortraitPointPoolProvider
+internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvider
 {
-
-    public static ICustomPortraitPointPoolProvider Instance { get; } = new PotraitPointEldritchVersatility();
+    public static ICustomPortraitPointPoolProvider Instance { get; } = new PortraitPointEldritchVersatility();
     public string Name => "EldritchVersatility";
 
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {
         var currentPoints = 0;
-        var reserverPoints = 0;
+        var reservePoints = 0;
         var maxPoints = 0;
-        if (character.GetVersatilitySupportCondition(out var supportCondition))
+        
+        if (!character.GetVersatilitySupportCondition(out var supportCondition))
         {
-            currentPoints = supportCondition.CurrentPoints;
-            reserverPoints = supportCondition.ReservedPoints;
-            maxPoints = supportCondition.MaxPoints;
+            return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reservePoints,
+                maxPoints);
         }
-        return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reserverPoints, maxPoints);
+
+        currentPoints = supportCondition.CurrentPoints;
+        reservePoints = supportCondition.ReservedPoints;
+        maxPoints = supportCondition.MaxPoints;
+
+        return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reservePoints,
+            maxPoints);
     }
 
     public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
@@ -35,6 +40,7 @@ class PotraitPointEldritchVersatility : ICustomPortraitPointPoolProvider
         {
             currentPoints = supportCondition.CurrentPoints;
         }
+
         return $"{currentPoints}";
     }
 }

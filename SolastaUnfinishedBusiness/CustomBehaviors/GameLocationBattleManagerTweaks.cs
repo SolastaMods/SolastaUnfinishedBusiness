@@ -25,21 +25,21 @@ internal static class GameLocationBattleManagerTweaks
                 return provider.SavingThrowDC;
 
             case RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature:
-                {
-                    //BUGFIX: original game code considers first repertoire
-                    return character.SpellRepertoires
-                        .Select(x => x.SaveDC)
-                        .Max();
-                }
+            {
+                //BUGFIX: original game code considers first repertoire
+                return character.SpellRepertoires
+                    .Select(x => x.SaveDC)
+                    .Max();
+            }
             case RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency:
-                {
-                    //BUGFIX: original game code considers first repertoire
-                    return character.SpellRepertoires
-                        .Select(x => RuleDefinitions.ComputeAbilityScoreBasedDC(
-                            character.TryGetAttributeValue(x.SpellCastingFeature.SpellcastingAbility),
-                            character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus)))
-                        .Max();
-                }
+            {
+                //BUGFIX: original game code considers first repertoire
+                return character.SpellRepertoires
+                    .Select(x => RuleDefinitions.ComputeAbilityScoreBasedDC(
+                        character.TryGetAttributeValue(x.SpellCastingFeature.SpellcastingAbility),
+                        character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus)))
+                    .Max();
+            }
             case RuleDefinitions.EffectDifficultyClassComputation.Ki:
                 return RuleDefinitions.ComputeAbilityScoreBasedDC(
                     character.TryGetAttributeValue(AttributeDefinitions.Wisdom),
@@ -249,6 +249,7 @@ internal static class GameLocationBattleManagerTweaks
         /*
          * Support for ExtraAdditionalDamageValueDetermination.AttributeModifier
          */
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
         {
@@ -258,7 +259,8 @@ internal static class GameLocationBattleManagerTweaks
             if (abilityScoreNameProvider is not null)
             {
                 var attributeValue = attacker.RulesetCharacter.TryGetAttributeValue(abilityScoreNameProvider());
-                additionalDamageForm.BonusDamage = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(attributeValue), 0);
+                additionalDamageForm.BonusDamage =
+                    Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(attributeValue), 0);
             }
             else
             {
@@ -471,11 +473,11 @@ internal static class GameLocationBattleManagerTweaks
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && hero != null &&
                  defender.RulesetCharacter is RulesetCharacterMonster)
-        /*
-         * Support for wild-shaped characters
-         * [CE] EDIT END
-         * ######################################
-         */
+            /*
+             * Support for wild-shaped characters
+             * [CE] EDIT END
+             * ######################################
+             */
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
@@ -506,7 +508,8 @@ internal static class GameLocationBattleManagerTweaks
              */
             //Commented out original code
             //additionalDamageForm.DiceNumber = 1;
-            additionalDamageForm.DiceNumber = Main.Settings.AccountForAllDiceOnSavageAttack ? damageForm.DiceNumber : 1;
+            additionalDamageForm.DiceNumber =
+                Main.Settings.AccountForAllDiceOnSavageAttack ? damageForm.DiceNumber : 1;
             /*
              * Support for accounting for all damage dice on savage critical
              * [CE] EDIT END
@@ -674,7 +677,8 @@ internal static class GameLocationBattleManagerTweaks
                     ConditionForm = new ConditionForm
                     {
                         ConditionDefinition = conditionOperation.ConditionDefinition,
-                        Operation = conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
+                        Operation = conditionOperation.Operation ==
+                                    ConditionOperationDescription.ConditionOperation.Add
                             ? ConditionForm.ConditionOperation.Add
                             : ConditionForm.ConditionOperation.Remove
                     },
@@ -869,26 +873,26 @@ internal static class GameLocationBattleManagerTweaks
                         break;
 
                     default:
+                    {
+                        if (attacker.UsedSpecialFeatures.Count > 0)
                         {
-                            if (attacker.UsedSpecialFeatures.Count > 0)
+                            // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
+                            foreach (var kvp in attacker.UsedSpecialFeatures)
                             {
-                                // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
-                                foreach (var kvp in attacker.UsedSpecialFeatures)
+                                // ReSharper disable once InvertIf
+                                if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
+                                    .TryGetElement(kvp.Key, out var previousFeature))
                                 {
-                                    // ReSharper disable once InvertIf
-                                    if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
-                                        .TryGetElement(kvp.Key, out var previousFeature))
+                                    if (previousFeature.NotificationTag == provider.NotificationTag)
                                     {
-                                        if (previousFeature.NotificationTag == provider.NotificationTag)
-                                        {
-                                            validUses = false;
-                                        }
+                                        validUses = false;
                                     }
                                 }
                             }
-
-                            break;
                         }
+
+                        break;
+                    }
                 }
             }
 
@@ -938,13 +942,13 @@ internal static class GameLocationBattleManagerTweaks
 
             //[CE] try checking triggers only if context is valid, to prevent SpendSpellSlot showing popup on incorrect context
             if (validUses && validProperty)
-            //commented-out original code
-            // if (validUses)
-            /*
-             * Support for extra types of Smite (like eldritch smite)
-             * [CE] EDIT END
-             * ######################################
-             */
+                //commented-out original code
+                // if (validUses)
+                /*
+                 * Support for extra types of Smite (like eldritch smite)
+                 * [CE] EDIT END
+                 * ######################################
+                 */
             {
                 // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (provider.TriggerCondition)
@@ -953,18 +957,20 @@ internal static class GameLocationBattleManagerTweaks
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly
                         when attackMode != null
                              || (rulesetEffect != null
-                                 && provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty
+                                 && provider.RequiredProperty == RuleDefinitions
+                                     .RestrictedContextRequiredProperty
                                      .SpellWithAttackRoll):
+                    {
+                        if (advantageType == RuleDefinitions.AdvantageType.Advantage ||
+                            (advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                             instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side,
+                                 attacker)))
                         {
-                            if (advantageType == RuleDefinitions.AdvantageType.Advantage ||
-                                (advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
-                                 instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker)))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
                     /*
                      * ######################################
                      * [CE] EDIT START
@@ -984,159 +990,163 @@ internal static class GameLocationBattleManagerTweaks
                          * [CE] EDIT END
                          * ######################################
                          */
+                    {
+                        //TODO: implement wild-shape, MC and warlock spell slot tweaks 
+                        // This is used for Divine Smite
+                        // Look for the spellcasting feature holding the smite
+                        var hero = attacker.RulesetCharacter.GetOriginalHero();
+
+                        // This is used to only offer divine smites on critical hits
+                        var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage
                         {
-                            //TODO: implement wild-shape, MC and warlock spell slot tweaks 
-                            // This is used for Divine Smite
-                            // Look for the spellcasting feature holding the smite
-                            var hero = attacker.RulesetCharacter.GetOriginalHero();
+                            NotificationTag: "DivineSmite"
+                        };
 
-                            // This is used to only offer divine smites on critical hits
-                            var isDivineSmite = featureDefinition is FeatureDefinitionAdditionalDamage
-                            {
-                                NotificationTag: "DivineSmite"
-                            };
+                        if (!criticalHit &&
+                            Main.Settings.AddPaladinSmiteToggle &&
+                            isDivineSmite &&
+                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+                        {
+                            break;
+                        }
 
-                            if (!criticalHit &&
-                                Main.Settings.AddPaladinSmiteToggle &&
-                                isDivineSmite &&
-                                !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+                        var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
+
+                        RulesetSpellRepertoire selectedSpellRepertoire = null;
+
+                        foreach (var spellRepertoire in hero.SpellRepertoires)
+                        {
+                            if (spellRepertoire.SpellCastingClass != classDefinition)
                             {
+                                continue;
+                            }
+
+                            var atLeastOneSpellSlotAvailable = false;
+
+                            for (var spellLevel = 1;
+                                 spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                                 spellLevel++)
+                            {
+                                spellRepertoire.GetSlotsNumber(spellLevel, out var remaining,
+                                    out var dummy);
+
+                                // handle EldritchSmite case that can only consume pact slots
+                                if (featureDefinition is FeatureDefinitionAdditionalDamage
+                                    {
+                                        NotificationTag: InvocationsBuilders.EldritchSmiteTag
+                                    })
+                                {
+                                    var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+                                    var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+                                    remaining = pactMagicMaxSlots - pactMagicUsedSlots;
+                                }
+
+                                if (remaining <= 0)
+                                {
+                                    continue;
+                                }
+
+                                selectedSpellRepertoire = spellRepertoire;
+                                atLeastOneSpellSlotAvailable = true;
+
                                 break;
                             }
 
-                            var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
-
-                            RulesetSpellRepertoire selectedSpellRepertoire = null;
-
-                            foreach (var spellRepertoire in hero.SpellRepertoires)
+                            if (!atLeastOneSpellSlotAvailable)
                             {
-                                if (spellRepertoire.SpellCastingClass != classDefinition)
-                                {
-                                    continue;
-                                }
-
-                                var atLeastOneSpellSlotAvailable = false;
-
-                                for (var spellLevel = 1;
-                                     spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-                                     spellLevel++)
-                                {
-                                    spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var dummy);
-
-                                    // handle EldritchSmite case that can only consume pact slots
-                                    if (featureDefinition is FeatureDefinitionAdditionalDamage
-                                        {
-                                            NotificationTag: InvocationsBuilders.EldritchSmiteTag
-                                        })
-                                    {
-                                        var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
-                                        var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
-
-                                        remaining = pactMagicMaxSlots - pactMagicUsedSlots;
-                                    }
-
-                                    if (remaining <= 0)
-                                    {
-                                        continue;
-                                    }
-
-                                    selectedSpellRepertoire = spellRepertoire;
-                                    atLeastOneSpellSlotAvailable = true;
-
-                                    break;
-                                }
-
-                                if (!atLeastOneSpellSlotAvailable)
-                                {
-                                    continue;
-                                }
-
-                                reactionParams =
-                                    new CharacterActionParams(attacker, ActionDefinitions.Id.SpendSpellSlot);
-                                reactionParams.ActionModifiers.Add(new ActionModifier());
-
-                                yield return instance.PrepareAndReactWithSpellUsingSpellSlot(attacker,
-                                    selectedSpellRepertoire, provider.NotificationTag, reactionParams);
-
-                                validTrigger = reactionParams.ReactionValidated;
-
-                                /*
-                                 * ######################################
-                                 * [CE] EDIT START
-                                 * Support for Oath of Thunder level 20 feature
-                                 */
-
-                                //TODO: convert this to a proper interface to change number of smite dice
-                                if (validTrigger && isDivineSmite &&
-                                    hero.GetSubclassLevel(
-                                        DatabaseHelper.CharacterClassDefinitions.Paladin, OathOfDemonHunter.Name) == 20)
-                                {
-                                    reactionParams.intParameter++;
-                                }
-                                /*
-                                 * Support for Oath of Thunder level 20 feature
-                                 * [CE] EDIT END
-                                 * ######################################
-                                 */
+                                continue;
                             }
 
-                            break;
+                            reactionParams =
+                                new CharacterActionParams(attacker, ActionDefinitions.Id.SpendSpellSlot);
+                            reactionParams.ActionModifiers.Add(new ActionModifier());
+
+                            yield return instance.PrepareAndReactWithSpellUsingSpellSlot(attacker,
+                                selectedSpellRepertoire, provider.NotificationTag, reactionParams);
+
+                            validTrigger = reactionParams.ReactionValidated;
+
+                            /*
+                             * ######################################
+                             * [CE] EDIT START
+                             * Support for Oath of Thunder level 20 feature
+                             */
+
+                            //TODO: convert this to a proper interface to change number of smite dice
+                            if (validTrigger && isDivineSmite &&
+                                hero.GetSubclassLevel(
+                                    DatabaseHelper.CharacterClassDefinitions.Paladin,
+                                    OathOfDemonHunter.Name) == 20)
+                            {
+                                reactionParams.intParameter++;
+                            }
+                            /*
+                             * Support for Oath of Thunder level 20 feature
+                             * [CE] EDIT END
+                             * ######################################
+                             */
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe:
+                    {
+                        if (defender.RulesetActor.HasConditionOfTypeAndSource(
+                                provider.RequiredTargetCondition,
+                                attacker.Guid))
                         {
-                            if (defender.RulesetActor.HasConditionOfTypeAndSource(provider.RequiredTargetCondition,
-                                    attacker.Guid))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition:
+                    {
+                        if (defender == null)
                         {
-                            if (defender == null)
-                            {
-                                break;
-                            }
-
-                            if (provider.RequiredTargetCondition == null)
-                            {
-                                Trace.LogError(
-                                    "Provider trigger condition is TargetHasCondition, but no condition given");
-                                break;
-                            }
-
-                            if (defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
-                            {
-                                validTrigger = true;
-                            }
-
                             break;
                         }
+
+                        if (provider.RequiredTargetCondition == null)
+                        {
+                            Trace.LogError(
+                                "Provider trigger condition is TargetHasCondition, but no condition given");
+                            break;
+                        }
+
+                        if (defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
+                        {
+                            validTrigger = true;
+                        }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
+                    {
+                        if (defender == null)
                         {
-                            if (defender == null)
-                            {
-                                break;
-                            }
-
-                            if (provider.RequiredTargetCondition == null)
-                            {
-                                Trace.LogError(
-                                    "Provider trigger condition is TargetDoesNotHaveCondition, but no condition given");
-                                break;
-                            }
-
-                            if (!defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
-                            {
-                                validTrigger = true;
-                            }
-
                             break;
                         }
+
+                        if (provider.RequiredTargetCondition == null)
+                        {
+                            Trace.LogError(
+                                "Provider trigger condition is TargetDoesNotHaveCondition, but no condition given");
+                            break;
+                        }
+
+                        if (!defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition
+                                .Name))
+                        {
+                            validTrigger = true;
+                        }
+
+                        break;
+                    }
 
                     /*
                      * ######################################
@@ -1145,30 +1155,30 @@ internal static class GameLocationBattleManagerTweaks
                      */
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft:
-                        {
-                            validTrigger = instance.IsWithinXCells(attacker, defender, 2);
-                            break;
-                        }
+                    {
+                        validTrigger = instance.IsWithinXCells(attacker, defender, 2);
+                        break;
+                    }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou:
-                        {
-                            validTrigger = advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
-                                           instance.IsWithin1Cell(attacker, defender) &&
-                                           Gui.Battle.AllContenders
-                                               .Where(x => x != attacker && x != defender)
-                                               .All(x => !instance.IsWithin1Cell(attacker, x));
-                            break;
-                        }
+                    {
+                        validTrigger = advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                                       instance.IsWithin1Cell(attacker, defender) &&
+                                       Gui.Battle.AllContenders
+                                           .Where(x => x != attacker && x != defender)
+                                           .All(x => !instance.IsWithin1Cell(attacker, x));
+                        break;
+                    }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
-                        {
-                            validTrigger = attackMode != null &&
-                                           attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
+                    {
+                        validTrigger = attackMode != null &&
+                                       attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
 
-                            break;
-                        }
+                        break;
+                    }
                     /*
                      * Support for extra types of trigger conditions
                      * [CE] EDIT END
@@ -1176,74 +1186,79 @@ internal static class GameLocationBattleManagerTweaks
                      */
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetIsWounded:
+                    {
+                        if (defender?.RulesetCharacter != null &&
+                            defender.RulesetCharacter.CurrentHitPoints <
+                            defender.RulesetCharacter.GetAttribute(AttributeDefinitions.HitPoints)
+                                .CurrentValue)
                         {
-                            if (defender?.RulesetCharacter != null && defender.RulesetCharacter.CurrentHitPoints <
-                                defender.RulesetCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasSenseType:
+                    {
+                        if (defender?.RulesetCharacter != null &&
+                            defender.RulesetCharacter.HasSenseType(provider.RequiredTargetSenseType))
                         {
-                            if (defender?.RulesetCharacter != null &&
-                                defender.RulesetCharacter.HasSenseType(provider.RequiredTargetSenseType))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCreatureTag:
+                    {
+                        if (defender?.RulesetCharacter != null &&
+                            defender.RulesetCharacter.HasTag(provider.RequiredTargetCreatureTag))
                         {
-                            if (defender?.RulesetCharacter != null &&
-                                defender.RulesetCharacter.HasTag(provider.RequiredTargetCreatureTag))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround
                         when attackMode != null:
+                    {
+                        if (defender == null)
                         {
-                            if (defender == null)
-                            {
-                                break;
-                            }
+                            break;
+                        }
 
-                            if (attacker.LocationPosition.y > defender.LocationPosition.y)
+                        if (attacker.LocationPosition.y > defender.LocationPosition.y)
+                        {
+                            if (itemDefinition != null && itemDefinition.IsWeapon)
                             {
-                                if (itemDefinition != null && itemDefinition.IsWeapon)
+                                var weaponTypeDefinition =
+                                    DatabaseHelper.GetDefinition<WeaponTypeDefinition>(itemDefinition
+                                        .WeaponDescription
+                                        .WeaponType);
+
+                                if (weaponTypeDefinition.WeaponProximity ==
+                                    RuleDefinitions.AttackProximity.Range)
                                 {
-                                    var weaponTypeDefinition =
-                                        DatabaseHelper.GetDefinition<WeaponTypeDefinition>(itemDefinition.WeaponDescription
-                                            .WeaponType);
-
-                                    if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Range)
-                                    {
-                                        validTrigger = true;
-                                    }
+                                    validTrigger = true;
                                 }
                             }
-
-                            break;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
+                    {
+                        if (defender?.RulesetCharacter != null &&
+                            defender.RulesetCharacter.CharacterFamily ==
+                            provider.RequiredCharacterFamily.Name)
                         {
-                            if (defender?.RulesetCharacter != null && defender.RulesetCharacter.CharacterFamily ==
-                                provider.RequiredCharacterFamily.Name)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
                         validTrigger = criticalHit;
@@ -1260,34 +1275,38 @@ internal static class GameLocationBattleManagerTweaks
                              power.PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation:
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
-                        when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell &&
-                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(provider.RequiredAncestryType,
+                        when (firstTarget || !provider.FirstTargetOnly) &&
+                             rulesetEffect is RulesetEffectSpell &&
+                             attacker.RulesetCharacter.HasAncestryMatchingDamageType(
+                                 provider.RequiredAncestryType,
                                  actualEffectForms):
                         validTrigger = true;
                         break;
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
-                        when (firstTarget || !provider.FirstTargetOnly) && rulesetEffect is RulesetEffectSpell spell:
+                        when (firstTarget || !provider.FirstTargetOnly) &&
+                             rulesetEffect is RulesetEffectSpell spell:
+                    {
+                        // This check is for Warlock / invocation / agonizing blast
+                        if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell ==
+                            spell.SpellDefinition)
                         {
-                            // This check is for Warlock / invocation / agonizing blast
-                            if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell ==
-                                spell.SpellDefinition)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
+                    {
+                        if (attacker.RulesetCharacter != null &&
+                            !attacker.RulesetCharacter.IsWearingHeavyArmor())
                         {
-                            if (attacker.RulesetCharacter != null && !attacker.RulesetCharacter.IsWearingHeavyArmor())
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive:
                         validTrigger = true;
@@ -1295,25 +1314,25 @@ internal static class GameLocationBattleManagerTweaks
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster
                         when defender?.RulesetCharacter != null:
+                    {
+                        if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) &&
+                            defender.RulesetCharacter.SpellRepertoires.Count > 0)
                         {
-                            if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) &&
-                                defender.RulesetCharacter.SpellRepertoires.Count > 0)
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
+                    {
+                        if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging))
                         {
-                            if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging))
-                            {
-                                validTrigger = true;
-                            }
-
-                            break;
+                            validTrigger = true;
                         }
+
+                        break;
+                    }
                 }
             }
 
@@ -1354,7 +1373,8 @@ internal static class GameLocationBattleManagerTweaks
          * Support for `CustomAdditionalDamage`
          */
 
-        foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
+        foreach (var feature in attacker.RulesetCharacter
+                     .GetSubFeaturesByType<CustomAdditionalDamage>())
         {
             var validUses = true;
             var additionalDamage = feature.Provider as FeatureDefinitionAdditionalDamage;
@@ -1374,42 +1394,45 @@ internal static class GameLocationBattleManagerTweaks
                         break;
 
                     default:
+                    {
+                        if (attacker.UsedSpecialFeatures.Count > 0)
                         {
-                            if (attacker.UsedSpecialFeatures.Count > 0)
+                            // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
+                            foreach (var kvp in attacker.UsedSpecialFeatures)
                             {
-                                // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
-                                foreach (var kvp in attacker.UsedSpecialFeatures)
+                                // ReSharper disable once InvertIf
+                                if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
+                                    .TryGetElement(kvp.Key, out var previousFeature))
                                 {
-                                    // ReSharper disable once InvertIf
-                                    if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
-                                        .TryGetElement(kvp.Key, out var previousFeature))
+                                    if (previousFeature.NotificationTag == provider.NotificationTag)
                                     {
-                                        if (previousFeature.NotificationTag == provider.NotificationTag)
-                                        {
-                                            validUses = false;
-                                        }
+                                        validUses = false;
                                     }
                                 }
                             }
-
-                            break;
                         }
+
+                        break;
+                    }
                 }
             }
 
             var validProperty = rulesetImplementation.IsValidContextForRestrictedContextProvider(
-                provider, attacker.RulesetCharacter, attackMode?.SourceDefinition as ItemDefinition, rangedAttack,
+                provider, attacker.RulesetCharacter, attackMode?.SourceDefinition as ItemDefinition,
+                rangedAttack,
                 attackMode, rulesetEffect);
 
             if (!validUses || !validProperty || !feature.IsValid(
-                    instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
+                    instance, attacker, defender, attackModifier, attackMode, rangedAttack,
+                    advantageType,
                     actualEffectForms, rulesetEffect, criticalHit, firstTarget, out var reactionParams))
             {
                 continue;
             }
 
             instance.ComputeAndNotifyAdditionalDamage(
-                attacker, defender, feature.Provider, actualEffectForms, reactionParams, attackMode, criticalHit);
+                attacker, defender, feature.Provider, actualEffectForms, reactionParams, attackMode,
+                criticalHit);
             instance.triggeredAdditionalDamageTags.Add(feature.Provider.NotificationTag);
         }
 

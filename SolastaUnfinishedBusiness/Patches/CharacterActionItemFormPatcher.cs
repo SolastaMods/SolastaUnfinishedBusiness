@@ -58,7 +58,7 @@ public static class CharacterActionItemFormPatcher
             var (size, number, format) = provider.GetDiceInfo(rulesetCharacter);
 
             var box = __instance.bardicInpirationBox;
-            
+
             if (box == null)
             {
                 return;

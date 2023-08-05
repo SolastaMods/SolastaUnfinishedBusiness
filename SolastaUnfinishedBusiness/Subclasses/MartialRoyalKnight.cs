@@ -230,11 +230,6 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
     private class InspiringProtection : IMeOrAllySaveFailPossible
     {
-        FeatureDefinitionPower Power { get; }
-        string ReactionName { get; }
-        string AuraConditionName { get; }
-
-
         internal InspiringProtection(FeatureDefinitionPower power, string reactionName, string auraConditionName)
         {
             Power = power;
@@ -242,63 +237,20 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             AuraConditionName = auraConditionName;
         }
 
-        bool ShouldTrigger(
-            CharacterAction action,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            if (helper.IsOppositeSide(defender.Side))
-            {
-                return false;
-            }
+        private FeatureDefinitionPower Power { get; }
+        private string ReactionName { get; }
+        private string AuraConditionName { get; }
 
-            return helper.CanReact() && action.RolledSaveThrow;
-        }
-
-        bool TryModifyRoll(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier saveModifier,
-            CharacterActionParams reactionParams,
-            bool hasHitVisual)
-        {
-            // ReSharper disable once MergeConditionalExpression
-            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                ? action.ActionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter, defender.RulesetActor,
-                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
-                    out var saveOutcomeDelta)
-                : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, reactionParams.RulesetEffect.EffectDescription.EffectForms,
-                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
-
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            return true;
-        }
-
-        string FormatReactionDescription(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            var text = defender == helper
-                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf"
-                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly";
-
-            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
-        }
-
-        public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager, CharacterAction action, GameLocationCharacter attacker, GameLocationCharacter defender, GameLocationCharacter featureOwner, ActionModifier saveModifier, bool hasHitVisual, bool hasBorrowedLuck)
+        public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter attacker, GameLocationCharacter defender, GameLocationCharacter featureOwner,
+            ActionModifier saveModifier, bool hasHitVisual, bool hasBorrowedLuck)
         {
             var ownerCharacter = featureOwner.RulesetCharacter;
             ownerCharacter.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
                 AuraConditionName,
                 out var activeCondition
-                );
+            );
             RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var helperCharacter);
             var locHelper = GameLocationCharacter.GetFromActor(helperCharacter);
 
@@ -334,10 +286,60 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 helperCharacter.LogCharacterUsedPower(Power, indent: true);
                 // Originally here is defender use power
                 // helperCharacter.UsePower(usablePower);
-                action.RolledSaveThrow = TryModifyRoll(action, attacker,  locHelper, saveModifier, reactionParams, hasHitVisual);
+                action.RolledSaveThrow =
+                    TryModifyRoll(action, attacker, locHelper, saveModifier, reactionParams, hasHitVisual);
             }
 
             reactionParams.RulesetEffect.Terminate(true);
+        }
+
+        private static bool ShouldTrigger(
+            CharacterAction action,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            if (helper.IsOppositeSide(defender.Side))
+            {
+                return false;
+            }
+
+            return helper.CanReact() && action.RolledSaveThrow;
+        }
+
+        private static bool TryModifyRoll(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier saveModifier,
+            CharacterActionParams reactionParams,
+            bool hasHitVisual)
+        {
+            // ReSharper disable once MergeConditionalExpression
+            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                ? action.ActionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter, defender.RulesetActor,
+                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
+                    out var saveOutcomeDelta)
+                : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
+                    defender.RulesetActor, saveModifier, reactionParams.RulesetEffect.EffectDescription.EffectForms,
+                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
+
+            action.SaveOutcome = saveOutcome;
+            action.SaveOutcomeDelta = saveOutcomeDelta;
+
+            return true;
+        }
+
+        private static string FormatReactionDescription(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var text = defender == helper
+                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf"
+                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly";
+
+            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
         }
     }
 }

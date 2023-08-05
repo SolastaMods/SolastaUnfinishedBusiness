@@ -334,53 +334,53 @@ public static class CustomActionIdContext
         switch (actionId)
         {
             case (Id)ExtraActionId.CombatWildShape:
+            {
+                var power = character.GetPowerFromDefinition(action.ActivatedPower);
+                if (power is not { RemainingUses: > 0 } ||
+                    (character is RulesetCharacterMonster monster &&
+                     monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
                 {
-                    var power = character.GetPowerFromDefinition(action.ActivatedPower);
-                    if (power is not { RemainingUses: > 0 } ||
-                        (character is RulesetCharacterMonster monster &&
-                         monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
-                    {
-                        result = ActionStatus.Unavailable;
-                    }
-
-                    return;
+                    result = ActionStatus.Unavailable;
                 }
+
+                return;
+            }
             case (Id)ExtraActionId.CombatRageStart:
+            {
+                if (character.HasAnyConditionOfType(ConditionRaging))
                 {
-                    if (character.HasAnyConditionOfType(ConditionRaging))
-                    {
-                        result = ActionStatus.Unavailable;
-                    }
-
-                    return;
+                    result = ActionStatus.Unavailable;
                 }
+
+                return;
+            }
             case (Id)ExtraActionId.FlightSuspend:
+            {
+                if (Main.Settings.AllowFlightSuspend && character.IsTemporarilyFlying())
                 {
-                    if (Main.Settings.AllowFlightSuspend && character.IsTemporarilyFlying())
-                    {
-                        result = ActionStatus.Available;
-                    }
-                    else
-                    {
-                        result = ActionStatus.Unavailable;
-                    }
-
-                    return;
+                    result = ActionStatus.Available;
                 }
+                else
+                {
+                    result = ActionStatus.Unavailable;
+                }
+
+                return;
+            }
             case (Id)ExtraActionId.FlightResume:
+            {
+                if (Main.Settings.AllowFlightSuspend &&
+                    character.HasConditionOfTypeOrSubType(CustomConditionsContext.FlightSuspended.Name))
                 {
-                    if (Main.Settings.AllowFlightSuspend &&
-                        character.HasConditionOfTypeOrSubType(CustomConditionsContext.FlightSuspended.Name))
-                    {
-                        result = ActionStatus.Available;
-                    }
-                    else
-                    {
-                        result = ActionStatus.Unavailable;
-                    }
-
-                    return;
+                    result = ActionStatus.Available;
                 }
+                else
+                {
+                    result = ActionStatus.Unavailable;
+                }
+
+                return;
+            }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);

@@ -2,7 +2,6 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Feats;
 using static SolastaUnfinishedBusiness.Feats.OtherFeats;
 
 namespace SolastaUnfinishedBusiness.CustomUI;

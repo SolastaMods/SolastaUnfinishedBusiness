@@ -27,9 +27,9 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    private const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
     internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
-    internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
     internal const string FeatMagicInitiateTag = "Initiate";
     internal const string FeatSpellSniperTag = "Sniper";
 
@@ -103,7 +103,7 @@ internal static class OtherFeats
             featMetamagicAdept,
             featTacticianAdept,
             featEldritchVersatilityAdept
-            );
+        );
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -464,36 +464,6 @@ internal static class OtherFeats
 
     #endregion
 
-    #region War Caster
-
-    private static FeatDefinition BuildWarcaster()
-    {
-        return FeatDefinitionBuilder
-            .Create(FeatWarCaster)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionMagicAffinityBuilder
-                .Create(MagicAffinityFeatWarCaster)
-                .SetGuiPresentation(FeatWarCaster, Category.Feat)
-                .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
-                    SpellParamsModifierType.None)
-                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
-                .SetHandsFullCastingModifiers(true, true, true)
-                .AddToDB())
-            .SetMustCastSpellsPrerequisite()
-            .SetCustomSubFeatures(WarCasterMarker.Mark)
-            .AddToDB();
-    }
-    internal class WarCasterMarker
-    {
-        private WarCasterMarker()
-        {
-        }
-
-        public static WarCasterMarker Mark { get; } = new();
-    }
-
-    #endregion
-
     #region Metamagic Adept
 
     private static FeatDefinition BuildMetamagicAdept()
@@ -554,6 +524,37 @@ internal static class OtherFeats
         }
 
         internal string Name { get; }
+    }
+
+    #endregion
+
+    #region War Caster
+
+    private static FeatDefinition BuildWarcaster()
+    {
+        return FeatDefinitionBuilder
+            .Create(FeatWarCaster)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionMagicAffinityBuilder
+                .Create(MagicAffinityFeatWarCaster)
+                .SetGuiPresentation(FeatWarCaster, Category.Feat)
+                .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
+                    SpellParamsModifierType.None)
+                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                .SetHandsFullCastingModifiers(true, true, true)
+                .AddToDB())
+            .SetMustCastSpellsPrerequisite()
+            .SetCustomSubFeatures(WarCasterMarker.Mark)
+            .AddToDB();
+    }
+
+    internal class WarCasterMarker
+    {
+        private WarCasterMarker()
+        {
+        }
+
+        public static WarCasterMarker Mark { get; } = new();
     }
 
     #endregion

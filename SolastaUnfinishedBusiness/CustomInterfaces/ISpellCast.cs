@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -7,10 +7,10 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 internal interface ISpellCast
 {
     IEnumerator OnSpellCast(
-            RulesetCharacter featureOwner,
-            GameLocationCharacter caster,
-            CharacterActionCastSpell castAction,
-            RulesetEffectSpell selectEffectSpell,
-            RulesetSpellRepertoire selectedRepertoire,
-            SpellDefinition selectedSpellDefinition);
+        RulesetCharacter featureOwner,
+        GameLocationCharacter caster,
+        CharacterActionCastSpell castAction,
+        [UsedImplicitly] RulesetEffectSpell selectEffectSpell,
+        [UsedImplicitly] RulesetSpellRepertoire selectedRepertoire,
+        SpellDefinition selectedSpellDefinition);
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -6,8 +7,9 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 internal interface IRemoveSpellOrSpellLevelImmunity
 {
     bool IsValid(
-        RulesetCharacter character,
-        RulesetCondition holdingCondition);
+        [UsedImplicitly] RulesetCharacter character,
+        [UsedImplicitly] RulesetCondition holdingCondition);
+
     bool ShouldRemoveImmunity(Func<SpellDefinition, bool> isImmuneToSpell);
     bool ShouldRemoveImmunityLevel(Func<int, int, bool> isImmuneToSpellLevel);
 }

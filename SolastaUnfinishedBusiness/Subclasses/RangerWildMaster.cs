@@ -178,7 +178,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .Create(FeatureDefinitionPowers.PowerEyebitePanicked, "PowerSpiritBeastEyebitePanicked")
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(EyebiteAsleep)
+                    .Create(EyebitePanicked)
                     .Build())
             .AddToDB();
 

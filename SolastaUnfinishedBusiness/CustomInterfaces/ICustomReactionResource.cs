@@ -6,5 +6,4 @@ public interface ICustomReactionResource
 {
     AssetReferenceSprite Icon { get; }
     string GetUses(RulesetCharacter rulesetCharacter);
-
 }

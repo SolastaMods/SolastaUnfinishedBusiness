@@ -28,14 +28,6 @@ internal class FeatureDefinitionAdditionalActionBuilder
         return this;
     }
 
-    internal FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
-        params ActionDefinitions.Id[] forbiddenActions)
-    {
-        Definition.ForbiddenActions.SetRange(forbiddenActions);
-        Definition.ForbiddenActions.Sort();
-        return this;
-    }
-
     #region Constructors
 
     protected FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

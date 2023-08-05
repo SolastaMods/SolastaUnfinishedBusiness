@@ -90,6 +90,7 @@ public static class RulesetCharacterMonsterPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, unstack));
         }
+
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacterMonster __instance,
@@ -97,25 +98,28 @@ public static class RulesetCharacterMonsterPatcher
             bool callRefresh,
             bool dryRun,
             FeatureDefinition dryRunFeature)
+        {
+            if (__instance is not { IsDeadOrDyingOrUnconscious: false })
             {
-                if (__instance is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    return;
-                }
-                foreach (var feature in __instance.GetSubFeaturesByType<IModifyAC>())
-                {
-                    feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier, out var trendInfo);
-                    __result.AddModifier(attributeModifier);
-                    __result.valueTrends.Add(trendInfo);
-                }
-                RulesetAttributeModifier.SortAttributeModifiersList(__result.ActiveModifiers);
-                __result.Refresh(true);
-                __instance.SortArmorClassModifierTrends(__result);
-                __result.Refresh(false);
-                if (callRefresh && !dryRun && __instance.CharacterRefreshed != null)
-                {
-                    __instance.CharacterRefreshed(__instance);
-                }
+                return;
+            }
+
+            foreach (var feature in __instance.GetSubFeaturesByType<IModifyAC>())
+            {
+                feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier,
+                    out var trendInfo);
+                __result.AddModifier(attributeModifier);
+                __result.valueTrends.Add(trendInfo);
+            }
+
+            RulesetAttributeModifier.SortAttributeModifiersList(__result.ActiveModifiers);
+            __result.Refresh(true);
+            __instance.SortArmorClassModifierTrends(__result);
+            __result.Refresh();
+            if (callRefresh && !dryRun && __instance.CharacterRefreshed != null)
+            {
+                __instance.CharacterRefreshed(__instance);
+            }
         }
     }
 

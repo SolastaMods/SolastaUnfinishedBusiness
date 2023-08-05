@@ -243,7 +243,7 @@ public static class Sprites
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
 
     internal static AssetReferenceSprite ActionEldritchVersatility =>
-    GetSprite("ActionEldritchVersatility", Resources.ActionEldritchVersatility, 80);
+        GetSprite("ActionEldritchVersatility", Resources.ActionEldritchVersatility, 80);
 
     #endregion
 }

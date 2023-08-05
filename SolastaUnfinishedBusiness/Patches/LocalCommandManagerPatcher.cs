@@ -44,26 +44,27 @@ public static class LocalCommandManagerPatcher
     [UsedImplicitly]
     public static class TogglePermanentInvocation_Patch
     {
-        [NotNull]
         [UsedImplicitly]
-
         public static bool Prefix(GameLocationCharacter character, RulesetInvocation invocation)
         {
-            if (character != null)
+            var rulesetCharacter = character?.RulesetCharacter;
+
+            if (rulesetCharacter == null || invocation == null)
             {
-                RulesetCharacter rulesetCharacter = character.RulesetCharacter;
-                if (rulesetCharacter != null && invocation != null)
-                {
-                    invocation.Toggle();
-                    // PATCH BEGIN
-                    foreach (var toggledBehaviour in invocation.invocationDefinition.GrantedFeature.GetAllSubFeaturesOfType<IInvocationToggled>())
-                    {
-                        toggledBehaviour.OnInvocationToggled(character, invocation);
-                    }
-                    // PATCH END
-                    rulesetCharacter.RefreshAll();
-                }
+                return false;
             }
+
+            invocation.Toggle();
+            // PATCH BEGIN
+            foreach (var toggledBehaviour in invocation.invocationDefinition.GrantedFeature
+                         .GetAllSubFeaturesOfType<IInvocationToggled>())
+            {
+                toggledBehaviour.OnInvocationToggled(character, invocation);
+            }
+
+            // PATCH END
+            rulesetCharacter.RefreshAll();
+
             return false;
         }
     }
