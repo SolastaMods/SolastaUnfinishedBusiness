@@ -567,7 +567,7 @@ The Circle of the Eternal Grove strives to protect and preserve as many living b
 
 * Verdancy
 
-Starting at 2nd level, whenever you heal a creature using a level 1 healing spell or higher, or affect them by Lesser and Greater Restoration spells, that creature also restores a number of hit points equal to the spell casting level, at the start of the Druid's turn, for 3 rounds. If a creature falls unconscious, the healing is removed. This effect stacks.
+Starting at 2nd level, whenever you heal a creature using a level 1 healing spell or higher, or affect them by Lesser and Greater Restoration spells, that creature also restores a number of hit points equal to the spell casting level, at the start of it's turn, for 3 rounds. If a creature falls unconscious, the healing is removed. This effect stacks.
 
 
 ## Level 6
@@ -2838,39 +2838,55 @@ While you are not incapacitated, you gain the following benefits:
 
 # 55. - The Eldritch Surge
 
-You have made a pact with a mysterious entity that grants you the power to unleash the ferocious arcane energy of Eldritch Blast. This patron is not a specific being, but rather a manifestation of the raw surge of magic itself. Chosen by this being, you are devoted to focus on enhancing your signature spell and destroy your enemies with the devastating force to prove its boundless power. And thus, your patron only grants you Eldritch Blast.
+You have made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 
 
 ## Level 1
 
 * Blast Exclusive
 
-Your patron endows you with more powerful blasts but only if you follow its path all along. You gain Eldritch Blast as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+You gain Eldritch Blast as a bonus cantrip. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+
+* Eldritch Versatility
+
+You gain an Eldritch Pool, which has a maximum of your warlock level. You gain 1 Eldritch Point whenever you hit an enemy with Eldritch Blast. You gain no more points than your pool size in a round. After a long rest, the pool is reset. Additionally, for each Versatility you have, you increase the corresponding ability score by 1, up to a maximum of 20.
+
+* Learn Versatility (2)
+
+You learn two Versatilities.
 
 
 ## Level 6
 
 * Blast Pursuit
 
-You overdrive your self with flurries of attacks, especially when Blast Pursuit is your last resort.
-As a bonus action, You can expend a pact slot and for two rounds, you gain an extra main action or bonus action. The range of your Eldritch Blast is also decreased by 30 ft. A kill with Eldritch Blast prolongs Blast Pursuit by one round.
-Starting at 16th level, you gain an extra main action and a bonus action. The range of your Eldritch Blast is again decreased by 30 ft.
-Starting at 20th level, if you have no remaining pact slots, you are in a constant Blast Pursuit status.
+When you hit an enemy within 30 feet / kills an enemy with Eldritch Blast, you gain 1 / number of beams additional Eldritch Point.
+
+* Learn Versatility (1)
+
+You learn one Versatility.
 
 
 ## Level 10
 
-* Blast Overload
+* Blast Reload
 
-As you further master Eldritch Blast, you can burn your mana to empower your magic.
-As a bonus action, you can expend a pact slot and for 1 minute, you ignore ranged spell disadvantage if enemies are within melee range, you add your proficiency bonus to the Eldritch Blast damage, but the range of your Eldritch Blast is decreased by 30 ft.
+You can cast cantrips you have cast this turn with your main action as a bonus action.
+
+* Learn Versatility (1)
+
+You learn one Versatility.
 
 
 ## Level 14
 
-* Blast Reload
+* Blast Overload
 
-Your excellence in Eldritch Blast allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
+Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your Versatilities without spending points or making any checks.
+
+* Learn Versatility (1)
+
+You learn one Versatility.
 
 
 
