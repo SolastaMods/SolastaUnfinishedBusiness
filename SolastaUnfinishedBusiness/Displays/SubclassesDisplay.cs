@@ -20,8 +20,6 @@ internal static class SubclassesDisplay
                 () => UpdateContext.OpenDocumentation("SolastaClasses.md"), UI.Width((float)200));
         }
 
-        UI.Label();
-
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Subclasses Docs".Bold().Khaki(),
@@ -44,7 +42,7 @@ internal static class SubclassesDisplay
             toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
-                foreach (var key in Main.Settings.DisplayKlassToggle.Keys)
+                foreach (var key in Main.Settings.DisplayKlassToggle.Keys.ToHashSet())
                 {
                     Main.Settings.DisplayKlassToggle[key] = toggle;
                 }

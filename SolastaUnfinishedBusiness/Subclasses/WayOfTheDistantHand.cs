@@ -20,7 +20,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
 {
     private const string ZenArrowTag = "ZenArrow";
 
-    internal WayOfTheDistantHand()
+    public WayOfTheDistantHand()
     {
         var zenArrow = Sprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 

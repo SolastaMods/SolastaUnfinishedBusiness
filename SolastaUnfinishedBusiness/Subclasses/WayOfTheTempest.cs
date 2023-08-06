@@ -24,7 +24,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
 {
     private const string Name = "WayOfTheTempest";
 
-    internal WayOfTheTempest()
+    public WayOfTheTempest()
     {
         // LEVEL 03
 

@@ -6,15 +6,15 @@ namespace SolastaUnfinishedBusiness.DataMiner
 {
     internal class PushValue<T> : Disposable
     {
-        private readonly T oldValue;
-        private Action<T> setValue;
+        private readonly T _oldValue;
+        private Action<T> _setValue;
 
         internal PushValue(T value, Func<T> getValue, Action<T> setValue)
         {
             if (getValue == null) { throw new ArgumentNullException(nameof(getValue)); }
 
-            this.setValue = setValue ?? throw new ArgumentNullException(nameof(setValue));
-            oldValue = getValue();
+            _setValue = setValue ?? throw new ArgumentNullException(nameof(setValue));
+            _oldValue = getValue();
             setValue(value);
         }
 
@@ -22,8 +22,8 @@ namespace SolastaUnfinishedBusiness.DataMiner
 
         protected override void Dispose(bool disposing)
         {
-            setValue?.Invoke(oldValue);
-            setValue = null;
+            _setValue?.Invoke(_oldValue);
+            _setValue = null;
         }
 
         #endregion

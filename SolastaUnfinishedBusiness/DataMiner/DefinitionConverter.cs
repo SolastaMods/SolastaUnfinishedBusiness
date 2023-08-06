@@ -6,15 +6,15 @@ namespace SolastaUnfinishedBusiness.DataMiner
 {
     internal class DefinitionConverter : JsonConverter
     {
-        private bool cannotWrite;
+        private bool _cannotWrite;
 
-        public override bool CanWrite => !cannotWrite;
+        public override bool CanWrite => !_cannotWrite;
 
         public override bool CanRead => true;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            using (new PushValue<bool>(true, () => cannotWrite, canWrite => cannotWrite = canWrite))
+            using (new PushValue<bool>(true, () => _cannotWrite, canWrite => _cannotWrite = canWrite))
             {
                 serializer.Serialize(writer, value);
             }

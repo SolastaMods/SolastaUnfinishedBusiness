@@ -29,7 +29,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
 
     internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
-    internal WizardDeadMaster()
+    public WizardDeadMaster()
     {
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")

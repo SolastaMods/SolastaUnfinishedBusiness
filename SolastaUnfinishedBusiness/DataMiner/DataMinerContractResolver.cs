@@ -10,8 +10,8 @@ namespace SolastaUnfinishedBusiness.DataMiner
 {
     internal class DataMinerContractResolver : DefaultContractResolver
     {
-        private readonly DefinitionConverter definitionConverter = new();
-        private readonly DefinitionReferenceConverter definitionReferenceConverter = new();
+        private readonly DefinitionConverter _definitionConverter = new();
+        private readonly DefinitionReferenceConverter _definitionReferenceConverter = new();
 
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
@@ -30,12 +30,12 @@ namespace SolastaUnfinishedBusiness.DataMiner
                 return null;
             }
 
-            if (definitionConverter.CanRead && definitionConverter.CanWrite)
+            if (_definitionConverter.CanRead && _definitionConverter.CanWrite)
             {
-                return definitionConverter;
+                return _definitionConverter;
             }
 
-            return definitionReferenceConverter;
+            return _definitionReferenceConverter;
         }
 
         protected override JsonContract CreateContract(Type objectType)
@@ -48,10 +48,10 @@ namespace SolastaUnfinishedBusiness.DataMiner
             }
 
             contract.IsReference = false;
-            contract.OnSerializedCallbacks.Add((_, _) => contract.Converter = definitionConverter);
-            contract.OnSerializingCallbacks.Add((_, _) => contract.Converter = definitionReferenceConverter);
-            contract.OnDeserializedCallbacks.Add((_, _) => contract.Converter = definitionConverter);
-            contract.OnDeserializingCallbacks.Add((_, _) => contract.Converter = definitionReferenceConverter);
+            contract.OnSerializedCallbacks.Add((_, _) => contract.Converter = _definitionConverter);
+            contract.OnSerializingCallbacks.Add((_, _) => contract.Converter = _definitionReferenceConverter);
+            contract.OnDeserializedCallbacks.Add((_, _) => contract.Converter = _definitionConverter);
+            contract.OnDeserializingCallbacks.Add((_, _) => contract.Converter = _definitionReferenceConverter);
 
             return contract;
         }
