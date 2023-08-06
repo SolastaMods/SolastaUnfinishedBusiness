@@ -16,7 +16,7 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
         var currentPoints = 0;
         var reservePoints = 0;
         var maxPoints = 0;
-        
+
         if (!character.GetVersatilitySupportCondition(out var supportCondition))
         {
             return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reservePoints,
@@ -27,8 +27,8 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
         reservePoints = supportCondition.ReservedPoints;
         maxPoints = supportCondition.MaxPoints;
 
-        return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reservePoints,
-            maxPoints);
+        return "EldritchVersatilityPortraitPoolFormat".Formatted(
+            Category.Tooltip, currentPoints, reservePoints, maxPoints);
     }
 
     public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;

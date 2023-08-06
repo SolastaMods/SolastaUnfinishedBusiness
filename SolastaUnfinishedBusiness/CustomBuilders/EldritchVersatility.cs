@@ -83,9 +83,7 @@ internal static class EldritchVersatility
     public static readonly FeatDefinition FeatEldritchVersatilityAdept = FeatDefinitionBuilder
         .Create($"Feat{Name}Adept")
         .SetGuiPresentation(Category.Feat)
-        .AddFeatures(
-            Learn1Versatility
-        )
+        .AddFeatures(Learn1Versatility)
         .SetCustomSubFeatures(new EldritchVersatilityAdeptCustom())
         .AddToDB();
 
@@ -205,8 +203,8 @@ internal static class EldritchVersatility
         this RulesetCharacter rulesetCharacter,
         out VersatilitySupportRulesetCondition supportCondition)
     {
-        return VersatilitySupportRulesetCondition.GetCustomConditionFromCharacter(rulesetCharacter,
-            out supportCondition);
+        return VersatilitySupportRulesetCondition.GetCustomConditionFromCharacter(
+            rulesetCharacter, out supportCondition);
     }
 
     private static void BuildFeatureInvocation(
@@ -219,9 +217,7 @@ internal static class EldritchVersatility
             .Create($"Invocation{Name}{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetPoolType(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool)
-            .SetGrantedFeature(
-                feature
-            )
+            .SetGrantedFeature(feature)
             .SetRequirements(0)
             .AddToDB();
 
@@ -233,8 +229,8 @@ internal static class EldritchVersatility
         return AttributeDefinitions.ComputeAbilityScoreModifier(ownerCharacter.TryGetAttributeValue(abilityScore));
     }
 
-    private static void RequestCustomReaction(IGameLocationActionService actionService, string type,
-        CharacterActionParams actionParams, int requestPoints)
+    private static void RequestCustomReaction(
+        IGameLocationActionService actionService, string type, CharacterActionParams actionParams, int requestPoints)
     {
         var reactionRequest = new ReactionRequestCustom(type, actionParams)
         {
@@ -264,31 +260,34 @@ internal static class EldritchVersatility
             0);
     }
 
-    private static bool IsInvocationActive(RulesetCharacter featureOwner, string invocationName,
-        out RulesetInvocation rulesetInvocation)
+    private static bool IsInvocationActive(
+        RulesetCharacter featureOwner, string invocationName, out RulesetInvocation rulesetInvocation)
     {
         foreach (var invocation in featureOwner.GetOriginalHero()!.Invocations.Where(invocation =>
                      invocation.Active && invocation.invocationDefinition.Name == invocationName))
         {
             rulesetInvocation = invocation;
+
             return true;
         }
 
         rulesetInvocation = null;
+
         return false;
     }
 
     private static void ApplyMyFeatures(RulesetCharacterHero characterHero, params FeatureDefinition[] definitionsToAdd)
     {
         characterHero.ActiveFeatures.TryAdd(Name, new List<FeatureDefinition>());
+
         foreach (var feature in definitionsToAdd)
         {
             characterHero.ActiveFeatures[Name].TryAdd(feature);
         }
     }
 
-    private static void RemoveMyFeatures(RulesetCharacterHero characterHero,
-        params FeatureDefinition[] definitionsToRemove)
+    private static void RemoveMyFeatures(
+        RulesetCharacterHero characterHero, params FeatureDefinition[] definitionsToRemove)
     {
         if (characterHero.ActiveFeatures.TryGetValue(Name, out var features))
         {
@@ -322,8 +321,8 @@ internal static class EldritchVersatility
         }
     }
 
-    internal class VersatilitySupportRulesetCondition : RulesetConditionCustom<VersatilitySupportRulesetCondition>,
-        IBindToRulesetConditionCustom
+    internal class VersatilitySupportRulesetCondition :
+        RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
         static VersatilitySupportRulesetCondition()
         {
@@ -353,8 +352,8 @@ internal static class EldritchVersatility
         public bool IsOverload { get; set; }
         private bool HasBlastPursuit { get; set; }
 
-        public void ReplaceRulesetCondition(RulesetCondition originalRulesetCondition,
-            out RulesetCondition replacedRulesetCondition)
+        public void ReplaceRulesetCondition(
+            RulesetCondition originalRulesetCondition, out RulesetCondition replacedRulesetCondition)
         {
             replacedRulesetCondition = GetFromPoolAndCopyOriginalRulesetCondition(originalRulesetCondition);
         }
@@ -368,6 +367,7 @@ internal static class EldritchVersatility
 
             var modifyCurrent = 0;
             var modifyReserve = 0;
+
             switch (action, usage)
             {
                 case (_, PointUsage.EarnPoints):
@@ -411,6 +411,7 @@ internal static class EldritchVersatility
                     }
 
                     ReservedPoints += modifyReserve;
+
                     return true;
 
                 case PointAction.Modify:
@@ -436,6 +437,7 @@ internal static class EldritchVersatility
                 case PointAction.UnReserve:
                     // To prevent possible bugs
                     ReservedPoints = Math.Max(modifyReserve + ReservedPoints, 0);
+
                     return true;
                 default:
                     return false;
@@ -451,6 +453,7 @@ internal static class EldritchVersatility
             if (ownerHero != null)
             {
                 var classLevel = ownerHero.ClassesHistory.Count;
+
                 if (ownerHero.HasSubFeatureOfType<ModifyEffectDescriptionEldritchBlast>())
                 {
                     BeamNumber = 1 + ModifyEffectDescriptionEldritchBlast
@@ -504,7 +507,8 @@ internal static class EldritchVersatility
             }
             else
             {
-                CreateSlotDC = Math.Max(CreateSlotDC - SlotLevel,
+                CreateSlotDC = Math.Max(
+                    CreateSlotDC - SlotLevel,
                     8 + characterHero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue);
             }
         }
@@ -534,6 +538,7 @@ internal static class EldritchVersatility
                 Trace.LogException(new Exception(
                     "[TACTICAL INVISIBLE FOR PLAYERS] error with VersatilityPointsRulesetCondition serialization (may be caused by mods or bad versioning implementation) " +
                     ex.Message, ex));
+
                 Gui.GuiService.ShowMessage(MessageModal.Severity.Serious3, "Message/&CorruptedCharacterErrorTitle",
                     "Message/&CorruptedCharacterErrorDescription", "Message/&MessageOkTitle", null, null, null);
             }
@@ -578,8 +583,9 @@ internal static class EldritchVersatility
             HasBlastPursuit = false;
         }
 
-        private sealed class VersatilitySupportConditionCustom : ICharacterTurnStartListener, ICustomConditionFeature,
-            IMagicalAttackBeforeHitConfirmedOnEnemy, ICharacterBattleEndedListener
+        private sealed class VersatilitySupportConditionCustom :
+            ICharacterTurnStartListener, ICustomConditionFeature, IMagicalAttackBeforeHitConfirmedOnEnemy,
+            ICharacterBattleEndedListener
         {
             public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
             {
@@ -630,11 +636,17 @@ internal static class EldritchVersatility
                 target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
             }
 
-            public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(GameLocationCharacter attacker,
-                GameLocationCharacter defender, ActionModifier magicModifier, RulesetEffect rulesetEffect,
-                List<EffectForm> actualEffectForms, bool firstTarget, bool criticalHit)
+            public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+                GameLocationCharacter attacker,
+                GameLocationCharacter defender,
+                ActionModifier magicModifier,
+                RulesetEffect rulesetEffect,
+                List<EffectForm> actualEffectForms,
+                bool firstTarget,
+                bool criticalHit)
             {
                 var characterAttacker = attacker.RulesetCharacter;
+
                 if (!IsEldritchBlast(rulesetEffect) ||
                     !characterAttacker.GetVersatilitySupportCondition(out var supportCondition))
                 {
@@ -653,8 +665,8 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class BlastBreakthroughCustom : ToggleableInvocation, ISpellCast, IModifyDamageAffinity,
-        IActionExecutionHandled
+    private sealed class BlastBreakthroughCustom :
+        ToggleableInvocation, ISpellCast, IModifyDamageAffinity, IActionExecutionHandled
     {
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
@@ -799,11 +811,12 @@ internal static class EldritchVersatility
                 if (invocation.Active)
                 {
                     // Reserve for next use
-                    if (!supportCondition.TryEarnOrSpendPoints(PointAction.Reserve,
-                            PointUsage.BlastBreakthroughOrEmpower))
+                    if (!supportCondition.TryEarnOrSpendPoints(
+                            PointAction.Reserve, PointUsage.BlastBreakthroughOrEmpower))
                     {
                         invocation.Toggle();
                         toggledInUI = false;
+
                         continue;
                     }
 
@@ -811,12 +824,14 @@ internal static class EldritchVersatility
                     {
                         var modifier = GetAbilityScoreModifier(character, AttributeDefinitions.Strength);
                         var hero = character.GetOriginalHero();
+
                         if (modifier < 1)
                         {
                             return;
                         }
 
                         ApplyMyFeatures(hero, FeatureBlastBreakthroughIgnoreCover);
+
                         if (modifier < 2)
                         {
                             return;
@@ -833,7 +848,9 @@ internal static class EldritchVersatility
                             PointUsage.BlastBreakthroughOrEmpower);
                     }
 
-                    RemoveMyFeatures(character.GetOriginalHero(), FeatureBlastBreakthroughIgnoreCover,
+                    RemoveMyFeatures(
+                        character.GetOriginalHero(),
+                        FeatureBlastBreakthroughIgnoreCover,
                         FeatureBlastBreakthroughNoPenalty);
                 }
 
@@ -862,9 +879,13 @@ internal static class EldritchVersatility
 
     private sealed class BattlefieldShorthandCopySpells : ISpellCast
     {
-        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
-            CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
-            RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
+        public IEnumerator OnSpellCast(
+            RulesetCharacter featureOwner,
+            GameLocationCharacter caster,
+            CharacterActionCastSpell castAction,
+            RulesetEffectSpell selectEffectSpell,
+            RulesetSpellRepertoire selectedRepertoire,
+            SpellDefinition selectedSpellDefinition)
         {
             if (!featureOwner.GetVersatilitySupportCondition(out var supportCondition))
             {
@@ -883,6 +904,7 @@ internal static class EldritchVersatility
                 var posOwner = owner.locationPosition;
                 var posCaster = caster.locationPosition;
                 var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
                 if (int3.Distance(posOwner, posCaster) > 12f ||
                     !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
                 {
@@ -945,8 +967,8 @@ internal static class EldritchVersatility
                 console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive,
-                selectedSpellDefinition.GuiPresentation.Title);
+            entry.AddParameter(
+                ConsoleStyleDuplet.ParameterType.Positive, selectedSpellDefinition.GuiPresentation.Title);
             console.AddEntry(entry);
             supportCondition.CopiedSpells.Add(selectedSpellDefinition);
             warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Add(selectedSpellDefinition);
@@ -987,17 +1009,23 @@ internal static class EldritchVersatility
             var gameLocationCharacter = action.ActingCharacter;
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
             var rulesetHero = rulesetCharacter.GetOriginalHero();
+
             rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
+
             if (!supportCondition.IsOverload)
             {
                 // Check to restore slot
                 var checkModifier = new ActionModifier();
+
                 gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
                     AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
                     out _, true);
+
                 // If success increase DC, other wise decrease DC
                 var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
+
                 supportCondition.ModifySlotDC(createSuccess, rulesetHero);
+
                 // Log to notify outcome and new DC
                 var console = Gui.Game.GameConsole;
                 var entry = createSuccess
@@ -1010,6 +1038,7 @@ internal static class EldritchVersatility
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo,
                     supportCondition.CreateSlotDC.ToString());
                 console.AddEntry(entry);
+
                 // If fails
                 if (abilityCheckRollOutcome > RollOutcome.Success)
                 {
