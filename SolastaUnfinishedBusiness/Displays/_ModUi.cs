@@ -196,7 +196,7 @@ namespace SolastaUnfinishedBusiness.Displays
             ModUi.DisplaySubMenu(ref characterSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
                     DisplayBackgroundsAndDeities),
-                new NamedAction(Gui.Localize("ModUi/&ClassesAndSubclasses"),
+                new NamedAction(Gui.Localize("ModUi/&Subclasses"),
                     DisplayClassesAndSubclasses),
                 new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
                     DisplayFeatsFightingStylesInvocations),

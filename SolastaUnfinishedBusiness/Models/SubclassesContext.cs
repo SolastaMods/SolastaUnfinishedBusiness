@@ -4,12 +4,36 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext
 {
+    // ReSharper disable once InconsistentNaming
+    private static readonly SortedList<string, CharacterClassDefinition> klasses = new();
+
+    internal static readonly Dictionary<CharacterClassDefinition, SubclassListContext> SubclassListContextTab = new();
+
+    internal static SortedList<string, CharacterClassDefinition> Klasses
+    {
+        get
+        {
+            if (klasses.Count != 0)
+            {
+                return klasses;
+            }
+
+            foreach (var klass in SubclassListContextTab.Keys)
+            {
+                klasses.Add(klass.FormatTitle(), klass);
+            }
+
+            return klasses;
+        }
+    }
+
     private static Dictionary<CharacterSubclassDefinition, DeityDefinition> DeityChoiceList
     {
         get;
@@ -19,8 +43,6 @@ internal static class SubclassesContext
     {
         get;
     } = new();
-
-    internal static HashSet<CharacterSubclassDefinition> Subclasses { get; } = new();
 
     internal static void Load()
     {
@@ -58,6 +80,14 @@ internal static class SubclassesContext
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
         LoadSubclass(new MartialWeaponMaster());
+
+        // Inventor
+        LoadSubclass(new InnovationAlchemy());
+        LoadSubclass(new InnovationArmor());
+        LoadSubclass(new InnovationArtillerist());
+        LoadSubclass(new InnovationVitriolist());
+        LoadSubclass(new InnovationVivisectionist());
+        LoadSubclass(new InnovationWeapon());
 
         // Paladin
         LoadSubclass(new OathOfAltruism());
@@ -113,14 +143,6 @@ internal static class SubclassesContext
         LoadSubclass(new WizardGraviturgist());
         LoadSubclass(new WizardSpellMaster());
 
-        // settings paring
-        foreach (var name in Main.Settings.SubclassEnabled
-                     .Where(name => Subclasses.All(x => x.Name != name))
-                     .ToList())
-        {
-            Main.Settings.SubclassEnabled.Remove(name);
-        }
-
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
@@ -136,8 +158,9 @@ internal static class SubclassesContext
         SorcerousFieldManipulator.LateLoad();
     }
 
-    private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder, bool isBetaContent = false)
+    private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
     {
+        var klass = subclassBuilder.Klass;
         var subclass = subclassBuilder.Subclass;
 
         if (subclassBuilder.SubclassChoice != null && subclassBuilder.DeityDefinition == null)
@@ -153,61 +176,99 @@ internal static class SubclassesContext
             throw new Exception("Subclass builder requires a Deity Definition or a SubClassChoice definition");
         }
 
-        if (isBetaContent && !Main.Settings.EnableBetaContent)
-        {
-            return;
-        }
-
-        Subclasses.Add(subclass);
-        UpdateSubclassVisibility(subclass);
+        SubclassListContextTab.TryAdd(klass, new SubclassListContext(klass));
+        SubclassListContextTab[klass].AllSubClasses.Add(subclass);
+        Main.Settings.DisplayKlassToggle.TryAdd(klass.Name, true);
+        Main.Settings.KlassListSliderPosition.TryAdd(klass.Name, 4);
+        Main.Settings.KlassListSubclassEnabled.TryAdd(klass.Name, new List<string>());
     }
 
-    private static void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
+    internal static bool IsAllSetSelected()
     {
-        var name = characterSubclassDefinition.Name;
+        return SubclassListContextTab.Values.All(subclassListContext => subclassListContext.IsAllSetSelected);
+    }
 
-        if (SubclassesChoiceList.TryGetValue(characterSubclassDefinition, out var choiceList))
+    internal static void SelectAllSet(bool toggle)
+    {
+        foreach (var subclassListContext in SubclassListContextTab.Values)
         {
-            if (Main.Settings.SubclassEnabled.Contains(name))
-            {
-                choiceList.Subclasses.TryAdd(name);
-            }
-            else
-            {
-                choiceList.Subclasses.Remove(name);
-            }
-        }
-        else if (DeityChoiceList.TryGetValue(characterSubclassDefinition, out var deityDefinition))
-        {
-            if (Main.Settings.SubclassEnabled.Contains(name))
-            {
-                deityDefinition.Subclasses.TryAdd(name);
-            }
-            else
-            {
-                deityDefinition.Subclasses.Remove(name);
-            }
+            subclassListContext.SelectAllSetInternal(toggle);
         }
     }
 
-    internal static void Switch(CharacterSubclassDefinition characterSubclassDefinition, bool active)
+    internal sealed class SubclassListContext
     {
-        if (!Subclasses.Contains(characterSubclassDefinition))
+        internal SubclassListContext(CharacterClassDefinition characterClassDefinition)
         {
-            return;
+            Klass = characterClassDefinition;
+            AllSubClasses = new HashSet<CharacterSubclassDefinition>();
         }
 
-        var name = characterSubclassDefinition.Name;
+        private List<string> SelectedSubclasses => Main.Settings.KlassListSubclassEnabled[Klass.Name];
+        private CharacterClassDefinition Klass { get; }
+        internal HashSet<CharacterSubclassDefinition> AllSubClasses { get; }
 
-        if (active)
+        // ReSharper disable once MemberHidesStaticFromOuterClass
+        internal bool IsAllSetSelected => AllSubClasses.Count == SelectedSubclasses.Count;
+
+        internal void SelectAllSetInternal(bool toggle)
         {
-            Main.Settings.SubclassEnabled.TryAdd(name);
-        }
-        else
-        {
-            Main.Settings.SubclassEnabled.Remove(name);
+            foreach (var subclass in AllSubClasses)
+            {
+                Switch(subclass, toggle);
+            }
         }
 
-        UpdateSubclassVisibility(characterSubclassDefinition);
+        internal void Switch(CharacterSubclassDefinition characterSubclassDefinition, bool active)
+        {
+            var klass = Klass.Name;
+            var subclass = characterSubclassDefinition.Name;
+
+            if (active)
+            {
+                Main.Settings.KlassListSubclassEnabled[klass].TryAdd(subclass);
+            }
+            else
+            {
+                Main.Settings.KlassListSubclassEnabled[klass].Remove(subclass);
+            }
+
+            UpdateSubclassVisibility(characterSubclassDefinition);
+        }
+
+        private void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
+        {
+            var klass = Klass.Name;
+            var subclass = characterSubclassDefinition.Name;
+
+            if (SubclassesChoiceList.TryGetValue(characterSubclassDefinition, out var choiceList))
+            {
+                if (Main.Settings.KlassListSubclassEnabled[klass].Contains(subclass))
+                {
+                    choiceList.Subclasses.TryAdd(subclass);
+                }
+                else
+                {
+                    choiceList.Subclasses.Remove(subclass);
+                }
+            }
+            else if (DeityChoiceList.TryGetValue(characterSubclassDefinition, out var deityDefinition))
+            {
+                if (Main.Settings.KlassListSubclassEnabled[klass].Contains(subclass))
+                {
+                    deityDefinition.Subclasses.TryAdd(subclass);
+                }
+                else
+                {
+                    deityDefinition.Subclasses.Remove(subclass);
+                }
+            }
+
+            // enable / disable Inventor class based on subclasses selection
+            if (Klass == InventorClass.Class)
+            {
+                InventorClass.Class.GuiPresentation.hidden = Main.Settings.KlassListSubclassEnabled[klass].Count == 0;
+            }
+        }
     }
 }

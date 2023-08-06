@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
@@ -8,37 +9,8 @@ internal static class ClassesSubclassesDisplay
 {
     internal static void DisplayClassesAndSubclasses()
     {
-        var displayToggle = Main.Settings.DisplayClassesToggle;
-        var sliderPos = Main.Settings.ClassSliderPosition;
-        ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&Classes"),
-            ClassesContext.Switch,
-            ClassesContext.Classes,
-            Main.Settings.ClassEnabled,
-            ref displayToggle,
-            ref sliderPos,
-            headerRendering: ClassesHeader);
-        Main.Settings.DisplayClassesToggle = displayToggle;
-        Main.Settings.ClassSliderPosition = sliderPos;
-
-        displayToggle = Main.Settings.DisplaySubclassesToggle;
-        sliderPos = Main.Settings.SubclassSliderPosition;
-        ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&Subclasses"),
-            SubclassesContext.Switch,
-            SubclassesContext.Subclasses,
-            Main.Settings.SubclassEnabled,
-            ref displayToggle,
-            ref sliderPos,
-            headerRendering: SubclassesHeader);
-        Main.Settings.DisplaySubclassesToggle = displayToggle;
-        Main.Settings.SubclassSliderPosition = sliderPos;
-
         UI.Label();
-    }
 
-    private static void ClassesHeader()
-    {
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Classes Docs".Bold().Khaki(),
@@ -49,10 +21,7 @@ internal static class ClassesSubclassesDisplay
         }
 
         UI.Label();
-    }
 
-    private static void SubclassesHeader()
-    {
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Subclasses Docs".Bold().Khaki(),
@@ -63,5 +32,46 @@ internal static class ClassesSubclassesDisplay
         }
 
         UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            var toggle = SubclassesContext.IsAllSetSelected();
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+            {
+                SubclassesContext.SelectAllSet(toggle);
+            }
+
+            toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
+            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+            {
+                var keys = Main.Settings.DisplayKlassToggle.Keys.ToHashSet();
+
+                foreach (var key in keys)
+                {
+                    Main.Settings.DisplayKlassToggle[key] = toggle;
+                }
+            }
+        }
+
+        foreach (var kvp in SubclassesContext.Klasses)
+        {
+            var klassDefinition = kvp.Value;
+            var subclassListContext = SubclassesContext.SubclassListContextTab[klassDefinition];
+            var name = klassDefinition.name;
+            var displayToggle = Main.Settings.DisplayKlassToggle[name];
+            var sliderPos = Main.Settings.KlassListSliderPosition[name];
+            var subclassEnabled = Main.Settings.KlassListSubclassEnabled[name];
+
+            ModUi.DisplayDefinitions(
+                kvp.Key.Khaki(),
+                subclassListContext.Switch,
+                subclassListContext.AllSubClasses,
+                subclassEnabled,
+                ref displayToggle,
+                ref sliderPos);
+
+            Main.Settings.DisplayKlassToggle[name] = displayToggle;
+            Main.Settings.KlassListSliderPosition[name] = sliderPos;
+        }
     }
 }

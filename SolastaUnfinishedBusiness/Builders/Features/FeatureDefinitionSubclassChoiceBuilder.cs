@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -18,13 +16,6 @@ internal class FeatureDefinitionSubclassChoiceBuilder
     internal FeatureDefinitionSubclassChoiceBuilder SetSubclassSuffix(string subclassSuffix)
     {
         Definition.subclassSuffix = subclassSuffix;
-        return this;
-    }
-
-    internal FeatureDefinitionSubclassChoiceBuilder SetSubclasses(params CharacterSubclassDefinition[] subclasses)
-    {
-        Definition.Subclasses.SetRange(subclasses.Select(sc => sc.Name));
-        Definition.Subclasses.Sort();
         return this;
     }
 
