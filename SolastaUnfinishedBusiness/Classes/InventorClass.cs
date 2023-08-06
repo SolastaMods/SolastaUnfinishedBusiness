@@ -14,7 +14,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -46,10 +45,18 @@ internal static class InventorClass
     private static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
 
     internal static CharacterClassDefinition Class { get; private set; }
+
+    internal static FeatureDefinitionSubclassChoice SubclassChoice { get; } = FeatureDefinitionSubclassChoiceBuilder
+        .Create("SubclassChoiceInventor")
+        .SetGuiPresentation("InventorInnovation", Category.Subclass)
+        .SetSubclassSuffix("InventorInnovation")
+        .SetFilterByDeity(false)
+        .AddToDB();
+
     internal static FeatureDefinitionPower InfusionPool { get; } = BuildInfusionPool();
     internal static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
-    public static CharacterClassDefinition Build()
+    public static void Build()
     {
         // Inventor Constructor Family
 
@@ -81,7 +88,10 @@ internal static class InventorClass
 
             #region Presentation
 
-            .SetGuiPresentation(Category.Class, Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576))
+            .SetGuiPresentation(
+                Category.Class,
+                Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576),
+                hidden: true)
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
             .SetPictogram(Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128));
 
@@ -367,32 +377,13 @@ internal static class InventorClass
             builder.AddFeaturesAtLevel(i, unlearn);
         }
 
-        Class = builder.AddToDB();
-
-        #region Subclasses
-
-        builder.AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
-            .Create("SubclassChoiceInventor")
-            .SetGuiPresentation("InventorInnovation", Category.Subclass)
-            .SetSubclassSuffix("InventorInnovation")
-            .SetFilterByDeity(false)
-            .SetSubclasses(
-                InnovationAlchemy.Build(),
-                InnovationArmor.Build(),
-                InnovationArtillerist.Build(),
-                InnovationVitriolist.Build(),
-                InnovationVivisectionist.Build(),
-                InnovationWeapon.Build()
-            )
-            .AddToDB());
-
-        #endregion
+        builder.AddFeaturesAtLevel(3, SubclassChoice);
 
         BuildCancelAllInfusionsRestActivity();
 
         RegisterPoILoot();
 
-        return Class;
+        Class = builder.AddToDB();
     }
 
     /**Adds starting chest loot for PoI for Inventor class*/

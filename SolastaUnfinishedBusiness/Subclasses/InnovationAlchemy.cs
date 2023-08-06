@@ -21,18 +21,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class InnovationAlchemy
+internal sealed class InnovationAlchemy : AbstractSubclass
 {
     private const string BombsFeatureName = "FeatureInnovationAlchemyBombs";
-    private static FeatureDefinitionPower AlchemyPool { get; set; }
-    private static FeatureDefinitionPower ElementalBombs { get; set; }
-    private static FeatureDefinitionPower AdvancedBombs { get; set; }
 
-    public static CharacterSubclassDefinition Build()
+    internal InnovationAlchemy()
     {
         AlchemyPool = BuildAlchemyPool();
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create("InnovationAlchemy")
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("InventorAlchemist", Resources.InventorAlchemist, 256))
@@ -42,6 +39,17 @@ public static class InnovationAlchemy
             .AddFeaturesAtLevel(15, BuildMasterOverchargeFeature())
             .AddToDB();
     }
+
+    private static FeatureDefinitionPower AlchemyPool { get; set; }
+    private static FeatureDefinitionPower ElementalBombs { get; set; }
+    private static FeatureDefinitionPower AdvancedBombs { get; set; }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterClassDefinition Klass => InventorClass.Class;
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => InventorClass.SubclassChoice;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinition BuildAutoPreparedSpells()
     {
@@ -835,7 +843,6 @@ public static class InnovationAlchemy
 
         public static OverchargeFeature Marker { get; } = new();
     }
-
 
     private sealed class ModifiedBombElement
     {

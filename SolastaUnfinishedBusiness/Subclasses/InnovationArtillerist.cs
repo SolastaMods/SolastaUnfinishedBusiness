@@ -27,7 +27,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class InnovationArtillerist
+internal sealed class InnovationArtillerist : AbstractSubclass
 {
     private const string Name = "InnovationArtillerist";
     private const string CreatureTag = "EldritchCannon";
@@ -44,7 +44,7 @@ public static class InnovationArtillerist
     private static readonly LimitEffectInstances CannonLimiter =
         new(CreatureTag, character => character.GetSubclassLevel(InventorClass.Class, Name) < 15 ? 1 : 2);
 
-    public static CharacterSubclassDefinition Build()
+    public InnovationArtillerist()
     {
         #region COMMON
 
@@ -549,7 +549,7 @@ public static class InnovationArtillerist
             powerFlamethrower15, powerForceBallista15, powerProtector15,
             powerTinyFlamethrower15, powerTinyForceBallista15, powerTinyProtector15);
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.InventorArtillerist, 256))
             .AddFeaturesAtLevel(3, autoPreparedSpells, featureSetEldritchCannon)
@@ -560,6 +560,13 @@ public static class InnovationArtillerist
 
         #endregion
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterClassDefinition Klass => InventorClass.Class;
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => InventorClass.SubclassChoice;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
     #region REFUND CANNON
 
