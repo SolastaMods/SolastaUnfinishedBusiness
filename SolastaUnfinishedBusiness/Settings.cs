@@ -33,7 +33,6 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS UI TOGGLES
     //
     public bool DisplayRacesToggle { get; set; } = true;
-    public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplayBackgroundsToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; }
     public bool DisplayFeatGroupsToggle { get; set; }
@@ -230,15 +229,9 @@ public class Settings : UnityModManager.ModSettings
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = new();
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-
     public List<string> BackgroundEnabled { get; } = new();
-
-    // public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    // public List<string> DeityEnabled { get; } = new();
-    public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> ClassEnabled { get; } = new();
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = new();
-    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; } = new();
+    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = new();
 
     //
     // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
@@ -334,7 +327,6 @@ public class Settings : UnityModManager.ModSettings
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
-
     public bool ShowButtonWithControlledMonsterInfo { get; set; }
 
     //
