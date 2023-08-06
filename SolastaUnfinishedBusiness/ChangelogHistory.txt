@@ -5,7 +5,9 @@
 - fixed Ranger Wildmaster beast eyebite powers
 - fixed Shadow Blade spell behavior
 - fixed Wizard Bladedancer missing reaction terms
-- refactored Patron Eldritch Surge [RESPEC is required]
+- improved French and Russian translations
+- improved Patron Eldritch Surge [RESPEC is required]
+- improved suspend flight feature options for winged boots
 
 1.5.94.5:
 
