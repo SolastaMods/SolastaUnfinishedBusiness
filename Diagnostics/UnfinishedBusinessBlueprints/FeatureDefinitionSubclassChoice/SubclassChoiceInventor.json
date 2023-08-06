@@ -1,13 +1,6 @@
 {
   "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "InnovationAlchemy",
-    "InnovationArmor",
-    "InnovationArtillerist",
-    "InnovationVitriolist",
-    "InnovationVivisectionist",
-    "InnovationWeapon"
-  ],
+  "subclasses": [],
   "filterByDeity": false,
   "subclassSuffix": "InventorInnovation",
   "guiPresentation": {

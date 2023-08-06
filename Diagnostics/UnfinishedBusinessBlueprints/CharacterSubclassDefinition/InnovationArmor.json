@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInnovationArmorModes:1e8127c0-fc80-50e5-acdb-74306738b3d0",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInnovationArmorArmoredUp:557783b2-f2a0-55c4-9915-79eb55dbebb5",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsInnovationArmor:2477faba-defe-50d7-98a9-6b4aeef8cb68",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInnovationArmorModes:1e8127c0-fc80-50e5-acdb-74306738b3d0",
       "level": 3
     },
     {

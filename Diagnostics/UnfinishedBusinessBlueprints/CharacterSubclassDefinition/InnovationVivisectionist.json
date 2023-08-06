@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsInnovationVivisectionist:bd66efa6-239e-570e-ac51-e1b020114599",
+      "featureDefinition": "Definition:PowerInnovationVivisectionistEmergencySurgery:d9a25240-49a0-5ee5-b2cc-e0a4dceab2f0",
       "level": 3
     },
     {
@@ -13,13 +13,8 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerInnovationVivisectionistEmergencySurgery:d9a25240-49a0-5ee5-b2cc-e0a4dceab2f0",
+      "featureDefinition": "Definition:AutoPreparedSpellsInnovationVivisectionist:bd66efa6-239e-570e-ac51-e1b020114599",
       "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
-      "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -28,8 +23,8 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DieRollModifierInnovationVivisectionistStableSurgery:d0ac05fa-8ec1-5c4f-a53d-d960e2482a77",
-      "level": 9
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
+      "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -38,12 +33,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerInnovationVivisectionistMasterEmergencySurgery:0a2ae7dd-e91c-5136-839c-0400f3fec1f5",
-      "level": 15
+      "featureDefinition": "Definition:DieRollModifierInnovationVivisectionistStableSurgery:d0ac05fa-8ec1-5c4f-a53d-d960e2482a77",
+      "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerInnovationVivisectionistMasterEmergencyCure:0bd8cc53-beb3-50f5-9e3c-dd161f0fdc58",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerInnovationVivisectionistMasterEmergencySurgery:0a2ae7dd-e91c-5136-839c-0400f3fec1f5",
       "level": 15
     }
   ],
