@@ -12,17 +12,23 @@ internal class DoNotTerminateWhileUnconscious
     {
     }
 
-    internal static IEnumerator TerminateAllSpellsAndEffects(IEnumerator baseMethodCalls, RulesetCharacter character,
-        bool wasConscious, bool stillConscious, bool massiveDamage)
+    internal static IEnumerator TerminateAllSpellsAndEffects(
+        IEnumerator baseMethodCalls,
+        RulesetCharacter character,
+        bool wasConscious,
+        bool stillConscious,
+        bool massiveDamage)
     {
         if (!wasConscious || (stillConscious && !massiveDamage))
         {
             yield return baseMethodCalls;
+
             yield break;
         }
 
         //store and remove spell effects that don't need termination
         var spells = character.spellsCastByMe.Where(Match).ToList();
+
         character.spellsCastByMe.RemoveAll(Match);
 
         //store and remove power effects that don't need termination

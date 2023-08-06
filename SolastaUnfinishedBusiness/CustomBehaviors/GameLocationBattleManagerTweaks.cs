@@ -957,8 +957,7 @@ internal static class GameLocationBattleManagerTweaks
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly
                         when attackMode != null
                              || (rulesetEffect != null
-                                 && provider.RequiredProperty == RuleDefinitions
-                                     .RestrictedContextRequiredProperty
+                                 && provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty
                                      .SpellWithAttackRoll):
                     {
                         if (advantageType == RuleDefinitions.AdvantageType.Advantage ||

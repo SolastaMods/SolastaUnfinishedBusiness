@@ -24,6 +24,7 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
     // ReSharper disable once StaticMemberInGenericType
     public static ConditionDefinition BindingDefinition;
     protected static T Marker;
+
     // ReSharper disable once StaticMemberInGenericType
     protected static string Category;
 
@@ -35,8 +36,9 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
     public override void Unregister()
     {
         MyObjectPool.Return(this as T);
+
         var service = ServiceRepository.GetService<IRulesetEntityService>();
-        
+
         if (service == null)
         {
             return;
@@ -52,22 +54,21 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
 
     protected abstract void ClearCustomStates();
 
-    protected static T GetFromPoolAndCopyOriginalRulesetCondition(
-        RulesetCondition rulesetCondition)
+    protected static T GetFromPoolAndCopyOriginalRulesetCondition(RulesetCondition rulesetCondition)
     {
         var customCondition = MyObjectPool.Get();
+
         customCondition.ResetGuid();
         customCondition.Clear();
         customCondition.ClearCustomStates();
+
         if (rulesetCondition is T)
         {
             Main.Error($"Please do not instantiate {nameof(T)} and add to character!");
             return null;
         }
 
-        if (BindingDefinition is null ||
-            string.IsNullOrEmpty(Category) ||
-            Marker is null)
+        if (BindingDefinition is null || string.IsNullOrEmpty(Category) || Marker is null)
         {
             Main.Error($"Custom RulesetCondition {nameof(T)} compulsory fields unset!");
             return null;
@@ -75,7 +76,6 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
 
         customCondition.targetGuid = rulesetCondition.targetGuid;
         customCondition.conditionDefinition = rulesetCondition.conditionDefinition;
-
         customCondition.durationType = rulesetCondition.DurationType;
         customCondition.durationParameter = rulesetCondition.DurationParameter;
         customCondition.remainingRounds = rulesetCondition.RemainingRounds;
@@ -88,6 +88,7 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
         customCondition.sourceAbilityBonus = rulesetCondition.SourceAbilityBonus;
         customCondition.sourceProficiencyBonus = rulesetCondition.SourceProficiencyBonus;
         customCondition.doNotTerminateWhenRemoved = rulesetCondition.DoNotTerminateWhenRemoved;
+
         return customCondition;
     }
 
@@ -101,7 +102,7 @@ internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceCond
                 out var rulesetCondition)
                 ? rulesetCondition as T
                 : null;
-        
+
         return supportCondition is not null;
     }
 }
