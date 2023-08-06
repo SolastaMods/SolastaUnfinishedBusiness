@@ -47,7 +47,6 @@ ModUi/&Changelog=<b><color=#D89555>Список изменений</color></b>
 ModUi/&Character=Персонаж
 ModUi/&CharactersPool=Пул персонажей
 ModUi/&Classes=<color=#F0DAA0>Классы</color>
-ModUi/&ClassesAndSubclasses=Классы и архетипы
 ModUi/&Crafting=<color=#F0DAA0>Крафтинг:</color>
 ModUi/&CraftingHelp=. Нажмите на кнопку, чтобы активная пати сразу изучила рецепты\n. Добавление предметов в магазины может потребовать, чтобы пати переместилась на другую локацию и обратно
 ModUi/&Credits=Создатели
