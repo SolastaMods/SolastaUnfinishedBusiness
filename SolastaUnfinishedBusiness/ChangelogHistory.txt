@@ -7,6 +7,7 @@
 - fixed Wizard Bladedancer missing reaction terms
 - improved French and Russian translations
 - improved Patron Eldritch Surge [RESPEC is required]
+- improved Subclasses selection [RESELECTION is required]
 - improved suspend flight feature options for winged boots
 
 1.5.94.5:

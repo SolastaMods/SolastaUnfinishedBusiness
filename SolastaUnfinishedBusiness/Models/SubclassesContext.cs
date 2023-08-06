@@ -11,28 +11,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext
 {
-    // ReSharper disable once InconsistentNaming
-    private static readonly SortedList<string, CharacterClassDefinition> klasses = new();
+    internal static readonly SortedList<string, CharacterClassDefinition> Klasses = new();
 
-    internal static readonly Dictionary<CharacterClassDefinition, SubclassListContext> SubclassListContextTab = new();
-
-    internal static SortedList<string, CharacterClassDefinition> Klasses
-    {
-        get
-        {
-            if (klasses.Count != 0)
-            {
-                return klasses;
-            }
-
-            foreach (var klass in SubclassListContextTab.Keys)
-            {
-                klasses.Add(klass.FormatTitle(), klass);
-            }
-
-            return klasses;
-        }
-    }
+    internal static readonly Dictionary<CharacterClassDefinition, KlassListContext> KlassListContextTab = new();
 
     private static Dictionary<CharacterSubclassDefinition, DeityDefinition> DeityChoiceList
     {
@@ -46,102 +27,15 @@ internal static class SubclassesContext
 
     internal static void Load()
     {
-        // Barbarian
-        LoadSubclass(new PathOfTheElements());
-        LoadSubclass(new PathOfTheLight());
-        LoadSubclass(new PathOfTheReaver());
-        LoadSubclass(new PathOfTheSavagery());
-        LoadSubclass(new PathOfTheSpirits());
-        LoadSubclass(new PathOfTheYeoman());
+        RegisterClassesContext();
 
-        // Bard
-        LoadSubclass(new CollegeOfAudacity());
-        LoadSubclass(new CollegeOfGuts());
-        LoadSubclass(new CollegeOfHarlequin());
-        LoadSubclass(new CollegeOfLife());
-        LoadSubclass(new CollegeOfValiance());
-        LoadSubclass(new CollegeOfWarDancer());
-
-        // Cleric
-        LoadSubclass(new DomainDefiler());
-        LoadSubclass(new DomainSmith());
-
-        // Druid
-        LoadSubclass(new CircleOfTheAncientForest());
-        LoadSubclass(new CircleOfTheForestGuardian());
-        LoadSubclass(new CircleOfTheLife());
-        LoadSubclass(new CircleOfTheNight());
-
-        // Fighter
-        LoadSubclass(new MartialArcaneArcher());
-        LoadSubclass(new MartialDefender());
-        LoadSubclass(new MartialMarshal());
-        LoadSubclass(new MartialRoyalKnight());
-        LoadSubclass(new MartialSpellShield());
-        LoadSubclass(new MartialTactician());
-        LoadSubclass(new MartialWeaponMaster());
-
-        // Inventor
-        LoadSubclass(new InnovationAlchemy());
-        LoadSubclass(new InnovationArmor());
-        LoadSubclass(new InnovationArtillerist());
-        LoadSubclass(new InnovationVitriolist());
-        LoadSubclass(new InnovationVivisectionist());
-        LoadSubclass(new InnovationWeapon());
-
-        // Paladin
-        LoadSubclass(new OathOfAltruism());
-        LoadSubclass(new OathOfAncients());
-        LoadSubclass(new OathOfDemonHunter());
-        LoadSubclass(new OathOfDread());
-        LoadSubclass(new OathOfHatred());
-        LoadSubclass(new OathOfThunder());
-
-        // Ranger
-        LoadSubclass(new RangerArcanist());
-        LoadSubclass(new RangerLightBearer());
-        LoadSubclass(new RangerHellWalker());
-        LoadSubclass(new RangerSkyWarrior());
-        LoadSubclass(new RangerSurvivalist());
-        LoadSubclass(new RangerWildMaster());
-
-        // Rogue
-        LoadSubclass(new RoguishAcrobat());
-        LoadSubclass(new RoguishArcaneScoundrel());
-        LoadSubclass(new RoguishBladeCaller());
-        LoadSubclass(new RoguishDuelist());
-        LoadSubclass(new RoguishOpportunist());
-        LoadSubclass(new RoguishRaven());
-        LoadSubclass(new RoguishSlayer());
-
-        // Sorcerer
-        LoadSubclass(new SorcerousDivineHeart());
-        LoadSubclass(new SorcerousFieldManipulator());
-        LoadSubclass(new SorcerousSorrAkkath());
-        LoadSubclass(new SorcerousSpellBlade());
-
-        // Monk
-        LoadSubclass(new WayOfTheDiscordance());
-        LoadSubclass(new WayOfTheDistantHand());
-        LoadSubclass(new WayOfTheDragon());
-        LoadSubclass(new WayOfTheSilhouette());
-        LoadSubclass(new WayOfTheTempest());
-        LoadSubclass(new WayOfTheWealAndWoe());
-
-        // Warlock
-        LoadSubclass(new PatronEldritchSurge());
-        LoadSubclass(new PatronElementalist());
-        LoadSubclass(new PatronMoonlit());
-        LoadSubclass(new PatronMountain());
-        LoadSubclass(new PatronRiftWalker());
-        LoadSubclass(new PatronSoulBlade());
-
-        // Wizard
-        LoadSubclass(new WizardArcaneFighter());
-        LoadSubclass(new WizardBladeDancer());
-        LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardGraviturgist());
-        LoadSubclass(new WizardSpellMaster());
+        foreach (var abstractSubClassInstance in typeof(AbstractSubclass)
+                     .Assembly.GetTypes()
+                     .Where(t => t.IsSubclassOf(typeof(AbstractSubclass)) && !t.IsAbstract)
+                     .Select(t => (AbstractSubclass)Activator.CreateInstance(t)))
+        {
+            LoadSubclass(abstractSubClassInstance);
+        }
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
@@ -158,6 +52,20 @@ internal static class SubclassesContext
         SorcerousFieldManipulator.LateLoad();
     }
 
+    private static void RegisterClassesContext()
+    {
+        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
+        {
+            var klassName = klass.Name;
+
+            Klasses.Add(klassName, klass);
+            KlassListContextTab.Add(klass, new KlassListContext(klass));
+            Main.Settings.DisplayKlassToggle.TryAdd(klassName, true);
+            Main.Settings.KlassListSliderPosition.TryAdd(klassName, 4);
+            Main.Settings.KlassListSubclassEnabled.TryAdd(klassName, new List<string>());
+        }
+    }
+
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
     {
         var klass = subclassBuilder.Klass;
@@ -171,34 +79,26 @@ internal static class SubclassesContext
         {
             DeityChoiceList.Add(subclass, subclassBuilder.DeityDefinition);
         }
-        else
-        {
-            throw new Exception("Subclass builder requires a Deity Definition or a SubClassChoice definition");
-        }
 
-        SubclassListContextTab.TryAdd(klass, new SubclassListContext(klass));
-        SubclassListContextTab[klass].AllSubClasses.Add(subclass);
-        Main.Settings.DisplayKlassToggle.TryAdd(klass.Name, true);
-        Main.Settings.KlassListSliderPosition.TryAdd(klass.Name, 4);
-        Main.Settings.KlassListSubclassEnabled.TryAdd(klass.Name, new List<string>());
+        KlassListContextTab[klass].RegisterSubclass(subclass);
     }
 
     internal static bool IsAllSetSelected()
     {
-        return SubclassListContextTab.Values.All(subclassListContext => subclassListContext.IsAllSetSelected);
+        return KlassListContextTab.Values.All(subclassListContext => subclassListContext.IsAllSetSelected);
     }
 
     internal static void SelectAllSet(bool toggle)
     {
-        foreach (var subclassListContext in SubclassListContextTab.Values)
+        foreach (var subclassListContext in KlassListContextTab.Values)
         {
             subclassListContext.SelectAllSetInternal(toggle);
         }
     }
 
-    internal sealed class SubclassListContext
+    internal sealed class KlassListContext
     {
-        internal SubclassListContext(CharacterClassDefinition characterClassDefinition)
+        internal KlassListContext(CharacterClassDefinition characterClassDefinition)
         {
             Klass = characterClassDefinition;
             AllSubClasses = new HashSet<CharacterSubclassDefinition>();
@@ -217,6 +117,12 @@ internal static class SubclassesContext
             {
                 Switch(subclass, toggle);
             }
+        }
+
+        internal void RegisterSubclass(CharacterSubclassDefinition characterSubclassDefinition)
+        {
+            AllSubClasses.Add(characterSubclassDefinition);
+            UpdateSubclassVisibility(characterSubclassDefinition);
         }
 
         internal void Switch(CharacterSubclassDefinition characterSubclassDefinition, bool active)

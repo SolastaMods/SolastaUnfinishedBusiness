@@ -5,9 +5,9 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class ClassesSubclassesDisplay
+internal static class SubclassesDisplay
 {
-    internal static void DisplayClassesAndSubclasses()
+    internal static void DisplaySubclasses()
     {
         UI.Label();
 
@@ -44,9 +44,7 @@ internal static class ClassesSubclassesDisplay
             toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
-                var keys = Main.Settings.DisplayKlassToggle.Keys.ToHashSet();
-
-                foreach (var key in keys)
+                foreach (var key in Main.Settings.DisplayKlassToggle.Keys)
                 {
                     Main.Settings.DisplayKlassToggle[key] = toggle;
                 }
@@ -55,12 +53,12 @@ internal static class ClassesSubclassesDisplay
 
         foreach (var kvp in SubclassesContext.Klasses)
         {
+            var klassName = kvp.Key;
             var klassDefinition = kvp.Value;
-            var subclassListContext = SubclassesContext.SubclassListContextTab[klassDefinition];
-            var name = klassDefinition.name;
-            var displayToggle = Main.Settings.DisplayKlassToggle[name];
-            var sliderPos = Main.Settings.KlassListSliderPosition[name];
-            var subclassEnabled = Main.Settings.KlassListSubclassEnabled[name];
+            var subclassListContext = SubclassesContext.KlassListContextTab[klassDefinition];
+            var displayToggle = Main.Settings.DisplayKlassToggle[klassName];
+            var sliderPos = Main.Settings.KlassListSliderPosition[klassName];
+            var subclassEnabled = Main.Settings.KlassListSubclassEnabled[klassName];
 
             ModUi.DisplayDefinitions(
                 kvp.Key.Khaki(),
@@ -70,8 +68,8 @@ internal static class ClassesSubclassesDisplay
                 ref displayToggle,
                 ref sliderPos);
 
-            Main.Settings.DisplayKlassToggle[name] = displayToggle;
-            Main.Settings.KlassListSliderPosition[name] = sliderPos;
+            Main.Settings.DisplayKlassToggle[klassName] = displayToggle;
+            Main.Settings.KlassListSliderPosition[klassName] = sliderPos;
         }
     }
 }
