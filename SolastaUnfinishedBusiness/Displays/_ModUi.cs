@@ -15,7 +15,7 @@ using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
-using static SolastaUnfinishedBusiness.Displays.ClassesSubclassesDisplay;
+using static SolastaUnfinishedBusiness.Displays.SubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
@@ -196,12 +196,12 @@ namespace SolastaUnfinishedBusiness.Displays
             ModUi.DisplaySubMenu(ref _characterSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
                     DisplayBackgroundsAndDeities),
-                new NamedAction(Gui.Localize("ModUi/&Subclasses"),
-                    DisplayClassesAndSubclasses),
                 new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
-                    DisplayFeatsFightingStylesInvocations),
+                    DisplayProficiencies),
                 new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
-                    DisplaySpells));
+                    DisplaySpells),
+                new NamedAction(Gui.Localize("ModUi/&Subclasses"),
+                    DisplaySubclasses));
         }
     }
 

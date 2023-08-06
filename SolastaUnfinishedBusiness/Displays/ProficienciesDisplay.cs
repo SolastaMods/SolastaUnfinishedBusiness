@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class ProficienciesDisplay
 {
-    internal static void DisplayFeatsFightingStylesInvocations()
+    internal static void DisplayProficiencies()
     {
         var displayToggle = Main.Settings.DisplayFeatsToggle;
         var sliderPos = Main.Settings.FeatSliderPosition;
