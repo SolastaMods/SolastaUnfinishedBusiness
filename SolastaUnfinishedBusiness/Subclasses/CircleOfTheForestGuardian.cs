@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -12,11 +13,12 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CircleOfTheForestGuardian : AbstractSubclass
+[UsedImplicitly]
+public sealed class CircleOfTheForestGuardian : AbstractSubclass
 {
     private const string Name = "ForestGuardian";
 
-    internal CircleOfTheForestGuardian()
+    public CircleOfTheForestGuardian()
     {
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")

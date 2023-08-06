@@ -16,11 +16,11 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
-internal class PatronMountain : AbstractSubclass
+public class PatronMountain : AbstractSubclass
 {
     private const string Name = "PatronMountain";
 
-    internal PatronMountain()
+    public PatronMountain()
     {
         // LEVEL 01
 

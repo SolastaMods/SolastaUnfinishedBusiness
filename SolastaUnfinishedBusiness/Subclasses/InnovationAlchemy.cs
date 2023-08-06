@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -21,11 +22,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class InnovationAlchemy : AbstractSubclass
+[UsedImplicitly]
+public sealed class InnovationAlchemy : AbstractSubclass
 {
     private const string BombsFeatureName = "FeatureInnovationAlchemyBombs";
 
-    internal InnovationAlchemy()
+    public InnovationAlchemy()
     {
         AlchemyPool = BuildAlchemyPool();
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -18,7 +19,8 @@ using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class InnovationArmor : AbstractSubclass
+[UsedImplicitly]
+public sealed class InnovationArmor : AbstractSubclass
 {
     private const string GuardianMarkerName = "ConditionInnovationArmorGuardianMode";
     private const string InfiltratorMarkerName = "ConditionInnovationArmorInfiltratorMode";

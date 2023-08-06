@@ -19,7 +19,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialWeaponMaster : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialWeaponMaster : AbstractSubclass
 {
     private const string Name = "MartialWeaponMaster";
     private const string Specialization = "Specialization";
@@ -31,7 +32,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
             .AddToDB();
 
-    internal MartialWeaponMaster()
+    public MartialWeaponMaster()
     {
         // LEVEL 03
 

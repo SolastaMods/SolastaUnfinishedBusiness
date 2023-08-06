@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -14,12 +15,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfHarlequin : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfHarlequin : AbstractSubclass
 {
     private const string Name = "CollegeOfHarlequin";
     private const string CombatInspirationCondition = "ConditionCollegeOfHarlequinFightingAbilityEnhanced";
 
-    internal CollegeOfHarlequin()
+    public CollegeOfHarlequin()
     {
         var conditionTerrified = ConditionDefinitionBuilder
             .Create("ConditionTerrifiedByHarlequinPerformance")

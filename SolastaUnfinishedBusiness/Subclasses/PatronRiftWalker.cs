@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -12,11 +13,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal class PatronRiftWalker : AbstractSubclass
+[UsedImplicitly]
+public class PatronRiftWalker : AbstractSubclass
 {
     private const string Name = "RiftWalker";
 
-    internal PatronRiftWalker()
+    public PatronRiftWalker()
     {
         var spellListRiftWalker = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, $"SpellList{Name}")

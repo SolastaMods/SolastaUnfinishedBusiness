@@ -16,12 +16,13 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfValiance : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfValiance : AbstractSubclass
 {
     private const string Name = "CollegeOfValiance";
     private static FeatureDefinition _featureSteadfastInspiration;
 
-    internal CollegeOfValiance()
+    public CollegeOfValiance()
     {
         // Captivating Presence
 

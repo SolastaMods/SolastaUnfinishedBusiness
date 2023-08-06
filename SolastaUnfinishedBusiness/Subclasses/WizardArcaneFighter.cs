@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -13,11 +14,12 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardArcaneFighter : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardArcaneFighter : AbstractSubclass
 {
     private const string Name = "ArcaneFighter";
 
-    internal WizardArcaneFighter()
+    public WizardArcaneFighter()
     {
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ConcentrationAdvantage")

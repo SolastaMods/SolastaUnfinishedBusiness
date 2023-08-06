@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,12 +15,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbili
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardBladeDancer : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardBladeDancer : AbstractSubclass
 {
     private const string Name = "BladeDancer";
     private const string BladeDanceTitle = $"Feature/&FeatureSet{Name}BladeDanceTitle";
 
-    internal WizardBladeDancer()
+    public WizardBladeDancer()
     {
         // LEVEL 02
 

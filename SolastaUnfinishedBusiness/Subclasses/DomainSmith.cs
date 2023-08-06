@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,9 +15,10 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class DomainSmith : AbstractSubclass
+[UsedImplicitly]
+public sealed class DomainSmith : AbstractSubclass
 {
-    internal DomainSmith()
+    public DomainSmith()
     {
         const string NAME = "DomainSmith";
 

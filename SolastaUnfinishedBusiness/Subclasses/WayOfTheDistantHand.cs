@@ -15,7 +15,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfTheDistantHand : AbstractSubclass
+[UsedImplicitly]
+public sealed class WayOfTheDistantHand : AbstractSubclass
 {
     private const string ZenArrowTag = "ZenArrow";
 

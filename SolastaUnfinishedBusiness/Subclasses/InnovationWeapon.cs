@@ -1,4 +1,5 @@
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -19,7 +20,8 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class InnovationWeapon : AbstractSubclass
+[UsedImplicitly]
+public sealed class InnovationWeapon : AbstractSubclass
 {
     private const string SteelDefenderTag = "SteelDefender";
     private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";

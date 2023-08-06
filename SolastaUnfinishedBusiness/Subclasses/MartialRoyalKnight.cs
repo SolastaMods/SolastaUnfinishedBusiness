@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -13,13 +14,14 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialRoyalKnight : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialRoyalKnight : AbstractSubclass
 {
     private const string Name = "RoyalKnight";
     private const string ConditionInspiringSurge = $"Condition{Name}InspiringSurge";
     private const string ConditionSpiritedSurge = $"Condition{Name}SpiritedSurge";
 
-    internal MartialRoyalKnight()
+    public MartialRoyalKnight()
     {
         // LEVEL 03
 

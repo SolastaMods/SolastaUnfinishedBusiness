@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,11 +15,12 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfLife : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfLife : AbstractSubclass
 {
     private const string Name = "CollegeOfLife";
 
-    internal CollegeOfLife()
+    public CollegeOfLife()
     {
         // LEVEL 03
 

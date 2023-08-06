@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -19,7 +20,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfTheDragon : AbstractSubclass
+[UsedImplicitly]
+public sealed class WayOfTheDragon : AbstractSubclass
 {
     internal const string Name = "WayOfTheDragon";
 
@@ -31,7 +33,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
             .AddToDB();
 
-    internal WayOfTheDragon()
+    public WayOfTheDragon()
     {
         var damageAffinityAncestry = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{Name}Ancestry")

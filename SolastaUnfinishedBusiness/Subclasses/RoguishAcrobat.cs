@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -19,11 +20,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishAcrobat : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishAcrobat : AbstractSubclass
 {
     private const string Name = "RoguishAcrobat";
 
-    internal RoguishAcrobat()
+    public RoguishAcrobat()
     {
         // LEVEL 03
 

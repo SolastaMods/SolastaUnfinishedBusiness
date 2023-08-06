@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -18,7 +19,8 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CircleOfTheLife : AbstractSubclass
+[UsedImplicitly]
+public sealed class CircleOfTheLife : AbstractSubclass
 {
     private const string Name = "CircleOfTheLife";
     private const string ConditionRevitalizingBoon = $"Condition{Name}RevitalizingBoon";
@@ -33,7 +35,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetWarList(1) // spells are added on late load to contemplate mod spells
             .AddToDB();
 
-    internal CircleOfTheLife()
+    public CircleOfTheLife()
     {
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")

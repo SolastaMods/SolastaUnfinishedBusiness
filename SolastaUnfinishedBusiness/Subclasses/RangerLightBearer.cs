@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -20,11 +21,12 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RangerLightBearer : AbstractSubclass
+[UsedImplicitly]
+public sealed class RangerLightBearer : AbstractSubclass
 {
     internal const string Name = "RangerLightBearer";
 
-    internal RangerLightBearer()
+    public RangerLightBearer()
     {
         // LEVEL 03
 

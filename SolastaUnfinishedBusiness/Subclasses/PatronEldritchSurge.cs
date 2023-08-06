@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -18,7 +19,8 @@ using static SolastaUnfinishedBusiness.CustomBuilders.EldritchVersatility;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal class PatronEldritchSurge : AbstractSubclass
+[UsedImplicitly]
+public class PatronEldritchSurge : AbstractSubclass
 {
     public const string Name = "PatronEldritchSurge";
 
@@ -57,7 +59,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
-    internal PatronEldritchSurge()
+    public PatronEldritchSurge()
     {
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)

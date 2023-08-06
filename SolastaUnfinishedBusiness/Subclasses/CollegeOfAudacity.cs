@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -18,7 +19,8 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfAudacity : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfAudacity : AbstractSubclass
 {
     private const string Name = "CollegeOfAudacity";
     private const string WhirlMarker = "Whirl";
@@ -26,7 +28,7 @@ internal sealed class CollegeOfAudacity : AbstractSubclass
     private const ActionDefinitions.Id AudaciousWhirlToggle = (ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle;
     private const ActionDefinitions.Id MasterfulWhirlToggle = (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle;
 
-    internal CollegeOfAudacity()
+    public CollegeOfAudacity()
     {
         // LEVEL 03
 

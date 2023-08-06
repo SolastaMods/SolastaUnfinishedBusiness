@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -14,9 +15,10 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishRaven : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishRaven : AbstractSubclass
 {
-    internal RoguishRaven()
+    public RoguishRaven()
     {
         // proficient with all two handed range weapons
         // ignore cover and long range disadvantage

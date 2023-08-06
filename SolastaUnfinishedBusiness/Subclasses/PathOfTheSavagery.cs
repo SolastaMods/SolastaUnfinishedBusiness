@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,7 +16,8 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PathOfTheSavagery : AbstractSubclass
+[UsedImplicitly]
+public sealed class PathOfTheSavagery : AbstractSubclass
 {
     private const string Name = "PathOfTheSavagery";
 
@@ -25,7 +27,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         .SetOverriddenPower(PowerBarbarianRageStart)
         .AddToDB();
 
-    internal PathOfTheSavagery()
+    public PathOfTheSavagery()
     {
         // LEVEL 03
 

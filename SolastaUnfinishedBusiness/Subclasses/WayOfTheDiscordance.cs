@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,7 +18,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfTheDiscordance : AbstractSubclass
+[UsedImplicitly]
+public sealed class WayOfTheDiscordance : AbstractSubclass
 {
     private const string Name = "WayOfTheDiscordance";
 
@@ -78,7 +80,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
-    internal WayOfTheDiscordance()
+    public WayOfTheDiscordance()
     {
         var conditionDiscordance = ConditionDefinitionBuilder
             .Create($"Condition{Name}Discordance")

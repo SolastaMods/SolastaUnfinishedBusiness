@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -16,12 +17,13 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class OathOfAltruism : AbstractSubclass
+[UsedImplicitly]
+public sealed class OathOfAltruism : AbstractSubclass
 {
     private const string Name = "OathOfAltruism";
     internal const string DefensiveStrike = $"Feature{Name}DefensiveStrike";
 
-    internal OathOfAltruism()
+    public OathOfAltruism()
     {
         var autoPreparedSpellsAltruism = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")

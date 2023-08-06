@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,7 +16,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfWarDancer : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfWarDancer : AbstractSubclass
 {
     private const string PowerWarDanceName = "PowerWarDancerWarDance";
 
@@ -74,7 +76,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
-    internal CollegeOfWarDancer()
+    public CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)

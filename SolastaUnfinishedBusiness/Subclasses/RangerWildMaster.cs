@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,13 +18,14 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RangerWildMaster : AbstractSubclass
+[UsedImplicitly]
+public sealed class RangerWildMaster : AbstractSubclass
 {
     private const string SpiritBeastTag = "SpiritBeast";
     private const string CommandSpiritBeastCondition = "ConditionWildMasterSpiritBeastCommand";
     private const string SummonSpiritBeastPower = "PowerWildMasterSummonSpiritBeast";
 
-    internal RangerWildMaster()
+    public RangerWildMaster()
     {
         #region COMMON
 

@@ -18,7 +18,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubcl
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialArcaneArcher : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialArcaneArcher : AbstractSubclass
 {
     private const string Name = "MartialArcaneArcher";
     private const string ArcaneShotMarker = "ArcaneShot";
@@ -32,7 +33,7 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
     internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
     internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2;
 
-    internal MartialArcaneArcher()
+    public MartialArcaneArcher()
     {
         // LEVEL 03
 

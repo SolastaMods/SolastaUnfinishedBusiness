@@ -19,7 +19,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfTheTempest : AbstractSubclass
+[UsedImplicitly]
+public sealed class WayOfTheTempest : AbstractSubclass
 {
     private const string Name = "WayOfTheTempest";
 

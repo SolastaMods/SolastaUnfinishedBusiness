@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -17,11 +18,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class SorcerousFieldManipulator : AbstractSubclass
+[UsedImplicitly]
+public sealed class SorcerousFieldManipulator : AbstractSubclass
 {
     private const string Name = "SorcerousFieldManipulator";
 
-    internal SorcerousFieldManipulator()
+    public SorcerousFieldManipulator()
     {
         // LEVEL 01
 

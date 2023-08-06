@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -16,11 +17,12 @@ using static SolastaUnfinishedBusiness.Api.Helpers.EffectHelpers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PathOfTheYeoman : AbstractSubclass
+[UsedImplicitly]
+public sealed class PathOfTheYeoman : AbstractSubclass
 {
     internal const string Name = "PathOfTheYeoman";
 
-    internal PathOfTheYeoman()
+    public PathOfTheYeoman()
     {
         // LEVEL 03
 

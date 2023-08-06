@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,7 +16,8 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class InnovationVivisectionist : AbstractSubclass
+[UsedImplicitly]
+public sealed class InnovationVivisectionist : AbstractSubclass
 {
     private const string Name = "InnovationVivisectionist";
 

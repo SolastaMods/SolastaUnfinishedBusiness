@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,7 +16,8 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialTactician : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialTactician : AbstractSubclass
 {
     internal const string Name = "MartialTactician";
     internal const string MarkDamagedByGambit = "ConditionTacticianDamagedByGambit";
@@ -23,7 +25,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static int _gambitPoolIncreases;
 
-    internal MartialTactician()
+    public MartialTactician()
     {
         var unlearn = BuildUnlearn();
 

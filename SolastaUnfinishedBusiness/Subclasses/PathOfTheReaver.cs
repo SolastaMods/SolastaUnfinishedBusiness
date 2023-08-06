@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -18,11 +19,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 // ReSharper disable once IdentifierTypo
-internal sealed class PathOfTheReaver : AbstractSubclass
+[UsedImplicitly]
+public sealed class PathOfTheReaver : AbstractSubclass
 {
     private const string Name = "PathOfTheReaver";
 
-    internal PathOfTheReaver()
+    public PathOfTheReaver()
     {
         // LEVEL 03
 

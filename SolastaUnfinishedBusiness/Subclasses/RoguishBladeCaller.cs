@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -16,7 +17,8 @@ using static SolastaUnfinishedBusiness.Api.Helpers.EffectHelpers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishBladeCaller : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishBladeCaller : AbstractSubclass
 {
     private const string Name = "RoguishBladeCaller";
     private const string BladeMark = "BladeMark";
@@ -24,7 +26,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
     private static readonly IsWeaponValidHandler IsBladeCallerWeapon = (mode, item, character) =>
         ValidatorsWeapon.IsOfWeaponType(DaggerType)(mode, item, character);
 
-    internal RoguishBladeCaller()
+    public RoguishBladeCaller()
     {
         // LEVEL 03
 

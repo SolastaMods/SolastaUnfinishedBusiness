@@ -27,7 +27,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class InnovationArtillerist : AbstractSubclass
+[UsedImplicitly]
+public sealed class InnovationArtillerist : AbstractSubclass
 {
     private const string Name = "InnovationArtillerist";
     private const string CreatureTag = "EldritchCannon";

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,14 +16,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAddit
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishDuelist : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishDuelist : AbstractSubclass
 {
     internal const string Name = "RoguishDuelist";
     internal const string ConditionReflexiveParry = $"Condition{Name}ReflexiveParry";
     private const string SureFooted = "SureFooted";
     private const string MasterDuelist = "MasterDuelist";
 
-    internal RoguishDuelist()
+    public RoguishDuelist()
     {
         var additionalDamageDaringDuel = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageRogueSneakAttack, $"AdditionalDamage{Name}DaringDuel")

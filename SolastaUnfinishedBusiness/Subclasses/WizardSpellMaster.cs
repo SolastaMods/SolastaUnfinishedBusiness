@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -8,13 +9,14 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardSpellMaster : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardSpellMaster : AbstractSubclass
 {
     private const string Name = "SpellMaster";
 
     internal const string PowerSpellMasterBonusRecoveryName = $"Power{Name}BonusRecovery";
 
-    internal WizardSpellMaster()
+    public WizardSpellMaster()
     {
         // level 02
 

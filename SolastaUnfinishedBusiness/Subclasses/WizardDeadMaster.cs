@@ -21,7 +21,8 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardDeadMaster : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
