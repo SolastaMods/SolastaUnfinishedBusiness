@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
@@ -20,6 +21,8 @@ internal sealed class CollegeOfGuts : AbstractSubclass
             .AddFeaturesAtLevel(14, PowerCasterFightingWarMagic)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => DatabaseHelper.CharacterClassDefinitions.Bard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

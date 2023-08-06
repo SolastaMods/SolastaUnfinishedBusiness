@@ -176,6 +176,8 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Sorcerer;
+
     internal static FeatureDefinitionPower PowerSorcerousFieldManipulatorDisplacement { get; private set; }
 
     private static FeatureDefinitionMagicAffinity MagicAffinityHeightened { get; set; }

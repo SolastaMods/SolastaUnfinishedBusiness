@@ -211,6 +211,8 @@ internal sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Fighter;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => SubclassChoiceFighterMartialArchetypes;

@@ -171,7 +171,10 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .AddToDB();
     }
 
+
     private static FeatureDefinitionMagicAffinity MagicAffinityCollegeOfLifeHeightened { get; set; }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Bard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

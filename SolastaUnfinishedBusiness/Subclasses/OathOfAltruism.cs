@@ -138,6 +138,8 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Paladin;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices

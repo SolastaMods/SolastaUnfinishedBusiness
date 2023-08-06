@@ -209,6 +209,8 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Barbarian;
+
     private static IsWeaponValidHandler IsLongBow => ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.LongbowType);
 
     internal override CharacterSubclassDefinition Subclass { get; }

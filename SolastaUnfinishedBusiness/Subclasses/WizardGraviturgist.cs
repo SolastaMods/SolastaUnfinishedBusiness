@@ -270,6 +270,8 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>

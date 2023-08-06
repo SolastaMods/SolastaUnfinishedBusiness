@@ -162,6 +162,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Monk;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>

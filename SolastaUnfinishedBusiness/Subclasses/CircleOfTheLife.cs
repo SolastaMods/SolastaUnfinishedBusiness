@@ -148,6 +148,8 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => Druid;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>

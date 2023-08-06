@@ -23,12 +23,13 @@ internal class PatronEldritchSurge : AbstractSubclass
     public const string Name = "PatronEldritchSurge";
 
     // LEVEL 01 Blast Exclusive
-    private static readonly FeatureDefinitionBonusCantrips BonusCantripBlastExclusive = FeatureDefinitionBonusCantripsBuilder
-        .Create($"BonusCantrips{Name}BlastExclusive")
-        .SetGuiPresentation(Category.Feature)
-        .SetBonusCantrips(EldritchBlast)
-        .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
-        .AddToDB();
+    private static readonly FeatureDefinitionBonusCantrips BonusCantripBlastExclusive =
+        FeatureDefinitionBonusCantripsBuilder
+            .Create($"BonusCantrips{Name}BlastExclusive")
+            .SetGuiPresentation(Category.Feature)
+            .SetBonusCantrips(EldritchBlast)
+            .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
+            .AddToDB();
 
     // LEVEL 06 Blast Pursuit
     public static readonly FeatureDefinition FeatureBlastPursuit = FeatureDefinitionBuilder
@@ -77,6 +78,8 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddToDB();
         BuildVersatilities();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Warlock;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

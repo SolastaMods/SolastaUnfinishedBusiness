@@ -134,6 +134,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal static FeatureDefinitionPower PowerCircleOfTheNightWildShapeCombat { get; private set; }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Druid;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>

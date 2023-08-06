@@ -177,6 +177,9 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
     }
 
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Druid;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>

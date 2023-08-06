@@ -401,6 +401,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerKindredSpiritWolf15);
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Ranger;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>

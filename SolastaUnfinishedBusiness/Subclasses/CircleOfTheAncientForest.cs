@@ -204,6 +204,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => DatabaseHelper.CharacterClassDefinitions.Druid;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices

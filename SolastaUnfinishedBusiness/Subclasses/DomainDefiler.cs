@@ -351,6 +351,8 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty

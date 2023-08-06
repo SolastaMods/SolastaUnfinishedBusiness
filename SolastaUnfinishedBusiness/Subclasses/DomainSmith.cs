@@ -378,10 +378,13 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
+
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Pakri;
 
     private static bool CanArmorBeReinforced(RulesetCharacter character, RulesetItem item)
