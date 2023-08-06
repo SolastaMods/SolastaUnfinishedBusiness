@@ -210,11 +210,11 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     private sealed class ModifyCriticalThresholdAgainstHexedTargets : IModifyAttackCriticalThreshold
     {
-        private readonly string hexCondition;
+        private readonly string _hexCondition;
 
         public ModifyCriticalThresholdAgainstHexedTargets(string hexCondition)
         {
-            this.hexCondition = hexCondition;
+            _hexCondition = hexCondition;
         }
 
         public int GetCriticalThreshold(int current, RulesetCharacter me, RulesetCharacter target,
@@ -225,7 +225,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 return current;
             }
 
-            if (target.HasConditionOfType(hexCondition))
+            if (target.HasConditionOfType(_hexCondition))
             {
                 return current - 1;
             }

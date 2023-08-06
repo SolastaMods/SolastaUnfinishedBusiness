@@ -65,9 +65,9 @@ internal class ReflectionSearch : MonoBehaviour
 {
     private static readonly HashSet<int> VisitedInstanceIDs = new();
     private static ReflectionSearch _shared;
-    private IEnumerator searchCoroutine;
+    private IEnumerator _searchCoroutine;
 
-    internal bool IsSearching => searchCoroutine != null;
+    internal bool IsSearching => _searchCoroutine != null;
     private static int SequenceNumber { get; set; }
 
     internal static ReflectionSearch Shared
@@ -88,10 +88,10 @@ internal class ReflectionSearch : MonoBehaviour
 
     internal void StartSearch(Node node, string searchText, SearchProgress updater, ReflectionSearchResult resultRoot)
     {
-        if (searchCoroutine != null)
+        if (_searchCoroutine != null)
         {
-            StopCoroutine(searchCoroutine);
-            searchCoroutine = null;
+            StopCoroutine(_searchCoroutine);
+            _searchCoroutine = null;
         }
 
         VisitedInstanceIDs.Clear();
@@ -116,16 +116,16 @@ internal class ReflectionSearch : MonoBehaviour
 
         var todo = new List<Node> { node };
 
-        searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updater, resultRoot);
-        StartCoroutine(searchCoroutine);
+        _searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updater, resultRoot);
+        StartCoroutine(_searchCoroutine);
     }
 
     internal void Stop()
     {
-        if (searchCoroutine != null)
+        if (_searchCoroutine != null)
         {
-            StopCoroutine(searchCoroutine);
-            searchCoroutine = null;
+            StopCoroutine(_searchCoroutine);
+            _searchCoroutine = null;
         }
 
         StopAllCoroutines();

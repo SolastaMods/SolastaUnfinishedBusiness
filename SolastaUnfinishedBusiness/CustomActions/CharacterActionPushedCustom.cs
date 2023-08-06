@@ -9,24 +9,24 @@ using TA;
 public class CharacterActionPushedCustom : CharacterAction
 #pragma warning restore CA1050
 {
-    private readonly bool forceFallProne;
-    private readonly bool forceSourceCharacterTurnTowardsTargetAfterPush;
-    private readonly bool forceTurnTowardsSourceCharacterAfterPush;
-    private readonly GameLocationCharacter sourceCharacter;
+    private readonly bool _forceFallProne;
+    private readonly bool _forceSourceCharacterTurnTowardsTargetAfterPush;
+    private readonly bool _forceTurnTowardsSourceCharacterAfterPush;
+    private readonly GameLocationCharacter _sourceCharacter;
 
     public CharacterActionPushedCustom(CharacterActionParams actionParams) : base(actionParams)
     {
         // Main.Log2($"CharacterActionPushedCustom [{ActionParams.ActingCharacter.Name}]", true);
-        forceTurnTowardsSourceCharacterAfterPush = actionParams.BoolParameter;
-        forceSourceCharacterTurnTowardsTargetAfterPush = actionParams.BoolParameter2;
-        forceFallProne = actionParams.BoolParameter4;
+        _forceTurnTowardsSourceCharacterAfterPush = actionParams.BoolParameter;
+        _forceSourceCharacterTurnTowardsTargetAfterPush = actionParams.BoolParameter2;
+        _forceFallProne = actionParams.BoolParameter4;
 
         if (actionParams.TargetCharacters.Count <= 0)
         {
             return;
         }
 
-        sourceCharacter = actionParams.TargetCharacters[0];
+        _sourceCharacter = actionParams.TargetCharacters[0];
     }
 
     public override IEnumerator ExecuteImpl()
@@ -67,7 +67,7 @@ public class CharacterActionPushedCustom : CharacterAction
         var forceProne = false;
         var willFall = parameters.MoveStance == ActionDefinitions.MoveStance.Forced;
 
-        if (forceFallProne && !ActingCharacter.Prone)
+        if (_forceFallProne && !ActingCharacter.Prone)
         {
             forceProne = ActingCharacter.SetProne(true);
         }
@@ -103,13 +103,13 @@ public class CharacterActionPushedCustom : CharacterAction
         //     ActingCharacter.EventSystem.SendEvent(GameLocationCharacterEventSystem.Event.FallAnimationEnd);
         // }
 
-        if (forceTurnTowardsSourceCharacterAfterPush && sourceCharacter != null)
+        if (_forceTurnTowardsSourceCharacterAfterPush && _sourceCharacter != null)
         {
-            character.TurnTowards(sourceCharacter);
+            character.TurnTowards(_sourceCharacter);
 
-            if (forceSourceCharacterTurnTowardsTargetAfterPush)
+            if (_forceSourceCharacterTurnTowardsTargetAfterPush)
             {
-                sourceCharacter.TurnTowards(character);
+                _sourceCharacter.TurnTowards(character);
             }
 
             const GameLocationCharacterEventSystem.Event ROTATION_END =
@@ -118,8 +118,8 @@ public class CharacterActionPushedCustom : CharacterAction
             var characterTurnCoroutine =
                 Coroutine.StartCoroutine(character.EventSystem.UpdateMotionsAndWaitForEvent(ROTATION_END));
             var sourceCharacterTurnCoroutine =
-                forceSourceCharacterTurnTowardsTargetAfterPush
-                    ? Coroutine.StartCoroutine(sourceCharacter.EventSystem
+                _forceSourceCharacterTurnTowardsTargetAfterPush
+                    ? Coroutine.StartCoroutine(_sourceCharacter.EventSystem
                         .UpdateMotionsAndWaitForEvent(ROTATION_END))
                     : null;
             while (!characterTurnCoroutine.Empty || sourceCharacterTurnCoroutine is { Empty: false })

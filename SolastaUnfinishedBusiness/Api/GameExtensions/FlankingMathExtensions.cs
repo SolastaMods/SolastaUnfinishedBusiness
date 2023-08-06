@@ -163,13 +163,13 @@ internal static class FlankingMathExtensions
 
     internal class Cube
     {
-        private readonly Point3D max;
-        private readonly Point3D min;
+        private readonly Point3D _max;
+        private readonly Point3D _min;
 
         public Cube(Point3D minPoint, Point3D maxPoint)
         {
-            min = minPoint;
-            max = maxPoint;
+            _min = minPoint;
+            _max = maxPoint;
 
             // Define the six faces of the cube
             FrontFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, maxPoint.Z, maxPoint.Z,
@@ -195,7 +195,7 @@ internal static class FlankingMathExtensions
 
         public override String ToString()
         {
-            return "(" + min + ":" + max + ")";
+            return "(" + _min + ":" + _max + ")";
         }
     }
 }

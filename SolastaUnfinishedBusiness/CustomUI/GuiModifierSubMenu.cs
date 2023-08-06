@@ -7,56 +7,56 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class GuiModifierSubMenu : GuiModifier
 {
-    private readonly List<Vector3> itemPositions = new();
-    private Image background;
-    private RectTransform featTable;
-    private RectTransform header;
-    private Vector3 headerPosition;
-    private Vector2 headerSize;
-    private float maxHeaderWidth;
+    private readonly List<Vector3> _itemPositions = new();
+    private Image _background;
+    private RectTransform _featTable;
+    private RectTransform _header;
+    private Vector3 _headerPosition;
+    private Vector2 _headerSize;
+    private float _maxHeaderWidth;
 
     internal void Init(Image bkg, RectTransform table, float headerWidth)
     {
-        featTable = table;
-        background = bkg;
+        _featTable = table;
+        _background = bkg;
 
         var num = table.childCount;
 
-        header = table.GetChild(num - 1).GetComponent<RectTransform>();
-        headerSize = header.sizeDelta;
-        headerPosition = header.position;
-        maxHeaderWidth = headerWidth;
+        _header = table.GetChild(num - 1).GetComponent<RectTransform>();
+        _headerSize = _header.sizeDelta;
+        _headerPosition = _header.position;
+        _maxHeaderWidth = headerWidth;
 
         for (var i = 0; i < table.childCount - 1; i++)
         {
-            itemPositions.Add(table.GetChild(i).GetComponent<RectTransform>().position);
+            _itemPositions.Add(table.GetChild(i).GetComponent<RectTransform>().position);
         }
     }
 
     public override void InterpolateAndApply(float ratio)
     {
-        var headerWidth = Mathf.Lerp(headerSize.x, maxHeaderWidth, (float)Math.Sqrt(ratio));
+        var headerWidth = Mathf.Lerp(_headerSize.x, _maxHeaderWidth, (float)Math.Sqrt(ratio));
 
-        header.sizeDelta = new Vector2(headerWidth, headerSize.y);
-        header.position = headerPosition + new Vector3((headerSize.x - headerWidth) / 2, 0, 0);
+        _header.sizeDelta = new Vector2(headerWidth, _headerSize.y);
+        _header.position = _headerPosition + new Vector3((_headerSize.x - headerWidth) / 2, 0, 0);
 
-        var num = featTable.childCount;
+        var num = _featTable.childCount;
 
-        for (var i = 0; i < featTable.childCount - 1; i++)
+        for (var i = 0; i < _featTable.childCount - 1; i++)
         {
             var r = Math.Min(ratio * num / (num - i), 1);
-            var rect = featTable.GetChild(i).GetComponent<RectTransform>();
-            var pos = itemPositions[i];
+            var rect = _featTable.GetChild(i).GetComponent<RectTransform>();
+            var pos = _itemPositions[i];
 
-            rect.position = new Vector3(pos.x, Mathf.Lerp(headerPosition.y, pos.y, r), 0);
+            rect.position = new Vector3(pos.x, Mathf.Lerp(_headerPosition.y, pos.y, r), 0);
         }
 
-        background.color = new Color(0, 0, 0, 0.65f * ratio);
+        _background.color = new Color(0, 0, 0, 0.65f * ratio);
     }
 
 
     internal void Clean()
     {
-        itemPositions.Clear();
+        _itemPositions.Clear();
     }
 }

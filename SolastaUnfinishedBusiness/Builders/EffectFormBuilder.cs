@@ -13,16 +13,16 @@ namespace SolastaUnfinishedBusiness.Builders;
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 internal class EffectFormBuilder
 {
-    private readonly EffectForm effectForm;
+    private readonly EffectForm _effectForm;
 
     private EffectFormBuilder()
     {
-        effectForm = new EffectForm();
+        _effectForm = new EffectForm();
     }
 
     internal EffectForm Build()
     {
-        return effectForm;
+        return _effectForm;
     }
 
     internal static EffectFormBuilder Create()
@@ -35,16 +35,16 @@ internal class EffectFormBuilder
         TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn,
         bool canSaveToCancel = false)
     {
-        effectForm.HasSavingThrow = true;
-        effectForm.SavingThrowAffinity = savingThrowAffinity;
-        effectForm.saveOccurence = saveOccurence;
-        effectForm.canSaveToCancel = canSaveToCancel;
+        _effectForm.HasSavingThrow = true;
+        _effectForm.SavingThrowAffinity = savingThrowAffinity;
+        _effectForm.saveOccurence = saveOccurence;
+        _effectForm.canSaveToCancel = canSaveToCancel;
         return this;
     }
 
     internal EffectFormBuilder SetBonusMode(AddBonusMode bonusMode)
     {
-        effectForm.AddBonusMode = bonusMode;
+        _effectForm.AddBonusMode = bonusMode;
         return this;
     }
 
@@ -53,9 +53,9 @@ internal class EffectFormBuilder
         LevelSourceType levelType,
         int levelMultiplier = 1)
     {
-        effectForm.applyLevel = applyLevel;
-        effectForm.levelType = levelType;
-        effectForm.levelMultiplier = levelMultiplier;
+        _effectForm.applyLevel = applyLevel;
+        _effectForm.levelType = levelType;
+        _effectForm.levelMultiplier = levelMultiplier;
         return this;
     }
 
@@ -66,9 +66,9 @@ internal class EffectFormBuilder
         int step = 1,
         int begin = 1)
     {
-        effectForm.levelType = levelType;
-        effectForm.applyLevel = EffectForm.LevelApplianceType.DiceNumberByLevelTable;
-        effectForm.DiceByLevelTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
+        _effectForm.levelType = levelType;
+        _effectForm.applyLevel = EffectForm.LevelApplianceType.DiceNumberByLevelTable;
+        _effectForm.DiceByLevelTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
         return this;
     }
 
@@ -78,9 +78,9 @@ internal class EffectFormBuilder
         int maxRank = 20,
         params (int level, int dice)[] steps)
     {
-        effectForm.levelType = levelType;
-        effectForm.applyLevel = EffectForm.LevelApplianceType.DiceNumberByLevelTable;
-        effectForm.DiceByLevelTable.SetRange(DiceByRankBuilder.InterpolateDiceByRankTable(minRank, maxRank, steps));
+        _effectForm.levelType = levelType;
+        _effectForm.applyLevel = EffectForm.LevelApplianceType.DiceNumberByLevelTable;
+        _effectForm.DiceByLevelTable.SetRange(DiceByRankBuilder.InterpolateDiceByRankTable(minRank, maxRank, steps));
         return this;
     }
 
@@ -88,8 +88,8 @@ internal class EffectFormBuilder
     {
         var alterationForm = new AlterationForm { alterationType = alterationType };
 
-        effectForm.alterationForm = alterationForm;
-        effectForm.FormType = EffectForm.EffectFormType.Alteration;
+        _effectForm.alterationForm = alterationForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Alteration;
         return this;
     }
 
@@ -117,7 +117,7 @@ internal class EffectFormBuilder
         bool forceOnSelf = false,
         params ConditionDefinition[] conditionsList)
     {
-        effectForm.FormType = EffectForm.EffectFormType.Condition;
+        _effectForm.FormType = EffectForm.EffectFormType.Condition;
 
         var conditionForm = new ConditionForm
         {
@@ -133,7 +133,7 @@ internal class EffectFormBuilder
             conditionForm.conditionDefinitionName = condition.Name;
         }
 
-        effectForm.ConditionForm = conditionForm;
+        _effectForm.ConditionForm = conditionForm;
         return this;
     }
 
@@ -155,7 +155,7 @@ internal class EffectFormBuilder
         string sourceDefinitionName = "",
         FeatureSourceType featureSourceType = FeatureSourceType.Base)
     {
-        effectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(savingThrowAbility, savingThrowDc,
+        _effectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(savingThrowAbility, savingThrowDc,
             sourceDefinitionName, featureSourceType);
         return this;
     }
@@ -175,8 +175,8 @@ internal class EffectFormBuilder
             addSpellCastingAbility = addSpellCastingAbility,
             addProficiencyBonus = addProficiencyBonus
         };
-        effectForm.counterForm = counterForm;
-        effectForm.FormType = EffectForm.EffectFormType.Counter;
+        _effectForm.counterForm = counterForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Counter;
         return this;
     }
 
@@ -236,8 +236,8 @@ internal class EffectFormBuilder
             OverrideWithBardicInspirationDie = overrideWithBardicInspirationDie
         };
 
-        effectForm.damageForm = damageForm;
-        effectForm.FormType = EffectForm.EffectFormType.Damage;
+        _effectForm.damageForm = damageForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Damage;
         return this;
     }
 
@@ -248,8 +248,8 @@ internal class EffectFormBuilder
             killCondition = condition, challengeRating = challengeRating, hitPoints = hitPoints
         };
 
-        effectForm.killForm = killForm;
-        effectForm.FormType = EffectForm.EffectFormType.Kill;
+        _effectForm.killForm = killForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Kill;
         return this;
     }
 
@@ -292,9 +292,9 @@ internal class EffectFormBuilder
             HealingCap = healingCap
         };
 
-        effectForm.applyLevel = levelApplianceType;
-        effectForm.healingForm = healingForm;
-        effectForm.FormType = EffectForm.EffectFormType.Healing;
+        _effectForm.applyLevel = levelApplianceType;
+        _effectForm.healingForm = healingForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Healing;
         return this;
     }
 
@@ -310,8 +310,8 @@ internal class EffectFormBuilder
             featureBySlotLevel = featureBySlotLevel.ToList()
         };
 
-        effectForm.itemPropertyForm = itemForm;
-        effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
+        _effectForm.itemPropertyForm = itemForm;
+        _effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
         return this;
     }
 
@@ -342,8 +342,8 @@ internal class EffectFormBuilder
             graphicsPrefabReference = graphicsPrefabReference
         };
 
-        effectForm.lightSourceForm = lightSourceForm;
-        effectForm.FormType = EffectForm.EffectFormType.LightSource;
+        _effectForm.lightSourceForm = lightSourceForm;
+        _effectForm.FormType = EffectForm.EffectFormType.LightSource;
         return this;
     }
 
@@ -367,8 +367,8 @@ internal class EffectFormBuilder
     {
         var motionForm = new MotionForm { type = motionType, distance = motionDistance };
 
-        effectForm.motionForm = motionForm;
-        effectForm.FormType = EffectForm.EffectFormType.Motion;
+        _effectForm.motionForm = motionForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Motion;
         return this;
     }
 
@@ -389,8 +389,8 @@ internal class EffectFormBuilder
             removedConditions = removedConditions.ToList()
         };
 
-        effectForm.reviveForm = reviveForm;
-        effectForm.FormType = EffectForm.EffectFormType.Revive;
+        _effectForm.reviveForm = reviveForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Revive;
         return this;
     }
 
@@ -401,8 +401,8 @@ internal class EffectFormBuilder
             type = SpellSlotsForm.EffectType.RecoverHalfLevelUp, maxSlotLevel = maxSlotLevel
         };
 
-        effectForm.spellSlotsForm = spellSlotsForm;
-        effectForm.FormType = EffectForm.EffectFormType.SpellSlots;
+        _effectForm.spellSlotsForm = spellSlotsForm;
+        _effectForm.FormType = EffectForm.EffectFormType.SpellSlots;
         return this;
     }
 
@@ -420,8 +420,8 @@ internal class EffectFormBuilder
             shapeOptions = shapeOptions
         };
 
-        effectForm.shapeChangeForm = shapeChangeForm;
-        effectForm.FormType = EffectForm.EffectFormType.ShapeChange;
+        _effectForm.shapeChangeForm = shapeChangeForm;
+        _effectForm.FormType = EffectForm.EffectFormType.ShapeChange;
 
         return this;
     }
@@ -442,8 +442,8 @@ internal class EffectFormBuilder
             effectProxyDefinitionName = null
         };
 
-        effectForm.summonForm = summonForm;
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
+        _effectForm.summonForm = summonForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
 
@@ -462,8 +462,8 @@ internal class EffectFormBuilder
             effectProxyDefinitionName = null
         };
 
-        effectForm.summonForm = summonForm;
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
+        _effectForm.summonForm = summonForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
 
@@ -482,8 +482,8 @@ internal class EffectFormBuilder
             effectProxyDefinitionName = effectProxyDefinition.Name
         };
 
-        effectForm.summonForm = summonForm;
-        effectForm.FormType = EffectForm.EffectFormType.Summon;
+        _effectForm.summonForm = summonForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
 
@@ -497,8 +497,8 @@ internal class EffectFormBuilder
         {
             BonusHitPoints = bonusHitPoints, DieType = dieType, DiceNumber = diceNumber, ApplyToSelf = applyToSelf
         };
-        effectForm.temporaryHitPointsForm = tempHpForm;
-        effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
+        _effectForm.temporaryHitPointsForm = tempHpForm;
+        _effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
         return this;
     }
 
@@ -517,8 +517,8 @@ internal class EffectFormBuilder
         var topologyForm =
             new TopologyForm { changeType = changeType, impactsFlyingCharacters = impactsFlyingCharacters };
 
-        effectForm.topologyForm = topologyForm;
-        effectForm.FormType = EffectForm.EffectFormType.Topology;
+        _effectForm.topologyForm = topologyForm;
+        _effectForm.FormType = EffectForm.EffectFormType.Topology;
         return this;
     }
 }

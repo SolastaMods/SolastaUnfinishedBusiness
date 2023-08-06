@@ -12,17 +12,17 @@ public interface IGroupedFeat
 
 public class GroupedFeat : IGroupedFeat
 {
-    private readonly List<FeatDefinition> feats = new();
+    private readonly List<FeatDefinition> _feats = new();
 
     public GroupedFeat(IEnumerable<FeatDefinition> feats)
     {
-        this.feats.AddRange(feats);
-        this.feats.Sort(FeatsContext.CompareFeats);
+        _feats.AddRange(feats);
+        _feats.Sort(FeatsContext.CompareFeats);
     }
 
     public List<FeatDefinition> GetSubFeats(bool includeHidden = false, bool onlyModded = false)
     {
-        return feats
+        return _feats
             .Where(x =>
                 (includeHidden || !x.GuiPresentation.hidden) &&
                 (!onlyModded || x.ContentPack == CeContentPackContext.CeContentPack))
@@ -33,6 +33,6 @@ public class GroupedFeat : IGroupedFeat
 
     public void AddFeats(params FeatDefinition[] featDefinitions)
     {
-        feats.AddRange(featDefinitions);
+        _feats.AddRange(featDefinitions);
     }
 }

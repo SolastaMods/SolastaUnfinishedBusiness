@@ -209,9 +209,8 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
         private readonly ConditionDefinition _conditionBladeMark;
         private readonly ConditionDefinition _conditionBladeSurge;
         private readonly FeatureDefinitionPower _powerHailOfBlades;
-        private bool targetWithBladeMarkHit;
-
-        private bool targetWithoutBladeMarkHit;
+        private bool _targetWithBladeMarkHit;
+        private bool _targetWithoutBladeMarkHit;
 
         public CustomBehaviorBladeMark(
             ConditionDefinition conditionBladeMark,
@@ -236,8 +235,8 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            targetWithoutBladeMarkHit = false;
-            targetWithBladeMarkHit = false;
+            _targetWithoutBladeMarkHit = false;
+            _targetWithBladeMarkHit = false;
 
             if (!IsBladeCallerWeapon(attackMode, null, null))
             {
@@ -253,7 +252,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
 
             if (rulesetDefender.HasAnyConditionOfType(_conditionBladeMark.Name))
             {
-                targetWithBladeMarkHit = true;
+                _targetWithBladeMarkHit = true;
 
                 yield break;
             }
@@ -263,7 +262,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            targetWithoutBladeMarkHit = true;
+            _targetWithoutBladeMarkHit = true;
         }
 
         public IEnumerator OnAttackFinishedByMe(
@@ -279,7 +278,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
 
-            if (targetWithBladeMarkHit)
+            if (_targetWithBladeMarkHit)
             {
                 if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
                 {
@@ -309,7 +308,7 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                 }
             }
 
-            if (targetWithoutBladeMarkHit)
+            if (_targetWithoutBladeMarkHit)
             {
                 if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
                 {
@@ -331,8 +330,8 @@ internal sealed class RoguishBladeCaller : AbstractSubclass
                 }
             }
 
-            targetWithoutBladeMarkHit = false;
-            targetWithBladeMarkHit = false;
+            _targetWithoutBladeMarkHit = false;
+            _targetWithBladeMarkHit = false;
         }
 
         private IEnumerator HandleHailOfBlades(

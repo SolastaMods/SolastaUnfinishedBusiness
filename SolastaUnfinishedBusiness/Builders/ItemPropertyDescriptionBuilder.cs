@@ -6,11 +6,11 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal class ItemPropertyDescriptionBuilder
 {
-    private readonly ItemPropertyDescription property;
+    private readonly ItemPropertyDescription _property;
 
     private ItemPropertyDescriptionBuilder()
     {
-        property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0])
+        _property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0])
         {
             conditionDefinition = null,
             featureDefinition = null,
@@ -42,31 +42,31 @@ internal class ItemPropertyDescriptionBuilder
 
     private ItemPropertyDescriptionBuilder SetFeatureDefinition(FeatureDefinition feature)
     {
-        property.type = ItemPropertyDescription.PropertyType.Feature;
-        property.featureDefinition = feature;
+        _property.type = ItemPropertyDescription.PropertyType.Feature;
+        _property.featureDefinition = feature;
         return this;
     }
 
     private ItemPropertyDescriptionBuilder SetAppliesOnItemOnly(bool value)
     {
-        property.appliesOnItemOnly = value;
+        _property.appliesOnItemOnly = value;
         return this;
     }
 
     private ItemPropertyDescriptionBuilder SetKnowledgeAffinity(KnowledgeAffinity value)
     {
-        property.knowledgeAffinity = value;
+        _property.knowledgeAffinity = value;
         return this;
     }
 
     private void Validate()
     {
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-        switch (property.Type)
+        switch (_property.Type)
         {
-            case ItemPropertyDescription.PropertyType.Feature when property.FeatureDefinition == null:
+            case ItemPropertyDescription.PropertyType.Feature when _property.FeatureDefinition == null:
                 throw new ArgumentException("ItemPropertyDescriptionBuilder empty FeatureDefinition!");
-            case ItemPropertyDescription.PropertyType.Condition when property.ConditionDefinition == null:
+            case ItemPropertyDescription.PropertyType.Condition when _property.ConditionDefinition == null:
                 throw new ArgumentException("ItemPropertyDescriptionBuilder empty ConditionDefinition!");
         }
     }
@@ -74,6 +74,6 @@ internal class ItemPropertyDescriptionBuilder
     internal ItemPropertyDescription Build()
     {
         Validate();
-        return property;
+        return _property;
     }
 }

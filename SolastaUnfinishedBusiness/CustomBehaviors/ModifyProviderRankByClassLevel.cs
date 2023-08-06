@@ -5,11 +5,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class ModifyProviderRankByClassLevel : IModifyProviderRank
 {
-    private readonly string className;
+    private readonly string _className;
 
     private ModifyProviderRankByClassLevel(string className)
     {
-        this.className = className;
+        _className = className;
     }
 
     public ModifyProviderRankByClassLevel(BaseDefinition classDefinition) : this(classDefinition.Name)
@@ -18,6 +18,6 @@ public class ModifyProviderRankByClassLevel : IModifyProviderRank
 
     public int GetRank(RulesetCharacter character)
     {
-        return character.GetClassLevel(className);
+        return character.GetClassLevel(_className);
     }
 }

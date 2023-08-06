@@ -4,12 +4,12 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResource
 {
-    private readonly string type;
+    private readonly string _type;
 
     internal ReactionRequestCustom(string type, CharacterActionParams reactionParams)
         : base(Name(type), reactionParams)
     {
-        this.type = type;
+        _type = type;
     }
 
     public ICustomReactionResource Resource { get; set; }
@@ -21,7 +21,7 @@ public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResour
 
     public override string FormatTitle()
     {
-        return Gui.Localize($"Reaction/&CustomReaction{type}Title");
+        return Gui.Localize($"Reaction/&CustomReaction{_type}Title");
     }
 
     public override string FormatDescription()
@@ -31,11 +31,11 @@ public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResour
 
     public override string FormatReactTitle()
     {
-        return Gui.Localize($"Reaction/&CustomReaction{type}ReactTitle");
+        return Gui.Localize($"Reaction/&CustomReaction{_type}ReactTitle");
     }
 
     public override string FormatReactDescription()
     {
-        return Gui.Localize($"Reaction/&CustomReaction{type}ReactDescription");
+        return Gui.Localize($"Reaction/&CustomReaction{_type}ReactDescription");
     }
 }

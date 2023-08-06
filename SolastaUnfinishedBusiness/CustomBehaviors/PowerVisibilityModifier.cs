@@ -31,16 +31,16 @@ internal class PowerVisibilityModifier
     internal static readonly PowerVisibilityModifier Hidden = new((_, _, _) => false);
     internal static readonly PowerVisibilityModifier Visible = new((_, _, _) => true);
 
-    private readonly IsPowerVisibleHandler handler;
+    private readonly IsPowerVisibleHandler _handler;
 
     protected PowerVisibilityModifier(IsPowerVisibleHandler handler)
     {
-        this.handler = handler;
+        _handler = handler;
     }
 
     internal bool IsVisible(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
     {
-        return handler(character, power, actionType);
+        return _handler(character, power, actionType);
     }
 
     internal static bool IsPowerHidden(RulesetCharacter character, RulesetUsablePower power, ActionType actionType)

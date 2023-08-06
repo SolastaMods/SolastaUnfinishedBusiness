@@ -21,17 +21,16 @@ internal class SubFeatSelectionModal : GuiGameScreen
     private static readonly Color DisabledColor = new(0.557f, 0.431f, 0.443f, 1f);
 
     private static SubFeatSelectionModal _instance;
-    private GuiModifierSubMenu animator;
-    private RectTransform attachment;
-    private Image background;
-    private FeatItem baseItem;
-    private Button button;
-    private RulesetCharacterHero character;
-    private RectTransform featTable;
-    private Image image;
-    private ProficiencyBaseItem.OnItemClickedHandler itemClickHandler;
-
-    private bool localInitialized;
+    private GuiModifierSubMenu _animator;
+    private RectTransform _attachment;
+    private Image _background;
+    private FeatItem _baseItem;
+    private Button _button;
+    private RulesetCharacterHero _character;
+    private RectTransform _featTable;
+    private Image _image;
+    private ProficiencyBaseItem.OnItemClickedHandler _itemClickHandler;
+    private bool _localInitialized;
 
     //TODO: handle controller
 
@@ -45,9 +44,9 @@ internal class SubFeatSelectionModal : GuiGameScreen
     {
         gameObject.AddComponent<RectTransform>();
         gameObject.AddComponent<GuiTooltip>();
-        animator = gameObject.AddComponent<GuiModifierSubMenu>();
-        image = gameObject.AddComponent<Image>();
-        button = gameObject.AddComponent<Button>();
+        _animator = gameObject.AddComponent<GuiModifierSubMenu>();
+        _image = gameObject.AddComponent<Image>();
+        _button = gameObject.AddComponent<Button>();
 
         base.Awake();
     }
@@ -64,15 +63,15 @@ internal class SubFeatSelectionModal : GuiGameScreen
         ProficiencyBaseItem.OnItemClickedHandler onItemClicked,
         RectTransform attachTo)
     {
-        character = inspectedCharacter;
-        attachment = attachTo;
-        baseItem = basedOn;
+        _character = inspectedCharacter;
+        _attachment = attachTo;
+        _baseItem = basedOn;
 
         Initialize();
         LocalInit();
 
         Visible = true;
-        itemClickHandler = onItemClicked;
+        _itemClickHandler = onItemClicked;
 
         var subFeats = group.GetSubFeats();
 
@@ -86,7 +85,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         var position = attachTo.position;
         // ReSharper disable once Unity.UnknownResource
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
-        var header = Gui.GetPrefabFromPool(featPrefab, featTable).GetComponent<FeatItem>();
+        var header = Gui.GetPrefabFromPool(featPrefab, _featTable).GetComponent<FeatItem>();
 
         InitFeatItem(feat, header);
 
@@ -110,7 +109,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
         foreach (var subFeat in subFeats)
         {
-            var item = Gui.GetPrefabFromPool(featPrefab, featTable);
+            var item = Gui.GetPrefabFromPool(featPrefab, _featTable);
 
             InitFeatItem(subFeat, item.GetComponent<FeatItem>());
 
@@ -123,32 +122,32 @@ internal class SubFeatSelectionModal : GuiGameScreen
             i++;
         }
 
-        animator.Init(background, featTable, headerMaxWidth);
+        _animator.Init(_background, _featTable, headerMaxWidth);
 
         Visible = false;
     }
 
     private void Unbind()
     {
-        character = null;
-        attachment = null;
-        baseItem = null;
-        animator.Clean();
-        itemClickHandler = null;
+        _character = null;
+        _attachment = null;
+        _baseItem = null;
+        _animator.Clean();
+        _itemClickHandler = null;
 
-        for (var i = 0; i < featTable.childCount; i++)
+        for (var i = 0; i < _featTable.childCount; i++)
         {
-            var featItem = featTable.GetChild(i).GetComponent<FeatItem>();
+            var featItem = _featTable.GetChild(i).GetComponent<FeatItem>();
 
             featItem.Unbind();
         }
 
-        Gui.ReleaseChildrenToPool(featTable);
+        Gui.ReleaseChildrenToPool(_featTable);
     }
 
     internal void Cancel()
     {
-        if (localInitialized)
+        if (_localInitialized)
         {
             Hide(true);
         }
@@ -179,7 +178,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
     private void LocalInit()
     {
-        if (localInitialized)
+        if (_localInitialized)
         {
             return;
         }
@@ -202,11 +201,11 @@ internal class SubFeatSelectionModal : GuiGameScreen
         RectTransform.pivot = new Vector2(0f, 0f);
         RectTransform.position = new Vector3(0, 0, 0);
 
-        image.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
-        image.color = new Color(0, 0, 0, 0.25f);
-        image.alphaHitTestMinimumThreshold = 0;
+        _image.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
+        _image.color = new Color(0, 0, 0, 0.25f);
+        _image.alphaHitTestMinimumThreshold = 0;
 
-        button.onClick.AddListener(OnCloseCb);
+        _button.onClick.AddListener(OnCloseCb);
 
         GuiTooltip.content = string.Empty;
         GuiTooltip.Disabled = false;
@@ -226,42 +225,42 @@ internal class SubFeatSelectionModal : GuiGameScreen
         rt.position = new Vector3(0, 0, 0);
         rt.sizeDelta = new Vector2(5120, 2160);
 
-        background = tmp.AddComponent<Image>();
-        background.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
-        background.color = new Color(0, 0, 0, 0.75f);
-        background.alphaHitTestMinimumThreshold = 0;
+        _background = tmp.AddComponent<Image>();
+        _background.sprite = Gui.GuiService.GetScreen<BlackScreen>().GetComponent<Image>().sprite;
+        _background.color = new Color(0, 0, 0, 0.75f);
+        _background.alphaHitTestMinimumThreshold = 0;
 
         //create container for feat items
         tmp = new GameObject();
         tmp.AddComponent<RectTransform>();
-        featTable = tmp.GetComponent<RectTransform>();
-        featTable.parent = transform;
-        featTable.anchorMin = new Vector2(0, 0);
-        featTable.anchorMax = new Vector2(1, 1);
-        featTable.pivot = new Vector2(0f, 0f);
-        featTable.position = new Vector3(0, 0, 0);
+        _featTable = tmp.GetComponent<RectTransform>();
+        _featTable.parent = transform;
+        _featTable.anchorMin = new Vector2(0, 0);
+        _featTable.anchorMax = new Vector2(1, 1);
+        _featTable.pivot = new Vector2(0f, 0f);
+        _featTable.position = new Vector3(0, 0, 0);
 
-        localInitialized = true;
+        _localInitialized = true;
     }
 
     private void InitFeatItem(BaseDefinition featDefinition, FeatItem component)
     {
         component.GuiFeatDefinition = ServiceRepository.GetService<IGuiWrapperService>()
             .GetGuiFeatDefinition(featDefinition.Name);
-        component.Bind(character, featDefinition, OnItemSelected, true);
-        component.GuiFeatDefinition.SetupTooltip(component.Tooltip, character);
+        component.Bind(_character, featDefinition, OnItemSelected, true);
+        component.GuiFeatDefinition.SetupTooltip(component.Tooltip, _character);
         // component.Tooltip.Context = inspectedCharacter;
         component.OnItemHoverChanged = null; //baseItem.OnItemHoverChanged;
 
-        component.StageTag = baseItem.StageTag;
-        component.PreviousStageTag = baseItem.PreviousStageTag;
-        component.CurrentPoolType = baseItem.CurrentPoolType;
+        component.StageTag = _baseItem.StageTag;
+        component.PreviousStageTag = _baseItem.PreviousStageTag;
+        component.CurrentPoolType = _baseItem.CurrentPoolType;
         component.gameObject.SetActive(true);
 
         UpdateFeatState(component);
 
-        component.Tooltip.Anchor = baseItem.Tooltip.Anchor;
-        component.Tooltip.AnchorMode = baseItem.Tooltip.AnchorMode;
+        component.Tooltip.Anchor = _baseItem.Tooltip.Anchor;
+        component.Tooltip.AnchorMode = _baseItem.Tooltip.AnchorMode;
 
         component.RectTransform.sizeDelta = new Vector2(FeatsContext.Width, FeatsContext.Height);
     }
@@ -344,17 +343,17 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
     private void OnItemSelected(ProficiencyBaseItem item)
     {
-        var handler = itemClickHandler;
+        var handler = _itemClickHandler;
 
-        itemClickHandler = null;
+        _itemClickHandler = null;
 
         if (item is FeatItem featItem
             && featItem.GuiFeatDefinition.FeatDefinition is { } feat
             && feat.GetFirstSubFeatureOfType<IGroupedFeat>() is { } group)
         {
-            var tmpCharacter = character;
-            var tmpAttachment = attachment;
-            var tmpItem = baseItem;
+            var tmpCharacter = _character;
+            var tmpAttachment = _attachment;
+            var tmpItem = _baseItem;
 
             Hide(true);
             Bind(tmpCharacter, tmpItem, feat, group, handler, tmpAttachment);
@@ -375,7 +374,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
     public override void OnBeginShow(bool instant = false)
     {
         base.OnBeginShow(instant);
-        animator.duration = ShowDuration;
+        _animator.duration = ShowDuration;
 
         if (Gui.GamepadActive)
         {
@@ -387,7 +386,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
     public override void OnBeginHide(bool instant = false)
     {
-        animator.duration = HideDuration;
+        _animator.duration = HideDuration;
         base.OnBeginHide(instant);
     }
 

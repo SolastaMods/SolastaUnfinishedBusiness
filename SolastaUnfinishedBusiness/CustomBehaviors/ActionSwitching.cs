@@ -607,11 +607,11 @@ public static class ActionSwitching
 
     private sealed class HordeBreaker : IOnTargetReducedToZeroHp
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public HordeBreaker(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -625,7 +625,7 @@ public static class ActionSwitching
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
             {
                 yield break;
             }
@@ -636,7 +636,7 @@ public static class ActionSwitching
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 RuleDefinitions.DurationType.Round,
                 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn,

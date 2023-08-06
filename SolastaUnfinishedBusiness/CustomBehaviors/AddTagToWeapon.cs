@@ -10,23 +10,23 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
  */
 public class AddTagToWeapon
 {
-    private readonly TagsDefinitions.Criticity criticity;
-    private readonly IsWeaponValidHandler isWeaponValid;
-    private readonly string tag;
-    private readonly IsCharacterValidHandler[] validators;
+    private readonly TagsDefinitions.Criticity _criticity;
+    private readonly IsWeaponValidHandler _isWeaponValid;
+    private readonly string _tag;
+    private readonly IsCharacterValidHandler[] _validators;
 
     internal AddTagToWeapon(string tag, TagsDefinitions.Criticity criticity,
         IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
     {
-        this.tag = tag;
-        this.criticity = criticity;
-        this.isWeaponValid = isWeaponValid;
-        this.validators = validators;
+        _tag = tag;
+        _criticity = criticity;
+        _isWeaponValid = isWeaponValid;
+        _validators = validators;
     }
 
     private bool IsValid(RulesetCharacter character, RulesetItem weapon)
     {
-        return character.IsValid(validators) && isWeaponValid(null, weapon, character);
+        return character.IsValid(_validators) && _isWeaponValid(null, weapon, character);
     }
 
     internal static void TryAddTags(RulesetCharacter character, RulesetItem item,
@@ -40,7 +40,7 @@ public class AddTagToWeapon
 
         foreach (var mod in mods.Where(mod => mod.IsValid(character, item)))
         {
-            tags.TryAdd(mod.tag, mod.criticity);
+            tags.TryAdd(mod._tag, mod._criticity);
         }
     }
 
@@ -71,7 +71,7 @@ public class AddTagToWeapon
         var tags = new List<string>(description.WeaponTags);
         foreach (var mod in mods.Where(mod => mod.IsValid(character, weapon)))
         {
-            tags.TryAdd(mod.tag);
+            tags.TryAdd(mod._tag);
         }
 
         return tags;

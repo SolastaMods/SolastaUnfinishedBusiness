@@ -23,15 +23,15 @@ internal static class ArrayExtensions
 
 internal sealed class ArrayTraverse
 {
-    private readonly int[] maxLengths;
+    private readonly int[] _maxLengths;
 
     internal ArrayTraverse([NotNull] Array array)
     {
-        maxLengths = new int[array.Rank];
+        _maxLengths = new int[array.Rank];
 
         for (var i = 0; i < array.Rank; ++i)
         {
-            maxLengths[i] = array.GetLength(i) - 1;
+            _maxLengths[i] = array.GetLength(i) - 1;
         }
 
         Position = new int[array.Rank];
@@ -43,7 +43,7 @@ internal sealed class ArrayTraverse
     {
         for (var i = 0; i < Position.Length; ++i)
         {
-            if (Position[i] >= maxLengths[i])
+            if (Position[i] >= _maxLengths[i])
             {
                 continue;
             }

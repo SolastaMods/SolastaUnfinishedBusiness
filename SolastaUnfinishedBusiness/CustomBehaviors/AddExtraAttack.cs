@@ -21,19 +21,19 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
     protected readonly ActionDefinitions.ActionType ActionType;
 
     // private readonly List<string> additionalTags = new();
-    private readonly IsCharacterValidHandler[] validators;
+    private readonly IsCharacterValidHandler[] _validators;
 
     protected AddExtraAttackBase(
         ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators)
     {
         ActionType = actionType;
-        this.validators = validators;
+        _validators = validators;
     }
 
     public void TryAddExtraAttack(RulesetCharacter character)
     {
-        if (!character.IsValid(validators))
+        if (!character.IsValid(_validators))
         {
             return;
         }
@@ -236,13 +236,13 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 
 internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
-    private readonly IsWeaponValidHandler weaponValidator;
+    private readonly IsWeaponValidHandler _weaponValidator;
 
     internal AddExtraRangedAttack(ActionDefinitions.ActionType actionType,
         IsWeaponValidHandler weaponValidator,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
-        this.weaponValidator = weaponValidator;
+        _weaponValidator = weaponValidator;
     }
 
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
@@ -267,7 +267,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
-        if (item == null || !weaponValidator.Invoke(null, item, hero))
+        if (item == null || !_weaponValidator.Invoke(null, item, hero))
         {
             return;
         }
@@ -452,11 +452,11 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
 internal sealed class AddBonusTorchAttack : AddExtraAttackBase
 {
-    private readonly FeatureDefinitionPower torchPower;
+    private readonly FeatureDefinitionPower _torchPower;
 
     internal AddBonusTorchAttack(FeatureDefinitionPower torchPower) : base(ActionDefinitions.ActionType.Bonus)
     {
-        this.torchPower = torchPower;
+        _torchPower = torchPower;
     }
 
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
@@ -504,7 +504,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         attackMode.AutomaticHit = true;
 
         attackMode.EffectDescription.Clear();
-        attackMode.EffectDescription.Copy(torchPower.EffectDescription);
+        attackMode.EffectDescription.Copy(_torchPower.EffectDescription);
 
         var proficiencyBonus = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
         var dexterity = hero.TryGetAttributeValue(AttributeDefinitions.Dexterity);

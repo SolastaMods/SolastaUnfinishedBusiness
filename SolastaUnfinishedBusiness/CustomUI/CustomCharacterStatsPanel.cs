@@ -6,47 +6,47 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CustomCharacterStatsPanel
 {
-    private readonly AbilityScoresListingPanel abilities;
-    private readonly AttackModesPanel attacks;
-    private readonly Button button;
+    private readonly AbilityScoresListingPanel _abilities;
+    private readonly AttackModesPanel _attacks;
+    private readonly Button _button;
 
-    private readonly Transform root;
-    private readonly CharacterStatsPanel stats;
-    private bool bound;
-    private RulesetCharacter character;
-    private GuiCharacter guiCharacter;
-    private bool visible;
+    private readonly Transform _root;
+    private readonly CharacterStatsPanel _stats;
+    private bool _bound;
+    private RulesetCharacter _character;
+    private GuiCharacter _guiCharacter;
+    private bool _visible;
 
     private CustomCharacterStatsPanel()
     {
-        root = new GameObject().transform;
+        _root = new GameObject().transform;
         var inspector = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
 
-        root.localPosition = new Vector3(225, 125, 0);
-        root.gameObject.SetActive(false);
+        _root.localPosition = new Vector3(225, 125, 0);
+        _root.gameObject.SetActive(false);
 
         // ReSharper disable once Unity.UnknownResource
         var prefab = Resources.Load<GameObject>("Gui/Prefabs/Component/SmallButtonRoundImage");
-        button = Object.Instantiate(prefab).GetComponent<Button>();
-        button.gameObject.SetActive(false);
-        button.transform.localPosition = new Vector3(50, 50, 0);
-        button.onClick.AddListener(() =>
+        _button = Object.Instantiate(prefab).GetComponent<Button>();
+        _button.gameObject.SetActive(false);
+        _button.transform.localPosition = new Vector3(50, 50, 0);
+        _button.onClick.AddListener(() =>
         {
-            if (!bound) { return; }
+            if (!_bound) { return; }
 
-            visible = !visible;
+            _visible = !_visible;
             UpdateVisibility();
         });
 
         #region Abilities
 
-        abilities = Object.Instantiate(inspector.abilityScoresListingPanelPrefab, root)
+        _abilities = Object.Instantiate(inspector.abilityScoresListingPanelPrefab, _root)
             .GetComponent<AbilityScoresListingPanel>();
-        abilities.transform.localPosition = new Vector3(0, 100, 0);
+        _abilities.transform.localPosition = new Vector3(0, 100, 0);
 
         for (var index = 0; index < AttributeDefinitions.AbilityScoreNames.Length; ++index)
         {
-            abilities.abilityScoreBoxes.Add(Gui.GetPrefabFromPool(abilities.boxPrefab, abilities.table)
+            _abilities.abilityScoreBoxes.Add(Gui.GetPrefabFromPool(_abilities.boxPrefab, _abilities.table)
                 .GetComponent<AbilityScoreBox>());
         }
 
@@ -54,17 +54,17 @@ public class CustomCharacterStatsPanel
 
         #region Stats
 
-        stats = Object.Instantiate(inspector.characterStatsPanelPrefab, root)
+        _stats = Object.Instantiate(inspector.characterStatsPanelPrefab, _root)
             .GetComponent<CharacterStatsPanel>();
-        stats.transform.localPosition = new Vector3(0, 0, 0);
+        _stats.transform.localPosition = new Vector3(0, 0, 0);
 
         #endregion
 
         #region Attacks
 
-        attacks = Gui.GetPrefabFromPool(inspector.attackModesPanelPrefab, root)
+        _attacks = Gui.GetPrefabFromPool(inspector.attackModesPanelPrefab, _root)
             .GetComponent<AttackModesPanel>();
-        attacks.transform.localPosition = new Vector3(275, 200, 0);
+        _attacks.transform.localPosition = new Vector3(275, 200, 0);
 
         #endregion
     }
@@ -74,7 +74,7 @@ public class CustomCharacterStatsPanel
 
     private void UpdateVisibility()
     {
-        root.gameObject.SetActive(visible);
+        _root.gameObject.SetActive(_visible);
     }
 
     private static GameLocationBaseScreen GetActiveScreen()
@@ -102,48 +102,48 @@ public class CustomCharacterStatsPanel
             return;
         }
 
-        character = target;
-        guiCharacter = new GuiCharacter(character);
+        _character = target;
+        _guiCharacter = new GuiCharacter(_character);
         var parent = screen.CharacterControlPanel.ActiveCharacterPanel.transform;
 
-        root.parent = parent;
-        button.transform.parent = parent;
-        button.gameObject.SetActive(true);
+        _root.parent = parent;
+        _button.transform.parent = parent;
+        _button.gameObject.SetActive(true);
 
         #region Abilities
 
         for (var index = 0; index < AttributeDefinitions.AbilityScoreNames.Length; ++index)
         {
-            var attribute = character.GetAttribute(AttributeDefinitions.AbilityScoreNames[index]);
-            abilities.abilityScoreBoxes[index].Bind(attribute, abilities.abilityScoreBoxes);
+            var attribute = _character.GetAttribute(AttributeDefinitions.AbilityScoreNames[index]);
+            _abilities.abilityScoreBoxes[index].Bind(attribute, _abilities.abilityScoreBoxes);
         }
 
         #endregion
 
         #region Stats
 
-        stats.guiCharacter = guiCharacter;
+        _stats.guiCharacter = _guiCharacter;
 
-        stats.initiativeBox.Bind(character.GetAttribute(AttributeDefinitions.Initiative), "+0;-#");
-        stats.initiativeBox.Activate(true);
+        _stats.initiativeBox.Bind(_character.GetAttribute(AttributeDefinitions.Initiative), "+0;-#");
+        _stats.initiativeBox.Activate(true);
 
-        character.TryGetAttribute(AttributeDefinitions.ProficiencyBonus, out var proficiencyBonus);
-        stats.proficiencyBox.Activate(proficiencyBonus != null);
-        if (stats.proficiencyBox.Activated)
+        _character.TryGetAttribute(AttributeDefinitions.ProficiencyBonus, out var proficiencyBonus);
+        _stats.proficiencyBox.Activate(proficiencyBonus != null);
+        if (_stats.proficiencyBox.Activated)
         {
-            stats.proficiencyBox.Bind(proficiencyBonus, "+0;-#");
+            _stats.proficiencyBox.Bind(proficiencyBonus, "+0;-#");
         }
 
-        stats.armorClassBox.Activate(proficiencyBonus != null);
-        stats.armorClassBox.gameObject.SetActive(false);
-        stats.hitDiceBox.Activate(proficiencyBonus != null);
-        stats.hitDiceBox.gameObject.SetActive(false);
-        stats.hitPointBox.Activate(proficiencyBonus != null);
-        stats.hitPointBox.gameObject.SetActive(false);
+        _stats.armorClassBox.Activate(proficiencyBonus != null);
+        _stats.armorClassBox.gameObject.SetActive(false);
+        _stats.hitDiceBox.Activate(proficiencyBonus != null);
+        _stats.hitDiceBox.gameObject.SetActive(false);
+        _stats.hitPointBox.Activate(proficiencyBonus != null);
+        _stats.hitPointBox.gameObject.SetActive(false);
 
         #endregion
 
-        bound = true;
+        _bound = true;
 
         Refresh();
         UpdateVisibility();
@@ -151,46 +151,46 @@ public class CustomCharacterStatsPanel
 
     public void Unbind()
     {
-        bound = false;
-        root.gameObject.SetActive(false);
-        button.gameObject.SetActive(false);
-        character = null;
-        guiCharacter = null;
+        _bound = false;
+        _root.gameObject.SetActive(false);
+        _button.gameObject.SetActive(false);
+        _character = null;
+        _guiCharacter = null;
 
         #region Abilities
 
-        abilities.Unbind();
+        _abilities.Unbind();
 
         #endregion
 
         #region Stats
 
-        stats.Unbind();
-        stats.initiativeBox.Unbind();
-        stats.moveBox.Unbind();
-        stats.proficiencyBox.Unbind();
+        _stats.Unbind();
+        _stats.initiativeBox.Unbind();
+        _stats.moveBox.Unbind();
+        _stats.proficiencyBox.Unbind();
 
         #endregion
 
         #region Attacks
 
-        attacks.Unbind();
+        _attacks.Unbind();
 
         #endregion
     }
 
     public void Refresh()
     {
-        if (!bound || character == null || guiCharacter == null)
+        if (!_bound || _character == null || _guiCharacter == null)
         {
             return;
         }
 
         #region Stats
 
-        stats.initiativeBox.Refresh();
-        stats.moveBox.ValueLabel.Text = guiCharacter.MovePoints;
-        stats.proficiencyBox.Refresh();
+        _stats.initiativeBox.Refresh();
+        _stats.moveBox.ValueLabel.Text = _guiCharacter.MovePoints;
+        _stats.proficiencyBox.Refresh();
 
         #endregion
 
@@ -198,22 +198,22 @@ public class CustomCharacterStatsPanel
 
         //refresh
 
-        attacks.relevantAttackModes.Clear();
-        attacks.relevantAttackModes.AddRange(character.AttackModes
+        _attacks.relevantAttackModes.Clear();
+        _attacks.relevantAttackModes.AddRange(_character.AttackModes
             .Where(m => m.ActionType is ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus));
 
-        while (attacks.attackModesTable.childCount < attacks.relevantAttackModes.Count)
+        while (_attacks.attackModesTable.childCount < _attacks.relevantAttackModes.Count)
         {
-            Gui.GetPrefabFromPool(attacks.attackModePrefab, attacks.attackModesTable);
+            Gui.GetPrefabFromPool(_attacks.attackModePrefab, _attacks.attackModesTable);
         }
 
-        for (var index = 0; index < attacks.attackModesTable.childCount; ++index)
+        for (var index = 0; index < _attacks.attackModesTable.childCount; ++index)
         {
-            var child = attacks.attackModesTable.GetChild(index);
-            if (index < attacks.relevantAttackModes.Count)
+            var child = _attacks.attackModesTable.GetChild(index);
+            if (index < _attacks.relevantAttackModes.Count)
             {
                 child.gameObject.SetActive(true);
-                child.GetComponent<AttackModeBox>().Bind(attacks.relevantAttackModes[index]);
+                child.GetComponent<AttackModeBox>().Bind(_attacks.relevantAttackModes[index]);
             }
             else
             {

@@ -15,11 +15,11 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
     internal static readonly IAttackAfterMagicEffect MeleeAttackCanTwin =
         new AttackAfterMagicEffect(2);
 
-    private readonly int maxAttacks;
+    private readonly int _maxAttacks;
 
     private AttackAfterMagicEffect(int maxAttacks)
     {
-        this.maxAttacks = maxAttacks;
+        _maxAttacks = maxAttacks;
         CanAttack = CanMeleeAttack;
         CanBeUsedToAttack = DefaultCanUseHandler;
         PerformAttackAfterUse = DefaultAttackHandler;
@@ -116,7 +116,7 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
             attacks.Add(attackActionParams);
-            if (attackActionParams.TargetCharacters.Count >= maxAttacks)
+            if (attackActionParams.TargetCharacters.Count >= _maxAttacks)
             {
                 break;
             }

@@ -352,11 +352,11 @@ internal static class RaceWyrmkinBuilder
 
     private class ReactToAttackOnMeReactiveRetribution : IPhysicalAttackFinishedOnMe
     {
-        private readonly FeatureDefinitionPower pool;
+        private readonly FeatureDefinitionPower _pool;
 
         public ReactToAttackOnMeReactiveRetribution(FeatureDefinitionPower powerHighWyrmkinSwiftRetribution)
         {
-            pool = powerHighWyrmkinSwiftRetribution;
+            _pool = powerHighWyrmkinSwiftRetribution;
         }
 
         public IEnumerator OnAttackFinishedOnMe(
@@ -388,7 +388,7 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            if (defender.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
+            if (defender.RulesetCharacter.GetRemainingPowerCharges(_pool) <= 0)
             {
                 yield break;
             }
@@ -431,7 +431,7 @@ internal static class RaceWyrmkinBuilder
 
             if (reactionParams.ReactionValidated)
             {
-                rulesetCharacter.UsePower(UsablePowersProvider.Get(pool, rulesetCharacter));
+                rulesetCharacter.UsePower(UsablePowersProvider.Get(_pool, rulesetCharacter));
             }
         }
     }

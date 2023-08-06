@@ -15,24 +15,24 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
     public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ =>
         ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
-    private readonly IsPowerUseValidHandler[] validators;
+    private readonly IsPowerUseValidHandler[] _validators;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal ValidatorsPowerUse(params IsCharacterValidHandler[] validators)
     {
-        this.validators = validators.Select(v => new IsPowerUseValidHandler((character, _) => v(character))).ToArray();
+        _validators = validators.Select(v => new IsPowerUseValidHandler((character, _) => v(character))).ToArray();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private ValidatorsPowerUse(params IsPowerUseValidHandler[] validators)
     {
-        this.validators = validators;
+        _validators = validators;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
-        return validators.All(v => v(character, power));
+        return _validators.All(v => v(character, power));
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

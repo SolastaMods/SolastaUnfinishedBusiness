@@ -6,18 +6,18 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 {
-    private readonly string className;
-    private readonly (int level, EffectDescription description)[] effects;
-    private readonly FeatureDefinitionPower power;
+    private readonly string _className;
+    private readonly (int level, EffectDescription description)[] _effects;
+    private readonly FeatureDefinitionPower _power;
 
     public ModifyEffectDescriptionOnLevels(
         string className,
         FeatureDefinitionPower power,
         params (int, EffectDescription)[] effects)
     {
-        this.className = className;
-        this.power = power;
-        this.effects = effects;
+        _className = className;
+        _power = power;
+        _effects = effects;
     }
 
     public bool IsValid(
@@ -27,7 +27,7 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
     {
         var level = GetLevel(character);
 
-        return definition == power && effects.Any(effect => level >= effect.level);
+        return definition == _power && _effects.Any(effect => level >= effect.level);
     }
 
     public EffectDescription GetEffectDescription(
@@ -38,7 +38,7 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
     {
         var level = GetLevel(character);
 
-        foreach (var (from, upgrade) in effects)
+        foreach (var (from, upgrade) in _effects)
         {
             if (level >= from)
             {
@@ -51,8 +51,8 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 
     private int GetLevel(RulesetCharacter character)
     {
-        return string.IsNullOrEmpty(className)
+        return string.IsNullOrEmpty(_className)
             ? character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)
-            : character.GetClassLevel(className);
+            : character.GetClassLevel(_className);
     }
 }

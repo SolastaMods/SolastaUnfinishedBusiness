@@ -902,11 +902,11 @@ internal static class GambitsBuilders
 
     private sealed class SpendPowerPhysicalAttackAfterPhysicalAttack : IPhysicalAttackAfterDamage
     {
-        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinitionPower _power;
 
         public SpendPowerPhysicalAttackAfterPhysicalAttack(FeatureDefinitionPower power)
         {
-            this.power = power;
+            _power = power;
         }
 
         public void OnPhysicalAttackAfterDamage(
@@ -924,21 +924,21 @@ internal static class GambitsBuilders
 
             var character = attacker.RulesetCharacter;
 
-            character?.UsePower(UsablePowersProvider.Get(power, character));
+            character?.UsePower(UsablePowersProvider.Get(_power, character));
         }
     }
 
     private sealed class Retaliate : IPhysicalAttackFinishedOnMe
     {
-        private readonly ConditionDefinition condition;
-        private readonly bool melee;
-        private readonly FeatureDefinitionPower pool;
+        private readonly ConditionDefinition _condition;
+        private readonly bool _melee;
+        private readonly FeatureDefinitionPower _pool;
 
         public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
         {
-            this.condition = condition;
-            this.melee = melee;
-            this.pool = pool;
+            _condition = condition;
+            _melee = melee;
+            _pool = pool;
         }
 
         public IEnumerator OnAttackFinishedOnMe(
@@ -970,7 +970,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (defender.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
+            if (defender.RulesetCharacter.GetRemainingPowerCharges(_pool) <= 0)
             {
                 yield break;
             }
@@ -983,12 +983,12 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!melee && battle.IsWithin1Cell(defender, attacker))
+            if (!_melee && battle.IsWithin1Cell(defender, attacker))
             {
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = melee
+            var (retaliationMode, retaliationModifier) = _melee
                 ? defender.GetFirstMeleeModeThatCanAttack(attacker)
                 : defender.GetFirstRangedModeThatCanAttack(attacker);
 
@@ -1009,7 +1009,7 @@ internal static class GambitsBuilders
             var rulesetCharacter = defender.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -1023,10 +1023,10 @@ internal static class GambitsBuilders
                 0);
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var tag = melee ? "GambitRiposte" : "GambitReturnFire";
+            var tag = _melee ? "GambitRiposte" : "GambitReturnFire";
             var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
             {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+                Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon)
             };
 
             manager.AddInterruptRequest(reactionRequest);
@@ -1036,11 +1036,11 @@ internal static class GambitsBuilders
             //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
             if (reactionParams.ReactionValidated)
             {
-                rulesetCharacter.UsePower(UsablePowersProvider.Get(pool, rulesetCharacter));
+                rulesetCharacter.UsePower(UsablePowersProvider.Get(_pool, rulesetCharacter));
             }
 
             var rulesetCondition =
-                rulesetCharacter.AllConditions.FirstOrDefault(x => x.ConditionDefinition == condition);
+                rulesetCharacter.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _condition);
 
             if (rulesetCondition != null)
             {
@@ -1051,12 +1051,12 @@ internal static class GambitsBuilders
 
     private sealed class ApplyConditionDependingOnSide : ICustomConditionFeature
     {
-        private readonly ConditionDefinition good, bad;
+        private readonly ConditionDefinition _good, _bad;
 
         public ApplyConditionDependingOnSide(ConditionDefinition good, ConditionDefinition bad)
         {
-            this.good = good;
-            this.bad = bad;
+            _good = good;
+            _bad = bad;
         }
 
         public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -1068,7 +1068,7 @@ internal static class GambitsBuilders
                 return;
             }
 
-            var condition = caster.IsOppositeSide(target.Side) ? bad : good;
+            var condition = caster.IsOppositeSide(target.Side) ? _bad : _good;
 
             target.InflictCondition(
                 condition.Name,
@@ -1091,13 +1091,13 @@ internal static class GambitsBuilders
 
     private sealed class Brace : CanMakeAoOOnReachEntered
     {
-        private readonly ConditionDefinition condition;
-        private readonly FeatureDefinitionPower pool;
+        private readonly ConditionDefinition _condition;
+        private readonly FeatureDefinitionPower _pool;
 
         public Brace(FeatureDefinitionPower pool, ConditionDefinition condition)
         {
-            this.pool = pool;
-            this.condition = condition;
+            _pool = pool;
+            _condition = condition;
             ValidateAttacker = character => character.GetRemainingPowerCharges(pool) > 0;
             BeforeReaction = AddCondition;
             AfterReaction = RemoveCondition;
@@ -1109,7 +1109,7 @@ internal static class GambitsBuilders
             var rulesetCharacter = attacker.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -1133,10 +1133,10 @@ internal static class GambitsBuilders
             //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
             if (reactionParams.ReactionValidated)
             {
-                character.UsePower(UsablePowersProvider.Get(pool, character));
+                character.UsePower(UsablePowersProvider.Get(_pool, character));
             }
 
-            character.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, condition.Name);
+            character.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, _condition.Name);
 
             yield break;
         }
@@ -1149,7 +1149,7 @@ internal static class GambitsBuilders
                 ActionDefinitions.Id.AttackOpportunity,
                 attackMode,
                 defender,
-                attackModifier)) { Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon) };
+                attackModifier)) { Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon) };
         }
     }
 
@@ -1157,13 +1157,13 @@ internal static class GambitsBuilders
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower pool;
+        private readonly FeatureDefinition _feature;
+        private readonly FeatureDefinitionPower _pool;
 
         public Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
         {
-            this.pool = pool;
-            this.feature = feature;
+            _pool = pool;
+            _feature = feature;
         }
 
         public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
@@ -1178,7 +1178,7 @@ internal static class GambitsBuilders
 
             var character = me.RulesetCharacter;
 
-            if (character.GetRemainingPowerCharges(pool) <= 0)
+            if (character.GetRemainingPowerCharges(_pool) <= 0)
             {
                 yield break;
             }
@@ -1205,7 +1205,7 @@ internal static class GambitsBuilders
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
             {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+                Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon)
             };
 
             manager.AddInterruptRequest(reactionRequest);
@@ -1217,13 +1217,13 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            character.UpdateUsageForPower(pool, 1);
+            character.UpdateUsageForPower(_pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             var hitTrends = attackModifier.AttacktoHitTrends;
 
-            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
+            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, _pool.Name, null)
             {
                 dieType = dieType, dieFlag = TrendInfoDieFlag.None
             });
@@ -1239,13 +1239,13 @@ internal static class GambitsBuilders
             }
 
             character.ShowDieRoll(dieType, dieRoll,
-                title: feature.GuiPresentation.Title,
+                title: _feature.GuiPresentation.Title,
                 outcome: success ? RollOutcome.Success : RollOutcome.Failure,
                 displayOutcome: true
             );
 
 
-            character.LogCharacterUsedFeature(feature, Line,
+            character.LogCharacterUsedFeature(_feature, Line,
                 extra: new[]
                 {
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
@@ -1258,13 +1258,13 @@ internal static class GambitsBuilders
     {
         private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower pool;
+        private readonly FeatureDefinition _feature;
+        private readonly FeatureDefinitionPower _pool;
 
         public Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
         {
-            this.pool = pool;
-            this.feature = feature;
+            _pool = pool;
+            _feature = feature;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
@@ -1302,7 +1302,7 @@ internal static class GambitsBuilders
             var character = me.RulesetCharacter;
 
 
-            if (character.GetRemainingPowerCharges(pool) <= 0)
+            if (character.GetRemainingPowerCharges(_pool) <= 0)
             {
                 yield break;
             }
@@ -1322,7 +1322,7 @@ internal static class GambitsBuilders
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
             {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+                Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon)
             };
 
             manager.AddInterruptRequest(reactionRequest);
@@ -1334,7 +1334,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            character.UpdateUsageForPower(pool, 1);
+            character.UpdateUsageForPower(_pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1344,10 +1344,10 @@ internal static class GambitsBuilders
             attackModifier.damageRollReduction += reduction;
 
             character.ShowDieRoll(dieType, dieRoll,
-                title: feature.GuiPresentation.Title,
+                title: _feature.GuiPresentation.Title,
                 displayModifier: true, modifier: pb);
 
-            character.LogCharacterUsedFeature(feature, Line,
+            character.LogCharacterUsedFeature(_feature, Line,
                 extra: new[]
                 {
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

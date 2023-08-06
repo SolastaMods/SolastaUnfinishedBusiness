@@ -286,11 +286,11 @@ internal static class RaceTieflingBuilder
 
     private sealed class CheckTieflingFeralFlying : IOnItemEquipped
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public CheckTieflingFeralFlying(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public void OnItemEquipped(RulesetCharacterHero hero)
@@ -301,7 +301,7 @@ internal static class RaceTieflingBuilder
             }
 
             var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == condition);
+                .FirstOrDefault(x => x.ConditionDefinition == _condition);
 
             if (rulesetCondition != null)
             {

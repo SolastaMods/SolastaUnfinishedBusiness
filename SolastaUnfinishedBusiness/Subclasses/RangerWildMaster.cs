@@ -662,13 +662,13 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
     private class ApplyOnTurnEnd : ICharacterTurnEndListener
     {
-        private readonly ConditionDefinition condition;
-        private readonly FeatureDefinitionPower power;
+        private readonly ConditionDefinition _condition;
+        private readonly FeatureDefinitionPower _power;
 
         public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
         {
-            this.condition = condition;
-            this.power = power;
+            _condition = condition;
+            _power = power;
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter gameLocationCharacter)
@@ -682,9 +682,9 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            rulesetCharacter.LogCharacterUsedPower(power);
+            rulesetCharacter.LogCharacterUsedPower(_power);
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,

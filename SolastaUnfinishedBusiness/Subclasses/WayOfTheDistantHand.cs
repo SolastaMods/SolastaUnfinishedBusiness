@@ -443,11 +443,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private sealed class UpgradeFlurry : IActionFinishedByMe
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public UpgradeFlurry(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
@@ -460,7 +460,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,

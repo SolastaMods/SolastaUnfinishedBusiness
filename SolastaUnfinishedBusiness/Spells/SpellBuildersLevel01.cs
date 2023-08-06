@@ -1025,13 +1025,13 @@ internal static partial class SpellBuilders
 
     private sealed class ConditionUsesPowerOnTarget : ICustomConditionFeature
     {
-        private readonly FeatureDefinitionPower power;
-        private readonly bool removeCondition;
+        private readonly FeatureDefinitionPower _power;
+        private readonly bool _removeCondition;
 
         public ConditionUsesPowerOnTarget(FeatureDefinitionPower power, bool removeCondition = true)
         {
-            this.power = power;
-            this.removeCondition = removeCondition;
+            _power = power;
+            _removeCondition = removeCondition;
         }
 
         public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -1044,14 +1044,14 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
 
             effectPower.ApplyEffectOnCharacter(target, true, defender.LocationPosition);
 
-            if (removeCondition)
+            if (_removeCondition)
             {
                 target.RemoveCondition(rulesetCondition);
             }

@@ -20,7 +20,7 @@ internal static class PowerBundleContext
 
     private sealed class FunctorUseCustomRestPower : Functor
     {
-        private bool powerUsed;
+        private bool _powerUsed;
 
         public override IEnumerator Execute(
             [NotNull] FunctorParametersDescription functorParameters,
@@ -53,7 +53,7 @@ internal static class PowerBundleContext
 
                 if (fromActor != null)
                 {
-                    functor.powerUsed = false;
+                    functor._powerUsed = false;
                     ServiceRepository.GetService<IGameLocationActionService>();
 
                     var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
@@ -68,7 +68,7 @@ internal static class PowerBundleContext
                     ServiceRepository.GetService<ICommandService>()
                         .ExecuteAction(actionParams, functor.ActionExecuted, false);
 
-                    while (!functor.powerUsed)
+                    while (!functor._powerUsed)
                     {
                         yield return null;
                     }
@@ -95,7 +95,7 @@ internal static class PowerBundleContext
 
         private void ActionExecuted(CharacterAction action)
         {
-            powerUsed = true;
+            _powerUsed = true;
         }
     }
 }

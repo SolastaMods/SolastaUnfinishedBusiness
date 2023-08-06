@@ -12,13 +12,13 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal class PowerPoolDevice
 {
     private static readonly Dictionary<RulesetCharacter, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
-    private readonly ItemDefinition baseItem;
+    private readonly ItemDefinition _baseItem;
 
     internal PowerPoolDevice(
         ItemDefinition baseItem,
         FeatureDefinitionPower pool)
     {
-        this.baseItem = baseItem;
+        _baseItem = baseItem;
 
         var powers = baseItem.UsableDeviceDescription.deviceFunctions
             .Select(d => d.FeatureDefinitionPower)
@@ -42,7 +42,7 @@ internal class PowerPoolDevice
     internal static PowerPoolDevice GetFromRulesetItem(RulesetCharacter hero, RulesetItemDevice device)
     {
         return hero.GetSubFeaturesByType<PowerPoolDevice>()
-            .FirstOrDefault(p => p.baseItem.Name == device.ItemDefinition.Name);
+            .FirstOrDefault(p => p._baseItem.Name == device.ItemDefinition.Name);
     }
 
     internal RulesetItemDevice GetDevice(RulesetCharacter hero)
@@ -53,22 +53,22 @@ internal class PowerPoolDevice
             DeviceCache.Add(hero, devices);
         }
 
-        if (!devices.TryGetValue(baseItem.Name, out var device))
+        if (!devices.TryGetValue(_baseItem.Name, out var device))
         {
             var item = ServiceRepository
                 .GetService<IRulesetItemFactoryService>()
-                .CreateStandardItem(baseItem, false);
+                .CreateStandardItem(_baseItem, false);
 
             device = item as RulesetItemDevice;
 
             if (device == null)
             {
-                throw new ArgumentException($"Can't create RulesetItemDevice from '{baseItem.Name}'!");
+                throw new ArgumentException($"Can't create RulesetItemDevice from '{_baseItem.Name}'!");
             }
 
             //mark fake device item as unidentified, so that if base item marked as need identification, it wont list all functions in the tooltip
             device.Identified = false;
-            devices.Add(baseItem.Name, device);
+            devices.Add(_baseItem.Name, device);
         }
 
         //Update charges based on current state of the pool

@@ -7,18 +7,18 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class AddPBToSummonCheck
 {
-    private readonly string[] abilities;
-    private readonly int multiplier;
+    private readonly string[] _abilities;
+    private readonly int _multiplier;
 
     public AddPBToSummonCheck(int multiplier, params string[] abilities)
     {
-        this.multiplier = multiplier;
-        this.abilities = abilities;
+        _multiplier = multiplier;
+        _abilities = abilities;
     }
 
     private int Modifier(string ability)
     {
-        return abilities.Contains(ability) ? multiplier : 0;
+        return _abilities.Contains(ability) ? _multiplier : 0;
     }
 
     public static void ModifyCheckBonus<T>(

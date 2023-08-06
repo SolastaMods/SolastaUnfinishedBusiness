@@ -231,11 +231,11 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
     private sealed class CheckConditionValidity : IOnItemEquipped
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public CheckConditionValidity(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public void OnItemEquipped(RulesetCharacterHero hero)
@@ -246,7 +246,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             }
 
             var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == condition);
+                .FirstOrDefault(x => x.ConditionDefinition == _condition);
 
             if (rulesetCondition != null)
             {

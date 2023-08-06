@@ -9,7 +9,7 @@ using static RuleDefinitions;
 public class CharacterActionWithdraw : CharacterAction
 #pragma warning restore CA1050
 {
-    private bool wasAlreadyDisengaging;
+    private bool _wasAlreadyDisengaging;
 
     public CharacterActionWithdraw(CharacterActionParams actionParams) : base(actionParams)
     {
@@ -19,9 +19,9 @@ public class CharacterActionWithdraw : CharacterAction
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
-        wasAlreadyDisengaging = rulesetCharacter.HasConditionOfType(ConditionDisengaging);
+        _wasAlreadyDisengaging = rulesetCharacter.HasConditionOfType(ConditionDisengaging);
 
-        if (!wasAlreadyDisengaging)
+        if (!_wasAlreadyDisengaging)
         {
             rulesetCharacter.InflictCondition(
                 ConditionDisengaging,
@@ -58,7 +58,7 @@ public class CharacterActionWithdraw : CharacterAction
         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
             "ConditionRogueCunningStrikeWithdraw");
 
-        if (!wasAlreadyDisengaging)
+        if (!_wasAlreadyDisengaging)
         {
             rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, ConditionDisengaging);
         }

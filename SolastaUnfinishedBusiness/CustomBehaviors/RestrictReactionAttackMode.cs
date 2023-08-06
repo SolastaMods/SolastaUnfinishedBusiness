@@ -9,11 +9,11 @@ internal sealed class RestrictReactionAttackMode : IRestrictReactionAttackMode
     internal static (CharacterAction, GameLocationCharacter, GameLocationCharacter, RulesetAttackMode, RulesetEffect)
         ReactionContext = (null, null, null, null, null);
 
-    private readonly ValidReactionModeHandler[] validators;
+    private readonly ValidReactionModeHandler[] _validators;
 
     internal RestrictReactionAttackMode(params ValidReactionModeHandler[] validators)
     {
-        this.validators = validators;
+        _validators = validators;
     }
 
     public bool ValidReactionMode(
@@ -23,7 +23,7 @@ internal sealed class RestrictReactionAttackMode : IRestrictReactionAttackMode
         RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect)
     {
-        return validators.All(v => v(action, attacker, defender, attackMode, rulesetEffect));
+        return _validators.All(v => v(action, attacker, defender, attackMode, rulesetEffect));
     }
 
 #if false

@@ -7,33 +7,33 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal class EffectDescriptionBuilder
 {
-    private readonly EffectDescription effect;
+    private readonly EffectDescription _effect;
 
     private EffectDescriptionBuilder()
     {
-        effect = new EffectDescription
+        _effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
             effectParticleParameters = new EffectParticleParameters(),
             // there are many places in code where we use GLC.RSC and is null when aiming gadgets
             targetFilteringMethod = TargetFilteringMethod.CharacterOnly
         };
-        effect.effectParticleParameters.Copy(MagicWeapon.EffectDescription.EffectParticleParameters);
+        _effect.effectParticleParameters.Copy(MagicWeapon.EffectDescription.EffectParticleParameters);
     }
 
     private EffectDescriptionBuilder(EffectDescription effect)
     {
-        this.effect = new EffectDescription
+        _effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
             effectParticleParameters = new EffectParticleParameters()
         };
-        this.effect.Copy(effect);
+        _effect.Copy(effect);
     }
 
     internal EffectDescription Build()
     {
-        return effect;
+        return _effect;
     }
 
     internal static EffectDescriptionBuilder Create()
@@ -53,31 +53,31 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder ClearEffectAdvancements()
     {
-        effect.effectAdvancement.Clear();
+        _effect.effectAdvancement.Clear();
         return this;
     }
 
     internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
     {
-        effect.RestrictedCreatureFamilies.Clear();
+        _effect.RestrictedCreatureFamilies.Clear();
         return this;
     }
 
     internal EffectDescriptionBuilder RollSaveOnlyIfRelevantForms()
     {
-        effect.RollSaveOnlyIfRelevantForms = true;
+        _effect.RollSaveOnlyIfRelevantForms = true;
         return this;
     }
 
     internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params string[] values)
     {
-        effect.RestrictedCreatureFamilies.SetRange(values);
+        _effect.RestrictedCreatureFamilies.SetRange(values);
         return this;
     }
 
     internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
     {
-        effect.canBePlacedOnCharacter = value;
+        _effect.canBePlacedOnCharacter = value;
         return this;
     }
 
@@ -88,14 +88,14 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters parameters)
     {
-        effect.effectParticleParameters.Copy(parameters);
+        _effect.effectParticleParameters.Copy(parameters);
         return this;
     }
 
     internal EffectDescriptionBuilder UseQuickAnimations()
     {
-        effect.speedParameter = -1;
-        var particles = effect.effectParticleParameters;
+        _effect.speedParameter = -1;
+        var particles = _effect.effectParticleParameters;
         if (particles.casterQuickSpellParticleReference == null
             || !particles.casterQuickSpellParticleReference.IsValid())
         {
@@ -107,13 +107,13 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetNoSavingThrow()
     {
-        effect.hasSavingThrow = false;
+        _effect.hasSavingThrow = false;
         return this;
     }
 
     internal EffectDescriptionBuilder InviteOptionalAlly()
     {
-        effect.inviteOptionalAlly = true;
+        _effect.inviteOptionalAlly = true;
         return this;
     }
 
@@ -130,7 +130,7 @@ internal class EffectDescriptionBuilder
         int additionalItemBonus = 0,
         AdvancementDuration alteredDuration = AdvancementDuration.None)
     {
-        effect.effectAdvancement = new EffectAdvancement
+        _effect.effectAdvancement = new EffectAdvancement
         {
             effectIncrementMethod = effectIncrementMethod,
             incrementMultiplier = incrementMultiplier,
@@ -150,8 +150,8 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder AllowRetarget(
         ActionDefinitions.ActionType action = ActionDefinitions.ActionType.Bonus)
     {
-        effect.retargetAfterDeath = true;
-        effect.retargetActionType = action;
+        _effect.retargetAfterDeath = true;
+        _effect.retargetActionType = action;
         return this;
     }
 
@@ -164,19 +164,19 @@ internal class EffectDescriptionBuilder
         int targetParameter2 = 2,
         ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
     {
-        effect.targetSide = targetSide;
-        effect.rangeType = rangeType;
-        effect.rangeParameter = rangeParameter;
-        effect.targetType = targetType;
-        effect.targetParameter = targetParameter;
-        effect.targetParameter2 = targetParameter2;
-        effect.itemSelectionType = itemSelectionType;
+        _effect.targetSide = targetSide;
+        _effect.rangeType = rangeType;
+        _effect.rangeParameter = rangeParameter;
+        _effect.targetType = targetType;
+        _effect.targetParameter = targetParameter;
+        _effect.targetParameter2 = targetParameter2;
+        _effect.itemSelectionType = itemSelectionType;
         return this;
     }
 
     internal EffectDescriptionBuilder ExcludeCaster()
     {
-        effect.targetExcludeCaster = true;
+        _effect.targetExcludeCaster = true;
         return this;
     }
 
@@ -184,8 +184,8 @@ internal class EffectDescriptionBuilder
         bool requiresTargetProximity,
         int targetProximityDistance)
     {
-        effect.requiresTargetProximity = requiresTargetProximity;
-        effect.targetProximityDistance = targetProximityDistance;
+        _effect.requiresTargetProximity = requiresTargetProximity;
+        _effect.targetProximityDistance = targetProximityDistance;
         return this;
     }
 
@@ -196,23 +196,23 @@ internal class EffectDescriptionBuilder
         DieType poolFilterDieType = DieType.D1
     )
     {
-        effect.targetFilteringMethod = targetFilteringMethod;
-        effect.targetFilteringTag = targetFilteringTag;
-        effect.poolFilterDiceNumber = poolFilterDiceNumber;
-        effect.poolFilterDieType = poolFilterDieType;
+        _effect.targetFilteringMethod = targetFilteringMethod;
+        _effect.targetFilteringTag = targetFilteringTag;
+        _effect.poolFilterDiceNumber = poolFilterDiceNumber;
+        _effect.poolFilterDieType = poolFilterDieType;
         return this;
     }
 
     internal EffectDescriptionBuilder SetRecurrentEffect(RecurrentEffect recurrentEffect)
     {
-        effect.recurrentEffect = recurrentEffect;
+        _effect.recurrentEffect = recurrentEffect;
         return this;
     }
 
     internal EffectDescriptionBuilder SetRequiredCondition(ConditionDefinition targetConditionAsset)
     {
-        effect.targetConditionAsset = targetConditionAsset;
-        effect.targetConditionName = targetConditionAsset.Name;
+        _effect.targetConditionAsset = targetConditionAsset;
+        _effect.targetConditionName = targetConditionAsset.Name;
         return this;
     }
 
@@ -224,15 +224,15 @@ internal class EffectDescriptionBuilder
         // ReSharper disable once InvocationIsSkipped
         // PreConditions.IsValidDuration(durationType, durationParameter);
 
-        effect.durationParameter = durationParameter;
-        effect.durationType = durationType;
-        effect.endOfEffect = endOfEffect;
+        _effect.durationParameter = durationParameter;
+        _effect.durationType = durationType;
+        _effect.endOfEffect = endOfEffect;
         return this;
     }
 
     internal EffectDescriptionBuilder SetIgnoreCover()
     {
-        effect.ignoreCover = true;
+        _effect.ignoreCover = true;
         return this;
     }
 
@@ -246,21 +246,21 @@ internal class EffectDescriptionBuilder
         bool advantageForEnemies = false,
         params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
     {
-        effect.hasSavingThrow = true;
-        effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;
-        effect.savingThrowAbility = savingThrowAbility;
-        effect.ignoreCover = ignoreCover;
-        effect.difficultyClassComputation = difficultyClassComputation;
-        effect.savingThrowDifficultyAbility = savingThrowDifficultyAbility;
-        effect.fixedSavingThrowDifficultyClass = fixedSavingThrowDifficultyClass;
-        effect.advantageForEnemies = advantageForEnemies;
-        effect.savingThrowAffinitiesBySense.SetRange(savingThrowAffinitiesBySense);
+        _effect.hasSavingThrow = true;
+        _effect.disableSavingThrowOnAllies = disableSavingThrowOnAllies;
+        _effect.savingThrowAbility = savingThrowAbility;
+        _effect.ignoreCover = ignoreCover;
+        _effect.difficultyClassComputation = difficultyClassComputation;
+        _effect.savingThrowDifficultyAbility = savingThrowDifficultyAbility;
+        _effect.fixedSavingThrowDifficultyClass = fixedSavingThrowDifficultyClass;
+        _effect.advantageForEnemies = advantageForEnemies;
+        _effect.savingThrowAffinitiesBySense.SetRange(savingThrowAffinitiesBySense);
         return this;
     }
 
     internal EffectDescriptionBuilder AddImmuneCreatureFamilies(params CharacterFamilyDefinition[] families)
     {
-        effect.ImmuneCreatureFamilies.AddRange(families.Select(f => f.Name));
+        _effect.ImmuneCreatureFamilies.AddRange(families.Select(f => f.Name));
         return this;
     }
 
@@ -280,26 +280,26 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
     {
-        effect.speedType = speedType;
-        effect.speedParameter = speedParameter;
+        _effect.speedType = speedType;
+        _effect.speedParameter = speedParameter;
         return this;
     }
 
     internal EffectDescriptionBuilder SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect value)
     {
-        effect.animationMagicEffect = value;
+        _effect.animationMagicEffect = value;
         return this;
     }
 
     internal EffectDescriptionBuilder SetEffectForms(params EffectForm[] effectForms)
     {
-        effect.EffectForms.SetRange(effectForms);
+        _effect.EffectForms.SetRange(effectForms);
         return this;
     }
 
     internal EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
     {
-        effect.EffectForms.AddRange(effectForms);
+        _effect.EffectForms.AddRange(effectForms);
         return this;
     }
 
@@ -308,9 +308,9 @@ internal class EffectDescriptionBuilder
         float offsetImpactTimeBasedOnDistanceFactor = 0.1f,
         float offsetImpactTimePerTarget = 0.0f)
     {
-        effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
-        effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
-        effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
+        _effect.offsetImpactTimeBasedOnDistance = offsetImpactTimeBasedOnDistance;
+        _effect.offsetImpactTimeBasedOnDistanceFactor = offsetImpactTimeBasedOnDistanceFactor;
+        _effect.offsetImpactTimePerTarget = offsetImpactTimePerTarget;
         return this;
     }
 }

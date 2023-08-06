@@ -90,11 +90,11 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
     private sealed class SpellFighting : IOnTargetReducedToZeroHp
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public SpellFighting(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -108,7 +108,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
             {
                 yield break;
             }
@@ -120,7 +120,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,

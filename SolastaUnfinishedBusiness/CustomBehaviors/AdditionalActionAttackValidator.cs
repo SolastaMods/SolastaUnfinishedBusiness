@@ -22,16 +22,16 @@ internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidato
     internal static readonly IAdditionalActionAttackValidator Shield =
         new AdditionalActionAttackValidator(ValidatorsWeapon.IsShield);
 
-    private readonly IsWeaponValidHandler validator;
+    private readonly IsWeaponValidHandler _validator;
 
     private AdditionalActionAttackValidator(IsWeaponValidHandler validator)
     {
-        this.validator = validator;
+        _validator = validator;
     }
 
     public bool ValidateAttackMode(RulesetCharacter character, RulesetAttackMode mode)
     {
-        return validator == null || validator(mode, null, character);
+        return _validator == null || _validator(mode, null, character);
     }
 
     internal static void ValidateAttackModes(RulesetCharacter character)

@@ -19,12 +19,12 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private const float ScrollDuration = 0.3f;
     private const float SpellsByLevelMargin = 10.0f;
 
-    private readonly List<FeaturePool> allPools = new();
-    private readonly List<(string, FeatureDefinitionCustomInvocationPool)> gainedCustomFeatures = new();
+    private readonly List<FeaturePool> _allPools = new();
+    private readonly List<(string, FeatureDefinitionCustomInvocationPool)> _gainedCustomFeatures = new();
 
-    private readonly Dictionary<PoolId, List<InvocationDefinitionCustom>> learnedInvocations = new();
+    private readonly Dictionary<PoolId, List<InvocationDefinitionCustom>> _learnedInvocations = new();
 
-    private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
+    private readonly Comparison<FeaturePool> _poolCompare = (a, b) =>
     {
         var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
 
@@ -46,26 +46,26 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         return 1;
     };
 
-    private int currentLearnStep;
-    private int gainedCharacterLevel;
-    private CharacterClassDefinition gainedClass;
-    private int gainedClassLevel;
-    private CharacterSubclassDefinition gainedSubclass;
-    private bool wasClicked;
+    private int _currentLearnStep;
+    private int _gainedCharacterLevel;
+    private CharacterClassDefinition _gainedClass;
+    private int _gainedClassLevel;
+    private CharacterSubclassDefinition _gainedSubclass;
+    private bool _wasClicked;
 
-    private bool IsFinalStep => currentLearnStep >= allPools.Count;
+    private bool IsFinalStep => _currentLearnStep >= _allPools.Count;
 
     private void OnFeatureSelected(SpellBox spellBox)
     {
-        if (wasClicked)
+        if (_wasClicked)
         {
             return;
         }
 
-        wasClicked = true;
+        _wasClicked = true;
 
         var feature = spellBox.GetFeature();
-        var pool = allPools[currentLearnStep];
+        var pool = _allPools[_currentLearnStep];
         var learned = GetOrMakeLearnedList(pool.Id);
 
         if (learned.Contains(feature))
@@ -126,26 +126,26 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private void BuildLearnSteps()
     {
         // Register all steps
-        if (allPools is not { Count: > 0 })
+        if (_allPools is not { Count: > 0 })
         {
             return;
         }
 
-        while (learnStepsTable.childCount < allPools.Count)
+        while (_learnStepsTable.childCount < _allPools.Count)
         {
-            Gui.GetPrefabFromPool(learnStepPrefab, learnStepsTable);
+            Gui.GetPrefabFromPool(_learnStepPrefab, _learnStepsTable);
         }
 
-        for (var i = 0; i < learnStepsTable.childCount; i++)
+        for (var i = 0; i < _learnStepsTable.childCount; i++)
         {
-            var child = learnStepsTable.GetChild(i);
+            var child = _learnStepsTable.GetChild(i);
 
-            if (i < allPools.Count)
+            if (i < _allPools.Count)
             {
                 var learnStepItem = child.GetComponent<LearnStepItem>();
 
                 child.gameObject.SetActive(true);
-                learnStepItem.CustomBind(i, allPools[i],
+                learnStepItem.CustomBind(i, _allPools[i],
                     OnLearnBack,
                     OnLearnReset,
                     OnSkipRemaining
@@ -161,31 +161,31 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void OnLearnBack()
     {
-        if (wasClicked)
+        if (_wasClicked)
         {
             return;
         }
 
-        wasClicked = true;
+        _wasClicked = true;
 
         MoveToPreviousLearnStep();
     }
 
     private void OnLearnReset()
     {
-        if (wasClicked)
+        if (_wasClicked)
         {
             return;
         }
 
-        wasClicked = true;
+        _wasClicked = true;
 
         if (IsFinalStep)
         {
-            currentLearnStep = allPools.Count - 1;
+            _currentLearnStep = _allPools.Count - 1;
         }
 
-        ResetLearnings(currentLearnStep, () =>
+        ResetLearnings(_currentLearnStep, () =>
         {
             OnPreRefresh();
             RefreshNow();
@@ -195,16 +195,16 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void OnSkipRemaining()
     {
-        if (wasClicked)
+        if (_wasClicked)
         {
             return;
         }
 
-        wasClicked = true;
+        _wasClicked = true;
 
-        if (IsUnlearnStep(currentLearnStep))
+        if (IsUnlearnStep(_currentLearnStep))
         {
-            allPools[currentLearnStep].Skipped = true;
+            _allPools[_currentLearnStep].Skipped = true;
             MoveToNextLearnStep();
         }
 
@@ -213,7 +213,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void ResetLearnings(int stepNumber, Action onDone = null)
     {
-        var pool = allPools[stepNumber];
+        var pool = _allPools[stepNumber];
 
         pool.Used = 0;
         pool.Skipped = false;
@@ -225,11 +225,11 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void MoveToNextLearnStep()
     {
-        currentLearnStep++;
+        _currentLearnStep++;
 
-        while (!IsFinalStep && allPools[currentLearnStep].Remaining == 0)
+        while (!IsFinalStep && _allPools[_currentLearnStep].Remaining == 0)
         {
-            currentLearnStep++;
+            _currentLearnStep++;
         }
 
         LevelSelected(0);
@@ -241,16 +241,16 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
-        if (currentLearnStep > 0)
+        if (_currentLearnStep > 0)
         {
             if (!IsFinalStep)
             {
-                ResetLearnings(currentLearnStep);
+                ResetLearnings(_currentLearnStep);
             }
 
-            currentLearnStep--;
-            ResetLearnings(currentLearnStep);
-            if (IsUnlearnStep(currentLearnStep))
+            _currentLearnStep--;
+            ResetLearnings(_currentLearnStep);
+            if (IsUnlearnStep(_currentLearnStep))
             {
                 heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
                 {
@@ -316,7 +316,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         //add all learned/unlearned custom invocations
-        foreach (var keyValuePair in learnedInvocations)
+        foreach (var keyValuePair in _learnedInvocations)
         {
             var poolId = keyValuePair.Key;
 
@@ -345,7 +345,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         var dirty = false;
 
-        foreach (var e in learnedInvocations)
+        foreach (var e in _learnedInvocations)
         {
             var id = e.Key;
             var learned = e.Value;
@@ -380,7 +380,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private FeaturePool GetPoolById(PoolId id)
     {
-        return allPools.FirstOrDefault(p => p.Id.Equals(id));
+        return _allPools.FirstOrDefault(p => p.Id.Equals(id));
     }
 
     private FeaturePool GetOrAddPoolById(PoolId id, InvocationPoolTypeCustom type)
@@ -394,8 +394,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         pool = new FeaturePool(id) { Type = type, Max = 0, Used = 0 };
 
-        allPools.Add(pool);
-        allPools.Sort(poolCompare);
+        _allPools.Add(pool);
+        _allPools.Sort(_poolCompare);
         BuildLearnSteps();
 
         return pool;
@@ -403,19 +403,19 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private bool IsUnlearnStep(int step)
     {
-        return allPools[step].IsUnlearn;
+        return _allPools[step].IsUnlearn;
     }
 
     private List<InvocationDefinitionCustom> GetOrMakeLearnedList(PoolId id)
     {
-        if (learnedInvocations.TryGetValue(id, out var value))
+        if (_learnedInvocations.TryGetValue(id, out var value))
         {
             return value;
         }
 
         var learned = new List<InvocationDefinitionCustom>();
 
-        learnedInvocations.Add(id, learned);
+        _learnedInvocations.Add(id, learned);
         return learned;
     }
 
@@ -428,33 +428,33 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private void UpdateGainedClassDetails()
     {
         // Determine the last class and level
-        CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClass, out gainedClassLevel);
-        gainedCharacterLevel = currentHero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+        CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out _gainedClass, out _gainedClassLevel);
+        _gainedCharacterLevel = currentHero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
-        if (gainedClass == null)
+        if (_gainedClass == null)
         {
             return;
         }
 
         // Was there already a subclass?
-        gainedSubclass = null;
+        _gainedSubclass = null;
 
-        if (currentHero.ClassesAndSubclasses.TryGetValue(gainedClass, out var subclass))
+        if (currentHero.ClassesAndSubclasses.TryGetValue(_gainedClass, out var subclass))
         {
-            gainedSubclass = subclass;
+            _gainedSubclass = subclass;
         }
     }
 
     private string GetClassTag()
     {
-        return AttributeDefinitions.GetClassTag(gainedClass, gainedClassLevel);
+        return AttributeDefinitions.GetClassTag(_gainedClass, _gainedClassLevel);
     }
 
     private string GetSubClassTag()
     {
-        return gainedSubclass == null
+        return _gainedSubclass == null
             ? null
-            : AttributeDefinitions.GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass);
+            : AttributeDefinitions.GetSubclassTag(_gainedClass, _gainedClassLevel, _gainedSubclass);
     }
 
     private void CollectTags()
@@ -462,9 +462,9 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         Dictionary<PoolId, FeaturePool> tags = new();
 
         UpdateGrantedFeatures();
-        allPools.Clear();
+        _allPools.Clear();
 
-        foreach (var (poolTag, featureSet) in gainedCustomFeatures)
+        foreach (var (poolTag, featureSet) in _gainedCustomFeatures)
         {
             var poolId = new PoolId(featureSet.PoolType.Name, poolTag, featureSet.IsUnlearn);
 
@@ -473,7 +473,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                 var pool = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
 
                 tags.Add(poolId, pool);
-                allPools.Add(pool);
+                _allPools.Add(pool);
             }
             else
             {
@@ -481,7 +481,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             }
         }
 
-        allPools.Sort(poolCompare);
+        _allPools.Sort(_poolCompare);
 
         initialized = true;
     }
@@ -490,9 +490,9 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         UpdateGainedClassDetails();
 
-        gainedCustomFeatures.Clear();
+        _gainedCustomFeatures.Clear();
 
-        if (gainedClass == null)
+        if (_gainedClass == null)
         {
             return;
         }
@@ -506,7 +506,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         {
             var heroBuildingData = hero.GetHeroBuildingData();
 
-            gainedCustomFeatures.AddRange(heroBuildingData.LevelupTrainedFeats
+            _gainedCustomFeatures.AddRange(heroBuildingData.LevelupTrainedFeats
                 .SelectMany(x => x.Value)
                 .SelectMany(f => f.Features)
                 .OfType<FeatureDefinitionCustomInvocationPool>()
@@ -517,8 +517,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         poolTag = GetClassTag();
 
-        gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedClass.FeatureUnlocks
-                .Where(f => f.Level == gainedClassLevel)
+        _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(_gainedClass.FeatureUnlocks
+                .Where(f => f.Level == _gainedClassLevel)
                 .Select(f => f.FeatureDefinition))
             .OfType<FeatureDefinitionCustomInvocationPool>()
             .Where(x => x.PoolType != null)
@@ -529,8 +529,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         if (poolTag != null)
         {
-            gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedSubclass.FeatureUnlocks
-                    .Where(f => f.Level == gainedClassLevel)
+            _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(_gainedSubclass.FeatureUnlocks
+                    .Where(f => f.Level == _gainedClassLevel)
                     .Select(f => f.FeatureDefinition))
                 .OfType<FeatureDefinitionCustomInvocationPool>()
                 .Where(x => x.PoolType != null)
@@ -542,8 +542,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         if (gainedRace != null)
         {
-            gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedRace.FeatureUnlocks
-                    .Where(f => f.Level == gainedClassLevel)
+            _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedRace.FeatureUnlocks
+                    .Where(f => f.Level == _gainedClassLevel)
                     .Select(f => f.FeatureDefinition))
                 .OfType<FeatureDefinitionCustomInvocationPool>()
                 .Where(x => x.PoolType != null)
@@ -602,19 +602,19 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     #region Fields from CharacterStageSpellSelectionPanel
 
-    private RectTransform spellsByLevelTable;
-    private GameObject spellsByLevelPrefab;
-    private ScrollRect spellsScrollRect;
-    private RectTransform learnStepsTable;
-    private GameObject learnStepPrefab;
-    private AssetReferenceSprite backdropReference;
-    private Image backdrop;
-    private AnimationCurve curve;
-    private RectTransform levelButtonsTable;
-    private GameObject levelButtonPrefab;
-    private GuiLabel stageTitleLabel;
-    private GuiLabel rightFeaturesLabel;
-    private GuiLabel rightFeaturesDescription;
+    private RectTransform _spellsByLevelTable;
+    private GameObject _spellsByLevelPrefab;
+    private ScrollRect _spellsScrollRect;
+    private RectTransform _learnStepsTable;
+    private GameObject _learnStepPrefab;
+    private AssetReferenceSprite _backdropReference;
+    private Image _backdrop;
+    private AnimationCurve _curve;
+    private RectTransform _levelButtonsTable;
+    private GameObject _levelButtonPrefab;
+    private GuiLabel _stageTitleLabel;
+    private GuiLabel _rightFeaturesLabel;
+    private GuiLabel _rightFeaturesDescription;
 
     #endregion
 
@@ -662,20 +662,20 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         var spellsPanel = GetComponent<CharacterStageSpellSelectionPanel>();
         stageDefinition = spellsPanel.StageDefinition;
 
-        spellsByLevelTable = spellsPanel.spellsByLevelTable;
-        spellsByLevelPrefab = spellsPanel.spellsByLevelPrefab;
-        spellsScrollRect = spellsPanel.spellsScrollRect;
-        learnStepsTable = spellsPanel.learnStepsTable;
-        learnStepPrefab = spellsPanel.learnStepPrefab;
-        backdropReference = spellsPanel.backdropReference;
-        backdrop = spellsPanel.backdrop;
-        curve = spellsPanel.curve;
-        levelButtonsTable = spellsPanel.levelButtonsTable;
-        levelButtonPrefab = spellsPanel.levelButtonPrefab;
-        stageTitleLabel = spellsPanel.RectTransform.FindChildRecursive("ChoiceTitle").GetComponent<GuiLabel>();
-        rightFeaturesLabel =
+        _spellsByLevelTable = spellsPanel.spellsByLevelTable;
+        _spellsByLevelPrefab = spellsPanel.spellsByLevelPrefab;
+        _spellsScrollRect = spellsPanel.spellsScrollRect;
+        _learnStepsTable = spellsPanel.learnStepsTable;
+        _learnStepPrefab = spellsPanel.learnStepPrefab;
+        _backdropReference = spellsPanel.backdropReference;
+        _backdrop = spellsPanel.backdrop;
+        _curve = spellsPanel.curve;
+        _levelButtonsTable = spellsPanel.levelButtonsTable;
+        _levelButtonPrefab = spellsPanel.levelButtonPrefab;
+        _stageTitleLabel = spellsPanel.RectTransform.FindChildRecursive("ChoiceTitle").GetComponent<GuiLabel>();
+        _rightFeaturesLabel =
             spellsPanel.RectTransform.FindChildRecursive("SpellsInfoTitle").GetComponent<GuiLabel>();
-        rightFeaturesDescription = spellsPanel.RectTransform.FindChildRecursive("ProficienciesIntroDescription")
+        _rightFeaturesDescription = spellsPanel.RectTransform.FindChildRecursive("ProficienciesIntroDescription")
             .GetComponent<GuiLabel>();
 
         CharacterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
@@ -694,21 +694,21 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     public override void SetScrollSensitivity(float scrollSensitivity)
     {
-        spellsScrollRect.scrollSensitivity = -scrollSensitivity;
+        _spellsScrollRect.scrollSensitivity = -scrollSensitivity;
     }
 
     public override void UpdateRelevance()
     {
         UpdateGrantedFeatures();
-        IsRelevant = !gainedCustomFeatures.Empty();
+        IsRelevant = !_gainedCustomFeatures.Empty();
     }
 
     public override void EnterStage()
     {
-        stageTitleLabel.Text = Title;
-        rightFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
-        rightFeaturesDescription.Text = Description;
-        currentLearnStep = 0;
+        _stageTitleLabel.Text = Title;
+        _rightFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
+        _rightFeaturesDescription.Text = Description;
+        _currentLearnStep = 0;
         initialized = false;
         CollectTags();
         OnEnterStageDone();
@@ -718,7 +718,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         base.OnBeginShow(instant);
 
-        backdrop.sprite = Gui.LoadAssetSync<Sprite>(backdropReference);
+        _backdrop.sprite = Gui.LoadAssetSync<Sprite>(_backdropReference);
 
         CommonData.CharacterStatsPanel.Show(CharacterStatsPanel.ArmorClassFlag |
                                             CharacterStatsPanel.InitiativeFlag | CharacterStatsPanel.MoveFlag |
@@ -726,24 +726,24 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                                             CharacterStatsPanel.HitPointMaxFlag |
                                             CharacterStatsPanel.HitDiceFlag);
 
-        for (var i = currentLearnStep; i >= 0; i--)
+        for (var i = _currentLearnStep; i >= 0; i--)
         {
             ResetLearnings(i);
         }
 
         BuildLearnSteps();
-        spellsScrollRect.normalizedPosition = Vector2.zero;
+        _spellsScrollRect.normalizedPosition = Vector2.zero;
         OnPreRefresh();
         RefreshNow();
     }
 
     public override void OnEndHide()
     {
-        learnedInvocations.Clear();
+        _learnedInvocations.Clear();
 
-        for (var i = 0; i < spellsByLevelTable.childCount; i++)
+        for (var i = 0; i < _spellsByLevelTable.childCount; i++)
         {
-            var child = spellsByLevelTable.GetChild(i);
+            var child = _spellsByLevelTable.GetChild(i);
 
             if (!child.gameObject.activeSelf)
             {
@@ -754,26 +754,26 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             group.CustomUnbind();
         }
 
-        Gui.ReleaseChildrenToPool(spellsByLevelTable);
-        Gui.ReleaseChildrenToPool(learnStepsTable);
-        Gui.ReleaseChildrenToPool(levelButtonsTable);
+        Gui.ReleaseChildrenToPool(_spellsByLevelTable);
+        Gui.ReleaseChildrenToPool(_learnStepsTable);
+        Gui.ReleaseChildrenToPool(_levelButtonsTable);
 
         base.OnEndHide();
 
-        if (backdrop.sprite == null)
+        if (_backdrop.sprite == null)
         {
             return;
         }
 
-        Gui.ReleaseAddressableAsset(backdrop.sprite);
-        backdrop.sprite = null;
+        Gui.ReleaseAddressableAsset(_backdrop.sprite);
+        _backdrop.sprite = null;
     }
 
     public override bool CanProceedToNextStage(out string failureString)
     {
         if (!IsFinalStep
             || !initialized
-            || (!allPools.Empty() && allPools[allPools.Count - 1].Remaining > 0)
+            || (!_allPools.Empty() && _allPools[_allPools.Count - 1].Remaining > 0)
            )
         {
             failureString = Gui.Localize("UI/&CustomFeatureSelectionStageNotDone");
@@ -790,10 +790,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         while (IsFinalStep)
         {
-            currentLearnStep--;
+            _currentLearnStep--;
         }
 
-        for (var i = currentLearnStep; i >= 0; i--)
+        for (var i = _currentLearnStep; i >= 0; i--)
         {
             ResetLearnings(i);
         }
@@ -807,9 +807,9 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         var currentPoolIndex = 0;
 
-        for (var i = 0; i < learnStepsTable.childCount; i++)
+        for (var i = 0; i < _learnStepsTable.childCount; i++)
         {
-            var child = learnStepsTable.GetChild(i);
+            var child = _learnStepsTable.GetChild(i);
 
             if (!child.gameObject.activeSelf)
             {
@@ -820,11 +820,11 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             LearnStepItem.Status status;
 
-            if (i == currentLearnStep)
+            if (i == _currentLearnStep)
             {
                 status = LearnStepItem.Status.InProgress;
             }
-            else if (i == currentLearnStep - 1)
+            else if (i == _currentLearnStep - 1)
             {
                 status = LearnStepItem.Status.Previous;
             }
@@ -833,7 +833,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                 status = LearnStepItem.Status.Locked;
             }
 
-            stepItem.CustomRefresh(status, allPools[i]);
+            stepItem.CustomRefresh(status, _allPools[i]);
 
             if (status == LearnStepItem.Status.InProgress)
             {
@@ -841,32 +841,32 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             }
         }
 
-        LayoutRebuilder.ForceRebuildLayoutImmediate(learnStepsTable);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_learnStepsTable);
 
         if (IsFinalStep)
         {
-            currentPoolIndex = allPools.Count - 1;
+            currentPoolIndex = _allPools.Count - 1;
         }
 
-        var currentPoolId = allPools[currentPoolIndex].Id;
+        var currentPoolId = _allPools[currentPoolIndex].Id;
         var isUnlearnStep = IsUnlearnStep(currentPoolIndex);
         var featurePool = GetPoolById(currentPoolId);
         var allLevels = featurePool.Type.AllLevels;
         var requiredGroups = allLevels.Count;
 
-        while (spellsByLevelTable.childCount < requiredGroups)
+        while (_spellsByLevelTable.childCount < requiredGroups)
         {
-            Gui.GetPrefabFromPool(spellsByLevelPrefab, spellsByLevelTable);
+            Gui.GetPrefabFromPool(_spellsByLevelPrefab, _spellsByLevelTable);
         }
 
         float totalWidth = 0;
         float lastWidth = 0;
-        var layout = spellsByLevelTable.GetComponent<HorizontalLayoutGroup>();
+        var layout = _spellsByLevelTable.GetComponent<HorizontalLayoutGroup>();
         layout.padding.left = (int)SpellsByLevelMargin;
 
-        for (var i = 0; i < spellsByLevelTable.childCount; i++)
+        for (var i = 0; i < _spellsByLevelTable.childCount; i++)
         {
-            var child = spellsByLevelTable.GetChild(i);
+            var child = _spellsByLevelTable.GetChild(i);
 
             child.gameObject.SetActive(i < requiredGroups);
 
@@ -880,7 +880,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             var lowLevel = !isUnlearnStep && featureLevel > (featurePool.Type.RequireClassLevels != null
                 ? Math.Max(1,
                     InvocationPoolTypeCustom.GetClassOrSubclassLevel(currentHero, featurePool.Type.RequireClassLevels))
-                : gainedCharacterLevel);
+                : _gainedCharacterLevel);
 
             group.Selected = !IsFinalStep && !lowLevel;
 
@@ -904,32 +904,32 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         // Compute manually the table width, adding a reserve of fluff for the scroll view
-        totalWidth += spellsScrollRect.GetComponent<RectTransform>().rect.width - lastWidth;
-        spellsByLevelTable.sizeDelta = new Vector2(totalWidth, spellsByLevelTable.sizeDelta.y);
+        totalWidth += _spellsScrollRect.GetComponent<RectTransform>().rect.width - lastWidth;
+        _spellsByLevelTable.sizeDelta = new Vector2(totalWidth, _spellsByLevelTable.sizeDelta.y);
 
         // Spell Level Buttons
-        while (levelButtonsTable.childCount < requiredGroups)
+        while (_levelButtonsTable.childCount < requiredGroups)
         {
-            Gui.GetPrefabFromPool(levelButtonPrefab, levelButtonsTable);
+            Gui.GetPrefabFromPool(_levelButtonPrefab, _levelButtonsTable);
         }
 
         // Bind the required group, once for each spell level
         for (var i = 0; i < requiredGroups; i++)
         {
-            var child = levelButtonsTable.GetChild(i);
+            var child = _levelButtonsTable.GetChild(i);
             child.gameObject.SetActive(true);
             var button = child.GetComponent<SpellLevelButton>();
             button.CustomBind(allLevels[i], LevelSelected);
         }
 
         // Hide remaining useless groups
-        for (var i = requiredGroups; i < levelButtonsTable.childCount; i++)
+        for (var i = requiredGroups; i < _levelButtonsTable.childCount; i++)
         {
-            var child = levelButtonsTable.GetChild(i);
+            var child = _levelButtonsTable.GetChild(i);
             child.gameObject.SetActive(false);
         }
 
-        LayoutRebuilder.ForceRebuildLayoutImmediate(spellsByLevelTable);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_spellsByLevelTable);
 
         base.Refresh();
     }
@@ -940,7 +940,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void ResetWasClickedFlag()
     {
-        wasClicked = false;
+        _wasClicked = false;
     }
 
     private void LevelSelected(int level)
@@ -955,7 +955,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         var duration = ScrollDuration;
         var shouldAssignGroup = true;
 
-        foreach (Transform child in spellsByLevelTable)
+        foreach (Transform child in _spellsByLevelTable)
         {
             var spellByLevelGroup = child.GetComponent<SpellsByLevelGroup>();
 
@@ -971,18 +971,18 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             }
         }
 
-        var initialX = spellsByLevelTable.anchoredPosition.x;
+        var initialX = _spellsByLevelTable.anchoredPosition.x;
         var finalX = -group!.RectTransform.anchoredPosition.x + SpellsByLevelMargin;
 
         while (duration > 0)
         {
-            spellsByLevelTable.anchoredPosition = new Vector2(
-                Mathf.Lerp(initialX, finalX, curve.Evaluate((ScrollDuration - duration) / ScrollDuration)), 0);
+            _spellsByLevelTable.anchoredPosition = new Vector2(
+                Mathf.Lerp(initialX, finalX, _curve.Evaluate((ScrollDuration - duration) / ScrollDuration)), 0);
             duration -= Gui.SystemDeltaTime;
             yield return null;
         }
 
-        spellsByLevelTable.anchoredPosition = new Vector2(finalX, 0);
+        _spellsByLevelTable.anchoredPosition = new Vector2(finalX, 0);
     }
 
     #endregion
