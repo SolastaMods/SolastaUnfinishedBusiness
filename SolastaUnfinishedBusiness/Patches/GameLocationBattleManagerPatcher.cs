@@ -448,10 +448,6 @@ public static class GameLocationBattleManagerPatcher
             int attackRoll
         )
         {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
 
             // ReSharper disable once InvertIf
             if (Gui.Battle != null &&
@@ -473,6 +469,11 @@ public static class GameLocationBattleManagerPatcher
                         yield return extraEvents.Current;
                     }
                 }
+            }
+            // Put reaction request for shield and the like after our modded features for better experience 
+            while (values.MoveNext())
+            {
+                yield return values.Current;
             }
         }
     }
@@ -605,46 +606,46 @@ public static class GameLocationBattleManagerPatcher
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
                     case AdditionalDamageTriggerCondition.SpendSpellSlot:
-                    {
-                        if (!canReact)
                         {
-                            continue;
+                            if (!canReact)
+                            {
+                                continue;
+                            }
+
+                            var repertoire = defenderCharacter.SpellRepertoires
+                                .Find(x => x.spellCastingClass == feature.SpellCastingClass);
+
+                            if (repertoire == null)
+                            {
+                                continue;
+                            }
+
+                            if (!repertoire.AtLeastOneSpellSlotAvailable())
+                            {
+                                continue;
+                            }
+
+                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+                            {
+                                IntParameter = 1,
+                                StringParameter = feature.NotificationTag,
+                                SpellRepertoire = repertoire
+                            };
+
+                            actionService.ReactToSpendSpellSlot(reactionParams);
+
+                            yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+
+                            if (!reactionParams.ReactionValidated)
+                            {
+                                continue;
+                            }
+
+                            totalReducedDamage = feature.ReducedDamage(attacker, defender) * reactionParams.IntParameter;
+                            break;
                         }
-
-                        var repertoire = defenderCharacter.SpellRepertoires
-                            .Find(x => x.spellCastingClass == feature.SpellCastingClass);
-
-                        if (repertoire == null)
-                        {
-                            continue;
-                        }
-
-                        if (!repertoire.AtLeastOneSpellSlotAvailable())
-                        {
-                            continue;
-                        }
-
-                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-                        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
-                        {
-                            IntParameter = 1,
-                            StringParameter = feature.NotificationTag,
-                            SpellRepertoire = repertoire
-                        };
-
-                        actionService.ReactToSpendSpellSlot(reactionParams);
-
-                        yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
-
-                        if (!reactionParams.ReactionValidated)
-                        {
-                            continue;
-                        }
-
-                        totalReducedDamage = feature.ReducedDamage(attacker, defender) * reactionParams.IntParameter;
-                        break;
-                    }
 
                     case AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
