@@ -135,7 +135,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(BurningHands)
+            .SetParticleEffectParameters(SacredFlame)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetEffectForms(
                 EffectFormBuilder
