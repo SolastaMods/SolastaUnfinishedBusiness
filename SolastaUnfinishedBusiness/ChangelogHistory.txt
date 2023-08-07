@@ -1,9 +1,9 @@
 ﻿1.5.94.6:
 
+- changed Shadow Blade to use finesse on rolls
 - fixed Eldritch Smite interaction with larger creatures
 - fixed Ranger Marksman extra attack at 15th
 - fixed Ranger Wildmaster beast eyebite powers
-- fixed Shadow Blade spell behavior
 - fixed Wizard Bladedancer missing reaction terms
 - improved French and Russian translations
 - improved Patron Eldritch Surge [RESPEC is required]
