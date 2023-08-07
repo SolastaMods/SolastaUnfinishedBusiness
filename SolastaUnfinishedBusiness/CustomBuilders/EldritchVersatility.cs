@@ -970,8 +970,7 @@ internal static class EldritchVersatility
 
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
-                console.consoleTableDefinition)
-            { Indent = true };
+                console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
@@ -1037,11 +1036,9 @@ internal static class EldritchVersatility
                 var console = Gui.Game.GameConsole;
                 var entry = createSuccess
                     ? new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotSuccess",
-                        console.consoleTableDefinition)
-                    { Indent = true }
+                        console.consoleTableDefinition) { Indent = true }
                     : new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFailure",
-                        console.consoleTableDefinition)
-                    { Indent = true };
+                        console.consoleTableDefinition) { Indent = true };
 
                 console.AddCharacterEntry(rulesetCharacter, entry);
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo,

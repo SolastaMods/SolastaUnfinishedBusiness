@@ -745,7 +745,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAbilityCheckAffinity
             AbilityCheckAffinityDomainLawUnyieldingEnforcerShove
-        { get; } =
+        {
+            get;
+        } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>(
                 "AbilityCheckAffinityDomainLawUnyieldingEnforcerShove");
 
@@ -859,7 +861,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage
             AdditionalDamageTraditionLightRadiantStrikesLuminousKi
-        { get; } =
+        {
+            get;
+        } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionLightRadiantStrikesShine { get; } =
@@ -894,7 +898,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttackModifier
             AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
-        { get; } =
+        {
+            get;
+        } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom");
 
         internal static FeatureDefinitionAttackModifier AttackModifierMonkMartialArtsImprovedDamage { get; } =
@@ -953,7 +959,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier
             AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3
-        { get; } =
+        {
+            get;
+        } =
             GetDefinition<FeatureDefinitionAttributeModifier>(
                 "AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_Dagger+3");
 
@@ -1130,7 +1138,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionConditionAffinity
             ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern
-        { get; } =
+        {
+            get;
+        } =
             GetDefinition<FeatureDefinitionConditionAffinity>(
                 "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
 
@@ -1922,7 +1932,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSavingThrowAffinity
             SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm
-        { get; } =
+        {
+            get;
+        } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>(
                 "SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm");
 
