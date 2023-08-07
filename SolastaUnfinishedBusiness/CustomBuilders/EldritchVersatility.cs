@@ -634,8 +634,10 @@ internal static class EldritchVersatility
             {
                 Main.Info("Condition Versatility interrupted");
 
-                //TODO: HIEROT, this is causing a modified enumerator exception. need to refactor off this event
-                //target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
+                if (target.CurrentHitPoints > 0)
+                {
+                    target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
+                }
             }
 
             public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
