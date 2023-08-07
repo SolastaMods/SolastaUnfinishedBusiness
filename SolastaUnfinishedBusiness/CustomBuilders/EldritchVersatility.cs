@@ -40,7 +40,8 @@ internal static class EldritchVersatility
     public enum PointUsage
     {
         EarnPoints,
-        EldritchAegisOrWard,
+        EldritchAegis,
+        EldritchWard,
         BattlefieldConversionSuccess,
         BattlefieldConversionFailure,
         BlastBreakthroughOrEmpower
@@ -374,11 +375,12 @@ internal static class EldritchVersatility
                     modifyCurrent = Math.Min(value, MaxPoints - CurrentPoints);
                     modifyCurrent = Math.Min(modifyCurrent, MaxPoints - EarnedPointsInThisTurn);
                     break;
-                case (_, PointUsage.EldritchAegisOrWard):
+                case (_, PointUsage.EldritchAegis):
+                case (_, PointUsage.EldritchWard):
                     modifyCurrent = -value;
                     break;
                 case (_, PointUsage.BattlefieldConversionSuccess):
-                    modifyCurrent = -2 * SlotLevel;
+                    modifyCurrent = -Math.Min(2 * SlotLevel, MaxPoints);
                     break;
                 case (_, PointUsage.BattlefieldConversionFailure):
                     modifyCurrent = -SlotLevel;
@@ -425,7 +427,7 @@ internal static class EldritchVersatility
                         TurnOffPointReservingPower(GetEntity<RulesetCharacter>(SourceGuid), this);
                     }
 
-                    if (usage == PointUsage.EldritchAegisOrWard)
+                    if (usage == PointUsage.EldritchAegis)
                     {
                         PointSpentOnAddingAC += value;
                     }
@@ -968,7 +970,8 @@ internal static class EldritchVersatility
 
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
-                console.consoleTableDefinition) { Indent = true };
+                console.consoleTableDefinition)
+            { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
@@ -1034,9 +1037,11 @@ internal static class EldritchVersatility
                 var console = Gui.Game.GameConsole;
                 var entry = createSuccess
                     ? new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotSuccess",
-                        console.consoleTableDefinition) { Indent = true }
+                        console.consoleTableDefinition)
+                    { Indent = true }
                     : new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFailure",
-                        console.consoleTableDefinition) { Indent = true };
+                        console.consoleTableDefinition)
+                    { Indent = true };
 
                 console.AddCharacterEntry(rulesetCharacter, entry);
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo,
@@ -1143,7 +1148,7 @@ internal static class EldritchVersatility
                     yield break;
                 }
 
-                if (supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegisOrWard,
+                if (supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis,
                         requiredACAddition))
                 {
                     console.AddEntry(entry);
@@ -1154,7 +1159,7 @@ internal static class EldritchVersatility
 
             // If not, can we prevent hit?
             if (requiredACAddition > wisdomModifier ||
-                !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchAegisOrWard,
+                !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchAegis,
                     requiredACAddition))
             {
                 yield break;
@@ -1179,7 +1184,7 @@ internal static class EldritchVersatility
             }
 
             //Spend points
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegisOrWard,
+            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis,
                 requiredACAddition);
             InflictCondition(ConditionEldritchAegisAddAC, ownerCharacter, defenderCharacter);
             console.AddEntry(entry);
@@ -1272,7 +1277,7 @@ internal static class EldritchVersatility
 
             // bonus > modifier or points not enough
             if (requiredSaveAddition > wisdomModifier ||
-                !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchAegisOrWard,
+                !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchWard,
                     requiredSaveAddition))
             {
                 yield break;
@@ -1297,7 +1302,7 @@ internal static class EldritchVersatility
             }
 
             // Spend resources
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegisOrWard,
+            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchWard,
                 requiredSaveAddition);
             // Change outcome
             action.SaveOutcome = RollOutcome.Success;
@@ -1311,7 +1316,7 @@ internal static class EldritchVersatility
                 };
 
             console.AddCharacterEntry(ownerCharacter, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{requiredSaveAddition}");
+            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredSaveAddition}");
 
             var dc = action.GetSaveDC().ToString();
 
