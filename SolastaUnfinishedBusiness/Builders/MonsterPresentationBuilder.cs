@@ -4,21 +4,21 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal class MonsterPresentationBuilder
 {
-    private readonly MonsterPresentation presentation;
+    private readonly MonsterPresentation _presentation;
 
     private MonsterPresentationBuilder()
     {
-        presentation = new MonsterPresentation();
+        _presentation = new MonsterPresentation();
         InitDefaults();
     }
 
     private void InitDefaults()
     {
-        presentation.customShaderReference = new AssetReference();
-        presentation.attachedParticlesReference = new AssetReference();
-        presentation.bestiaryAttachedParticlesReference = new AssetReference();
-        presentation.hasPhantomDistortion = false;
-        presentation.hasPhantomFadingFeet = false;
+        _presentation.customShaderReference = new AssetReference();
+        _presentation.attachedParticlesReference = new AssetReference();
+        _presentation.bestiaryAttachedParticlesReference = new AssetReference();
+        _presentation.hasPhantomDistortion = false;
+        _presentation.hasPhantomFadingFeet = false;
     }
 
     internal static MonsterPresentationBuilder Create()
@@ -28,18 +28,18 @@ internal class MonsterPresentationBuilder
 
     internal MonsterPresentation Build()
     {
-        return presentation;
+        return _presentation;
     }
 
     internal MonsterPresentationBuilder SetHasMonsterPortraitBackground(bool value)
     {
-        presentation.hasMonsterPortraitBackground = value;
+        _presentation.hasMonsterPortraitBackground = value;
         return this;
     }
 
     internal MonsterPresentationBuilder SetCanGeneratePortrait(bool value)
     {
-        presentation.canGeneratePortrait = value;
+        _presentation.canGeneratePortrait = value;
         return this;
     }
 
@@ -53,32 +53,32 @@ internal class MonsterPresentationBuilder
 
     internal MonsterPresentationBuilder SetModelScale(float scale)
     {
-        presentation.femaleModelScale = scale;
-        presentation.maleModelScale = scale;
+        _presentation.femaleModelScale = scale;
+        _presentation.maleModelScale = scale;
         return this;
     }
 
     internal MonsterPresentationBuilder SetAllPrefab(MonsterPresentation monsterPresentation)
     {
-        presentation.attachedParticlesReference = monsterPresentation.attachedParticlesReference;
-        presentation.customShaderReference = monsterPresentation.customShaderReference;
-        presentation.bestiaryAttachedParticlesReference = monsterPresentation.bestiaryAttachedParticlesReference;
-        presentation.femalePrefabReference = monsterPresentation.femalePrefabReference;
-        presentation.malePrefabReference = monsterPresentation.malePrefabReference;
+        _presentation.attachedParticlesReference = monsterPresentation.attachedParticlesReference;
+        _presentation.customShaderReference = monsterPresentation.customShaderReference;
+        _presentation.bestiaryAttachedParticlesReference = monsterPresentation.bestiaryAttachedParticlesReference;
+        _presentation.femalePrefabReference = monsterPresentation.femalePrefabReference;
+        _presentation.malePrefabReference = monsterPresentation.malePrefabReference;
         return this;
     }
 
     internal MonsterPresentationBuilder SetPhantom(bool distortion = true, bool fadingFeet = true)
     {
-        presentation.hasPhantomDistortion = distortion;
-        presentation.hasPhantomFadingFeet = fadingFeet;
+        _presentation.hasPhantomDistortion = distortion;
+        _presentation.hasPhantomFadingFeet = fadingFeet;
         return this;
     }
 
     internal MonsterPresentationBuilder SetPrefab(AssetReference prefab)
     {
-        presentation.femalePrefabReference = prefab;
-        presentation.malePrefabReference = prefab;
+        _presentation.femalePrefabReference = prefab;
+        _presentation.malePrefabReference = prefab;
         return this;
     }
 

@@ -1,13 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [
-    "AttackMain"
-  ],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1090d24a-e956-590d-969b-70ad57affefd",
+  "guid": "637810cb-e230-5e6c-a840-85f0f67d5a78",
   "contentPack": 9999,
-  "name": "AdditionalActionPatronEldritchSurgeBlastPursuit"
+  "name": "FeatureEldritchVersatilityEldritchAegis"
 }

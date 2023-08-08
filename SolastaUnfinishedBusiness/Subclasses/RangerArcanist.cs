@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -12,11 +13,12 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RangerArcanist : AbstractSubclass
+[UsedImplicitly]
+public sealed class RangerArcanist : AbstractSubclass
 {
     private const string ArcanistMarkTag = "ArcanistMark";
 
-    internal RangerArcanist()
+    public RangerArcanist()
     {
         var conditionMarkedByArcanist = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
@@ -145,6 +147,8 @@ internal sealed class RangerArcanist : AbstractSubclass
                 powerArcanistArcanePulseUpgrade)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Ranger;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

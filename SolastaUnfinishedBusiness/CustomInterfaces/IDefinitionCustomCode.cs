@@ -2,6 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
+// This should add to features
 public interface IDefinitionCustomCode
 {
     // Use this to add the feature to the character

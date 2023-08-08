@@ -258,11 +258,11 @@ public class MirrorImageLogic
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateCounter();
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (!GetConditions(target).Empty())
             {
@@ -281,7 +281,7 @@ public class MirrorImageLogic
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateProvider();
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             for (var i = 0; i < 3; i++)
             {
@@ -301,7 +301,7 @@ public class MirrorImageLogic
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var conditions = GetConditions(target);
 

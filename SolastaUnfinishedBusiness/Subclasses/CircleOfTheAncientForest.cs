@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -20,12 +21,13 @@ using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CircleOfTheAncientForest : AbstractSubclass
+[UsedImplicitly]
+public sealed class CircleOfTheAncientForest : AbstractSubclass
 {
     internal const string Name = "CircleOfTheAncientForest";
     private const string LifeSapName = "OnMagicalAttackDamageEffectAncientForestLifeSap";
 
-    internal CircleOfTheAncientForest()
+    public CircleOfTheAncientForest()
     {
         // LEVEL 02
 
@@ -203,6 +205,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
                 featureSetWallOfThorns)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => DatabaseHelper.CharacterClassDefinitions.Druid;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

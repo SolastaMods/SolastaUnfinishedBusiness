@@ -27,7 +27,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class InnovationArtillerist
+[UsedImplicitly]
+public sealed class InnovationArtillerist : AbstractSubclass
 {
     private const string Name = "InnovationArtillerist";
     private const string CreatureTag = "EldritchCannon";
@@ -44,7 +45,7 @@ public static class InnovationArtillerist
     private static readonly LimitEffectInstances CannonLimiter =
         new(CreatureTag, character => character.GetSubclassLevel(InventorClass.Class, Name) < 15 ? 1 : 2);
 
-    public static CharacterSubclassDefinition Build()
+    public InnovationArtillerist()
     {
         #region COMMON
 
@@ -549,7 +550,7 @@ public static class InnovationArtillerist
             powerFlamethrower15, powerForceBallista15, powerProtector15,
             powerTinyFlamethrower15, powerTinyForceBallista15, powerTinyProtector15);
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.InventorArtillerist, 256))
             .AddFeaturesAtLevel(3, autoPreparedSpells, featureSetEldritchCannon)
@@ -560,6 +561,13 @@ public static class InnovationArtillerist
 
         #endregion
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterClassDefinition Klass => InventorClass.Class;
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => InventorClass.SubclassChoice;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
     #region REFUND CANNON
 
@@ -980,13 +988,13 @@ public static class InnovationArtillerist
 
     private class ApplyOnTurnEnd : ICharacterTurnEndListener
     {
-        private readonly ConditionDefinition condition;
-        private readonly FeatureDefinitionPower power;
+        private readonly ConditionDefinition _condition;
+        private readonly FeatureDefinitionPower _power;
 
         public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
         {
-            this.condition = condition;
-            this.power = power;
+            _condition = condition;
+            _power = power;
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
@@ -1000,9 +1008,9 @@ public static class InnovationArtillerist
 
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            rulesetCharacter.LogCharacterUsedPower(power);
+            rulesetCharacter.LogCharacterUsedPower(_power);
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,

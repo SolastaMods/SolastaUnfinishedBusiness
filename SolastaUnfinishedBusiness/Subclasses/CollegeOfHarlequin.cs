@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -14,12 +15,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfHarlequin : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfHarlequin : AbstractSubclass
 {
     private const string Name = "CollegeOfHarlequin";
     private const string CombatInspirationCondition = "ConditionCollegeOfHarlequinFightingAbilityEnhanced";
 
-    internal CollegeOfHarlequin()
+    public CollegeOfHarlequin()
     {
         var conditionTerrified = ConditionDefinitionBuilder
             .Create("ConditionTerrifiedByHarlequinPerformance")
@@ -172,6 +174,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Bard;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
@@ -183,14 +187,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
     private sealed class ConditionCombatInspired : ICustomConditionFeature
     {
         private const string Line = "Feedback/&BardicInspirationUsedToBoostCombatAbility";
-        private readonly string feature;
+        private readonly string _feature;
 
         public ConditionCombatInspired(string feature)
         {
-            this.feature = feature;
+            _feature = feature;
         }
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
             {
@@ -200,8 +204,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             var dieType = hero.GetBardicInspirationDieValue();
             var dieRoll = RollDie(dieType, AdvantageType.Advantage, out var r1, out var r2);
 
-            var title = GuiPresentationBuilder.CreateTitleKey(feature, Category.Feature);
-            var description = GuiPresentationBuilder.CreateDescriptionKey(feature, Category.Feature);
+            var title = GuiPresentationBuilder.CreateTitleKey(_feature, Category.Feature);
+            var description = GuiPresentationBuilder.CreateDescriptionKey(_feature, Category.Feature);
 
             hero.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.Advantage, title: title);
 
@@ -216,14 +220,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             rulesetCondition.amount = dieRoll;
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }
 
     private sealed class ConditionRegainBardicInspirationDieOnKill : ICustomConditionFeature
     {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero)
             {
@@ -236,20 +240,20 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }
 
     private sealed class TerrificPerformance : IOnTargetReducedToZeroHp
     {
-        private readonly FeatureDefinitionPower power14;
-        private readonly FeatureDefinitionPower power6;
+        private readonly FeatureDefinitionPower _power14;
+        private readonly FeatureDefinitionPower _power6;
 
         public TerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
         {
-            this.power6 = power6;
-            this.power14 = power14;
+            _power6 = power6;
+            _power14 = power14;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -280,7 +284,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
-            var power = level >= 14 ? power14 : power6;
+            var power = level >= 14 ? _power14 : _power6;
 
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()

@@ -10,9 +10,9 @@ internal sealed class BlueprintLoader : MonoBehaviour
 {
     private static BlueprintLoader _shared;
 
-    private LoadBlueprintsCallback callback;
+    private LoadBlueprintsCallback _callback;
 
-    private IEnumerator coroutine;
+    private IEnumerator _coroutine;
 
     [NotNull]
     internal static BlueprintLoader Shared
@@ -77,31 +77,31 @@ internal sealed class BlueprintLoader : MonoBehaviour
         // clean up
         // ReSharper disable once InvocationIsSkipped
         Main.Log($"loaded {blueprints.Count} blueprints");
-        callback(blueprints);
+        _callback(blueprints);
 
         yield return null;
 
-        StopCoroutine(coroutine);
+        StopCoroutine(_coroutine);
 
-        coroutine = null;
+        _coroutine = null;
     }
 
     internal void Load(LoadBlueprintsCallback myCallback)
     {
-        if (coroutine != null)
+        if (_coroutine != null)
         {
-            StopCoroutine(coroutine);
-            coroutine = null;
+            StopCoroutine(_coroutine);
+            _coroutine = null;
         }
 
-        callback = myCallback;
-        coroutine = LoadBlueprints();
-        StartCoroutine(coroutine);
+        _callback = myCallback;
+        _coroutine = LoadBlueprints();
+        StartCoroutine(_coroutine);
     }
 
     internal bool LoadInProgress()
     {
-        return coroutine != null;
+        return _coroutine != null;
     }
 
     internal delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);

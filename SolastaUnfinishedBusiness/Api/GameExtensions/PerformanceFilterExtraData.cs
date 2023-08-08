@@ -24,10 +24,10 @@ internal class PerformanceFilterExtraData
 
     private static readonly Dictionary<ActionPerformanceFilter, PerformanceFilterExtraData> DataMap = new();
     private static readonly Stack<PerformanceFilterExtraData> Pool = new();
-    private bool customSpellcasting;
+    private bool _customSpellcasting;
+    private string _name;
 
     public FeatureDefinition Feature;
-    private string name;
     public string Origin;
 
     private static PerformanceFilterExtraData GetOrMakeData([NotNull] ActionPerformanceFilter filter)
@@ -70,15 +70,15 @@ internal class PerformanceFilterExtraData
         var data = GetOrMakeData(filter);
         data.Feature = feature;
         data.Origin = origin;
-        data.name = feature != null ? feature.Name : null;
-        data.customSpellcasting = feature != null && feature.HasSubFeatureOfType<ActionWithCustomSpellTracking>();
+        data._name = feature != null ? feature.Name : null;
+        data._customSpellcasting = feature != null && feature.HasSubFeatureOfType<ActionWithCustomSpellTracking>();
     }
 
     private void Clear()
     {
         Feature = null;
         Origin = null;
-        name = null;
+        _name = null;
     }
 
     public static PerformanceFilterExtraData GetData(ActionPerformanceFilter filter)
@@ -88,12 +88,12 @@ internal class PerformanceFilterExtraData
 
     private string Key(string type)
     {
-        return $"PFD|{name}|{Origin}|{type}";
+        return $"PFD|{_name}|{Origin}|{type}";
     }
 
     public override string ToString()
     {
-        return $"<{name}|{Origin}>";
+        return $"<{_name}|{Origin}>";
     }
 
     public void StoreAttacks(GameLocationCharacter character, ActionDefinitions.ActionType type, int? number = null)
@@ -145,7 +145,7 @@ internal class PerformanceFilterExtraData
             return;
         }
 
-        var key = customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
+        var key = _customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
         character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MainSpell : 0)
                                              + (character.UsedMainCantrip ? MainCantrip : 0)
                                              + (character.UsedBonusSpell ? BonusSpell : 0);
@@ -160,7 +160,7 @@ internal class PerformanceFilterExtraData
             return;
         }
 
-        var key = customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
+        var key = _customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
         if (!character.UsedSpecialFeatures.TryGetValue(key, out var flags))
         {
             flags = 0;

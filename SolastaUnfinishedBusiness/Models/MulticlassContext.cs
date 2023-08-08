@@ -196,7 +196,7 @@ internal static class MulticlassContext
             featureDefinitionAttributeModifier.modifierOperation = AttributeModifierOperation.ForceIfBetter;
         }
 
-        // fix use cases at level 11 when certain classes / subs get a 3rd attack
+        // fix use cases when certain classes / subs get a 3rd attack
         var attributeModifierExtraAttackForce3 = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce3")
             .SetGuiPresentationNoContent(true)
@@ -205,6 +205,7 @@ internal static class MulticlassContext
 
         Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
         RangerSwiftBlade.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
+        RangerMarksman.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 15));
 
         // fix Fighter use case at level 20
         var attributeModifierExtraAttackForce4 = FeatureDefinitionAttributeModifierBuilder

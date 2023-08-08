@@ -3,7 +3,7 @@
   "preparedSpellModifier": "None",
   "saveDCModifierType": "FlatValue",
   "saveDCModifier": 0,
-  "spellAttackModifierType": "None",
+  "spellAttackModifierType": "FlatValue",
   "spellAttackModifier": 0,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0e557fe3-6328-5168-b3e4-8b32f2d12c75",
+  "guid": "bd764d96-f367-5d00-bd2d-77bc0477074b",
   "contentPack": 9999,
-  "name": "MagicAffinityPatronEldritchSurgeBlastOverload"
+  "name": "FeatureBlastBreakthroughNoPenalty"
 }

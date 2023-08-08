@@ -47,7 +47,6 @@ ModUi/&Changelog=<b><color=#D89555>변경 로그</color></b>
 ModUi/&Character=성격
 ModUi/&CharactersPool=캐릭터 풀
 ModUi/&Classes=<color=#F0DAA0>클래스</color>
-ModUi/&ClassesAndSubclasses=클래스 및 하위 클래스
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
 ModUi/&CraftingHelp=. 활성 파티에서 즉시 레시피를 배우려면 버튼을 누르십시오\n. 상점에 추가된 항목은 일행이 해당 위치에서 멀리 이동했다가 다시 돌아와야 할 수 있습니다.
 ModUi/&Credits=학점
@@ -136,6 +135,7 @@ ModUi/&Feats=<color=#F0DAA0>재주</color>
 ModUi/&FightingStyles=<color=#F0DAA0>전투 스타일</color>
 ModUi/&FixAsianLanguagesTextWrap=아시아 언어의 게임 UI 텍스트 랩 수정 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>엘드리치 폭발</color> 범위를 24 <i><color=#F0DAA0>[16 대신]</color></i>로 변경
+ModUi/&FlightSuspendWingedBoots=<i>+ 날개 달린 부츠 공식 규칙 사용 <color=#F0DAA0>[항공편 중단 시 남은 시간은 계산되지 않음]</color></i>
 ModUi/&Formation=<color=#F0DAA0>형성:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이어 게임 중에는 포메이션을 변경할 수 없습니다...</color>
 ModUi/&FormationHelp1=. 숫자 버튼을 사용하여 지정된 세트를 편집합니다. <i><color=#F0DAA0>[입력 시 핫키 활성화 고려]</color></i>

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -12,7 +13,8 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RangerSurvivalist : AbstractSubclass
+[UsedImplicitly]
+public sealed class RangerSurvivalist : AbstractSubclass
 {
     internal const string Name = "RangerSurvivalist";
 
@@ -21,7 +23,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    internal RangerSurvivalist()
+    public RangerSurvivalist()
     {
         //
         // LEVEL 03
@@ -162,6 +164,8 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Ranger;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

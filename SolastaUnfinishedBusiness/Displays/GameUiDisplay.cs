@@ -217,6 +217,15 @@ internal static class GameUiDisplay
             Main.Settings.AllowFlightSuspend = toggle;
         }
 
+        if (Main.Settings.AllowFlightSuspend)
+        {
+            toggle = Main.Settings.FlightSuspendWingedBoots;
+            if (UI.Toggle(Gui.Localize("ModUi/&FlightSuspendWingedBoots"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FlightSuspendWingedBoots = toggle;
+            }
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableActionSwitching;

@@ -2,6 +2,7 @@
 
 public interface ICustomConditionFeature
 {
-    public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition);
-    public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition);
+    // rename method to differ to IDefinitionCustomCode
+    public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition);
+    public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition);
 }

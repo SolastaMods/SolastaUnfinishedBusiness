@@ -448,24 +448,32 @@ public static class GameLocationBattleManagerPatcher
             int attackRoll
         )
         {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
             // ReSharper disable once InvertIf
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
-                var blockEvents = BlockAttacks.ProcessOnCharacterAttackHitConfirm(
-                    __instance, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll);
+                //PATCH: Support for features before hit possible, e.g. spiritual shielding
 
-                while (blockEvents.MoveNext())
+                foreach (var extraEvents in Gui.Battle.GetOpposingContenders(attacker.Side)
+                             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList()
+                             .SelectMany(featureOwner => featureOwner.RulesetCharacter
+                                 .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
+                                 .Select(x => x.OnAttackBeforeHitPossibleOnMeOrAlly(__instance, featureOwner, attacker,
+                                     defender, attackMode, rulesetEffect, attackModifier, attackRoll))))
                 {
-                    yield return blockEvents.Current;
+                    while (extraEvents.MoveNext())
+                    {
+                        yield return extraEvents.Current;
+                    }
                 }
+            }
+
+            // Put reaction request for shield and the like after our modded features for better experience 
+            while (values.MoveNext())
+            {
+                yield return values.Current;
             }
         }
     }
@@ -1030,9 +1038,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            var saveOutcome = action.SaveOutcome;
-
-            if (!IsFailed(saveOutcome))
+            if (!IsFailed(action.SaveOutcome))
             {
                 yield break;
             }
@@ -1044,81 +1050,27 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            var allConditions = new List<RulesetCondition>();
+            var allyCharacters = __instance.Battle?.GetMyContenders(defender.Side) ??
+                                 gameLocationCharacterService.PartyCharacters;
 
-            rulesetDefender.GetAllConditions(allConditions);
-
-            foreach (var condition in allConditions)
+            foreach (var extraEvents in allyCharacters
+                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList()
+                         .SelectMany(featureOwner => featureOwner.RulesetCharacter
+                             .GetSubFeaturesByType<IMeOrAllySaveFailPossible>()
+                             .Select(x => x.OnMeOrAllySaveFailPossible(__instance, action, attacker, defender,
+                                 featureOwner, saveModifier, hasHitVisual,
+                                 hasBorrowedLuck))))
             {
-                var feature = condition.ConditionDefinition
-                    .GetFirstSubFeatureOfType<ConditionSourceCanUsePowerToImproveFailedSaveRoll>();
-
-                if (feature == null)
+                while (extraEvents.MoveNext())
                 {
-                    continue;
-                }
-
-                if (!RulesetEntity.TryGetEntity<RulesetCharacter>(condition.SourceGuid, out var helper))
-                {
-                    continue;
-                }
-
-                var locHelper = GameLocationCharacter.GetFromActor(helper);
-
-                if (locHelper == null)
-                {
-                    continue;
-                }
-
-                if (!feature.ShouldTrigger(action, attacker, defender, locHelper, saveModifier, hasHitVisual,
-                        hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta))
-                {
-                    continue;
-                }
-
-                var power = feature.Power;
-
-                if (!helper.CanUsePower(power))
-                {
-                    continue;
-                }
-
-                var usablePower = UsablePowersProvider.Get(power, helper);
-
-                var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
-                {
-                    StringParameter = feature.ReactionName,
-                    StringParameter2 = feature.FormatReactionDescription(action, attacker, defender, locHelper,
-                        saveModifier, hasHitVisual, hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta),
-                    RulesetEffect = rulesService
-                        .InstantiateEffectPower(helper, usablePower, false)
-                        .AddAsActivePowerToSource()
-                };
-
-                var count = actionService.PendingReactionRequestGroups.Count;
-
-                actionService.ReactToSpendPower(reactionParams);
-
-                yield return __instance.WaitForReactions(locHelper, actionService, count);
-
-                if (reactionParams.ReactionValidated)
-                {
-                    helper.LogCharacterUsedPower(power, indent: true);
-                    rulesetDefender.UsePower(usablePower);
-
-                    action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, locHelper, saveModifier,
-                        reactionParams, hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
-                    action.SaveOutcome = saveOutcome;
-                }
-
-                reactionParams.RulesetEffect.Terminate(true);
-
-                if (!IsFailed(saveOutcome))
-                {
-                    yield break;
+                    yield return extraEvents.Current;
+                    if (!IsFailed(action.SaveOutcome))
+                    {
+                        yield break;
+                    }
                 }
             }
 
@@ -1351,6 +1303,42 @@ public static class GameLocationBattleManagerPatcher
                                 damageAmount);
                         }
                     }
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleSpellCast))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleSpellCast_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationCharacter caster,
+            CharacterActionCastSpell castAction,
+            RulesetEffectSpell selectEffectSpell,
+            RulesetSpellRepertoire selectedRepertoire,
+            SpellDefinition selectedSpellDefinition)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            // This also allows utilities out of battle
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var allyCharacters = gameLocationCharacterService.PartyCharacters.Select(x => x.RulesetCharacter);
+            foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
+            {
+                var allyFeatures = allyCharacter.GetSubFeaturesByType<ISpellCast>();
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.OnSpellCast(allyCharacter, caster, castAction, selectEffectSpell,
+                        selectedRepertoire, selectedSpellDefinition);
                 }
             }
         }

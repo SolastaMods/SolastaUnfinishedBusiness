@@ -331,7 +331,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster &&
                 !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
@@ -340,7 +340,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster)
             {
@@ -428,7 +428,7 @@ internal static class CustomConditionsContext
 
     private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
     {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster monster)
             {
@@ -496,12 +496,20 @@ internal static class CustomConditionsContext
                     rulesetCondition.targetGuid = target.Guid;
                     rulesetCondition.remainingRounds = condition.remainingRounds;
                     rulesetCondition.endOccurence = condition.endOccurence;
+
+                    if (Main.Settings.FlightSuspendWingedBoots
+                        && condition.Name == "ConditionFlyingBootsWinged")
+                    {
+                        //Stop duration counting for Winged Boots
+                        rulesetCondition.durationType = DurationType.Permanent;
+                    }
+
                     break;
                 }
             }
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster)
             {

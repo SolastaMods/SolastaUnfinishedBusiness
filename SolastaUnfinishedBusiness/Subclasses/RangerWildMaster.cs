@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,13 +18,14 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RangerWildMaster : AbstractSubclass
+[UsedImplicitly]
+public sealed class RangerWildMaster : AbstractSubclass
 {
     private const string SpiritBeastTag = "SpiritBeast";
     private const string CommandSpiritBeastCondition = "ConditionWildMasterSpiritBeastCommand";
     private const string SummonSpiritBeastPower = "PowerWildMasterSummonSpiritBeast";
 
-    internal RangerWildMaster()
+    public RangerWildMaster()
     {
         #region COMMON
 
@@ -114,6 +116,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerSpiritBeastEyebiteAsleep = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerEyebiteAsleep, "PowerSpiritBeastEyebiteAsleep")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EyebiteAsleep)
+                    .Build())
             .AddToDB();
 
         powerSpiritBeastEyebiteAsleep.EffectDescription.difficultyClassComputation =
@@ -172,6 +178,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerSpiritBeastEyebitePanicked = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerEyebitePanicked, "PowerSpiritBeastEyebitePanicked")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EyebitePanicked)
+                    .Build())
             .AddToDB();
 
         powerSpiritBeastEyebitePanicked.EffectDescription.difficultyClassComputation =
@@ -230,6 +240,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerSpiritBeastEyebiteSickened = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerEyebiteSickened, "PowerSpiritBeastEyebiteSickened")
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EyebiteSickened)
+                    .Build())
             .AddToDB();
 
         powerSpiritBeastEyebiteSickened.EffectDescription.difficultyClassComputation =
@@ -388,6 +402,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerKindredSpiritEagle15,
             powerKindredSpiritWolf15);
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Ranger;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -648,13 +664,13 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
     private class ApplyOnTurnEnd : ICharacterTurnEndListener
     {
-        private readonly ConditionDefinition condition;
-        private readonly FeatureDefinitionPower power;
+        private readonly ConditionDefinition _condition;
+        private readonly FeatureDefinitionPower _power;
 
         public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
         {
-            this.condition = condition;
-            this.power = power;
+            _condition = condition;
+            _power = power;
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter gameLocationCharacter)
@@ -668,9 +684,9 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            rulesetCharacter.LogCharacterUsedPower(power);
+            rulesetCharacter.LogCharacterUsedPower(_power);
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,11 +15,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PathOfTheSpirits : AbstractSubclass
+[UsedImplicitly]
+public sealed class PathOfTheSpirits : AbstractSubclass
 {
     private const string Name = "PathOfTheSpirits";
 
-    internal PathOfTheSpirits()
+    public PathOfTheSpirits()
     {
         #region 3rd LEVEL FEATURES
 
@@ -133,6 +135,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 featureSetPathOfTheSpiritsHonedAnimalAspects)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Barbarian;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

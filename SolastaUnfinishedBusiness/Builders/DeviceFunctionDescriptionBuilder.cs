@@ -6,11 +6,11 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal class DeviceFunctionDescriptionBuilder
 {
-    private readonly DeviceFunctionDescription description;
+    private readonly DeviceFunctionDescription _description;
 
     internal DeviceFunctionDescriptionBuilder()
     {
-        description = new DeviceFunctionDescription(
+        _description = new DeviceFunctionDescription(
             DatabaseHelper.ItemDefinitions.BeltOfRegeneration.UsableDeviceDescription.DeviceFunctions[0])
         {
             parentUsage = EquipmentDefinitions.ItemUsage.ByFunction,
@@ -27,17 +27,17 @@ internal class DeviceFunctionDescriptionBuilder
 
     internal DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power, bool canOvercharge = false)
     {
-        description.type = FunctionType.Power;
-        description.featureDefinitionPower = power;
-        description.canOverchargeSpell = canOvercharge;
+        _description.type = FunctionType.Power;
+        _description.featureDefinitionPower = power;
+        _description.canOverchargeSpell = canOvercharge;
         return this;
     }
 
     internal DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
     {
-        description.type = FunctionType.Spell;
-        description.spellDefinition = spell;
-        description.canOverchargeSpell = canOverchargeSpell;
+        _description.type = FunctionType.Spell;
+        _description.spellDefinition = spell;
+        _description.canOverchargeSpell = canOverchargeSpell;
         return this;
     }
 
@@ -46,20 +46,20 @@ internal class DeviceFunctionDescriptionBuilder
         FunctionUseAffinity useAffinity = FunctionUseAffinity.AtWill,
         int useAmount = 1)
     {
-        description.parentUsage = parentUsage;
-        description.useAffinity = useAffinity;
-        description.useAmount = useAmount;
+        _description.parentUsage = parentUsage;
+        _description.useAffinity = useAffinity;
+        _description.useAmount = useAmount;
         return this;
     }
 
     private void Validate()
     {
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-        switch (description.Type)
+        switch (_description.Type)
         {
-            case FunctionType.Power when description.FeatureDefinitionPower == null:
+            case FunctionType.Power when _description.FeatureDefinitionPower == null:
                 throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
-            case FunctionType.Spell when description.SpellDefinition == null:
+            case FunctionType.Spell when _description.SpellDefinition == null:
                 throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
         }
     }
@@ -67,6 +67,6 @@ internal class DeviceFunctionDescriptionBuilder
     internal DeviceFunctionDescription Build()
     {
         Validate();
-        return description;
+        return _description;
     }
 }

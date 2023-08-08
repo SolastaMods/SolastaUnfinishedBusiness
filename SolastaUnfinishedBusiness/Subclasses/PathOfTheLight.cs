@@ -16,7 +16,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PathOfTheLight : AbstractSubclass
+[UsedImplicitly]
+public sealed class PathOfTheLight : AbstractSubclass
 {
     private const string ConditionPathOfTheLightIlluminatedName = "ConditionPathOfTheLightIlluminated";
 
@@ -28,7 +29,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     private static readonly List<ConditionDefinition> InvisibleConditions =
         new() { ConditionInvisibleBase, ConditionDefinitions.ConditionInvisible, ConditionInvisibleGreater };
 
-    internal PathOfTheLight()
+    public PathOfTheLight()
     {
         var faerieFireLightSource =
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
@@ -308,6 +309,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 featureSetPathOfTheLightIlluminatingBurst)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Barbarian;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

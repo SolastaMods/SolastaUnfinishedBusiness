@@ -9,18 +9,18 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReactionRequestWithResource
 {
     internal const string Name = "ReactionSpendPowerBundle";
-    private readonly GuiCharacter guiCharacter;
-    private readonly FeatureDefinitionPower masterPower;
-    private readonly ActionModifier modifier;
-    private readonly GameLocationCharacter target;
+    private readonly GuiCharacter _guiCharacter;
+    private readonly FeatureDefinitionPower _masterPower;
+    private readonly ActionModifier _modifier;
+    private readonly GameLocationCharacter _target;
 
     internal ReactionRequestSpendBundlePower([NotNull] CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
-        target = reactionParams.TargetCharacters[0];
-        modifier = reactionParams.ActionModifiers.ElementAtOrDefault(0) ?? new ActionModifier();
-        guiCharacter = new GuiCharacter(reactionParams.ActingCharacter);
-        masterPower = ((RulesetEffectPower)reactionParams.RulesetEffect).PowerDefinition;
+        _target = reactionParams.TargetCharacters[0];
+        _modifier = reactionParams.ActionModifiers.ElementAtOrDefault(0) ?? new ActionModifier();
+        _guiCharacter = new GuiCharacter(reactionParams.ActingCharacter);
+        _masterPower = ((RulesetEffectPower)reactionParams.RulesetEffect).PowerDefinition;
         BuildSuboptions();
     }
 
@@ -35,7 +35,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
                 return -1;
             }
 
-            var subPowers = masterPower.GetBundle()?.SubPowers;
+            var subPowers = _masterPower.GetBundle()?.SubPowers;
 
             return subPowers?.FindIndex(p => p == power) ?? -1;
         }
@@ -45,8 +45,8 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     [NotNull] public override string SuboptionTag => "PowerBundle";
 
     public override bool IsStillValid =>
-        ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(target) &&
-        target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
+        ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(_target) &&
+        _target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false };
 
     public ICustomReactionResource Resource { get; set; }
 
@@ -56,7 +56,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
 
         var actingCharacter = ReactionParams.ActingCharacter;
         var rulesetCharacter = actingCharacter.RulesetCharacter;
-        var bundle = masterPower.GetBundle();
+        var bundle = _masterPower.GetBundle();
         var selected = false;
 
         if (bundle == null)
@@ -147,12 +147,12 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
             || effectDescription.TargetType == RuleDefinitions.TargetType.Self)
         {
             targetCharacters.Add(actingCharacter);
-            modifiers.Add(modifier);
+            modifiers.Add(_modifier);
         }
         else
         {
-            targetCharacters.Add(target);
-            modifiers.Add(modifier);
+            targetCharacters.Add(_target);
+            modifiers.Add(_modifier);
 
             var targets = powerEffect.ComputeTargetParameter();
 
@@ -161,10 +161,10 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
                 return;
             }
 
-            while (target != null && modifier != null && targetCharacters.Count < targets)
+            while (_target != null && _modifier != null && targetCharacters.Count < targets)
             {
-                targetCharacters.Add(target);
-                modifiers.Add(modifier);
+                targetCharacters.Add(_target);
+                modifiers.Add(_modifier);
             }
         }
     }
@@ -178,21 +178,21 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}Description";
 
-        return Gui.Format(format, guiCharacter.Name);
+        return Gui.Format(format, _guiCharacter.Name);
     }
 
     public override string FormatReactTitle()
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}ReactTitle";
 
-        return Gui.Format(format, guiCharacter.Name);
+        return Gui.Format(format, _guiCharacter.Name);
     }
 
     public override string FormatReactDescription()
     {
         var format = $"Reaction/&ReactionSpendPowerBundle{ReactionParams.StringParameter}ReactDescription";
 
-        return Gui.Format(format, guiCharacter.Name);
+        return Gui.Format(format, _guiCharacter.Name);
     }
 
     public override void OnSetInvalid()

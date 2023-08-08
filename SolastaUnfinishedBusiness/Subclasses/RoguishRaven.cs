@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -14,9 +15,10 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishRaven : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishRaven : AbstractSubclass
 {
-    internal RoguishRaven()
+    public RoguishRaven()
     {
         // proficient with all two handed range weapons
         // ignore cover and long range disadvantage
@@ -115,6 +117,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                 dieRollModifierRavenPerfectShot)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Rogue;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -273,11 +277,11 @@ internal sealed class RoguishRaven : AbstractSubclass
 
     private sealed class KillingSpree : IOnTargetReducedToZeroHp
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public KillingSpree(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -291,7 +295,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
             {
                 yield break;
             }
@@ -302,7 +306,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,

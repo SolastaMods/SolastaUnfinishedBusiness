@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,9 +15,10 @@ using static SolastaUnfinishedBusiness.Models.SpellsContext;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class DomainDefiler : AbstractSubclass
+[UsedImplicitly]
+public sealed class DomainDefiler : AbstractSubclass
 {
-    internal DomainDefiler()
+    public DomainDefiler()
     {
         const string NAME = "DomainDefiler";
 
@@ -350,6 +352,8 @@ internal sealed class DomainDefiler : AbstractSubclass
                 featureSetDefileLife17)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

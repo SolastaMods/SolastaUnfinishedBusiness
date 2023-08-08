@@ -2,29 +2,28 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Feats;
+using static SolastaUnfinishedBusiness.Feats.OtherFeats;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class ReactionRequestWarcaster : ReactionRequest
 {
     internal const string Name = "ReactionWarcaster";
-    private readonly ActionDefinition attackAction;
-    private readonly List<ActionModifier> attackModifiers = new();
-    private readonly GuiCharacter guiTarget;
-
-    private readonly string type;
+    private readonly ActionDefinition _attackAction;
+    private readonly List<ActionModifier> _attackModifiers = new();
+    private readonly GuiCharacter _guiTarget;
+    private readonly string _type;
 
     internal ReactionRequestWarcaster(string name, CharacterActionParams reactionParams)
         : base(name, reactionParams)
     {
-        attackAction = reactionParams.ActionDefinition;
-        attackModifiers.SetRange(reactionParams.ActionModifiers);
+        _attackAction = reactionParams.ActionDefinition;
+        _attackModifiers.SetRange(reactionParams.ActionModifiers);
         BuildSuboptions();
-        type = string.IsNullOrEmpty(ReactionParams.StringParameter2)
+        _type = string.IsNullOrEmpty(ReactionParams.StringParameter2)
             ? name
             : ReactionParams.StringParameter2;
-        guiTarget = new GuiCharacter(reactionParams.targetCharacters[0]);
+        _guiTarget = new GuiCharacter(reactionParams.targetCharacters[0]);
     }
 
     internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
@@ -48,7 +47,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
     }
 
 
-    public override string SuboptionTag => type;
+    public override string SuboptionTag => _type;
 
     public override bool IsStillValid
     {
@@ -107,10 +106,8 @@ internal class ReactionRequestWarcaster : ReactionRequest
             return null;
         }
 
-        //TODO: find better way to detect warcaster
-        var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
-
-        if (affinities.All(a => a.Name != OtherFeats.MagicAffinityFeatWarCaster))
+        // use marker to identify WarCaster
+        if (!rulesetCharacter.HasSubFeatureOfType<WarCasterMarker>())
         {
             return null;
         }
@@ -167,8 +164,8 @@ internal class ReactionRequestWarcaster : ReactionRequest
 
         if (option == 0)
         {
-            reactionParams.ActionDefinition = attackAction;
-            reactionParams.ActionModifiers.SetRange(attackModifiers);
+            reactionParams.ActionDefinition = _attackAction;
+            reactionParams.ActionModifiers.SetRange(_attackModifiers);
             reactionParams.RulesetEffect = null;
         }
         else
@@ -211,22 +208,22 @@ internal class ReactionRequestWarcaster : ReactionRequest
 
     public override string FormatTitle()
     {
-        return Gui.Localize($"Reaction/&{type}Title");
+        return Gui.Localize($"Reaction/&{_type}Title");
     }
 
     public override string FormatDescription()
     {
-        return Gui.Format($"Reaction/&{type}Description", guiTarget.Name);
+        return Gui.Format($"Reaction/&{_type}Description", _guiTarget.Name);
     }
 
     public override string FormatReactTitle()
     {
-        return Gui.Localize($"Reaction/&{type}ReactTitle");
+        return Gui.Localize($"Reaction/&{_type}ReactTitle");
     }
 
     public override string FormatReactDescription()
     {
-        return Gui.Localize($"Reaction/&{type}ReactDescription");
+        return Gui.Localize($"Reaction/&{_type}ReactDescription");
     }
 
     public override void OnSetInvalid()

@@ -6,11 +6,11 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class ReactionResourcePowerPool : ICustomReactionResource
 {
-    private readonly FeatureDefinitionPower pool;
+    private readonly FeatureDefinitionPower _pool;
 
     public ReactionResourcePowerPool(FeatureDefinitionPower pool, AssetReferenceSprite icon)
     {
-        this.pool = pool;
+        _pool = pool;
         Icon = icon;
     }
 
@@ -18,6 +18,6 @@ public class ReactionResourcePowerPool : ICustomReactionResource
 
     public string GetUses(RulesetCharacter character)
     {
-        return character.GetRemainingPowerCharges(pool).ToString();
+        return character.GetRemainingPowerCharges(_pool).ToString();
     }
 }

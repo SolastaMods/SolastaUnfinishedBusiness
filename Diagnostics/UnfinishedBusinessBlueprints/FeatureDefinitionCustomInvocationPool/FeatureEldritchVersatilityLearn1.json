@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureEldritchVersatilityLearn1Title",
+    "description": "Feature/&FeatureEldritchVersatilityLearn1Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a76ad49a-2a2e-5799-8d77-c1b5814914bc",
+  "contentPack": 9999,
+  "name": "FeatureEldritchVersatilityLearn1"
+}

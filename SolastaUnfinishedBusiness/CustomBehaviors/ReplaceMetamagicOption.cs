@@ -9,11 +9,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class ReplaceMetamagicOption
 {
-    private readonly List<MetamagicOptionDefinition> options = new();
+    private readonly List<MetamagicOptionDefinition> _options = new();
 
     public ReplaceMetamagicOption(params MetamagicOptionDefinition[] options)
     {
-        this.options.AddRange(options);
+        _options.AddRange(options);
     }
 
     private static List<MetamagicOptionDefinition> GetOptions(RulesetCharacterHero hero)
@@ -31,7 +31,7 @@ public class ReplaceMetamagicOption
 
             list ??= new List<MetamagicOptionDefinition>(options);
             list.Remove(option);
-            list.AddRange(replacer.options);
+            list.AddRange(replacer._options);
         }
 
         return list ?? options;

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -13,11 +14,12 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardArcaneFighter : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardArcaneFighter : AbstractSubclass
 {
     private const string Name = "ArcaneFighter";
 
-    internal WizardArcaneFighter()
+    public WizardArcaneFighter()
     {
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ConcentrationAdvantage")
@@ -78,6 +80,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
@@ -88,11 +92,11 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
     private sealed class SpellFighting : IOnTargetReducedToZeroHp
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public SpellFighting(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -106,7 +110,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
             {
                 yield break;
             }
@@ -118,7 +122,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,

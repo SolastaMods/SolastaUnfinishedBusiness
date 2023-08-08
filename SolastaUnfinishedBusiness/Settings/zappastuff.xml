@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <enumerateOriginSubFeatures>true</enumerateOriginSubFeatures>
-  <showButtonWithControlledMonsterInfo>true</showButtonWithControlledMonsterInfo>
   <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
-  <DisplayClassesToggle>false</DisplayClassesToggle>
-  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -18,6 +14,112 @@
   <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
   <DisplayItemsToggle>false</DisplayItemsToggle>
   <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
+  <DisplayKlassToggle>
+    <item>
+      <key>
+        <string>Barbarian</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Bard</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Cleric</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Druid</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Fighter</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventor</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Paladin</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Ranger</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Rogue</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Sorcerer</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Monk</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Warlock</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Wizard</string>
+      </key>
+      <value>
+        <boolean>false</boolean>
+      </value>
+    </item>
+  </DisplayKlassToggle>
   <DisplaySpellListsToggle>
     <item>
       <key>
@@ -114,37 +216,35 @@
   <DisableUpdateMessage>false</DisableUpdateMessage>
   <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
   <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
-  <EnableBetaContent>true</EnableBetaContent>
+  <EnableBetaContent>false</EnableBetaContent>
   <EnablePcgRandom>true</EnablePcgRandom>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
-  <DefaultPartyHeroes>
-    <string>Cami</string>
-  </DefaultPartyHeroes>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <DefaultPartyHeroes />
+  <EnableCharacterChecker>true</EnableCharacterChecker>
   <EnableCheatMenu>true</EnableCheatMenu>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>1</OverridePartySize>
+  <OverridePartySize>2</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
   <AddHelpActionToAllRaces>true</AddHelpActionToAllRaces>
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
-  <EnableAlternateHuman>true</EnableAlternateHuman>
-  <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
+  <EnableAlternateHuman>false</EnableAlternateHuman>
+  <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
+  <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
-  <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
+  <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
   <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
@@ -170,9 +270,9 @@
   <UnlockEyeStyles>true</UnlockEyeStyles>
   <AddNewBrightEyeColors>true</AddNewBrightEyeColors>
   <UnlockGlowingEyeColors>true</UnlockGlowingEyeColors>
-  <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
+  <UnlockGlowingColorsForAllMarksAndTattoos>false</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>true</UnlockSkinColors>
-  <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
+  <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
   <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
   <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
@@ -180,9 +280,11 @@
   <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
   <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
   <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
+  <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
   <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
   <AllowFlightSuspend>true</AllowFlightSuspend>
-  <IdentifyAfterRest>true</IdentifyAfterRest>
+  <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
+  <IdentifyAfterRest>false</IdentifyAfterRest>
   <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
   <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
   <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
@@ -191,7 +293,7 @@
   <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
   <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <EnableUpcastConjureElementalAndFey>true</EnableUpcastConjureElementalAndFey>
-  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
+  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>true</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
   <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
   <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
@@ -209,8 +311,8 @@
   <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
   <EnableCharactersOnFireToEmitLight>true</EnableCharactersOnFireToEmitLight>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
-  <CriticalHitModeAllies>2</CriticalHitModeAllies>
-  <CriticalHitModeEnemies>2</CriticalHitModeEnemies>
+  <CriticalHitModeAllies>0</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
   <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
   <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
   <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
@@ -223,114 +325,18 @@
   <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
   <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
   <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
-  <CraftingInStore>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>Plate</string>
-  </CraftingInStore>
-  <CraftingItemsInDm>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>Plate</string>
-  </CraftingItemsInDm>
-  <CraftingRecipesInDm>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>Plate</string>
-  </CraftingRecipesInDm>
-  <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
-  <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
-  <StockHugoStoreWithAdditionalFoci>true</StockHugoStoreWithAdditionalFoci>
-  <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
-  <EnableAdditionalFociInDungeonMaker>true</EnableAdditionalFociInDungeonMaker>
-  <RestockAntiquarians>true</RestockAntiquarians>
-  <RestockArcaneum>true</RestockArcaneum>
-  <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
-  <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
+  <CraftingInStore />
+  <CraftingItemsInDm />
+  <CraftingRecipesInDm />
+  <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
+  <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
+  <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
+  <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
+  <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
+  <RestockAntiquarians>false</RestockAntiquarians>
+  <RestockArcaneum>false</RestockArcaneum>
+  <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
+  <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
   <RaceSliderPosition>4</RaceSliderPosition>
   <RaceEnabled>
     <string>RaceBolgrif</string>
@@ -353,77 +359,302 @@
     <string>BackgroundDevoted</string>
     <string>BackgroundFarmer</string>
   </BackgroundEnabled>
-  <ClassSliderPosition>4</ClassSliderPosition>
-  <ClassEnabled>
-    <string>Inventor</string>
-  </ClassEnabled>
-  <SubclassSliderPosition>4</SubclassSliderPosition>
-  <SubclassEnabled>
-    <string>PathOfTheElements</string>
-    <string>PathOfTheLight</string>
-    <string>PathOfTheReaver</string>
-    <string>PathOfTheSavagery</string>
-    <string>PathOfTheSpirits</string>
-    <string>PathOfTheYeoman</string>
-    <string>CollegeOfAudacity</string>
-    <string>CollegeOfGuts</string>
-    <string>CollegeOfHarlequin</string>
-    <string>CollegeOfLife</string>
-    <string>CollegeOfValiance</string>
-    <string>CollegeOfWarDancer</string>
-    <string>DomainDefiler</string>
-    <string>DomainSmith</string>
-    <string>CircleOfTheAncientForest</string>
-    <string>CircleOfTheForestGuardian</string>
-    <string>CircleOfTheLife</string>
-    <string>CircleOfTheNight</string>
-    <string>MartialArcaneArcher</string>
-    <string>MartialMarshal</string>
-    <string>MartialRoyalKnight</string>
-    <string>MartialSpellShield</string>
-    <string>MartialTactician</string>
-    <string>MartialWeaponMaster</string>
-    <string>OathOfAltruism</string>
-    <string>OathOfAncients</string>
-    <string>OathOfDemonHunter</string>
-    <string>OathOfDread</string>
-    <string>OathOfHatred</string>
-    <string>OathOfThunder</string>
-    <string>RangerArcanist</string>
-    <string>RangerLightBearer</string>
-    <string>RangerHellWalker</string>
-    <string>RangerSkyWarrior</string>
-    <string>RangerSurvivalist</string>
-    <string>RangerWildMaster</string>
-    <string>RoguishAcrobat</string>
-    <string>RoguishArcaneScoundrel</string>
-    <string>RoguishBladeCaller</string>
-    <string>RoguishDuelist</string>
-    <string>RoguishOpportunist</string>
-    <string>RoguishRaven</string>
-    <string>RoguishSlayer</string>
-    <string>SorcerousDivineHeart</string>
-    <string>SorcerousFieldManipulator</string>
-    <string>SorcerousSorrAkkath</string>
-    <string>SorcerousSpellBlade</string>
-    <string>WayOfTheDiscordance</string>
-    <string>WayOfTheDistantHand</string>
-    <string>WayOfTheDragon</string>
-    <string>WayOfSilhouette</string>
-    <string>WayOfTheTempest</string>
-    <string>WayOfWealAndWoe</string>
-    <string>PatronEldritchSurge</string>
-    <string>PatronElementalist</string>
-    <string>PatronMoonlit</string>
-    <string>PatronMountain</string>
-    <string>PatronRiftWalker</string>
-    <string>PatronSoulBlade</string>
-    <string>WizardArcaneFighter</string>
-    <string>WizardBladeDancer</string>
-    <string>WizardDeadMaster</string>
-    <string>WizardGraviturgist</string>
-    <string>WizardSpellMaster</string>
-  </SubclassEnabled>
+  <KlassListSliderPosition>
+    <item>
+      <key>
+        <string>Barbarian</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Bard</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Cleric</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Druid</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Fighter</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventor</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Paladin</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Ranger</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Rogue</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Sorcerer</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Monk</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Warlock</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Wizard</string>
+      </key>
+      <value>
+        <int>4</int>
+      </value>
+    </item>
+  </KlassListSliderPosition>
+  <KlassListSubclassEnabled>
+    <item>
+      <key>
+        <string>Barbarian</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>PathOfTheElements</string>
+          <string>PathOfTheLight</string>
+          <string>PathOfTheReaver</string>
+          <string>PathOfTheSavagery</string>
+          <string>PathOfTheSpirits</string>
+          <string>PathOfTheYeoman</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Bard</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>CollegeOfAudacity</string>
+          <string>CollegeOfGuts</string>
+          <string>CollegeOfHarlequin</string>
+          <string>CollegeOfLife</string>
+          <string>CollegeOfValiance</string>
+          <string>CollegeOfWarDancer</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Cleric</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>DomainDefiler</string>
+          <string>DomainSmith</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Druid</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>CircleOfTheAncientForest</string>
+          <string>CircleOfTheForestGuardian</string>
+          <string>CircleOfTheLife</string>
+          <string>CircleOfTheNight</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Fighter</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>MartialArcaneArcher</string>
+          <string>MartialMartialDefender</string>
+          <string>MartialMarshal</string>
+          <string>MartialRoyalKnight</string>
+          <string>MartialSpellShield</string>
+          <string>MartialTactician</string>
+          <string>MartialWeaponMaster</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventor</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>InnovationAlchemy</string>
+          <string>InnovationArmor</string>
+          <string>InnovationArtillerist</string>
+          <string>InnovationVitriolist</string>
+          <string>InnovationVivisectionist</string>
+          <string>InnovationWeapon</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Paladin</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>OathOfAltruism</string>
+          <string>OathOfAncients</string>
+          <string>OathOfDemonHunter</string>
+          <string>OathOfDread</string>
+          <string>OathOfHatred</string>
+          <string>OathOfThunder</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Ranger</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>RangerArcanist</string>
+          <string>RangerLightBearer</string>
+          <string>RangerHellWalker</string>
+          <string>RangerSkyWarrior</string>
+          <string>RangerSurvivalist</string>
+          <string>RangerWildMaster</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Rogue</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>RoguishAcrobat</string>
+          <string>RoguishArcaneScoundrel</string>
+          <string>RoguishBladeCaller</string>
+          <string>RoguishDuelist</string>
+          <string>RoguishOpportunist</string>
+          <string>RoguishRaven</string>
+          <string>RoguishSlayer</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Sorcerer</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>SorcerousDivineHeart</string>
+          <string>SorcerousFieldManipulator</string>
+          <string>SorcerousSorrAkkath</string>
+          <string>SorcerousSpellBlade</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Monk</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>WayOfTheDiscordance</string>
+          <string>WayOfTheDistantHand</string>
+          <string>WayOfTheDragon</string>
+          <string>WayOfSilhouette</string>
+          <string>WayOfTheTempest</string>
+          <string>WayOfWealAndWoe</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Warlock</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>PatronEldritchSurge</string>
+          <string>PatronElementalist</string>
+          <string>PatronMoonlit</string>
+          <string>PatronMountain</string>
+          <string>PatronRiftWalker</string>
+          <string>PatronSoulBlade</string>
+        </ArrayOfString>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Wizard</string>
+      </key>
+      <value>
+        <ArrayOfString>
+          <string>WizardArcaneFighter</string>
+          <string>WizardBladeDancer</string>
+          <string>WizardDeadMaster</string>
+          <string>WizardGraviturgist</string>
+          <string>WizardSpellMaster</string>
+        </ArrayOfString>
+      </value>
+    </item>
+  </KlassListSubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
     <string>FeatGroupAegisTouched</string>
@@ -458,7 +689,6 @@
     <string>FeatDualWeaponDefense</string>
     <string>FeatDueling</string>
     <string>FeatEldritchAdept</string>
-    <string>FeatFrostAdaptation</string>
     <string>FeatGroupElementalAdept</string>
     <string>FeatGroupElementalMaster</string>
     <string>FeatGroupElementalTouch</string>
@@ -471,6 +701,7 @@
     <string>FeatFencer</string>
     <string>FeatGroupTeleportation</string>
     <string>FeatGroupFlameTouched</string>
+    <string>FeatFrostAdaptation</string>
     <string>FeatGreatWeapon</string>
     <string>FeatHammerThePoint</string>
     <string>FeatHandAndAHalf</string>
@@ -490,6 +721,7 @@
     <string>FeatMerciless</string>
     <string>FeatMetamagicAdept</string>
     <string>FeatMobile</string>
+    <string>FeatMonkShieldExpert</string>
     <string>FeatMonkInitiate</string>
     <string>FeatNaturalFluidity</string>
     <string>FeatGroupOldTactics</string>
@@ -534,6 +766,7 @@
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
+    <string>FeatZenArcher</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -575,12 +808,14 @@
     <string>HandAndAHalf</string>
     <string>Lunger</string>
     <string>Merciless</string>
+    <string>MonkShieldExpert</string>
     <string>PolearmExpert</string>
     <string>Pugilist</string>
     <string>RopeItUp</string>
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
+    <string>ZenArcher</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -612,6 +847,7 @@
     <string>InvocationTrickstersEscape</string>
     <string>InvocationUltimatePactWeapon</string>
     <string>InvocationUndyingServitude</string>
+    <string>InvocationVerdantArmor</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
@@ -1058,20 +1294,6 @@
     <ArrayOfArrayOfInt>
       <ArrayOfInt>
         <int>0</int>
-        <int>1</int>
-        <int>0</int>
-        <int>1</int>
-        <int>0</int>
-      </ArrayOfInt>
-      <ArrayOfInt>
-        <int>0</int>
-        <int>0</int>
-        <int>1</int>
-        <int>0</int>
-        <int>0</int>
-      </ArrayOfInt>
-      <ArrayOfInt>
-        <int>0</int>
         <int>0</int>
         <int>1</int>
         <int>0</int>
@@ -1086,24 +1308,38 @@
       </ArrayOfInt>
       <ArrayOfInt>
         <int>0</int>
-        <int>1</int>
         <int>0</int>
         <int>1</int>
         <int>0</int>
+        <int>0</int>
+      </ArrayOfInt>
+      <ArrayOfInt>
+        <int>0</int>
+        <int>1</int>
+        <int>0</int>
+        <int>1</int>
+        <int>0</int>
+      </ArrayOfInt>
+      <ArrayOfInt>
+        <int>1</int>
+        <int>0</int>
+        <int>0</int>
+        <int>0</int>
+        <int>1</int>
       </ArrayOfInt>
     </ArrayOfArrayOfInt>
     <ArrayOfArrayOfInt>
       <ArrayOfInt>
         <int>0</int>
-        <int>1</int>
         <int>0</int>
         <int>1</int>
+        <int>0</int>
         <int>0</int>
       </ArrayOfInt>
       <ArrayOfInt>
         <int>0</int>
         <int>0</int>
-        <int>0</int>
+        <int>1</int>
         <int>0</int>
         <int>0</int>
       </ArrayOfInt>
@@ -1142,19 +1378,19 @@
   <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
   <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
   <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
-  <EnableInvisibleCrownOfTheMagister>true</EnableInvisibleCrownOfTheMagister>
+  <EnableInvisibleCrownOfTheMagister>false</EnableInvisibleCrownOfTheMagister>
   <DontDisplayHelmets>false</DontDisplayHelmets>
   <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
   <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
   <HideMonsterHitPoints>true</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
-  <EnableLoggingInvalidReferencesInUserCampaigns>false</EnableLoggingInvalidReferencesInUserCampaigns>
+  <EnableLoggingInvalidReferencesInUserCampaigns>true</EnableLoggingInvalidReferencesInUserCampaigns>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
-  <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>
+  <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
   <UnleashEnemyAsNpc>true</UnleashEnemyAsNpc>
-  <EnableDungeonMakerModdedContent>true</EnableDungeonMakerModdedContent>
+  <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
   <SelectedLanguageCode>en</SelectedLanguageCode>
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>

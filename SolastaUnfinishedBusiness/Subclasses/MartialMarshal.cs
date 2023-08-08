@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -27,7 +28,8 @@ using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialMarshal : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialMarshal : AbstractSubclass
 {
     private const string FeatureSetMarshalKnowYourEnemyName = "FeatureSetMarshalKnowYourEnemy";
 
@@ -37,7 +39,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private const string ConditionMarshalKnowledgeableDefenseACName = "ConditionMarshalKnowledgeableDefenseAC";
 
-    internal MartialMarshal()
+    public MartialMarshal()
     {
         BuildEternalComradeMonster();
 
@@ -64,6 +66,8 @@ internal sealed class MartialMarshal : AbstractSubclass
                 BuildKnowledgeableDefense())
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Fighter;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -520,7 +524,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private sealed class StudyYourEnemy : ICustomConditionFeature
     {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(target);
@@ -587,7 +591,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, newLevel);
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
     }

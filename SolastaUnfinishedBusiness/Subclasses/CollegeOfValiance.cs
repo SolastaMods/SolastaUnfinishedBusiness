@@ -16,12 +16,13 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CollegeOfValiance : AbstractSubclass
+[UsedImplicitly]
+public sealed class CollegeOfValiance : AbstractSubclass
 {
     private const string Name = "CollegeOfValiance";
     private static FeatureDefinition _featureSteadfastInspiration;
 
-    internal CollegeOfValiance()
+    public CollegeOfValiance()
     {
         // Captivating Presence
 
@@ -119,6 +120,8 @@ internal sealed class CollegeOfValiance : AbstractSubclass
             .AddFeaturesAtLevel(14, actionAffinityHeroicInspiration, powerHeroicInspiration)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Bard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

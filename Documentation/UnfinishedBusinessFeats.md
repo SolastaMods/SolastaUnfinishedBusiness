@@ -96,8 +96,8 @@ Upon hitting with a melee attack, you can reduce the speed of your opponents by 
 # 21. - Crossbow Mastery
 
 Your expert training with crossbows grants you these benefits:
-• You gain a +1 bonus to damage rolls you make with heavy and light crossbows.
-• When you use the Attack action with a light crossbow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
+• You gain a +1 bonus to damage rolls you make with heavy, light and hand crossbows.
+• When you use the Attack action with a light or hand crossbow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
 • You can use Strength instead of Dexterity on attack and damage rolls you make with a heavy crossbow.
 
 # 22. - Crusher

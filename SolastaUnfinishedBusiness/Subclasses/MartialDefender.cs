@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,11 +15,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialDefender : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialDefender : AbstractSubclass
 {
     private const string Name = "MartialDefender";
 
-    internal MartialDefender()
+    public MartialDefender()
     {
         // LEVEL 03
 
@@ -199,6 +201,8 @@ internal sealed class MartialDefender : AbstractSubclass
                 featureAegisParagon)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Fighter;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

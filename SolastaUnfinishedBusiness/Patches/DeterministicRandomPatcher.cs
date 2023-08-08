@@ -72,7 +72,7 @@ public static class DeterministicRandomPatcher
         public ulong State;
 #pragma warning disable CS0169
 #pragma warning disable IDE0051
-        private readonly ulong unused;
+        private readonly ulong _unused;
 #pragma warning restore IDE0051
 #pragma warning restore CS0169
     }

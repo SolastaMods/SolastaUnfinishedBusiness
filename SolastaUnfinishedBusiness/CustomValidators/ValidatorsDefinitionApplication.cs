@@ -9,17 +9,17 @@ internal delegate bool IsDefinitionValidHandler(BaseDefinition definition, Rules
 
 internal sealed class ValidatorsDefinitionApplication : IDefinitionApplicationValidator
 {
-    private readonly IsDefinitionValidHandler[] validators;
+    private readonly IsDefinitionValidHandler[] _validators;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal ValidatorsDefinitionApplication(params IsCharacterValidHandler[] validators)
     {
-        this.validators = validators.Select(v => new IsDefinitionValidHandler((_, c) => v(c))).ToArray();
+        _validators = validators.Select(v => new IsDefinitionValidHandler((_, c) => v(c))).ToArray();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool IsValid(BaseDefinition definition, [CanBeNull] RulesetCharacter character)
     {
-        return character == null || validators.All(handler => handler(definition, character));
+        return character == null || _validators.All(handler => handler(definition, character));
     }
 }

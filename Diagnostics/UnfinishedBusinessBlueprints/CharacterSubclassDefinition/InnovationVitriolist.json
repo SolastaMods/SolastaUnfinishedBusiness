@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsInnovationVitriolist:40a81433-cab3-524d-83fe-9dd96fe5dd11",
+      "featureDefinition": "Definition:FeatureSetInnovationVitriolistMixture:4d93c3e0-0962-51ea-aea2-1f6664633ce4",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInnovationVitriolistMixture:4d93c3e0-0962-51ea-aea2-1f6664633ce4",
+      "featureDefinition": "Definition:AutoPreparedSpellsInnovationVitriolist:40a81433-cab3-524d-83fe-9dd96fe5dd11",
       "level": 3
     },
     {

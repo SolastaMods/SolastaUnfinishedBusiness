@@ -1,0 +1,74 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": 9037,
+  "actionType": "Main",
+  "actionScope": "All",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "CastSpell",
+  "requiresAuthorization": false,
+  "stealthBreakerBehavior": "RollIfTargets",
+  "feedbackOnHoverType": "LineOfSight",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "SelectInvocation",
+  "formType": "Large",
+  "overrideGuiActionType": false,
+  "overridenGuiActionType": "Main",
+  "focusCameraOnAction": true,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": true,
+  "baseActionForFailureTooltips": null,
+  "activatedPower": null,
+  "displayPowerTooltip": false,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "addLevel": false,
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&EldritchVersatilityTitle",
+    "description": "Action/&EldritchVersatilityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ca58bf4c-2d32-5c22-b371-5ebce1fdb4b7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 20,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2b1fea1c-dc58-5c3d-8c3b-fd16db5c826f",
+  "contentPack": 9999,
+  "name": "EldritchVersatilityMain"
+}

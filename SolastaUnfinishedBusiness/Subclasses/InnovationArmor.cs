@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -18,14 +19,15 @@ using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class InnovationArmor
+[UsedImplicitly]
+public sealed class InnovationArmor : AbstractSubclass
 {
     private const string GuardianMarkerName = "ConditionInnovationArmorGuardianMode";
     private const string InfiltratorMarkerName = "ConditionInnovationArmorInfiltratorMode";
 
-    public static CharacterSubclassDefinition Build()
+    public InnovationArmor()
     {
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create("InnovationArmor")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorArmor", Resources.InventorArmor, 256))
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells(), BuildArmorModes())
@@ -34,6 +36,13 @@ public static class InnovationArmor
             .AddFeaturesAtLevel(15, BuildPerfectedArmor())
             .AddToDB();
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterClassDefinition Klass => InventorClass.Class;
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => InventorClass.SubclassChoice;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinition BuildArmoredUp()
     {

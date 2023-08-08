@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -18,11 +19,12 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class OathOfDemonHunter : AbstractSubclass
+[UsedImplicitly]
+public sealed class OathOfDemonHunter : AbstractSubclass
 {
     internal const string Name = "OathOfDemonHunter";
 
-    internal OathOfDemonHunter()
+    public OathOfDemonHunter()
     {
         //
         // LEVEL 03
@@ -166,6 +168,8 @@ internal sealed class OathOfDemonHunter : AbstractSubclass
                 featureSetDemonSlayer)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Paladin;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,7 +15,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class SorcerousSorrAkkath : AbstractSubclass
+[UsedImplicitly]
+public sealed class SorcerousSorrAkkath : AbstractSubclass
 {
     private const string Name = "SorcerousSorrAkkath";
     private const string DeceptiveHeritage = "DeceptiveHeritage";
@@ -23,7 +25,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
     private const string DarknessAffinity = "DarknessAffinity";
     private const string TouchOfDarkness = "TouchOfDarkness";
 
-    internal SorcerousSorrAkkath()
+    public SorcerousSorrAkkath()
     {
         // LEVEL 01
 
@@ -238,6 +240,8 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                 featureSetTouchOfDarkness)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Sorcerer;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

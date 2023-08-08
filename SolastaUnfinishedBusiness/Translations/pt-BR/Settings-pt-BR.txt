@@ -47,7 +47,6 @@ ModUi/&Changelog=<b><color=#D89555>Registro de alterações</color></b>
 ModUi/&Character=Personagem
 ModUi/&CharactersPool=Conjunto de Personagens
 ModUi/&Classes=<color=#F0DAA0>Aulas</color>
-ModUi/&ClassesAndSubclasses=Classes e subclasses
 ModUi/&Crafting=<color=#F0DAA0>Criação:</color>
 ModUi/&CraftingHelp=. Pressione o botão para aprender receitas instantaneamente na parte ativa\n. Os itens adicionados às lojas podem exigir que o grupo se afaste do local e volte
 ModUi/&Credits=Créditos
@@ -136,6 +135,7 @@ ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
 ModUi/&FixAsianLanguagesTextWrap=Correção do texto da IU do jogo em idiomas asiáticos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+ Use as regras oficiais do Winged Boots <color=#F0DAA0>[duração restante não contada quando o voo for suspenso]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formação:</color>
 ModUi/&FormationError=<color=#C04040E0>Você não pode mudar sua formação durante um jogo multijogador...</color>
 ModUi/&FormationHelp1=. Use os botões numéricos para editar um determinado conjunto <i><color=#F0DAA0>[considere ativar as teclas de atalho na entrada]</color></i>

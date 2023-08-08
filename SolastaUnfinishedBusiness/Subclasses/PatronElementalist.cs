@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,7 +15,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PatronElementalist : AbstractSubclass
+[UsedImplicitly]
+public sealed class PatronElementalist : AbstractSubclass
 {
     private const string Name = "PatronElementalist";
 
@@ -69,7 +71,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         }
     };
 
-    internal PatronElementalist()
+    public PatronElementalist()
     {
         var spellListElementalist = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "SpellListElementalist")
@@ -170,6 +172,8 @@ internal sealed class PatronElementalist : AbstractSubclass
                 bonusCantripElementalistMinorElemental)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Warlock;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

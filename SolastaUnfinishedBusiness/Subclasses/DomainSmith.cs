@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,9 +15,10 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class DomainSmith : AbstractSubclass
+[UsedImplicitly]
+public sealed class DomainSmith : AbstractSubclass
 {
-    internal DomainSmith()
+    public DomainSmith()
     {
         const string NAME = "DomainSmith";
 
@@ -378,10 +380,13 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
+
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Pakri;
 
     private static bool CanArmorBeReinforced(RulesetCharacter character, RulesetItem item)

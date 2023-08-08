@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -13,7 +14,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -45,10 +45,18 @@ internal static class InventorClass
     private static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
 
     internal static CharacterClassDefinition Class { get; private set; }
+
+    internal static FeatureDefinitionSubclassChoice SubclassChoice { get; } = FeatureDefinitionSubclassChoiceBuilder
+        .Create("SubclassChoiceInventor")
+        .SetGuiPresentation("InventorInnovation", Category.Subclass)
+        .SetSubclassSuffix("InventorInnovation")
+        .SetFilterByDeity(false)
+        .AddToDB();
+
     internal static FeatureDefinitionPower InfusionPool { get; } = BuildInfusionPool();
     internal static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
-    public static CharacterClassDefinition Build()
+    public static void Build()
     {
         // Inventor Constructor Family
 
@@ -80,7 +88,10 @@ internal static class InventorClass
 
             #region Presentation
 
-            .SetGuiPresentation(Category.Class, Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576))
+            .SetGuiPresentation(
+                Category.Class,
+                Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576),
+                hidden: true)
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
             .SetPictogram(Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128));
 
@@ -366,32 +377,13 @@ internal static class InventorClass
             builder.AddFeaturesAtLevel(i, unlearn);
         }
 
-        Class = builder.AddToDB();
-
-        #region Subclasses
-
-        builder.AddFeaturesAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
-            .Create("SubclassChoiceInventor")
-            .SetGuiPresentation("InventorInnovation", Category.Subclass)
-            .SetSubclassSuffix("InventorInnovation")
-            .SetFilterByDeity(false)
-            .SetSubclasses(
-                InnovationAlchemy.Build(),
-                InnovationArmor.Build(),
-                InnovationArtillerist.Build(),
-                InnovationVitriolist.Build(),
-                InnovationVivisectionist.Build(),
-                InnovationWeapon.Build()
-            )
-            .AddToDB());
-
-        #endregion
+        builder.AddFeaturesAtLevel(3, SubclassChoice);
 
         BuildCancelAllInfusionsRestActivity();
 
         RegisterPoILoot();
 
-        return Class;
+        Class = builder.AddToDB();
     }
 
     /**Adds starting chest loot for PoI for Inventor class*/
@@ -827,7 +819,9 @@ internal static class InventorClass
             .AddToDB();
 
         //should be hidden from user
-        var flashOfGenius = new FlashOfGenius(bonusPower, "InventorFlashOfGenius");
+        var flashOfGenius = new FlashOfGenius(bonusPower, "InventorFlashOfGenius",
+            "ConditionInventorFlashOfGeniusAura"
+        );
 
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
@@ -880,10 +874,74 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
+// Moved logic from original patcher, no other changes made
+internal class FlashOfGenius : IMeOrAllySaveFailPossible
 {
-    internal FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
+    internal FlashOfGenius(FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
+        Power = power;
+        ReactionName = reactionName;
+        AuraConditionName = auraConditionName;
+    }
+
+    private FeatureDefinitionPower Power { get; }
+    private string ReactionName { get; }
+    private string AuraConditionName { get; }
+
+    public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager,
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        GameLocationCharacter featureOwner,
+        ActionModifier saveModifier,
+        bool hasHitVisual,
+        bool hasBorrowedLuck)
+    {
+        var ownerCharacter = featureOwner.RulesetCharacter;
+        ownerCharacter.TryGetConditionOfCategoryAndType(
+            AttributeDefinitions.TagEffect,
+            AuraConditionName,
+            out var activeCondition
+        );
+        RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var helperCharacter);
+        var locHelper = GameLocationCharacter.GetFromActor(helperCharacter);
+
+        if (!ShouldTrigger(action, defender, locHelper))
+        {
+            yield break;
+        }
+
+        if (!helperCharacter.CanUsePower(Power))
+        {
+            yield break;
+        }
+
+        var usablePower = UsablePowersProvider.Get(Power, helperCharacter);
+        var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+        var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
+        {
+            StringParameter = ReactionName,
+            StringParameter2 = FormatReactionDescription(action, attacker, defender, locHelper),
+            RulesetEffect = rulesService
+                .InstantiateEffectPower(helperCharacter, usablePower, false)
+                .AddAsActivePowerToSource()
+        };
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactToSpendPower(reactionParams);
+
+        yield return battleManager.WaitForReactions(locHelper, actionService, count);
+
+        if (reactionParams.ReactionValidated)
+        {
+            helperCharacter.LogCharacterUsedPower(Power, indent: true);
+            // Originally here is defender use power
+            // helperCharacter.UsePower(usablePower);
+            action.RolledSaveThrow = TryModifyRoll(action, locHelper, saveModifier);
+        }
+
+        reactionParams.RulesetEffect.Terminate(true);
     }
 
     private static int GetBonus(RulesetEntity helper)
@@ -893,16 +951,10 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
     }
 
-    internal override bool ShouldTrigger(
+    private static bool ShouldTrigger(
         CharacterAction action,
-        GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        bool hasHitVisual,
-        bool hasBorrowedLuck,
-        RollOutcome saveOutcome,
-        int saveOutcomeDelta)
+        GameLocationCharacter helper)
     {
         if (helper.IsOppositeSide(defender.Side))
         {
@@ -914,25 +966,18 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             return false;
         }
 
-        return action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
+        return action.RolledSaveThrow && action.saveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
     }
 
-    internal override bool TryModifyRoll(CharacterAction action,
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
+    private static bool TryModifyRoll(CharacterAction action,
         GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        CharacterActionParams reactionParams,
-        bool hasHitVisual,
-        bool hasBorrowedLuck,
-        ref RollOutcome saveOutcome,
-        ref int saveOutcomeDelta)
+        ActionModifier saveModifier)
     {
         var bonus = GetBonus(helper.RulesetActor);
 
         //reuse DC modifier from previous checks, not 100% sure this is correct
         var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDc + saveOutcomeDelta + bonus;
+        var rolled = saveDc + action.saveOutcomeDelta + bonus;
         var success = rolled >= saveDc;
 
         const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
@@ -943,8 +988,8 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         {
             result = GameConsole.SaveSuccessOutcome;
             resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
-            saveOutcome = RollOutcome.Success;
-            saveOutcomeDelta += bonus;
+            action.saveOutcome = RollOutcome.Success;
+            action.saveOutcomeDelta += bonus;
         }
         else
         {
@@ -965,16 +1010,11 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         return true;
     }
 
-    internal override string FormatReactionDescription(
+    private static string FormatReactionDescription(
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier saveModifier,
-        bool hasHitVisual,
-        bool hasBorrowedLuck,
-        RollOutcome saveOutcome,
-        int saveOutcomeDelta)
+        GameLocationCharacter helper)
     {
         var text = defender == helper
             ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"

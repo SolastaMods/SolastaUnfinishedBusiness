@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,7 +16,8 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialTactician : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialTactician : AbstractSubclass
 {
     internal const string Name = "MartialTactician";
     internal const string MarkDamagedByGambit = "ConditionTacticianDamagedByGambit";
@@ -23,7 +25,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static int _gambitPoolIncreases;
 
-    internal MartialTactician()
+    public MartialTactician()
     {
         var unlearn = BuildUnlearn();
 
@@ -47,6 +49,8 @@ internal sealed class MartialTactician : AbstractSubclass
 
         GambitsBuilders.BuildGambits();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Fighter;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -279,13 +283,13 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private class RefundPowerUsePhysicalAttackAfterCrit : IPhysicalAttackAfterDamage
     {
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinition _feature;
+        private readonly FeatureDefinitionPower _power;
 
         public RefundPowerUsePhysicalAttackAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
         {
-            this.power = power;
-            this.feature = feature;
+            _power = power;
+            _feature = feature;
         }
 
         public void OnPhysicalAttackAfterDamage(
@@ -321,28 +325,28 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
             {
                 Main.Info("AdaptiveStrategy: nothing to refuel. exiting.");
                 return;
             }
 
-            character.LogCharacterUsedFeature(feature, indent: true);
+            character.LogCharacterUsedFeature(_feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
-            character.UpdateUsageForPower(power, -1);
+            character.UpdateUsageForPower(_power, -1);
             Main.Info("AdaptiveStrategy: refueled.");
         }
     }
 
     private class RefundPowerUseAfterKill : IOnTargetReducedToZeroHp
     {
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinition _feature;
+        private readonly FeatureDefinitionPower _power;
 
         public RefundPowerUseAfterKill(FeatureDefinitionPower power, FeatureDefinition feature)
         {
-            this.power = power;
-            this.feature = feature;
+            _power = power;
+            _feature = feature;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -381,28 +385,28 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
             {
                 Main.Info("OvercomingStrategy: nothing to refuel. exiting.");
                 yield break;
             }
 
-            character.LogCharacterUsedFeature(feature, indent: true);
+            character.LogCharacterUsedFeature(_feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
-            character.UpdateUsageForPower(power, -1);
+            character.UpdateUsageForPower(_power, -1);
             Main.Info("OvercomingStrategy: refueled.");
         }
     }
 
     private class RefundPowerUseWhenTargetWithConditionDies : INotifyConditionRemoval
     {
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinition _feature;
+        private readonly FeatureDefinitionPower _power;
 
         public RefundPowerUseWhenTargetWithConditionDies(FeatureDefinitionPower power, FeatureDefinition feature)
         {
-            this.power = power;
-            this.feature = feature;
+            _power = power;
+            _feature = feature;
         }
 
         public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
@@ -415,7 +419,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (!character.HasAnyFeature(feature))
+            if (!character.HasAnyFeature(_feature))
             {
                 return;
             }
@@ -433,14 +437,14 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
             {
                 return;
             }
 
-            character.LogCharacterUsedFeature(feature, indent: true);
+            character.LogCharacterUsedFeature(_feature, indent: true);
             locCharacter.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
-            character.UpdateUsageForPower(power, -1);
+            character.UpdateUsageForPower(_power, -1);
         }
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -9,11 +10,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardGraviturgist : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardGraviturgist : AbstractSubclass
 {
     private const string Name = "WizardGraviturgist";
 
-    internal WizardGraviturgist()
+    public WizardGraviturgist()
     {
         //
         // Density Increase
@@ -269,6 +271,8 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .AddFeaturesAtLevel(14, powerEventHorizon)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

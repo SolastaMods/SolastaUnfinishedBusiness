@@ -47,7 +47,6 @@ ModUi/&Changelog=<b><color=#D89555>Journal des modifications</color></b>
 ModUi/&Character=Personnage
 ModUi/&CharactersPool=Groupe de personnages
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
-ModUi/&ClassesAndSubclasses=Classes et sous-classes
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n. Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité
 ModUi/&Credits=Crédits
@@ -136,6 +135,7 @@ ModUi/&Feats=<color=#F0DAA0>Dons</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixAsianLanguagesTextWrap=Correction de l'habillage de texte de l'interface utilisateur pour les langues asiatiques<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&FixEldritchBlastRange=Changer la portée de la<color=#D89555>Décharge occulte</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+ Utiliser les règles officielles des bottes ailées <color=#F0DAA0>[la durée restante n'est pas comptée lorsque le vol est suspendu]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
 ModUi/&FormationHelp1=. Utilisez les touches numériques pour modifier la configuration d'une formation donnée <i><color=#F0DAA0>[envisagez d'activer les raccourcis clavier]</color></i>

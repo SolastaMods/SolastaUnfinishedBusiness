@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -16,7 +17,8 @@ using static SolastaUnfinishedBusiness.Models.SpellsContext;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class OathOfAncients : AbstractSubclass
+[UsedImplicitly]
+public sealed class OathOfAncients : AbstractSubclass
 {
     private const string Name = "OathOfAncients";
 
@@ -39,7 +41,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB())
         .AddToDB();
 
-    internal OathOfAncients()
+    public OathOfAncients()
     {
         //
         // LEVEL 03
@@ -257,6 +259,8 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddFeaturesAtLevel(20, powerElderChampion)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Paladin;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

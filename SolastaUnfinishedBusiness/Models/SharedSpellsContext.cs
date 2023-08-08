@@ -156,11 +156,6 @@ internal static class SharedSpellsContext
         return warlockUsedSlots;
     }
 
-    internal static int GetWarlockRemainingSlots(RulesetCharacterHero rulesetCharacterHero)
-    {
-        return GetWarlockMaxSlots(rulesetCharacterHero) - GetWarlockUsedSlots(rulesetCharacterHero);
-    }
-
     [CanBeNull]
     internal static RulesetSpellRepertoire GetWarlockSpellRepertoire(
         [NotNull] RulesetCharacterHero rulesetCharacterHero)
@@ -288,11 +283,11 @@ internal static class SharedSpellsContext
             0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7
         };
 
-        private readonly Dictionary<CasterProgression, int> levels;
+        private readonly Dictionary<CasterProgression, int> _levels;
 
         internal CasterLevelContext()
         {
-            levels = new Dictionary<CasterProgression, int>
+            _levels = new Dictionary<CasterProgression, int>
             {
                 { CasterProgression.None, 0 },
                 { CasterProgression.Full, 0 },
@@ -304,15 +299,15 @@ internal static class SharedSpellsContext
 
         internal void IncrementCasterLevel(CasterProgression casterProgression, int increment)
         {
-            levels[casterProgression] += increment;
+            _levels[casterProgression] += increment;
         }
 
         internal int GetCasterLevel()
         {
-            var casterLevel = levels[CasterProgression.Full]
-                              + FromHalfCaster[levels[CasterProgression.Half]]
-                              + FromHalfRoundUpCaster[levels[CasterProgression.HalfRoundUp]]
-                              + FromOneThirdCaster[levels[CasterProgression.OneThird]];
+            var casterLevel = _levels[CasterProgression.Full]
+                              + FromHalfCaster[_levels[CasterProgression.Half]]
+                              + FromHalfRoundUpCaster[_levels[CasterProgression.HalfRoundUp]]
+                              + FromOneThirdCaster[_levels[CasterProgression.OneThird]];
 
             return casterLevel;
         }

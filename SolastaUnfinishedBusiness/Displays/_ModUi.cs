@@ -15,7 +15,7 @@ using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
-using static SolastaUnfinishedBusiness.Displays.ClassesSubclassesDisplay;
+using static SolastaUnfinishedBusiness.Displays.SubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
@@ -168,14 +168,14 @@ namespace SolastaUnfinishedBusiness.Displays
     [UsedImplicitly]
     internal sealed class GameplayViewer : IMenuSelectablePage
     {
-        private int gamePlaySelectedPane;
+        private int _gamePlaySelectedPane;
         public string Name => Gui.Localize("ModUi/&Gameplay");
 
         public int Priority => 100;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref gamePlaySelectedPane, Name,
+            ModUi.DisplaySubMenu(ref _gamePlaySelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools),
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
@@ -186,36 +186,36 @@ namespace SolastaUnfinishedBusiness.Displays
     [UsedImplicitly]
     internal sealed class CharacterViewer : IMenuSelectablePage
     {
-        private int characterSelectedPane;
+        private int _characterSelectedPane;
         public string Name => Gui.Localize("ModUi/&Character");
 
         public int Priority => 200;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref characterSelectedPane, Name,
+            ModUi.DisplaySubMenu(ref _characterSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
                     DisplayBackgroundsAndDeities),
-                new NamedAction(Gui.Localize("ModUi/&ClassesAndSubclasses"),
-                    DisplayClassesAndSubclasses),
                 new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
-                    DisplayFeatsFightingStylesInvocations),
+                    DisplayProficiencies),
                 new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
-                    DisplaySpells));
+                    DisplaySpells),
+                new NamedAction(Gui.Localize("ModUi/&Subclasses"),
+                    DisplaySubclasses));
         }
     }
 
     [UsedImplicitly]
     internal sealed class InterfaceViewer : IMenuSelectablePage
     {
-        private int interfaceSelectedPane;
+        private int _interfaceSelectedPane;
         public string Name => Gui.Localize("ModUi/&Interface");
 
         public int Priority => 300;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref interfaceSelectedPane, Name,
+            ModUi.DisplaySubMenu(ref _interfaceSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
                 new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker),
                 new NamedAction(Gui.Localize("ModUi/&Translations"), DisplayTranslations));
@@ -238,14 +238,14 @@ namespace SolastaUnfinishedBusiness.Displays
     [UsedImplicitly]
     internal sealed class EncountersViewer : IMenuSelectablePage
     {
-        private int encountersSelectedPane;
+        private int _encountersSelectedPane;
         public string Name => Gui.Localize("ModUi/&Encounters");
 
         public int Priority => 500;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref encountersSelectedPane, Name,
+            ModUi.DisplaySubMenu(ref _encountersSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayEncountersGeneral),
                 new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
                 new NamedAction(Gui.Localize("ModUi/&CharactersPool"), DisplayNpcs));
@@ -255,14 +255,14 @@ namespace SolastaUnfinishedBusiness.Displays
     [UsedImplicitly]
     internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
-        private int creditsSelectedPane;
+        private int _creditsSelectedPane;
         public string Name => Gui.Localize("ModUi/&CreditsAndDiagnostics");
 
         public int Priority => 999;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref creditsSelectedPane, null,
+            ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
                 new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
 #if DEBUG
                 new NamedAction("Diagnostics", DisplayDiagnostics),

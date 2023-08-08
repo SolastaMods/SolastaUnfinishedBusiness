@@ -19,11 +19,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfTheTempest : AbstractSubclass
+[UsedImplicitly]
+public sealed class WayOfTheTempest : AbstractSubclass
 {
     private const string Name = "WayOfTheTempest";
 
-    internal WayOfTheTempest()
+    public WayOfTheTempest()
     {
         // LEVEL 03
 
@@ -242,6 +243,8 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .AddFeaturesAtLevel(17, featureSetEyeOfTheStorm)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Monk;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

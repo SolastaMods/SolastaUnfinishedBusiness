@@ -33,6 +33,13 @@ internal class FeatureDefinitionReduceDamageBuilder
         return this;
     }
 
+    [NotNull]
+    internal FeatureDefinitionReduceDamageBuilder SetNotificationTag(string notificationTag)
+    {
+        Definition.NotificationTag = notificationTag;
+        return this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionReduceDamageBuilder(string name, Guid namespaceGuid) : base(name,

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -18,11 +19,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class InnovationVitriolist
+[UsedImplicitly]
+public sealed class InnovationVitriolist : AbstractSubclass
 {
     private const string Name = "InnovationVitriolist";
 
-    public static CharacterSubclassDefinition Build()
+    public InnovationVitriolist()
     {
         // LEVEL 03
 
@@ -299,7 +301,7 @@ public static class InnovationVitriolist
 
         // MAIN
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, TraditionShockArcanist)
             .AddFeaturesAtLevel(3, autoPreparedSpells, featureSetMixture)
@@ -308,6 +310,13 @@ public static class InnovationVitriolist
             .AddFeaturesAtLevel(15, featureParagon)
             .AddToDB();
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterClassDefinition Klass => InventorClass.Class;
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => InventorClass.SubclassChoice;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
     //
     // Mixtures - Add additional PB damage to any acid damage / Add additional conditions at 9 and 15

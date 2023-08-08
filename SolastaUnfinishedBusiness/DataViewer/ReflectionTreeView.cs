@@ -15,15 +15,15 @@ internal class ReflectionTreeView
     private float _height;
     private bool _mouseOver;
     private int _nodesCount;
+    private int _searchBreadth;
+    private int _searchDepth;
+    private string _searchText = "";
     private int _skipLevels;
     private int _startIndex;
     private int _totalNodeCount;
     private ReflectionTree _tree;
     private Rect _viewerRect;
-    private int searchBreadth;
-    private int searchDepth;
-    private string searchText = "";
-    private int visitCount;
+    private int _visitCount;
 
     // internal ReflectionTreeView() { }
 
@@ -40,9 +40,9 @@ internal class ReflectionTreeView
 
     private void UpdateCounts(int visits, int depth, int breadth)
     {
-        visitCount = visits;
-        searchDepth = depth;
-        searchBreadth = breadth;
+        _visitCount = visits;
+        _searchDepth = depth;
+        _searchBreadth = breadth;
     }
 
     internal void Clear()
@@ -66,7 +66,7 @@ internal class ReflectionTreeView
 #pragma warning disable CS0618 // Type or member is obsolete
         _tree.RootNode.Expanded = ToggleState.On;
 #pragma warning restore CS0618 // Type or member is obsolete
-        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
+        ReflectionSearch.Shared.StartSearch(_tree.RootNode, _searchText, UpdateCounts, _searchResults);
     }
 
     internal void OnGUI(bool drawRoot = true, bool collapse = false)
@@ -138,10 +138,10 @@ internal class ReflectionTreeView
                 GUILayout.Space(10f);
                 GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                 GUILayout.Space(10f);
-                UI.ActionTextField(ref searchText, "searchText", _ => { }, () =>
+                UI.ActionTextField(ref _searchText, "searchText", _ => { }, () =>
                 {
-                    searchText = searchText.Trim();
-                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
+                    _searchText = _searchText.Trim();
+                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, _searchText, UpdateCounts, _searchResults);
                 }, UI.Width((float)250));
                 GUILayout.Space(10f);
                 var isSearching = ReflectionSearch.Shared.IsSearching;
@@ -153,22 +153,22 @@ internal class ReflectionTreeView
                     }
                     else
                     {
-                        searchText = searchText.Trim();
-                        ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts,
+                        _searchText = _searchText.Trim();
+                        ReflectionSearch.Shared.StartSearch(_tree.RootNode, _searchText, UpdateCounts,
                             _searchResults);
                     }
                 }, UI.AutoWidth());
                 GUILayout.Space(10f);
                 if (GUIHelper.AdjusterButton(ref GameServicesDisplay.MaxSearchDepth, "Max Depth:", 0))
                 {
-                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
+                    ReflectionSearch.Shared.StartSearch(_tree.RootNode, _searchText, UpdateCounts, _searchResults);
                 }
 
                 GUILayout.Space(10f);
-                if (visitCount > 0)
+                if (_visitCount > 0)
                 {
                     GUILayout.Label($"found {_searchResults.Count}".Cyan() +
-                                    $" visited: {visitCount} (d: {searchDepth} b: {searchBreadth})".Orange());
+                                    $" visited: {_visitCount} (d: {_searchDepth} b: {_searchBreadth})".Orange());
                 }
 
                 GUILayout.FlexibleSpace();
@@ -186,7 +186,7 @@ internal class ReflectionTreeView
                         using (new GUILayout.VerticalScope())
                         {
                             _nodesCount = 0;
-                            if (searchText.Length > 0)
+                            if (_searchText.Length > 0)
                             {
                                 _searchResults.Traverse((node, depth) =>
                                 {
@@ -270,7 +270,7 @@ internal class ReflectionTreeView
             // title
             GUILayout.Space(DepthDelta * (depth - _skipLevels));
             var name = node.Name;
-            name = name.MarkedSubstring(searchText);
+            name = name.MarkedSubstring(_searchText);
             UI.ToggleButton(ref expanded,
                 $"[{node.NodeTypePrefix}] ".Grey() +
                 name + " : " + (

@@ -6,15 +6,15 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class RangedAttackInMeleeDisadvantageRemover
 {
-    private readonly IsWeaponValidHandler isWeaponValid;
-    private readonly IsCharacterValidHandler[] validators;
+    private readonly IsWeaponValidHandler _isWeaponValid;
+    private readonly IsCharacterValidHandler[] _validators;
 
     internal RangedAttackInMeleeDisadvantageRemover(
         IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
     {
-        this.isWeaponValid = isWeaponValid;
-        this.validators = validators;
+        _isWeaponValid = isWeaponValid;
+        _validators = validators;
     }
 
     internal RangedAttackInMeleeDisadvantageRemover(params IsCharacterValidHandler[] validators)
@@ -24,12 +24,12 @@ internal class RangedAttackInMeleeDisadvantageRemover
 
     private bool CanApply(RulesetCharacter character, RulesetAttackMode attackMode)
     {
-        if (isWeaponValid != null && !isWeaponValid.Invoke(attackMode, null, character))
+        if (_isWeaponValid != null && !_isWeaponValid.Invoke(attackMode, null, character))
         {
             return false;
         }
 
-        return character.IsValid(validators);
+        return character.IsValid(_validators);
     }
 
     /**

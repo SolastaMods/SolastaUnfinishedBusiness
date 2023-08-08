@@ -1,4 +1,5 @@
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -19,19 +20,20 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-public static class InnovationWeapon
+[UsedImplicitly]
+public sealed class InnovationWeapon : AbstractSubclass
 {
     private const string SteelDefenderTag = "SteelDefender";
     private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";
     private const string SummonSteelDefenderPower = "PowerInnovationWeaponSummonSteelDefender";
     private const string SummonAdvancedSteelDefenderPower = "PowerInnovationWeaponSummonAdvancedSteelDefender";
 
-    public static CharacterSubclassDefinition Build()
+    public InnovationWeapon()
     {
         var steelDefenderFeatureSet =
             BuildSteelDefenderFeatureSet(out var steelDefenderPower, out var steelDefenderMonster);
 
-        return CharacterSubclassDefinitionBuilder
+        Subclass = CharacterSubclassDefinitionBuilder
             .Create("InnovationWeapon")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorWeapon", Resources.InventorWeapon, 256))
             .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), steelDefenderFeatureSet)
@@ -40,6 +42,13 @@ public static class InnovationWeapon
             .AddFeaturesAtLevel(15, BuildImprovedDefenderFeatureSet(steelDefenderPower, steelDefenderMonster))
             .AddToDB();
     }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+    internal override CharacterClassDefinition Klass => InventorClass.Class;
+    internal override FeatureDefinitionSubclassChoice SubclassChoice => InventorClass.SubclassChoice;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinition BuildBattleReady()
     {
@@ -522,13 +531,13 @@ public static class InnovationWeapon
 
     private class ApplyOnTurnEnd : ICharacterTurnEndListener
     {
-        private readonly ConditionDefinition condition;
-        private readonly FeatureDefinitionPower power;
+        private readonly ConditionDefinition _condition;
+        private readonly FeatureDefinitionPower _power;
 
         public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
         {
-            this.condition = condition;
-            this.power = power;
+            _condition = condition;
+            _power = power;
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
@@ -542,9 +551,9 @@ public static class InnovationWeapon
 
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            rulesetCharacter.LogCharacterUsedPower(power);
+            rulesetCharacter.LogCharacterUsedPower(_power);
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                _condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,

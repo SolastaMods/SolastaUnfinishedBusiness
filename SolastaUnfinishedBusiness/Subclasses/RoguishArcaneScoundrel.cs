@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -19,12 +20,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagic
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishArcaneScoundrel : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishArcaneScoundrel : AbstractSubclass
 {
     internal const string Name = "RoguishArcaneScoundrel";
     private const string DistractingAmbush = "DistractingAmbush";
 
-    internal RoguishArcaneScoundrel()
+    public RoguishArcaneScoundrel()
     {
         //
         // LEVEL 3
@@ -263,6 +265,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 featureSetPremeditationSlot)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Rogue;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

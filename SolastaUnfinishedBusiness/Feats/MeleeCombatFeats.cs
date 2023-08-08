@@ -1374,17 +1374,17 @@ internal static class MeleeCombatFeats
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
         private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
+        private readonly DamageForm _damage;
+        private readonly FeatureDefinitionPower _power;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-        private readonly DamageForm damage;
-        private readonly FeatureDefinitionPower power;
 
         public PhysicalAttackAfterDamageFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
-            this.power = power;
+            _power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
 
-            damage = new DamageForm
+            _damage = new DamageForm
             {
                 DamageType = DamageTypeBludgeoning, DieType = DieType.D1, DiceNumber = 0, BonusDamage = 0
             };
@@ -1427,7 +1427,7 @@ internal static class MeleeCombatFeats
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
                         rulesetDefender,
-                        power,
+                        _power,
                         lowOutcome,
                         lowerRoll + modifier,
                         lowerRoll,
@@ -1437,7 +1437,7 @@ internal static class MeleeCombatFeats
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
-                        var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+                        var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
                         ServiceRepository.GetService<IRulesetImplementationService>()
                             .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                             .AddAsActivePowerToSource()
@@ -1469,10 +1469,10 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
                         SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
 
-                    damage.BonusDamage = strengthMod;
+                    _damage.BonusDamage = strengthMod;
                     RulesetActor.InflictDamage(
                         strengthMod,
-                        damage,
+                        _damage,
                         DamageTypeBludgeoning,
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                         rulesetDefender,

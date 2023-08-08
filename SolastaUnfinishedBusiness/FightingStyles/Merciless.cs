@@ -55,7 +55,7 @@ internal sealed class Merciless : AbstractFightingStyle
     private sealed class OnTargetReducedToZeroHpFightingStyleMerciless :
         IOnTargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
     {
-        private bool isCritical;
+        private bool _isCritical;
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -69,7 +69,7 @@ internal sealed class Merciless : AbstractFightingStyle
             bool firstTarget,
             bool criticalHit)
         {
-            isCritical = criticalHit;
+            _isCritical = criticalHit;
 
             yield break;
         }
@@ -107,7 +107,7 @@ internal sealed class Merciless : AbstractFightingStyle
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                 .AddAsActivePowerToSource();
 
-            var distance = isCritical ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+            var distance = _isCritical ? proficiencyBonus : (proficiencyBonus + 1) / 2;
 
             effectPower.EffectDescription.targetParameter = (distance * 2) + 1;
 
@@ -119,7 +119,7 @@ internal sealed class Merciless : AbstractFightingStyle
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
 
-            isCritical = false;
+            _isCritical = false;
         }
     }
 }

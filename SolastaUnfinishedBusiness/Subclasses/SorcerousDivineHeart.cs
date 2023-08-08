@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -10,12 +11,13 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class SorcerousDivineHeart : AbstractSubclass
+[UsedImplicitly]
+public sealed class SorcerousDivineHeart : AbstractSubclass
 {
     private const string Name = "DivineHeart";
     private const string OriginTag = "Origin";
 
-    internal SorcerousDivineHeart()
+    public SorcerousDivineHeart()
     {
         var autoPreparedSpellsDivineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}Arun")
@@ -165,6 +167,8 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 powerDivineHeartDivineRecovery)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Sorcerer;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

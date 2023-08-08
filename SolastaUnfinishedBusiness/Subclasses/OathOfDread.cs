@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -19,7 +20,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class OathOfDread : AbstractSubclass
+[UsedImplicitly]
+public sealed class OathOfDread : AbstractSubclass
 {
     private const string Name = "OathOfDread";
 
@@ -42,7 +44,7 @@ internal sealed class OathOfDread : AbstractSubclass
             .AddToDB())
         .AddToDB();
 
-    internal OathOfDread()
+    public OathOfDread()
     {
         //
         // LEVEL 03
@@ -283,6 +285,8 @@ internal sealed class OathOfDread : AbstractSubclass
                 powerAspectOfDread)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Paladin;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

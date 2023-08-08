@@ -31,7 +31,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "All",
-    "durationType": "Minute",
+    "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -332,9 +332,9 @@
     "description": "Feature/&PowerPatronEldritchSurgeBlastOverloadDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "487b2c11d5b1dec41b18377720260d99",
-      "m_SubObjectName": "EldritchBlast",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "fbf06b32-1fbe-51bd-988d-2f696c37228c",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

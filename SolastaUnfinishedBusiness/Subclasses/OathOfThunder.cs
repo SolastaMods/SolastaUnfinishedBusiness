@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -19,7 +20,8 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class OathOfThunder : AbstractSubclass
+[UsedImplicitly]
+public sealed class OathOfThunder : AbstractSubclass
 {
     internal const string Name = "OathOfThunder";
 
@@ -35,7 +37,7 @@ internal sealed class OathOfThunder : AbstractSubclass
         };
     };
 
-    internal OathOfThunder()
+    public OathOfThunder()
     {
         //
         // LEVEL 03
@@ -268,6 +270,8 @@ internal sealed class OathOfThunder : AbstractSubclass
                 featureSetStormHerald)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Paladin;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

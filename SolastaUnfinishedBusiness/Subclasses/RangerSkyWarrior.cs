@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,13 +18,14 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RangerSkyWarrior : AbstractSubclass
+[UsedImplicitly]
+public sealed class RangerSkyWarrior : AbstractSubclass
 {
     private const string Name = "RangerSkyWarrior";
 
     private static ConditionDefinition _conditionGiftOfTheWind;
 
-    internal RangerSkyWarrior()
+    public RangerSkyWarrior()
     {
         //
         // LEVEL 03
@@ -219,6 +221,8 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Ranger;
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
@@ -229,11 +233,11 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
 
     private sealed class CheckConditionValidity : IOnItemEquipped
     {
-        private readonly ConditionDefinition condition;
+        private readonly ConditionDefinition _condition;
 
         public CheckConditionValidity(ConditionDefinition condition)
         {
-            this.condition = condition;
+            _condition = condition;
         }
 
         public void OnItemEquipped(RulesetCharacterHero hero)
@@ -244,7 +248,7 @@ internal sealed class RangerSkyWarrior : AbstractSubclass
             }
 
             var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == condition);
+                .FirstOrDefault(x => x.ConditionDefinition == _condition);
 
             if (rulesetCondition != null)
             {

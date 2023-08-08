@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -11,11 +12,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishOpportunist : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishOpportunist : AbstractSubclass
 {
     private const string RefreshSneakAttack = "RefreshSneakAttack";
 
-    internal RoguishOpportunist()
+    public RoguishOpportunist()
     {
         var onComputeAttackModifierOpportunistQuickStrike = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierOpportunistQuickStrike")
@@ -108,6 +110,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .AddFeaturesAtLevel(17, powerOpportunistExposingWeakness)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Rogue;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

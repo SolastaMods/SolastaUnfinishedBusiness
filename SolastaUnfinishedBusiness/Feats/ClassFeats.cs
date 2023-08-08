@@ -731,18 +731,18 @@ internal static class ClassFeats
 
     private sealed class GainWildShapeCharges : IUsePowerFinishedByMe, IPowerUseValidity
     {
-        private readonly FeatureDefinitionPower powerGainWildShapeFromSlot;
-        private readonly int slotLevel;
-        private readonly int wildShapeAmount;
+        private readonly FeatureDefinitionPower _powerGainWildShapeFromSlot;
+        private readonly int _slotLevel;
+        private readonly int _wildShapeAmount;
 
         public GainWildShapeCharges(
             FeatureDefinitionPower powerGainWildShapeFromSlot,
             int slotLevel,
             int wildShapeAmount)
         {
-            this.powerGainWildShapeFromSlot = powerGainWildShapeFromSlot;
-            this.slotLevel = slotLevel;
-            this.wildShapeAmount = wildShapeAmount;
+            _powerGainWildShapeFromSlot = powerGainWildShapeFromSlot;
+            _slotLevel = slotLevel;
+            _wildShapeAmount = wildShapeAmount;
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
@@ -750,7 +750,7 @@ internal static class ClassFeats
             var remaining = 0;
 
             character.GetClassSpellRepertoire(Druid)?
-                .GetSlotsNumber(slotLevel, out remaining, out _);
+                .GetSlotsNumber(_slotLevel, out remaining, out _);
 
             var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
                          character.GetRemainingPowerUses(PowerDruidWildShape);
@@ -760,7 +760,7 @@ internal static class ClassFeats
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (power != powerGainWildShapeFromSlot)
+            if (power != _powerGainWildShapeFromSlot)
             {
                 yield break;
             }
@@ -774,18 +774,18 @@ internal static class ClassFeats
                 yield break;
             }
 
-            repertoire.SpendSpellSlot(slotLevel);
-            character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
+            repertoire.SpendSpellSlot(_slotLevel);
+            character.UpdateUsageForPowerPool(-_wildShapeAmount, rulesetUsablePower);
         }
     }
 
     private sealed class SpendWildShapeUse : IUsePowerFinishedByMe, IPowerUseValidity
     {
-        private readonly FeatureDefinitionPower powerSpendWildShapeUse;
+        private readonly FeatureDefinitionPower _powerSpendWildShapeUse;
 
         public SpendWildShapeUse(FeatureDefinitionPower powerSpendWildShapeUse)
         {
-            this.powerSpendWildShapeUse = powerSpendWildShapeUse;
+            _powerSpendWildShapeUse = powerSpendWildShapeUse;
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
@@ -795,7 +795,7 @@ internal static class ClassFeats
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (power != powerSpendWildShapeUse)
+            if (power != _powerSpendWildShapeUse)
             {
                 yield break;
             }

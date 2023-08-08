@@ -34,8 +34,6 @@ public class Settings : UnityModManager.ModSettings
     //
     public bool DisplayRacesToggle { get; set; } = true;
     public bool DisplayBackgroundsToggle { get; set; } = true;
-    public bool DisplayClassesToggle { get; set; } = true;
-    public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; }
     public bool DisplayFeatGroupsToggle { get; set; }
     public bool DisplayFightingStylesToggle { get; set; }
@@ -45,6 +43,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFactionRelationsToggle { get; set; }
     public bool DisplayItemsToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; }
+    public SerializableDictionary<string, bool> DisplayKlassToggle { get; set; } = new();
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //
@@ -156,6 +155,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool AllowFlightSuspend { get; set; }
+    public bool FlightSuspendWingedBoots { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
@@ -229,15 +229,9 @@ public class Settings : UnityModManager.ModSettings
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = new();
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-
     public List<string> BackgroundEnabled { get; } = new();
-
-    // public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    // public List<string> DeityEnabled { get; } = new();
-    public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> ClassEnabled { get; } = new();
-    public int SubclassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> SubclassEnabled { get; } = new();
+    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = new();
+    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = new();
 
     //
     // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
@@ -333,7 +327,6 @@ public class Settings : UnityModManager.ModSettings
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
-
     public bool ShowButtonWithControlledMonsterInfo { get; set; }
 
     //

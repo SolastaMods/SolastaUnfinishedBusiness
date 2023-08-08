@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -17,14 +18,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitio
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class CircleOfTheNight : AbstractSubclass
+[UsedImplicitly]
+public sealed class CircleOfTheNight : AbstractSubclass
 {
     internal const string Name = "CircleOfTheNight";
 
     private static readonly ValidatorsPowerUse CanUseCombatHealing = new(
         ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
 
-    internal CircleOfTheNight()
+    public CircleOfTheNight()
     {
         // 2nd level
 
@@ -133,6 +135,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     }
 
     internal static FeatureDefinitionPower PowerCircleOfTheNightWildShapeCombat { get; private set; }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Druid;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

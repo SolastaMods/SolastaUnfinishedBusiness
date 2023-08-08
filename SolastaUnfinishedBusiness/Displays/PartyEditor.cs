@@ -350,10 +350,25 @@ public static class PartyEditor
                                 null,
                                 null,
                                 (chr, def) => !chr.TrainedInvocations.Contains(def)
-                                    ? () => chr.TrainInvocations(new List<InvocationDefinition> { def })
+                                    ? () =>
+                                    {
+                                        chr.TrainInvocations(new List<InvocationDefinition> { def });
+                                        LevelUpContext.RecursiveGrantCustomFeatures(
+                                            chr, null, new List<FeatureDefinition> { def.grantedFeature });
+                                    }
                                     : null,
                                 (chr, def) => chr.TrainedInvocations.Contains(def)
-                                    ? () => chr.TrainedInvocations.Remove(def)
+                                    ? () =>
+                                    {
+                                        chr.TrainedInvocations.Remove(def);
+                                        if (def.grantedFeature is FeatureDefinitionPower power)
+                                        {
+                                            chr.usablePowers.RemoveAll(x => x.PowerDefinition == power);
+                                        }
+
+                                        LevelUpContext.RecursiveRemoveCustomFeatures(
+                                            chr, null, new List<FeatureDefinition> { def.grantedFeature });
+                                    }
                                     : null
                             );
                         }

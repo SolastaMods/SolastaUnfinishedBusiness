@@ -5,5 +5,5 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface ICustomReactionResource
 {
     AssetReferenceSprite Icon { get; }
-    string GetUses(RulesetCharacter character);
+    string GetUses(RulesetCharacter rulesetCharacter);
 }

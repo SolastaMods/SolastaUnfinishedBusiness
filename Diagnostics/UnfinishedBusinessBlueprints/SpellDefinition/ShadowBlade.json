@@ -125,22 +125,22 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierFlameBlade2:62b046a3d7fa3bb42a27d1e20de35528",
+              "featureDefinition": "Definition:AttackModifierShadowBlade2:c29dfbf8-bb78-5a9d-a10a-41e484955c33",
               "level": 2
             },
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierFlameBlade4:b50bad012130ef44696c9191bcd13cdb",
+              "featureDefinition": "Definition:AttackModifierShadowBlade3:c7dcc792-93e5-596d-9fed-d239cda6043f",
               "level": 3
             },
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierFlameBlade6:d3ea3505d943c18499a3115cc4488fa1",
+              "featureDefinition": "Definition:AttackModifierShadowBlade5:47ab8587-25a6-589e-973d-d920b10d48a9",
               "level": 5
             },
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierFlameBlade8:61ffd00901e0456419161c51792f4745",
+              "featureDefinition": "Definition:AttackModifierShadowBlade7:1903713e-368b-5a0a-a251-abd3ded3be25",
               "level": 7
             }
           ],

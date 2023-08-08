@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -17,9 +18,10 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 //Paladin Oath inspired from 5e Oath of Vengeance
-internal sealed class OathOfHatred : AbstractSubclass
+[UsedImplicitly]
+public sealed class OathOfHatred : AbstractSubclass
 {
-    internal OathOfHatred()
+    public OathOfHatred()
     {
         //
         // LEVEL 03
@@ -200,6 +202,8 @@ internal sealed class OathOfHatred : AbstractSubclass
             .AddFeaturesAtLevel(20, powerHatredArdentHate)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Paladin;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

@@ -47,7 +47,6 @@ ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
-ModUi/&ClassesAndSubclasses=Classes & Subclasses
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
@@ -136,6 +135,7 @@ ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
 ModUi/&FormationHelp1=. Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>

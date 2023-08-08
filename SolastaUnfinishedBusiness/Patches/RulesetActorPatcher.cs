@@ -35,12 +35,26 @@ public static class RulesetActorPatcher
         public static void Prefix(
             RulesetActor __instance,
             ref string category,
-            RulesetCondition newCondition)
+            ref RulesetCondition newCondition)
         {
             //PATCH: allow conditions to force specific category
             if (newCondition.conditionDefinition == null)
             {
                 return;
+            }
+
+            // Enable RulesetConditionCustom
+            var replaceWithRulesetConditionCustom = newCondition.conditionDefinition
+                .GetFirstSubFeatureOfType<IBindToRulesetConditionCustom>();
+            if (replaceWithRulesetConditionCustom != null)
+            {
+                var originalCondition = newCondition;
+                // The original condition is yet to register, however it is got from its pool, so we should return it
+                replaceWithRulesetConditionCustom.ReplaceRulesetCondition(originalCondition, out newCondition);
+                if (originalCondition != newCondition)
+                {
+                    RulesetCondition.objectPool.Return(originalCondition);
+                }
             }
 
             var feature = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IForceConditionCategory>();
@@ -797,6 +811,87 @@ public static class RulesetActorPatcher
                 "RulesetActor.SerializeElements",
                 new CodeInstruction(OpCodes.Ldc_I4_1),
                 new CodeInstruction(OpCodes.Callvirt, replacingMethod));
+        }
+    }
+
+    //PATCH: allow ISpellAffinityProvider to be validated with IRemoveSpellOrSpellLevelImmunity
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.IsImmuneToSpell))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsImmuneToSpell_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISpellAffinityProvider>(
+                "RulesetActor.IsImmuneToSpell", EnumerateFeatureDefinitionSpellImmunity);
+        }
+
+        private static void EnumerateFeatureDefinitionSpellImmunity(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var rulesetCondition in __instance.AllConditions)
+            {
+                var immunityRemovingFeatures = rulesetCondition.conditionDefinition
+                    .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+                if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
+                {
+                    continue;
+                }
+
+                foreach (var immunityRemovingFeature in immunityRemovingFeatures)
+                {
+                    featuresToBrowse.RemoveAll(x =>
+                        immunityRemovingFeature.ShouldRemoveImmunity(((ISpellAffinityProvider)x).IsImmuneToSpell));
+                }
+            }
+        }
+    }
+
+    //PATCH: allow ISpellAffinityProvider to be validated with IRemoveSpellOrSpellLevelImmunity
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.IsImmuneToSpellLevel))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsImmuneToSpellLevel_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse<ISpellAffinityProvider>(
+                "RulesetActor.IsImmuneToSpell", EnumerateFeatureDefinitionSpellImmunityLevel);
+        }
+
+        private static void EnumerateFeatureDefinitionSpellImmunityLevel(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var rulesetCondition in __instance.AllConditions)
+            {
+                var immunityRemovingFeatures = rulesetCondition.conditionDefinition
+                    .GetAllSubFeaturesOfType<IRemoveSpellOrSpellLevelImmunity>();
+                if (!immunityRemovingFeatures.Any(x => x.IsValid(__instance, rulesetCondition)))
+                {
+                    continue;
+                }
+
+                foreach (var immunityRemovingFeature in immunityRemovingFeatures)
+                {
+                    featuresToBrowse.RemoveAll(x =>
+                        immunityRemovingFeature.ShouldRemoveImmunityLevel(((ISpellAffinityProvider)x)
+                            .IsImmuneToSpellLevel));
+                }
+            }
         }
     }
 }

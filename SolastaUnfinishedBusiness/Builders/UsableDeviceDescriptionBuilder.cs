@@ -5,11 +5,11 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal class UsableDeviceDescriptionBuilder
 {
-    private readonly UsableDeviceDescription description;
+    private readonly UsableDeviceDescription _description;
 
     internal UsableDeviceDescriptionBuilder()
     {
-        description = new UsableDeviceDescription
+        _description = new UsableDeviceDescription
         {
             usage = ItemUsage.ByFunction,
             chargesCapital = ItemChargesCapital.Fixed,
@@ -29,44 +29,44 @@ internal class UsableDeviceDescriptionBuilder
 
     internal UsableDeviceDescriptionBuilder SetSaveDc(int dc)
     {
-        description.saveDC = dc;
+        _description.saveDC = dc;
         return this;
     }
 
     internal UsableDeviceDescriptionBuilder SetMagicAttackBonus(int bonus)
     {
-        description.magicAttackBonus = bonus;
+        _description.magicAttackBonus = bonus;
         return this;
     }
 
     internal UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
     {
-        description.outOfChargesConsequence = consequence;
+        _description.outOfChargesConsequence = consequence;
         return this;
     }
 
     internal UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
     {
-        description.usage = usage;
+        _description.usage = usage;
         return this;
     }
 
     internal UsableDeviceDescriptionBuilder AddFunctions(params DeviceFunctionDescription[] functions)
     {
-        description.DeviceFunctions.AddRange(functions);
+        _description.DeviceFunctions.AddRange(functions);
         return this;
     }
 
     internal UsableDeviceDescription Build()
     {
-        return description;
+        return _description;
     }
 
     #region Charge
 
     internal UsableDeviceDescriptionBuilder SetChargesCapitalNumber(int number)
     {
-        description.chargesCapitalNumber = number;
+        _description.chargesCapitalNumber = number;
         return this;
     }
 
@@ -113,10 +113,10 @@ internal class UsableDeviceDescriptionBuilder
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
         int bonus = 0)
     {
-        description.rechargeRate = rate;
-        description.rechargeNumber = number;
-        description.rechargeDie = dieType;
-        description.rechargeBonus = bonus;
+        _description.rechargeRate = rate;
+        _description.rechargeNumber = number;
+        _description.rechargeDie = dieType;
+        _description.rechargeBonus = bonus;
         return this;
     }
 

@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamagePatronEldritchSurgeBlastOverload:c6ebcc54-3a36-5c2c-85d2-b4131d44ff98",
-    "Definition:MagicAffinityPatronEldritchSurgeBlastOverload:0e557fe3-6328-5168-b3e4-8b32f2d12c75"
+    "Definition:AdditionalActionPatronEldritchSurgeBlastOverload:3e846de2-9d03-54d2-95e6-7489533db7f4"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -137,12 +136,12 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle",
-    "description": "Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription",
+    "description": "ConditionRaging",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1a46ee54048826c49a3a039097db1745",
-      "m_SubObjectName": "ConditionHeroism",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -14,11 +15,12 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PatronMoonlit : AbstractSubclass
+[UsedImplicitly]
+public sealed class PatronMoonlit : AbstractSubclass
 {
     private const string Name = "Moonlit";
 
-    internal PatronMoonlit()
+    public PatronMoonlit()
     {
         var spellListMoonlit = SpellListDefinitionBuilder
             .Create(SpellListWizard, $"SpellList{Name}")
@@ -173,6 +175,8 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 bonusCantripsMoonlit)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => DatabaseHelper.CharacterClassDefinitions.Warlock;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

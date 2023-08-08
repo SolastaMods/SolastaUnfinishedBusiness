@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -13,12 +14,13 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class MartialSpellShield : AbstractSubclass
+[UsedImplicitly]
+public sealed class MartialSpellShield : AbstractSubclass
 {
     private const string Name = "SpellShield";
     internal const string FullName = $"Martial{Name}";
 
-    internal MartialSpellShield()
+    public MartialSpellShield()
     {
         var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
             .Create($"CastSpell{Name}")
@@ -99,6 +101,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 actionAffinitySpellShieldRangedDefense)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Fighter;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

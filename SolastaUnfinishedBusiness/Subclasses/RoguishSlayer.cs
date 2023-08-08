@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -15,14 +16,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAddit
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class RoguishSlayer : AbstractSubclass
+[UsedImplicitly]
+public sealed class RoguishSlayer : AbstractSubclass
 {
     private const string Name = "RoguishSlayer";
     private const string Elimination = "Elimination";
     private const string ChainOfExecution = "ChainOfExecution";
     private const string CloakOfShadows = "CloakOfShadows";
 
-    internal RoguishSlayer()
+    public RoguishSlayer()
     {
         //
         // Elimination
@@ -182,6 +184,8 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .AddFeaturesAtLevel(17, featureFatalStrike)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Rogue;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

@@ -8,14 +8,14 @@ internal class GuiPresentationBuilder
     internal const string NoContentTitle = "Feature/&NoContentTitle";
     internal const string EmptyString = "Feature/&Emptystring";
     internal static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
-    private readonly GuiPresentation guiPresentation;
+    private readonly GuiPresentation _guiPresentation;
 
     internal GuiPresentationBuilder(
         string title = null,
         string description = null,
         AssetReferenceSprite spriteReference = null)
     {
-        guiPresentation = new GuiPresentation
+        _guiPresentation = new GuiPresentation
         {
             Description = description ?? string.Empty,
             Title = title ?? string.Empty,
@@ -51,7 +51,7 @@ internal class GuiPresentationBuilder
 
     internal GuiPresentationBuilder SetTitle(string title)
     {
-        guiPresentation.title = title;
+        _guiPresentation.title = title;
         return this;
     }
 
@@ -77,7 +77,7 @@ internal class GuiPresentationBuilder
 
     internal GuiPresentation Build()
     {
-        return guiPresentation;
+        return _guiPresentation;
     }
 
     private static GuiPresentation Build(

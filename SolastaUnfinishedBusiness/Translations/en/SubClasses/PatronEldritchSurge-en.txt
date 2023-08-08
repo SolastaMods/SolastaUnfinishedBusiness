@@ -1,21 +1,12 @@
-Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=You ignore ranged spell disadvantage if enemies are within melee range, you add your proficiency bonus to the <b>Eldritch Blast</b> damage, but the range of your <b>Eldritch Blast</b> is decreased by 30 ft.
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=You gain an extra action, and you can use all your Versatilities without spending points or making any checks.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Blast Overload
-Condition/&ConditionPatronEldritchSurgeBlastPursuitDescription=You gain an extra main action and bonus action. You can only use one of them if your warlock class level is lower than 16 and you cannot attack with them. The range of your <b>Eldritch Blast</b> is decreased by 30 ft.
-Condition/&ConditionPatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
-Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitDescription=You have one extra main action granted by <b>Blast Pursuit</b>.
-Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffDescription=You have one extra bonus action granted by <b>Blast Pursuit</b>.
-Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitOffTitle=Extra Bonus Action Blast Pursuit
-Condition/&ConditionPatronEldritchSurgeExtraActionBlastPursuitTitle=Extra Action Blast Pursuit
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Your patron endows you with more powerful blasts but only if you follow its path all along. You gain <b>Eldritch Blast</b> as a bonus cantrip and it now has a range of 120 ft. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=You gain <b>Eldritch Blast</b> as a bonus cantrip. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Blast Exclusive
-Feature/&FeaturePatronEldritchSurgeBlastReloadDescription=Your excellence in <b>Eldritch Blast</b> allows you cast twice in a row. You can cast cantrips you have cast this turn with your main action as a bonus action.
-Feature/&FeaturePatronEldritchSurgeBlastReloadTitle=Blast Reload
-Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=As you further master <b>Eldritch Blast</b>, you can burn your mana to empower your magic.\nAs a bonus action, you can expend a pact slot and for 1 minute, you ignore ranged spell disadvantage if enemies are within melee range, you add your proficiency bonus to the <b>Eldritch Blast</b> damage, but the range of your <b>Eldritch Blast</b> is decreased by 30 ft.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=When you hit an enemy within 30 feet / kills an enemy with <b>Eldritch Blast</b>, you gain 1 / number of beams additional Eldritch Point.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your Versatilities without spending points or making any checks.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Blast Overload
-Feature/&PowerPatronEldritchSurgeBlastPursuitDescription=You overdrive your self with flurries of attacks, especially when <b>Blast Pursuit</b> is your last resort.\nAs a bonus action, You can expend a pact slot and for two rounds, you gain an extra main action or bonus action. The range of your <b>Eldritch Blast</b> is also decreased by 30 ft. A kill with <b>Eldritch Blast</b> prolongs <b>Blast Pursuit</b> by one round.\nStarting at 16th level, you gain an extra main action and a bonus action. The range of your <b>Eldritch Blast</b> is again decreased by 30 ft.\nStarting at 20th level, if you have no remaining pact slots, you are in a constant <b>Blast Pursuit</b> status.
-Feature/&PowerPatronEldritchSurgeBlastPursuitTitle=Blast Pursuit
-Feedback/&AdditionalDamageBlastOverloadFormat=Blast Overload!
-Feedback/&AdditionalDamageBlastOverloadLine={0} pours arcane power into {1} (+{2})!
-Feedback/&BlastPursuitExtraAction={1} grants {0} an extra action! 
-Subclass/&PatronEldritchSurgeDescription=You have made a pact with a mysterious entity that grants you the power to unleash the ferocious arcane energy of <b>Eldritch Blast</b>. This patron is not a specific being, but rather a manifestation of the raw surge of magic itself. Chosen by this being, you are devoted to focus on enhancing your signature spell and destroy your enemies with the devastating force to prove its boundless power. And thus, your patron only grants you <b>Eldritch Blast</b>.
+Feature/&PowerPatronEldritchSurgeBlastReloadDescription=You can cast cantrips you have cast this turn with your main action as a bonus action.
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Blast Reload
+Subclass/&PatronEldritchSurgeDescription=You have made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 Subclass/&PatronEldritchSurgeTitle=The Eldritch Surge

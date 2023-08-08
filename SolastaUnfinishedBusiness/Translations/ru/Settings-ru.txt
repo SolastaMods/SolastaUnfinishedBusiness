@@ -47,7 +47,6 @@ ModUi/&Changelog=<b><color=#D89555>Список изменений</color></b>
 ModUi/&Character=Персонаж
 ModUi/&CharactersPool=Пул персонажей
 ModUi/&Classes=<color=#F0DAA0>Классы</color>
-ModUi/&ClassesAndSubclasses=Классы и архетипы
 ModUi/&Crafting=<color=#F0DAA0>Крафтинг:</color>
 ModUi/&CraftingHelp=. Нажмите на кнопку, чтобы активная пати сразу изучила рецепты\n. Добавление предметов в магазины может потребовать, чтобы пати переместилась на другую локацию и обратно
 ModUi/&Credits=Создатели
@@ -136,6 +135,7 @@ ModUi/&Feats=<color=#F0DAA0>Черты</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Боевые стили</color>
 ModUi/&FixAsianLanguagesTextWrap=Исправить перенос текста интерфейсом для азиатских языков <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&FixEldritchBlastRange=Изменить дальность <color=#D89555>Зловещего взрыва</color> на 24 клетки <i><color=#F0DAA0>[вместо 16]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+ Использовать официальные правила Крылатых сапог <color=#F0DAA0>[оставшееся время использования не учитывается при приостановке полёта]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Боевой порядок:</color>
 ModUi/&FormationError=<color=#C04040E0>Вы не можете изменить свой боевой порядок во время многопользовательской игры...</color>
 ModUi/&FormationHelp1=. Используйте клавиши цифр, чтобы изменить заданные условия <i><color=#F0DAA0>[удобнее будет включить и использовать нампад]</color></i>

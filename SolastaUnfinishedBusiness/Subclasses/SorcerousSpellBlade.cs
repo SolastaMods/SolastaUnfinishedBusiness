@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -16,11 +17,12 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class SorcerousSpellBlade : AbstractSubclass
+[UsedImplicitly]
+public sealed class SorcerousSpellBlade : AbstractSubclass
 {
     private const string Name = "SorcerousSpellBlade";
 
-    internal SorcerousSpellBlade()
+    public SorcerousSpellBlade()
     {
         // LEVEL 01
 
@@ -187,6 +189,8 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                 featureSetBattleReflexes)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Sorcerer;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 

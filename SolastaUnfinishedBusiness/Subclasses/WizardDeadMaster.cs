@@ -21,14 +21,15 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardDeadMaster : AbstractSubclass
+[UsedImplicitly]
+public sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
 
     internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
-    internal WizardDeadMaster()
+    public WizardDeadMaster()
     {
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
@@ -122,6 +123,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 PowerCasterCommandUndead)
             .AddToDB();
     }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -299,11 +302,11 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     private sealed class StarkHarvest : IOnTargetReducedToZeroHp
     {
-        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinition _feature;
 
         public StarkHarvest(FeatureDefinition feature)
         {
-            this.feature = feature;
+            _feature = feature;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -330,19 +333,19 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
-            if (!attacker.OncePerTurnIsValid(feature.name))
+            if (!attacker.OncePerTurnIsValid(_feature.name))
             {
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(_feature.Name, 1);
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var spell = spellEffect.SpellDefinition;
             var isNecromancy = spell.SchoolOfMagic == SchoolNecromancy;
             var healingReceived = (isNecromancy ? 3 : 2) * spell.SpellLevel;
 
-            rulesetAttacker.LogCharacterUsedFeature(feature, indent: true);
+            rulesetAttacker.LogCharacterUsedFeature(_feature, indent: true);
 
             if (rulesetAttacker.MissingHitPoints > 0)
             {
