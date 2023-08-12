@@ -1,11 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -30,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c59cad05-8ced-59b9-ab1a-83788d33f5db",
+  "guid": "f68fab12-a843-5e11-b5f3-8032407b5408",
   "contentPack": 9999,
-  "name": "AdditionalActionAbilityQuasit"
+  "name": "FeatureInvocationPoisonousBlast"
 }

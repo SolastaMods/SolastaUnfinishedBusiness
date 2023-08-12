@@ -465,6 +465,101 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildNecroticBlast()
+    {
+        const string NAME = "InvocationNecroticBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeNecrotic,
+                            SpellDefinitions.ChillTouch.EffectDescription.EffectParticleParameters))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildPoisonousBlast()
+    {
+        const string NAME = "InvocationPoisonousBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypePoison,
+                            SpellDefinitions.PoisonSpray.EffectDescription.EffectParticleParameters))
+                    .AddToDB())
+            .AddToDB();
+    }
+    
+    internal static InvocationDefinition BuildPsychicBlast()
+    {
+        const string NAME = "InvocationPsychicBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypePsychic,
+                            SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildRadiantBlast()
+    {
+        const string NAME = "InvocationRadiantBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeRadiant,
+                            SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildThunderBlast()
+    {
+        const string NAME = "InvocationThunderBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeThunder,
+                            SpellDefinitions.Thunderwave.EffectDescription.EffectParticleParameters))
+                    .AddToDB())
+            .AddToDB();
+    }
+    
     internal static InvocationDefinition BuildSpectralShield()
     {
         const string NAME = "InvocationSpectralShield";
@@ -570,8 +665,6 @@ internal static class InvocationsBuilders
                     .Create("AdditionalActionAbilityQuasit")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Main)
-                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                    .SetMaxAttacksNumber(1)
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -580,8 +673,8 @@ internal static class InvocationsBuilders
         var featureAbilitiesOfTheChainMaster = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AfterActionFinishedByMeAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
-                conditionAbilityQuasit, conditionAbilityPseudo))
+            .SetCustomSubFeatures(new AfterActionFinishedByMeAbilitiesChain(
+                conditionAbilitySprite, conditionAbilityImp, conditionAbilityQuasit, conditionAbilityPseudo))
             .AddToDB();
 
         return InvocationDefinitionBuilder

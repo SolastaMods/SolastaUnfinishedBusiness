@@ -839,6 +839,11 @@
     <string>InvocationHinderingBlast</string>
     <string>InvocationImprovedPactWeapon</string>
     <string>InvocationKinesis</string>
+    <string>InvocationNecroticBlast</string>
+    <string>InvocationPoisonousBlast</string>  
+    <string>InvocationPsychicBlast</string>
+    <string>InvocationRadiantBlast</string>
+    <string>InvocationThunderBlast</string>
     <string>InvocationShroudOfShadow</string>
     <string>InvocationSpectralShield</string>
     <string>InvocationStasis</string>
@@ -1395,4 +1400,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
