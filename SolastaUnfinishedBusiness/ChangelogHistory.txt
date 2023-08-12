@@ -1,6 +1,7 @@
 ﻿1.5.94.7:
 
-- added Necrotic Blast invocation
+- added Necrotic, Poisonous, Psychic, Radiant, and Thunder Blast invocations
+- fixed instability warning when game auto save under certain scenarios
 
 1.5.94.6:
 

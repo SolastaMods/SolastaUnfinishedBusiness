@@ -42,6 +42,10 @@ internal static class InvocationsContext
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildKinesis());
         LoadInvocation(BuildNecroticBlast());
+        LoadInvocation(BuildPsychicBlast());
+        LoadInvocation(BuildPoisonousBlast());
+        LoadInvocation(BuildRadiantBlast());
+        LoadInvocation(BuildThunderBlast());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());
@@ -100,18 +104,6 @@ internal static class InvocationsContext
         UpdateInvocationVisibility(invocationDefinition);
         GuiWrapperContext.RecacheInvocations();
     }
-
-#if false
-    internal static void UpdateRelevantInvocationList(InvocationSubPanel panel)
-    {
-        var dbInvocationDefinition = DatabaseRepository.GetDatabase<InvocationDefinition>();
-        var visibleInvocations = dbInvocationDefinition
-            .Where(x => !x.GuiPresentation.Hidden)
-            .ToList();
-
-        panel.relevantInvocations.SetRange(visibleInvocations);
-    }
-#endif
 
     private static int CompareInvocations(InvocationDefinition a, InvocationDefinition b)
     {
