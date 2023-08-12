@@ -21,8 +21,17 @@ public static class GameLocationEffectPatcher
                 return true;
             }
 
-            Main.Info(
-                $"GameLocationEffect.SerializeAttributes got a null rulesetEffect on {__instance.effectSourceName}. Aborting serialization.");
+            var message = $"Could not serialize attribute {__instance.effectSourceName} on save.";
+
+            Main.Info(message);
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "Message/&ModErrorWarningTitle",
+                message + " Wait a few seconds and manually save your game.",
+                "Message/&MessageOkTitle",
+                "Message/&MessageCancelTitle",
+                () => { },
+                () => { });
 
             return false;
         }
