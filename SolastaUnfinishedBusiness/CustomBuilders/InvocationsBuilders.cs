@@ -478,8 +478,8 @@ internal static class InvocationsBuilders
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
-                            DamageTypeLightning,
-                            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
+                            DamageTypeNecrotic,
+                            SpellDefinitions.ChillTouch.EffectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }
