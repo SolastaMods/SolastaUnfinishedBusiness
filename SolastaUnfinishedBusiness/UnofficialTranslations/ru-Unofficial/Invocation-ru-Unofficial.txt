@@ -1,5 +1,5 @@
 Invocation/&AgonizingBlastDescription=Когда вы используете мистический заряд, добавляет модификатор харизмы к урону, который он наносит при попадании.
-Invocation/&AgonizingBlastTitle=Мучительный взрыв
+Invocation/&AgonizingBlastTitle=Мучительный заряд
 Invocation/&ArmorOfShadowsDescription=Вы можете в любой момент наложить на себя заклинание «Доспехи мага», не тратя ни ячейку заклинаний, ни материальные компоненты.
 Invocation/&ArmorOfShadowsTitle=Доспехи теней
 Invocation/&AscendantStepDescription=Вы можете в любой момент наложить на себя заклинание «Левитация», не тратя ни ячейку заклинаний, ни материальные компоненты.
@@ -34,8 +34,8 @@ Invocation/&OneWithShadowsDescription=Находясь в области с ту
 Invocation/&OneWithShadowsTitle=Единение с тенью
 Invocation/&OtherworldlyLeapDescription=Вы можете в любой момент наложить на себя заклинание «Прыжок», не тратя ни ячейку заклинаний, ни материальные компоненты.
 Invocation/&OtherworldlyLeapTitle=Потусторонний прыжок
-Invocation/&RepellingBlastDescription=Когда вы попадаете по существу «Зловещим взрывом», то можете оттолкнуть его от себя на расстояние до 2 клеток по прямой.
-Invocation/&RepellingBlastTitle=Отталкивающий взрыв
+Invocation/&RepellingBlastDescription=Когда вы попадаете по существу «Мистическим зарядом», то можете оттолкнуть его от себя на расстояние до 2 клеток по прямой.
+Invocation/&RepellingBlastTitle=Отталкивающий заряд
 Invocation/&SignIllOmenDescription=Вы можете один раз наложить проклятие, используя ячейку заклинаний колдуна. Повторить можно только после долгого отдыха.
 Invocation/&SignIllOmenTitle=Дурной знак
 Invocation/&ThiefFiveFatesDescription=Вы можете один раз наложить заклинание «Погибель», используя ячейку заклинаний колдуна. Повторить можно только после долгого отдыха.
