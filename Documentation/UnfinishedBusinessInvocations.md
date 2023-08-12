@@ -82,39 +82,47 @@ You can cast Haste without using a spell slot. When casting using this ability y
 
 You can change the damage type of the eldritch blast to necrotic damage instead of force damage.
 
-# 22. - Shroud of Shadow
+# 22. - Psychic Blast
+
+You can change the damage type of the eldritch blast to psychic damage instead of force damage.
+
+# 23. - Radiant Blast
+
+You can change the damage type of the eldritch blast to radiant damage instead of force damage.
+
+# 24. - Shroud of Shadow
 
 You can cast Invisibility at will, without expending a spell slot.
 
-# 23. - Spectral Shield
+# 25. - Spectral Shield
 
 You can cast Shield of Faith without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 24. - Stasis
+# 26. - Stasis
 
 You can cast Slow without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 25. - Superior Pact Weapon
+# 27. - Superior Pact Weapon
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 26. - Tenacious Plague
+# 28. - Tenacious Plague
 
 You can cast Insect Plague using your pact slot once per long rest.
 
-# 27. - Trickster's Escape
+# 29. - Trickster's Escape
 
 You can cast Freedom of Movement without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 28. - Ultimate Pact Weapon
+# 30. - Ultimate Pact Weapon
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 29. - Undying Servitude
+# 31. - Undying Servitude
 
 You can cast Raise Skeletal Enforcer without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 30. - Verdant Armor
+# 32. - Verdant Armor
 
 You can cast Barkskin without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
 

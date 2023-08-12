@@ -282,6 +282,12 @@ Armorers focus their studies on magical armors and how to use them effectively.
 
 ## Level 3
 
+* Armor Mode
+
+Once per short rest you can select one of 2 armor modes:
+• Guardian: Gain Thunder Gauntlet weapon if you have free hand and Defensive Field bonus action to gain temporary HP equal to Inventor level, triggers each round for 1 minute.
+• Infiltrator: Gain Lightning Launcher ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.
+
 * Armored Up
 
 You gain proficiency with heavy armor and ignore Strength requirements of armor.
@@ -301,12 +307,6 @@ Learn and have always prepared:
 	V	Far Step, Wall of Force
 
 
-
-* Armor Mode
-
-Once per short rest you can select one of 2 armor modes:
-• Guardian: Gain Thunder Gauntlet weapon if you have free hand and Defensive Field bonus action to gain temporary HP equal to Inventor level, triggers each round for 1 minute.
-• Infiltrator: Gain Lightning Launcher ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.
 
 
 ## Level 5
@@ -1400,13 +1400,13 @@ Grenadiers study unstable substances and their use in creating explosions of var
 
 ## Level 3
 
-* Alchemy Points
-
-You gain 6 Alchemy points at this level, and 1 more point every level.
-
 * Alchemical Bombs
 
 Spend alchemy points to quickly mix and throw a bomb.
+
+* Alchemy Points
+
+You gain 6 Alchemy points at this level, and 1 more point every level.
 
 * Fast Hands
 
@@ -1431,13 +1431,13 @@ Learn and have always prepared:
 
 ## Level 5
 
-* Elemental Bombs
-
-You've learned how to change damage type of a bomb into Cold, Lightning, Acid or Poison. Those bombs deal slightly less damage than Fire ones, but include additional effects.
-
 * Concentrated Bombs
 
 You can spend additional charge when creating a bomb to make it more potent. Precise bombs allow targeting more enemies. Splash bombs increase explosion radius. Cone bombs increase their damage.
+
+* Elemental Bombs
+
+You've learned how to change damage type of a bomb into Cold, Lightning, Acid or Poison. Those bombs deal slightly less damage than Fire ones, but include additional effects.
 
 * Refund Alchemy Charge
 
@@ -3191,6 +3191,15 @@ All Inventors use various forms of acids and other magical means to break down i
 
 ## Level 3
 
+* Vitriolic Mixtures
+
+Starting at 3rd level, you gain the ability to use a Vitriolic Mixture of your own making:
+• Affliction: On a hit the creature takes 2d4 acid damage and 2d4 poison damage. The creature is also poisoned until the end of their next turn.
+• Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
+• Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
+• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
+All damage dice increase at 7th, 14th, and 18th levels.
+
 * Vitriolist Spells
 
 Learn and have always prepared:
@@ -3206,15 +3215,6 @@ Learn and have always prepared:
 	V	Cloudkill, Contagion
 
 
-
-* Vitriolic Mixtures
-
-Starting at 3rd level, you gain the ability to use a Vitriolic Mixture of your own making:
-• Affliction: On a hit the creature takes 2d4 acid damage and 2d4 poison damage. The creature is also poisoned until the end of their next turn.
-• Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
-• Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
-• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
-All damage dice increase at 7th, 14th, and 18th levels.
 
 
 ## Level 5
@@ -3247,6 +3247,14 @@ A vivisectionist studies bodies to better understand their function. Unlike a su
 
 ## Level 3
 
+* Emergency Surgery
+
+You can take an action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+* Medical Accuracy
+
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with a weapon attack if you have advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The damage increases to 2d6 at 7th level, 3d6 at 11th, 4d6 at 15th, and 5d6 at 19th level.
+
 * Vivisectionist Spells
 
 Learn and have always prepared:
@@ -3263,46 +3271,38 @@ Learn and have always prepared:
 
 
 
-* Medical Accuracy
-
-Once per turn, you can deal an extra 1d6 damage to one creature you hit with a weapon attack if you have advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The damage increases to 2d6 at 7th level, 3d6 at 11th, 4d6 at 15th, and 5d6 at 19th level.
-
-* Emergency Surgery
-
-You can take an action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
-
 
 ## Level 5
-
-* Extra Attack
-
-You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Emergency Cure
 
 You can take a bonus action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
 
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
 
 ## Level 9
-
-* Stable Surgery
-
-When casting a healing spell your minimum healing dice roll is 2.
 
 * Organ Donation
 
 Regain one use of your Emergency Surgery and your Emergency Cure when you reduce a hostile creature to 0 hit points. You may do this once per short rest.
 
+* Stable Surgery
+
+When casting a healing spell your minimum healing dice roll is 2.
+
 
 ## Level 15
-
-* Master Emergency Surgery
-
-You can take a bonus action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
 
 * Master Emergency Cure
 
 You can take a free action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+* Master Emergency Surgery
+
+You can take a bonus action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
 
 
 
@@ -3630,6 +3630,10 @@ Weaponsmiths focus their studies on magical weapons and how to use them effectiv
 
 ## Level 3
 
+* Defending Blade
+
+Your experiments with weapons has borne you a Defending Blade companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the blade, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
+
 * Inventive Weapon Use
 
 After experimenting on weapons you learned that you can use your smarts to handle them:
@@ -3651,10 +3655,6 @@ Learn and have always prepared:
 	V	Mass Cure Wounds, Wall of Force
 
 
-
-* Defending Blade
-
-Your experiments with weapons has borne you a Defending Blade companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the blade, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
 
 
 ## Level 5
