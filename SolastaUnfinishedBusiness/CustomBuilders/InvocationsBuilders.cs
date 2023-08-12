@@ -465,6 +465,25 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildNecroticBlast()
+    {
+        const string NAME = "InvocationNecroticBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new ModifyEffectDescriptionEldritchBlast(
+                            DamageTypeLightning,
+                            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
+                    .AddToDB())
+            .AddToDB();
+    }
+
     internal static InvocationDefinition BuildSpectralShield()
     {
         const string NAME = "InvocationSpectralShield";

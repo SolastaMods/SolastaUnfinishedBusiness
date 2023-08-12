@@ -41,6 +41,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildKinesis());
+        LoadInvocation(BuildNecroticBlast());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());

@@ -1,4 +1,8 @@
-﻿1.5.94.6:
+﻿1.5.94.7:
+
+- added Necrotic Blast invocation
+
+1.5.94.6:
 
 - changed Shadow Blade to use finesse on rolls, improved SFX
 - fixed Eldritch Smite interaction with larger creatures

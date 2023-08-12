@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:FeatureInvocationNecroticBlast:20fff289-134b-5bbe-9034-0365a458dfa7",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationNecroticBlastTitle",
+    "description": "Invocation/&InvocationNecroticBlastDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
+      "m_SubObjectName": "CastInvocation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e9bf3e2e-f721-56bd-9877-fb082152ab1d",
+  "contentPack": 9999,
+  "name": "InvocationNecroticBlast"
+}
