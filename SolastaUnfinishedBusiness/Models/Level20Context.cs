@@ -528,7 +528,6 @@ internal static class Level20Context
 
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(FeatureSetAbilityScoreChoice, 16),
             new(spellMastery, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(signatureSpells, 20)
