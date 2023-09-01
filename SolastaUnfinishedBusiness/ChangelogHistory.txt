@@ -1,6 +1,7 @@
 ﻿1.5.94.9:
 
-- fixed Skin of Retribution not scaling damage
+- fixed Inventor Guardian Armor not triggering saving at 15th
+- fixed Skin of Retribution not scaling damage when upcast
 
 1.5.94.8:
 
