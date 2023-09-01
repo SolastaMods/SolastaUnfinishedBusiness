@@ -572,7 +572,6 @@ internal static partial class SpellBuilders
                                 .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
                                 .Build())
                         .Build())
-                .SetCustomSubFeatures(new ModifyEffectDescriptionSkinOfRetribution())
                 .AddToDB();
 
             var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
@@ -591,6 +590,9 @@ internal static partial class SpellBuilders
                 .SetPossessive()
                 .SetFeatures(damageSkinOfRetribution)
                 .AddToDB();
+
+            powerSkinOfRetribution.SetCustomSubFeatures(
+                new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
 
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
@@ -643,13 +645,19 @@ internal static partial class SpellBuilders
 
     private sealed class ModifyEffectDescriptionSkinOfRetribution : IModifyEffectDescription
     {
+        private readonly ConditionDefinition _conditionSkinOfRetribution;
+
+        public ModifyEffectDescriptionSkinOfRetribution(ConditionDefinition conditionSkinOfRetribution)
+        {
+            _conditionSkinOfRetribution = conditionSkinOfRetribution;
+        }
+
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return effectDescription.HasDamageForm()
-                   && character.HasConditionOfType("SkinOfRetribution");
+            return effectDescription.HasDamageForm() && character.HasConditionOfType(_conditionSkinOfRetribution);
         }
 
         public EffectDescription GetEffectDescription(
@@ -658,16 +666,10 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var rulesetCondition =
-                character.AllConditions.FirstOrDefault(x =>
-                    x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
+            var rulesetCondition = character.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
 
-            if (rulesetCondition == null)
-            {
-                return effectDescription;
-            }
-
-            var effectLevel = rulesetCondition.EffectLevel;
+            var effectLevel = rulesetCondition!.EffectLevel;
             var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.bonusDamage *= effectLevel;
@@ -677,14 +679,17 @@ internal static partial class SpellBuilders
             return effectDescription;
         }
 
-        private static void MaybeRemoveSkinOfRetribution(RulesetCharacter target)
+        private void MaybeRemoveSkinOfRetribution(RulesetCharacter character)
         {
-            if (target.temporaryHitPoints > 0)
+            if (character.temporaryHitPoints > 0)
             {
                 return;
             }
 
-            target.RemoveAllConditionsOfType("SkinOfRetribution");
+            var rulesetCondition = character.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
+
+            character.RemoveCondition(rulesetCondition);
         }
     }
 

@@ -1,4 +1,8 @@
-﻿1.5.94.8:
+﻿1.5.94.9:
+
+- fixed Skin of Retribution not scaling damage
+
+1.5.94.8:
 
 - fixed wizard getting double ASI at 16th
 - removed pop up warning message on serialization
