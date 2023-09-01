@@ -1,4 +1,9 @@
-﻿1.5.94.8:
+﻿1.5.94.9:
+
+- fixed Inventor Guardian Armor not triggering saving at 15th
+- fixed Skin of Retribution not scaling damage when upcast
+
+1.5.94.8:
 
 - fixed wizard getting double ASI at 16th
 - removed pop up warning message on serialization

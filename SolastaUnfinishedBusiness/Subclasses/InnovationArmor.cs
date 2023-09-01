@@ -220,7 +220,11 @@ public sealed class InnovationArmor : AbstractSubclass
                 .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                     EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed))
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
                 .Build())
             .AddToDB();
 
