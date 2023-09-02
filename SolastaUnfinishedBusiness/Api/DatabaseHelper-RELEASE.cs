@@ -3158,6 +3158,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
         internal static SpellDefinition AnimalFriendship { get; } = GetDefinition<SpellDefinition>("AnimalFriendship");
+        internal static SpellDefinition ArcaneSword { get; } = GetDefinition<SpellDefinition>("ArcaneSword");
         internal static SpellDefinition Bane { get; } = GetDefinition<SpellDefinition>("Bane");
         internal static SpellDefinition Banishment { get; } = GetDefinition<SpellDefinition>("Banishment");
         internal static SpellDefinition Barkskin { get; } = GetDefinition<SpellDefinition>("Barkskin");

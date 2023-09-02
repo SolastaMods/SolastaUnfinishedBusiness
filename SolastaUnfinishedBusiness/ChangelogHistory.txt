@@ -1,7 +1,8 @@
 ﻿1.5.94.11:
 
-- changed Innovation Weapon steel defender model from floating sword to golem iron
+- changed Innovation Weapon steel defender model from arcane sword to golem iron
 - changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
+- changed Patron Soulblade pact weapon model from spiritual weapon to arcane sword
 - changed Verdant Armor invocation to recharge on short rests
 - swapped Path of the Savagery level 6th wrath and fury with level 14th furious defense
 - improved Path of the Savagery wrath and fury with temp hit points whenever reckless attack is used

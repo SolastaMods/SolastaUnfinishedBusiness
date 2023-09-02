@@ -126,7 +126,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpiritualWeapon.EffectDescription)
+                .Create(ArcaneSword.EffectDescription)
                 .Build())
             .AddToDB();
 
