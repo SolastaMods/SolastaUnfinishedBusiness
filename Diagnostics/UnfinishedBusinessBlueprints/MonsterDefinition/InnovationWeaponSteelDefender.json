@@ -164,18 +164,18 @@
     "monsterPresentationDefinitions": null,
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "66ad0504626121e4e98b562b9d154249",
+      "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.5,
+    "maleModelScale": 0.25,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "66ad0504626121e4e98b562b9d154249",
+      "m_AssetGUID": "0ff0b1c4180816e468ec3dcab4b18c35",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.5,
+    "femaleModelScale": 0.25,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -216,9 +216,9 @@
     "description": "Monster/&InnovationWeaponSteelDefenderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "476439c7-46b8-5b70-aaa1-b38b8805ebe2",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "b50fdd5ac8b945f4a8a4b639f5d4df22",
+      "m_SubObjectName": "CustomPortrait_Golem_Iron",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

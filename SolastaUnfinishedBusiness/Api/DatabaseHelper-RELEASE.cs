@@ -2821,6 +2821,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition GoldDragon_AerElai { get; } =
             GetDefinition<MonsterDefinition>("GoldDragon_AerElai");
 
+        internal static MonsterDefinition Golem_Iron { get; } = GetDefinition<MonsterDefinition>("Golem_Iron");
         internal static MonsterDefinition Green_Hag { get; } = GetDefinition<MonsterDefinition>("Green_Hag");
 
         internal static MonsterDefinition GreenDragon_MasterOfConjuration { get; } =

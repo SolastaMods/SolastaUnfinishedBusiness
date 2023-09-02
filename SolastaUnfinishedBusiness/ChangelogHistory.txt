@@ -1,5 +1,6 @@
 ﻿1.5.94.11:
 
+- changed Innovation Weapon steel defender model from floating sword to golem iron
 - changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
 - changed Verdant Armor invocation to recharge on short rests
 - swapped Path of the Savagery level 6th wrath and fury with level 14th furious defense
