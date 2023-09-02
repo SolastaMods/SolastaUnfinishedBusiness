@@ -95,7 +95,6 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
-            .AllowRetarget()
             .SetEffectForms(
                 EffectFormBuilder.ConditionForm(conditionHexDefender),
                 EffectFormBuilder.ConditionForm(conditionHexAttacker, ConditionForm.ConditionOperation.Add, true))
@@ -152,12 +151,17 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Master Hex
 
+        var effectDescriptionMasterHex = EffectDescriptionBuilder
+            .Create(effectDescriptionHex)
+            .AllowRetarget()
+            .Build();
+        
         var powerMasterHex = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MasterHex")
             .SetGuiPresentation($"Power{Name}Hex", Category.Feature, spriteSoulHex)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetShowCasting(true)
-            .SetEffectDescription(effectDescriptionHex)
+            .SetEffectDescription(effectDescriptionMasterHex)
             .SetOverriddenPower(powerHex)
             .AddToDB();
 

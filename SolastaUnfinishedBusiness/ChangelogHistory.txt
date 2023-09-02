@@ -4,6 +4,7 @@
 - changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
 - changed Patron Soulblade pact weapon model from spiritual weapon to arcane sword
 - changed Verdant Armor invocation to recharge on short rests
+- fixed Patron Soulblade soul hex allowing retargeting at 1st level instead of 14th
 - swapped Path of the Savagery level 6th wrath and fury with level 14th furious defense
 - improved Path of the Savagery wrath and fury with temp hit points whenever reckless attack is used
 
