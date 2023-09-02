@@ -43,8 +43,24 @@ internal static class FixesContext
         AddAdditionalActionTitles();
         FixRageActionSpending();
         FixGrantBardicInspirationForActionSwitchingFeature();
+        FixDragonBreathPowerSavingAttribute();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixDragonBreathPowerSavingAttribute()
+    {
+        FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Dexterity;
+
+        FeatureDefinitionPowers.PowerDragonBreath_Acid_Spectral_DLC3.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Dexterity;
+
+        FeatureDefinitionPowers.PowerDragonBreath_Fire.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Dexterity;
+
+        FeatureDefinitionPowers.PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Constitution;
     }
 
     private static void FixAdditionalDamageRestrictions()
