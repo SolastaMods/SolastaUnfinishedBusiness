@@ -2054,9 +2054,9 @@ Starting at 6th level, your devotion to the elemental calamity chosen at 3rd lev
 * Elemental Burst
 
 Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
-• Storm: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to call a bolt of lightning. On a failed Dexterity saving throw, each enemy creature within that area receives 3d10 lightning damage and becomes unable to use reactions for 1 round (save for half damage, save to prevent reaction loss). You can use this feature once per short rest. The damage increases to 4d10 at 15th level, and 5d10 at 20th level.
-• Blizzard: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to send a gust of freezing wind. On a failed Strength saving throw, each enemy creature within that area receives 3d8 cold damage and becomes prone (save for half damage, save to prevent becoming prone). You can use this feature once per short rest. The damage increases to 4d8 at 15th level, and 5d8 at 20th level.
-• Wildfire: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to hurl waves of intense heat. On a failed Dexterity saving throw, each enemy creature within that area receives 4d6 fire damage and becomes ignited (save for half damage, save to prevent being on fire). You can use this feature once per short rest. The damage increases to 5d6 at 15th level, and 6d6 at 20th level.
+• Storm: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to call a bolt of lightning. On a failed Dexterity saving throw, each enemy creature within that area receives 3d10 lightning damage and becomes unable to use reactions for 1 round (save for half damage, save to prevent reaction loss). You can use this feature once per short rest. The damage increases to 4d10 at 13th level, and 5d10 at 17th level.
+• Blizzard: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to send a gust of freezing wind. On a failed Strength saving throw, each enemy creature within that area receives 3d8 cold damage and becomes prone (save for half damage, save to prevent becoming prone). You can use this feature once per short rest. The damage increases to 4d8 at 13th level, and 5d8 at 17th level.
+• Wildfire: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to hurl waves of intense heat. On a failed Dexterity saving throw, each enemy creature within that area receives 4d6 fire damage and becomes ignited (save for half damage, save to prevent being on fire). You can use this feature once per short rest. The damage increases to 5d6 at 13th level, and 6d6 at 17th level.
 
 
 ## Level 14
@@ -3630,15 +3630,15 @@ Weaponsmiths focus their studies on magical weapons and how to use them effectiv
 
 ## Level 3
 
-* Defending Blade
-
-Your experiments with weapons has borne you a Defending Blade companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the blade, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
-
 * Inventive Weapon Use
 
 After experimenting on weapons you learned that you can use your smarts to handle them:
 • You became proficient with all martial weapons
 • You can use Intelligence for attack and damage rolls with magic weapons.
+
+* Steel Defender
+
+Your experiments with weapons has borne you a Steel Defender companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the defender, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the defender can take any action of its choice.
 
 * Weaponsmith Spells
 

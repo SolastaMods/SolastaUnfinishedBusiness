@@ -132,6 +132,6 @@ You can cast Raise Skeletal Enforcer without using a spell slot. Once you do so,
 
 # 34. - Verdant Armor
 
-You can cast Barkskin without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
+You can cast Barkskin without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a short rest.
 
 
