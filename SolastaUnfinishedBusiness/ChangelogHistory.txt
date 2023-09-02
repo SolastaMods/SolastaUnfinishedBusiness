@@ -1,7 +1,7 @@
 ﻿1.5.94.10:
 
 - fixed Rock Gnome getting both DEX and CON attributes
-- fixed vanilla Legendary Items knowledge affinities [AC determination, etc]
+- fixed vanilla Legendary armors AC determination
 - fixed vanilla Black Dragon legendary actions' decision packages
 - fixed vanilla Dragon Breath saving attributes [black, gold, spectral -> DEX, Young Green, Green Feral -> CON]
 - fixed vanilla Mummy dreadful glare saving attribute to be WIS instead of CON

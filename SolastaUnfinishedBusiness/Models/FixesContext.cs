@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
+using static EquipmentDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -47,6 +48,7 @@ internal static class FixesContext
         FixDragonBreathPowerSavingAttribute();
         FixBlackDragonLegendaryActions();
         FixMummyDreadfulGlareSavingAttribute();
+        FixArmorClassOnLegendaryArmors();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -70,6 +72,18 @@ internal static class FixesContext
     {
         MonsterDefinitions.BlackDragon_MasterOfNecromancy.LegendaryActionOptions.SetRange(
             MonsterDefinitions.GoldDragon_AerElai.LegendaryActionOptions);
+    }
+
+    private static void FixArmorClassOnLegendaryArmors()
+    {
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
+        {
+            foreach (var staticProperty in item.StaticProperties
+                         .Where(x => x.FeatureDefinition.Name.StartsWith("AttributeModifierArmor")))
+            {
+                staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;
+            }
+        }
     }
 
     private static void FixMummyDreadfulGlareSavingAttribute()

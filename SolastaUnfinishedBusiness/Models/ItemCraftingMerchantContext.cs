@@ -292,14 +292,19 @@ internal static class ItemCraftingMerchantContext
 
     private static void LoadRemoveAttunementRequirements()
     {
+        if (!Main.Settings.RemoveAttunementRequirements)
+        {
+            return;
+        }
+
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
-            item.requiresAttunement = item.requiresAttunement && !Main.Settings.RemoveAttunementRequirements;
+            item.requiresAttunement = false;
 
             foreach (var staticProperty in item.StaticProperties
                          .Where(x => x.KnowledgeAffinity == KnowledgeAffinity.InactiveAndHidden))
             {
-                staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden;
+                staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;
             }
         }
     }
