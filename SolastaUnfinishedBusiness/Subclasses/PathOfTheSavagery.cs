@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -318,33 +319,32 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class PhysicalAttackAfterDamageWrathAndFury : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackAfterDamageWrathAndFury : IActionFinishedByMe
     {
-        public void OnPhysicalAttackAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (characterAction is not CharacterActionRecklessAttack)
             {
-                return;
+                yield break;
             }
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionReckless))
+            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
-            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            if (!rulesetCharacter.HasAnyConditionOfType(ConditionReckless))
+            {
+                yield break;
+            }
+
+            var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var temporaryHitPoints = (classLevel + 1) / 2;
 
-            rulesetAttacker.ReceiveTemporaryHitPoints(temporaryHitPoints, DurationType.Minute, 1,
-                TurnOccurenceType.EndOfTurn, rulesetAttacker.Guid);
+            rulesetCharacter.ReceiveTemporaryHitPoints(temporaryHitPoints, DurationType.Minute, 1,
+                TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
         }
     }
 }
