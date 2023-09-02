@@ -297,16 +297,14 @@ internal static class ItemCraftingMerchantContext
             return;
         }
 
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
-            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
-            {
-                item.requiresAttunement = false;
+            item.requiresAttunement = false;
 
-                foreach (var staticProperty in item.StaticProperties
-                             .Where(x => x.KnowledgeAffinity == KnowledgeAffinity.InactiveAndHidden))
-                {
-                    staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;
-                }
+            foreach (var staticProperty in item.StaticProperties
+                         .Where(x => x.KnowledgeAffinity == KnowledgeAffinity.InactiveAndHidden))
+            {
+                staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;
             }
         }
     }

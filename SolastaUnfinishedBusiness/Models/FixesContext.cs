@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
+using static EquipmentDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -43,8 +45,55 @@ internal static class FixesContext
         AddAdditionalActionTitles();
         FixRageActionSpending();
         FixGrantBardicInspirationForActionSwitchingFeature();
+        FixDragonBreathPowerSavingAttribute();
+        FixBlackDragonLegendaryActions();
+        FixMummyDreadfulGlareSavingAttribute();
+        FixArmorClassOnLegendaryArmors();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixDragonBreathPowerSavingAttribute()
+    {
+        FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Dexterity;
+
+        FeatureDefinitionPowers.PowerDragonBreath_Acid_Spectral_DLC3.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Dexterity;
+
+        FeatureDefinitionPowers.PowerDragonBreath_Fire.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Dexterity;
+
+        FeatureDefinitionPowers.PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Constitution;
+    }
+
+    private static void FixBlackDragonLegendaryActions()
+    {
+        MonsterDefinitions.BlackDragon_MasterOfNecromancy.LegendaryActionOptions.SetRange(
+            MonsterDefinitions.GoldDragon_AerElai.LegendaryActionOptions);
+    }
+
+    private static void FixArmorClassOnLegendaryArmors()
+    {
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
+        {
+            foreach (var staticProperty in item.StaticProperties
+                         .Where(x => x.FeatureDefinition != null &&
+                                     x.FeatureDefinition.Name.StartsWith("AttributeModifierArmor")))
+            {
+                staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;
+            }
+        }
+    }
+
+    private static void FixMummyDreadfulGlareSavingAttribute()
+    {
+        FeatureDefinitionPowers.Power_Mummy_DreadfulGlare.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Wisdom;
+
+        FeatureDefinitionPowers.Power_MummyLord_DreadfulGlare.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Wisdom;
     }
 
     private static void FixAdditionalDamageRestrictions()

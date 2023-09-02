@@ -1579,8 +1579,17 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonBreath_Acid { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid");
 
+        internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral_DLC3");
+
+        internal static FeatureDefinitionPower PowerDragonBreath_Fire { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Fire");
+
         internal static FeatureDefinitionPower PowerDragonBreath_Poison { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Poison");
+
+        internal static FeatureDefinitionPower PowerDragonBreath_YoungGreen_Poison { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_YoungGreen_Poison");
 
         internal static FeatureDefinitionPower PowerDruidWildShape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape");
@@ -1638,6 +1647,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMonkStunningStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkStunningStrike");
+
+        internal static FeatureDefinitionPower Power_Mummy_DreadfulGlare { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_Mummy_DreadfulGlare");
+
+        internal static FeatureDefinitionPower Power_MummyLord_DreadfulGlare { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_MummyLord_DreadfulGlare");
 
         internal static FeatureDefinitionPower PowerOathOfDevotionAuraDevotion { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionAuraDevotion");
