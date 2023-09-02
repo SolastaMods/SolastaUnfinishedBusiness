@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -44,6 +45,7 @@ internal static class FixesContext
         FixRageActionSpending();
         FixGrantBardicInspirationForActionSwitchingFeature();
         FixDragonBreathPowerSavingAttribute();
+        FixBlackDragonLegendaryActions();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -61,6 +63,12 @@ internal static class FixesContext
 
         FeatureDefinitionPowers.PowerDragonBreath_YoungGreen_Poison.EffectDescription.savingThrowAbility =
             AttributeDefinitions.Constitution;
+    }
+
+    private static void FixBlackDragonLegendaryActions()
+    {
+        MonsterDefinitions.BlackDragon_MasterOfNecromancy.LegendaryActionOptions.SetRange(
+            MonsterDefinitions.GoldDragon_AerElai.LegendaryActionOptions);
     }
 
     private static void FixAdditionalDamageRestrictions()
