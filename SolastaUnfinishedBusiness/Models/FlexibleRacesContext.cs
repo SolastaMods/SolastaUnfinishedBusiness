@@ -84,8 +84,7 @@ internal static class FlexibleRacesContext
         {
             "GnomeRock", new List<string>
             {
-                "AttributeModifierGnomeRockAbilityScoreIncreaseCon",
-                "AttributeModifierGnomeShadowAbilityScoreIncreaseDex" //BUGFIX: until TA doesn't fix Gnome Rock
+                "AttributeModifierGnomeRockAbilityScoreIncreaseCon"
             }
         },
         { "GnomeShadow", new List<string> { "AttributeModifierGnomeShadowAbilityScoreIncreaseDex" } },
