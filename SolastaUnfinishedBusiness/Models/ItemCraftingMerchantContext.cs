@@ -294,7 +294,7 @@ internal static class ItemCraftingMerchantContext
     {
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
-            item.requiresAttunement = !Main.Settings.RemoveAttunementRequirements;
+            item.requiresAttunement = item.requiresAttunement && !Main.Settings.RemoveAttunementRequirements;
 
             foreach (var staticProperty in item.StaticProperties
                          .Where(x => x.KnowledgeAffinity == KnowledgeAffinity.InactiveAndHidden))
