@@ -353,10 +353,6 @@ Whenever you make an Intelligence (History) check, you can add twice your profic
 
 You have proficiency with artisan's tools (smith's tools). Using these tools, you spend a quarter of the normal time to craft a basic item, and your proficiency bonus is doubled when making the roll to determine whether your crafting progresses.
 
-* Ability Score Increase
-
-Dexterity + 1
-
 
 
 # 14. - Shadow Gnome

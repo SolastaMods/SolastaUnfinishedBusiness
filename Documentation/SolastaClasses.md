@@ -1692,10 +1692,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
-* Ability Score Choice
-
-Choose between increasing your ability scores or gaining a bonus feat.
-
 
 ## Level 18
 

@@ -2164,9 +2164,9 @@ Starting at 3rd level, you can dual-wield non-light melee weapons as well as add
 
 ## Level 6
 
-* Wrath and Fury
+* Furious Defense
 
-Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc).
+Starting at 6th level, while you are raging, whenever you roll a Dexterity saving throw, you can use your Strength saving throw instead. You gain +2 AC while you are raging and dual-wielding two melee weapons.
 
 
 ## Level 10
@@ -2178,9 +2178,9 @@ Starting at 10th level, while you are raging, whenever you hit a creature with a
 
 ## Level 14
 
-* Furious Defense
+* Wrath and Fury
 
-Starting at 14th level, while you are raging, whenever you roll a Dexterity saving throw, you can use your Strength saving throw instead. You gain +2 AC while you are raging and dual-wielding two melee weapons.
+Starting at 14th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc).
 
 
 

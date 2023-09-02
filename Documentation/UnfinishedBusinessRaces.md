@@ -482,10 +482,10 @@ Charisma +2, increase 1 other score by 1 point.
 
 * Angelic Form
 
-When you reach 3rd level, you can choose an Angelic Form. All Angelic forms use your bonus action:
+When you reach 3rd level, you can choose an Angelic Form. All Angelic forms use your bonus action.  Once you use this power, you cannot use it until you finish a long rest:
 • Angelic Flight: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. You also gain flying speed equal to your movement speed.
 • Angelic Radiance: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On the end of each of your turn, you deal 1d4 Radiant damage to enemies 10 feat around you. This damage increases to 1d6, 1d8, 1d10, and 1d12 every four levels.
-• Angelic Visage: You can use your Action to heal an ally you can touch. The target will regain HP equal to your character level.
+• Angelic Visage: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On activation, every enemy need to roll Charisma saving throw against 8 + your proficiency bonus + Charisma modifier, or be frightened until the end of your next turn.
 
 * Darkvision
 
