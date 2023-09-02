@@ -1,3 +1,5 @@
+Feature/&AdditionalDamage{Name}StrikeTheVitalsDescription=ターンごとに 1 回、攻撃ロールで有利な攻撃をクリーチャーに命中させた場合、武術ダイスに等しい追加ダメージを与えることができます。ターゲットの別の敵がターゲットから 5 フィート以内にいて、その敵が無力化されておらず、攻撃ロールで不利にならない場合、攻撃ロールで有利になる必要はありません。素手攻撃またはモンク武器を使用する必要があります。このダメージは、レベル 11 と 17 では武術ダイスが 1 つ追加されることで増加します。
+Feature/&AdditionalDamage{Name}StrikeTheVitalsTitle=急所を攻撃する
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=2 Ki ポイントを消費すると、物質コンポーネントを提供せずに、暗闇、暗視、痕跡なしの通過、または沈黙をキャストできます。さらに、ライトキャントリップをまだ知らない場合は、それを取得します。
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=シルエットアート
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes は、自然の暗闇に加えて、薄暗い光や魔法の暗闇でも機能するようになりました。
@@ -10,6 +12,8 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=クリーチャーが�
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=影の聖域
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=ボーナス アクションとして、最大 30 フィートの目に見える空いているスペースにテレポートできます。このパワーは、長い休憩ごとに熟練度ボーナスに等しい回数だけ使用できます。
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=シルエットステップ
+Feedback/&AdditionalDamageStrikeTheVitalsFormat=バイタルを攻撃せよ！
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} は {1} に重要な攻撃を与えます (+{2})Reaction/&SpendPowerShadowySanctuaryDescription=あなたは影に足を踏み入れて消えることができ、その攻撃から受けるダメージや有害な影響を無効にすることができます。
 Reaction/&SpendPowerShadowySanctuaryDescription=あなたは影に足を踏み入れて姿を消し、その攻撃から受けるダメージや有害な影響を無効にすることができます。
 Reaction/&SpendPowerShadowySanctuaryReactDescription=あなたの反応を利用して消えてください。
 Reaction/&SpendPowerShadowySanctuaryReactTitle=影の聖域

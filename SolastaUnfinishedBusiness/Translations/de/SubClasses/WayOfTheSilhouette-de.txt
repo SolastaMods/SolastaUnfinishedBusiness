@@ -1,3 +1,5 @@
+Feature/&AdditionalDamage{Name}StrikeTheVitalsDescription=Einmal pro Spielzug kannst du zusätzlichen Schaden in Höhe deines Kampfkunstwürfels verursachen, wenn du eine Kreatur mit einem Angriff triffst, der beim Angriffswurf im Vorteil war. Sie benötigen keinen Vorteil beim Angriffswurf, wenn sich ein anderer Feind im Umkreis von 5 Fuß um das Ziel befindet, dieser Feind nicht außer Gefecht gesetzt ist und Sie keinen Nachteil beim Angriffswurf haben. Sie müssen einen unbewaffneten Angriff oder eine Mönchswaffe verwenden. Dieser Schaden erhöht sich auf den Stufen 11 und 17 um einen zusätzlichen Kampfkunstwürfel.
+Feature/&AdditionalDamage{Name}StrikeTheVitalsTitle=Schlagen Sie die Vitalfunktionen an
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Sie können 2 Ki-Punkte ausgeben, um Dunkelheit, Dunkelsicht, Spurlos passieren oder Stille zu wirken, ohne materielle Komponenten bereitzustellen. Zusätzlich erhältst du den Licht-Cantrip, falls du ihn noch nicht kennst.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silhouettenkunst
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes funktioniert jetzt zusätzlich zur natürlichen Dunkelheit auch bei schwachem Licht und magischer Dunkelheit.
@@ -10,6 +12,8 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Wenn eine Kreatur Sie m
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Schattenhaftes Heiligtum
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Als Bonusaktion können Sie sich bis zu 30 Fuß weit zu einem freien, sichtbaren Feld teleportieren. Sie können diese Kraft pro langer Pause so oft nutzen, wie es Ihrem Fähigkeitsbonus entspricht.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Silhouette-Schritt
+Feedback/&AdditionalDamageStrikeTheVitalsFormat=Schlagen Sie die Vitalwerte an!
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} führt einen lebenswichtigen Angriff auf {1} aus (+{2})Reaction/&SpendPowerShadowySanctuaryDescription=Sie können in den Schatten treten und verschwinden, wodurch Sie jeglichen Schaden oder schädlichen Effekt, den Sie durch diesen Angriff erlitten hätten, zunichte machen.
 Reaction/&SpendPowerShadowySanctuaryDescription=Sie können in den Schatten treten und verschwinden, wodurch Sie jeglichen Schaden oder schädliche Wirkung, die Sie durch diesen Angriff erlitten hätten, zunichte machen.
 Reaction/&SpendPowerShadowySanctuaryReactDescription=Nutzen Sie Ihre Reaktion, um zu verschwinden.
 Reaction/&SpendPowerShadowySanctuaryReactTitle=Schattenhaftes Heiligtum

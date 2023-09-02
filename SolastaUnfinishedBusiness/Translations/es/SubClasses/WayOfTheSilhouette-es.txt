@@ -1,3 +1,5 @@
+Feature/&AdditionalDamage{Name}StrikeTheVitalsDescription=Una vez por turno, puedes infligir daño adicional equivalente a tu dado de artes marciales si golpeas a una criatura con un ataque que tenía ventaja en la tirada de ataque. No necesitas ventaja en la tirada de ataque si otro enemigo del objetivo está a 5 pies de él, ese enemigo no está incapacitado y no tienes desventaja en la tirada de ataque. Debes utilizar un ataque desarmado o un arma de monje. Este daño aumenta en un dado de artes marciales adicional en los niveles 11 y 17.
+Feature/&AdditionalDamage{Name}StrikeTheVitalsTitle=Golpea los signos vitales
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Puedes gastar 2 puntos de Ki para lanzar oscuridad, visión en la oscuridad, pasar sin dejar rastro o silenciar, sin proporcionar componentes materiales. Además, obtienes el cantrip de luz si aún no lo conoces.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silueta artes
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Capa de siluetas ahora funciona con poca luz y oscuridad mágica además de la oscuridad natural.
@@ -10,6 +12,8 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Cuando una criatura est
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Santuario sombrío
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Puedes teletransportarte como acción adicional hasta 30 pies a un espacio desocupado que puedas ver. Puedes usar este poder un número de veces por descanso prolongado igual a tu bonificador de competencia.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Paso de silueta
+Feedback/&AdditionalDamageStrikeTheVitalsFormat=¡Golpea los signos vitales!
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} realiza un ataque vital contra {1} (+{2})Reaction/&SpendPowerShadowySanctuaryDescription=Puedes entrar en las sombras y desaparecer, anulando cualquier daño o efecto dañino que hubieras recibido de ese ataque.
 Reaction/&SpendPowerShadowySanctuaryDescription=Puedes adentrarte en las sombras y desaparecer, negando cualquier daño o efecto dañino que hubieras recibido de ese ataque.
 Reaction/&SpendPowerShadowySanctuaryReactDescription=Usa tu reacción para desaparecer.
 Reaction/&SpendPowerShadowySanctuaryReactTitle=Santuario sombrío
