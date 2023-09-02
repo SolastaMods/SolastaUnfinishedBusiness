@@ -56,7 +56,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetTargetCondition(conditionBladeMark, AdditionalDamageTriggerCondition.TargetHasCondition)
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
-            .SetCustomSubFeatures(new RogueClassHolder())
+            .SetCustomSubFeatures(
+                new RogueClassHolder())
+                //new PhysicalAttackAfterDamageBladeMark())
             .AddToDB();
 
         var combatAffinityBladeMark = FeatureDefinitionCombatAffinityBuilder
@@ -177,9 +179,48 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    //
+    // Blade Mark
+    //
+
     private sealed class RogueClassHolder : IClassHoldingFeature
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+    }
+
+    private sealed class PhysicalAttackAfterDamageBladeMark : IPhysicalAttackAfterDamage
+    {
+        public void OnPhysicalAttackAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.Failure))
+            {
+                return;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var rulesetCondition =
+                rulesetDefender.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition.Name == $"Condition{Name}BladeMark");
+
+            if (rulesetCondition == null)
+            {
+                return;
+            }
+
+            rulesetDefender.RemoveCondition(rulesetCondition);
+        }
     }
 
     //

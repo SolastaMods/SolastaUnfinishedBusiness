@@ -6,6 +6,7 @@
 - changed Patron Soulblade pact weapon model from spiritual weapon to arcane sword
 - changed Verdant Armor invocation to recharge on short rests
 - fixed Patron Soulblade soul hex allowing retargeting at 1st level instead of 14th
+- fixed Roguish Blade Caller keeping blade mark on enemy after a miss or critical miss
 - improved Path of the Savagery wrath and fury with temp hit points whenever reckless attack is used
 - improved Patron Soulblade soul hex, soul shield, and master hex descriptions
 
