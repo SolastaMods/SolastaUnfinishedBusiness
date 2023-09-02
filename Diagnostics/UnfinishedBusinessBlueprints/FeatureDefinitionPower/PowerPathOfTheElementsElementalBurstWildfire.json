@@ -132,12 +132,12 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 13,
-            "diceNumber": 0
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 14,
-            "diceNumber": 0
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
@@ -152,17 +152,17 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 17,
-            "diceNumber": 1
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 18,
-            "diceNumber": 1
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 19,
-            "diceNumber": 1
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",

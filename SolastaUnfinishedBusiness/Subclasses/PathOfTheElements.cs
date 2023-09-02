@@ -275,7 +275,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeCold, 3, DieType.D8)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 5, 15)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 4, 13)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -320,7 +320,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeFire, 4, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 5, 15)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 4, 13)
                             .Build(),
                         EffectFormBuilder
                             .Create()
