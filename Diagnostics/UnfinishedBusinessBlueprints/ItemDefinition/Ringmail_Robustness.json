@@ -51,7 +51,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+2:dfb22c8a0143afd40b0bdb6b78abae1a",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndVisible"
     }
   ],
   "isArmor": true,

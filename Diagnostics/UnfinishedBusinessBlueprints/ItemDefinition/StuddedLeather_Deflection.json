@@ -43,7 +43,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+1:1befa75fb0cf6d644bfefb3b9e489e96",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndVisible"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
