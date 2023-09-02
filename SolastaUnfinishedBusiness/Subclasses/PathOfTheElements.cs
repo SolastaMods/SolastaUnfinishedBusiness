@@ -235,7 +235,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeLightning, 3, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 5, 15)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 4, 13)
                             .Build(),
                         EffectFormBuilder
                             .Create()

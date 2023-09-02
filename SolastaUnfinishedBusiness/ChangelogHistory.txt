@@ -1,4 +1,8 @@
-﻿1.5.94.10:
+﻿1.5.94.11:
+
+- changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
+
+1.5.94.10:
 
 - fixed Rock Gnome getting both DEX and CON attributes
 - fixed vanilla Legendary armors AC determination [Studded Armor of Black Marsh, etc]
