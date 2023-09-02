@@ -2180,7 +2180,7 @@ Starting at 10th level, while you are raging, whenever you hit a creature with a
 
 * Wrath and Fury
 
-Starting at 14th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc).
+Starting at 14th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
 
 
 

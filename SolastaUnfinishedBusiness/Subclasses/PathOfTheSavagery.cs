@@ -56,6 +56,46 @@ public sealed class PathOfTheSavagery : AbstractSubclass
 
         // LEVEL 06
 
+        // Furious Defense
+
+        var featureFuriousDefense = FeatureDefinitionAttributeModifierBuilder
+            .Create($"Feature{Name}FuriousDefense")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+            .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
+            .AddToDB();
+
+        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowAttributeFuriousDefense(featureFuriousDefense));
+
+        // LEVEL 10
+
+        // Unbridled Ferocity
+
+        var conditionUnbridledFerocity = ConditionDefinitionBuilder
+            .Create($"Condition{Name}UnbridledFerocity")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSorcererChildRiftDeflection)
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Permanent)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetPossessive()
+            .AllowMultipleInstances()
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}UnbridledFerocity")
+                    .SetGuiPresentation($"Condition{Name}UnbridledFerocity", Category.Condition)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
+                    .AddToDB())
+            .AddToDB();
+
+        var featureUnbridledFerocity = FeatureDefinitionBuilder
+            .Create($"Feature{Name}UnbridledFerocity")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
+            .AddToDB();
+
+        // LEVEL 14
+
+
         // Wrath and Fury
 
 #if false
@@ -105,47 +145,9 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetCustomSubFeatures(
                 //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
                 new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand))
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
+                new PhysicalAttackAfterDamageWrathAndFury())
             .AddToDB();
-
-        // LEVEL 10
-
-        // Unbridled Ferocity
-
-        var conditionUnbridledFerocity = ConditionDefinitionBuilder
-            .Create($"Condition{Name}UnbridledFerocity")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSorcererChildRiftDeflection)
-            .SetSilent(Silent.WhenRemoved)
-            .SetSpecialDuration(DurationType.Permanent)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
-            .SetPossessive()
-            .AllowMultipleInstances()
-            .AddFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{Name}UnbridledFerocity")
-                    .SetGuiPresentation($"Condition{Name}UnbridledFerocity", Category.Condition)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
-                    .AddToDB())
-            .AddToDB();
-
-        var featureUnbridledFerocity = FeatureDefinitionBuilder
-            .Create($"Feature{Name}UnbridledFerocity")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
-            .AddToDB();
-
-        // LEVEL 14
-
-        // Furious Defense
-
-        var featureFuriousDefense = FeatureDefinitionAttributeModifierBuilder
-            .Create($"Feature{Name}FuriousDefense")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-            .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
-            .AddToDB();
-
-        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowAttributeFuriousDefense(featureFuriousDefense));
 
         // MAIN
 
@@ -153,9 +155,9 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSavagery, 256))
             .AddFeaturesAtLevel(3, attackModifierSavageStrength, featureSetPrimalInstinct)
-            .AddFeaturesAtLevel(6, featureWrathAndFury)
+            .AddFeaturesAtLevel(6, featureFuriousDefense)
             .AddFeaturesAtLevel(10, featureUnbridledFerocity)
-            .AddFeaturesAtLevel(14, featureFuriousDefense)
+            .AddFeaturesAtLevel(14, featureWrathAndFury)
             .AddToDB();
     }
 
@@ -313,6 +315,36 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             (rulesetActor as RulesetCharacter)!.LogCharacterUsedFeature(_featureDefinition);
 
             return AttributeDefinitions.Strength;
+        }
+    }
+
+    private sealed class PhysicalAttackAfterDamageWrathAndFury : IPhysicalAttackAfterDamage
+    {
+        public void OnPhysicalAttackAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (!rulesetAttacker.HasAnyConditionOfType(ConditionReckless))
+            {
+                return;
+            }
+
+            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            var temporaryHitPoints = (classLevel + 1) / 2;
+
+            rulesetAttacker.ReceiveTemporaryHitPoints(temporaryHitPoints, DurationType.Minute, 1,
+                TurnOccurenceType.EndOfTurn, rulesetAttacker.Guid);
         }
     }
 }

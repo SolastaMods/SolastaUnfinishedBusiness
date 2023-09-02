@@ -1,6 +1,8 @@
 ﻿1.5.94.11:
 
 - changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
+- swapped Path of the Savagery level 6th wrath and fury with level 14th furious defense
+- improved Path of the Savagery wrath and fury with temp hit points whenever reckless attack is used
 
 1.5.94.10:
 
