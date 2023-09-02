@@ -46,6 +46,7 @@ internal static class FixesContext
         FixGrantBardicInspirationForActionSwitchingFeature();
         FixDragonBreathPowerSavingAttribute();
         FixBlackDragonLegendaryActions();
+        FixMummyDreadfulGlareSavingAttribute();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -69,6 +70,15 @@ internal static class FixesContext
     {
         MonsterDefinitions.BlackDragon_MasterOfNecromancy.LegendaryActionOptions.SetRange(
             MonsterDefinitions.GoldDragon_AerElai.LegendaryActionOptions);
+    }
+
+    private static void FixMummyDreadfulGlareSavingAttribute()
+    {
+        FeatureDefinitionPowers.Power_Mummy_DreadfulGlare.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Wisdom;
+
+        FeatureDefinitionPowers.Power_MummyLord_DreadfulGlare.EffectDescription.savingThrowAbility =
+            AttributeDefinitions.Wisdom;
     }
 
     private static void FixAdditionalDamageRestrictions()

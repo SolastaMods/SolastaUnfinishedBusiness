@@ -2,6 +2,7 @@
 
 - fixed vanilla Black Dragon legendary actions' decision packages
 - fixed vanilla Dragon Breath saving attributes [black, gold, spectral -> DEX, Young Green, Green Feral -> CON]
+- fixed vanilla Mummy dreadful glare saving attribute to be WIS instead of CON
 
 1.5.94.9:
 

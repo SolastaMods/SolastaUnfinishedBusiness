@@ -1648,6 +1648,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerMonkStunningStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkStunningStrike");
 
+        internal static FeatureDefinitionPower Power_Mummy_DreadfulGlare { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_Mummy_DreadfulGlare");
+
+        internal static FeatureDefinitionPower Power_MummyLord_DreadfulGlare { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_MummyLord_DreadfulGlare");
+
         internal static FeatureDefinitionPower PowerOathOfDevotionAuraDevotion { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionAuraDevotion");
 
