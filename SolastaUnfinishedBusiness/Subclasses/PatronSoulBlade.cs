@@ -155,7 +155,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .Create(effectDescriptionHex)
             .AllowRetarget()
             .Build();
-        
+
         var powerMasterHex = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MasterHex")
             .SetGuiPresentation($"Power{Name}Hex", Category.Feature, spriteSoulHex)

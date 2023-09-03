@@ -57,8 +57,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetCustomSubFeatures(
-                new RogueClassHolder())
-                //new PhysicalAttackAfterDamageBladeMark())
+                new RogueClassHolder(),
+                new PhysicalAttackAfterDamageBladeMark())
             .AddToDB();
 
         var combatAffinityBladeMark = FeatureDefinitionCombatAffinityBuilder
