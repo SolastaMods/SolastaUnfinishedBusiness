@@ -274,19 +274,20 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
 
+            // ALWAYS remove Blade Mark condition
+            if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
+            {
+                rulesetDefender.RemoveAllConditionsOfType(_conditionBladeMark.Name);
+            }
+
+            // exit earlier if not a hit
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
             if (_bladeMarkStatus == BladeMarkStatus.With)
             {
-                // remove Blade Mark condition
-                if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
-                {
-                    rulesetDefender.RemoveAllConditionsOfType(_conditionBladeMark.Name);
-                }
-
-                if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-                {
-                    yield break;
-                }
-
                 // inflict Blade Surge
                 if (classLevel >= 13 && !rulesetAttacker.HasAnyConditionOfType(_conditionBladeSurge.Name))
                 {
@@ -314,7 +315,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             // inflict Blade Mark condition
             if (_bladeMarkStatus != BladeMarkStatus.Without ||
-                attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 rulesetDefender is not { isDeadOrDyingOrUnconscious: false } ||
                 !attacker.OnceInMyTurnIsValid(BladeMark))
             {
