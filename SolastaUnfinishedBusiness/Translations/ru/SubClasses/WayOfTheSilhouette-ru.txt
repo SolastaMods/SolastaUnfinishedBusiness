@@ -1,5 +1,5 @@
-Feature/&AdditionalDamage{Name}StrikeTheVitalsDescription=Один раз за ход вы можете нанести дополнительный урон, равный вашему кубику боевых искусств, если вы поразите существо атакой, у которой было преимущество в броске атаки. Вам не нужно преимущество в броске атаки, если другой враг цели находится в пределах 5 футов от нее, этот враг не выведен из строя и у вас нет недостатка в броске атаки. Вы должны использовать безоружную атаку или оружие монаха. Этот урон увеличивается на один дополнительный кубик боевых искусств на уровнях 11 и 17.
-Feature/&AdditionalDamage{Name}StrikeTheVitalsTitle=Удар по жизненно важным органам
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=Один раз за ход вы можете нанести дополнительный урон, равный вашему кубику боевых искусств, если вы поразите существо атакой, у которой было преимущество в броске атаки. Вам не нужно преимущество в броске атаки, если другой враг цели находится в пределах 5 футов от нее, этот враг не выведен из строя и у вас нет недостатка в броске атаки. Вы должны использовать безоружную атаку или оружие монаха. Этот урон увеличивается на один дополнительный кубик боевых искусств на уровнях 11 и 17.
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsTitle=Удар по жизненно важным органам
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Вы можете потратить 2 очка Ци, чтобы наложить Тьму, Тёмное зрение, Бесследное передвижение или Тишину без затрат материальных компонентов. Кроме того, вы получаете заговор Свет, если ещё не знаете его.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Техника тени
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Плащ теней теперь работает в тусклом свете и магической тьме в дополнение к ествественной темноте.
@@ -13,8 +13,8 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Убежище теней
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Бонусным действием вы можете телепортироваться на расстояние до 30 футов в незанятое пространство, которое вы можете видеть. Вы можете использовать эту способность количество раз до длительного отдыха, равное вашему бонусу мастерства.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Шаг тени
 Feedback/&AdditionalDamageStrikeTheVitalsFormat=Ударьте жизненно важные органы!
-Feedback/&AdditionalDamageStrikeTheVitalsLine={0} наносит жизненно важную атаку по {1} (+{2})Reaction/&SpendPowerShadowySanctuaryDescription=Вы можете войти в тень и исчезнуть, сводя на нет любой урон или вредный эффект, который вы могли бы получить от этой атаки.
-Reaction/&SpendPowerShadowySanctuaryDescription=Вы можете уйти в тень и исчезнуть, предотвращая весь урон или негативные эффекты, которые вы могли бы получить от этой атаки.
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} наносит жизненно важную атаку по {1} (+{2})
+Reaction/&SpendPowerShadowySanctuaryDescription=Вы можете войти в тень и исчезнуть, сводя на нет любой урон или вредный эффект, который вы могли бы получить от этой атаки.
 Reaction/&SpendPowerShadowySanctuaryReactDescription=Используйте вашу реакцию, чтобы исчезнуть
 Reaction/&SpendPowerShadowySanctuaryReactTitle=Убежище теней
 Reaction/&SpendPowerShadowySanctuaryTitle=Убежище теней

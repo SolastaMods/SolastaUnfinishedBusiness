@@ -1,5 +1,5 @@
-Feature/&AdditionalDamage{Name}StrikeTheVitalsDescription=Une fois par tour, vous pouvez infliger des dégâts supplémentaires égaux à votre dé d'arts martiaux si vous touchez une créature avec une attaque qui avait un avantage au jet d'attaque. Vous n'avez pas besoin d'un avantage au jet d'attaque si un autre ennemi de la cible se trouve à moins de 1,50 mètre de celle-ci, cet ennemi n'est pas incapable d'agir et vous n'avez pas de désavantage au jet d'attaque. Vous devez utiliser une attaque à mains nues ou une arme de moine. Ces dégâts augmentent d'un dé d'arts martiaux supplémentaire aux niveaux 11 et 17.
-Feature/&AdditionalDamage{Name}StrikeTheVitalsTitle=Frappez les signes vitaux
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=Une fois par tour, vous pouvez infliger des dégâts supplémentaires égaux à votre dé d'arts martiaux si vous touchez une créature avec une attaque qui avait un avantage au jet d'attaque. Vous n'avez pas besoin d'un avantage au jet d'attaque si un autre ennemi de la cible se trouve à moins de 1,50 mètre de celle-ci, cet ennemi n'est pas incapable d'agir et vous n'avez pas de désavantage au jet d'attaque. Vous devez utiliser une attaque à mains nues ou une arme de moine. Ces dégâts augmentent d'un dé d'arts martiaux supplémentaire aux niveaux 11 et 17.
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsTitle=Frappez les signes vitaux
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Vous pouvez dépenser 2 points Ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Arts de la silhouette
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cape of Silhouettes fonctionne désormais dans la pénombre et l'obscurité magique en plus de l'obscurité naturelle.
@@ -13,7 +13,7 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Sanctuaire ténébreux
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Vous pouvez vous téléporter en tant qu'action bonus jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir. Vous pouvez utiliser ce pouvoir un nombre de fois par repos long égal à votre bonus de maîtrise.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Étape de la silhouette
 Feedback/&AdditionalDamageStrikeTheVitalsFormat=Frappez les Vitals !
-Feedback/&AdditionalDamageStrikeTheVitalsLine={0} lance une attaque vitale sur {1} (+{2})Reaction/&SpendPowerShadowySanctuaryDescription=Vous pouvez entrer dans les ombres et disparaître, annulant ainsi tout dommage ou effet néfaste que vous auriez reçu de cette attaque.
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} lance une attaque vitale sur {1} (+{2})
 Reaction/&SpendPowerShadowySanctuaryDescription=Vous pouvez entrer dans l'ombre et disparaître, annulant tout dommage ou effet nocif que vous auriez reçu de cette attaque.
 Reaction/&SpendPowerShadowySanctuaryReactDescription=Utilisez votre réaction pour disparaître.
 Reaction/&SpendPowerShadowySanctuaryReactTitle=Sanctuaire ténébreux
