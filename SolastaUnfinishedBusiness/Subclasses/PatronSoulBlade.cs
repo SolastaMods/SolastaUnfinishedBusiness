@@ -119,6 +119,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         var proxyPactWeapon1 = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon1")
+            .SetOrUpdateGuiPresentation("ProxyPactWeapon", Category.Proxy)
             .AddToDB();
 
         proxyPactWeapon1.damageDie = DieType.D8;
@@ -127,6 +128,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         var proxyPactWeapon2 = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon2")
+            .SetOrUpdateGuiPresentation("ProxyPactWeapon", Category.Proxy)
             .AddToDB();
 
         proxyPactWeapon2.damageDie = DieType.D8;
@@ -135,11 +137,19 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         var proxyPactWeapon3 = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon3")
+            .SetOrUpdateGuiPresentation("ProxyPactWeapon", Category.Proxy)
             .AddToDB();
 
         proxyPactWeapon3.damageDie = DieType.D8;
         proxyPactWeapon3.damageDieNum = 3;
         proxyPactWeapon3.addAbilityToDamage = true;
+
+        var conditionSummonPactWeapon = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionDivineFavor, $"Condition{Name}SummonPactWeapon")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetFeatures()
+            .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SummonPactWeapon")
@@ -155,7 +165,9 @@ public sealed class PatronSoulBlade : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetSummonEffectProxyForm(proxyPactWeapon1)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionSummonPactWeapon, applyToSelf: true,
+                            forceOnSelf: true))
                     .Build())
             .AddToDB();
 
@@ -343,7 +355,8 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 _ => 1
             };
 
-            effectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = $"ProxyPactWeapon{dice}";
+            effectDescription.EffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Summon)!
+                .SummonForm.effectProxyDefinitionName = $"ProxyPactWeapon{dice}";
 
             return effectDescription;
         }

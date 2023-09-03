@@ -86,7 +86,34 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": true,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "ProxyPactWeapon"
+          "effectProxyDefinitionName": "ProxyPactWeapon1"
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionSoulBladeSummonPactWeapon",
+          "conditionDefinition": "Definition:ConditionSoulBladeSummonPactWeapon:119483dd-d06f-5045-87f4-1b5366ddd871",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0

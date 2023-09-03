@@ -13,7 +13,7 @@
   "firstAttackIsFree": true,
   "constrainedToSpellArea": false,
   "damageDie": "D8",
-  "damageDieNum": 1,
+  "damageDieNum": 2,
   "damageType": "DamageForce",
   "addAbilityToDamage": true,
   "attackPower": null,
@@ -132,8 +132,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "EffectProxy/&ProxyArcaneSwordTitle",
-    "description": "EffectProxy/&ProxyArcaneSwordDescription",
+    "title": "Proxy/&ProxyPactWeaponTitle",
+    "description": "Proxy/&ProxyPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d4fa46dbc25279242a2b1e7626ee1da2",
@@ -153,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8543a701-d27c-5a28-833b-e0d392fd01bb",
+  "guid": "9735ef98-063a-550a-9b2a-11ad53a8629e",
   "contentPack": 9999,
-  "name": "ProxyPactWeapon"
+  "name": "ProxyPactWeapon2"
 }

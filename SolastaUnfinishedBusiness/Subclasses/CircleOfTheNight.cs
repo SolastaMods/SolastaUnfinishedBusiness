@@ -381,7 +381,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
-    private sealed class ActionFinishedByMeWildShape : IUsePowerFinishedByMe
+    private sealed class ActionFinishedByMeWildShape : IUsePowerFinishedByMe, IPreventRemoveConcentrationWithPowerUse
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
