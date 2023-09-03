@@ -825,11 +825,6 @@ internal static class Level20Context
 
             usablePower.Recharge();
 
-            var usablePowerNight = UsablePowersProvider.Get(
-                CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat, rulesetCharacter);
-
-            usablePowerNight.Recharge();
-
             rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
         }
     }
