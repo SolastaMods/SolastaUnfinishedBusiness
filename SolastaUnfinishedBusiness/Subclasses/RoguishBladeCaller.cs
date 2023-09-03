@@ -56,7 +56,12 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetTargetCondition(conditionBladeMark, AdditionalDamageTriggerCondition.TargetHasCondition)
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
-            .SetCustomSubFeatures(new RogueClassHolder())
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetCustomSubFeatures(
+                new RogueClassHolder(),
+                new RestrictedContextValidator(
+                    (_, _, character, _, _, mode, _) =>
+                        (OperationType.Set, IsBladeCallerWeapon(mode, null, character))))
             .AddToDB();
 
         var combatAffinityBladeMark = FeatureDefinitionCombatAffinityBuilder
@@ -232,8 +237,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             int damageAmount)
         {
             var rulesetDefender = defender.RulesetCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
 
             // ALWAYS remove Blade Mark condition
             if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
@@ -247,8 +250,12 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
+
             if (_bladeMarkStatus == BladeMarkStatus.With)
             {
+                var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
+
                 // inflict Blade Surge
                 if (classLevel >= 13 && !rulesetAttacker.HasAnyConditionOfType(_conditionBladeSurge.Name))
                 {

@@ -6,7 +6,7 @@
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "TargetHasCondition",
-  "requiredProperty": "None",
+  "requiredProperty": "Weapon",
   "attackModeOnly": false,
   "attackOnly": true,
   "requiredTargetCondition": "Definition:ConditionRoguishBladeCallerBladeMark:296e980a-0bc6-5463-b25c-949068710c35",
