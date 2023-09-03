@@ -403,14 +403,14 @@ Starting at 3rd level, you attune yourself to the blades you wield. Your attacks
 
 * Blade Mark
 
-Once during your turn, the first creature you hit with a dagger attack receives Blade Mark condition until the end of your next turn, unless the creature is already affected by that condition. When you attack a creature affected by Blade Mark, you consume the mark and roll that attack with advantage. If the attack hits, the creature takes extra damage equal to half your rogue level (rounded up).
+Once during your turn, the first creature you hit with a dagger attack receives Blade Mark condition until the end of your next turn, unless the creature is already affected by that condition. When you attack a creature affected by Blade Mark, you consume the mark and roll that attack with advantage. If you hit with a dagger attack, the creature takes extra damage equal to half your rogue level (rounded up).
 
 
 ## Level 9
 
 * Hail of Blades
 
-Starting at 9th level, whenever you attack a creature affected by Blade Mark using a dagger, you can use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies. Each creature within 15 feet of the target, including the target, must pass a Dexterity saving throw or receive force damage equal to your sneak attack damage and become affected by Blade Mark condition regardless of if they pass the saving throw or not. You can use this feature once per short rest. 
+Starting at 9th level, when you hit a creature affected by Blade Mark with a dagger attack, you can use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies. Each creature within 15 feet of the target, including the target, must pass a Dexterity saving throw or receive force damage equal to your sneak attack damage and become affected by Blade Mark condition regardless of if they pass the saving throw or not. You can use this feature once per short rest. 
 
 
 ## Level 13
@@ -3156,31 +3156,31 @@ Your main weapon single handed attacks count as magical and you use your spell c
 
 * Soul Hex
 
-You can curse one creature you can see within 30 ft. While in effect:
+You can curse one creature you can see within 30 ft of you for one minute. While in effect:
 • You add your proficiency bonus to damage against the cursed creature.
 • Your critical threat range increases by 1 against the cursed creature.
-• You gain hp equal to your warlock level + your Charisma modifier when the cursed creature dies.
+• You regain hit points equal to your warlock level + your Charisma modifier when the cursed creature dies.
 
 
 ## Level 6
 
 * Spiritual Pact Weapon
 
-You can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
+You can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking. The weapon deals 1d8 + Charisma force damage on hit. This damage increases to 2d8 on level 11, and 3d8 on level 17.
 
 
 ## Level 10
 
 * Soul Shield
 
-You can use the power of souls to defend yourself. As a reaction, you can grant +5 to your armor class until the start of your next turn.
+You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your armor class until the start of your next turn. You can use this feature once per short rest.
 
 
 ## Level 14
 
 * Master Hex
 
-You can use Soul Hex twice times per short rest now.
+You can use Soul Hex twice per short rest now and you can use your bonus action to apply the hex to another creature before its duration expires.
 
 
 
@@ -3480,6 +3480,10 @@ Cloak of Silhouettes now works in dim light and magical darkness in addition to 
 * Silhouette Step
 
 You can teleport as a bonus action up to 30 ft to an unoccupied space you can see. You can use this power a number of times per long rest equal to your proficiency bonus.
+
+* Strike the Vitals
+
+Once per turn, you can deal extra damage equal to your martial arts die if you hit a creature with an attack that had advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. You must use an unarmed attack or a monk weapon. This damage increases by one additional martial arts die on levels 11 and 17.
 
 
 ## Level 11
