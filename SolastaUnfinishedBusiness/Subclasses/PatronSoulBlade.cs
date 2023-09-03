@@ -117,19 +117,30 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Summon Pact Weapon
 
+        var proxyPactWeapon = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon")
+            .AddToDB();
+
+        proxyPactWeapon.damageDie = DieType.D8;
+        proxyPactWeapon.damageDieNum = 1;
+        proxyPactWeapon.addAbilityToDamage = true;
+
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SummonPactWeapon")
-            .SetGuiPresentation(Category.Feature, SpiritualWeapon)
+            .SetGuiPresentation(Category.Feature, ArcaneSword)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(ArcaneSword.EffectDescription)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetSummonEffectProxyForm(proxyPactWeapon)
+                        .Build())
                 .Build())
             .AddToDB();
-
-        powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
         //
         // LEVEL 10
