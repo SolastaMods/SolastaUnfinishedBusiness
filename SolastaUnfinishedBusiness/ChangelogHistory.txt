@@ -7,8 +7,9 @@
 - changed Verdant Armor invocation to recharge on short rest instead
 - fixed Patron Soulblade soul hex allowing retargeting at 1st level instead of 14th
 - fixed Roguish Blade Caller keeping blade mark on enemy after a miss or critical miss
+- fixed Roguish Blade Caller not consuming blade mark on non dagger attacks
 - improved Path of the Savagery wrath and fury with temp hit points whenever reckless attack is used
-- improved Patron Soulblade pact weapon damage scaling at 10th and 14th
+- improved Patron Soulblade pact weapon with damage dice increment at 10th and 14th
 - improved Patron Soulblade soul hex, soul shield, and master hex descriptions
 - improved Way of the Silhouette with strike the vitals feature at level 6th
 
