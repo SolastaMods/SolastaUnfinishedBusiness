@@ -152,7 +152,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         var featureMagicArrow = FeatureDefinitionBuilder
             .Create($"Feature{Name}MagicArrow")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyWeaponAttackModeMagicArrow())
+            .SetCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsBow))
             .AddToDB();
 
         // Guided Shot
@@ -403,7 +403,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             {
                 DebuffCondition = ConditionDefinitions.ConditionRestrained, EffectSpell = SpellDefinitions.Entangle
             });
-
 
         // Insight Arrow
 
@@ -669,23 +668,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             SaveOutcome = action.SaveOutcome;
 
             yield break;
-        }
-    }
-
-    //
-    // Magic Arrow
-    //
-
-    private sealed class ModifyWeaponAttackModeMagicArrow : IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            if (attackMode == null || !IsBow(attackMode, null, character))
-            {
-                return;
-            }
-
-            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
         }
     }
 
