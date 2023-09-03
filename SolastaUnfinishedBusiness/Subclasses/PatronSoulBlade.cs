@@ -117,13 +117,29 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Summon Pact Weapon
 
-        var proxyPactWeapon = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon")
+        var proxyPactWeapon1 = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon1")
             .AddToDB();
 
-        proxyPactWeapon.damageDie = DieType.D8;
-        proxyPactWeapon.damageDieNum = 1;
-        proxyPactWeapon.addAbilityToDamage = true;
+        proxyPactWeapon1.damageDie = DieType.D8;
+        proxyPactWeapon1.damageDieNum = 1;
+        proxyPactWeapon1.addAbilityToDamage = true;
+
+        var proxyPactWeapon2 = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon2")
+            .AddToDB();
+
+        proxyPactWeapon2.damageDie = DieType.D8;
+        proxyPactWeapon2.damageDieNum = 2;
+        proxyPactWeapon2.addAbilityToDamage = true;
+
+        var proxyPactWeapon3 = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon3")
+            .AddToDB();
+
+        proxyPactWeapon3.damageDie = DieType.D8;
+        proxyPactWeapon3.damageDieNum = 3;
+        proxyPactWeapon3.addAbilityToDamage = true;
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SummonPactWeapon")
@@ -137,9 +153,10 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetSummonEffectProxyForm(proxyPactWeapon)
+                        .SetSummonEffectProxyForm(proxyPactWeapon1)
                         .Build())
                 .Build())
+            .SetCustomSubFeatures(new ModifyEffectDescriptionSummonPactWeapon())
             .AddToDB();
 
         //
@@ -292,6 +309,33 @@ public sealed class PatronSoulBlade : AbstractSubclass
             {
                 rulesetCharacter.ReceiveHealing(healingReceived, true, rulesetCharacter.Guid);
             }
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionSummonPactWeapon : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return character.GetClassLevel(CharacterClassDefinitions.Warlock) >= 10;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var dice = classLevel switch
+            {
+                >= 14 => 3,
+                >= 10 => 2,
+                _ => 1
+            };
+
+            effectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = $"ProxyPactWeapon{dice}";
+
+            return effectDescription;
         }
     }
 }
