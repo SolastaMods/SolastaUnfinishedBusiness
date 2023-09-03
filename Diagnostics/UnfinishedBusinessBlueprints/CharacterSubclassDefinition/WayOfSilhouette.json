@@ -28,8 +28,23 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD6:27d86ca8-312f-5e8c-b519-c845b5497f66",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWayOfSilhouetteImprovedSilhouetteStep:a7a88fe6-bd6a-51d7-88c7-bd65acdf5dbb",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD8:926b6cc3-850b-563e-80d9-0f30b1975c7a",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD10:53fdd581-0ecd-58a8-85aa-745f60de234f",
+      "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
