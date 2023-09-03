@@ -1,4 +1,11 @@
-﻿1.5.94.11:
+﻿1.5.94.12:
+
+- fixed load save issues with active effects [STABILITY MUST UPDATE!]
+- fixed Roguish Blade Caller applying additional damage on non-blade attacks
+- improved Circle of the Night wildshape action interaction with concentration
+- improved Patron Soulblade descriptions, and added a condition on pact weapon
+
+1.5.94.11:
 
 - changed Innovation Weapon steel defender model from arcane sword to golem iron
 - changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
