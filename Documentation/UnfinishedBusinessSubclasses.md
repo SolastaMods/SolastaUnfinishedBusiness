@@ -3166,7 +3166,7 @@ You can curse one creature you can see within 30 ft of you for one minute. While
 
 * Spiritual Pact Weapon
 
-You can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking. The weapon deals 1d8 + Charisma force damage on hit. This damage increases to 2d8 on level 11, and 3d8 on level 17.
+You can summon forth a spiritual form of a weapon, for one minute, from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking. The weapon deals 1d8 + Charisma force damage on hit. This damage increases to 2d8 on level 10, and 3d8 on level 14.
 
 
 ## Level 10
@@ -3180,7 +3180,7 @@ You can use the power of souls to defend yourself. As a reaction, you can gain +
 
 * Master Hex
 
-You can use Soul Hex twice per short rest now and you can use your bonus action to apply the hex to another creature before its duration expires.
+You can use Soul Hex twice per short rest now and you can use a bonus action to apply the hex to another creature within 30 feet of you if the original target was slain.
 
 
 

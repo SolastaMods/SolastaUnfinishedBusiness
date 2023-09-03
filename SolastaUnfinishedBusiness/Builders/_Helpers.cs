@@ -20,6 +20,7 @@ public enum Category
     Item,
     Monster,
     MonsterFamily,
+    Proxy,
     Race,
     Reaction,
     RestActivity,
