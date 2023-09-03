@@ -1,3 +1,5 @@
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=Una volta per turno, puoi infliggere danni extra pari al tuo dado di arti marziali se colpisci una creatura con un attacco che ha vantaggio al tiro per colpire. Non hai bisogno di vantaggio al tiro per colpire se un altro nemico del bersaglio si trova entro 1,5 piedi da esso, quel nemico non è incapacitato e non hai svantaggio al tiro per colpire. Devi usare un attacco senz'armi o un'arma da monaco. Questo danno aumenta di un ulteriore dado di arti marziali ai livelli 11 e 17.
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsTitle=Colpisci i segni vitali
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Puoi spendere 2 punti Ki per lanciare oscurità, scurovisione, passare senza lasciare traccia o silenzio, senza fornire componenti materiali. Inoltre, ottieni il trucchetto leggero se non lo conosci già.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Arti della siluetta
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes ora funziona in condizioni di luce fioca e oscurità magica oltre all'oscurità naturale.
@@ -10,6 +12,8 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Quando una creatura sta
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Santuario Oscuro
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Puoi teletrasportarti come azione bonus fino a 9 metri in uno spazio non occupato che puoi vedere. Puoi usare questo potere un numero di volte per riposo lungo pari al tuo bonus di competenza.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Passo della sagoma
+Feedback/&AdditionalDamageStrikeTheVitalsFormat=Colpisci i segni vitali!
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} sferra un attacco vitale su {1} (+{2})
 Reaction/&SpendPowerShadowySanctuaryDescription=Puoi entrare nell'ombra e scomparire, annullando qualsiasi danno o effetto dannoso che avresti ricevuto da quell'attacco.
 Reaction/&SpendPowerShadowySanctuaryReactDescription=Usa la tua reazione per scomparire.
 Reaction/&SpendPowerShadowySanctuaryReactTitle=Santuario Oscuro

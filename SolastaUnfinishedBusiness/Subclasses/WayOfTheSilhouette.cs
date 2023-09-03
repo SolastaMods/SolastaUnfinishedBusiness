@@ -22,6 +22,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
     public WayOfTheSilhouette()
     {
+        // LEVEL 03
+
+        // Silhouette Arts
+
         var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkness")
             .SetGuiPresentation(Darkness.GuiPresentation)
@@ -60,13 +64,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 powerWayOfSilhouetteSilence)
             .AddToDB();
 
-        var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SilhouetteStep")
-            .SetGuiPresentation(Category.Feature, MistyStep)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(MistyStep.EffectDescription)
-            .SetShowCasting(true)
-            .AddToDB();
+        // Cloak of Silhouettes Weak
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
             .Create($"LightAffinity{Name}CloakOfSilhouettesWeak")
@@ -78,7 +76,21 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             })
             .AddToDB();
 
-        var lightAffinityWayOfSilhouetteStrong = FeatureDefinitionLightAffinityBuilder
+        // LEVEL 06
+
+        // Silhouette Step
+
+        var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SilhouetteStep")
+            .SetGuiPresentation(Category.Feature, MistyStep)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(MistyStep.EffectDescription)
+            .SetShowCasting(true)
+            .AddToDB();
+
+        // Cloak of Silhouettes Strong
+
+        var lightAffinityCloakOfSilhouettesStrong = FeatureDefinitionLightAffinityBuilder
             .Create($"LightAffinity{Name}CloakOfSilhouettesStrong")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
@@ -93,6 +105,44 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             })
             .AddToDB();
 
+        // Strike the Vitals
+
+        var additionalDamageStrikeTheVitalsD6 = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}StrikeTheVitalsD6")
+            .SetGuiPresentation($"AdditionalDamage{Name}StrikeTheVitals", Category.Feature)
+            .SetNotificationTag("StrikeTheVitals")
+            .SetDamageDice(DieType.D6, 1)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddToDB();
+
+        var additionalDamageStrikeTheVitalsD8 = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}StrikeTheVitalsD8")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("StrikeTheVitals")
+            .SetDamageDice(DieType.D8, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetCustomSubFeatures(new CustomCodeAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
+            .AddToDB();
+
+        var additionalDamageStrikeTheVitalsD10 = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}StrikeTheVitalsD10")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("StrikeTheVitals")
+            .SetDamageDice(DieType.D10, 3)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetCustomSubFeatures(new CustomCodeAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
+            .AddToDB();
+
+        // LEVEL 11
+
+        // Improved Silhouette Step
+
         var powerWayOfSilhouetteImprovedSilhouetteStep = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedSilhouetteStep")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
@@ -101,6 +151,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
+
+        // LEVEL 17
+
+        // Shadowy Sanctuary
 
         var powerWayOfSilhouetteShadowySanctuary = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, $"Power{Name}ShadowySanctuary")
@@ -127,12 +181,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
                 FeatureDefinitionCastSpells.CastSpellTraditionLight)
             .AddFeaturesAtLevel(6,
-                lightAffinityWayOfSilhouetteStrong,
-                powerWayOfSilhouetteSilhouetteStep)
+                lightAffinityCloakOfSilhouettesStrong,
+                powerWayOfSilhouetteSilhouetteStep,
+                additionalDamageStrikeTheVitalsD6)
             .AddFeaturesAtLevel(11,
-                powerWayOfSilhouetteImprovedSilhouetteStep)
+                powerWayOfSilhouetteImprovedSilhouetteStep,
+                additionalDamageStrikeTheVitalsD8)
             .AddFeaturesAtLevel(17,
-                powerWayOfSilhouetteShadowySanctuary)
+                powerWayOfSilhouetteShadowySanctuary,
+                additionalDamageStrikeTheVitalsD10)
             .AddToDB();
     }
 
@@ -145,6 +202,29 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class CustomCodeAdditionalDamageStrikeTheVitals : IDefinitionCustomCode
+    {
+        private readonly FeatureDefinitionAdditionalDamage _additionalDamageToRemove;
+
+        public CustomCodeAdditionalDamageStrikeTheVitals(FeatureDefinitionAdditionalDamage additionalDamageToRemove)
+        {
+            _additionalDamageToRemove = additionalDamageToRemove;
+        }
+
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == _additionalDamageToRemove);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // Empty
+        }
+    }
 
     private class AttackBeforeHitConfirmedOnMeShadowySanctuary : IAttackBeforeHitConfirmedOnMe
     {

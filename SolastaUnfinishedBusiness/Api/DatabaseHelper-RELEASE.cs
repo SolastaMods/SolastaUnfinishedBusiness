@@ -615,7 +615,7 @@ internal static partial class DatabaseHelper
     {
         internal static EffectProxyDefinition ProxyArcaneSword { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
-
+        
         internal static EffectProxyDefinition ProxyGrease { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyGrease");
 
@@ -2821,6 +2821,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition GoldDragon_AerElai { get; } =
             GetDefinition<MonsterDefinition>("GoldDragon_AerElai");
 
+        internal static MonsterDefinition Golem_Iron { get; } = GetDefinition<MonsterDefinition>("Golem_Iron");
         internal static MonsterDefinition Green_Hag { get; } = GetDefinition<MonsterDefinition>("Green_Hag");
 
         internal static MonsterDefinition GreenDragon_MasterOfConjuration { get; } =
@@ -3157,6 +3158,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
         internal static SpellDefinition AnimalFriendship { get; } = GetDefinition<SpellDefinition>("AnimalFriendship");
+        internal static SpellDefinition ArcaneSword { get; } = GetDefinition<SpellDefinition>("ArcaneSword");
         internal static SpellDefinition Bane { get; } = GetDefinition<SpellDefinition>("Bane");
         internal static SpellDefinition Banishment { get; } = GetDefinition<SpellDefinition>("Banishment");
         internal static SpellDefinition Barkskin { get; } = GetDefinition<SpellDefinition>("Barkskin");

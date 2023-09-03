@@ -81,12 +81,7 @@ internal static class FlexibleRacesContext
         { "Dwarf", new List<string> { "AttributeModifierDwarfAbilityScoreIncrease" } },
         { "Elf", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "Gnome", new List<string> { "AttributeModifierGnomeAbilityScoreIncreaseInt" } },
-        {
-            "GnomeRock", new List<string>
-            {
-                "AttributeModifierGnomeRockAbilityScoreIncreaseCon"
-            }
-        },
+        { "GnomeRock", new List<string> { "AttributeModifierGnomeRockAbilityScoreIncreaseCon" } },
         { "GnomeShadow", new List<string> { "AttributeModifierGnomeShadowAbilityScoreIncreaseDex" } },
         { "Halfling", new List<string> { "AttributeModifierHalflingAbilityScoreIncrease" } },
         { "HalfElf", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },

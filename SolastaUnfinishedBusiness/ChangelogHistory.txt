@@ -1,4 +1,19 @@
-﻿1.5.94.10:
+﻿1.5.94.11:
+
+- changed Innovation Weapon steel defender model from arcane sword to golem iron
+- changed Path of the Elements elemental burst to increment dice from levels 15/20th to 13/17th
+- changed Path of the Savagery swapping level 6th wrath and fury with level 14th furious defense
+- changed Patron Soulblade pact weapon model from spiritual weapon to arcane sword
+- changed Verdant Armor invocation to recharge on short rest instead
+- fixed Patron Soulblade soul hex allowing retargeting at 1st level instead of 14th
+- fixed Roguish Blade Caller keeping blade mark on enemy after a miss or critical miss
+- fixed Roguish Blade Caller not consuming blade mark on non dagger attacks
+- improved Path of the Savagery wrath and fury with temp hit points whenever reckless attack is used
+- improved Patron Soulblade pact weapon with damage dice increment at 10th and 14th
+- improved Patron Soulblade soul hex, soul shield, and master hex descriptions
+- improved Way of the Silhouette with strike the vitals feature at level 6th
+
+1.5.94.10:
 
 - fixed Rock Gnome getting both DEX and CON attributes
 - fixed vanilla Legendary armors AC determination [Studded Armor of Black Marsh, etc]

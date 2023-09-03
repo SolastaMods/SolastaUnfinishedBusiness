@@ -177,11 +177,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class RogueClassHolder : IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
-    }
-
     //
     // Blade Bond
     //
@@ -205,14 +200,24 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Mark
     //
 
-    private sealed class CustomBehaviorBladeMark :
-        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    private sealed class RogueClassHolder : IClassHoldingFeature
     {
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+    }
+
+    private sealed class CustomBehaviorBladeMark : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    {
+        private enum BladeMarkStatus
+        {
+            Invalid,
+            With,
+            Without
+        }
+
         private readonly ConditionDefinition _conditionBladeMark;
         private readonly ConditionDefinition _conditionBladeSurge;
         private readonly FeatureDefinitionPower _powerHailOfBlades;
-        private bool _targetWithBladeMarkHit;
-        private bool _targetWithoutBladeMarkHit;
+        private BladeMarkStatus _bladeMarkStatus;
 
         public CustomBehaviorBladeMark(
             ConditionDefinition conditionBladeMark,
@@ -224,23 +229,17 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             _powerHailOfBlades = powerHailOfBlades;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackInitiatedByMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetAttackMode attackerAttackMode)
         {
-            _targetWithoutBladeMarkHit = false;
-            _targetWithBladeMarkHit = false;
+            _bladeMarkStatus = BladeMarkStatus.Invalid;
 
-            if (!IsBladeCallerWeapon(attackMode, null, null))
+            if (!IsBladeCallerWeapon(attackerAttackMode, null, null))
             {
                 yield break;
             }
@@ -254,17 +253,12 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             if (rulesetDefender.HasAnyConditionOfType(_conditionBladeMark.Name))
             {
-                _targetWithBladeMarkHit = true;
+                _bladeMarkStatus = BladeMarkStatus.With;
 
                 yield break;
             }
 
-            if (!attacker.OnceInMyTurnIsValid(BladeMark))
-            {
-                yield break;
-            }
-
-            _targetWithoutBladeMarkHit = true;
+            _bladeMarkStatus = BladeMarkStatus.Without;
         }
 
         public IEnumerator OnAttackFinishedByMe(
@@ -280,13 +274,21 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
 
-            if (_targetWithBladeMarkHit)
+            // ALWAYS remove Blade Mark condition
+            if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
             {
-                if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
-                {
-                    rulesetDefender.RemoveAllConditionsOfType(_conditionBladeMark.Name);
-                }
+                rulesetDefender.RemoveAllConditionsOfType(_conditionBladeMark.Name);
+            }
 
+            // exit earlier if not a hit
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            if (_bladeMarkStatus == BladeMarkStatus.With)
+            {
+                // inflict Blade Surge
                 if (classLevel >= 13 && !rulesetAttacker.HasAnyConditionOfType(_conditionBladeSurge.Name))
                 {
                     rulesetAttacker.InflictCondition(
@@ -304,36 +306,36 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         0);
                 }
 
+                // offer Hail of Blades
                 if (rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle))
                 {
                     yield return HandleHailOfBlades(battleManager, attacker, defender);
                 }
             }
 
-            if (_targetWithoutBladeMarkHit)
+            // inflict Blade Mark condition
+            if (_bladeMarkStatus != BladeMarkStatus.Without ||
+                rulesetDefender is not { isDeadOrDyingOrUnconscious: false } ||
+                !attacker.OnceInMyTurnIsValid(BladeMark))
             {
-                if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
-                {
-                    attacker.UsedSpecialFeatures.TryAdd(BladeMark, 1);
-
-                    rulesetDefender.InflictCondition(
-                        _conditionBladeMark.Name,
-                        _conditionBladeMark.DurationType,
-                        _conditionBladeMark.DurationParameter,
-                        _conditionBladeMark.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
-                        rulesetAttacker.guid,
-                        rulesetAttacker.CurrentFaction.Name,
-                        1,
-                        null,
-                        0,
-                        0,
-                        0);
-                }
+                yield break;
             }
 
-            _targetWithoutBladeMarkHit = false;
-            _targetWithBladeMarkHit = false;
+            attacker.UsedSpecialFeatures.TryAdd(BladeMark, 1);
+
+            rulesetDefender.InflictCondition(
+                _conditionBladeMark.Name,
+                _conditionBladeMark.DurationType,
+                _conditionBladeMark.DurationParameter,
+                _conditionBladeMark.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         private IEnumerator HandleHailOfBlades(

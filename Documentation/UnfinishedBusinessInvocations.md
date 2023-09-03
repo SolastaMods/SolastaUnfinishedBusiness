@@ -82,48 +82,56 @@ You can cast Haste without using a spell slot. When casting using this ability y
 
 You can change the damage type of the eldritch blast to necrotic damage instead of force damage.
 
-# 22. - Psychic Blast
+# 22. - Poisonous Blast
+
+You can change the damage type of the eldritch blast to poison damage instead of force damage.
+
+# 23. - Psychic Blast
 
 You can change the damage type of the eldritch blast to psychic damage instead of force damage.
 
-# 23. - Radiant Blast
+# 24. - Radiant Blast
 
 You can change the damage type of the eldritch blast to radiant damage instead of force damage.
 
-# 24. - Shroud of Shadow
+# 25. - Shroud of Shadow
 
 You can cast Invisibility at will, without expending a spell slot.
 
-# 25. - Spectral Shield
+# 26. - Spectral Shield
 
 You can cast Shield of Faith without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 26. - Stasis
+# 27. - Stasis
 
 You can cast Slow without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 27. - Superior Pact Weapon
+# 28. - Superior Pact Weapon
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 28. - Tenacious Plague
+# 29. - Tenacious Plague
 
 You can cast Insect Plague using your pact slot once per long rest.
 
-# 29. - Trickster's Escape
+# 30. - Thunder Blast
+
+You can change the damage type of the eldritch blast to thunder damage instead of force damage.
+
+# 31. - Trickster's Escape
 
 You can cast Freedom of Movement without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 30. - Ultimate Pact Weapon
+# 32. - Ultimate Pact Weapon
 
 Your weapon gains a +1 bonus to its attack and damage rolls.
 
-# 31. - Undying Servitude
+# 33. - Undying Servitude
 
 You can cast Raise Skeletal Enforcer without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 32. - Verdant Armor
+# 34. - Verdant Armor
 
-You can cast Barkskin without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
+You can cast Barkskin without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a short rest.
 
 

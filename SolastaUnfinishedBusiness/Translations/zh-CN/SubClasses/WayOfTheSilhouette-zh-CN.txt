@@ -1,3 +1,5 @@
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=每回合一次，如果你用在攻击骰上有优势的攻击击中一个生物，你可以造成相当于你的武术骰子的额外伤害。如果目标的另一个敌人在其 5 英尺范围内，并且该敌人没有丧失行动能力，并且您在攻击检定上没有劣势，则您不需要在攻击检定上获得优势。你必须使用徒手攻击或武僧武器。在 11 级和 17 级时，此伤害会增加一个额外的武术骰子。
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsTitle=打击要害
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=你可以花费 2 点气来施展黑暗术、黑暗视觉、无痕通过或沉默术，而无需提供材料成分。此外，如果你还不知道，你将获得光之咒语。
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=暗影技艺
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=除了自然黑暗之外，暗影斗篷现在还可以在昏暗的光线和魔法黑暗中使用。
@@ -10,7 +12,9 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=当一个生物即将�
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=暗影庇护所
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=你可以用附赠动作传送最远 30 尺到一个你能看到的未被占据的空间。每次长休你可以使用此异能的次数等于你的熟练加值。
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=暗影步
-Reaction/&SpendPowerShadowySanctuaryDescription=你可以进入阴影并消失，规避任何伤害或你将从攻击中获得的有害影响。
+Feedback/&AdditionalDamageStrikeTheVitalsFormat=直击要害！
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0} 对 {1} 进行致命攻击 (+{2})
+Reaction/&SpendPowerShadowySanctuaryDescription=你可以走进阴影并消失，消除你因该攻击而受到的任何伤害或有害效果。
 Reaction/&SpendPowerShadowySanctuaryReactDescription=用你的反应消失。
 Reaction/&SpendPowerShadowySanctuaryReactTitle=暗影庇护所
 Reaction/&SpendPowerShadowySanctuaryTitle=暗影庇护所

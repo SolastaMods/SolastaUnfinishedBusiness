@@ -1,3 +1,5 @@
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=턴당 한 번, 공격 굴림에서 유리한 공격으로 생물을 공격하면 무술 주사위만큼 추가 피해를 입힐 수 있습니다. 대상의 다른 적이 5피트 이내에 있고, 그 적이 무력화되지 않았으며, 공격 굴림에 불이익이 없다면 공격 굴림에 이점이 필요하지 않습니다. 비무장 공격이나 수도사 무기를 사용해야 합니다. 이 피해는 레벨 11과 17에서 추가 무술 주사위 하나만큼 증가합니다.
+Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsTitle=바이탈을 공격하세요
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=재료 구성 요소를 제공하지 않고 2 Ki 포인트를 사용하여 암흑, 다크 비전, 흔적 없는 통과 또는 침묵을 시전할 수 있습니다. 또한 아직 알지 못하는 경우 가벼운 캔 트립을 얻습니다.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=실루엣 예술
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes는 이제 자연적인 어둠뿐만 아니라 희미한 빛과 마법 같은 어둠에서도 작동합니다.
@@ -10,6 +12,8 @@ Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=생물이 당신을 공
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=어둠의 성역
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=보너스 액션으로 볼 수 있는 빈 공간으로 최대 30피트까지 텔레포트할 수 있습니다. 이 힘은 숙달 보너스와 동일한 긴 휴식마다 여러 번 사용할 수 있습니다.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=실루엣 스텝
+Feedback/&AdditionalDamageStrikeTheVitalsFormat=바이탈을 공격하세요!
+Feedback/&AdditionalDamageStrikeTheVitalsLine={0}이(가) {1}에 대한 필수 공격을 가합니다. (+{2})
 Reaction/&SpendPowerShadowySanctuaryDescription=그림자 속으로 들어가 사라질 수 있으며, 해당 공격으로 인해 받았을 손상이나 해로운 효과를 무효화할 수 있습니다.
 Reaction/&SpendPowerShadowySanctuaryReactDescription=반응을 사용하여 사라집니다.
 Reaction/&SpendPowerShadowySanctuaryReactTitle=어둠의 성역

@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInnovationWeaponSteelDefender:765318d4-2884-5899-a364-9d226007df5b",
+      "featureDefinition": "Definition:ProficiencyInnovationWeaponBattleReady:073495cf-41ae-548e-8741-517ccb3f3f6a",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyInnovationWeaponBattleReady:073495cf-41ae-548e-8741-517ccb3f3f6a",
+      "featureDefinition": "Definition:FeatureSetInnovationWeaponSteelDefender:765318d4-2884-5899-a364-9d226007df5b",
       "level": 3
     },
     {

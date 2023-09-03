@@ -104,7 +104,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, barkskinNoConcentration)
             .SetRequirements(5)
-            .SetGrantedSpell(barkskinNoConcentration, longRestRecharge: true)
+            .SetGrantedSpell(barkskinNoConcentration)
             .AddToDB();
     }
 
@@ -502,7 +502,7 @@ internal static class InvocationsBuilders
                     .AddToDB())
             .AddToDB();
     }
-    
+
     internal static InvocationDefinition BuildPsychicBlast()
     {
         const string NAME = "InvocationPsychicBlast";
@@ -559,7 +559,7 @@ internal static class InvocationsBuilders
                     .AddToDB())
             .AddToDB();
     }
-    
+
     internal static InvocationDefinition BuildSpectralShield()
     {
         const string NAME = "InvocationSpectralShield";

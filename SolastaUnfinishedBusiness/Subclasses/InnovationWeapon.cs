@@ -328,8 +328,7 @@ public sealed class InnovationWeapon : AbstractSubclass
 
         var monster = MonsterDefinitionBuilder
             .Create("InnovationWeaponSteelDefender")
-            .SetGuiPresentation(Category.Monster,
-                Sprites.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
+            .SetGuiPresentation(Category.Monster, MonsterDefinitions.Golem_Iron.GuiPresentation.SpriteReference)
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
             .SetSkillScores(
@@ -401,12 +400,14 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetChallengeRating(0)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
-            .SetMonsterPresentation(MonsterPresentationBuilder.Create()
-                .SetPrefab(EffectProxyDefinitions.ProxyArcaneSword.prefabReference)
-                .SetModelScale(0.5f)
-                .SetHasMonsterPortraitBackground(true)
-                .SetCanGeneratePortrait(true)
-                .Build())
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder
+                    .Create()
+                    .SetPrefab(MonsterDefinitions.Golem_Iron.MonsterPresentation.malePrefabReference)
+                    .SetModelScale(0.25f)
+                    .SetHasMonsterPortraitBackground(true)
+                    .SetCanGeneratePortrait(true)
+                    .Build())
             .AddToDB();
 
         return monster;

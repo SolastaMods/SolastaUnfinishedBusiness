@@ -13,7 +13,7 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
+    "targetSide": "Enemy",
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -43,7 +43,7 @@
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Charisma",
+    "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -67,26 +67,26 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "EffectProxy",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "Adam_The_Twelth",
+          "monsterDefinitionName": "",
           "number": 0,
           "conditionDefinition": null,
-          "persistOnConcentrationLoss": false,
+          "persistOnConcentrationLoss": true,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "ProxySpiritualWeapon"
+          "effectProxyDefinitionName": "ProxyPactWeapon"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -95,11 +95,11 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
-      "incrementMultiplier": 2,
+      "effectIncrementMethod": "None",
+      "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -118,7 +118,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f240a94f2324a9747820b27b65faebdb",
+        "m_AssetGUID": "cebd71daeca4123429f7cd84800e7591",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -166,7 +166,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6761334c4b1addb4e85821a73cbaa6e3",
+        "m_AssetGUID": "7f06ef11e32162e45925324de6f9e1d5",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -335,8 +335,8 @@
     "description": "Feature/&PowerSoulBladeSummonPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7892e11668806184fb7f0901204e6ddc",
-      "m_SubObjectName": "SpiritualWeapon",
+      "m_AssetGUID": "d4fa46dbc25279242a2b1e7626ee1da2",
+      "m_SubObjectName": "ArcaneSword",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

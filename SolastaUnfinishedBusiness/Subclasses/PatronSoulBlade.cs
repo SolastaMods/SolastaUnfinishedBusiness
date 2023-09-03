@@ -95,7 +95,6 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
-            .AllowRetarget()
             .SetEffectForms(
                 EffectFormBuilder.ConditionForm(conditionHexDefender),
                 EffectFormBuilder.ConditionForm(conditionHexAttacker, ConditionForm.ConditionOperation.Add, true))
@@ -118,19 +117,50 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Summon Pact Weapon
 
+        var proxyPactWeapon1 = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon1")
+            .AddToDB();
+
+        proxyPactWeapon1.damageDie = DieType.D8;
+        proxyPactWeapon1.damageDieNum = 1;
+        proxyPactWeapon1.addAbilityToDamage = true;
+
+        var proxyPactWeapon2 = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon2")
+            .AddToDB();
+
+        proxyPactWeapon2.damageDie = DieType.D8;
+        proxyPactWeapon2.damageDieNum = 2;
+        proxyPactWeapon2.addAbilityToDamage = true;
+
+        var proxyPactWeapon3 = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, "ProxyPactWeapon3")
+            .AddToDB();
+
+        proxyPactWeapon3.damageDie = DieType.D8;
+        proxyPactWeapon3.damageDieNum = 3;
+        proxyPactWeapon3.addAbilityToDamage = true;
+
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SummonPactWeapon")
-            .SetGuiPresentation(Category.Feature, SpiritualWeapon)
+            .SetGuiPresentation(Category.Feature, ArcaneSword)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpiritualWeapon.EffectDescription)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ArcaneSword.EffectDescription)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyPactWeapon1)
+                            .Build())
+                    .Build())
             .AddToDB();
 
-        powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+        powerSoulBladeSummonPactWeapon.SetCustomSubFeatures(
+            new ModifyEffectDescriptionSummonPactWeapon(powerSoulBladeSummonPactWeapon));
 
         //
         // LEVEL 10
@@ -152,12 +182,17 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Master Hex
 
+        var effectDescriptionMasterHex = EffectDescriptionBuilder
+            .Create(effectDescriptionHex)
+            .AllowRetarget()
+            .Build();
+
         var powerMasterHex = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MasterHex")
             .SetGuiPresentation($"Power{Name}Hex", Category.Feature, spriteSoulHex)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetShowCasting(true)
-            .SetEffectDescription(effectDescriptionHex)
+            .SetEffectDescription(effectDescriptionMasterHex)
             .SetOverriddenPower(powerHex)
             .AddToDB();
 
@@ -277,6 +312,40 @@ public sealed class PatronSoulBlade : AbstractSubclass
             {
                 rulesetCharacter.ReceiveHealing(healingReceived, true, rulesetCharacter.Guid);
             }
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionSummonPactWeapon : IModifyEffectDescription
+    {
+        private readonly BaseDefinition _baseDefinition;
+
+        public ModifyEffectDescriptionSummonPactWeapon(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition && character.GetClassLevel(CharacterClassDefinitions.Warlock) >= 10;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var dice = classLevel switch
+            {
+                >= 14 => 3,
+                >= 10 => 2,
+                _ => 1
+            };
+
+            effectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = $"ProxyPactWeapon{dice}";
+
+            return effectDescription;
         }
     }
 }

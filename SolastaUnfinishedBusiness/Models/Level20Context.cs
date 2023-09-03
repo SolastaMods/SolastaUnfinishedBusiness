@@ -528,9 +528,7 @@ internal static class Level20Context
 
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(spellMastery, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(signatureSpells, 20)
+            new(spellMastery, 18), new(FeatureSetAbilityScoreChoice, 19), new(signatureSpells, 20)
         });
 
         EnumerateSlotsPerLevel(
