@@ -148,16 +148,19 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(ArcaneSword.EffectDescription)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSummonEffectProxyForm(proxyPactWeapon1)
-                        .Build())
-                .Build())
-            .SetCustomSubFeatures(new ModifyEffectDescriptionSummonPactWeapon())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ArcaneSword.EffectDescription)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyPactWeapon1)
+                            .Build())
+                    .Build())
             .AddToDB();
+
+        powerSoulBladeSummonPactWeapon.SetCustomSubFeatures(
+            new ModifyEffectDescriptionSummonPactWeapon(powerSoulBladeSummonPactWeapon));
 
         //
         // LEVEL 10
@@ -314,9 +317,16 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
     private sealed class ModifyEffectDescriptionSummonPactWeapon : IModifyEffectDescription
     {
+        private readonly BaseDefinition _baseDefinition;
+
+        public ModifyEffectDescriptionSummonPactWeapon(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return character.GetClassLevel(CharacterClassDefinitions.Warlock) >= 10;
+            return definition == _baseDefinition && character.GetClassLevel(CharacterClassDefinitions.Warlock) >= 10;
         }
 
         public EffectDescription GetEffectDescription(
