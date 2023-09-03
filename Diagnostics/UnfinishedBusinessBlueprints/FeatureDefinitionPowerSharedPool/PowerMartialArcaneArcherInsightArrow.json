@@ -36,7 +36,7 @@
     "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Wisdom",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -92,82 +92,82 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 5,
-            "diceNumber": 1
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 6,
-            "diceNumber": 1
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 7,
-            "diceNumber": 1
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 8,
-            "diceNumber": 1
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 9,
-            "diceNumber": 1
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 10,
-            "diceNumber": 1
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 11,
-            "diceNumber": 2
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 12,
-            "diceNumber": 2
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 13,
-            "diceNumber": 2
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 14,
-            "diceNumber": 2
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 15,
-            "diceNumber": 2
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 16,
-            "diceNumber": 2
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 17,
-            "diceNumber": 3
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 18,
-            "diceNumber": 3
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 19,
-            "diceNumber": 3
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 20,
-            "diceNumber": 3
+            "diceNumber": 2
           }
         ],
         "createdByCharacter": false,
@@ -180,12 +180,12 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 1,
+          "diceNumber": 2,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamagePsychic",
+          "damageType": "DamageRadiant",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -193,6 +193,45 @@
           "specialDeathCondition": null,
           "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "LightSource",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "lightSourceForm": {
+          "$type": "LightSourceForm, Assembly-CSharp",
+          "lightSourceType": "Basic",
+          "brightRange": 0,
+          "dimAdditionalRange": 2,
+          "color": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 0.9778601,
+            "b": 0.78039217,
+            "a": 1.0
+          },
+          "graphicsPrefabReference": {
+            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
+            "m_SubObjectName": "",
+            "m_SubObjectType": ""
+          },
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
