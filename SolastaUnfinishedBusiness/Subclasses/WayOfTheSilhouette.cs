@@ -129,7 +129,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var additionalDamageStrikeTheVitalsD10 = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}StrikeTheVitalsD6")
+            .Create($"AdditionalDamage{Name}StrikeTheVitalsD10")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("StrikeTheVitals")
             .SetDamageDice(DieType.D10, 3)
