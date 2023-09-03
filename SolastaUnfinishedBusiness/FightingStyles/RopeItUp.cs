@@ -63,8 +63,7 @@ internal class RopeItUp : AbstractFightingStyle
                 yield break;
             }
 
-            attackerAttackMode.attackTags.TryAdd(TagsDefinitions.MagicalWeapon);
-
+            attackerAttackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
             attackerAttackMode.toHitBonus += 1;
             attackerAttackMode.ToHitBonusTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, FeatureRopeItUp.Name, FeatureRopeItUp));
