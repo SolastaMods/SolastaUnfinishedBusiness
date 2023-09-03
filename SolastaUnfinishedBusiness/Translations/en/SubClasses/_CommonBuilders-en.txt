@@ -1,3 +1,5 @@
+Feature/&AttackModifierEnchantWeaponDescription=Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
+Feature/&AttackModifierEnchantWeaponTitle=Arcane Weapon
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=You gain an extra attack and can now attack up to 2 times in your turn.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Extra Attack
 Feature/&AttributeModifierThirdExtraAttackDescription=You gain an extra attack and can now attack up to 3 times in your turn.
@@ -10,8 +12,6 @@ Feature/&MagicAffinityCasterFightingCombatMagicDescription=Advantage on concentr
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription=Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=Improved War Casting
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=War Casting
-Feature/&PowerArcaneFighterEnchantWeaponDescription=Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
-Feature/&PowerArcaneFighterEnchantWeaponTitle=Arcane Weapon
 Feature/&PowerCasterCommandUndeadDescription=You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC equals to 8 + your proficiency bonus + your spellcaster attribute modifier) or be controlled for 1 minute.
 Feature/&PowerCasterCommandUndeadTitle=Command Undead
 Feature/&PowerCasterFightingWarMagicDescription=You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.

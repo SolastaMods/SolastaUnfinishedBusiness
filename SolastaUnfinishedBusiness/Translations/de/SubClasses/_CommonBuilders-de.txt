@@ -1,3 +1,5 @@
+Feature/&AttackModifierEnchantWeaponDescription=Ihre nicht beidhändigen Waffenangriffe zählen als magisch und Sie verwenden Ihren Zaubermodifikator für Ihre Angriffs- und Schadenswürfe. Wenn Sie den Zwei-Waffen-Kampfstil haben, gelten diese Änderungen auch für Ihren Nebenhandangriff.
+Feature/&AttackModifierEnchantWeaponTitle=Arkane Waffe
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Du erhältst einen zusätzlichen Angriff und kannst nun bis zu 2 Mal in deinem Zug angreifen.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Zusätzlicher Angriff
 Feature/&AttributeModifierThirdExtraAttackDescription=Du erhältst einen zusätzlichen Angriff und kannst nun bis zu dreimal in deinem Zug angreifen.
@@ -10,8 +12,6 @@ Feature/&MagicAffinityCasterFightingCombatMagicDescription=Vorteil bei Konzentra
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription=Vorteil bei Konzentrationsprüfungen, Fähigkeit, Ihre Waffen als Fokus beim Zaubern zu verwenden, Fähigkeit, somatische Komponenten von Zaubersprüchen auszuführen, während Sie Gegenstände halten, und kein Nachteil, wenn sich Feinde in Nahkampfreichweite befinden.
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=Verbessertes Kriegscasting
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=Kriegscasting
-Feature/&PowerArcaneFighterEnchantWeaponDescription=Ihre nicht beidhändigen Waffenangriffe zählen als magisch und Sie verwenden Ihren Zaubermodifikator für Ihre Angriffs- und Schadenswürfe. Wenn Sie den Zwei-Waffen-Kampfstil haben, gelten diese Änderungen auch für Ihren Nebenhandangriff.
-Feature/&PowerArcaneFighterEnchantWeaponTitle=Arkane Waffe
 Feature/&PowerCasterCommandUndeadDescription=Du kannst deine Aktion mehrmals am Tag in Höhe deines Fähigkeitsbonus nutzen, um Untote unter deine Kontrolle zu bringen. Den Untoten muss ein Charisma-Rettungswurf gelingen (SG entspricht 8 + dein Fähigkeitsbonus + dein Zauberer-Attributmodifikator) oder sie müssen 1 Minute lang kontrolliert werden.
 Feature/&PowerCasterCommandUndeadTitle=Kommandiere die Untoten
 Feature/&PowerCasterFightingWarMagicDescription=Du kannst deine Bonusaktion nutzen, um mit der Waffe in deiner Haupthand anzugreifen, nachdem du einen Zauberspruch oder einen Cantrip gewirkt hast.

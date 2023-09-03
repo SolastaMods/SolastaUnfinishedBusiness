@@ -1,3 +1,5 @@
+Feature/&AttackModifierEnchantWeaponDescription=I tuoi attacchi con armi non a due mani contano come magici e usi il tuo modificatore di lancio di incantesimi per i tuoi tiri per colpire e per i danni. Se hai lo stile di combattimento con due armi, queste modifiche si applicano anche al tuo attacco con la mano secondaria.
+Feature/&AttackModifierEnchantWeaponTitle=Arma arcana
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Ottieni un attacco extra e ora puoi attaccare fino a 2 volte nel tuo turno.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Attacco extra
 Feature/&AttributeModifierThirdExtraAttackDescription=Ottieni un attacco extra e ora puoi attaccare fino a 3 volte nel tuo turno.
@@ -10,8 +12,6 @@ Feature/&MagicAffinityCasterFightingCombatMagicDescription=Vantaggio sui control
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription=Vantaggio sui controlli di concentrazione, essere in grado di usare le tue armi come focus per lanciare incantesimi, essere in grado di eseguire componenti somatiche di incantesimi mentre tieni in mano oggetti e nessuno svantaggio quando i nemici sono nel raggio di mischia.
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=Lancio di guerra migliorato
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=Fusione di guerra
-Feature/&PowerArcaneFighterEnchantWeaponDescription=I tuoi attacchi con armi non a due mani contano come magici e usi il tuo modificatore di lancio di incantesimi per i tuoi tiri per colpire e per i danni. Se hai lo stile di combattimento con due armi, queste modifiche si applicano anche al tuo attacco con la mano secondaria.
-Feature/&PowerArcaneFighterEnchantWeaponTitle=Arma arcana
 Feature/&PowerCasterCommandUndeadDescription=Puoi usare la tua azione un numero di volte al giorno pari al tuo bonus di competenza, per portare i non morti sotto il tuo controllo. Il non morto deve superare un Tiro Salvezza su Carisma (CD pari a 8 + il tuo bonus di competenza + il tuo modificatore di attributo dell'incantatore) o essere controllato per 1 minuto.
 Feature/&PowerCasterCommandUndeadTitle=Comanda i non morti
 Feature/&PowerCasterFightingWarMagicDescription=Puoi usare la tua azione bonus per attaccare usando l'arma nella tua mano principale dopo aver lanciato un incantesimo o un trucchetto.
