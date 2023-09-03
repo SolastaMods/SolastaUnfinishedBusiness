@@ -27,14 +27,13 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
-        // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
-        var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
+        // LEFT NAME FOR BACKWARD COMPATIBILITY
+        var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
             .Create($"Power{Name}EnchantWeapon")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Action)
+            .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
             .SetCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
-                new CanUseAttribute(AttributeDefinitions.Intelligence, CanWeaponBeEnchanted))
+                new CanUseAttribute(AttributeDefinitions.Intelligence, CanWeaponBeEnchanted),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
 
         var additionalActionArcaneFighter = FeatureDefinitionBuilder
@@ -69,7 +68,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
-                powerArcaneFighterEnchantWeapon)
+                attackModifierEnchantWeapon)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
                 AttackReplaceWithCantripCasterFighting)

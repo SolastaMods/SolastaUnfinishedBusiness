@@ -51,14 +51,13 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Empower Weapon
 
-        // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
-        var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
+        // LEFT NAME FOR BACKWARD COMPATIBILITY
+        var attackModifierEmpowerWeapon = FeatureDefinitionAttackModifierBuilder
             .Create($"Power{Name}EmpowerWeapon")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Action)
+            .SetGuiPresentation($"AttackModifier{Name}EmpowerWeapon", Category.Feature)
             .SetCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
-                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered))
+                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEmpowered))
             .AddToDB();
 
         // Common Hex Feature
@@ -222,7 +221,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 FeatureSetCasterFightingProficiency,
                 magicAffinitySoulBladeExpandedSpells,
                 powerHex,
-                powerSoulBladeEmpowerWeapon)
+                attackModifierEmpowerWeapon)
             .AddFeaturesAtLevel(6,
                 powerSoulBladeSummonPactWeapon)
             .AddFeaturesAtLevel(10,
