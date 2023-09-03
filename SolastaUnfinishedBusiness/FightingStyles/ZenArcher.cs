@@ -17,14 +17,17 @@ internal class ZenArcher : AbstractFightingStyle
         .Create(ZenArcherName)
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)
         .SetFeatures(
-            FeatureDefinitionBuilder
+            FeatureDefinitionAttackModifierBuilder
                 .Create($"Feature{ZenArcherName}")
                 .SetGuiPresentation(ZenArcherName, Category.FightingStyle)
                 .SetCustomSubFeatures(
-                    new CanUseAttribute(AttributeDefinitions.Wisdom, ValidatorsWeapon.IsOfWeaponType(
-                        LongbowType,
-                        ShortbowType,
-                        CustomWeaponsContext.HandXbowWeaponType)))
+                    new CanUseAttribute(
+                        AttributeDefinitions.Wisdom,
+                        ValidatorsWeapon.IsOfWeaponType(
+                            LongbowType,
+                            ShortbowType,
+                            CustomWeaponsContext.HandXbowWeaponType)))
+                //.SetMagicalWeapon()
                 .AddToDB())
         .AddToDB();
 
