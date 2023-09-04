@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Ваш доспех становится крепким, как адамантин, вдвое уменьшая критический урон.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Адамантиновая броня
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Один раз за ход наносите +1d8 урона от огня при атаках оружием. Этот урон увеличивается до 2d8 на 14 уровне.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Один раз в каждый свой ход, когда вы попадаете по существу атакой оружием, вы можете причинить цели дополнительный урон огнём 1d8. Когда вы достигаете 14-го уровня, дополнительный урон увеличивается до 2d8.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Божественный удар
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Вы получаете сопротивление урону огнём, а также +1 КД, когда носите доспех.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Душа Кузни
