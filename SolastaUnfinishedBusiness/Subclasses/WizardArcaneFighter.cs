@@ -27,9 +27,8 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
-        // LEFT NAME FOR BACKWARD COMPATIBILITY
         var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
-            .Create($"Power{Name}EnchantWeapon")
+            .Create($"AttackModifier{Name}EnchantWeapon")
             .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
             .SetCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Intelligence, CanWeaponBeEnchanted),

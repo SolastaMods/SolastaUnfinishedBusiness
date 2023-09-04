@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSoulBladeEmpowerWeapon:f0387894-e020-5e52-92d5-f5b88bb6997d",
+      "featureDefinition": "Definition:AttackModifierSoulBladeEmpowerWeapon:1dc172b2-415c-5f50-a3c5-d1e1a11574ad",
       "level": 1
     },
     {

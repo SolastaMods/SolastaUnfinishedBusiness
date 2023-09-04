@@ -39,9 +39,8 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
-        // LEFT NAME FOR BACKWARD COMPATIBILITY
         var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
-            .Create($"Feature{Name}EnchantWeapon")
+            .Create($"AttackModifier{Name}EnchantWeapon")
             .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
             .SetCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEnchanted),

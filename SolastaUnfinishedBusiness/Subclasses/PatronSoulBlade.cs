@@ -51,10 +51,9 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Empower Weapon
 
-        // LEFT NAME FOR BACKWARD COMPATIBILITY
         var attackModifierEmpowerWeapon = FeatureDefinitionAttackModifierBuilder
-            .Create($"Power{Name}EmpowerWeapon")
-            .SetGuiPresentation($"AttackModifier{Name}EmpowerWeapon", Category.Feature)
+            .Create($"AttackModifier{Name}EmpowerWeapon")
+            .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEmpowered))
