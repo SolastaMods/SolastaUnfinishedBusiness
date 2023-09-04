@@ -3249,6 +3249,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");
         internal static SpellDefinition FeatherFall { get; } = GetDefinition<SpellDefinition>("FeatherFall");
+        internal static SpellDefinition FingerOfDeath { get; } = GetDefinition<SpellDefinition>("FingerOfDeath");
         internal static SpellDefinition FindTraps { get; } = GetDefinition<SpellDefinition>("FindTraps");
         internal static SpellDefinition Fireball { get; } = GetDefinition<SpellDefinition>("Fireball");
         internal static SpellDefinition FireBolt { get; } = GetDefinition<SpellDefinition>("FireBolt");

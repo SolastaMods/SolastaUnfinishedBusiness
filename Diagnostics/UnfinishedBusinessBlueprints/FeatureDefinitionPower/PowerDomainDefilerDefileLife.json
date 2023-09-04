@@ -81,7 +81,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 7,
+          "diceNumber": 2,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -333,13 +333,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerDomainDefilerDefileLife11:a492ce53-3a9c-504d-8198-07f66d52be3b",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerDomainDefilerDefileLifeTitle",
-    "description": "Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +7d6 necrotic damage on a failed saving throw, or half that amount on a successful one.",
+    "description": "Feature/&PowerDomainDefilerDefileLifeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "65fca59b-3cc8-501c-8387-4f25faf8aa05",
@@ -359,7 +359,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c096288-7e70-54fa-8d6e-26cd6c2f0bee",
+  "guid": "fcffca6e-8c07-50d2-9da3-726d3b0c8f4e",
   "contentPack": 9999,
-  "name": "PowerDomainDefilerDefileLife17"
+  "name": "PowerDomainDefilerDefileLife"
 }

@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerDomainDefilerDefileLife5:7c4edb48-9d74-5b4c-85fc-fc1741a9f931"
+    "Definition:PowerDomainDefilerDefileLife:fcffca6e-8c07-50d2-9da3-726d3b0c8f4e"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,10 +14,10 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Channel Divinity: Defile Life",
-    "description": "Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +3d6 necrotic damage on a failed saving throw, or half that amount on a successful one.",
+    "description": "Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take 2d6 + your class level necrotic damage on a failed saving throw, or half that amount on a successful one.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "65fca59b-3cc8-501c-8387-4f25faf8aa05",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "07d38c25-4e61-5bbe-964c-34abb8fd144a",
+  "guid": "574a1fe6-e327-5046-9d07-8ca5535e0135",
   "contentPack": 9999,
-  "name": "FeatureSetDomainDefilerDefileLife5"
+  "name": "FeatureSetDomainDefilerDefileLife"
 }

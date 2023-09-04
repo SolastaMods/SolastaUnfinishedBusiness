@@ -18,27 +18,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife2:7e871290-e5f9-5f7e-97a5-9ced333fb8ce",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife:574a1fe6-e327-5046-9d07-8ca5535e0135",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife5:07d38c25-4e61-5bbe-964c-34abb8fd144a",
-      "level": 5
+      "featureDefinition": "Definition:FeatureSetDomainDefilerMarkForDeath:92474773-54e8-5908-a328-a2cf39db0c4a",
+      "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineResistance:f97c531f-66f1-57f3-a51f-fe1cb8ad00ec",
-      "level": 6
+      "level": 8
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike6:386df67d-4155-5961-8345-719ab269cbe5",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainDefilerMarkForDeath:92474773-54e8-5908-a328-a2cf39db0c4a",
+      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike:320cd4cd-21c7-5f0e-a8ff-60a87283c3e5",
       "level": 8
     },
     {
@@ -48,22 +43,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife11:27f4fc49-f7b9-59ed-bcd6-3bba266ce99f",
-      "level": 11
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineImmunity:762bd2b0-0bc5-582b-b02b-d0f33517daf9",
       "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike14:d2271466-ab0d-51d7-a9cb-751e9ffe34c5",
-      "level": 14
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife17:f7736993-eb65-5230-9937-ff85831b0e2f",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainDefilerDyingLight:a9f69d94-29c4-518d-87c8-dccab866b3d6",
       "level": 17
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Domain",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:CircleOfDeath:0fd4c89f6c07713499242fe6529aa816",
+        "Definition:FingerOfDeath:facc856c4a4e5d54090b481bef1441a4"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsDomainDefilerDyingLightTitle",
+    "description": "Feature/&AutoPreparedSpellsDomainDefilerDyingLightDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a9f69d94-29c4-518d-87c8-dccab866b3d6",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsDomainDefilerDyingLight"
+}

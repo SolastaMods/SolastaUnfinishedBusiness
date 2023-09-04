@@ -14,10 +14,10 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Channel Divinity: Mark for Death",
-    "description": "Mark an enemy for death. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.",
+    "description": "Mark an enemy for death for one minute. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "65fca59b-3cc8-501c-8387-4f25faf8aa05",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
