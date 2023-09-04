@@ -180,7 +180,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                 additionalDamageMedicalAccuracy,
                 powerEmergencySurgery)
             .AddFeaturesAtLevel(5,
-                AttributeModifierCasterFightingExtraAttack,
+                PowerCasterFightingWarMagic,
                 powerEmergencyCure)
             .AddFeaturesAtLevel(9,
                 dieRollModifierStableSurgery,
