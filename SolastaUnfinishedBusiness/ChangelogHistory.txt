@@ -8,7 +8,8 @@
 - changed Arcane Archer insight arrow saving from WIS to DEX, damage from psychic to radiant, and renamed to revealing
 - fixed missing magical weapon attack tag on Soulblade, Forceblade, Distant Hand, and Arcane Fighter
 - fixed Oath of Thunder missing thrown weapon attack tag on battle axe and war hammer
-- fixed War Magic interaction with Sunlit Blade and Resonating Strike cantrips
+- fixed Resonating Strike interaction with feats, Tactician gambits and War Magic
+- fixed Sunlit Blade interaction with feats, Tactician gambits and War Magic
 - improved Domain Defiler defile life damage progression, and added dying light feature at 17th
 - improved Domain Smith descriptions, and swapped level 6th and level 8th features
 
