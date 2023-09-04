@@ -314,6 +314,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 return;
             }
 
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
             attackMode.thrown = true;
             attackMode.closeRange = 4;
             attackMode.maxRange = 12;
