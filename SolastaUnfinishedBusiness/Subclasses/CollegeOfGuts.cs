@@ -1,9 +1,14 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using static AttributeDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -15,12 +20,38 @@ public sealed class CollegeOfGuts : AbstractSubclass
 
     public CollegeOfGuts()
     {
+        var conditionArcaneDeflection = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ArcaneDeflection")
+            .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature, ConditionShielded)
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}ArcaneDeflection")
+                    .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
+                    .SetModifier(AttributeModifierOperation.Additive, ArmorClass, 3)
+                    .AddToDB())
+            .AddToDB();
+
+        var powerArcaneDeflection = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ArcaneDeflection")
+            .SetGuiPresentation(Category.Feature, ConditionShielded)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionArcaneDeflection, ConditionForm.ConditionOperation.Add, true, true))
+                    .Build())
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfGuts, 256))
-            .AddFeaturesAtLevel(3, FeatureSetCasterFightingProficiency, MagicAffinityCasterFightingCombatMagic)
+            .AddFeaturesAtLevel(3, FeatureSetCasterFightingProficiency, MagicAffinityCasterFightingCombatMagicImproved)
             .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, AttackReplaceWithCantripCasterFighting)
-            .AddFeaturesAtLevel(14, PowerCasterFightingWarMagic)
+            .AddFeaturesAtLevel(14, powerArcaneDeflection)
             .AddToDB();
     }
 
