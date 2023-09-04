@@ -149,6 +149,7 @@ internal static partial class SpellBuilders
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetParticleEffectParameters(DivineFavor)
                 .SetRecurrentEffect(RecurrentEffect.OnActivation |
                                     RecurrentEffect.OnTurnStart |
                                     RecurrentEffect.OnEnter)

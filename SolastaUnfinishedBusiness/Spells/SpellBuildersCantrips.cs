@@ -757,7 +757,7 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(ScorchingRay)
+                .SetParticleEffectParameters(DivineFavor)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetIgnoreCover()
                 .SetEffectAdvancement( //this is needed for tooltip

@@ -961,6 +961,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetParticleEffectParameters(Thunderwave)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
@@ -1018,6 +1019,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetParticleEffectParameters(Shatter)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionThunderousSmite, ConditionForm.ConditionOperation.Add)
                     .Build())

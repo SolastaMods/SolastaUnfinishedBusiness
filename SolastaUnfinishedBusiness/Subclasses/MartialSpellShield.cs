@@ -88,7 +88,7 @@ public sealed class MartialSpellShield : AbstractSubclass
             .Create($"Martial{Name}")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialSpellShield, 256))
             .AddFeaturesAtLevel(3, MagicAffinityCasterFightingCombatMagicImproved, castSpellSpellShield)
-            .AddFeaturesAtLevel(7, AttackReplaceWithCantripCasterFighting)
+            .AddFeaturesAtLevel(7, AttackReplaceWithCantripCasterFighting, PowerCasterFightingWarMagic)
             .AddFeaturesAtLevel(10, magicAffinitySpellShieldCombatMagicVigor)
             .AddFeaturesAtLevel(15, powerSpellShieldArcaneDeflection)
             .AddFeaturesAtLevel(18, actionAffinitySpellShieldRangedDefense)

@@ -140,6 +140,7 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Hour, 1)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
+                    .SetParticleEffectParameters(DispelMagic)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
