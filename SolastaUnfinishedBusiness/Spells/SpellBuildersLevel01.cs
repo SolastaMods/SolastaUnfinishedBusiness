@@ -216,7 +216,7 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,

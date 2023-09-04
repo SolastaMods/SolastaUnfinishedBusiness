@@ -563,7 +563,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             return;
         }
 
-        var dice = new List<int> { };
+        var dice = new List<int>();
         var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
         var diceNumber = classLevel switch
         {

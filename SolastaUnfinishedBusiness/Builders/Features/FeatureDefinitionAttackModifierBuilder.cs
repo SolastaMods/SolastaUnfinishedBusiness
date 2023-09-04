@@ -9,15 +9,6 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionAttackModifierBuilder
     : DefinitionBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
 {
-#if false
-    internal FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
-        AbilityScoreReplacement replacement)
-    {
-        Definition.abilityScoreReplacement = replacement;
-        return this;
-    }
-#endif
-
     internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(
         int value = 0,
         AttackModifierMethod method = AttackModifierMethod.FlatValue,
@@ -51,12 +42,6 @@ internal class FeatureDefinitionAttackModifierBuilder
     {
         Definition.canDualWieldNonLight = canDualWieldNonLight;
         Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
-        return this;
-    }
-
-    internal FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
-    {
-        Definition.additionalBonusUnarmedStrikeAttacksTag = tag;
         return this;
     }
 
