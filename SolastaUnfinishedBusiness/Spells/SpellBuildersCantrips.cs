@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -570,12 +571,12 @@ internal static partial class SpellBuilders
         var powerResonatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerResonatingStrike")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(Shatter)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -702,12 +703,13 @@ internal static partial class SpellBuilders
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
 
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             actionParams.RulesetEffect = rulesetImplementationService
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(targets[1]);
 
-            return new CharacterActionUsePower(actionParams);
+            return new CharacterActionSpendPower(actionParams);
         }
     }
 

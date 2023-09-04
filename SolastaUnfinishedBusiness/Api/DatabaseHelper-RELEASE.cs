@@ -19,6 +19,7 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("GrantBardicInspiration");
 
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+        internal static ActionDefinition PowerNoCost { get; } = GetDefinition<ActionDefinition>("PowerNoCost");
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition StepBack { get; } = GetDefinition<ActionDefinition>("StepBack");

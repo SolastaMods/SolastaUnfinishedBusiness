@@ -1057,24 +1057,26 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 return null;
             }
 
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var actionParams = baseEffect.ActionParams;
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
-            var cannon = actionParams.TargetCharacters[0];
+            var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
             var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+            var effectPower = rulesetImplementationService
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                 .AddAsActivePowerToSource();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
-                cannon, effectPower.EffectDescription, targets, new List<ActionModifier>());
+                selectedTarget, effectPower.EffectDescription, targets, new List<ActionModifier>());
 
             var newActionParams = baseEffect.ActionParams.Clone();
 
+            newActionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             newActionParams.RulesetEffect = effectPower;
             newActionParams.TargetCharacters.SetRange(targets);
 
-            return new CharacterActionUsePower(actionParams);
+            return new CharacterActionSpendPower(actionParams);
         }
     }
 
