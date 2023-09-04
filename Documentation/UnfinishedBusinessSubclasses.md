@@ -2596,6 +2596,10 @@ Cast Wizard spells and cantrips.
 
 You can replace one of your attacks with a cantrip.
 
+* War Magic
+
+You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+
 
 ## Level 10
 

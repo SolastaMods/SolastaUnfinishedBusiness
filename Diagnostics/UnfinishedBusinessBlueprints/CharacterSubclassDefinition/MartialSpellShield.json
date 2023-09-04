@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCasterFightingWarMagic:368681bf-0523-5709-a17a-62416add2f96",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinitySpellShieldCombatMagicVigor:d397da35-229d-53b3-afda-26524a45f0f1",
       "level": 10
     },
