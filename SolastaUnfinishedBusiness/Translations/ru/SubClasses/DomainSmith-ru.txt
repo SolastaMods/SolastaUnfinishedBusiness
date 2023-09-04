@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Ваш доспех становится крепким, как адамантин, вдвое уменьшая критический урон.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Адамантиновая броня
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Один раз в каждый свой ход, когда вы попадаете по существу атакой оружием, вы можете причинить цели дополнительный урон огнём +{0}d8.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Один раз за ход наносите +1d8 урона от огня при атаках оружием. Этот урон увеличивается до 2d8 на 14 уровне.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Божественный удар
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Вы получаете сопротивление урону огнём, а также +1 КД, когда носите доспех.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Душа Кузни
@@ -13,7 +13,7 @@ Feature/&BonusProficiencyDomainSmithTitle=Владение тяжёлыми до
 Feature/&FeatureDomainSmithBlessedMetalDescription=Ваше благословенное родство с огнём и металлом становится более мощным. Пока носите броню, вы получаете следующие преимущества:\n• Вы получаете иммунитет к урону огнём.\n• Вы получаете сопротивление дробящему, колющему и рубящему урону от не магических атак.
 Feature/&FeatureDomainSmithBlessedMetalTitle=Благословенный металл
 Feature/&PowerDomainSmithAdamantBenedictionDescription=Используя действие, усильте доспехи союзников в радиусе 30 футов. Их броня приобретает прочность адамантиновых доспехов и дает иммунитет к критическим ударам на 1 минуту.
-Feature/&PowerDomainSmithAdamantBenedictionTitle=Божественный канал: Непреклонное благословение
+Feature/&PowerDomainSmithAdamantBenedictionTitle=Непреклонное благословение
 Feature/&PowerDomainSmithReinforceArmorDescription=Один раз до короткого отдыха вы можете усилить не магический элемент доспехов или щита. Укрепленный предмет получает дополнительные +{0} КД.
 Feature/&PowerDomainSmithReinforceArmorTitle=Усилить доспех
 Subclass/&DomainSmithDescription=Святые мастера, которые воплощают свою веру в стали и кузнечном деле, укрепляя доспехи союзников и покрывая себя тяжелой броней.

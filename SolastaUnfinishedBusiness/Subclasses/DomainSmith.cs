@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -22,9 +23,9 @@ public sealed class DomainSmith : AbstractSubclass
     {
         const string NAME = "DomainSmith";
 
-        //
-        // 1 (6, 11, 16)
-        //
+        // LEVEL 01
+
+        // Auto Prepared Spells
 
         var autoPreparedSpellsDomainSmith = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
@@ -39,11 +40,15 @@ public sealed class DomainSmith : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
             .AddToDB();
 
+        // Heavy Armor Proficiency
+
         var bonusProficiencyArmorDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
+
+        // Artisan Tools Proficiency
 
         var bonusProficiencyArtisanToolTypeDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}ArtisanToolType")
@@ -51,25 +56,24 @@ public sealed class DomainSmith : AbstractSubclass
             .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
             .AddToDB();
 
-        const string REINFORCE_ARMOR_DESCRIPTION = "Feature/&PowerDomainSmithReinforceArmorDescription";
-
-        const string REINFORCE_ARMOR_ATTRIBUTE_DESCRIPTION =
-            "Feature/&AttributeModifierDomainSmithReinforceArmorDescription";
+        // Reinforce Armor - 1, 6, 11, 16
 
         static string PowerReinforceDescription(int x)
         {
-            return Gui.Format(REINFORCE_ARMOR_DESCRIPTION, x.ToString());
+            return Gui.Format("Feature/&PowerDomainSmithReinforceArmorDescription", x.ToString());
         }
 
         static string AttributeReinforceDescription(int x)
         {
-            return Gui.Format(REINFORCE_ARMOR_ATTRIBUTE_DESCRIPTION, x.ToString());
+            return Gui.Format("Feature/&AttributeModifierDomainSmithReinforceArmorDescription", x.ToString());
         }
+
+        var spriteReference = MageArmor.guiPresentation.SpriteReference;
 
         var powerReinforceArmor1 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ReinforceArmor1")
-            .SetGuiPresentation($"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(1),
-                MageArmor.guiPresentation.SpriteReference)
+            .SetGuiPresentation(
+                $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(1), spriteReference)
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
@@ -86,25 +90,24 @@ public sealed class DomainSmith : AbstractSubclass
                     .Create()
                     .SetItemPropertyForm(
                         ItemPropertyUsage.Unlimited,
-                        1, new FeatureUnlockByLevel(
+                        1,
+                        new FeatureUnlockByLevel(
                             FeatureDefinitionAttributeModifierBuilder
                                 .Create($"AttributeModifier{NAME}ReinforceArmor1")
                                 .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(1), MageArmor.guiPresentation.SpriteReference)
+                                    AttributeReinforceDescription(1), spriteReference)
                                 .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass, 1)
-                                .AddToDB()
-                            , 0)
-                    )
+                                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+                                .AddToDB(),
+                            0))
                     .Build())
                 .Build())
             .AddToDB();
 
         var powerReinforceArmor6 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ReinforceArmor6")
-            .SetGuiPresentation($"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(2),
-                MageArmor.guiPresentation.SpriteReference)
+            .SetGuiPresentation(
+                $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(2), spriteReference)
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
@@ -122,25 +125,25 @@ public sealed class DomainSmith : AbstractSubclass
                     .Create()
                     .SetItemPropertyForm(
                         ItemPropertyUsage.Unlimited,
-                        1, new FeatureUnlockByLevel(
+                        1,
+                        new FeatureUnlockByLevel(
                             FeatureDefinitionAttributeModifierBuilder
                                 .Create($"AttributeModifier{NAME}ReinforceArmor2")
                                 .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(2), MageArmor.guiPresentation.SpriteReference)
+                                    AttributeReinforceDescription(2), spriteReference)
                                 .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass, 2)
-                                .AddToDB()
-                            , 0)
-                    )
+                                .SetModifier(
+                                    AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                                .AddToDB(),
+                            0))
                     .Build())
                 .Build())
             .AddToDB();
 
         var powerReinforceArmor11 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ReinforceArmor11")
-            .SetGuiPresentation($"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(3),
-                MageArmor.guiPresentation.SpriteReference)
+            .SetGuiPresentation(
+                $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(3), spriteReference)
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
@@ -158,25 +161,25 @@ public sealed class DomainSmith : AbstractSubclass
                     .Create()
                     .SetItemPropertyForm(
                         ItemPropertyUsage.Unlimited,
-                        1, new FeatureUnlockByLevel(
+                        1,
+                        new FeatureUnlockByLevel(
                             FeatureDefinitionAttributeModifierBuilder
                                 .Create($"AttributeModifier{NAME}ReinforceArmor3")
                                 .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(3), MageArmor.guiPresentation.SpriteReference)
+                                    AttributeReinforceDescription(3), spriteReference)
                                 .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass, 3)
-                                .AddToDB()
-                            , 0)
-                    )
+                                .SetModifier(
+                                    AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+                                .AddToDB(),
+                            0))
                     .Build())
                 .Build())
             .AddToDB();
 
         var powerReinforceArmor16 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ReinforceArmor16")
-            .SetGuiPresentation($"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(4),
-                MageArmor.guiPresentation.SpriteReference)
+            .SetGuiPresentation(
+                $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(4), spriteReference)
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
@@ -190,28 +193,29 @@ public sealed class DomainSmith : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetItemPropertyForm(
-                        ItemPropertyUsage.Unlimited,
-                        1, new FeatureUnlockByLevel(
-                            FeatureDefinitionAttributeModifierBuilder
-                                .Create($"AttributeModifier{NAME}ReinforceArmor4")
-                                .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(4), MageArmor.guiPresentation.SpriteReference)
-                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass, 4)
-                                .AddToDB()
-                            , 0)
-                    )
-                    .Build())
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetItemPropertyForm(
+                            ItemPropertyUsage.Unlimited,
+                            1,
+                            new FeatureUnlockByLevel(
+                                FeatureDefinitionAttributeModifierBuilder
+                                    .Create($"AttributeModifier{NAME}ReinforceArmor4")
+                                    .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
+                                        AttributeReinforceDescription(4), spriteReference)
+                                    .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                    .SetModifier(
+                                        AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 4)
+                                    .AddToDB(),
+                                0))
+                        .Build())
                 .Build())
             .AddToDB();
 
-        //
-        // 2
-        //
+        // LEVEL 02
+
+        var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
 
         var conditionAdamantBenediction = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AdamantBenediction")
@@ -226,61 +230,28 @@ public sealed class DomainSmith : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(PowerOathOfDevotionTurnUnholy.EffectDescription
-                        .effectParticleParameters)
+                    .SetParticleEffectParameters(PowerOathOfDevotionTurnUnholy)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionAdamantBenediction,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAdamantBenediction))
                     .Build())
             .AddToDB();
 
-        //
-        // 6
-        //
-
-        const string DIVINE_STRIKE_DESCRIPTION = "Feature/&AdditionalDamageDomainSmithDivineStrikeDescription";
-
-        static string PowerDivineStrikeDescription(int x)
-        {
-            return Gui.Format(DIVINE_STRIKE_DESCRIPTION, x.ToString());
-        }
-
-        var additionalDamageDivineStrike6 = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrike6")
-            .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature,
-                PowerDivineStrikeDescription(1))
-            .SetNotificationTag("DivineStrike")
-            .SetDamageDice(DieType.D8, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
-            .SetSpecificDamageType(DamageTypeFire)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackModeOnly()
+        var featureSetAdamantBenediction = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}DefileLife")
+            .SetGuiPresentation(
+                divinePowerPrefix + powerAdamantBenediction.FormatTitle(), powerAdamantBenediction.FormatDescription())
+            .AddFeatureSet(powerAdamantBenediction)
             .AddToDB();
 
-        var additionalDamageDivineStrike14 = FeatureDefinitionBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrike14")
-            .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature,
-                PowerDivineStrikeDescription(2))
-            .AddToDB();
-
-        //
-        // 8
-        //
+        // LEVEL 06
 
         var attributeModifierForgeMastery = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}ForgeMastery")
             .SetGuiPresentation(Category.Feature)
             .SetSituationalContext(SituationalContext.WearingArmor)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.ArmorClass,
-                1)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
             .AddToDB();
 
         var damageAffinityForgeMastery = FeatureDefinitionDamageAffinityBuilder
@@ -290,9 +261,20 @@ public sealed class DomainSmith : AbstractSubclass
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
-        //
-        // 17
-        //
+        // LEVEL 08
+
+        var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}DivineStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("DivineStrike")
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
+            .SetSpecificDamageType(DamageTypeFire)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .SetAttackModeOnly()
+            .AddToDB();
+
+        // LEVEL 17
 
         const string BLESSED_METAL = $"Feature{NAME}BlessedMetal";
 
@@ -360,19 +342,17 @@ public sealed class DomainSmith : AbstractSubclass
                 bonusProficiencyArtisanToolTypeDomainForge,
                 powerReinforceArmor1)
             .AddFeaturesAtLevel(2,
-                powerAdamantBenediction)
+                featureSetAdamantBenediction)
             .AddFeaturesAtLevel(6,
-                additionalDamageDivineStrike6,
+                attributeModifierForgeMastery,
+                damageAffinityForgeMastery,
                 powerReinforceArmor6)
             .AddFeaturesAtLevel(8,
-                attributeModifierForgeMastery,
-                damageAffinityForgeMastery)
+                additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10,
                 PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(11,
                 powerReinforceArmor11)
-            .AddFeaturesAtLevel(14,
-                additionalDamageDivineStrike14)
             .AddFeaturesAtLevel(16,
                 powerReinforceArmor16)
             .AddFeaturesAtLevel(17,

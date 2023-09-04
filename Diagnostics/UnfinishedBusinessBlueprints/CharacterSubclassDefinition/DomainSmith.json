@@ -23,12 +23,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainSmithAdamantBenediction:be77a6b8-c6db-5b7b-a1b7-462cbf96bfa2",
+      "featureDefinition": "Definition:FeatureSetDomainSmithDefileLife:4a593797-45bd-5dd3-af36-cb36ca350e8e",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageDomainSmithDivineStrike6:5a4cc0be-e715-5efd-828f-14b432237f0c",
+      "featureDefinition": "Definition:AttributeModifierDomainSmithForgeMastery:15e6f857-f605-5a36-b5c9-d42ca3ca6c44",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityForgeMastery:60b09043-5b92-5dd8-a6bc-07b38cf24ec5",
       "level": 6
     },
     {
@@ -38,12 +43,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDomainSmithForgeMastery:15e6f857-f605-5a36-b5c9-d42ca3ca6c44",
-      "level": 8
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityForgeMastery:60b09043-5b92-5dd8-a6bc-07b38cf24ec5",
+      "featureDefinition": "Definition:AdditionalDamageDomainSmithDivineStrike:7b125505-a97c-5e1e-b89e-1e2b1b7f7472",
       "level": 8
     },
     {
@@ -55,11 +55,6 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainSmithReinforceArmor11:1f7547da-f6f4-59ef-bd52-42ab8399647c",
       "level": 11
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageDomainSmithDivineStrike14:4935f924-8b5f-5057-befc-5755e2820723",
-      "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

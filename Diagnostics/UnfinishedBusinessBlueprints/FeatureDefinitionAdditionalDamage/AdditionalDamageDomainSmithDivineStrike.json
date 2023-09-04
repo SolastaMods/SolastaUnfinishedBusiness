@@ -150,7 +150,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&AdditionalDamageDomainSmithDivineStrikeTitle",
-    "description": "Once per turn, deal +1d8 fire damage on weapon attacks.",
+    "description": "Feature/&AdditionalDamageDomainSmithDivineStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -170,7 +170,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5a4cc0be-e715-5efd-828f-14b432237f0c",
+  "guid": "7b125505-a97c-5e1e-b89e-1e2b1b7f7472",
   "contentPack": 9999,
-  "name": "AdditionalDamageDomainSmithDivineStrike6"
+  "name": "AdditionalDamageDomainSmithDivineStrike"
 }
