@@ -588,6 +588,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         powerResonatingStrike.SetCustomSubFeatures(new ModifyEffectDescriptionResonatingStrike(powerResonatingStrike));
+        powerResonatingStrike.EffectDescription.EffectParticleParameters.targetParticleReference =
+            powerResonatingStrike.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         // this is the main damage to first target
         var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
