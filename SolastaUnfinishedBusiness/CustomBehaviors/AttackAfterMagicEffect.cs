@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
+// supports Sunlit Blade and Resonating Strike
 internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
 {
+    internal const string CantripWeaponAttack = "CantripWeaponAttack";
+
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-    internal static readonly IAttackAfterMagicEffect MeleeAttack = new AttackAfterMagicEffect(1);
+
+    internal static readonly IAttackAfterMagicEffect MeleeAttack =
+        new AttackAfterMagicEffect(1);
 
     internal static readonly IAttackAfterMagicEffect MeleeAttackCanTwin =
         new AttackAfterMagicEffect(2);
@@ -100,11 +106,15 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
 
         //get copy to be sure we don't break existing mode
         var tmp = RulesetAttackMode.AttackModesPool.Get();
+
         tmp.Copy(attackMode);
         attackMode = tmp;
 
         //set action type to be same as the one used for the magic effect
         attackMode.ActionType = effect.ActionType;
+
+        //add tag so it can be identified by War Magic
+        attackMode.AddAttackTagAsNeeded(CantripWeaponAttack);
 
         var attackModifier = new ActionModifier();
 
@@ -116,6 +126,7 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
             attacks.Add(attackActionParams);
+
             if (attackActionParams.TargetCharacters.Count >= _maxAttacks)
             {
                 break;
@@ -125,9 +136,11 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         return attacks;
     }
 
-    private static bool DefaultCanUseHandler([NotNull] CursorLocationSelectTarget targeting,
+    private static bool DefaultCanUseHandler(
+        [NotNull] CursorLocationSelectTarget targeting,
         GameLocationCharacter caster,
-        GameLocationCharacter target, [NotNull] out string failure)
+        GameLocationCharacter target,
+        [NotNull] out string failure)
     {
         failure = String.Empty;
 

@@ -161,13 +161,37 @@ internal static class CommonBuilders
     }
 
     private sealed class
-        MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic : IMagicalAttackBeforeHitConfirmedOnEnemy
+        MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic :
+            IMagicalAttackBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionDefinition;
 
         public MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
+        }
+
+        //supports Sunlit Blade and Resonating Strike
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
+                !attackMode.AttackTags.Contains(AttackAfterMagicEffect.CantripWeaponAttack))
+            {
+                yield break;
+            }
+
+            yield return TryAddCondition(attacker);
         }
 
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
@@ -189,6 +213,11 @@ internal static class CommonBuilders
                 yield break;
             }
 
+            yield return TryAddCondition(attacker);
+        }
+
+        private IEnumerator TryAddCondition(IControllableCharacter attacker)
+        {
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
