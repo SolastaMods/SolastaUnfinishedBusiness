@@ -60,21 +60,6 @@ internal static class GameConsoleHelper
     internal static void LogCharacterAffectsTarget(
         [NotNull] this RulesetCharacter character,
         [NotNull] RulesetCharacter target,
-        string notificationTag,
-        bool indent = false)
-    {
-        var console = Gui.Game.GameConsole;
-        var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
-
-        console.AddCharacterEntry(character, entry);
-        console.AddCharacterEntry(target, entry);
-        console.AddEntry(entry);
-    }
-
-    internal static void LogCharacterAffectsTarget(
-        [NotNull] this RulesetCharacter character,
-        [NotNull] RulesetCharacter target,
         string abilityName,
         string text = DefaultUseText,
         bool indent = false,

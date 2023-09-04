@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -15,10 +14,10 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
 
-    internal static readonly IAttackAfterMagicEffect MeleeAttack =
+    internal static readonly IAttackAfterMagicEffect ResonatingStrikeAttack =
         new AttackAfterMagicEffect(1);
 
-    internal static readonly IAttackAfterMagicEffect MeleeAttackCanTwin =
+    internal static readonly IAttackAfterMagicEffect SunlitBladeAttack =
         new AttackAfterMagicEffect(2);
 
     private readonly int _maxAttacks;
@@ -44,9 +43,9 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             return false;
         }
 
-        var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (battleService == null)
+        if (gameLocationBattleService == null)
         {
             return false;
         }
@@ -54,10 +53,10 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         var attackModifier = new ActionModifier();
         var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
-        evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
-            target.LocationPosition, attackModifier);
+        evalParams.FillForPhysicalReachAttack(
+            caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-        return battleService.CanAttack(evalParams);
+        return gameLocationBattleService.CanAttack(evalParams);
     }
 
     [NotNull]
@@ -105,10 +104,10 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         }
 
         //get copy to be sure we don't break existing mode
-        var tmp = RulesetAttackMode.AttackModesPool.Get();
+        var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-        tmp.Copy(attackMode);
-        attackMode = tmp;
+        rulesetAttackModeCopy.Copy(attackMode);
+        attackMode = rulesetAttackModeCopy;
 
         //set action type to be same as the one used for the magic effect
         attackMode.ActionType = effect.ActionType;
@@ -144,7 +143,6 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
     {
         failure = String.Empty;
 
-        //TODO: implement setting to tell how many targets must meet weapon attack requirements
         var maxTargets = targeting.maxTargets;
         var remainingTargets = targeting.remainingTargets;
         var selectedTargets = maxTargets - remainingTargets;
@@ -154,7 +152,6 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             return true;
         }
 
-        //TODO: add option for ranged attacks
         var canAttack = CanMeleeAttack(caster, target);
 
         if (!canAttack)
