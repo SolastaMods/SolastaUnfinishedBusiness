@@ -6,6 +6,7 @@
 - changed Arcane Archer bursting arrow area of effect from 10 to 15 feet
 - changed Arcane Archer enfeebling arrow to also force disadvantage on STR/DEX/CON ability checks, and saving throws
 - changed Arcane Archer insight arrow saving from WIS to DEX, damage from psychic to radiant, and renamed to revealing
+- changed Forest Guardian, College of Guts, College of Harlequin, Vivisectionist, and Spell Shield progression
 - fixed missing magical weapon attack tag on Soulblade, Forceblade, Distant Hand, and Arcane Fighter
 - fixed Oath of Thunder missing thrown weapon attack tag on battle axe and war hammer
 - fixed Resonating Strike interaction with feats, Tactician gambits and War Magic

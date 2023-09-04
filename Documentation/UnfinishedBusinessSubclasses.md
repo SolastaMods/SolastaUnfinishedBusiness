@@ -629,13 +629,13 @@ Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, yo
 
 ## Level 6
 
+* Cantrip Attack
+
+You can replace one of your attacks with a cantrip.
+
 * Extra Attack
 
 You gain an extra attack and can now attack up to 2 times in your turn.
-
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 ## Level 10
@@ -756,9 +756,9 @@ Bards of the College of Guts gather in mead halls or around great bonfires to si
 
 You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
 
-* War Casting
+* Improved War Casting
 
-Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
 
 
 ## Level 6
@@ -774,9 +774,9 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 ## Level 14
 
-* War Magic
+* Gut Deflection
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
 
 
 
@@ -810,13 +810,13 @@ Advantage on concentration checks, be able to use your weapons as spellcasting f
 
 ## Level 6
 
-* Extra Attack
-
-You gain an extra attack and can now attack up to 2 times in your turn.
-
 * Improved Combat Inspiration
 
 You regain a bardic inspiration die whenever you strike down an enemy.
+
+* War Magic
+
+You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 ## Level 14
@@ -2596,10 +2596,6 @@ Cast Wizard spells and cantrips.
 
 You can replace one of your attacks with a cantrip.
 
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
-
 
 ## Level 10
 
@@ -3253,9 +3249,9 @@ Learn and have always prepared:
 
 You can take a bonus action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
 
-* Extra Attack
+* War Magic
 
-You gain an extra attack and can now attack up to 2 times in your turn.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 ## Level 9
