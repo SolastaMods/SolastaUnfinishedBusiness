@@ -571,12 +571,12 @@ internal static partial class SpellBuilders
         var powerResonatingStrike = FeatureDefinitionPowerBuilder
             .Create("PowerResonatingStrike")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(Shatter)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -589,8 +589,6 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         powerResonatingStrike.SetCustomSubFeatures(new ModifyEffectDescriptionResonatingStrike(powerResonatingStrike));
-        powerResonatingStrike.EffectDescription.EffectParticleParameters.targetParticleReference =
-            powerResonatingStrike.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         // this is the main damage to first target
         var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
