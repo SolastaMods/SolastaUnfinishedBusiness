@@ -57,4 +57,7 @@ internal static class Global
     // keep a tab on last rolled dices
     internal static int FirstAttackRoll { get; set; }
     internal static int SecondAttackRoll { get; set; }
+
+    // keep a tab on last attack status [i.e: Resonating Strike]
+    internal static bool LastAttackWasHit { get; set; }
 }

@@ -55,6 +55,9 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
+            // keep a tab on last attack status
+            Global.LastAttackWasHit = false;
+
             //PATCH: support for character action tracking
             Global.CurrentAction = __instance;
 

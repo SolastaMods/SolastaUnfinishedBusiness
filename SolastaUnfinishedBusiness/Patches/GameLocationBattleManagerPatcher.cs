@@ -350,6 +350,9 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
+            // keep a tab on last attack status
+            Global.LastAttackWasHit = true;
+
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
