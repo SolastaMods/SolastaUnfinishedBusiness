@@ -595,7 +595,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("ResonatingStrike")
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetDamageDice(DieType.D8, 5)
+            .SetDamageDice(DieType.D8, 1)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
