@@ -1112,7 +1112,10 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static IEnumerator Postfix(
-            IEnumerator values,
+#pragma warning disable IDE0060
+            //values are not used but required for patch to work
+            [NotNull] IEnumerator values,
+#pragma warning restore IDE0060
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1169,6 +1172,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield break;
             }
+
+            // pretty much vanilla code from here
 
             ++defender.SustainedAttacks;
 
