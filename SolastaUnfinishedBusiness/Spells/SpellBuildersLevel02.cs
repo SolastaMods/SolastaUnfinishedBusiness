@@ -107,13 +107,14 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 5)
+                    .ExcludeCaster()
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.targetParticleReference =
-            spell.EffectDescription.EffectParticleParameters.impactParticleReference;
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            spell.EffectDescription.EffectParticleParameters.zoneParticleReference;
+        spell.EffectDescription.EffectParticleParameters.zoneParticleReference = new AssetReference();
 
         return spell;
     }

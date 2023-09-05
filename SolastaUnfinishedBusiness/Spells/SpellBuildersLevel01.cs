@@ -564,6 +564,7 @@ internal static partial class SpellBuilders
         var spriteReferenceCondition = Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32);
 
         var subSpells = new List<SpellDefinition>();
+        var particleTypes = new[] { AcidSplash, ConeOfCold, FireBolt, LightningBolt, PoisonSpray, Thunderwave };
         var damageTypes = new[]
         {
             DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
@@ -574,8 +575,9 @@ internal static partial class SpellBuilders
         const string SUB_SPELL_CONDITION_TITLE = $"Condition/&Condition{NAME}Title";
 
         // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var damageType in damageTypes)
+        for (var i = 0; i < damageTypes.Length; i++)
         {
+            var damageType = damageTypes[i];
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
             var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
@@ -585,11 +587,8 @@ internal static partial class SpellBuilders
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
-                                .Build())
+                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL))
+                        .SetParticleEffectParameters(particleTypes[i])
                         .Build())
                 .AddToDB();
 
@@ -602,9 +601,10 @@ internal static partial class SpellBuilders
 
             var conditionSkinOfRetribution = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation(SUB_SPELL_CONDITION_TITLE,
-                    Gui.Format(SUB_SPELL_CONDITION_DESCRIPTION, title), spriteReferenceCondition
-                )
+                .SetGuiPresentation(
+                    SUB_SPELL_CONDITION_TITLE,
+                    Gui.Format(SUB_SPELL_CONDITION_DESCRIPTION, title),
+                    spriteReferenceCondition)
                 .SetSilent(Silent.WhenAdded)
                 .SetPossessive()
                 .SetFeatures(damageSkinOfRetribution)
@@ -636,7 +636,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                    .SetParticleEffectParameters(Blur)
+                    .SetParticleEffectParameters(particleTypes[i])
                     .Build())
                 .AddToDB();
 

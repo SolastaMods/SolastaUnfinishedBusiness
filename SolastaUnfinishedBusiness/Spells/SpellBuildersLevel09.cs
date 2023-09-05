@@ -49,6 +49,7 @@ internal static partial class SpellBuilders
                                     CombatAffinityStealthy,
                                     SavingThrowAffinityShelteringBreeze)
                                 .AddToDB()))
+                    .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
     }
