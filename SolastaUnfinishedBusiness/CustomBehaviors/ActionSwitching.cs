@@ -13,8 +13,6 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public static class ActionSwitching
 {
-    private static bool _isCantripWeaponAttack;
-
     internal static readonly TutorialStepDefinition Tutorial = TutorialStepDefinitionBuilder
         .Create("TutorialActionSwitching")
         .SetGuiPresentation(Category.Tutorial, Sprites.TutorialActionSwitching)
@@ -411,8 +409,7 @@ public static class ActionSwitching
 
         var sorted = list.Select(k => filters[k]).ToList();
 
-        // special case to avoid this getting called too early on sunlit blade / resonating strike
-        if (rank < sorted.Count && !_isCantripWeaponAttack)
+        if (rank < sorted.Count)
         {
             var data = PerformanceFilterExtraData.GetData(sorted[rank]);
             data?.LoadSpellcasting(character, type);
@@ -428,10 +425,6 @@ public static class ActionSwitching
             return;
         }
 
-        var conditionDefinition = condition.ConditionDefinition;
-
-        _isCantripWeaponAttack = conditionDefinition.Name is "ConditionSunlightBlade" or "ConditionResonatingStrike";
-
         var locCharacter = GameLocationCharacter.GetFromActor(character);
 
         if (locCharacter == null)
@@ -442,7 +435,7 @@ public static class ActionSwitching
 
         var conditionFeatures = new List<FeatureDefinition>();
 
-        conditionDefinition.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(conditionFeatures);
+        condition.ConditionDefinition.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(conditionFeatures);
 
         if (conditionFeatures.Empty())
         {
