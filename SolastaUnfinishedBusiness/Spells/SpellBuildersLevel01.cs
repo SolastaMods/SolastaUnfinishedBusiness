@@ -784,10 +784,8 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
-                    .Build())
+                .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
+                .SetParticleEffectParameters(ProtectionFromEvilGood)
                 .Build())
             .AddToDB();
 
@@ -1124,6 +1122,7 @@ internal static partial class SpellBuilders
                         .Create()
                         .SetConditionForm(conditionAlacrity, ConditionForm.ConditionOperation.Add)
                         .Build())
+                .SetParticleEffectParameters(MageArmor)
                 .Build())
             .SetCastingTime(ActivationTime.Minute1)
             .SetSpellLevel(1)

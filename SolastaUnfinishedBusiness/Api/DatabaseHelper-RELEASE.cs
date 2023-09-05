@@ -1473,6 +1473,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition RaiseDead { get; } = GetDefinition<SpellDefinition>("RaiseDead");
         internal static SpellDefinition RayOfEnfeeblement { get; } = GetDefinition<SpellDefinition>("RayOfEnfeeblement");
         internal static SpellDefinition RayOfFrost { get; } = GetDefinition<SpellDefinition>("RayOfFrost");
+        internal static SpellDefinition Regenerate { get; } = GetDefinition<SpellDefinition>("Regenerate");
         internal static SpellDefinition RemoveCurse { get; } = GetDefinition<SpellDefinition>("RemoveCurse");
         internal static SpellDefinition Resistance { get; } = GetDefinition<SpellDefinition>("Resistance");
         internal static SpellDefinition Revivify { get; } = GetDefinition<SpellDefinition>("Revivify");

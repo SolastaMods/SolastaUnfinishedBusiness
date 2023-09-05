@@ -83,7 +83,7 @@ internal static partial class SpellBuilders
                                 false,
                                 HealingCap.MaximumHitPoints)
                             .Build())
-                    .SetParticleEffectParameters(MassHealingWord)
+                    .SetParticleEffectParameters(Heal)
                     .Build())
             .AddToDB();
     }
@@ -182,7 +182,7 @@ internal static partial class SpellBuilders
                                 ConditionDefinitions.ConditionStunnedConjuredDeath,
                                 ConditionDefinitions.ConditionProne)
                             .Build())
-                    .SetParticleEffectParameters(MassHealingWord)
+                    .SetParticleEffectParameters(Regenerate)
                     .Build())
             .AddToDB();
     }

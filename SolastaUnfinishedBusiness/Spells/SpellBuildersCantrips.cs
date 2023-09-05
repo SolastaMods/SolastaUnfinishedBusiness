@@ -128,6 +128,8 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
             .SetSavingThrowData(
                 false,
@@ -136,16 +138,19 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
                 12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(SacredFlame)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeRadiant, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
+            .SetParticleEffectParameters(SacredFlame)
             .Build();
+
+        effectDescription.EffectParticleParameters.targetParticleReference =
+            effectDescription.EffectParticleParameters.effectParticleReference;
+
+        effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
