@@ -14,7 +14,7 @@ Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=향상된 전쟁 �
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=전쟁 캐스팅
 Feature/&PowerCasterCommandUndeadDescription=언데드를 제어하기 위해 숙련도 보너스만큼 하루에 여러 번 행동을 사용할 수 있습니다. 언데드는 카리스마 저장(DC = 8 + 숙련도 보너스 + 주문 시전자 속성 수정자)을 하지 않으면 1분 동안 조종당해야 합니다.
 Feature/&PowerCasterCommandUndeadTitle=커맨드 언데드
-Feature/&PowerCasterFightingWarMagicDescription=보너스 액션을 사용하여 주문이나 캔트립을 시전한 후 주 손에 있는 무기를 사용하여 공격할 수 있습니다.
+Feature/&PowerCasterFightingWarMagicDescription=주문을 시전한 후(또는 모드 UI 규칙에서 활성화된 경우 캔트립) 보너스 액션을 사용하여 주 손에 있는 무기를 사용하여 공격할 수 있습니다.
 Feature/&PowerCasterFightingWarMagicTitle=전쟁 마법
 Feature/&ReplaceAttackWithCantripCasterFightingDescription=공격 중 하나를 캔트립으로 대체할 수 있습니다.
 Feature/&ReplaceAttackWithCantripCasterFightingTitle=캔트립 어택

@@ -74,7 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est en dehors ou à 
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
 ModUi/&DungeonMakerMenu=Créateur de donjon
 ModUi/&EmpressGarbAppearance=Apparence de la <color=#D89555>Tenue d'impératrice</color>
-ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> Activer la barre de changement d'action
+ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile lorsqu'on est pressé d'utiliser une action de hâte avant l'action principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'éléments d'histoire supplémentaires lors de l'inspection de l'Historique
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte du niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>

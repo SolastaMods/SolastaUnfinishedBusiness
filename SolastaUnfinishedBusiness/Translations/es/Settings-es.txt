@@ -74,7 +74,7 @@ ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o
 ModUi/&DungeonMakerBasicHelp=. Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&DungeonMakerMenu=Creador de mazmorras
 ModUi/&EmpressGarbAppearance=Apariencia <color=#D89555>Atuendo de emperatriz</color>
-ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> Habilitar barra de cambio de acción
+ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acción <i><color=#F0DAA0>[útil cuando se tiene prisa por usar la acción de prisa antes de la acción principal]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedentes adicionales en la inspección de antecedentes
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de nivel
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
