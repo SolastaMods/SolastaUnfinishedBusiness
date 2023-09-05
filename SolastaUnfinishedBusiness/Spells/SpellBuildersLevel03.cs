@@ -247,11 +247,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private static SpellDefinition BuildElementalWeaponSubspell(
-        string damageType,
-        SpellDefinition spellDefinition)
+    private static SpellDefinition BuildElementalWeaponSubspell(string damageType, IMagicEffect magicEffect)
     {
-        var effectParticleParameters = spellDefinition.EffectDescription.EffectParticleParameters;
+        var effectParticleParameters = magicEffect.EffectDescription.EffectParticleParameters;
 
         const string NOTIFICATION_TAG = "ElementalWeapon";
 
