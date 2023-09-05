@@ -53,6 +53,7 @@ internal static partial class SpellBuilders
                     .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
+            .SetParticleEffectParameters(WindWall)
             .Build();
 
         var spell = SpellDefinitionBuilder

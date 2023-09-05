@@ -403,7 +403,6 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.None)
             .SetConditionType(ConditionType.Detrimental)
             .SetParentCondition(ConditionHindered)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .CopyParticleReferences(ConditionSpiritGuardians)
             .AddToDB();
 
@@ -452,45 +451,41 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Cube, 5)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Sphere, 2)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
                         additionalDicePerIncrement: 1)
-                    //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without OnEnter
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetParticleEffectParameters(SpiritGuardians)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
+                        EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
                                 .Create($"Condition{SpiritShroudName}{damage}")
                                 .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .CopyParticleReferences(ConditionSpiritGuardiansSelf)
-                                .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                    .Create($"AdditionalDamage{SpiritShroudName}{damage}")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetNotificationTag($"{SpiritShroudName}{damage}")
-                                    .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
-                                    .SetAttackOnly()
-                                    .SetDamageDice(DieType.D8, 1)
-                                    .SetSpecificDamageType(damage)
-                                    .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
-                                    .SetConditionOperations(
-                                        new ConditionOperationDescription
-                                        {
-                                            conditionDefinition = noHeal,
-                                            operation = ConditionOperationDescription.ConditionOperation.Add
-                                        })
-                                    .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add, true, true)
-                            .Build(),
+                                .SetFeatures(
+                                    FeatureDefinitionAdditionalDamageBuilder
+                                        .Create($"AdditionalDamage{SpiritShroudName}{damage}")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetNotificationTag($"{SpiritShroudName}{damage}")
+                                        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
+                                        .SetAttackOnly()
+                                        .SetDamageDice(DieType.D8, 1)
+                                        .SetSpecificDamageType(damage)
+                                        .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
+                                        .SetConditionOperations(
+                                            new ConditionOperationDescription
+                                            {
+                                                conditionDefinition = noHeal,
+                                                operation = ConditionOperationDescription.ConditionOperation.Add
+                                            })
+                                        .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
