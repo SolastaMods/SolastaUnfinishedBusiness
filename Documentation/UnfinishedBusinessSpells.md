@@ -117,7 +117,7 @@ You drive a disorienting spike of psychic energy into the mind of one creature y
 
 # 30. - Minor Lifesteal
 
-You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
+You drain life energy from a hostile creature that you can see within 30 feet. Deal 1d8 necrotic damage to target on hit and heal for half the damage dealt. This spell has no effect on undead and constructs. The damage gains an additional die at levels 5th, 11th and 17th.
 
 # 31. - Mirror Image
 

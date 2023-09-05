@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -112,8 +113,14 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         //set action type to be same as the one used for the magic effect
         attackMode.ActionType = effect.ActionType;
 
-        //add tag so it can be identified by War Magic
+        //PATCH: add tag so it can be identified by War Magic
         attackMode.AddAttackTagAsNeeded(CantripWeaponAttack);
+
+        //PATCH: ensure we flag cantrip used if action switch enabled
+        if (Main.Settings.EnableActionSwitching)
+        {
+            caster.UsedMainCantrip = true;
+        }
 
         var attackModifier = new ActionModifier();
 
