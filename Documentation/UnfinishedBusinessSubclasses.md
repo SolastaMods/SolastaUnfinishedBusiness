@@ -816,7 +816,7 @@ You regain a bardic inspiration die whenever you strike down an enemy.
 
 * War Magic
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
 
 
 ## Level 14
@@ -2598,7 +2598,7 @@ You can replace one of your attacks with a cantrip.
 
 * War Magic
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
 
 
 ## Level 10
@@ -3255,7 +3255,7 @@ You can take a bonus action to use Lesser Restoration or Remove Curse on an ally
 
 * War Magic
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
 
 
 ## Level 9

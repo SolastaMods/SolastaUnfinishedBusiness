@@ -1,9 +1,15 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
+  "parentCondition": "Definition:ConditionRestrainedByWeb:0a8efc601f1a64144905a95acf388a97",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
+    "Definition:CombatAffinityRestrained:dc755d1ea6b1ff0429ff9650d4a2d318",
+    "Definition:SavingThrowAffinityConditionRestrained:fbdda0611e9c1254aa76ad4e303c668d",
+    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
+    "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -27,112 +33,11 @@
     {
       "$type": "EffectForm, Assembly-CSharp",
       "formType": "Damage",
-      "addBonusMode": "None",
-      "applyLevel": "DiceNumberByLevelTable",
-      "levelType": "EffectLevel",
+      "addBonusMode": "DoubleProficiency",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
       "levelMultiplier": 1,
-      "diceByLevelTable": [
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 1,
-          "diceNumber": 0
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 2,
-          "diceNumber": 1
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 3,
-          "diceNumber": 2
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 4,
-          "diceNumber": 3
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 5,
-          "diceNumber": 4
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 6,
-          "diceNumber": 5
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 7,
-          "diceNumber": 6
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 8,
-          "diceNumber": 7
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 9,
-          "diceNumber": 8
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 10,
-          "diceNumber": 9
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 11,
-          "diceNumber": 10
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 12,
-          "diceNumber": 11
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 13,
-          "diceNumber": 12
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 14,
-          "diceNumber": 13
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 15,
-          "diceNumber": 14
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 16,
-          "diceNumber": 15
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 17,
-          "diceNumber": 16
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 18,
-          "diceNumber": 17
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 19,
-          "diceNumber": 18
-        },
-        {
-          "$type": "DiceByRank, Assembly-CSharp",
-          "rank": 20,
-          "diceNumber": 19
-        }
-      ],
+      "diceByLevelTable": [],
       "createdByCharacter": false,
       "createdByCondition": false,
       "hasSavingThrow": false,
@@ -161,7 +66,9 @@
       "filterId": 0
     }
   ],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionSwallowedRemorhaz:1bf833241755e684fbef755a54de3fd6"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -400,8 +307,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionRestrainedTitle",
-    "description": "Rules/&ConditionRestrainedDescription",
+    "title": "Condition/&ConditionGrappledRestrainedEnsnaredTitle",
+    "description": "Condition/&ConditionGrappledRestrainedEnsnaredDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
@@ -421,7 +328,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f5ee50b7-c2ec-5403-911d-7d4138ff5b40",
+  "guid": "526a12f3-594a-5627-82fa-8403e9315b07",
   "contentPack": 9999,
-  "name": "ConditionEnsnaringStrikeEnsnared"
+  "name": "ConditionGrappledRestrainedEnsnared"
 }

@@ -9,10 +9,12 @@
 - changed Forest Guardian, Guts, Harlequin, and Vivisectionist progression
 - fixed missing magical weapon attack tag on Soulblade, Forceblade, Distant Hand, and Arcane Fighter
 - fixed Oath of Thunder missing thrown weapon attack tag on battle axe and war hammer
-- fixed Resonating Strike interaction with feats, Tactician gambits and War Magic
-- fixed Sunlit Blade interaction with feats, Tactician gambits and War Magic
 - improved Domain Defiler defile life damage progression, and added dying light feature at 17th
 - improved Domain Smith descriptions, and swapped level 6th and level 8th features
+- improved Enduring Sting, Elemental Weapon, Mind Spike, Smite Spells, and Sound Burst spells SFX
+- improved Ensnaring Strike spell to be closer to tabletop enforcing an ability check to negate
+- improved Resonating Strike interaction with feats, Tactician gambits and War Magic
+- improved Sunlit Blade interaction with feats, Tactician gambits and War Magic
 
 1.5.94.12:
 
