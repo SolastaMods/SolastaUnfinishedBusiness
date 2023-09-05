@@ -350,8 +350,9 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            // keep a tab on last attack status
-            Global.LastAttackWasHit = true;
+            // keep a tab on last cantrip weapon attack status
+            Global.LastAttackWasCantripWeaponAttackHit =
+                attackMode.AttackTags.Contains(AttackAfterMagicEffect.CantripWeaponAttack);
 
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             if (Gui.Battle != null &&

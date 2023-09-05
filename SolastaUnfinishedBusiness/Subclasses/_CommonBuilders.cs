@@ -185,8 +185,7 @@ internal static class CommonBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
-                !attackMode.AttackTags.Contains(AttackAfterMagicEffect.CantripWeaponAttack))
+            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic || !Global.LastAttackWasCantripWeaponAttackHit)
             {
                 yield break;
             }

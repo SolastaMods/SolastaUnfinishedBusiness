@@ -59,5 +59,5 @@ internal static class Global
     internal static int SecondAttackRoll { get; set; }
 
     // keep a tab on last attack status [i.e: Resonating Strike]
-    internal static bool LastAttackWasHit { get; set; }
+    internal static bool LastAttackWasCantripWeaponAttackHit { get; set; }
 }

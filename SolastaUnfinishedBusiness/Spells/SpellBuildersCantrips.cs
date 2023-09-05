@@ -672,7 +672,7 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (!Global.LastAttackWasHit)
+            if (!Global.LastAttackWasCantripWeaponAttackHit)
             {
                 effectDescription.EffectForms.Clear();
             }
