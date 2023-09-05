@@ -306,25 +306,21 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(0)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
-                .SetDurationData(DurationType.Hour, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8, 0, HealFromInflictedDamage.Half)
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm(0, DieType.D4, 1, true)
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .Build())
-                .SetParticleEffectParameters(VampiricTouch)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8, 0, HealFromInflictedDamage.Half)
+                            .HasSavingThrow(EffectSavingThrowType.None)
+                            .Build())
+                    .SetParticleEffectParameters(VampiricTouch)
+                    .Build())
             .AddToDB();
     }
 
@@ -428,6 +424,8 @@ internal static partial class SpellBuilders
             .SetParticleEffectParameters(Thunderwave)
             .Build();
 
+        effectDescription.EffectParticleParameters.targetParticleReference =
+            effectDescription.EffectParticleParameters.impactParticleReference;
         effectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
 
         var spell = SpellDefinitionBuilder

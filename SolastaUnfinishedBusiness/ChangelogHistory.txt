@@ -1,20 +1,20 @@
 ﻿1.5.94.13:
  
-- RESPEC required on Domain Defiler, Domain Smith, Patron Soulblade, Sorcerous Forceblade, Wizard Arcane Fighter
+- RESPEC required on Domain Defiler, Domain Smith, Patron Soulblade, Sorcerous Forceblade, and Wizard Arcane Fighter
 
 - changed Arcane Archer arrows damage progression to 2d6 at 3rd, 3d6 at 11th, and 4d6 at 17th
 - changed Arcane Archer bursting arrow area of effect from 10 to 15 feet
 - changed Arcane Archer enfeebling arrow to also force disadvantage on STR/DEX/CON ability checks, and saving throws
-- changed Arcane Archer insight arrow saving from WIS to DEX, damage from psychic to radiant, and renamed to revealing
-- changed Forest Guardian, Guts, Harlequin, and Vivisectionist progression
-- fixed missing magical weapon attack tag on Soulblade, Forceblade, Distant Hand, and Arcane Fighter
+- changed Arcane Archer insight arrow saving from WIS to DEX, damage from psychic to radiant, and renamed it
+- changed Forest Guardian, Guts, Harlequin, and Vivisectionist subs progression [Cantrip Attack, War Magic, etc.]
 - fixed Oath of Thunder missing thrown weapon attack tag on battle axe and war hammer
+- fixed Resonating Strike interaction with vanilla feats, Tactician gambits, War Magic, and action switching
+- fixed Soulblade, Forceblade, Distant Hand, and Arcane Fighter missing magical weapon attack tag
+- fixed Sunlit Blade interaction with vanilla feats, Tactician gambits, War Magic, and action switching
 - improved Domain Defiler defile life damage progression, and added dying light feature at 17th
 - improved Domain Smith descriptions, and swapped level 6th and level 8th features
-- improved Enduring Sting, Elemental Weapon, Mind Spike, Smite Spells, and Sound Burst spells SFX
+- improved Enduring Sting, Elemental Weapon, Mind Spike, Smites, and Sound Burst spells SFX
 - improved Ensnaring Strike spell to be closer to tabletop enforcing an ability check to negate
-- improved Resonating Strike interaction with feats, Tactician gambits and War Magic
-- improved Sunlit Blade interaction with feats, Tactician gambits and War Magic
 
 1.5.94.12:
 

@@ -210,7 +210,6 @@ internal static partial class SpellBuilders
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetBonusMode(AddBonusMode.DoubleProficiency)
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
                     .Build())
             .AddToDB();
@@ -267,7 +266,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionEnsnaringStrike))
                     // .SetParticleEffectParameters(Entangle)
                     .Build())

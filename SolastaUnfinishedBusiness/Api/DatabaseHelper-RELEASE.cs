@@ -203,6 +203,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionPactChainPseudodragon { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainPseudodragon");
         internal static ConditionDefinition ConditionPactChainQuasit { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainQuasit");
         internal static ConditionDefinition ConditionPactChainSprite { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainSprite");
+        internal static ConditionDefinition ConditionPatronTimekeeperCurseOfTime { get; } = GetDefinition<ConditionDefinition>("ConditionPatronTimekeeperCurseOfTime");
         internal static ConditionDefinition ConditionParalyzed { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed");
         internal static ConditionDefinition ConditionParalyzed_CrimsonSpiderVenom { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed_CrimsonSpiderVenom");
         internal static ConditionDefinition ConditionParalyzed_GhoulsCaress { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed_GhoulsCaress");

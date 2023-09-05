@@ -45,25 +45,25 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "14c7cbd4107c3da46bf04c894e4a61be",
+    "m_AssetGUID": "7f0a50ea30efd4649814b6835e355979",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "2493405866ecdfb4290d962e2ee3ab92",
+    "m_AssetGUID": "e8d0757735b7f844c8d98c2057c191a9",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "211c37507a1ae35419d899c49a2712a3",
+    "m_AssetGUID": "7f0a50ea30efd4649814b6835e355979",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "cffbfc5e74b6d334d812b9a32eca7bad",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

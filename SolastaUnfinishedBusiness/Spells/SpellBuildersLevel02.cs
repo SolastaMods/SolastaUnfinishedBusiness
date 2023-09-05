@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -109,6 +110,10 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.targetParticleReference =
+            spell.EffectDescription.EffectParticleParameters.impactParticleReference;
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
 
         return spell;
     }
