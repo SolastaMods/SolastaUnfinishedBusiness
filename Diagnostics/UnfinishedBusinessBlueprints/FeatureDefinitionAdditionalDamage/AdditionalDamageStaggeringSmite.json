@@ -47,7 +47,12 @@
   ],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": null,
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "58f2cd40c58b0e548bc539b4c6adbe11",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
@@ -58,9 +63,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Spell/&StaggeringSmiteTitle",
+    "description": "Spell/&StaggeringSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

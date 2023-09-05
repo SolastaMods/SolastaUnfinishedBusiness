@@ -18,9 +18,9 @@
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
-  "damageDiceNumber": 1,
-  "additionalDamageType": "Specific",
-  "specificDamageType": "DamagePiercing",
+  "damageDiceNumber": 0,
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
@@ -133,11 +133,27 @@
   "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 12,
   "savingThrowDCAbilityModifier": "Wisdom",
-  "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "damageSaveAffinity": "Negates",
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": true,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionEnsnaringStrikeEnsnared:f5ee50b7-c2ec-5403-911d-7d4138ff5b40",
+      "saveAffinity": "Negates",
+      "canSaveToCancel": true,
+      "saveOccurence": "StartOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": null,
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b7f8a9ad515573d4da0ad6b67623b39d",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
@@ -148,9 +164,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Spell/&EnsnaringStrikeTitle",
+    "description": "Spell/&EnsnaringStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
