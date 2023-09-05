@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=당신은 이동을 방해하는 덩굴에 얽혀 있고, 민첩 내성 굴림에 불리하며 매 턴 관통 피해를 받습니다. 턴이 끝나면 덩굴을 피하기 위해 힘 던지기 저장을하십시오.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=올무
-Condition/&ConditionGiftOfAlacrityDescription=셀러리티 혜택
+Condition/&ConditionGiftOfAlacrityDescription=생물은 주도권 굴림에서 1d8 보너스를 얻습니다.
 Condition/&ConditionGiftOfAlacrityTitle=셀러리티 혜택
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=이 상태를 벗어나려면 근력 능력 판정을 해야 합니다.
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=스마이트에 의해 올무에 걸리다

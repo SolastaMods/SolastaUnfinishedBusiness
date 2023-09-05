@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=你被藤蔓缠绕而无法移动，在敏捷豁免检定上处于劣势，并且每回合都会受到穿刺伤害。在你的回合结束时，进行一次力量投掷豁免以逃离藤蔓。
 Condition/&AdditionalConditionEnsnaringStrikeTitle=被诱捕
-Condition/&ConditionGiftOfAlacrityDescription=你可以将 1d8 添加到你的先攻掷骰中。
+Condition/&ConditionGiftOfAlacrityDescription=该生物在先攻骰上获得 1d8 加值。
 Condition/&ConditionGiftOfAlacrityTitle=灵敏之赐
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=你必须进行力量能力检定才能摆脱这种情况。
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=被 Smite 诱捕

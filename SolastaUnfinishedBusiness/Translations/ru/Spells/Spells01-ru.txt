@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Вы опутаны лианами, которые мешают двигаться, дают помеху при спасбросках Ловкости и наносят колющий урон каждый ход. В конце вашего хода совершите спасбросок Силы, чтобы выбраться из пут.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Опутан
-Condition/&ConditionGiftOfAlacrityDescription=Дар стремительности
+Condition/&ConditionGiftOfAlacrityDescription=Существо получает бонус 1d8 к броскам инициативы.
 Condition/&ConditionGiftOfAlacrityTitle=Дар стремительности
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Чтобы выйти из этого состояния, вы должны пройти проверку Силы.
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=Опутан

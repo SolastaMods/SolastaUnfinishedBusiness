@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=蔓に絡まって移動が妨げられ、器用さのセーヴィングスローが不利になり、毎ターン貫通ダメージを受けることになる。ターンの終わりに、Strength 投げセーブを行って蔓から逃れます。
 Condition/&AdditionalConditionEnsnaringStrikeTitle=罠にかかった
-Condition/&ConditionGiftOfAlacrityDescription=セレリティ・ブーン
+Condition/&ConditionGiftOfAlacrityDescription=クリーチャーはイニシアチブロールで 1d8 ボーナスを得る。
 Condition/&ConditionGiftOfAlacrityTitle=セレリティ・ブーン
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=この状態から抜け出すには、筋力能力チェックを行う必要があります。
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=スマイトの罠にかかる

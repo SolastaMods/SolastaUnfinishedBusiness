@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Sie sind in Ranken verstrickt, die Ihre Bewegung behindern, haben Nachteile bei Würfen, die Geschicklichkeit retten, und erleiden in jeder Runde durchdringenden Schaden. Führen Sie am Ende Ihres Zuges einen Kraftwurf durch, um den Ranken zu entkommen.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Verstrickt
-Condition/&ConditionGiftOfAlacrityDescription=Celerity Segen
+Condition/&ConditionGiftOfAlacrityDescription=Die Kreatur erhält einen Bonus von 1W8 auf Initiativewürfe.
 Condition/&ConditionGiftOfAlacrityTitle=Celerity Segen
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Um diesen Zustand zu überwinden, müssen Sie eine Fähigkeitsprüfung auf Stärke durchführen.
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=Gefangen

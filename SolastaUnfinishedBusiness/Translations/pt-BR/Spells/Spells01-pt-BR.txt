@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Você está enredado em trepadeiras impedindo o movimento, desvantagem em testes de resistência de Destreza e recebendo dano perfurante a cada turno. No final do seu turno, faça um teste de resistência de arremesso de Força para escapar das vinhas.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Enredado
-Condition/&ConditionGiftOfAlacrityDescription=Dádiva da Celeridade
+Condition/&ConditionGiftOfAlacrityDescription=A criatura ganha 1d8 de bônus nas jogadas de iniciativa.
 Condition/&ConditionGiftOfAlacrityTitle=Dádiva da Celeridade
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Você deve fazer um teste de habilidade de Força para sair desta condição.
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=Enredado

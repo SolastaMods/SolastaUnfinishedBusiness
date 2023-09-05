@@ -1,6 +1,6 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=You are entangled in vines preventing movement, disadvantage on Dexterity saving throws, and receiving piercing damage every turn. At end of your turn, make a Strength throwing save to escape the vines.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Ensnared
-Condition/&ConditionGiftOfAlacrityDescription=Celerity Boon
+Condition/&ConditionGiftOfAlacrityDescription=The creature gains 1d8 bonus on initiative rolls.
 Condition/&ConditionGiftOfAlacrityTitle=Celerity Boon
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=You must make a Strength ability check to get off this condition.
 Condition/&ConditionGrappledRestrainedEnsnaredTitle=Ensnared
