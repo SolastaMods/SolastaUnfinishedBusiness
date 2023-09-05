@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -197,6 +198,9 @@ internal static partial class SpellBuilders
                     .Build())
             .Build();
 
+        effectDescription.EffectParticleParameters.impactParticleReference =
+            VenomousSpike.EffectDescription.EffectParticleParameters.impactParticleReference;
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
@@ -255,7 +259,7 @@ internal static partial class SpellBuilders
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-            .SetParticleEffectParameters(Bane)
+            .SetParticleEffectParameters(ShadowDagger)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Intelligence,
@@ -411,9 +415,7 @@ internal static partial class SpellBuilders
                 false,
                 AttributeDefinitions.Constitution,
                 false,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
+                EffectDifficultyClassComputation.SpellCastingFeature)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
             .ExcludeCaster()
@@ -423,7 +425,10 @@ internal static partial class SpellBuilders
                     .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
+            .SetParticleEffectParameters(Thunderwave)
             .Build();
+
+        effectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

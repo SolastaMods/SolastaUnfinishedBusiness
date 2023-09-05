@@ -1450,6 +1450,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Malediction { get; } = GetDefinition<SpellDefinition>("Malediction");
         internal static SpellDefinition MassCureWounds { get; } = GetDefinition<SpellDefinition>("MassCureWounds");
         internal static SpellDefinition MassHealingWord { get; } = GetDefinition<SpellDefinition>("MassHealingWord");
+        internal static SpellDefinition Maze { get; } = GetDefinition<SpellDefinition>("Maze");
         internal static SpellDefinition MindTwist { get; } = GetDefinition<SpellDefinition>("MindTwist");
         internal static SpellDefinition MirrorImage { get; } = GetDefinition<SpellDefinition>("MirrorImage");
         internal static SpellDefinition MistyStep { get; } = GetDefinition<SpellDefinition>("MistyStep");

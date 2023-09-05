@@ -148,12 +148,14 @@ internal static partial class SpellBuilders
 
         var additionalDamageBanishingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack,
+                new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)
-            .SetCustomSubFeatures(new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
+            // doesn't follow the standard impact particle reference
+            .SetImpactParticleReference(Banishment.EffectDescription.EffectParticleParameters.effectParticleReference)
             .AddToDB();
 
         var conditionBanishingSmite = ConditionDefinitionBuilder
@@ -171,13 +173,15 @@ internal static partial class SpellBuilders
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(conditionBanishingSmite, ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBanishingSmite))
+                    .SetParticleEffectParameters(Banishment)
                     .Build())
-                .Build())
             .AddToDB();
 
         return spell;
