@@ -352,6 +352,7 @@ public static class GameLocationBattleManagerPatcher
         {
             // keep a tab on last cantrip weapon attack status
             Global.LastAttackWasCantripWeaponAttackHit =
+                attackMode is { AttackTags: not null } &&
                 attackMode.AttackTags.Contains(AttackAfterMagicEffect.CantripWeaponAttack);
 
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
