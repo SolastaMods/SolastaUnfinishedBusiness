@@ -147,7 +147,7 @@ internal static partial class SpellBuilders
             .SetParticleEffectParameters(SacredFlame)
             .Build();
 
-        effectDescription.EffectParticleParameters.targetParticleReference =
+        effectDescription.EffectParticleParameters.impactParticleReference =
             effectDescription.EffectParticleParameters.effectParticleReference;
 
         effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
@@ -426,12 +426,12 @@ internal static partial class SpellBuilders
                     .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
-            .SetParticleEffectParameters(Thunderwave)
+            .SetParticleEffectParameters(Shatter)
             .Build();
 
-        effectDescription.EffectParticleParameters.targetParticleReference =
-            effectDescription.EffectParticleParameters.impactParticleReference;
-        effectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+        effectDescription.EffectParticleParameters.impactParticleReference =
+            effectDescription.EffectParticleParameters.zoneParticleReference;
+        effectDescription.EffectParticleParameters.zoneParticleReference = new AssetReference();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -553,6 +553,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
                     .Build())
+            .SetParticleEffectParameters(AcidSplash)
             .Build();
 
         var spell = SpellDefinitionBuilder
