@@ -7,7 +7,7 @@
 - changed Arcane Archer enfeebling arrow to also force disadvantage on STR/DEX/CON ability checks, and saving throws
 - changed Arcane Archer insight arrow saving from WIS to DEX, damage from psychic to radiant, and renamed it
 - changed Forest Guardian, Guts, Harlequin, and Vivisectionist subs progression [Cantrip Attack, War Magic, etc.]
-- fixed Oath of Thunder missing thrown weapon attack tag on battle axe and war hammer
+- fixed Oath of Thunder missing thrown weapon attack tag on battle axes and war hammers
 - fixed Resonating Strike interaction with vanilla feats, Tactician gambits, War Magic, and action switching
 - fixed Soulblade, Forceblade, Distant Hand, and Arcane Fighter missing magical weapon attack tag
 - fixed Sunlit Blade interaction with vanilla feats, Tactician gambits, War Magic, and action switching
@@ -15,7 +15,7 @@
 - improved Domain Smith descriptions, and swapped level 6th and level 8th features to be closer to tabletop
 - improved Enduring Sting, Elemental Weapon, Mind Spike, Skin of Retribution, Smites, Sound Burst, etc. spells SFX
 - improved Ensnaring Strike spell to be closer to tabletop by enforcing an ability check to negate the effect
-- improved Path of Savagery furious defense by enforcing advantage when DEX checks are replaced with STR
+- improved Path of Savagery furious defense by enforcing advantage when DEX savings are replaced with STR
 
 1.5.94.12:
 
