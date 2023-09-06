@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -237,12 +238,9 @@ internal static partial class SpellBuilders
             .SetUniqueInstance()
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSubSpells(
-                BuildElementalWeaponSubspell(DamageTypeAcid, AcidArrow),
-                BuildElementalWeaponSubspell(DamageTypeCold, ConeOfCold),
-                BuildElementalWeaponSubspell(DamageTypeFire, FireBolt),
-                BuildElementalWeaponSubspell(DamageTypeLightning, LightningBolt),
-                BuildElementalWeaponSubspell(DamageTypeThunder, Shatter))
+            .SetSubSpells(DamagesAndEffects
+                .Where(x => x.Item1 != DamageTypePoison)
+                .Select(x => BuildElementalWeaponSubspell(x.Item1, x.Item2)).ToArray())
             .AddToDB();
 
         return spell;
