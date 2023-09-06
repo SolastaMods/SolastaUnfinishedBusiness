@@ -88,23 +88,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        // Cloak of Silhouettes Strong
-
-        var lightAffinityCloakOfSilhouettesStrong = FeatureDefinitionLightAffinityBuilder
-            .Create($"LightAffinity{Name}CloakOfSilhouettesStrong")
-            .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-            {
-                lightingState = LocationDefinitions.LightingState.Dim,
-                condition = CustomConditionsContext.InvisibilityEveryRound
-            })
-            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-            {
-                lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = CustomConditionsContext.InvisibilityEveryRound
-            })
-            .AddToDB();
-
         // Strike the Vitals
 
         var additionalDamageStrikeTheVitalsD6 = FeatureDefinitionAdditionalDamageBuilder
@@ -140,6 +123,23 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         // LEVEL 11
+
+        // Cloak of Silhouettes Strong
+
+        var lightAffinityCloakOfSilhouettesStrong = FeatureDefinitionLightAffinityBuilder
+            .Create($"LightAffinity{Name}CloakOfSilhouettesStrong")
+            .SetGuiPresentation(Category.Feature)
+            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Dim,
+                condition = CustomConditionsContext.InvisibilityEveryRound
+            })
+            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Darkness,
+                condition = CustomConditionsContext.InvisibilityEveryRound
+            })
+            .AddToDB();
 
         // Improved Silhouette Step
 
@@ -181,10 +181,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
                 FeatureDefinitionCastSpells.CastSpellTraditionLight)
             .AddFeaturesAtLevel(6,
-                lightAffinityCloakOfSilhouettesStrong,
                 powerWayOfSilhouetteSilhouetteStep,
                 additionalDamageStrikeTheVitalsD6)
             .AddFeaturesAtLevel(11,
+                lightAffinityCloakOfSilhouettesStrong,
                 powerWayOfSilhouetteImprovedSilhouetteStep,
                 additionalDamageStrikeTheVitalsD8)
             .AddFeaturesAtLevel(17,
