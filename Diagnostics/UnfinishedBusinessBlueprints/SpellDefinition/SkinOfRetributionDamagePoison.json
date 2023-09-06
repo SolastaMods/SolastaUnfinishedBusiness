@@ -7,7 +7,7 @@
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 1,
   "ritual": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",

@@ -72,46 +72,37 @@ internal static partial class SpellBuilders
         const string NAME = "ChromaticOrb";
 
         var sprite = Sprites.GetSprite(NAME, Resources.ChromaticOrb, 128);
-        var subSpells = new SpellDefinition[6];
-        var particleTypes = new[] { AcidSplash, ConeOfCold, FireBolt, LightningBolt, PoisonSpray, Thunderwave };
-        var damageTypes = new[]
-        {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
-        };
+        var subSpells = new List<SpellDefinition>();
 
-        for (var i = 0; i < subSpells.Length; i++)
+        foreach (var (damageType, magicEffect) in DamagesAndEffects)
         {
-            var damageType = damageTypes[i];
-            var particleType = particleTypes[i];
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var description = Gui.Format("Spell/&SubSpellChromaticOrbDescription", title);
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
-                .SetGuiPresentation(
-                    title,
-                    Gui.Format("Spell/&SubSpellChromaticOrbDescription", title),
-                    sprite)
+                .SetGuiPresentation(title, description, sprite)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(1)
                 .SetMaterialComponent(MaterialComponentType.Specific)
                 .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 50, false)
                 .SetVocalSpellSameType(VocalSpellSemeType.Attack)
                 .SetCastingTime(ActivationTime.Action)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetDamageForm(damageType, 3, DieType.D8)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Instantaneous)
+                        .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                        .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D8))
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                            additionalDicePerIncrement: 1)
+                        .SetParticleEffectParameters(magicEffect)
+                        .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
+                        .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
                         .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetParticleEffectParameters(particleType)
-                    .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
-                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
-                    .Build())
                 .AddToDB();
 
-            subSpells[i] = spell;
+            subSpells.Add(spell);
         }
 
         return SpellDefinitionBuilder
@@ -123,7 +114,7 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 50, false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
-            .SetSubSpells(subSpells)
+            .SetSubSpells(subSpells.ToArray())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
@@ -562,22 +553,16 @@ internal static partial class SpellBuilders
         const int TEMP_HP_PER_LEVEL = 5;
 
         var spriteReferenceCondition = Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32);
-
         var subSpells = new List<SpellDefinition>();
-        var particleTypes = new[] { AcidSplash, ConeOfCold, FireBolt, LightningBolt, PoisonSpray, Thunderwave };
-        var damageTypes = new[]
-        {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
-        };
+        var conditions = new List<ConditionDefinition>();
 
         const string SUB_SPELL_DESCRIPTION = $"Spell/&SubSpell{NAME}Description";
         const string SUB_SPELL_CONDITION_DESCRIPTION = $"Condition/&Condition{NAME}Description";
         const string SUB_SPELL_CONDITION_TITLE = $"Condition/&Condition{NAME}Title";
 
         // ReSharper disable once LoopCanBeConvertedToQuery
-        for (var i = 0; i < damageTypes.Length; i++)
+        foreach (var (damageType, magicEffect) in DamagesAndEffects)
         {
-            var damageType = damageTypes[i];
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
             var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
@@ -588,7 +573,7 @@ internal static partial class SpellBuilders
                     EffectDescriptionBuilder
                         .Create()
                         .SetEffectForms(EffectFormBuilder.DamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL))
-                        .SetParticleEffectParameters(particleTypes[i])
+                        .SetParticleEffectParameters(magicEffect)
                         .Build())
                 .AddToDB();
 
@@ -608,7 +593,10 @@ internal static partial class SpellBuilders
                 .SetSilent(Silent.WhenAdded)
                 .SetPossessive()
                 .SetFeatures(damageSkinOfRetribution)
+                .SetCancellingConditions()
                 .AddToDB();
+
+            conditions.Add(conditionSkinOfRetribution);
 
             powerSkinOfRetribution.SetCustomSubFeatures(
                 new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
@@ -621,6 +609,7 @@ internal static partial class SpellBuilders
                 .SetVerboseComponent(false)
                 .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetSpellLevel(1)
+                .SetUniqueInstance()
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -630,17 +619,19 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetTempHpForm(TEMP_HP_PER_LEVEL)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                    .SetParticleEffectParameters(particleTypes[i])
+                    .SetParticleEffectParameters(magicEffect)
                     .Build())
                 .AddToDB();
 
             subSpells.Add(spell);
+        }
+
+        foreach (var condition in conditions)
+        {
+            condition.cancellingConditions = conditions.Where(x => x != condition).ToList();
         }
 
         return SpellDefinitionBuilder
@@ -910,7 +901,8 @@ internal static partial class SpellBuilders
                 FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
             .SetMonsterPresentation(
-                MonsterPresentationBuilder.Create()
+                MonsterPresentationBuilder
+                    .Create()
                     .SetAllPrefab(MonsterDefinitions.Eagle_Matriarch.MonsterPresentation)
                     .SetPhantom()
                     .SetModelScale(0.5f)
@@ -1016,7 +1008,7 @@ internal static partial class SpellBuilders
                         .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
-            .SetImpactParticleReference(Shatter.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .SetImpactParticleReference(Shatter)
             .AddToDB();
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
@@ -1047,7 +1039,6 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-
 
     private sealed class ConditionUsesPowerOnTarget : ICustomConditionFeature
     {
@@ -1112,7 +1103,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, CalmEmotions.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, CalmEmotions)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Hour, 8)
@@ -1166,7 +1157,8 @@ internal static partial class SpellBuilders
             gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
                 GameLocationBattle.ContenderModificationMode.Add, false, false);
 
-            locationCharacter.RulesetCharacter.LogCharacterUsedFeature(_featureDefinition,
+            locationCharacter.RulesetCharacter.LogCharacterUsedFeature(
+                _featureDefinition,
                 TEXT,
                 false,
                 (ConsoleStyleDuplet.ParameterType.Initiative, roll.ToString()));

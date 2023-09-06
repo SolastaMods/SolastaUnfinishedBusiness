@@ -234,14 +234,15 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetRequiresConcentration(true)
             .SetSpellLevel(3)
+            .SetUniqueInstance()
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSubSpells(
-                BuildElementalWeaponSubspell(DamageTypeAcid, AcidSplash),
+                BuildElementalWeaponSubspell(DamageTypeAcid, AcidArrow),
                 BuildElementalWeaponSubspell(DamageTypeCold, ConeOfCold),
                 BuildElementalWeaponSubspell(DamageTypeFire, FireBolt),
                 BuildElementalWeaponSubspell(DamageTypeLightning, LightningBolt),
-                BuildElementalWeaponSubspell(DamageTypeThunder, Thunderwave))
+                BuildElementalWeaponSubspell(DamageTypeThunder, Shatter))
             .AddToDB();
 
         return spell;
@@ -464,28 +465,28 @@ internal static partial class SpellBuilders
                             .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{SpiritShroudName}{damage}")
-                                .SetGuiPresentationNoContent(true)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .CopyParticleReferences(ConditionSpiritGuardiansSelf)
-                                .SetFeatures(
-                                    FeatureDefinitionAdditionalDamageBuilder
-                                        .Create($"AdditionalDamage{SpiritShroudName}{damage}")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetNotificationTag($"{SpiritShroudName}{damage}")
-                                        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
-                                        .SetAttackOnly()
-                                        .SetDamageDice(DieType.D8, 1)
-                                        .SetSpecificDamageType(damage)
-                                        .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
-                                        .SetConditionOperations(
-                                            new ConditionOperationDescription
-                                            {
-                                                conditionDefinition = noHeal,
-                                                operation = ConditionOperationDescription.ConditionOperation.Add
-                                            })
-                                        .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
+                            .Create($"Condition{SpiritShroudName}{damage}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .CopyParticleReferences(ConditionSpiritGuardiansSelf)
+                            .SetFeatures(
+                                FeatureDefinitionAdditionalDamageBuilder
+                                    .Create($"AdditionalDamage{SpiritShroudName}{damage}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetNotificationTag($"{SpiritShroudName}{damage}")
+                                    .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
+                                    .SetAttackOnly()
+                                    .SetDamageDice(DieType.D8, 1)
+                                    .SetSpecificDamageType(damage)
+                                    .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
+                                    .SetConditionOperations(
+                                        new ConditionOperationDescription
+                                        {
+                                            conditionDefinition = noHeal,
+                                            operation = ConditionOperationDescription.ConditionOperation.Add
+                                        })
+                                    .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
