@@ -1,5 +1,7 @@
 ﻿1.5.94.14:
 
+- added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock and Wizard
+- changed Way of Silhouette progression by moving strong cloak of silhouette from 6th to 11th
 - fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
 
 1.5.94.13:
