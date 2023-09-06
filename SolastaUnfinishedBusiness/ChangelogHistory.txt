@@ -1,4 +1,8 @@
-﻿1.5.94.13:
+﻿1.5.94.14:
+
+- fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
+
+1.5.94.13:
  
 - RESPEC required on Domain Defiler, Domain Smith, Patron Soulblade, Sorcerous Forceblade, and Wizard Arcane Fighter
 
