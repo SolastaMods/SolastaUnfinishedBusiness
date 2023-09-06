@@ -311,9 +311,14 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                    rulesetActor.HasAnyConditionOfType(ConditionRaging);
         }
 
-        public string SavingThrowAttribute(RulesetActor rulesetActor)
+        public string SavingThrowAttribute(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier)
         {
             (rulesetActor as RulesetCharacter)!.LogCharacterUsedFeature(_featureDefinition);
+
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
 
             return AttributeDefinitions.Strength;
         }

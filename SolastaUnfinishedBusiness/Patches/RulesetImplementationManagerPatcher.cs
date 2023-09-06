@@ -649,7 +649,8 @@ public static class RulesetImplementationManagerPatcher
                 "RulesetImplementationManager.TryRollSavingThrow", EnumerateFeatureDefinitionSavingThrowAffinity);
         }
 
-        private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
+        private static void GetBestSavingThrowAbilityScore(
+            RulesetActor rulesetActor, ActionModifier actionModifier, ref string attributeScore)
         {
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
             {
@@ -666,7 +667,7 @@ public static class RulesetImplementationManagerPatcher
             foreach (var attribute in rulesetCharacter
                          .GetSubFeaturesByType<IModifySavingThrowAttribute>()
                          .Where(x => x.IsValid(rulesetCharacter, attr))
-                         .Select(x => x.SavingThrowAttribute(rulesetCharacter)))
+                         .Select(x => x.SavingThrowAttribute(rulesetCharacter, actionModifier)))
             {
                 var newSavingThrowBonus =
                     AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attribute)) +
@@ -687,6 +688,7 @@ public static class RulesetImplementationManagerPatcher
         public static void Prefix(
             RulesetCharacter caster,
             RulesetActor target,
+            ActionModifier actionModifier,
             ref string savingThrowAbility,
             List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
@@ -705,7 +707,7 @@ public static class RulesetImplementationManagerPatcher
             }
 
             //PATCH: supports IModifySavingThrowAttribute interface
-            GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
+            GetBestSavingThrowAbilityScore(target, actionModifier, ref savingThrowAbility);
         }
 
         //PATCH: supports IOnSavingThrowAfterRoll interface
