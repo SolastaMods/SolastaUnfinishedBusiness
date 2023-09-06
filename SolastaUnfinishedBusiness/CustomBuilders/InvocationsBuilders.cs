@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -488,6 +489,13 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationPoisonousBlast";
 
+        var effectDescription = EffectDescriptionBuilder.Create(SpellDefinitions.PoisonSpray.EffectDescription).Build();
+
+        effectDescription.EffectParticleParameters.impactParticleReference =
+            effectDescription.EffectParticleParameters.effectParticleReference;
+
+        effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
             .SetOrUpdateGuiPresentation(Category.Invocation)
@@ -498,7 +506,7 @@ internal static class InvocationsBuilders
                     .SetCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePoison,
-                            SpellDefinitions.PoisonSpray.EffectDescription.EffectParticleParameters))
+                            effectDescription.EffectParticleParameters))
                     .AddToDB())
             .AddToDB();
     }

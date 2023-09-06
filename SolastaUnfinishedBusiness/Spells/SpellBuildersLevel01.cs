@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -76,6 +77,16 @@ internal static partial class SpellBuilders
 
         foreach (var (damageType, magicEffect) in DamagesAndEffects)
         {
+            var effectDescription = EffectDescriptionBuilder.Create(magicEffect.EffectDescription).Build();
+
+            if (damageType == DamageTypePoison)
+            {
+                effectDescription.EffectParticleParameters.impactParticleReference =
+                    effectDescription.EffectParticleParameters.effectParticleReference;
+
+                effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+            }
+
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
             var description = Gui.Format("Spell/&SubSpellChromaticOrbDescription", title);
             var spell = SpellDefinitionBuilder
@@ -96,7 +107,7 @@ internal static partial class SpellBuilders
                         .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D8))
                         .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                             additionalDicePerIncrement: 1)
-                        .SetParticleEffectParameters(magicEffect)
+                        .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
                         .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
                         .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
                         .Build())
@@ -223,7 +234,7 @@ internal static partial class SpellBuilders
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.Negates,
-                AttributeDefinitions.Dexterity)
+                AttributeDefinitions.Strength)
             .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
@@ -563,6 +574,16 @@ internal static partial class SpellBuilders
         // ReSharper disable once LoopCanBeConvertedToQuery
         foreach (var (damageType, magicEffect) in DamagesAndEffects)
         {
+            var effectDescription = EffectDescriptionBuilder.Create(magicEffect.EffectDescription).Build();
+
+            if (damageType == DamageTypePoison)
+            {
+                effectDescription.EffectParticleParameters.impactParticleReference =
+                    effectDescription.EffectParticleParameters.effectParticleReference;
+
+                effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+            }
+
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
             var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
@@ -573,7 +594,7 @@ internal static partial class SpellBuilders
                     EffectDescriptionBuilder
                         .Create()
                         .SetEffectForms(EffectFormBuilder.DamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL))
-                        .SetParticleEffectParameters(magicEffect)
+                        .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
                         .Build())
                 .AddToDB();
 
@@ -622,7 +643,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                    .SetParticleEffectParameters(magicEffect)
+                    .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
                     .Build())
                 .AddToDB();
 

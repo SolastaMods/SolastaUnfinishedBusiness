@@ -28,7 +28,7 @@
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
   "hasSavingThrow": true,
-  "savingThrowAbility": "Dexterity",
+  "savingThrowAbility": "Strength",
   "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 12,
   "savingThrowDCAbilityModifier": "Wisdom",

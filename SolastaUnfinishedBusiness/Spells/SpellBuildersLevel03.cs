@@ -457,7 +457,8 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
                         additionalDicePerIncrement: 1)
                     //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without OnEnter
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetParticleEffectParameters(SpiritGuardians)
                     .SetEffectForms(
                         EffectFormBuilder
