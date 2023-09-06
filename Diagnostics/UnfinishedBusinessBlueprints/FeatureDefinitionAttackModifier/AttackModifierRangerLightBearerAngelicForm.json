@@ -20,7 +20,7 @@
   "additionalBonusAttackFromMain": false,
   "additionalBonusUnarmedStrikeAttacksFromMain": false,
   "additionalBonusUnarmedStrikeAttacksCount": 0,
-  "additionalBonusUnarmedStrikeAttacksTag": "Magical",
+  "additionalBonusUnarmedStrikeAttacksTag": null,
   "additionalReturnMissileReactionAttack": false,
   "additionalBonusSoraksBaneAttack": false,
   "additionalMonsterAttack": false,

@@ -65,8 +65,7 @@ You sap the vitality of one creature you can see in range. The target must succe
 
 # 17. - Ensnaring Strike
 
-Your next hit ensnares your target in vines - it receives 1d6 piercing damage each turn and can roll STR saving thrown at the end of each turn to stop this effect
-Higher Levels: for each slot level above 1st, your attack deals additional 1d6 piercing damage.
+The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends.While restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines can use its action to make a Strength check against your spell save DC.
 
 # 18. - Ethereal Knell
 
@@ -118,7 +117,7 @@ You drive a disorienting spike of psychic energy into the mind of one creature y
 
 # 30. - Minor Lifesteal
 
-You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
+You drain life energy from a hostile creature that you can see within 30 feet. Deal 1d8 necrotic damage to target on hit and heal for half the damage dealt. This spell has no effect on undead and constructs. The damage gains an additional die at levels 5th, 11th and 17th.
 
 # 31. - Mirror Image
 

@@ -74,7 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o ent
 ModUi/&DungeonMakerBasicHelp=. Queste impostazioni non richiedono che il giocatore abbia installato questa mod
 ModUi/&DungeonMakerMenu=Creatore di sotterranei
 ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito da Imperatrice</color>
-ModUi/&EnableActionSwitching=<b><color=#C04040E0>[BETA]</color></b> Abilita la barra di cambio azione
+ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile quando si ha fretta per usare l'azione veloce prima dell'azione principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporto sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>

@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Sua armadura fica adamantina, reduzindo o dano crítico pela metade.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Armadura Adamantina
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Uma vez por turno, cause +{0}d8 de dano de fogo em ataques com armas.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Uma vez por turno, causa +1d8 de dano de fogo em ataques com armas. Este dano aumenta para 2d8 no 14º nível.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Golpe Divino
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Ganhe resistência ao fogo e enquanto estiver usando armadura ganhe +1 AC.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Maestria da Forja
@@ -13,7 +13,7 @@ Feature/&BonusProficiencyDomainSmithTitle=Proficiente em Armadura Pesada
 Feature/&FeatureDomainSmithBlessedMetalDescription=Sua abençoada afinidade com o fogo e o metal se torna mais poderosa. Enquanto estiver usando armadura, você ganha os seguintes benefícios:\n• Você ganha imunidade a dano de fogo.\n• Você tem resistência a dano de concussão, perfuração e corte de ataques não mágicos.
 Feature/&FeatureDomainSmithBlessedMetalTitle=Metal Abençoado
 Feature/&PowerDomainSmithAdamantBenedictionDescription=Usando uma ação, reforça a armadura de aliados em um raio de 30 pés. Sua armadura ganha a Força da armadura adamantina, ganhando imunidade a críticos por 1 minuto.
-Feature/&PowerDomainSmithAdamantBenedictionTitle=Canalizar Divindade: Bênção Inflexível
+Feature/&PowerDomainSmithAdamantBenedictionTitle=Bênção Adamant
 Feature/&PowerDomainSmithReinforceArmorDescription=Uma vez por descanso curto, você pode reforçar uma peça não mágica de armadura ou escudo. O objeto reforçado ganha +{0} CA adicional.
 Feature/&PowerDomainSmithReinforceArmorTitle=Reforçar Armadura
 Subclass/&DomainSmithDescription=Ferreiros sagrados que canalizam sua fé através do aço e das forjas. Reforçando a armadura aliada e blindando-se pesadamente.

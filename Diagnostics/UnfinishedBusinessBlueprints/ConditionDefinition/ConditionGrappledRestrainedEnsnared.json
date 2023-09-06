@@ -1,0 +1,334 @@
+{
+  "$type": "ConditionDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "parentCondition": "Definition:ConditionRestrainedByWeb:0a8efc601f1a64144905a95acf388a97",
+  "conditionType": "Detrimental",
+  "features": [
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
+    "Definition:CombatAffinityRestrained:dc755d1ea6b1ff0429ff9650d4a2d318",
+    "Definition:SavingThrowAffinityConditionRestrained:fbdda0611e9c1254aa76ad4e303c668d",
+    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
+    "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617"
+  ],
+  "allowMultipleInstances": false,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
+  "terminateWhenRemoved": false,
+  "specialDuration": true,
+  "durationType": "Minute",
+  "durationParameterDie": "D1",
+  "durationParameter": 1,
+  "forceTurnOccurence": false,
+  "turnOccurence": "StartOfTurn",
+  "specialInterruptions": [],
+  "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
+  "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
+  "interruptionSavingThrowAffinity": "None",
+  "conditionTags": [],
+  "recurrentEffectForms": [
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Damage",
+      "addBonusMode": "None",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 1,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": false,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn",
+      "damageForm": {
+        "$type": "DamageForm, Assembly-CSharp",
+        "versatile": false,
+        "diceNumber": 1,
+        "dieType": "D6",
+        "overrideWithBardicInspirationDie": false,
+        "versatileDieType": "D1",
+        "bonusDamage": 0,
+        "damageType": "DamagePiercing",
+        "ancestryType": "Sorcerer",
+        "healFromInflictedDamage": "Never",
+        "hitPointsFloor": 0,
+        "forceKillOnZeroHp": false,
+        "specialDeathCondition": null,
+        "ignoreFlyingCharacters": false,
+        "ignoreCriticalDoubleDice": false
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    }
+  ],
+  "cancellingConditions": [
+    "Definition:ConditionSwallowedRemorhaz:1bf833241755e684fbef755a54de3fd6"
+  ],
+  "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
+  "additionalDamageType": "",
+  "additionalDamageQuantity": "AbilityBonus",
+  "additionalDamageDieType": "D1",
+  "additionalDamageDieNumber": 1,
+  "additionalConditionWhenHit": false,
+  "additionalCondition": null,
+  "additionalConditionDurationType": "Round",
+  "additionalConditionDurationParameter": 1,
+  "additionalConditionTurnOccurenceType": "StartOfTurn",
+  "conditionStartParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b9a7b49165a2d4a4a8269ba50de2ed57",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "conditionParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "4f7aac5a0d8b3a74aa5c75817922ef5e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "conditionEndParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "ad634b16a4ab2c349a82fbd60cc1846d",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "recurrentEffectParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "characterShaderReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
+  "acidParticleParameters": {
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "coldParticleParameters": {
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "fireParticleParameters": {
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "lightningParticleParameters": {
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "poisonParticleParameters": {
+    "$type": "ConditionParticleParameters, Assembly-CSharp",
+    "startParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "particleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "endParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "recurrentEffectParticleReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "overrideCharacterShaderColors": false,
+  "firstCharacterShaderColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "secondCharacterShaderColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "timeToWaitBeforeApplyingShader": 0.5,
+  "timeToWaitBeforeRemovingShader": 0.5,
+  "possessive": false,
+  "amountOrigin": "None",
+  "baseAmount": 0,
+  "additiveAmount": false,
+  "sourceAbilityBonusMinValue": 1,
+  "subsequentOnRemoval": null,
+  "subsequentHasSavingThrow": false,
+  "subsequentSavingThrowAbilityScore": "Constitution",
+  "subsequentVariableForDC": "FrenzyExhaustionDC",
+  "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
+  "forceBehavior": false,
+  "addBehavior": false,
+  "fearSource": false,
+  "battlePackage": null,
+  "explorationPackage": null,
+  "removedFromTheGame": false,
+  "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
+  "followSourcePosition": false,
+  "disolveCharacterOnDeath": false,
+  "disolveParameters": {
+    "$type": "GraphicsCharacterDefinitions+DisolveParameters, Assembly-CSharp",
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "colorWidth": 0.0,
+    "noiseScale": 5.0,
+    "hueScale": 0.0,
+    "vertexOffset": 0.0,
+    "curve": {
+      "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+    },
+    "startAfterDeathAnimation": false,
+    "duration": 0.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Condition/&ConditionGrappledRestrainedEnsnaredTitle",
+    "description": "Condition/&ConditionGrappledRestrainedEnsnaredDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
+      "m_SubObjectName": "ConditionRestrained",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "526a12f3-594a-5627-82fa-8403e9315b07",
+  "contentPack": 9999,
+  "name": "ConditionGrappledRestrainedEnsnared"
+}

@@ -4,10 +4,10 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -23,7 +23,6 @@ internal static class PrecisionFocusedFeats
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence))
             .SetMagicalWeapon()
-            .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerArcanePrecision = FeatureDefinitionPowerBuilder
@@ -61,7 +60,6 @@ internal static class PrecisionFocusedFeats
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Charisma))
             .SetMagicalWeapon()
-            .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerCharismaticPrecision = FeatureDefinitionPowerBuilder
@@ -99,7 +97,6 @@ internal static class PrecisionFocusedFeats
             .SetGuiPresentation("FeatWisePrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Wisdom))
             .SetMagicalWeapon()
-            .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
         var powerWisePrecision = FeatureDefinitionPowerBuilder

@@ -149,6 +149,7 @@ internal class EffectFormBuilder
             .Build();
     }
 
+#if false
     internal EffectFormBuilder OverrideSavingThrowInfo(
         string savingThrowAbility,
         int savingThrowDc,
@@ -159,6 +160,7 @@ internal class EffectFormBuilder
             sourceDefinitionName, featureSourceType);
         return this;
     }
+#endif
 
     internal EffectFormBuilder SetCounterForm(
         CounterForm.CounterType type,

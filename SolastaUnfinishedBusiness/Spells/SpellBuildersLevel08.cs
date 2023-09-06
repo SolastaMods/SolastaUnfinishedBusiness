@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -31,20 +32,17 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Hour, 24)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionBearsEndurance, "ConditionMindBlank")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetFeatures(
-                                        ConditionAffinityCharmImmunity,
-                                        ConditionAffinityCharmImmunityHypnoticPattern,
-                                        ConditionAffinityCalmEmotionCharmedImmunity,
-                                        DamageAffinityPsychicImmunity)
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionBearsEndurance, "ConditionMindBlank")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetFeatures(
+                                    ConditionAffinityCharmImmunity,
+                                    ConditionAffinityCharmImmunityHypnoticPattern,
+                                    ConditionAffinityCalmEmotionCharmedImmunity,
+                                    DamageAffinityPsychicImmunity)
+                                .AddToDB()))
+                    .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
     }

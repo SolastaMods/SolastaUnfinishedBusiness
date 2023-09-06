@@ -6,13 +6,18 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
+// supports Sunlit Blade and Resonating Strike
 internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
 {
+    internal const string CantripWeaponAttack = "CantripWeaponAttack";
+
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-    internal static readonly IAttackAfterMagicEffect MeleeAttack = new AttackAfterMagicEffect(1);
 
-    internal static readonly IAttackAfterMagicEffect MeleeAttackCanTwin =
+    internal static readonly IAttackAfterMagicEffect ResonatingStrikeAttack =
+        new AttackAfterMagicEffect(1);
+
+    internal static readonly IAttackAfterMagicEffect SunlitBladeAttack =
         new AttackAfterMagicEffect(2);
 
     private readonly int _maxAttacks;
@@ -38,9 +43,9 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             return false;
         }
 
-        var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (battleService == null)
+        if (gameLocationBattleService == null)
         {
             return false;
         }
@@ -48,10 +53,10 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         var attackModifier = new ActionModifier();
         var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
-        evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
-            target.LocationPosition, attackModifier);
+        evalParams.FillForPhysicalReachAttack(
+            caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-        return battleService.CanAttack(evalParams);
+        return gameLocationBattleService.CanAttack(evalParams);
     }
 
     [NotNull]
@@ -99,12 +104,22 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         }
 
         //get copy to be sure we don't break existing mode
-        var tmp = RulesetAttackMode.AttackModesPool.Get();
-        tmp.Copy(attackMode);
-        attackMode = tmp;
+        var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+        rulesetAttackModeCopy.Copy(attackMode);
+        attackMode = rulesetAttackModeCopy;
 
         //set action type to be same as the one used for the magic effect
         attackMode.ActionType = effect.ActionType;
+
+        //PATCH: add tag so it can be identified by War Magic
+        attackMode.AddAttackTagAsNeeded(CantripWeaponAttack);
+
+        //PATCH: ensure we flag cantrip used if action switch enabled
+        if (Main.Settings.EnableActionSwitching)
+        {
+            caster.UsedMainCantrip = true;
+        }
 
         var attackModifier = new ActionModifier();
 
@@ -116,6 +131,7 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
             attacks.Add(attackActionParams);
+
             if (attackActionParams.TargetCharacters.Count >= _maxAttacks)
             {
                 break;
@@ -125,13 +141,14 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
         return attacks;
     }
 
-    private static bool DefaultCanUseHandler([NotNull] CursorLocationSelectTarget targeting,
+    private static bool DefaultCanUseHandler(
+        [NotNull] CursorLocationSelectTarget targeting,
         GameLocationCharacter caster,
-        GameLocationCharacter target, [NotNull] out string failure)
+        GameLocationCharacter target,
+        [NotNull] out string failure)
     {
         failure = String.Empty;
 
-        //TODO: implement setting to tell how many targets must meet weapon attack requirements
         var maxTargets = targeting.maxTargets;
         var remainingTargets = targeting.remainingTargets;
         var selectedTargets = maxTargets - remainingTargets;
@@ -141,7 +158,6 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
             return true;
         }
 
-        //TODO: add option for ranged attacks
         var canAttack = CanMeleeAttack(caster, target);
 
         if (!canAttack)

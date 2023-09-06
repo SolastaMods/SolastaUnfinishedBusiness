@@ -152,7 +152,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         var featureMagicArrow = FeatureDefinitionBuilder
             .Create($"Feature{Name}MagicArrow")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyWeaponAttackModeMagicArrow())
+            .SetCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsBow))
             .AddToDB();
 
         // Guided Shot
@@ -245,7 +245,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeForce, 1, DieType.D6)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
@@ -277,8 +277,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
@@ -303,8 +303,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
@@ -332,18 +332,44 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
+        var abilityCheckAffinityEnfeeblingArrow = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}EnfeeblingArrow")
+            .SetGuiPresentation($"Condition{Name}EnfeeblingArrow", Category.Condition)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution)
+            .AddToDB();
+
+        var savingThrowAffinityEnfeeblingArrow = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}EnfeeblingArrow")
+            .SetGuiPresentation($"Condition{Name}EnfeeblingArrow", Category.Condition)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution)
+            .AddToDB();
+
+        var conditionEnfeeblingArrow = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionEnfeebled, $"Condition{Name}EnfeeblingArrow")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionEnfeebled)
+            .AddFeatures(
+                abilityCheckAffinityEnfeeblingArrow,
+                savingThrowAffinityEnfeeblingArrow)
+            .AddToDB();
+
         ArcaneShotPowers.Add(powerEnfeeblingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionEnfeebled,
-                EffectSpell = SpellDefinitions.RayOfEnfeeblement
+                DebuffCondition = conditionEnfeeblingArrow, EffectSpell = SpellDefinitions.RayOfEnfeeblement
             });
 
         // Grasping Arrow
@@ -365,8 +391,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeSlashing, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypeSlashing, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
@@ -377,7 +403,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             {
                 DebuffCondition = ConditionDefinitions.ConditionRestrained, EffectSpell = SpellDefinitions.Entangle
             });
-
 
         // Insight Arrow
 
@@ -392,15 +417,16 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(SpellDefinitions.FaerieFire)
                     .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
+                        false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence,
                         8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
-                            .Build())
+                            .SetDamageForm(DamageTypeRadiant, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        SpellDefinitions.FaerieFire.EffectDescription.EffectForms[1])
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
@@ -431,8 +457,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
@@ -463,8 +489,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
@@ -537,23 +563,37 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             return;
         }
 
-        var damageRoll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
-        var dices = new List<int> { damageRoll };
+        var dice = new List<int>();
+        var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
+        var diceNumber = classLevel switch
+        {
+            >= 17 => 4,
+            >= 11 => 3,
+            _ => 2
+        };
+
+        for (var i = 0; i < diceNumber; i++)
+        {
+            var damageRoll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
+
+            dice.Add(damageRoll);
+        }
+
         var damageForm = new DamageForm
         {
-            DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = 1, BonusDamage = 0
+            DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
         };
 
         // apply damage to all targets
         foreach (var rulesetDefender in gameLocationBattleService.Battle.GetMyContenders(defender.Side)
-                     .Where(x => gameLocationBattleService.IsWithin1Cell(defender, x) && x != defender)
+                     .Where(x => gameLocationBattleService.IsWithinXCells(defender, x, 3) && x != defender)
                      .ToList() // avoid changing enumerator
                      .Select(targetCharacter => targetCharacter.RulesetCharacter))
         {
             EffectHelpers.StartVisualEffect(
                 attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
             RulesetActor.InflictDamage(
-                damageRoll,
+                dice.Sum(),
                 damageForm,
                 DamageTypeForce,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
@@ -562,7 +602,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 attacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(DieType.D6, dices, 0),
+                new RollInfo(DieType.D6, dice, 0),
                 false,
                 out _);
         }
@@ -628,23 +668,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             SaveOutcome = action.SaveOutcome;
 
             yield break;
-        }
-    }
-
-    //
-    // Magic Arrow
-    //
-
-    private sealed class ModifyWeaponAttackModeMagicArrow : IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            if (attackMode == null || !IsBow(attackMode, null, character))
-            {
-                return;
-            }
-
-            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
         }
     }
 

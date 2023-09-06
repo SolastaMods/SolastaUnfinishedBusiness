@@ -195,7 +195,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 return;
             }
 
-            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
             attackMode.closeRange += 4;
             attackMode.maxRange += 4;
         }

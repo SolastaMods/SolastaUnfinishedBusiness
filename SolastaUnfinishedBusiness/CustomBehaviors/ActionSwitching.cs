@@ -554,6 +554,7 @@ public static class ActionSwitching
         }
 
         data = PerformanceFilterExtraData.GetData(filters[rank + 1]);
+
         if (data == null)
         {
             return;

@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -106,9 +107,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("CollegeOfWarDancer", Resources.CollegeOfWarDancer, 256))
             .AddFeaturesAtLevel(3,
-                warDance,
-                CommonBuilders.FeatureSetCasterFightingProficiency,
-                CommonBuilders.MagicAffinityCasterFightingCombatMagic)
+                warDance, FeatureSetCasterFightingProficiency, MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6, ImproveWarDance)
             .AddFeaturesAtLevel(14, focusedWarDance)
             .AddToDB();
@@ -309,6 +308,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             var wrongAction = actionDefinition.Id is not Id.AttackMain;
             var wrongWeapon = !ValidatorsWeapon.IsMelee(actionParams.attackMode);
             var missed = rulesetHero.RemoveAllConditionsOfType(WarDanceMissedAttack.Name);
+
             if (extraAttacks > 0 && (wrongAction || wrongWeapon || missed))
             {
                 return;
@@ -316,6 +316,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
             //Too many extra attacks, skip
             var maxAttacks = rulesetHero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
+
             if (extraAttacks >= maxAttacks)
             {
                 return;
@@ -346,7 +347,6 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             }
 
             var item = attackMode.sourceDefinition as ItemDefinition;
-
             var isLight = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagLight);
             var isHeavy = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagHeavy);
             var toHit = 0;
@@ -367,6 +367,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             attackMode.toHitBonus += toHit;
 
             var trendInfo = new TrendInfo(toHit, FeatureSourceType.Condition, WarDanceMomentum.Name, character);
+
             attackMode.ToHitBonusTrends.Add(trendInfo);
         }
     }

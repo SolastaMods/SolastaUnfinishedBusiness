@@ -171,7 +171,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 powerSharedPoolForestGuardianBarkWard)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                PowerCasterFightingWarMagic)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 powerSharedPoolForestGuardianImprovedBarkWard)
             .AddFeaturesAtLevel(14,

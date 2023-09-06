@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -162,14 +163,12 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfHarlequin, 256))
             .AddFeaturesAtLevel(3,
-                CommonBuilders.MagicAffinityCasterFightingCombatMagic,
+                MagicAffinityCasterFightingCombatMagic,
                 powerCombatInspiration,
                 powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
                 proficiencyCollegeOfHarlequinFightingStyle)
-            .AddFeaturesAtLevel(6,
-                CommonBuilders.AttributeModifierCasterFightingExtraAttack,
-                powerImprovedCombatInspiration)
+            .AddFeaturesAtLevel(6, PowerCasterFightingWarMagic, powerImprovedCombatInspiration)
             .AddFeaturesAtLevel(14, powerTerrificPerformanceImproved)
             .AddToDB();
     }

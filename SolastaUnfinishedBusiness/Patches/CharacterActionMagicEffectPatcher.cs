@@ -159,67 +159,26 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            //PATCH: supports `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
-            // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
-            var definition = __instance.GetBaseDefinition();
+            //PATCH: supports `IPerformAttackAfterMagicEffectUse`
+            var baseDefinition = __instance.GetBaseDefinition();
+            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
+            var performAttackAfterUse = attackAfterMagicEffect?.PerformAttackAfterUse;
+            var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
 
-            //TODO: add possibility to get attack via feature
-            //TODO: add possibility to process multiple attack features
-            var customFeature = definition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
-
-            CharacterActionAttack attackAction = null;
-
-            var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
-            var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
-            var attacks = getAttackAfterUse?.Invoke(__instance);
-
-            if (attacks is { Count: > 0 })
+            if (characterActionAttacks != null)
             {
-                void AttackImpactStartHandler(
-                    GameLocationCharacter attacker,
-                    GameLocationCharacter defender,
-                    RuleDefinitions.RollOutcome outcome,
-                    CharacterActionParams actionParams,
-                    RulesetAttackMode attackMode,
-                    ActionModifier attackModifier)
-                {
-                    attackOutcome = outcome;
-                }
-
-                __instance.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
-
-                foreach (var attackParams in attacks)
-                {
-                    attackAction = new CharacterActionAttack(attackParams);
-
-                    var enums = attackAction.Execute();
-
-                    while (enums.MoveNext())
-                    {
-                        yield return enums.Current;
-                    }
-                }
-
-                __instance.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
+                __instance.ResultingActions.AddRange(
+                    characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
             }
 
-            var saveRangeType = __instance.actionParams.activeEffect.EffectDescription.rangeType;
-
-            //chained effects would be useful for EOrb
-            var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
-                ?.GetNextMagicEffect(__instance, attackAction, attackOutcome);
+            //PATCH: supports `IChainActionAfterMagicEffect`
+            var chainAction = baseDefinition.GetFirstSubFeatureOfType<IChainActionAfterMagicEffect>()
+                ?.GetNextAction(__instance);
 
             if (chainAction != null)
             {
-                var enums = chainAction.Execute();
-
-                while (enums.MoveNext())
-                {
-                    yield return enums.Current;
-                }
+                __instance.ResultingActions.Add(chainAction);
             }
-
-            __instance.actionParams.activeEffect.EffectDescription.rangeType = saveRangeType;
         }
     }
 

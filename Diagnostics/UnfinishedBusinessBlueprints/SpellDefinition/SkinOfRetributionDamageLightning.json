@@ -7,7 +7,7 @@
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 1,
   "ritual": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
@@ -152,7 +152,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b47f2e2f5757dff47a392712be9c2925",
+        "m_AssetGUID": "44e6449335f642743a6c8d5fda526cfd",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -188,7 +188,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "579f0985fff7e2243a922184fedb2db0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -200,7 +200,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7ee946178940d56438b69281484e7a39",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

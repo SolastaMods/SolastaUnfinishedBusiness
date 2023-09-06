@@ -1,15 +1,19 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
+  "parentCondition": "Definition:ConditionEnfeebled:091842bb537d87b42a2e76c7bcef6ee0",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:AbilityCheckAffinityMartialArcaneArcherEnfeeblingArrow:3de689d9-1293-5315-a826-4e57757c8931",
+    "Definition:CombatAffinityEnfeebled:0fa938d5e8f4a4f40ad1e449cfd92cb5",
+    "Definition:SavingThrowAffinityMartialArcaneArcherEnfeeblingArrow:d8938195-e19b-5145-80ef-f5101fc8b7dc"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
+  "specialDuration": false,
   "durationType": "Minute",
   "durationParameterDie": "D1",
   "durationParameter": 1,
@@ -23,43 +27,7 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
-  "recurrentEffectForms": [
-    {
-      "$type": "EffectForm, Assembly-CSharp",
-      "formType": "Damage",
-      "addBonusMode": "None",
-      "applyLevel": "No",
-      "levelType": "ClassLevel",
-      "levelMultiplier": 1,
-      "diceByLevelTable": [],
-      "createdByCharacter": false,
-      "createdByCondition": false,
-      "hasSavingThrow": false,
-      "savingThrowAffinity": "None",
-      "dcModifier": 0,
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn",
-      "damageForm": {
-        "$type": "DamageForm, Assembly-CSharp",
-        "versatile": false,
-        "diceNumber": 1,
-        "dieType": "D6",
-        "overrideWithBardicInspirationDie": false,
-        "versatileDieType": "D1",
-        "bonusDamage": 0,
-        "damageType": "DamagePiercing",
-        "ancestryType": "Sorcerer",
-        "healFromInflictedDamage": "Never",
-        "hitPointsFloor": 0,
-        "forceKillOnZeroHp": false,
-        "specialDeathCondition": null,
-        "ignoreFlyingCharacters": false,
-        "ignoreCriticalDoubleDice": false
-      },
-      "hasFilterId": false,
-      "filterId": 0
-    }
-  ],
+  "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
@@ -80,13 +48,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "cbcde70067132e245a7a19bff68f9d5e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "51f4c352988e9f845b98e5ef73ba8d89",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -299,12 +267,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionRestrainedTitle",
-    "description": "Rules/&ConditionRestrainedDescription",
+    "title": "Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle",
+    "description": "Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
-      "m_SubObjectName": "ConditionRestrained",
+      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
+      "m_SubObjectName": "ConditionNegative",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -320,7 +288,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d187d079-4674-5b3a-8906-467583847e18",
+  "guid": "325b81d1-96ef-5ff5-8b7b-d14c870d3acf",
   "contentPack": 9999,
-  "name": "ConditionEnsnaringStrikeEnemy"
+  "name": "ConditionMartialArcaneArcherEnfeeblingArrow"
 }

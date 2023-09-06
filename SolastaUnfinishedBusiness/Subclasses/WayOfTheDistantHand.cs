@@ -187,9 +187,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
             .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new AddTagToWeaponWeaponAttack(TagsDefinitions.Magical, (mode, _, character) =>
-                    IsZenArrowAttack(mode, null, character)))
+            .SetCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsZenArrowAttack))
             .AddToDB();
 
         //

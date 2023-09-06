@@ -39,11 +39,12 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
-        var featureEnchantWeapon = FeatureDefinitionBuilder
-            .Create($"Feature{Name}EnchantWeapon")
-            .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
+        var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{Name}EnchantWeapon")
+            .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
             .SetCustomSubFeatures(
-                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEnchanted))
+                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEnchanted),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
 
         var featureSetMartialTraining = FeatureDefinitionFeatureSetBuilder
@@ -176,7 +177,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("SorcererSpellBlade", Resources.SorcererSpellBlade, 256))
             .AddFeaturesAtLevel(1,
-                featureEnchantWeapon,
+                attackModifierEnchantWeapon,
                 featureSetMartialTraining,
                 autoPreparedSpells,
                 featureSetManaShield)

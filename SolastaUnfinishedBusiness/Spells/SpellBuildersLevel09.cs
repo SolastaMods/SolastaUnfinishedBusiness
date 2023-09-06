@@ -35,24 +35,21 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Hour, 8)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionBearsEndurance, "ConditionForesight")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetFeatures(
-                                        AbilityCheckAffinityConditionBearsEndurance,
-                                        AbilityCheckAffinityConditionBullsStrength,
-                                        AbilityCheckAffinityConditionCatsGrace,
-                                        AbilityCheckAffinityConditionEaglesSplendor,
-                                        AbilityCheckAffinityConditionFoxsCunning,
-                                        AbilityCheckAffinityConditionOwlsWisdom,
-                                        CombatAffinityStealthy,
-                                        SavingThrowAffinityShelteringBreeze)
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionBearsEndurance, "ConditionForesight")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetFeatures(
+                                    AbilityCheckAffinityConditionBearsEndurance,
+                                    AbilityCheckAffinityConditionBullsStrength,
+                                    AbilityCheckAffinityConditionCatsGrace,
+                                    AbilityCheckAffinityConditionEaglesSplendor,
+                                    AbilityCheckAffinityConditionFoxsCunning,
+                                    AbilityCheckAffinityConditionOwlsWisdom,
+                                    CombatAffinityStealthy,
+                                    SavingThrowAffinityShelteringBreeze)
+                                .AddToDB()))
+                    .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
     }
@@ -87,6 +84,7 @@ internal static partial class SpellBuilders
                                 false,
                                 HealingCap.MaximumHitPoints)
                             .Build())
+                    .SetParticleEffectParameters(Heal)
                     .Build())
             .AddToDB();
     }
@@ -185,6 +183,7 @@ internal static partial class SpellBuilders
                                 ConditionDefinitions.ConditionStunnedConjuredDeath,
                                 ConditionDefinitions.ConditionProne)
                             .Build())
+                    .SetParticleEffectParameters(Regenerate)
                     .Build())
             .AddToDB();
     }
@@ -213,6 +212,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
                             .Build())
+                    .SetParticleEffectParameters(FingerOfDeath)
                     .Build())
             .AddToDB();
     }
@@ -270,6 +270,22 @@ internal static partial class SpellBuilders
     {
         const string NAME = "TimeStop";
 
+        var conditionTimeStop = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionIncapacitated, "ConditionTimeStop")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetInterruptionDamageThreshold(1)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
+            .AddToDB();
+
+        conditionTimeStop.conditionStartParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
+            .conditionStartParticleReference;
+        conditionTimeStop.conditionParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
+            .conditionParticleReference;
+        conditionTimeStop.conditionEndParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
+            .conditionStartParticleReference;
+        conditionTimeStop.recurrentEffectParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
+            .recurrentEffectParticleReference;
+
         return SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.TimeStop, 128, 128))
@@ -283,18 +299,9 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Round, 3)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cylinder, 20, 10)
                 .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(ConditionDefinitions.ConditionIncapacitated, "ConditionTimeStop")
-                                .SetOrUpdateGuiPresentation(Category.Condition)
-                                .SetInterruptionDamageThreshold(1)
-                                .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
+                    EffectFormBuilder.ConditionForm(conditionTimeStop))
                 .ExcludeCaster()
+                .SetParticleEffectParameters(DispelMagic)
                 .Build())
             .AddToDB();
     }
@@ -336,6 +343,7 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
+                    .SetParticleEffectParameters(PhantasmalKiller)
                     .Build())
             .SetRequiresConcentration(true)
             .AddToDB();

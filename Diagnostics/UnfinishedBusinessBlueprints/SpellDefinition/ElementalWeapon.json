@@ -13,7 +13,7 @@
   "schoolOfMagic": "SchoolTransmutation",
   "spellLevel": 3,
   "ritual": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",

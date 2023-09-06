@@ -55,6 +55,9 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
+            // keep a tab on last cantrip weapon attack status
+            Global.LastAttackWasCantripWeaponAttackHit = false;
+
             //PATCH: support for character action tracking
             Global.CurrentAction = __instance;
 

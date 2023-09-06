@@ -350,6 +350,11 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
+            // keep a tab on last cantrip weapon attack status
+            Global.LastAttackWasCantripWeaponAttackHit =
+                attackMode is { AttackTags: not null } &&
+                attackMode.AttackTags.Contains(AttackAfterMagicEffect.CantripWeaponAttack);
+
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -1112,7 +1117,10 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static IEnumerator Postfix(
-            IEnumerator values,
+#pragma warning disable IDE0060
+            //values are not used but required for patch to work
+            [NotNull] IEnumerator values,
+#pragma warning restore IDE0060
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1169,6 +1177,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield break;
             }
+
+            // pretty much vanilla code from here
 
             ++defender.SustainedAttacks;
 

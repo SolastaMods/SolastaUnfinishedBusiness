@@ -1,6 +1,6 @@
 Condition/&ConditionDomainSmithAdamantBenedictionDescription=Your armor strengthens to adamantine, halving critical damage.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Adamantine Armor
-Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Once per turn, deal +{0}d8 fire damage on weapon attacks.
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Once per turn, deal +1d8 fire damage on weapon attacks. This damage is increased to 2d8 at 14th level.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Divine Strike
 Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Gain fire resistance and while wearing armor gain +1 AC.
 Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Forge Mastery
@@ -13,7 +13,7 @@ Feature/&BonusProficiencyDomainSmithTitle=Heavy Armor Proficient
 Feature/&FeatureDomainSmithBlessedMetalDescription=Your blessed affinity with fire and metal becomes more powerful. While wearing armor, you gain the following benefits:\n• You gain immunity to fire damage.\n• You have resistance to bludgeoning, piercing, and slashing damage from non magical attacks.
 Feature/&FeatureDomainSmithBlessedMetalTitle=Blessed Metal
 Feature/&PowerDomainSmithAdamantBenedictionDescription=Using an action, bolster the armor of allies in a 30ft radius. Their armor gains the Strength of adamantine armor, gaining immunity to critical for 1 minute.
-Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Adamant Benediction
+Feature/&PowerDomainSmithAdamantBenedictionTitle=Adamant Benediction
 Feature/&PowerDomainSmithReinforceArmorDescription=Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +{0} AC.
 Feature/&PowerDomainSmithReinforceArmorTitle=Reinforce Armor
 Subclass/&DomainSmithDescription=Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.

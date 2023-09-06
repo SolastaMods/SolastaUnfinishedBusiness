@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -51,7 +52,7 @@ internal static partial class SpellBuilders
 
         var additionalDamageStaggeringSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 4)
@@ -69,6 +70,7 @@ internal static partial class SpellBuilders
                     conditionDefinition = conditionStaggeringSmiteEnemy,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
+            .SetImpactParticleReference(Maze.EffectDescription.EffectParticleParameters.effectParticleReference)
             .AddToDB();
 
         var conditionStaggeringSmite = ConditionDefinitionBuilder
@@ -86,14 +88,18 @@ internal static partial class SpellBuilders
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(conditionStaggeringSmite, ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionStaggeringSmite))
+                    .SetParticleEffectParameters(Maze)
                     .Build())
-                .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         return spell;
     }
@@ -140,6 +146,7 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Hour, 1)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
+                    .SetParticleEffectParameters(DispelMagic)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

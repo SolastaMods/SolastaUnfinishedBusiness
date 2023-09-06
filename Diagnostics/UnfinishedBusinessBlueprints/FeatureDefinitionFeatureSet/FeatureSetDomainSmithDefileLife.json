@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerDomainDefilerDefileLife2:44dca297-725b-5882-a54a-d5bfc01d2128"
+    "Definition:PowerDomainSmithAdamantBenediction:be77a6b8-c6db-5b7b-a1b7-462cbf96bfa2"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -13,11 +13,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channel Divinity: Defile Life",
-    "description": "Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +1d6 necrotic damage on a failed saving throw, or half that amount on a successful one.",
+    "title": "Channel Divinity: Adamant Benediction",
+    "description": "Using an action, bolster the armor of allies in a 30ft radius. Their armor gains the Strength of adamantine armor, gaining immunity to critical for 1 minute.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "65fca59b-3cc8-501c-8387-4f25faf8aa05",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7e871290-e5f9-5f7e-97a5-9ced333fb8ce",
+  "guid": "4a593797-45bd-5dd3-af36-cb36ca350e8e",
   "contentPack": 9999,
-  "name": "FeatureSetDomainDefilerDefileLife2"
+  "name": "FeatureSetDomainSmithDefileLife"
 }

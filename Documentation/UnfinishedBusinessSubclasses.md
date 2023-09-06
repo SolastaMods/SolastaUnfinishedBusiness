@@ -629,13 +629,13 @@ Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, yo
 
 ## Level 6
 
+* Cantrip Attack
+
+You can replace one of your attacks with a cantrip.
+
 * Extra Attack
 
 You gain an extra attack and can now attack up to 2 times in your turn.
-
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 ## Level 10
@@ -756,9 +756,9 @@ Bards of the College of Guts gather in mead halls or around great bonfires to si
 
 You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
 
-* War Casting
+* Improved War Casting
 
-Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
 
 
 ## Level 6
@@ -774,9 +774,9 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 ## Level 14
 
-* War Magic
+* Gut Deflection
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
 
 
 
@@ -810,13 +810,13 @@ Advantage on concentration checks, be able to use your weapons as spellcasting f
 
 ## Level 6
 
-* Extra Attack
-
-You gain an extra attack and can now attack up to 2 times in your turn.
-
 * Improved Combat Inspiration
 
 You regain a bardic inspiration die whenever you strike down an enemy.
+
+* War Magic
+
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
 
 
 ## Level 14
@@ -1089,24 +1089,24 @@ Gain the bonus cantrips Ray of Frost and Wrack.
 
 * Insidious Death Magic
 
-Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of turns equal to half your level.
+Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of turns equal to half your cleric level (rounded up), or 1 minute if a Divine Strike.
 
 
 ## Level 2
 
 * Channel Divinity: Defile Life
 
-Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +1d6 necrotic damage on a failed saving throw, or half that amount on a successful one.
-
-
-## Level 5
-
-* Channel Divinity: Defile Life
-
-Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +3d6 necrotic damage on a failed saving throw, or half that amount on a successful one.
+Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take 2d6 + your class level necrotic damage on a failed saving throw, or half that amount on a successful one.
 
 
 ## Level 6
+
+* Channel Divinity: Mark for Death
+
+Mark an enemy for death for one minute. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.
+
+
+## Level 8
 
 * Divine Resistance
 
@@ -1114,14 +1114,7 @@ You have resistance to Necrotic damage.
 
 * Divine Strike
 
-Once per turn, deal +1d8 necrotic damage on weapon attacks.
-
-
-## Level 8
-
-* Channel Divinity: Mark for Death
-
-Mark an enemy for death. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.
+Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage is increased to 2d8 at 14th level.
 
 
 ## Level 10
@@ -1131,29 +1124,18 @@ Mark an enemy for death. They gain vulnerability to necrotic damage and must mak
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
 
 
-## Level 11
-
-* Channel Divinity: Defile Life
-
-Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +5d6 necrotic damage on a failed saving throw, or half that amount on a successful one.
-
-
 ## Level 14
 
 * Divine Immunity
 
 You have immunity to Necrotic damage.
 
-* Divine Strike
-
-Once per turn, deal +2d8 necrotic damage on weapon attacks.
-
 
 ## Level 17
 
-* Channel Divinity: Defile Life
+* Dying Light
 
-Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +7d6 necrotic damage on a failed saving throw, or half that amount on a successful one.
+Learn Circle of Death and Finger of Death spells and add them to the list of spells known. You always have these spells prepared, they do not count towards your prepared spells limit and are treated as cleric spells for you. In addition, necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
 
 
 
@@ -2486,9 +2468,9 @@ Using an action, bolster the armor of allies in a 30ft radius. Their armor gains
 
 ## Level 6
 
-* Divine Strike
+* Forge Mastery
 
-Once per turn, deal +1d8 fire damage on weapon attacks.
+Gain fire resistance and while wearing armor gain +1 AC.
 
 * Reinforce Armor
 
@@ -2497,9 +2479,9 @@ Once per short rest, you may reinforce a non magical piece of armor or shield. T
 
 ## Level 8
 
-* Forge Mastery
+* Divine Strike
 
-Gain fire resistance and while wearing armor gain +1 AC.
+Once per turn, deal +1d8 fire damage on weapon attacks. This damage is increased to 2d8 at 14th level.
 
 
 ## Level 10
@@ -2514,13 +2496,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Reinforce Armor
 
 Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +3 AC.
-
-
-## Level 14
-
-* Divine Strike
-
-Once per turn, deal +2d8 fire damage on weapon attacks.
 
 
 ## Level 16
@@ -2623,7 +2598,7 @@ You can replace one of your attacks with a cantrip.
 
 * War Magic
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
 
 
 ## Level 10
@@ -3150,7 +3125,7 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 
 
-* Soul Empower
+* Soul Empowered
 
 Your main weapon single handed attacks count as magical and you use your spell casting modifier on attack and damage rolls. You lift the restriction on single handed if you take Pact of Blade, and you lift the restriction on main attack if you take the Two Weapon fighting style.
 
@@ -3278,9 +3253,9 @@ Learn and have always prepared:
 
 You can take a bonus action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
 
-* Extra Attack
+* War Magic
 
-You gain an extra attack and can now attack up to 2 times in your turn.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
 
 
 ## Level 9

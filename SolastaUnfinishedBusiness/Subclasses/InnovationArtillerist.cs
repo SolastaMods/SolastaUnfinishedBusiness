@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
@@ -431,7 +432,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new ShowWhenHasCannon(),
-                new ChainMagicEffectEldritchDetonation(powerDetonateSelf))
+                new ChainActionAfterMagicEffectEldritchDetonation(powerDetonateSelf))
             .AddToDB();
 
         // Explosive Cannon
@@ -1037,61 +1038,45 @@ public sealed class InnovationArtillerist : AbstractSubclass
         }
     }
 
-    private sealed class ChainMagicEffectEldritchDetonation : IChainMagicEffect
+    private sealed class ChainActionAfterMagicEffectEldritchDetonation : IChainActionAfterMagicEffect
     {
-        private readonly FeatureDefinitionPower _power;
+        private readonly FeatureDefinitionPower _powerEldritchDetonation;
 
-        internal ChainMagicEffectEldritchDetonation(FeatureDefinitionPower power)
+        internal ChainActionAfterMagicEffectEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
         {
-            _power = power;
+            _powerEldritchDetonation = powerEldritchDetonation;
         }
 
         [CanBeNull]
-        public CharacterActionMagicEffect GetNextMagicEffect(
-            [CanBeNull] CharacterActionMagicEffect baseEffect,
-            CharacterActionAttack triggeredAttack,
-            RollOutcome attackOutcome)
+        public CharacterAction GetNextAction(CharacterActionMagicEffect baseEffect)
         {
-            if (baseEffect == null)
-            {
-                return null;
-            }
-
-            var actionParams = baseEffect.ActionParams;
-            var caster = actionParams.ActingCharacter;
-            var cannon = actionParams.TargetCharacters.Count > 0 ? actionParams.TargetCharacters[0] : null;
-
-            if (caster == null || cannon == null)
-            {
-                return null;
-            }
-
-            var rulesetCaster = caster.RulesetCharacter;
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
-            var usablePower = UsablePowersProvider.Get(_power, rulesetCaster);
 
-            if (rulesetImplementationService == null || gameLocationTargetingService == null)
+            if (gameLocationTargetingService == null)
             {
                 return null;
             }
 
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCaster, usablePower, false)
-                .AddAsActivePowerToSource();
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var actionParams = baseEffect.ActionParams;
+            var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
+            var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
+            var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
+            var effectPower = rulesetImplementationService
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
-                cannon, effectPower.EffectDescription, targets, new List<ActionModifier>());
+                selectedTarget, effectPower.EffectDescription, targets, new List<ActionModifier>());
 
-            foreach (var target in targets)
-            {
-                effectPower.ApplyEffectOnCharacter(target.RulesetActor, true, target.LocationPosition);
-            }
+            var newActionParams = baseEffect.ActionParams.Clone();
 
-            effectPower.Terminate(true);
+            newActionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
+            newActionParams.RulesetEffect = effectPower;
+            newActionParams.TargetCharacters.SetRange(targets);
 
-            return null;
+            return new CharacterActionSpendPower(actionParams);
         }
     }
 

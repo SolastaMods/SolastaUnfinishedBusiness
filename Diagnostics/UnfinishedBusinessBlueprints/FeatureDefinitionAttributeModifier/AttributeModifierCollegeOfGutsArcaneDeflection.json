@@ -1,10 +1,17 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "Additive",
+  "modifierValue": 3,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle",
-    "description": "Once per turn, deal +2d8 necrotic damage on weapon attacks.",
+    "title": "Feature/&PowerCollegeOfGutsArcaneDeflectionTitle",
+    "description": "Feature/&PowerCollegeOfGutsArcaneDeflectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d2271466-ab0d-51d7-a9cb-751e9ffe34c5",
+  "guid": "3f818f1c-df44-52de-b54f-efe328fc947b",
   "contentPack": 9999,
-  "name": "AdditionalDamageDomainDefilerDivineStrike14"
+  "name": "AttributeModifierCollegeOfGutsArcaneDeflection"
 }
