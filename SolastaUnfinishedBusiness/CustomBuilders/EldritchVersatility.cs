@@ -1243,28 +1243,40 @@ internal static class EldritchVersatility
         }
     }
 
-    private class EldritchWardAidSave : IMeOrAllySaveFailPossible
+    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter defender, GameLocationCharacter featureOwner,
-            ActionModifier saveModifier, bool hasHitVisual, bool hasBorrowedLuck)
+        private static bool ShouldTrigger(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
         {
-            var posOwner = featureOwner.locationPosition;
-            var posDefender = defender.locationPosition;
+            return action.RolledSaveThrow
+                   && helper.CanReact()
+                   && helper.IsOppositeSide(defender.Side)
+                   && battleManager.CanAttackerSeeCharacterFromPosition(
+                       defender.LocationPosition, helper.LocationPosition, defender, helper)
+                   && battleManager.IsWithinXCells(helper, defender, 7);
+        }
 
-            if (!action.rolledSaveThrow ||
-                !featureOwner.CanReact() ||
-                !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner) ||
-                int3.Distance(posDefender, posOwner) > 6f
-               )
+        public IEnumerator OnMeOrAllySaveFailPossible(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            if (!ShouldTrigger(battleManager, action, defender, helper))
             {
                 yield break;
             }
 
-            var ownerCharacter = featureOwner.RulesetCharacter;
-            ownerCharacter.GetVersatilitySupportCondition(out var supportCondition);
+            var ownerCharacter = helper.RulesetCharacter;
 
-            if (supportCondition is null)
+            if (!ownerCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
@@ -1283,7 +1295,7 @@ internal static class EldritchVersatility
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            var actionParams = new CharacterActionParams(featureOwner, (Id)ExtraActionId.DoNothingReaction)
+            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionEldritchWard"
                     .Formatted(Category.Reaction, defender.Name)
@@ -1291,7 +1303,7 @@ internal static class EldritchVersatility
 
             RequestCustomReaction(actionService, "EldritchWard", actionParams, requiredSaveAddition);
 
-            yield return battleManager.WaitForReactions(featureOwner, actionService, count);
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

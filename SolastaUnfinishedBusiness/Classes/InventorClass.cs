@@ -875,7 +875,7 @@ internal class InventorClassHolder : IClassHoldingFeature
 }
 
 // Moved logic from original patcher, no other changes made
-internal class FlashOfGenius : IMeOrAllySaveFailPossible
+internal class FlashOfGenius : ITryAlterOutcomeSavingThrow
 {
     internal FlashOfGenius(FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
@@ -898,12 +898,14 @@ internal class FlashOfGenius : IMeOrAllySaveFailPossible
         bool hasBorrowedLuck)
     {
         var ownerCharacter = featureOwner.RulesetCharacter;
+
         ownerCharacter.TryGetConditionOfCategoryAndType(
             AttributeDefinitions.TagEffect,
             AuraConditionName,
             out var activeCondition
         );
         RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var helperCharacter);
+
         var locHelper = GameLocationCharacter.GetFromActor(helperCharacter);
 
         if (!ShouldTrigger(action, defender, locHelper))
