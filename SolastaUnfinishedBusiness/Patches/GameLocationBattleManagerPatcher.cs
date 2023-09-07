@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 using TA;
 using static RuleDefinitions;
 
@@ -298,12 +299,12 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var defensiveEvents =
+                var extraEvents =
                     DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
 
-                while (defensiveEvents.MoveNext())
+                while (extraEvents.MoveNext())
                 {
-                    yield return defensiveEvents.Current;
+                    yield return extraEvents.Current;
                 }
             }
 
@@ -314,13 +315,13 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var guardianEvents =
+                var extraEvents =
                     GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(
                         __instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
 
-                while (guardianEvents.MoveNext())
+                while (extraEvents.MoveNext())
                 {
-                    yield return guardianEvents.Current;
+                    yield return extraEvents.Current;
                 }
             }
         }
@@ -350,7 +351,7 @@ public static class GameLocationBattleManagerPatcher
             // keep a tab on last cantrip weapon attack status
             Global.LastAttackWasCantripWeaponAttackHit =
                 attackMode is { AttackTags: not null } &&
-                attackMode.AttackTags.Contains(AttackAfterMagicEffect.CantripWeaponAttack);
+                attackMode.AttackTags.Contains(SpellBuilders.CantripWeaponAttack);
 
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             if (Gui.Battle != null &&
@@ -907,9 +908,8 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
             foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<IOnTargetReducedToZeroHp>()
-                         .Select(x =>
-                             x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
-                                 activeEffect)))
+                         .Select(x => x.HandleCharacterReducedToZeroHp(
+                             attacker, downedCreature, rulesetAttackMode, activeEffect)))
             {
                 while (extraEvents.MoveNext())
                 {
@@ -924,9 +924,8 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: Support for `ISourceReducedToZeroHP` feature
             foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<IOnSourceReducedToZeroHp>()
-                         .Select(x =>
-                             x.HandleSourceReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
-                                 activeEffect)))
+                         .Select(x => x.HandleSourceReducedToZeroHp(
+                             attacker, downedCreature, rulesetAttackMode, activeEffect)))
             {
                 while (extraEvents.MoveNext())
                 {
