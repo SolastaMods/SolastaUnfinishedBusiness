@@ -520,6 +520,147 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Sunlit Blade
+
+    internal static SpellDefinition BuildSunlightBlade()
+    {
+        var conditionMarked = ConditionDefinitionBuilder
+            .Create("ConditionSunlightBladeMarked")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var conditionSunlightBlade = ConditionDefinitionBuilder
+            .Create("ConditionSunlightBlade")
+            .SetGuiPresentation(Category.Condition)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageSunlightBlade")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("SunlightBlade")
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetAttackModeOnly()
+                .SetDamageDice(DieType.D8, 1)
+                .SetSpecificDamageType(DamageTypeRadiant)
+                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
+                .SetTargetCondition(conditionMarked,
+                    AdditionalDamageTriggerCondition.TargetHasCondition)
+                .SetConditionOperations(new ConditionOperationDescription
+                {
+                    hasSavingThrow = false,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
+                        .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                        .SetSpecialDuration(DurationType.Round, 1,
+                            TurnOccurenceType.StartOfTurn)
+                        .AddToDB()
+                })
+                .SetAddLightSource(true)
+                .SetLightSourceForm(new LightSourceForm
+                {
+                    brightRange = 0,
+                    dimAdditionalRange = 2,
+                    lightSourceType = LightSourceType.Basic,
+                    color = new Color(0.9f, 0.8f, 0.4f),
+                    graphicsPrefabReference = FeatureDefinitionAdditionalDamages
+                        .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
+                })
+                .SetImpactParticleReference(DivineFavor)
+                .AddToDB())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create("SunlightBlade")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
+            .SetSpellLevel(0)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetVerboseComponent(false)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetIgnoreCover()
+                    .SetEffectAdvancement( // this is needed for tooltip
+                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1, incrementMultiplier: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionSunlightBlade, ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder.ConditionForm(conditionMarked))
+                    .SetParticleEffectParameters(DivineFavor)
+                    .Build())
+            .AddToDB();
+
+        spell.SetCustomSubFeatures(
+            AttackAfterMagicEffect.SunlitBladeAttack,
+            new UpgradeRangeBasedOnWeaponReach(spell));
+
+        return spell;
+    }
+
+    #endregion
+
+    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyEffectDescription
+    {
+        private readonly BaseDefinition _baseDefinition;
+
+        public UpgradeRangeBasedOnWeaponReach(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(
+            BaseDefinition definition,
+            RulesetCharacter character,
+            EffectDescription effectDescription)
+        {
+            if (_baseDefinition != definition)
+            {
+                return false;
+            }
+
+            var caster = GameLocationCharacter.GetFromActor(character);
+            var attackMode = caster?.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode is not { SourceObject: RulesetItem })
+            {
+                return false;
+            }
+
+            if (attackMode.Ranged || !attackMode.Reach)
+            {
+                return false;
+            }
+
+            var reach = attackMode.reachRange;
+
+            return reach > 1;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var caster = GameLocationCharacter.GetFromActor(character);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var reach = attackMode.reachRange;
+
+            effectDescription.rangeParameter = reach;
+
+            return effectDescription;
+        }
+    }
+
     #region Acid Claws
 
     internal static ConditionDefinition AcidClawCondition => _acidClawCondition ??= BuildAcidClawCondition();
@@ -635,7 +776,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create("BoomingBlade")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
+            .SetGuiPresentation(Category.Spell, DivineBlade)
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetVerboseComponent(false)
@@ -724,21 +865,21 @@ internal static partial class SpellBuilders
 
             var damageForm = new DamageForm
             {
-                DamageType = DamageTypeThunder, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
+                DamageType = DamageTypeThunder, DieType = DieType.D8, DiceNumber = diceNumber, BonusDamage = 0
             };
 
             EffectHelpers.StartVisualEffect(attacker, defender, Shatter);
             RulesetActor.InflictDamage(
                 dice.Sum(),
                 damageForm,
-                DamageTypeForce,
+                DamageTypeThunder,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 attacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(DieType.D6, dice, 0),
+                new RollInfo(DieType.D8, dice, 0),
                 false,
                 out _);
             rulesetDefender.RemoveCondition(usableCondition);
@@ -747,7 +888,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Resonating Strike
+    #region Burning Blade (Resonating Strike)
 
     internal static SpellDefinition BuildResonatingStrike()
     {
@@ -761,14 +902,14 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(Shatter)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetBonusMode(AddBonusMode.AbilityBonus)
-                            .SetDamageForm(DamageTypeThunder, 0, DieType.D8)
+                            .SetDamageForm(DamageTypeFire, 0, DieType.D8)
                             .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 20, (5, 1), (11, 2), (17, 3))
                             .Build())
+                    .SetParticleEffectParameters(FireBolt)
                     .Build())
             .AddToDB();
 
@@ -781,18 +922,17 @@ internal static partial class SpellBuilders
             .SetNotificationTag("ResonatingStrike")
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D8, 1)
-            .SetSpecificDamageType(DamageTypeThunder)
+            .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
                 DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (1, 1), (5, 2), (11, 3), (17, 4)))
-            .SetImpactParticleReference(Shatter)
+            .SetImpactParticleReference(FireBolt)
             .SetAttackModeOnly()
             .AddToDB();
 
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
-            .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("ResonatingStrike", Resources.ResonatingStrike, 128, 128))
+            .SetGuiPresentation(Category.Spell, FlameBlade)
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetVerboseComponent(false)
@@ -826,7 +966,7 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add,
                                 true)
                             .Build())
-                    .SetParticleEffectParameters(Shatter)
+                    .SetParticleEffectParameters(FireBolt)
                     .Build())
             .AddToDB();
     }
@@ -893,147 +1033,6 @@ internal static partial class SpellBuilders
             actionParams.TargetCharacters.SetRange(targets[1]);
 
             return new CharacterActionSpendPower(actionParams);
-        }
-    }
-
-    #endregion
-
-    #region Sunlit Blade
-
-    internal static SpellDefinition BuildSunlightBlade()
-    {
-        var conditionMarked = ConditionDefinitionBuilder
-            .Create("ConditionSunlightBladeMarked")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        var conditionSunlightBlade = ConditionDefinitionBuilder
-            .Create("ConditionSunlightBlade")
-            .SetGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageSunlightBlade")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag("SunlightBlade")
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                .SetAttackModeOnly()
-                .SetDamageDice(DieType.D8, 1)
-                .SetSpecificDamageType(DamageTypeRadiant)
-                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
-                .SetTargetCondition(conditionMarked,
-                    AdditionalDamageTriggerCondition.TargetHasCondition)
-                .SetConditionOperations(new ConditionOperationDescription
-                {
-                    hasSavingThrow = false,
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
-                        .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                        .SetSpecialDuration(DurationType.Round, 1,
-                            TurnOccurenceType.StartOfTurn)
-                        .AddToDB()
-                })
-                .SetAddLightSource(true)
-                .SetLightSourceForm(new LightSourceForm
-                {
-                    brightRange = 0,
-                    dimAdditionalRange = 2,
-                    lightSourceType = LightSourceType.Basic,
-                    color = new Color(0.9f, 0.8f, 0.4f),
-                    graphicsPrefabReference = FeatureDefinitionAdditionalDamages
-                        .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
-                })
-                .SetImpactParticleReference(DivineFavor)
-                .AddToDB())
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create("SunlightBlade")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
-            .SetSpellLevel(0)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetVerboseComponent(false)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetIgnoreCover()
-                    .SetEffectAdvancement( // this is needed for tooltip
-                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1, incrementMultiplier: 1)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            conditionSunlightBlade, ConditionForm.ConditionOperation.Add, true),
-                        EffectFormBuilder.ConditionForm(conditionMarked))
-                    .SetParticleEffectParameters(DivineFavor)
-                    .Build())
-            .AddToDB();
-
-        spell.SetCustomSubFeatures(
-            AttackAfterMagicEffect.SunlitBladeAttack,
-            new UpgradeRangeBasedOnWeaponReach(spell));
-
-        return spell;
-    }
-
-    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyEffectDescription
-    {
-        private readonly BaseDefinition _baseDefinition;
-
-        public UpgradeRangeBasedOnWeaponReach(BaseDefinition baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            if (_baseDefinition != definition)
-            {
-                return false;
-            }
-
-            var caster = GameLocationCharacter.GetFromActor(character);
-            var attackMode = caster?.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode is not { SourceObject: RulesetItem })
-            {
-                return false;
-            }
-
-            if (attackMode.Ranged || !attackMode.Reach)
-            {
-                return false;
-            }
-
-            var reach = attackMode.reachRange;
-
-            return reach > 1;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var caster = GameLocationCharacter.GetFromActor(character);
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            var reach = attackMode.reachRange;
-
-            effectDescription.rangeParameter = reach;
-
-            return effectDescription;
         }
     }
 

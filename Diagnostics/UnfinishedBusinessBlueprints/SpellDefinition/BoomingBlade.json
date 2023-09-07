@@ -350,9 +350,9 @@
     "description": "Spell/&BoomingBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "be056650-f9ad-5dc3-98e9-acd10c9c362d",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "df2faaa7db39d064b913d8578da6d3e8",
+      "m_SubObjectName": "DivineBlade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
