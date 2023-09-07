@@ -819,7 +819,7 @@ internal static class InventorClass
             .AddToDB();
 
         //should be hidden from user
-        var flashOfGenius = new TryAlterOutcomeSavingThrowFlashOfGenius(
+        var flashOfGenius = new TryAlterOutcomeFailedSavingThrowFlashOfGenius(
             bonusPower, "InventorFlashOfGenius", "ConditionInventorFlashOfGeniusAura");
 
         var auraPower = FeatureDefinitionPowerBuilder
@@ -875,9 +875,9 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class TryAlterOutcomeSavingThrowFlashOfGenius : ITryAlterOutcomeSavingThrow
+internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeFailedSavingThrow
 {
-    internal TryAlterOutcomeSavingThrowFlashOfGenius(
+    internal TryAlterOutcomeFailedSavingThrowFlashOfGenius(
         FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
         Power = power;
@@ -889,7 +889,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius : ITryAlterOutcomeSavingT
     private string ReactionName { get; }
     private string AuraConditionName { get; }
 
-    public IEnumerator OnSavingTryAlterOutcome(GameLocationBattleManager battleManager,
+    public IEnumerator OnFailedSavingTryAlterOutcome(GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

@@ -64,7 +64,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var featureRoguishOpportunistSeizeTheChance = FeatureDefinitionBuilder
             .Create("FeatureRoguishOpportunistSeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new TryAlterOutcomeSavingThrowSeizeTheChance())
+            .SetCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
             .AddToDB();
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
@@ -170,9 +170,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
         }
     }
 
-    private sealed class TryAlterOutcomeSavingThrowSeizeTheChance : ITryAlterOutcomeSavingThrow
+    private sealed class TryAlterOutcomeFailedSavingThrowSeizeTheChance : ITryAlterOutcomeFailedSavingThrow
     {
-        public IEnumerator OnSavingTryAlterOutcome(
+        public IEnumerator OnFailedSavingTryAlterOutcome(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

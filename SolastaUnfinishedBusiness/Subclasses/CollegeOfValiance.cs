@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -44,7 +43,8 @@ public sealed class CollegeOfValiance : AbstractSubclass
         var featureDishearteningPerformance = FeatureDefinitionBuilder
             .Create($"Feature{Name}DishearteningPerformance")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new OnSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance))
+            .SetCustomSubFeatures(
+                new OnFailedSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance))
             .AddToDB();
 
         conditionDishearteningPerformance.Features.Add(featureDishearteningPerformance);
@@ -166,66 +166,71 @@ public sealed class CollegeOfValiance : AbstractSubclass
         }
     }
 
-    private sealed class OnSavingThrowAfterRollDishearteningPerformance : ITryAlterOutcomeSavingThrow
+    private sealed class OnFailedSavingThrowAfterRollDishearteningPerformance : ITryAlterOutcomeSavingThrow
     {
         private readonly ConditionDefinition _conditionDishearteningPerformance;
 
-        public OnSavingThrowAfterRollDishearteningPerformance(ConditionDefinition conditionDishearteningPerformance)
+        public OnFailedSavingThrowAfterRollDishearteningPerformance(
+            ConditionDefinition conditionDishearteningPerformance)
         {
             _conditionDishearteningPerformance = conditionDishearteningPerformance;
         }
 
-        public IEnumerator OnSavingTryAlterOutcome(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual, bool hasBorrowedLuck)
+        public void OnFailedSavingTryAlterOutcome(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
         {
-            var saveOutcome = action.SaveOutcome;
-
             if (saveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                yield break;
+                return;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            rulesetDefender.TryGetConditionOfCategoryAndType(
+            target.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
                 _conditionDishearteningPerformance.Name,
                 out var activeCondition);
 
             if (activeCondition == null)
             {
-                yield break;
+                return;
             }
 
-            RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
+            var bardCharacter = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
-            if (rulesetOriginalHelper is not { IsDeadOrDyingOrUnconscious: false })
+            if (bardCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
+                return;
             }
 
             // this is almost the same code as RollBardicInspirationDie but dup here for better combat log messages
-            var dieType = rulesetOriginalHelper.GetBardicInspirationDieValue();
+            var dieType = bardCharacter.GetBardicInspirationDieValue();
             var inspirationDie = RollDie(dieType, AdvantageType.None, out _, out _);
-            var saveOutcomeDelta = action.SaveOutcomeDelta;
             var baseLine = inspirationDie > saveOutcomeDelta
                 ? "Feedback/&DishearteningPerformanceUsedSuccessLine"
                 : "Feedback/&DishearteningPerformanceUsedFailureLine";
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry(baseLine, console.consoleTableDefinition) { Indent = true };
 
-            console.AddCharacterEntry(rulesetOriginalHelper, entry);
+            console.AddCharacterEntry(bardCharacter, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(dieType));
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, inspirationDie.ToString());
             console.AddEntry(entry);
@@ -234,11 +239,10 @@ public sealed class CollegeOfValiance : AbstractSubclass
 
             if (saveOutcomeDelta < 0)
             {
-                action.SaveOutcome = RollOutcome.Failure;
-                action.SaveOutcomeDelta = saveOutcomeDelta;
+                saveOutcome = RollOutcome.Failure;
             }
 
-            defender.RulesetCharacter.RemoveCondition(activeCondition);
+            target.RemoveCondition(activeCondition);
         }
     }
 }

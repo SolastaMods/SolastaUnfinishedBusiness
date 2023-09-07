@@ -709,8 +709,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: supports IModifySavingThrowAttribute interface
             GetBestSavingThrowAbilityScore(target, actionModifier, ref savingThrowAbility);
         }
-
-        //PATCH: supports IOnSavingThrowAfterRoll interface
+        
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter caster,
@@ -741,10 +740,10 @@ public static class RulesetImplementationManagerPatcher
                 Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
             }
 
-            //PATCH: react to failed saving throw
-            foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<IOnSavingThrowAfterRoll>())
+            //PATCH: supports ITryAlterOutcomeSavingThrow interface
+            foreach (var tryAlterOutcomeSavingThrow in target.GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
             {
-                savingThrowAfterRoll.OnSavingThrowAfterRoll(
+                tryAlterOutcomeSavingThrow.OnFailedSavingTryAlterOutcome(
                     caster,
                     sourceSide,
                     target,

@@ -540,7 +540,8 @@ internal static partial class SpellBuilders
                 .SetAttackModeOnly()
                 .SetDamageDice(DieType.D8, 1)
                 .SetSpecificDamageType(DamageTypeRadiant)
-                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
+                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
+                    DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                 .SetTargetCondition(conditionMarked,
                     AdditionalDamageTriggerCondition.TargetHasCondition)
                 .SetConditionOperations(new ConditionOperationDescription
@@ -703,7 +704,8 @@ internal static partial class SpellBuilders
                     .SetAttackModeOnly()
                     .SetDamageDice(DieType.D8, 1)
                     .SetSpecificDamageType(DamageTypeThunder)
-                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
+                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                     .SetConditionOperations(new ConditionOperationDescription
                     {
                         hasSavingThrow = false,
@@ -866,7 +868,7 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
-                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (1, 1), (5, 2), (11, 3), (17, 4)))
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
             .SetImpactParticleReference(FireBolt)
             .SetAttackModeOnly()
             .AddToDB();

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -301,7 +302,6 @@ internal static class Level20SubclassesContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Day, 1)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
             .SetFeatures(
@@ -347,14 +347,9 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Day, 1)
                     .SetParticleEffectParameters(Bane)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionTraditionOpenHandQuiveringPalm,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTraditionOpenHandQuiveringPalm))
                     .Build())
             .AddToDB();
 
@@ -864,14 +859,8 @@ internal static class Level20SubclassesContext
             return isValid;
         }
 
-
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             if (action.ActionParams.TargetCharacters.Count == 0)
             {
                 yield break;
@@ -890,57 +879,62 @@ internal static class Level20SubclassesContext
 
     private sealed class TryAlterOutcomeSavingThrowQuiveringPalm : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnSavingTryAlterOutcome(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter featureOwner,
-            ActionModifier saveModifier,
+        public void OnFailedSavingTryAlterOutcome(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
             bool hasHitVisual,
-            bool hasBorrowedLuck)
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (target is not RulesetCharacter rulesetTarget)
             {
-                yield break;
+                return;
             }
 
-            rulesetDefender.TryGetConditionOfCategoryAndType(
+            rulesetTarget.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
                 "ConditionTraditionOpenHandQuiveringPalm",
                 out var activeCondition);
 
-            if (activeCondition != null)
+            if (activeCondition == null)
             {
-                rulesetDefender.RemoveCondition(activeCondition);
+                return;
             }
 
-            if (action.saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            rulesetTarget.RemoveCondition(activeCondition);
+
+            if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
-                yield break;
+                return;
             }
 
-            var condition = ConditionDefinitions.ConditionStunned_MonkStunningStrike;
+            // reduces to 1 hit point
+            var totalDamage = rulesetTarget.CurrentHitPoints + rulesetTarget.TemporaryHitPoints - 1;
 
-            rulesetDefender.InflictCondition(
-                condition.Name,
-                condition.DurationType,
-                condition.DurationParameter,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
+            target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
 
-            var totalDamage = rulesetDefender.CurrentHitPoints + rulesetDefender.TemporaryHitPoints - 1;
-
-            rulesetDefender.SustainDamage(totalDamage, "DamagePure", false, attacker.Guid, null, out _);
+            effectForms.SetRange(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionDefinitions.ConditionStunned_MonkStunningStrike,
+                        ConditionForm.ConditionOperation.Add)
+                    .Build());
         }
     }
 
