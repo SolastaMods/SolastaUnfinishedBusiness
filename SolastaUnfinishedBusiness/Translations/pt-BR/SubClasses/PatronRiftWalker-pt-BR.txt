@@ -1,3 +1,5 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=Você tem resistência a todos os tipos de dano.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Protegido pela Capa da Fenda
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Você não pode ser contido.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift Freedom
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Quando você é reduzido a 0 pontos de vida, mas não é morto imediatamente, você cai para 1 ponto de vida enquanto desaparece brevemente no vazio para diminuir o dano. Você pode usar esse recurso uma vez por descanso longo.

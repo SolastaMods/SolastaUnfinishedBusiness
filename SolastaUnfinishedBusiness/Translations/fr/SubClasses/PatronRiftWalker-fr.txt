@@ -1,3 +1,5 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=Vous avez une résistance à tous les types de dégâts.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Gardé par Rift Cloak
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Vous ne pouvez pas être retenu.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Liberté de faille
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Lorsque vous êtes réduit à 0 point de vie mais que vous n'êtes pas complètement tué, vous tombez à 1 point de vie alors que vous disparaissez brièvement dans le vide pour réduire les dégâts. Vous pouvez utiliser cette fonctionnalité une fois par repos long.

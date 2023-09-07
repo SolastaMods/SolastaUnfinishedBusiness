@@ -1,3 +1,5 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=Du bist gegen alle Schadensarten resistent.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Geschützt durch Rift Cloak
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Du kannst nicht zurückgehalten werden.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift-Freiheit
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Wenn Ihre Trefferpunkte auf 0 reduziert, aber nicht vollständig getötet werden, sinken Ihre Trefferpunkte stattdessen auf 1 Trefferpunkt, während Sie kurz in die Leere verschwinden, um den Schaden zu verringern. Sie können diese Funktion einmal pro langer Pause nutzen.

@@ -1,10 +1,12 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=You have resistance to all damage types.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Warded by Rift Cloak
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=You cannot be restrained.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift Freedom
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can use this feature once per long rest.
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidTitle=Fade Into the Void
 Feature/&PowerRiftWalkerBlinkDescription=As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from. You can use this feature twice per long rest.
 Feature/&PowerRiftWalkerBlinkTitle=Blink
-Feature/&PowerRiftWalkerRiftCloakDescription=As a main action, your control of rift portals has increased to the point that you can now grant resistance against all damage types to an ally that you can see. You can use this feature at will.
+Feature/&PowerRiftWalkerRiftCloakDescription=As a main action, your control of rift portals has increased to the point that you can now grant resistance against all damage types to an ally that you can see. You can use this feature once per long rest.
 Feature/&PowerRiftWalkerRiftCloakTitle=Rift Cloak
 Feature/&PowerRiftWalkerRiftPortalDescription=As a bonus action, you teleport to an unoccupied space that you can see, and can bring an ally with you. You can use this feature once per short rest.
 Feature/&PowerRiftWalkerRiftPortalTitle=Rift Portal

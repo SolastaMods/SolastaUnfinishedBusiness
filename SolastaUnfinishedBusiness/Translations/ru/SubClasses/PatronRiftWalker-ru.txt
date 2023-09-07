@@ -1,3 +1,5 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=У вас есть сопротивление ко всем типам урона.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Защищен плащом-разломом
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Вы не можете быть опутаны.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Свобода разлома
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Когда ваши хиты уменьшаются до 0, но вы не убиты на месте, вместо этого ваши хиты снижаются до 1, поскольку вы на мгновение растворяетесь в пустоте, чтобы уменьшить урон. Вы можете использовать эту способность один раз до продолжительного отдыха.

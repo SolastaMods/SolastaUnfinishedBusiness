@@ -1,3 +1,5 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=Hai resistenza a tutti i tipi di danno.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Protetto dal Mantello della Frattura
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Non puoi essere trattenuto.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Libertà di frattura
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Quando vieni ridotto a 0 punti ferita ma non vieni ucciso sul colpo, scendi invece a 1 punto ferita mentre svanisci brevemente nel vuoto per diminuire il danno. Puoi usare questa capacità una volta per ogni riposo lungo.

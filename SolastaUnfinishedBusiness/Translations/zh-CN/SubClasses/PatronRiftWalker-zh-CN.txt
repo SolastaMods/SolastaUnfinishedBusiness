@@ -1,3 +1,5 @@
+Condition/&ConditionARiftWalkerRiftCloakDescription=你对所有类型的伤害都有抵抗力。
+Condition/&ConditionRiftWalkerRiftCloakTitle=由裂隙斗篷守护
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=你不能被约束。
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=裂谷自由
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=当你的生命值减少到 0 点但没有被彻底杀死时，你的生命值会下降到 1 点，同时你会短暂地淡入虚空以减轻伤害。每次长时间休息可以使用此功能一次。

@@ -124,6 +124,7 @@ public class PatronRiftWalker : AbstractSubclass
 
         var conditionWardedByRiftWalkWardingBond = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionWardedByWardingBond, $"Condition{Name}RiftCloak")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
         conditionWardedByRiftWalkWardingBond.Features.RemoveAll(x =>
@@ -132,7 +133,7 @@ public class PatronRiftWalker : AbstractSubclass
         var powerRiftCloak = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}RiftCloak")
             .SetGuiPresentation(Category.Feature, WardingBond)
-            .SetUsesFixed(ActivationTime.Action)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(WardingBond)
