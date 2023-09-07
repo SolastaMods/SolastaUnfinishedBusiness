@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -309,7 +308,7 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionBuilder
                     .Create("SavingThrowAfterRollQuiveringPalm")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnSavingThrowAfterRollQuiveringPalm())
+                    .SetCustomSubFeatures(new TryAlterOutcomeSavingThrowQuiveringPalm())
                     .AddToDB())
             .AddToDB();
 
@@ -889,58 +888,59 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class OnSavingThrowAfterRollQuiveringPalm : IOnSavingThrowAfterRoll
+    private sealed class TryAlterOutcomeSavingThrowQuiveringPalm : ITryAlterOutcomeSavingThrow
     {
-        public void OnSavingThrowAfterRoll(
-            RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
+        public IEnumerator OnSavingTryAlterOutcome(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter featureOwner,
+            ActionModifier saveModifier,
             bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
-            BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
+            bool hasBorrowedLuck)
         {
-            if (target is not RulesetCharacter rulesetTarget)
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
-            var rulesetCondition = rulesetTarget.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition.Name == "ConditionTraditionOpenHandQuiveringPalm");
+            rulesetDefender.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                "ConditionTraditionOpenHandQuiveringPalm",
+                out var activeCondition);
 
-            if (rulesetCondition != null)
+            if (activeCondition != null)
             {
-                rulesetTarget.RemoveCondition(rulesetCondition);
+                rulesetDefender.RemoveCondition(activeCondition);
             }
 
-            if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            if (action.saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
-                return;
+                yield break;
             }
 
-            var totalDamage = rulesetTarget.CurrentHitPoints + rulesetTarget.TemporaryHitPoints - 1;
+            var condition = ConditionDefinitions.ConditionStunned_MonkStunningStrike;
 
-            target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
-            effectForms.SetRange(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionDefinitions.ConditionStunned_MonkStunningStrike,
-                        ConditionForm.ConditionOperation.Add)
-                    .Build());
+            rulesetDefender.InflictCondition(
+                condition.Name,
+                condition.DurationType,
+                condition.DurationParameter,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                attacker.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            var totalDamage = rulesetDefender.CurrentHitPoints + rulesetDefender.TemporaryHitPoints - 1;
+
+            rulesetDefender.SustainDamage(totalDamage, "DamagePure", false, attacker.Guid, null, out _);
         }
     }
 

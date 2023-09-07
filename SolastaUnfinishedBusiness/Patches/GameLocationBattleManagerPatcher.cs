@@ -273,8 +273,8 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            if (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is
-                    not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (rulesetEffect != null
+                && rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield break;
             }
@@ -459,7 +459,7 @@ public static class GameLocationBattleManagerPatcher
 
                 foreach (var extraEvents in Gui.Battle.GetOpposingContenders(attacker.Side)
                              .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()
+                             .ToList() // avoid changing enumerator
                              .SelectMany(featureOwner => featureOwner.RulesetCharacter
                                  .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
                                  .Select(x => x.OnAttackBeforeHitPossibleOnMeOrAlly(__instance, featureOwner, attacker,
@@ -1038,7 +1038,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            if (Gui.Battle == null || !IsFailed(action.SaveOutcome))
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -1051,20 +1051,10 @@ public static class GameLocationBattleManagerPatcher
                 foreach (var feature in unit.RulesetCharacter
                              .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
                 {
-                    yield return feature.OnMeOrAllySaveFailPossible(
+                    yield return feature.OnSavingTryAlterOutcome(
                         __instance, action, attacker, defender, unit, saveModifier, hasHitVisual, hasBorrowedLuck);
-
-                    if (!IsFailed(action.SaveOutcome))
-                    {
-                        yield break;
-                    }
                 }
             }
-        }
-
-        private static bool IsFailed(RollOutcome outcome)
-        {
-            return outcome is RollOutcome.Failure or RollOutcome.CriticalFailure;
         }
     }
 
@@ -1300,6 +1290,7 @@ public static class GameLocationBattleManagerPatcher
             // This also allows utilities out of battle
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var allyCharacters = gameLocationCharacterService.PartyCharacters.Select(x => x.RulesetCharacter);
+
             foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {
                 var allyFeatures = allyCharacter.GetSubFeaturesByType<ISpellCast>();

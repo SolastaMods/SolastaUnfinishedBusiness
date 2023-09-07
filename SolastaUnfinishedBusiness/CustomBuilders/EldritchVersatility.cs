@@ -1245,21 +1245,7 @@ internal static class EldritchVersatility
 
     private class EldritchWardAidSave : ITryAlterOutcomeSavingThrow
     {
-        private static bool ShouldTrigger(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return action.RolledSaveThrow
-                   && helper.CanReact()
-                   && helper.IsOppositeSide(defender.Side)
-                   && battleManager.CanAttackerSeeCharacterFromPosition(
-                       defender.LocationPosition, helper.LocationPosition, defender, helper)
-                   && battleManager.IsWithinXCells(helper, defender, 7);
-        }
-
-        public IEnumerator OnMeOrAllySaveFailPossible(
+        public IEnumerator OnSavingTryAlterOutcome(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1332,6 +1318,21 @@ internal static class EldritchVersatility
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
                 Gui.Format(GameConsole.SaveSuccessOutcome, dc));
             console.AddEntry(entry);
+        }
+
+        private static bool ShouldTrigger(
+            IGameLocationBattleService gameLocationBattleService,
+            CharacterAction action,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            return action.RolledSaveThrow
+                   && action.SaveOutcome is RollOutcome.Failure
+                   && helper.CanReact()
+                   && !defender.IsOppositeSide(helper.Side)
+                   && gameLocationBattleService.IsWithinXCells(helper, defender, 7)
+                   && gameLocationBattleService.CanAttackerSeeCharacterFromPosition(
+                       defender.LocationPosition, helper.LocationPosition, defender, helper);
         }
     }
 

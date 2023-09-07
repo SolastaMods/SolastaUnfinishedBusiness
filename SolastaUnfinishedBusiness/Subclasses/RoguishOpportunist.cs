@@ -64,7 +64,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var featureRoguishOpportunistSeizeTheChance = FeatureDefinitionBuilder
             .Create("FeatureRoguishOpportunistSeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new FollowUpStrikeWhenFoesFailedTryAlterOutcomeSavingThrow())
+            .SetCustomSubFeatures(new TryAlterOutcomeSavingThrowSeizeTheChance())
             .AddToDB();
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
@@ -170,9 +170,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
         }
     }
 
-    private sealed class FollowUpStrikeWhenFoesFailedTryAlterOutcomeSavingThrow : ITryAlterOutcomeSavingThrow
+    private sealed class TryAlterOutcomeSavingThrowSeizeTheChance : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnMeOrAllySaveFailPossible(
+        public IEnumerator OnSavingTryAlterOutcome(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -182,7 +182,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow || !helper.IsOppositeSide(defender.Side) || !helper.CanReact())
+            if (!ShouldTrigger(action, defender, helper))
             {
                 yield break;
             }
@@ -226,6 +226,17 @@ public sealed class RoguishOpportunist : AbstractSubclass
             actionService.ReactForOpportunityAttack(reactionParams);
 
             yield return battleManager.WaitForReactions(helper, actionService, count);
+        }
+
+        private static bool ShouldTrigger(
+            CharacterAction action,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            return action.RolledSaveThrow
+                   && action.SaveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                   && helper.CanReact()
+                   && defender.IsOppositeSide(helper.Side);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface ITryAlterOutcomeSavingThrow
 {
-    IEnumerator OnMeOrAllySaveFailPossible(
+    IEnumerator OnSavingTryAlterOutcome(
         GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,

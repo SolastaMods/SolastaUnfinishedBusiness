@@ -819,9 +819,8 @@ internal static class InventorClass
             .AddToDB();
 
         //should be hidden from user
-        var flashOfGenius = new FlashOfGenius(bonusPower, "InventorFlashOfGenius",
-            "ConditionInventorFlashOfGeniusAura"
-        );
+        var flashOfGenius = new TryAlterOutcomeSavingThrowFlashOfGenius(
+            bonusPower, "InventorFlashOfGenius", "ConditionInventorFlashOfGeniusAura");
 
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
@@ -874,10 +873,10 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-// Moved logic from original patcher, no other changes made
-internal class FlashOfGenius : ITryAlterOutcomeSavingThrow
+internal class TryAlterOutcomeSavingThrowFlashOfGenius : ITryAlterOutcomeSavingThrow
 {
-    internal FlashOfGenius(FeatureDefinitionPower power, string reactionName, string auraConditionName)
+    internal TryAlterOutcomeSavingThrowFlashOfGenius(
+        FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
         Power = power;
         ReactionName = reactionName;
@@ -888,44 +887,54 @@ internal class FlashOfGenius : ITryAlterOutcomeSavingThrow
     private string ReactionName { get; }
     private string AuraConditionName { get; }
 
-    public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager,
+    public IEnumerator OnSavingTryAlterOutcome(GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter featureOwner,
+        GameLocationCharacter helper,
         ActionModifier saveModifier,
         bool hasHitVisual,
         bool hasBorrowedLuck)
     {
-        var ownerCharacter = featureOwner.RulesetCharacter;
+        var rulesetDefender = defender.RulesetCharacter;
 
-        ownerCharacter.TryGetConditionOfCategoryAndType(
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+        {
+            yield break;
+        }
+
+        rulesetDefender.TryGetConditionOfCategoryAndType(
             AttributeDefinitions.TagEffect,
             AuraConditionName,
-            out var activeCondition
-        );
-        RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var helperCharacter);
+            out var activeCondition);
 
-        var locHelper = GameLocationCharacter.GetFromActor(helperCharacter);
-
-        if (!ShouldTrigger(action, defender, locHelper))
+        if (activeCondition == null)
         {
             yield break;
         }
 
-        if (!helperCharacter.CanUsePower(Power))
+        RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
+
+        var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
+
+        if (!ShouldTrigger(action, defender, originalHelper))
         {
             yield break;
         }
 
-        var usablePower = UsablePowersProvider.Get(Power, helperCharacter);
+        if (!rulesetOriginalHelper.CanUsePower(Power))
+        {
+            yield break;
+        }
+
+        var usablePower = UsablePowersProvider.Get(Power, rulesetOriginalHelper);
         var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
-        var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
+        var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
         {
             StringParameter = ReactionName,
-            StringParameter2 = FormatReactionDescription(action, attacker, defender, locHelper),
+            StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
             RulesetEffect = rulesService
-                .InstantiateEffectPower(helperCharacter, usablePower, false)
+                .InstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
                 .AddAsActivePowerToSource()
         };
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -933,14 +942,14 @@ internal class FlashOfGenius : ITryAlterOutcomeSavingThrow
 
         actionService.ReactToSpendPower(reactionParams);
 
-        yield return battleManager.WaitForReactions(locHelper, actionService, count);
+        yield return battleManager.WaitForReactions(originalHelper, actionService, count);
 
         if (reactionParams.ReactionValidated)
         {
-            helperCharacter.LogCharacterUsedPower(Power, indent: true);
+            rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
             // Originally here is defender use power
             // helperCharacter.UsePower(usablePower);
-            action.RolledSaveThrow = TryModifyRoll(action, locHelper, saveModifier);
+            action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
         }
 
         reactionParams.RulesetEffect.Terminate(true);
@@ -958,20 +967,15 @@ internal class FlashOfGenius : ITryAlterOutcomeSavingThrow
         GameLocationCharacter defender,
         GameLocationCharacter helper)
     {
-        if (helper.IsOppositeSide(defender.Side))
-        {
-            return false;
-        }
-
-        if (!helper.CanReact())
-        {
-            return false;
-        }
-
-        return action.RolledSaveThrow && action.saveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
+        return action.RolledSaveThrow
+               && action.SaveOutcome is RollOutcome.Failure
+               && helper.CanReact()
+               && !defender.IsOppositeSide(helper.Side)
+               && action.SaveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
     }
 
-    private static bool TryModifyRoll(CharacterAction action,
+    private static bool TryModifyRoll(
+        CharacterAction action,
         GameLocationCharacter helper,
         ActionModifier saveModifier)
     {

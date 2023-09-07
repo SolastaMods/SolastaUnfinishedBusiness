@@ -30,23 +30,24 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerRallyingCry", Resources.PowerRallyingCry, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDomainLifePreserveLife.EffectDescription)
-                .ExcludeCaster()
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetHealingForm(
-                            HealingComputation.Dice,
-                            0,
-                            DieType.D1,
-                            4,
-                            false,
-                            HealingCap.MaximumHitPoints,
-                            EffectForm.LevelApplianceType.MultiplyBonus)
-                        .Build())
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.No, 5, DieType.D8)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDomainLifePreserveLife.EffectDescription)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.No, 5, DieType.D8)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                0,
+                                DieType.D1,
+                                4,
+                                false,
+                                HealingCap.MaximumHitPoints,
+                                EffectForm.LevelApplianceType.MultiplyBonus)
+                            .Build())
+                    .Build())
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
@@ -87,13 +88,13 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionInspiringSurge, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .Build())
             .AddToDB();
 
@@ -116,25 +117,25 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 12)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionRoyalKnightInspiringProtectionAura")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(
-                            new TryAlterOutcomeSavingThrowInspiringProtection(powerRoyalKnightInspiringProtection,
-                                "RoyalKnightInspiringProtection",
-                                "ConditionRoyalKnightInspiringProtectionAura"))
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 12)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionRoyalKnightInspiringProtectionAura")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetCustomSubFeatures(
+                                new TryAlterOutcomeSavingThrowInspiringProtection(
+                                    powerRoyalKnightInspiringProtection,
+                                    "RoyalKnightInspiringProtection",
+                                    "ConditionRoyalKnightInspiringProtectionAura"))
+                            .AddToDB()))
                     .Build())
-                .Build())
             .AddToDB();
 
         var featureSetRoyalKnightInspiringProtection = FeatureDefinitionFeatureSetBuilder
@@ -246,37 +247,55 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         private string ReactionName { get; }
         private string AuraConditionName { get; }
 
-        public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter defender, GameLocationCharacter featureOwner,
-            ActionModifier saveModifier, bool hasHitVisual, bool hasBorrowedLuck)
+        public IEnumerator OnSavingTryAlterOutcome(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
         {
-            var ownerCharacter = featureOwner.RulesetCharacter;
-            ownerCharacter.TryGetConditionOfCategoryAndType(
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            rulesetDefender.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
                 AuraConditionName,
-                out var activeCondition
-            );
-            RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var helperCharacter);
-            var locHelper = GameLocationCharacter.GetFromActor(helperCharacter);
+                out var activeCondition);
 
-            if (!ShouldTrigger(action, defender, locHelper))
+            if (activeCondition == null)
             {
                 yield break;
             }
 
-            if (!helperCharacter.CanUsePower(Power))
+            RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
+
+            var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
+
+            if (!ShouldTrigger(action, defender, originalHelper))
             {
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(Power, helperCharacter);
+            if (!rulesetOriginalHelper.CanUsePower(Power))
+            {
+                yield break;
+            }
+
+            var usablePower = UsablePowersProvider.Get(Power, rulesetOriginalHelper);
             var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
+            var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = ReactionName,
-                StringParameter2 = FormatReactionDescription(action, attacker, defender, locHelper),
+                StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
                 RulesetEffect = rulesService
-                    .InstantiateEffectPower(helperCharacter, usablePower, false)
+                    .InstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
                     .AddAsActivePowerToSource()
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -284,15 +303,15 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             actionService.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(locHelper, actionService, count);
+            yield return battleManager.WaitForReactions(originalHelper, actionService, count);
 
             if (reactionParams.ReactionValidated)
             {
-                helperCharacter.LogCharacterUsedPower(Power, indent: true);
+                rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
                 // Originally here is defender use power
                 // helperCharacter.UsePower(usablePower);
                 action.RolledSaveThrow =
-                    TryModifyRoll(action, attacker, locHelper, saveModifier, reactionParams, hasHitVisual);
+                    TryModifyRoll(action, attacker, defender, saveModifier, reactionParams, hasHitVisual);
             }
 
             reactionParams.RulesetEffect.Terminate(true);
@@ -303,12 +322,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            if (helper.IsOppositeSide(defender.Side))
-            {
-                return false;
-            }
-
-            return helper.CanReact() && action.RolledSaveThrow;
+            return action.RolledSaveThrow
+                   && action.SaveOutcome is RollOutcome.Failure
+                   && !defender.IsOppositeSide(helper.Side)
+                   && helper.CanReact();
         }
 
         private static bool TryModifyRoll(
