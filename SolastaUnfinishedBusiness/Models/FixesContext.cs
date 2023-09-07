@@ -45,12 +45,25 @@ internal static class FixesContext
         AddAdditionalActionTitles();
         FixRageActionSpending();
         FixGrantBardicInspirationForActionSwitchingFeature();
+        FixPowerDragonbornBreathWeaponDiceProgression();
         FixDragonBreathPowerSavingAttribute();
         FixBlackDragonLegendaryActions();
         FixMummyDreadfulGlareSavingAttribute();
         FixArmorClassOnLegendaryArmors();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixPowerDragonbornBreathWeaponDiceProgression()
+    {
+        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+            .Where(x => x.Name.StartsWith("PowerDragonbornBreathWeapon"));
+
+        foreach (var power in powers)
+        {
+            power.EffectDescription.EffectForms[0].diceByLevelTable =
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (6, 1), (11, 2), (17, 3));
+        }
     }
 
     private static void FixDragonBreathPowerSavingAttribute()
