@@ -827,22 +827,24 @@ internal static class InventorClass
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionInventorFlashOfGeniusAura")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(flashOfGenius)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ConditionInventorFlashOfGeniusAura")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetCustomSubFeatures(flashOfGenius)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
@@ -947,8 +949,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius : ITryAlterOutcomeSavingT
         if (reactionParams.ReactionValidated)
         {
             rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            // Originally here is defender use power
-            // helperCharacter.UsePower(usablePower);
+            rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
             action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
         }
 
