@@ -258,7 +258,7 @@ public sealed class OathOfHatred : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorArdentHate : IModifyDamageAffinity, IPhysicalAttackTryAlterOutcome
+    private sealed class CustomBehaviorArdentHate : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttack
     {
         private readonly FeatureDefinitionPower _power;
 

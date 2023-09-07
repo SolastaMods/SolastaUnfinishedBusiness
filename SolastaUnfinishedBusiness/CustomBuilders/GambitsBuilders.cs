@@ -1153,7 +1153,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class Precise : IPhysicalAttackTryAlterOutcome
+    private sealed class Precise : ITryAlterOutcomePhysicalAttack
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
