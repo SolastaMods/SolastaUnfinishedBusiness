@@ -45,7 +45,7 @@ public sealed class MartialSpellShield : AbstractSubclass
 
         var conditionBladeWeaving = ConditionDefinitionBuilder
             .Create($"Condition{Name}BladeWeaving")
-            .SetGuiPresentation(Category.Condition, ConditionDistracted)
+            .SetGuiPresentation(Category.Condition, ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
@@ -54,7 +54,7 @@ public sealed class MartialSpellShield : AbstractSubclass
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}BladeWeaving")
                     .SetGuiPresentation($"Condition{Name}BladeWeaving", Category.Condition)
-                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, true,
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                         Strength,
                         Dexterity,
                         Constitution,
@@ -125,12 +125,12 @@ public sealed class MartialSpellShield : AbstractSubclass
         var powerProtectiveBarrier = FeatureDefinitionPowerBuilder
             .Create($"ActionAffinity{Name}RangedDefense")
             .SetGuiPresentation($"Power{Name}RangedDeflection", Category.Feature, PowerTraditionCourtMageSpellShield)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 4)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Hour, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 4)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
