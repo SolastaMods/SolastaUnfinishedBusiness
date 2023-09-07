@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=You have resistance to all damage types.
+Condition/&ConditionRiftWalkerRiftCloakDescription=You have resistance to all damage types.
 Condition/&ConditionRiftWalkerRiftCloakTitle=Warded by Rift Cloak
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=You cannot be restrained.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift Freedom

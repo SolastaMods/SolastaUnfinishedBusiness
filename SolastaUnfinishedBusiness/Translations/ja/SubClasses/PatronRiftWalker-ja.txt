@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=あなたはあらゆる種類のダメージに対する耐性を持っています。
+Condition/&ConditionRiftWalkerRiftCloakDescription=あなたはあらゆる種類のダメージに対する耐性を持っています。
 Condition/&ConditionRiftWalkerRiftCloakTitle=リフトクロークによって守られる
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=拘束することはできません。
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=リフトフリーダム

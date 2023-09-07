@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=У вас есть сопротивление ко всем типам урона.
+Condition/&ConditionRiftWalkerRiftCloakDescription=У вас есть сопротивление ко всем типам урона.
 Condition/&ConditionRiftWalkerRiftCloakTitle=Защищен плащом-разломом
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Вы не можете быть опутаны.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Свобода разлома

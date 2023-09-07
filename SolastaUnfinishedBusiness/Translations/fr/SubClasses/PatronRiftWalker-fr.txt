@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=Vous avez une résistance à tous les types de dégâts.
+Condition/&ConditionRiftWalkerRiftCloakDescription=Vous avez une résistance à tous les types de dégâts.
 Condition/&ConditionRiftWalkerRiftCloakTitle=Gardé par Rift Cloak
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Vous ne pouvez pas être retenu.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Liberté de faille

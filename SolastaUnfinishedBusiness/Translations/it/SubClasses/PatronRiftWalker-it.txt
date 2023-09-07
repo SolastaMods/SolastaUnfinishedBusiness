@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=Hai resistenza a tutti i tipi di danno.
+Condition/&ConditionRiftWalkerRiftCloakDescription=Hai resistenza a tutti i tipi di danno.
 Condition/&ConditionRiftWalkerRiftCloakTitle=Protetto dal Mantello della Frattura
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Non puoi essere trattenuto.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Libertà di frattura

@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=Du bist gegen alle Schadensarten resistent.
+Condition/&ConditionRiftWalkerRiftCloakDescription=Du bist gegen alle Schadensarten resistent.
 Condition/&ConditionRiftWalkerRiftCloakTitle=Geschützt durch Rift Cloak
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Du kannst nicht zurückgehalten werden.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift-Freiheit

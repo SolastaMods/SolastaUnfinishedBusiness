@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=你对所有类型的伤害都有抵抗力。
+Condition/&ConditionRiftWalkerRiftCloakDescription=你对所有类型的伤害都有抵抗力。
 Condition/&ConditionRiftWalkerRiftCloakTitle=由裂隙斗篷守护
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=你不能被约束。
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=裂谷自由

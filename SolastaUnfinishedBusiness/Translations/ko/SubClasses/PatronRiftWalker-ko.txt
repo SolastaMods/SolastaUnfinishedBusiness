@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=당신은 모든 피해 유형에 대한 저항력을 가지고 있습니다.
+Condition/&ConditionRiftWalkerRiftCloakDescription=당신은 모든 피해 유형에 대한 저항력을 가지고 있습니다.
 Condition/&ConditionRiftWalkerRiftCloakTitle=리프트 망토의 보호를 받음
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=제지할 수 없습니다.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=균열의 자유

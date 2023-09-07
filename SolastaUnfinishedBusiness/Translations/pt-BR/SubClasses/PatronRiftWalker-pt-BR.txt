@@ -1,4 +1,4 @@
-Condition/&ConditionARiftWalkerRiftCloakDescription=Você tem resistência a todos os tipos de dano.
+Condition/&ConditionRiftWalkerRiftCloakDescription=Você tem resistência a todos os tipos de dano.
 Condition/&ConditionRiftWalkerRiftCloakTitle=Protegido pela Capa da Fenda
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Você não pode ser contido.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift Freedom
