@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageResonatingStrike:bc01f142-4efe-5133-bb7f-d1c4f2f0bbdf"
+    "Definition:AdditionalDamageBoomingBlade:65e7bca6-a00e-574d-9bee-f2f9038ef72f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -133,8 +133,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionResonatingStrikeTitle",
-    "description": "Condition/&ConditionResonatingStrikeDescription",
+    "title": "Condition/&ConditionBoomingBladeTitle",
+    "description": "Condition/&ConditionBoomingBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -154,7 +154,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fee957a4-e400-5b35-980f-a481680512f7",
+  "guid": "b28052a9-3d74-50f4-8363-8b1a2e848289",
   "contentPack": 9999,
-  "name": "ConditionResonatingStrike"
+  "name": "ConditionBoomingBlade"
 }

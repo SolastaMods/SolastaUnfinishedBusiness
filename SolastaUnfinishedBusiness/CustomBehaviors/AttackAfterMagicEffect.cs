@@ -14,6 +14,9 @@ internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
 
+    internal static readonly IAttackAfterMagicEffect BoomingBladeAttack =
+        new AttackAfterMagicEffect(2);
+
     internal static readonly IAttackAfterMagicEffect ResonatingStrikeAttack =
         new AttackAfterMagicEffect(1);
 

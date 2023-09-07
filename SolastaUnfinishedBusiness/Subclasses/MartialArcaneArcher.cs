@@ -162,7 +162,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureGuidedShot.SetCustomSubFeatures(new PhysicalAttackTryAlterOutcomeGuidedShot(featureGuidedShot));
+        featureGuidedShot.SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackGuidedShot(featureGuidedShot));
 
         // LEVEL 10
 
@@ -675,11 +675,11 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Guided Shot
     //
 
-    private class PhysicalAttackTryAlterOutcomeGuidedShot : IPhysicalAttackTryAlterOutcome
+    private class TryAlterOutcomePhysicalAttackGuidedShot : ITryAlterOutcomePhysicalAttack
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackTryAlterOutcomeGuidedShot(FeatureDefinition featureDefinition)
+        public TryAlterOutcomePhysicalAttackGuidedShot(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

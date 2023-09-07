@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRiftWalkerRiftWalk:79992dc4-649e-567e-8623-6d6c64cdba9a",
+      "featureDefinition": "Definition:PowerRiftWalkerRiftStep:32357772-126d-5d36-ad70-2daa0d09a5f3",
       "level": 1
     },
     {
@@ -33,12 +33,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRiftWalkerRiftControl:685e0573-efc4-5d23-9066-30e20b4482d2",
+      "featureDefinition": "Definition:PowerRiftWalkerRiftPortal:475b6250-4655-514b-a77d-76c7c65d2089",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BonusCantripRiftWalkWardingBond:275d70b8-13f5-5b25-b129-4e3b4ba2a5ec",
+      "featureDefinition": "Definition:PowerRiftWalkerRiftCloak:9ec4b595-95d8-5a84-8d01-5378cc0597c3",
       "level": 14
     }
   ],

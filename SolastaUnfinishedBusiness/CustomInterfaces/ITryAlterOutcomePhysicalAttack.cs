@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPhysicalAttackTryAlterOutcome
+public interface ITryAlterOutcomePhysicalAttack
 {
     IEnumerator OnAttackTryAlterOutcome(
         GameLocationBattleManager instance,

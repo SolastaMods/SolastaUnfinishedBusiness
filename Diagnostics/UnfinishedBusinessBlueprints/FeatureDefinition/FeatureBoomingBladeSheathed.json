@@ -1,13 +1,10 @@
 {
-  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
-  "bonusCantrips": [
-    "Definition:AtWillWardingBond:f9cf5a06-1274-5606-8762-f726ee8ec761"
-  ],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&BonusCantripRiftWalkWardingBondTitle",
-    "description": "Feature/&BonusCantripRiftWalkWardingBondDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "275d70b8-13f5-5b25-b129-4e3b4ba2a5ec",
+  "guid": "f27d45a4-4a06-590f-8b74-9be4ccf79343",
   "contentPack": 9999,
-  "name": "BonusCantripRiftWalkWardingBond"
+  "name": "FeatureBoomingBladeSheathed"
 }

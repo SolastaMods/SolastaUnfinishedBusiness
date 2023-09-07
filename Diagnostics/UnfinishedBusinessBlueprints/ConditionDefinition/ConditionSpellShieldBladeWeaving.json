@@ -2,24 +2,23 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:AdditionalDamageResonatingStrike:bc01f142-4efe-5133-bb7f-d1c4f2f0bbdf"
+    "Definition:SavingThrowAffinitySpellShieldBladeWeaving:ea967d91-bf8a-5bee-acdb-2d0150cbf717"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [
-    "Attacks",
-    "AnyBattleTurnEnd"
+    "SavingThrow"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -90,7 +89,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -133,13 +132,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionResonatingStrikeTitle",
-    "description": "Condition/&ConditionResonatingStrikeDescription",
+    "title": "Condition/&ConditionSpellShieldBladeWeavingTitle",
+    "description": "Condition/&ConditionSpellShieldBladeWeavingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
+      "m_SubObjectName": "ConditionConfused",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -154,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fee957a4-e400-5b35-980f-a481680512f7",
+  "guid": "655837d2-1d38-5fa1-8cdd-977811349cf0",
   "contentPack": 9999,
-  "name": "ConditionResonatingStrike"
+  "name": "ConditionSpellShieldBladeWeaving"
 }

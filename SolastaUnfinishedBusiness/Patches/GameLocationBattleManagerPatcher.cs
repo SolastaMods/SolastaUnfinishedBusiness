@@ -99,9 +99,8 @@ public static class GameLocationBattleManagerPatcher
             ActionDefinitions.ReadyActionType readyActionType
         )
         {
-            var attackMode =
-                character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses, onlyIfCanUseAction,
-                    readyActionType);
+            var attackMode = character.FindActionAttackMode(
+                actionId, getWithMostAttackNb, onlyIfRemainingUses, onlyIfCanUseAction, readyActionType);
 
             if (readyActionType != ActionDefinitions.ReadyActionType.Ranged)
             {
@@ -123,9 +122,7 @@ public static class GameLocationBattleManagerPatcher
     public static class IsValidAttackForReadiedAction_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(
-            ref bool __result,
-            BattleDefinitions.AttackEvaluationParams attackParams)
+        public static void Postfix(ref bool __result, BattleDefinitions.AttackEvaluationParams attackParams)
         {
             //PATCH: Checks if attack cantrip is valid to be cast as readied action on a target
             // Used to properly check if melee cantrip can hit target when used for readied action
@@ -238,7 +235,7 @@ public static class GameLocationBattleManagerPatcher
                 target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 foreach (var extraEvents in attacker.RulesetCharacter
-                             .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
+                             .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttack>()
                              .TakeWhile(_ =>
                                  action.AttackRollOutcome == RollOutcome.Failure &&
                                  action.AttackSuccessDelta < 0)
@@ -1036,69 +1033,31 @@ public static class GameLocationBattleManagerPatcher
             bool hasBorrowedLuck
         )
         {
-            //PATCH: allow source character of a condition to use power to augment failed save roll
-            //used mainly for Inventor's `Quick Wit`
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            if (!IsFailed(action.SaveOutcome))
+            if (Gui.Battle == null || !IsFailed(action.SaveOutcome))
             {
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
-            var allyCharacters = __instance.Battle?.GetMyContenders(defender.Side) ??
-                                 gameLocationCharacterService.PartyCharacters;
-
-            foreach (var extraEvents in allyCharacters
+            //PATCH: support for `ITryAlterOutcomeSavingThrow`
+            foreach (var unit in __instance.Battle.AllContenders
                          .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()
-                         .SelectMany(featureOwner => featureOwner.RulesetCharacter
-                             .GetSubFeaturesByType<IMeOrAllySaveFailPossible>()
-                             .Select(x => x.OnMeOrAllySaveFailPossible(__instance, action, attacker, defender,
-                                 featureOwner, saveModifier, hasHitVisual,
-                                 hasBorrowedLuck))))
+                         .ToList()) // avoid changing enumerator
             {
-                while (extraEvents.MoveNext())
+                foreach (var feature in unit.RulesetCharacter
+                             .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
                 {
-                    yield return extraEvents.Current;
+                    yield return feature.OnMeOrAllySaveFailPossible(
+                        __instance, action, attacker, defender, unit, saveModifier, hasHitVisual, hasBorrowedLuck);
+
                     if (!IsFailed(action.SaveOutcome))
                     {
                         yield break;
                     }
-                }
-            }
-
-            if (__instance.Battle == null)
-            {
-                yield break;
-            }
-
-            //PATCH: Allow attack of opportunity on target that failed saving throw
-            //Process other participants of the battle
-            foreach (var unit in __instance.Battle.AllContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList())
-            {
-                if (unit == defender || unit == attacker)
-                {
-                    continue;
-                }
-
-                foreach (var feature in unit.RulesetCharacter.GetSubFeaturesByType<IOnDefenderFailedSavingThrow>())
-                {
-                    yield return feature.OnDefenderFailedSavingThrow(
-                        __instance, action, unit, defender, saveModifier, hasHitVisual, hasBorrowedLuck);
                 }
             }
         }

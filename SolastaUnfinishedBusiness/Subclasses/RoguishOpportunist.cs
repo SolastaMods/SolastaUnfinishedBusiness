@@ -64,7 +64,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var featureRoguishOpportunistSeizeTheChance = FeatureDefinitionBuilder
             .Create("FeatureRoguishOpportunistSeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new FollowUpStrikeWhenFoesFailedSavingThrow())
+            .SetCustomSubFeatures(new FollowUpStrikeWhenFoesFailedTryAlterOutcomeSavingThrow())
             .AddToDB();
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
@@ -170,23 +170,24 @@ public sealed class RoguishOpportunist : AbstractSubclass
         }
     }
 
-    private sealed class FollowUpStrikeWhenFoesFailedSavingThrow : IOnDefenderFailedSavingThrow
+    private sealed class FollowUpStrikeWhenFoesFailedTryAlterOutcomeSavingThrow : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnDefenderFailedSavingThrow(
-            GameLocationBattleManager __instance,
+        public IEnumerator OnMeOrAllySaveFailPossible(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier saveModifier,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (target.Side == me.Side || !me.CanReact())
+            if (!action.RolledSaveThrow || !helper.IsOppositeSide(defender.Side) || !helper.CanReact())
             {
                 yield break;
             }
 
-            var attackMode = me.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackMode = helper.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {
@@ -199,16 +200,16 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
             if (attackMode.Ranged)
             {
-                attackParam.FillForPhysicalRangeAttack(me, me.LocationPosition, attackMode,
-                    target, target.LocationPosition, new ActionModifier());
+                attackParam.FillForPhysicalRangeAttack(helper, helper.LocationPosition, attackMode,
+                    defender, defender.LocationPosition, new ActionModifier());
             }
             else
             {
-                attackParam.FillForPhysicalReachAttack(me, me.LocationPosition, attackMode,
-                    target, target.LocationPosition, new ActionModifier());
+                attackParam.FillForPhysicalReachAttack(helper, helper.LocationPosition, attackMode,
+                    defender, defender.LocationPosition, new ActionModifier());
             }
 
-            if (!__instance.CanAttack(attackParam))
+            if (!battleManager.CanAttack(attackParam))
             {
                 yield break;
             }
@@ -216,15 +217,15 @@ public sealed class RoguishOpportunist : AbstractSubclass
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
             var reactionParams = new CharacterActionParams(
-                me,
+                helper,
                 ActionDefinitions.Id.AttackOpportunity,
-                me.RulesetCharacter.AttackModes[0],
-                target,
+                helper.RulesetCharacter.AttackModes[0],
+                defender,
                 new ActionModifier());
 
             actionService.ReactForOpportunityAttack(reactionParams);
 
-            yield return __instance.WaitForReactions(me, actionService, count);
+            yield return battleManager.WaitForReactions(helper, actionService, count);
         }
     }
 }

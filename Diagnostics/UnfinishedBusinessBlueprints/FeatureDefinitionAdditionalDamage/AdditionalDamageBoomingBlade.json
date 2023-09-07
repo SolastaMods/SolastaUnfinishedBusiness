@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "SunlightBlade",
+  "notificationTag": "BoomingBlade",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -9,7 +9,7 @@
   "requiredProperty": "MeleeWeapon",
   "attackModeOnly": true,
   "attackOnly": false,
-  "requiredTargetCondition": "Definition:ConditionSunlightBladeMarked:7f19eac4-e539-5805-ae41-40dcda6d3b23",
+  "requiredTargetCondition": "Definition:ConditionBoomingBladeMarked:69813f6c-ceca-5c5a-a7ef-7975ff227b50",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -20,7 +20,7 @@
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageRadiant",
+  "specificDamageType": "DamageThunder",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": 9000,
   "diceByRankTable": [
@@ -140,37 +140,17 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionSunlightBladeHighlighted:eb813adc-3ad0-52da-9836-0460b6c55291",
+      "conditionDefinition": "Definition:ConditionBoomingBladeSheathed:faf795f2-d67c-5e4d-a072-bfd6cc4be447",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
     }
   ],
-  "addLightSource": true,
-  "lightSourceForm": {
-    "$type": "LightSourceForm, Assembly-CSharp",
-    "lightSourceType": "Basic",
-    "brightRange": 0,
-    "dimAdditionalRange": 2,
-    "color": {
-      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.9,
-      "g": 0.8,
-      "b": 0.4,
-      "a": 1.0
-    },
-    "graphicsPrefabReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "fc7cb53da57a8fb40a278d62a885ce58",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "applyToSelf": false,
-    "forceOnSelf": false
-  },
+  "addLightSource": false,
+  "lightSourceForm": null,
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -206,7 +186,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1bd17141-b9ba-5502-a83b-00a846cf4c39",
+  "guid": "65e7bca6-a00e-574d-9bee-f2f9038ef72f",
   "contentPack": 9999,
-  "name": "AdditionalDamageSunlightBlade"
+  "name": "AdditionalDamageBoomingBlade"
 }

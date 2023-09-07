@@ -20,6 +20,10 @@ public class PatronRiftWalker : AbstractSubclass
 
     public PatronRiftWalker()
     {
+        // LEVEL 01
+
+        // Expanded Spells
+
         var spellListRiftWalker = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, $"SpellList{Name}")
             .SetGuiPresentationNoContent(true)
@@ -32,92 +36,118 @@ public class PatronRiftWalker : AbstractSubclass
             .FinalizeSpells(true, 9)
             .AddToDB();
 
-        var magicAffinityRiftWalkerExpandedSpells = FeatureDefinitionMagicAffinityBuilder
+        var magicAffinityExpandedSpells = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ExpandedSpells")
             .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListRiftWalker)
             .AddToDB();
 
-        var powerRiftWalkerRiftWalk = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}RiftWalk")
-            .SetGuiPresentation(Category.Feature, MistyStep)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(MistyStep.EffectDescription)
-            .SetUniqueInstance()
-            .AddToDB();
+        // Blink
 
-        var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
+        var powerBlink = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Blink")
             .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Banishment.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetNoSavingThrow()
-                .Build())
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Banishment)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetNoSavingThrow()
+                    .Build())
             .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
-        var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create(ConditionAffinityRestrainedmmunity, $"ConditionAffinity{Name}RestrainedImmunity")
-            .SetGuiPresentation(Category.Condition)
+        // Rift Step
+
+        var powerRiftStep = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}RiftStep")
+            .SetGuiPresentation(Category.Feature, MistyStep)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(MistyStep)
+                    .Build())
+            .SetUniqueInstance()
             .AddToDB();
+
+        // LEVEL 06
+
+        // Restrained Immunity
+
+        var conditionAffinityRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
+            .Create(ConditionAffinityRestrainedmmunity, $"ConditionAffinity{Name}RestrainedImmunity")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        // Rift Strike
 
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}RiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Banishment.EffectDescription)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .SetNoSavingThrow()
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Banishment)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetNoSavingThrow()
+                    .Build())
             .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
-        var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}RiftControl")
-            .SetGuiPresentation(Category.Feature, DimensionDoor)
-            .SetOverriddenPower(powerRiftWalkerRiftWalk)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(DimensionDoor.EffectDescription)
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
-            .AddToDB();
+        // LEVEL 10
+
+        // Fade into the Void
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityHalfOrcRelentlessEndurance, $"DamageAffinity{Name}FadeIntoTheVoid")
-            .SetGuiPresentation(Category.Feature, Blur)
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // kept name for backward compatibility
-        var bonusCantripRiftWalkWardingBond = FeatureDefinitionBonusCantripsBuilder
-            .Create("BonusCantripRiftWalkWardingBond")
-            .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(
-                SpellDefinitionBuilder
-                    .Create(WardingBond, "AtWillWardingBond")
-                    .SetSpellLevel(0)
-                    .AddToDB())
+        // Rift Portal
+
+        var powerRiftPortal = FeatureDefinitionPowerBuilder
+            .Create(powerRiftStep, $"Power{Name}RiftPortal")
+            .SetGuiPresentation(Category.Feature, DimensionDoor)
+            .SetOverriddenPower(powerRiftStep)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DimensionDoor)
+                    .Build())
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
+            .AddToDB();
+
+        // LEVEL 14
+
+        // Rift Cloak
+
+        var conditionWardedByRiftWalkWardingBond = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionWardedByWardingBond, $"Condition{Name}RiftCloak")
+            .AddToDB();
+
+        conditionWardedByRiftWalkWardingBond.Features.RemoveAll(x =>
+            x is FeatureDefinitionAttributeModifier or FeatureDefinitionSavingThrowAffinity);
+
+        var powerRiftCloak = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}RiftCloak")
+            .SetGuiPresentation(Category.Feature, WardingBond)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(WardingBond)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWardedByRiftWalkWardingBond))
+                    .Build())
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Patron{Name}")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.PatronRiftWalker, 256))
-            .AddFeaturesAtLevel(1,
-                magicAffinityRiftWalkerExpandedSpells,
-                powerRiftWalkerRiftWalk,
-                powerRiftWalkerBlink)
-            .AddFeaturesAtLevel(6,
-                conditionAffinityRiftWalkerRestrainedImmunity,
-                powerRiftWalkerRiftStrike)
-            .AddFeaturesAtLevel(10,
-                powerRiftWalkerRiftControl,
-                damageAffinityRiftWalkerFadeIntoTheVoid)
-            .AddFeaturesAtLevel(14,
-                bonusCantripRiftWalkWardingBond)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronRiftWalker, 256))
+            .AddFeaturesAtLevel(1, magicAffinityExpandedSpells, powerBlink, powerRiftStep)
+            .AddFeaturesAtLevel(6, conditionAffinityRestrainedImmunity, powerRiftWalkerRiftStrike)
+            .AddFeaturesAtLevel(10, damageAffinityRiftWalkerFadeIntoTheVoid, powerRiftPortal)
+            .AddFeaturesAtLevel(14, powerRiftCloak)
             .AddToDB();
     }
 
