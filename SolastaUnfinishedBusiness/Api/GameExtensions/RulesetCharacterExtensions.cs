@@ -8,8 +8,8 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.FightingStyles;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 

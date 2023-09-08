@@ -7,8 +7,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -81,27 +81,30 @@ public sealed class DomainSmith : AbstractSubclass
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetItemPropertyForm(
-                        ItemPropertyUsage.Unlimited,
-                        1,
-                        new FeatureUnlockByLevel(
-                            FeatureDefinitionAttributeModifierBuilder
-                                .Create($"AttributeModifier{NAME}ReinforceArmor1")
-                                .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(1), spriteReference)
-                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-                                .AddToDB(),
-                            0))
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                1,
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttributeModifierBuilder
+                                        .Create($"AttributeModifier{NAME}ReinforceArmor1")
+                                        .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
+                                            AttributeReinforceDescription(1), spriteReference)
+                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .SetModifier(AttributeModifierOperation.Additive,
+                                            AttributeDefinitions.ArmorClass, 1)
+                                        .AddToDB(),
+                                    0))
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerReinforceArmor6 = FeatureDefinitionPowerBuilder
@@ -116,28 +119,30 @@ public sealed class DomainSmith : AbstractSubclass
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetOverriddenPower(powerReinforceArmor1)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetItemPropertyForm(
-                        ItemPropertyUsage.Unlimited,
-                        1,
-                        new FeatureUnlockByLevel(
-                            FeatureDefinitionAttributeModifierBuilder
-                                .Create($"AttributeModifier{NAME}ReinforceArmor2")
-                                .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(2), spriteReference)
-                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(
-                                    AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-                                .AddToDB(),
-                            0))
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                1,
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttributeModifierBuilder
+                                        .Create($"AttributeModifier{NAME}ReinforceArmor2")
+                                        .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
+                                            AttributeReinforceDescription(2), spriteReference)
+                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .SetModifier(
+                                            AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                                        .AddToDB(),
+                                    0))
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerReinforceArmor11 = FeatureDefinitionPowerBuilder
@@ -152,28 +157,30 @@ public sealed class DomainSmith : AbstractSubclass
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetOverriddenPower(powerReinforceArmor6)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetItemPropertyForm(
-                        ItemPropertyUsage.Unlimited,
-                        1,
-                        new FeatureUnlockByLevel(
-                            FeatureDefinitionAttributeModifierBuilder
-                                .Create($"AttributeModifier{NAME}ReinforceArmor3")
-                                .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                    AttributeReinforceDescription(3), spriteReference)
-                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetModifier(
-                                    AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
-                                .AddToDB(),
-                            0))
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                1,
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttributeModifierBuilder
+                                        .Create($"AttributeModifier{NAME}ReinforceArmor3")
+                                        .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
+                                            AttributeReinforceDescription(3), spriteReference)
+                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .SetModifier(
+                                            AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+                                        .AddToDB(),
+                                    0))
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerReinforceArmor16 = FeatureDefinitionPowerBuilder
@@ -188,29 +195,30 @@ public sealed class DomainSmith : AbstractSubclass
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetOverriddenPower(powerReinforceArmor11)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetItemPropertyForm(
-                            ItemPropertyUsage.Unlimited,
-                            1,
-                            new FeatureUnlockByLevel(
-                                FeatureDefinitionAttributeModifierBuilder
-                                    .Create($"AttributeModifier{NAME}ReinforceArmor4")
-                                    .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
-                                        AttributeReinforceDescription(4), spriteReference)
-                                    .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                    .SetModifier(
-                                        AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 4)
-                                    .AddToDB(),
-                                0))
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Item,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited,
+                                1,
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAttributeModifierBuilder
+                                        .Create($"AttributeModifier{NAME}ReinforceArmor4")
+                                        .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
+                                            AttributeReinforceDescription(4), spriteReference)
+                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .SetModifier(
+                                            AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 4)
+                                        .AddToDB(),
+                                    0))
+                            .Build())
+                    .Build())
             .AddToDB();
 
         // LEVEL 02

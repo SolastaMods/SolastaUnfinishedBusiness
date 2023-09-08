@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -38,7 +39,7 @@ internal static class ShieldStrike
 
         var damage = description.EffectDescription.FindFirstDamageForm();
 
-        damage.DieType = RuleDefinitions.DieType.D4;
+        damage.DieType = DieType.D4;
 
         return description;
     }

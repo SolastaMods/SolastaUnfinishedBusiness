@@ -11,8 +11,8 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -94,26 +94,34 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                .ExcludeCaster()
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionTacticianSharedVigilance")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
-                        .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                            .Create("AttributeModifierTacticianSharedVigilance")
-                            .SetGuiPresentation("AttributeModifierTacticianEverVigilant", Category.Feature)
-                            .SetAddConditionAmount(AttributeDefinitions.Initiative)
-                            .AddToDB())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .ExcludeCaster()
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionTacticianSharedVigilance")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus,
+                                        AttributeDefinitions.Intelligence)
+                                    .SetFeatures(
+                                        FeatureDefinitionAttributeModifierBuilder
+                                            .Create("AttributeModifierTacticianSharedVigilance")
+                                            .SetGuiPresentation("AttributeModifierTacticianEverVigilant",
+                                                Category.Feature)
+                                            .SetAddConditionAmount(AttributeDefinitions.Initiative)
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 

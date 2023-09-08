@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 using static EquipmentDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -132,7 +133,7 @@ public static class DeviceOverchargePanelPatcher
 
         private static string FormatEnhancementEffect(EffectDescription effect, int slotDelta)
         {
-            if (effect.EffectAdvancement.EffectIncrementMethod == RuleDefinitions.EffectIncrementMethod.None)
+            if (effect.EffectAdvancement.EffectIncrementMethod == EffectIncrementMethod.None)
             {
                 return string.Empty;
             }

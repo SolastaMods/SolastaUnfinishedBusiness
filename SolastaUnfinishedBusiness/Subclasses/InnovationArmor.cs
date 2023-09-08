@@ -10,8 +10,8 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
-using static ConditionForm;
 using static RuleDefinitions;
+using static ConditionForm;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -134,14 +134,16 @@ public sealed class InnovationArmor : AbstractSubclass
                 SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
-                    EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true)
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
+                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true)
+                    )
+                    .Build())
             .AddToDB();
 
         var infiltratorMode = FeatureDefinitionPowerSharedPoolBuilder
@@ -155,13 +157,15 @@ public sealed class InnovationArmor : AbstractSubclass
                 SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove, true),
-                    EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Add, true))
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove, true),
+                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Add, true))
+                    .Build())
             .AddToDB();
 
         var defensiveField = FeatureDefinitionPowerBuilder
@@ -170,15 +174,20 @@ public sealed class InnovationArmor : AbstractSubclass
             .SetCustomSubFeatures(new ValidatorsPowerUse(InGuardianMode), InventorClassHolder.Marker,
                 RecurrenceOnlyOnSelfTurn.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetTempHpForm(1)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(1)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus,
+                                LevelSourceType.ClassLevel)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
@@ -214,18 +223,20 @@ public sealed class InnovationArmor : AbstractSubclass
                     return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name;
                 }))
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var infiltrator = FeatureDefinitionPowerBuilder
@@ -242,41 +253,52 @@ public sealed class InnovationArmor : AbstractSubclass
                     return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name;
                 }))
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetNoSavingThrow()
-                .AddEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
-                    new Color(0.9f, 0.78f, 0.62f),
-                    FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.LightSourceForm
-                        .graphicsPrefabReference))
-                .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
-                    .Create("ConditionInventorArmorerInfiltratorGlimmer")
-                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                    .Detrimental()
-                    .SetPossessive()
-                    //.AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
-                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                        .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
-                        .SetGuiPresentation("ConditionInventorArmorerInfiltratorGlimmer", Category.Condition)
-                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                        .SetSituationalContext(SituationalContext.TargetIsEffectSource)
-                        .AddToDB())
-                    .AddToDB()))
-                .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
-                    .Create("ConditionInventorArmorerInfiltratorDamage")
-                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
-                    .Detrimental()
-                    .SetPossessive()
-                    .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                    .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific, DamageTypeLightning)
-                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                        .Create("CombatAffinityInventorArmorerInfiltratorDamage")
-                        .SetGuiPresentation("ConditionInventorArmorerInfiltratorDamage", Category.Condition)
-                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                        .AddToDB())
-                    .AddToDB()))
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetNoSavingThrow()
+                    .AddEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
+                        new Color(0.9f, 0.78f, 0.62f),
+                        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.LightSourceForm
+                            .graphicsPrefabReference))
+                    .AddEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionInventorArmorerInfiltratorGlimmer")
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                                .Detrimental()
+                                .SetPossessive()
+                                //.AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
+                                .SetFeatures(
+                                    FeatureDefinitionCombatAffinityBuilder
+                                        .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
+                                        .SetGuiPresentation("ConditionInventorArmorerInfiltratorGlimmer",
+                                            Category.Condition)
+                                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                        .SetSituationalContext(SituationalContext.TargetIsEffectSource)
+                                        .AddToDB())
+                                .AddToDB()))
+                    .AddEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionInventorArmorerInfiltratorDamage")
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+                                .Detrimental()
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                                .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific,
+                                    DamageTypeLightning)
+                                .SetFeatures(
+                                    FeatureDefinitionCombatAffinityBuilder
+                                        .Create("CombatAffinityInventorArmorerInfiltratorDamage")
+                                        .SetGuiPresentation("ConditionInventorArmorerInfiltratorDamage",
+                                            Category.Condition)
+                                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                                        .AddToDB())
+                                .AddToDB()))
+                    .Build())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder

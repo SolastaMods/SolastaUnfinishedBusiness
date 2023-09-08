@@ -5,9 +5,9 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 

@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -102,7 +103,7 @@ public static class RulesetEffectPowerPatcher
             var power = __instance.PowerDefinition;
 
             if (power.AttackHitComputation !=
-                (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
+                (PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
             {
                 return;
             }
@@ -123,13 +124,13 @@ public static class RulesetEffectPowerPatcher
     public static class MagicAttackTrends_Getter_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetEffectPower __instance, ref List<RuleDefinitions.TrendInfo> __result)
+        public static void Postfix(RulesetEffectPower __instance, ref List<TrendInfo> __result)
         {
             //PATCH: allow devices have magic attack trends based on spell attack
             var power = __instance.PowerDefinition;
 
             if (power.AttackHitComputation !=
-                (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
+                (PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
             {
                 return;
             }

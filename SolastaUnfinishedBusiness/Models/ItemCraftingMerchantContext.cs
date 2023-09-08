@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static EquipmentDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionStatusDefinitions;
@@ -123,7 +124,7 @@ internal static class ItemCraftingMerchantContext
                 stackCount = 1,
                 reassortAmount = 1,
                 reassortRateValue = 1,
-                reassortRateType = RuleDefinitions.DurationType.Day
+                reassortRateType = DurationType.Day
             };
 
             Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore.StockUnitDescriptions.Add(stockClothing);
@@ -176,7 +177,7 @@ internal static class ItemCraftingMerchantContext
                 stackCount = 1,
                 reassortAmount = 1,
                 reassortRateValue = 1,
-                reassortRateType = RuleDefinitions.DurationType.Day
+                reassortRateType = DurationType.Day
             };
 
             Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore.StockUnitDescriptions.Add(stockInstruments);
@@ -196,8 +197,9 @@ internal static class ItemCraftingMerchantContext
     {
         if (Main.Settings.StockHugoStoreWithAdditionalFoci)
         {
-            Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(FocusDefinitionBuilder
-                .StockFocus);
+            Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(
+                FocusDefinitionBuilder
+                    .StockFocus);
         }
         else
         {
@@ -374,7 +376,7 @@ internal static class ItemCraftingMerchantContext
                 stackCount = 1,
                 reassortAmount = 1,
                 reassortRateValue = 1,
-                reassortRateType = RuleDefinitions.DurationType.Day
+                reassortRateType = DurationType.Day
             };
 
             StockFocus.Add(stockFocus);

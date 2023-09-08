@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -24,7 +25,7 @@ public static class AttackEvaluationParamsPatcher
             MetamagicOptionDefinition metamagicOption)
         {
             //PATCH: allow for `Touch` effects to have reach changed, unless `Distant Spell` metamagic is used
-            if (metamagicOption is { Type: RuleDefinitions.MetamagicType.DistantSpell })
+            if (metamagicOption is { Type: MetamagicType.DistantSpell })
             {
                 return;
             }
@@ -53,7 +54,7 @@ public static class AttackEvaluationParamsPatcher
             FlankingAndHigherGroundRules.HandleHigherGround(__instance);
 
             //PATCH: allow for `MeleeHit` effects to have reach changed, unless `Distant Spell` metamagic is used
-            if (metamagicOption is { Type: RuleDefinitions.MetamagicType.DistantSpell })
+            if (metamagicOption is { Type: MetamagicType.DistantSpell })
             {
                 return;
             }

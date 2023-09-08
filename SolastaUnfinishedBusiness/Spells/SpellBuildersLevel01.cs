@@ -125,15 +125,16 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
             .SetSubSpells(subSpells.ToArray())
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalDicePerIncrement: 1)
-                .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
-                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalDicePerIncrement: 1)
+                    .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
+                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
+                    .Build())
             .AddToDB();
     }
 
@@ -348,19 +349,22 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetFiltering(TargetFilteringMethod.AllCharacterAndGadgets)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals, 4)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetFiltering(TargetFilteringMethod.AllCharacterAndGadgets)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals, 4)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
+                            .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+                    .SetParticleEffectParameters(Sparkle)
+                    .SetSpeed(SpeedType.CellsPerSeconds, 20)
+                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
-                .SetParticleEffectParameters(Sparkle)
-                .SetSpeed(SpeedType.CellsPerSeconds, 20)
-                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
-                .Build())
             .AddToDB();
 
         return spell;
@@ -519,29 +523,30 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MagnifyGravity, 128))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Constitution,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeForce, 2, DieType.D8)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionGravity, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionGravity, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(1)
             .SetVerboseComponent(true)
@@ -629,20 +634,21 @@ internal static partial class SpellBuilders
                 .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetSpellLevel(1)
                 .SetUniqueInstance()
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Hour, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm(TEMP_HP_PER_LEVEL)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                    .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
-                    .Build())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetDurationData(DurationType.Hour, 1)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetTempHpForm(TEMP_HP_PER_LEVEL)
+                                .Build(),
+                            EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                            additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
+                        .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
+                        .Build())
                 .AddToDB();
 
             subSpells.Add(spell);
@@ -661,14 +667,15 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(1)
             .SetSubSpells(subSpells.ToArray())
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Hour, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                .SetParticleEffectParameters(Blur)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
+                    .SetParticleEffectParameters(Blur)
+                    .Build())
             .AddToDB();
     }
 
@@ -790,13 +797,14 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
-                .SetParticleEffectParameters(ProtectionFromEvilGood)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
+                    .SetParticleEffectParameters(ProtectionFromEvilGood)
+                    .Build())
             .AddToDB();
 
         return spell;
@@ -987,18 +995,20 @@ internal static partial class SpellBuilders
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Push")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetParticleEffectParameters(Shatter)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.FallProne)
-                        .Build()
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(Shatter)
+                    .SetEffectForms(
+                        EffectFormBuilder.Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build(),
+                        EffectFormBuilder.Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build()
+                    )
+                    .Build())
             .AddToDB();
 
         var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
@@ -1123,17 +1133,18 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, CalmEmotions)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Hour, 8)
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionAlacrity, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .SetParticleEffectParameters(MageArmor)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 8)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionAlacrity, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(MageArmor)
+                    .Build())
             .SetCastingTime(ActivationTime.Minute1)
             .SetSpellLevel(1)
             .SetVerboseComponent(true)

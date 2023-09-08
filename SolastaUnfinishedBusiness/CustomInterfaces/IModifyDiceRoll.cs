@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -6,14 +7,14 @@ public interface IModifyDiceRoll
 {
     [UsedImplicitly]
     public void BeforeRoll(
-        RuleDefinitions.RollContext rollContext,
+        RollContext rollContext,
         RulesetCharacter rulesetCharacter,
-        ref RuleDefinitions.DieType dieType,
-        ref RuleDefinitions.AdvantageType advantageType);
+        ref DieType dieType,
+        ref AdvantageType advantageType);
 
     [UsedImplicitly]
     public void AfterRoll(
-        RuleDefinitions.RollContext rollContext,
+        RollContext rollContext,
         RulesetCharacter rulesetCharacter,
         ref int result);
 }

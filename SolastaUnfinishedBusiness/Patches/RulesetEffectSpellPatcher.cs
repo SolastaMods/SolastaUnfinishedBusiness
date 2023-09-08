@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -107,7 +108,7 @@ public static class RulesetEffectSpellPatcher
     public static class MagicAttackTrends_Getter_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetEffectSpell __instance, ref List<RuleDefinitions.TrendInfo> __result)
+        public static void Postfix(RulesetEffectSpell __instance, ref List<TrendInfo> __result)
         {
             //PATCH: allow devices have magic attack trends based on user or item summoner stats, instead of static value
             var originItem = __instance.OriginItem;

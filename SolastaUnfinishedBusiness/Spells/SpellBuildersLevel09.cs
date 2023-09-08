@@ -104,30 +104,31 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 8)
-                // 20 dice number because hits dont stack even on single target
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeFire, 20, DieType.D6)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeBludgeoning, 20, DieType.D6)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build())
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Dexterity,
-                    13)
-                .SetParticleEffectParameters(FlameStrike)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 8)
+                    // 20 dice number because hits dont stack even on single target
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeFire, 20, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeBludgeoning, 20, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Dexterity,
+                        13)
+                    .SetParticleEffectParameters(FlameStrike)
+                    .Build())
             .AddToDB();
     }
 
@@ -227,33 +228,37 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetParticleEffectParameters(PowerDruidWildShape)
-                .SetDurationData(DurationType.Hour, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetShapeChangeForm(
-                            ShapeChangeForm.Type.FreeListSelection,
-                            true,
-                            ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                            new List<ShapeOptionDescription>
-                            {
-                                new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
-                                new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                                new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
-                                new() { requiredLevel = 1, substituteMonster = Giant_Ape },
-                                new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
-                                new() { requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration },
-                                new() { requiredLevel = 1, substituteMonster = Remorhaz },
-                                new() { requiredLevel = 1, substituteMonster = Spider_Queen },
-                                new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath },
-                                new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss }
-                            })
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerDruidWildShape)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetShapeChangeForm(
+                                ShapeChangeForm.Type.FreeListSelection,
+                                true,
+                                ConditionDefinitions.ConditionWildShapeSubstituteForm,
+                                new List<ShapeOptionDescription>
+                                {
+                                    new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
+                                    new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                                    new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
+                                    new() { requiredLevel = 1, substituteMonster = Giant_Ape },
+                                    new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
+                                    new()
+                                    {
+                                        requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
+                                    },
+                                    new() { requiredLevel = 1, substituteMonster = Remorhaz },
+                                    new() { requiredLevel = 1, substituteMonster = Spider_Queen },
+                                    new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath },
+                                    new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss }
+                                })
+                            .Build())
+                    .Build())
             .SetRequiresConcentration(true)
             .AddToDB();
     }
@@ -290,15 +295,16 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Divination)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Round, 3)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cylinder, 20, 10)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(conditionTimeStop))
-                .ExcludeCaster()
-                .SetParticleEffectParameters(DispelMagic)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 3)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cylinder, 20, 10)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionTimeStop))
+                    .ExcludeCaster()
+                    .SetParticleEffectParameters(DispelMagic)
+                    .Build())
             .AddToDB();
     }
 

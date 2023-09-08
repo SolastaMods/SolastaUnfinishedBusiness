@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -36,7 +37,7 @@ internal static class ToolsContext
         .SetGuiPresentation(Category.RestActivity)
         .SetRestData(
             RestDefinitions.RestStage.AfterRest,
-            RuleDefinitions.RestType.LongRest,
+            RestType.LongRest,
             RestActivityDefinition.ActivityCondition.None,
             RespecName,
             string.Empty)

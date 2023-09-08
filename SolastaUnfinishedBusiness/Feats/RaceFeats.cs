@@ -9,8 +9,8 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
@@ -64,11 +64,12 @@ internal static class RaceFeats
             .Create("PowerFeatFadeAwayInvisible")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Invisibility.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Invisibility.EffectDescription)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .Build())
             .SetReactionContext(ReactionTriggerContext.DamagedByAnySource)
             .AddToDB();
 

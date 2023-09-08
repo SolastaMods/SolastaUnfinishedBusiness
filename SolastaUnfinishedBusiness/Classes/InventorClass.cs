@@ -208,71 +208,77 @@ internal static class InventorClass
             #region Proficiencies
 
             // Weapons
-            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
-                .Create("ProficiencyInventorWeapon")
-                .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
-                .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
-                .AddToDB())
+            .AddFeaturesAtLevel(
+                1, FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyInventorWeapon")
+                    .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
+                    .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
+                    .AddToDB())
 
             // Armor
-            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
-                .Create("ProficiencyInventorArmor")
-                .SetGuiPresentation(Category.Feature, "Feature/&ArmorTrainingShortDescription")
-                .SetProficiencies(ProficiencyType.Armor,
-                    EquipmentDefinitions.LightArmorCategory,
-                    EquipmentDefinitions.MediumArmorCategory,
-                    EquipmentDefinitions.ShieldCategory)
-                .AddToDB())
+            .AddFeaturesAtLevel(
+                1, FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyInventorArmor")
+                    .SetGuiPresentation(Category.Feature, "Feature/&ArmorTrainingShortDescription")
+                    .SetProficiencies(ProficiencyType.Armor,
+                        EquipmentDefinitions.LightArmorCategory,
+                        EquipmentDefinitions.MediumArmorCategory,
+                        EquipmentDefinitions.ShieldCategory)
+                    .AddToDB())
 
             // Saves
-            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
-                .Create("ProficiencyInventorSavingThrow")
-                .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
-                .SetProficiencies(ProficiencyType.SavingThrow,
-                    AttributeDefinitions.Intelligence,
-                    AttributeDefinitions.Constitution)
-                .AddToDB())
+            .AddFeaturesAtLevel(
+                1, FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyInventorSavingThrow")
+                    .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
+                    .SetProficiencies(ProficiencyType.SavingThrow,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Constitution)
+                    .AddToDB())
 
             // Tools Proficiency
-            .AddFeaturesAtLevel(1, FeatureDefinitionProficiencyBuilder
-                .Create("ProficiencyInventorTools")
-                .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
-                .SetProficiencies(ProficiencyType.Tool,
-                    ToolTypeDefinitions.ThievesToolsType.Name,
-                    ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-                .AddToDB())
+            .AddFeaturesAtLevel(
+                1, FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyInventorTools")
+                    .SetGuiPresentation(Category.Feature, "Feature/&ToolProficiencyPluralDescription")
+                    .SetProficiencies(ProficiencyType.Tool,
+                        ToolTypeDefinitions.ThievesToolsType.Name,
+                        ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                    .AddToDB())
 
             // Tool Selection
-            .AddFeaturesAtLevel(1, FeatureDefinitionPointPoolBuilder
-                .Create("PointPoolInventorTools")
-                .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
-                .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
-                .OnlyUniqueChoices()
-                .RestrictChoices(
-                    ToolTypeDefinitions.DisguiseKitType.Name,
-                    ToolTypeDefinitions.EnchantingToolType.Name,
-                    ToolTypeDefinitions.HerbalismKitType.Name,
-                    ToolTypeDefinitions.PoisonersKitType.Name,
-                    ToolTypeDefinitions.ScrollKitType.Name
-                )
-                .AddToDB())
+            .AddFeaturesAtLevel(
+                1, FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolInventorTools")
+                    .SetGuiPresentation(Category.Feature, "Feature/&ToolGainChoicesSingleDescription")
+                    .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+                    .OnlyUniqueChoices()
+                    .RestrictChoices(
+                        ToolTypeDefinitions.DisguiseKitType.Name,
+                        ToolTypeDefinitions.EnchantingToolType.Name,
+                        ToolTypeDefinitions.HerbalismKitType.Name,
+                        ToolTypeDefinitions.PoisonersKitType.Name,
+                        ToolTypeDefinitions.ScrollKitType.Name
+                    )
+                    .AddToDB())
 
             // Skill points
-            .AddFeaturesAtLevel(1, FeatureDefinitionPointPoolBuilder
-                .Create("PointPoolInventorSkills")
-                .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
-                .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
-                .OnlyUniqueChoices()
-                .RestrictChoices(
-                    SkillDefinitions.Arcana,
-                    SkillDefinitions.History,
-                    SkillDefinitions.Investigation,
-                    SkillDefinitions.Medecine,
-                    SkillDefinitions.Nature,
-                    SkillDefinitions.Perception,
-                    SkillDefinitions.SleightOfHand
-                )
-                .AddToDB())
+            .AddFeaturesAtLevel(
+                1, FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolInventorSkills")
+                    .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
+                    .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
+                    .OnlyUniqueChoices()
+                    .RestrictChoices(
+                        SkillDefinitions.Arcana,
+                        SkillDefinitions.History,
+                        SkillDefinitions.Investigation,
+                        SkillDefinitions.Medecine,
+                        SkillDefinitions.Nature,
+                        SkillDefinitions.Perception,
+                        SkillDefinitions.SleightOfHand
+                    )
+                    .AddToDB())
 
             #endregion
 
@@ -645,9 +651,11 @@ internal static class InventorClass
                 new HasActiveInfusions(),
                 new LimitEffectInstances(LimiterName, _ => 1))
             .SetUsesFixed(ActivationTime.Rest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .Build())
             .AddToDB();
     }
 
@@ -756,18 +764,20 @@ internal static class InventorClass
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(SpellDefinitions.Bless)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetSummonItemForm(item, 1, true)
+                    .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(SpellDefinitions.Bless)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.None)
+                            .SetSummonItemForm(item, 1, true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         // need this reference to the spell to be able to later on switch powers on them
@@ -833,16 +843,18 @@ internal static class InventorClass
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("ConditionInventorFlashOfGeniusAura")
-                                .SetGuiPresentationNoContent(true)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetCustomSubFeatures(flashOfGenius)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionInventorFlashOfGeniusAura")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .SetCustomSubFeatures(flashOfGenius)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .AddToDB();
 

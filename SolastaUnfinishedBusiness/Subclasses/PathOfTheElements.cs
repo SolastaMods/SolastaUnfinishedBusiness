@@ -98,18 +98,19 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Storm")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionElementalBlessingStorm, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionElementalBlessingStorm, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var customBehaviorStorm =
@@ -134,18 +135,19 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Blizzard")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionElementalBlessingBlizzard, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionElementalBlessingBlizzard, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var customBehaviorBlizzard =
@@ -170,18 +172,19 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Wildfire")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionElementalBlessingWildfire, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionElementalBlessingWildfire, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var customBehaviorWildfire =

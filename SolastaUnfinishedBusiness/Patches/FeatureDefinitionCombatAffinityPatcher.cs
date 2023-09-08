@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.GameExtensions.ExtraCombatAffinityValueDetermination;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -22,7 +23,7 @@ public static class FeatureDefinitionCombatAffinityPatcher
             RulesetCharacter defender,
             RulesetAttackMode attackMode,
             ActionModifier attackModifier,
-            RuleDefinitions.FeatureOrigin featureOrigin,
+            FeatureOrigin featureOrigin,
             int bardicDieRoll,
             float distance)
         {
@@ -36,13 +37,13 @@ public static class FeatureDefinitionCombatAffinityPatcher
                 case ConditionAmountIfFavoriteEnemy when myself.IsMyFavoriteEnemy(defender):
                 case ConditionAmountIfNotFavoriteEnemy when !myself.IsMyFavoriteEnemy(defender):
                     var amount = GetConditionAmount(__instance, myself);
-                    if (__instance.myAttackModifierSign == RuleDefinitions.AttackModifierSign.Substract)
+                    if (__instance.myAttackModifierSign == AttackModifierSign.Substract)
                     {
                         amount = -amount;
                     }
 
                     attackModifier.AttackRollModifier += amount;
-                    attackModifier.AttacktoHitTrends.Add(new RuleDefinitions.TrendInfo(amount, featureOrigin.sourceType,
+                    attackModifier.AttacktoHitTrends.Add(new TrendInfo(amount, featureOrigin.sourceType,
                         featureOrigin.sourceName, null));
                     break;
             }

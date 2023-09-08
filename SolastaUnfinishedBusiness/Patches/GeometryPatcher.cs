@@ -6,6 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -117,7 +118,7 @@ public static class CursorLocationGeometricShapePatcher
 
             Vector3 vector = new();
 
-            if (__instance.hasMagneticTargeting || __instance.rangeType == RuleDefinitions.RangeType.Self)
+            if (__instance.hasMagneticTargeting || __instance.rangeType == RangeType.Self)
             {
                 if (edgeSize % 2.0 == 0.0)
                 {

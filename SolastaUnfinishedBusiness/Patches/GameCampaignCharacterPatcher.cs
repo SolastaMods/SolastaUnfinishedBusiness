@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -13,7 +14,7 @@ public static class GameCampaignCharacterPatcher
     public static class EngageRest_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix([NotNull] GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
+        public static bool Prefix([NotNull] GameCampaignCharacter __instance, RestType restType)
         {
             //PATCH: terminates effects correctly on world travel
             // call `RefreshEffectsForRest` instead of `ApplyRestForConditions` for heroes

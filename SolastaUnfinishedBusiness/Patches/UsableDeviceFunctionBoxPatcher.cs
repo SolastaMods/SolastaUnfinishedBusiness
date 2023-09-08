@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -63,7 +64,7 @@ public static class UsableDeviceFunctionBoxPatcher
 
             if (deviceDescription.Usage != EquipmentDefinitions.ItemUsage.Charges
                 || functionDescription.UseAffinity != DeviceFunctionDescription.FunctionUseAffinity.ChargeCost
-                || advancement.EffectIncrementMethod != RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel
+                || advancement.EffectIncrementMethod != EffectIncrementMethod.PerAdditionalSlotLevel
                 || !canOvercharge
                 || usableDevice.RemainingCharges < functionDescription.UseAmount + minCharge)
             {

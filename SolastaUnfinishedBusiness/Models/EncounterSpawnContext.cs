@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -34,7 +35,7 @@ internal static class EncountersSpawnContext
         if (EncounterCharacters.Count < MaxEncounterCharacters)
         {
             EncounterCharacters.Add(new RulesetCharacterMonster(monsterDefinition, 0,
-                new RuleDefinitions.SpawnOverrides(), GadgetDefinitions.CreatureSex.Male));
+                new SpawnOverrides(), GadgetDefinitions.CreatureSex.Male));
         }
     }
 
@@ -166,7 +167,7 @@ internal static class EncountersSpawnContext
         foreach (var gameLocationCharacter in EncounterCharacters
                      .Select(character =>
                          gameLocationCharacterService.CreateCharacter(
-                             PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy,
+                             PlayerControllerManager.DmControllerId, character, Side.Enemy,
                              new GameLocationBehaviourPackage
                              {
                                  BattleStartBehavior =

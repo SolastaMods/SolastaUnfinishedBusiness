@@ -5,8 +5,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -206,10 +206,12 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Dispelled)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionPathOfTheSpiritsBearResistance,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .AddToDB();
     }
@@ -231,30 +233,32 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
-            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create("CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
-                .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition)
-                .SetMyAttackAdvantage(AdvantageType.Advantage)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
+                    .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
             .AddToDB();
 
         var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var customBehaviorWolfLeadership = new CustomRagingAura(
@@ -296,12 +300,13 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
             .Create($"Condition{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create("CombatAffinityPowerHonedAnimalAspectsBear")
-                .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition)
-                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityPowerHonedAnimalAspectsBear")
+                    .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition)
+                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                    .AddToDB())
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1)
@@ -356,10 +361,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionHonedAnimalAspectsEagle, ConditionForm.ConditionOperation.Add)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHonedAnimalAspectsEagle, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .AddToDB();
 
@@ -388,10 +394,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionHonedAnimalAspectsWolf, ConditionForm.ConditionOperation.Add)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHonedAnimalAspectsWolf, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
             .AddToDB();
 

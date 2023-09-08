@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -17,12 +18,12 @@ internal class FeatureDefinitionPowerSharedPoolBuilder
         PreConditions.ArgumentIsNotNull(Definition.SharedPool,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].SharedPool is null.");
         // ReSharper disable once InvocationIsSkipped
-        PreConditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed,
+        PreConditions.AreEqual(Definition.UsesDetermination, UsesDetermination.Fixed,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
     }
 
     internal FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(
-        RuleDefinitions.ActivationTime activationTime,
+        ActivationTime activationTime,
         FeatureDefinitionPower poolPower,
         int costPerUse = 1)
     {

@@ -62,14 +62,15 @@ internal static partial class SpellBuilders
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBlindingSmite))
-                .SetParticleEffectParameters(DivineFavor)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBlindingSmite))
+                    .SetParticleEffectParameters(DivineFavor)
+                    .Build())
             .AddToDB();
 
         return spell;
@@ -143,20 +144,22 @@ internal static partial class SpellBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Spell,
                 Sprites.GetSprite("CrusadersMantle", Resources.CrusadersMantle, 128))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetParticleEffectParameters(DivineFavor)
-                .SetRecurrentEffect(RecurrentEffect.OnActivation |
-                                    RecurrentEffect.OnTurnStart |
-                                    RecurrentEffect.OnEnter)
-                .AddEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(DivineFavor)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation |
+                                        RecurrentEffect.OnTurnStart |
+                                        RecurrentEffect.OnEnter)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetRequiresConcentration(true)
             .SetSpellLevel(3)
@@ -178,32 +181,33 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
-                .ExcludeCaster()
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Constitution,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Wisdom,
-                    12)
-                .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                    .ExcludeCaster()
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Wisdom,
+                        12)
+                    .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(3)
             .SetVerboseComponent(true)
@@ -225,11 +229,12 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("ElementalWeapon", Resources.ElementalWeapon, 128))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetRequiresConcentration(true)
             .SetSpellLevel(3)
@@ -342,38 +347,42 @@ internal static partial class SpellBuilders
             .Create($"ElementalWeapon{damageType}")
             .SetGuiPresentation(Category.Spell, MagicWeapon)
             .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-            .SetEffectDescription(EffectDescriptionBuilder.Create(MagicWeapon)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDiceAdvancement(LevelSourceType.EffectLevel)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.EffectLevel)
-                        .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon, 3),
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon, 4),
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon1, 5),
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon1, 6),
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon2, 7),
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon2, 8),
-                            new FeatureUnlockByLevel(attackModifierElementalWeapon2, 9))
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetDiceAdvancement(LevelSourceType.EffectLevel)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.EffectLevel)
-                        .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon, 3),
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon, 4),
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon1, 5),
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon1, 6),
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 7),
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 8),
-                            new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 9))
-                        .Build())
-                .SetParticleEffectParameters(effectParticleParameters)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(MagicWeapon)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.EffectLevel)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice,
+                                LevelSourceType.EffectLevel)
+                            .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon, 3),
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon, 4),
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon1, 5),
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon1, 6),
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon2, 7),
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon2, 8),
+                                new FeatureUnlockByLevel(attackModifierElementalWeapon2, 9))
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.EffectLevel)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice,
+                                LevelSourceType.EffectLevel)
+                            .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon, 3),
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon, 4),
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon1, 5),
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon1, 6),
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 7),
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 8),
+                                new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 9))
+                            .Build())
+                    .SetParticleEffectParameters(effectParticleParameters)
+                    .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetRequiresConcentration(true)
             .SetUniqueInstance()
@@ -461,29 +470,30 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetConditionForm(hinder, ConditionForm.ConditionOperation.Add)
                             .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
-                            .Create($"Condition{SpiritShroudName}{damage}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .CopyParticleReferences(ConditionSpiritGuardiansSelf)
-                            .SetFeatures(
-                                FeatureDefinitionAdditionalDamageBuilder
-                                    .Create($"AdditionalDamage{SpiritShroudName}{damage}")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetNotificationTag($"{SpiritShroudName}{damage}")
-                                    .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
-                                    .SetAttackOnly()
-                                    .SetDamageDice(DieType.D8, 1)
-                                    .SetSpecificDamageType(damage)
-                                    .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
-                                    .SetConditionOperations(
-                                        new ConditionOperationDescription
-                                        {
-                                            conditionDefinition = noHeal,
-                                            operation = ConditionOperationDescription.ConditionOperation.Add
-                                        })
-                                    .AddToDB())
-                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{SpiritShroudName}{damage}")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .CopyParticleReferences(ConditionSpiritGuardiansSelf)
+                                .SetFeatures(
+                                    FeatureDefinitionAdditionalDamageBuilder
+                                        .Create($"AdditionalDamage{SpiritShroudName}{damage}")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetNotificationTag($"{SpiritShroudName}{damage}")
+                                        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
+                                        .SetAttackOnly()
+                                        .SetDamageDice(DieType.D8, 1)
+                                        .SetSpecificDamageType(damage)
+                                        .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
+                                        .SetConditionOperations(
+                                            new ConditionOperationDescription
+                                            {
+                                                conditionDefinition = noHeal,
+                                                operation = ConditionOperationDescription.ConditionOperation.Add
+                                            })
+                                        .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)

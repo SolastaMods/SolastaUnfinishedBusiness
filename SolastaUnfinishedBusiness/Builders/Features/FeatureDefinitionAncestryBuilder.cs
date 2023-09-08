@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -10,7 +11,7 @@ internal class
 {
     internal FeatureDefinitionAncestryBuilder SetAncestry(ExtraAncestryType type)
     {
-        Definition.type = (RuleDefinitions.AncestryType)type;
+        Definition.type = (AncestryType)type;
         return this;
     }
 

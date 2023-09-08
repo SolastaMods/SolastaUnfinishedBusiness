@@ -562,20 +562,24 @@ internal static class CasterFeats
             //TODO: ideally not hide out of combat, but make it disabled
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Strength,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    savingThrowDifficultyAbility)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.Telekinesis, 1)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Strength,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        savingThrowDifficultyAbility)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.Telekinesis, 1)
+                            .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
-                .Build())
             .AddToDB();
 
         var invocation = CustomInvocationDefinitionBuilder

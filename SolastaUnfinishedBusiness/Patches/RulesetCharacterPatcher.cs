@@ -17,8 +17,9 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
@@ -1567,9 +1568,8 @@ public static class RulesetCharacterPatcher
                         ModifiedAttribute: AttributeDefinitions.ArmorClass
                     } attributeModifier ||
                     (attributeModifier.ModifierOperation !=
-                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive &&
-                     attributeModifier.ModifierOperation != FeatureDefinitionAttributeModifier
-                         .AttributeModifierOperation.AddProficiencyBonus))
+                     AttributeModifierOperation.Additive &&
+                     attributeModifier.ModifierOperation != AttributeModifierOperation.AddProficiencyBonus))
                 {
                     continue;
                 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -9,7 +10,7 @@ internal class
 {
     internal RestActivityDefinitionBuilder SetRestData(
         RestDefinitions.RestStage restStage,
-        RuleDefinitions.RestType restType,
+        RestType restType,
         RestActivityDefinition.ActivityCondition condition,
         string functor,
         string stringParameter)

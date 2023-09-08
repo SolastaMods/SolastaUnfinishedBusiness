@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -8,7 +9,7 @@ public interface ITryAlterOutcomeSavingThrow
     [UsedImplicitly]
     public void OnFailedSavingTryAlterOutcome(
         RulesetCharacter caster,
-        RuleDefinitions.Side sourceSide,
+        Side sourceSide,
         RulesetActor target,
         ActionModifier actionModifier,
         bool hasHitVisual,
@@ -18,7 +19,7 @@ public interface ITryAlterOutcomeSavingThrow
         bool disableSavingThrowOnAllies,
         bool advantageForEnemies,
         bool ignoreCover,
-        RuleDefinitions.FeatureSourceType featureSourceType,
+        FeatureSourceType featureSourceType,
         List<EffectForm> effectForms,
         List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
         List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
@@ -26,6 +27,6 @@ public interface ITryAlterOutcomeSavingThrow
         BaseDefinition sourceDefinition,
         string schoolOfMagic,
         MetamagicOptionDefinition metamagicOption,
-        ref RuleDefinitions.RollOutcome saveOutcome,
+        ref RollOutcome saveOutcome,
         ref int saveOutcomeDelta);
 }

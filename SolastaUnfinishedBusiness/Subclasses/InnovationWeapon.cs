@@ -11,9 +11,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static ActionDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -120,12 +120,17 @@ public sealed class InnovationWeapon : AbstractSubclass
                 new TargetDefendingBlade()
             )
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         power.AddCustomSubFeatures(new PowerUseModifier
@@ -175,16 +180,18 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetSummonCreatureForm(1, monsterDefinition.Name)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, monsterDefinition.Name)
+                            .Build())
+                    .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
-                .SetParticleEffectParameters(ConjureElementalAir)
-                .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
@@ -204,16 +211,18 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetGuiPresentation(SummonSteelDefenderPower, Category.Feature,
                 Sprites.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetSummonCreatureForm(1, defender.Name)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, defender.Name)
+                            .Build())
+                    .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
-                .SetParticleEffectParameters(ConjureElementalAir)
-                .Build())
             .SetUniqueInstance()
             .SetOverriddenPower(overridenPower)
             .SetCustomSubFeatures(
@@ -316,13 +325,15 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create("MonsterAttackSteelDefender")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetToHitBonus(0)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeForce, 1, DieType.D8)
-                    .Build())
-                .Build()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 1, DieType.D8)
+                            .Build())
+                    .Build()
             )
             .AddToDB();
 
@@ -354,15 +365,17 @@ public sealed class InnovationWeapon : AbstractSubclass
                         Sprites.GetSprite("SteelDefenderRepair", Resources.SteelDefenderRepair, 256, 128))
                     .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
                     // RAW this can heal any other Inventor construct, this version only heals self
-                    .SetEffectDescription(EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetEffectForms(EffectFormBuilder
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
                             .Create()
-                            .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
-                                HealingCap.MaximumHitPoints)
+                            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
+                                        HealingCap.MaximumHitPoints)
+                                    .Build())
                             .Build())
-                        .Build())
                     .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("ConditionAffinityInnovationWeaponSteelDefenderInitiative")
@@ -436,12 +449,16 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create("PowerInventorWeaponSteelDefenderCommand")
             .SetGuiPresentation(Category.Feature, Command)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
 
@@ -459,15 +476,17 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeForce, 2, DieType.D6)
-                    .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 2, 6, 9)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 2, 6, 9)
+                            .Build())
                     .Build())
-                .Build())
             .SetCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
                 ValidatorsPowerUse.UsedLessTimesThan(1),

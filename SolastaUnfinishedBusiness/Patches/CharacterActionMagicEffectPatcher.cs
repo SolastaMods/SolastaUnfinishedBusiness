@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -37,12 +38,12 @@ public static class CharacterActionMagicEffectPatcher
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
             var effectLevel = 0;
-            var effectSourceType = RuleDefinitions.EffectSourceType.Power;
+            var effectSourceType = EffectSourceType.Power;
 
             switch (__instance)
             {
                 case CharacterActionCastSpell spell:
-                    effectSourceType = RuleDefinitions.EffectSourceType.Spell;
+                    effectSourceType = EffectSourceType.Spell;
                     effectLevel = spell.ActiveSpell.SlotLevel;
                     break;
                 case CharacterActionUsePower power:
@@ -55,12 +56,12 @@ public static class CharacterActionMagicEffectPatcher
             formsParams.FillSourceAndTarget(character, character);
             formsParams.FillFromActiveEffect(actionParams.RulesetEffect);
             formsParams.FillSpecialParameters(false, 0, 0, 0, effectLevel, null,
-                RuleDefinitions.RollOutcome.Success, 0, false, 0, 1, null);
+                RollOutcome.Success, 0, false, 0, 1, null);
             formsParams.effectSourceType = effectSourceType;
 
-            if (effectDescription.RangeType is RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit)
+            if (effectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
             {
-                formsParams.attackOutcome = RuleDefinitions.RollOutcome.Success;
+                formsParams.attackOutcome = RollOutcome.Success;
             }
 
             service.ApplyEffectForms(effectDescription.EffectForms,
@@ -100,7 +101,7 @@ public static class CharacterActionMagicEffectPatcher
             var targets = actionParams.TargetCharacters;
 
             if (!effectDescription.InviteOptionalAlly
-                || baseEffectDescription?.TargetType != RuleDefinitions.TargetType.Self
+                || baseEffectDescription?.TargetType != TargetType.Self
                 || targets.Count <= 0
                 || targets[0] == actingCharacter)
             {
@@ -193,15 +194,15 @@ public static class CharacterActionMagicEffectPatcher
         typeof(int), // effectLevel,
         typeof(GameLocationCharacter), // target,
         typeof(ActionModifier), // actionModifier,
-        typeof(RuleDefinitions.RollOutcome), // outcome,
+        typeof(RollOutcome), // outcome,
         typeof(bool), // criticalSuccess,
         typeof(bool), // rolledSaveThrow,
-        typeof(RuleDefinitions.RollOutcome), // saveOutcome,
+        typeof(RollOutcome), // saveOutcome,
         typeof(int), // saveOutcomeDelta,
         typeof(int), // targetIndex,
         typeof(int), // totalTargetsNumber,
         typeof(RulesetItem), // targetITem,
-        typeof(RuleDefinitions.EffectSourceType), // sourceType,
+        typeof(EffectSourceType), // sourceType,
         typeof(int), // ref damageReceive
         typeof(bool), //out damageAbsorbedByTemporaryHitPoints
         typeof(bool) //out terminateEffectOnTarget

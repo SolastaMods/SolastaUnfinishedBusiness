@@ -28,17 +28,18 @@ public sealed class OathOfAncients : AbstractSubclass
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}ElderChampionEnemy")
-            .SetGuiPresentation($"Power{Name}ElderChampion", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionSavingThrowAffinityBuilder
+                .Create($"SavingThrowAffinity{Name}ElderChampionEnemy")
+                .SetGuiPresentation($"Power{Name}ElderChampion", Category.Feature)
+                .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                    AttributeDefinitions.Strength,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Intelligence,
+                    AttributeDefinitions.Wisdom,
+                    AttributeDefinitions.Charisma)
+                .AddToDB())
         .AddToDB();
 
     public OathOfAncients()

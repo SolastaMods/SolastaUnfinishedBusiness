@@ -6,8 +6,8 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionEquipmentAffinitys;
@@ -45,12 +45,13 @@ internal static class RaceBolgrifBuilder
             .Create("PowerBolgrifInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpellDefinitions.Invisibility.EffectDescription)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .ClearEffectAdvancements()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Invisibility.EffectDescription)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .ClearEffectAdvancements()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
             .AddToDB();
 
         var spellListBolgrif = SpellListDefinitionBuilder

@@ -81,13 +81,14 @@ internal static class BackgroundsBuilders
                     .Create(CastSpellGnomeShadow, $"BonusCantrips{BackgroundDevoted}")
                     .SetGuiPresentation(Category.Feature)
                     .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
-                    .SetSpellList(SpellListDefinitionBuilder
-                        .Create($"SpellList{BackgroundDevoted}")
-                        .SetGuiPresentationNoContent(true)
-                        .ClearSpells()
-                        .SetSpellsAtLevel(0, SacredFlame)
-                        .FinalizeSpells()
-                        .AddToDB())
+                    .SetSpellList(
+                        SpellListDefinitionBuilder
+                            .Create($"SpellList{BackgroundDevoted}")
+                            .SetGuiPresentationNoContent(true)
+                            .ClearSpells()
+                            .SetSpellsAtLevel(0, SacredFlame)
+                            .FinalizeSpells()
+                            .AddToDB())
                     .AddToDB(),
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundDevoted}Skills")

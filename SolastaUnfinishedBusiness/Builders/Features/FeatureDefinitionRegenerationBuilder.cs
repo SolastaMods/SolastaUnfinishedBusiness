@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -7,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionRegenerationBuilder
     : DefinitionBuilder<FeatureDefinitionRegeneration, FeatureDefinitionRegenerationBuilder>
 {
-    internal FeatureDefinitionRegenerationBuilder SetDuration(RuleDefinitions.DurationType durationType, int duration)
+    internal FeatureDefinitionRegenerationBuilder SetDuration(DurationType durationType, int duration)
     {
         Definition.tickNumber = duration;
         Definition.tickType = durationType;
@@ -15,7 +16,7 @@ internal class FeatureDefinitionRegenerationBuilder
     }
 
     internal FeatureDefinitionRegenerationBuilder SetRegenerationDice(
-        RuleDefinitions.DieType dieType, int diceNumber, int bonus)
+        DieType dieType, int diceNumber, int bonus)
     {
         Definition.dieType = dieType;
         Definition.diceNumber = diceNumber;

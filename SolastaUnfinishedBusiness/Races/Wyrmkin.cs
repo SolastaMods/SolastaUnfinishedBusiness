@@ -14,12 +14,12 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;

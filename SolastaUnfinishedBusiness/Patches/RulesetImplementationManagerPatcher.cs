@@ -709,7 +709,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: supports IModifySavingThrowAttribute interface
             GetBestSavingThrowAbilityScore(target, actionModifier, ref savingThrowAbility);
         }
-        
+
         [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter caster,

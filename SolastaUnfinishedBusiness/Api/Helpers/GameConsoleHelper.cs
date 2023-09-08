@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -92,8 +93,8 @@ internal static class GameConsoleHelper
 
         var type = condition.ConditionType switch
         {
-            RuleDefinitions.ConditionType.Beneficial => ConsoleStyleDuplet.ParameterType.Positive,
-            RuleDefinitions.ConditionType.Detrimental => ConsoleStyleDuplet.ParameterType.Negative,
+            ConditionType.Beneficial => ConsoleStyleDuplet.ParameterType.Positive,
+            ConditionType.Detrimental => ConsoleStyleDuplet.ParameterType.Negative,
             _ => ConsoleStyleDuplet.ParameterType.AbilityInfo
         };
 
@@ -116,19 +117,19 @@ internal static class GameConsoleHelper
 
     internal static void LogConcentrationCheckRoll(this RulesetCharacter character,
         RulesetEffect effect,
-        RuleDefinitions.RollOutcome outcome,
+        RollOutcome outcome,
         int totalRoll,
         int rawRoll,
         int modifier,
         int saveDC,
-        List<RuleDefinitions.TrendInfo> modifierTrends,
-        List<RuleDefinitions.TrendInfo> advantageTrends)
+        List<TrendInfo> modifierTrends,
+        List<TrendInfo> advantageTrends)
     {
         const string RolledAnyAdvantage = "Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine";
         const string Rolled = "Feedback/&ConcentrationEffectCheckRolledLine";
 
-        var advantage = RuleDefinitions.ComputeAdvantage(advantageTrends);
-        var hasAnyAdvantage = advantage != RuleDefinitions.AdvantageType.None;
+        var advantage = ComputeAdvantage(advantageTrends);
+        var hasAnyAdvantage = advantage != AdvantageType.None;
 
         var console = Gui.Game.GameConsole;
         var entry =
@@ -144,7 +145,7 @@ internal static class GameConsoleHelper
 
         if (hasAnyAdvantage)
         {
-            var type = advantage == RuleDefinitions.AdvantageType.Advantage
+            var type = advantage == AdvantageType.Advantage
                 ? ConsoleStyleDuplet.ParameterType.Advantage
                 : ConsoleStyleDuplet.ParameterType.Disadvantage;
             var localizedAdvantage = Gui.Localize(GameConsole.AdvantageRollDescription);
@@ -161,13 +162,13 @@ internal static class GameConsoleHelper
         // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
         switch (outcome)
         {
-            case RuleDefinitions.RollOutcome.CriticalSuccess:
-            case RuleDefinitions.RollOutcome.Success:
+            case RollOutcome.CriticalSuccess:
+            case RollOutcome.Success:
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
                     Gui.Format(GameConsole.SaveSuccessOutcome, totalRoll.ToString()));
                 break;
-            case RuleDefinitions.RollOutcome.CriticalFailure:
-            case RuleDefinitions.RollOutcome.Failure:
+            case RollOutcome.CriticalFailure:
+            case RollOutcome.Failure:
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.FailedRoll,
                     Gui.Format(GameConsole.SaveFailureOutcome, totalRoll.ToString()));
                 break;

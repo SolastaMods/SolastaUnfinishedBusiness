@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using JetBrains.Annotations;
+using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Builders;
 

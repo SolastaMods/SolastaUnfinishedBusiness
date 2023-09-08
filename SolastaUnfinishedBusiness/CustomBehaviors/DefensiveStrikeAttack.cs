@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
+using static RuleDefinitions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -121,8 +122,8 @@ internal static class DefensiveStrikeAttack
         opportunityAttackMode.EffectDescription.FindFirstDamageForm().bonusDamage += bonus;
         opportunityAttackMode.toHitBonus += bonus;
 
-        opportunityAttackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(bonus,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
+        opportunityAttackMode.ToHitBonusTrends.Add(new TrendInfo(bonus,
+            FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
 
         //Create and execute attack
         var enums = new CharacterActionAttack(new CharacterActionParams(

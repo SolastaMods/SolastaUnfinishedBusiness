@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -201,19 +202,19 @@ internal class FeatureDefinitionCastSpellBuilder
         return this;
     }
 
-    internal FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
+    internal FeatureDefinitionCastSpellBuilder SetSpellKnowledge(SpellKnowledge knowledge)
     {
         Definition.spellKnowledge = knowledge;
         return this;
     }
 
-    internal FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
+    internal FeatureDefinitionCastSpellBuilder SetSpellReadyness(SpellReadyness readyness)
     {
         Definition.spellReadyness = readyness;
         return this;
     }
 
-    internal FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
+    internal FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RechargeRate slotRecharge)
     {
         Definition.slotsRecharge = slotRecharge;
         return this;
@@ -253,7 +254,7 @@ internal class FeatureDefinitionCastSpellBuilder
 #endif
 
     internal FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(
-        RuleDefinitions.SpellPreparationCount prepCount)
+        SpellPreparationCount prepCount)
     {
         Definition.spellPreparationCount = prepCount;
         return this;

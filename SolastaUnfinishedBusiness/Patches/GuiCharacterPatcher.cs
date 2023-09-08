@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -226,7 +227,7 @@ public static class GuiCharacterPatcher
                 return; // health wasn't dirty so healthGauge hasn't been updated
             }
 
-            if (__instance.RulesetCharacterMonster is not { Side: RuleDefinitions.Side.Enemy })
+            if (__instance.RulesetCharacterMonster is not { Side: Side.Enemy })
             {
                 return;
             }
@@ -327,7 +328,7 @@ public static class GuiCharacterPatcher
                     return false;
                 }
 
-                return __instance.RulesetCharacter.Side == RuleDefinitions.Side.Enemy;
+                return __instance.RulesetCharacter.Side == Side.Enemy;
             }
         }
     }

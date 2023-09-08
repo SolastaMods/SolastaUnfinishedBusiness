@@ -17,6 +17,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -27,7 +28,7 @@ public static class RulesetCharacterHeroPatcher
     private static void EnumerateFeatureDefinitionSavingThrowAffinity(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
         __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
         featuresToBrowse.RemoveAll(x =>
@@ -315,19 +316,19 @@ public static class RulesetCharacterHeroPatcher
 
             switch (provider.AttackRollModifierMethod)
             {
-                case RuleDefinitions.AttackModifierMethod.SourceConditionAmount:
+                case AttackModifierMethod.SourceConditionAmount:
                     num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
                     break;
-                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus when
+                case AttackModifierMethod.AddAbilityScoreBonus when
                     !string.IsNullOrEmpty(provider.AttackRollAbilityScore):
                     num += AttributeDefinitions.ComputeAbilityScoreModifier(
                         hero.TryGetAttributeValue(provider.AttackRollAbilityScore));
                     break;
-                case RuleDefinitions.AttackModifierMethod.None:
-                case RuleDefinitions.AttackModifierMethod.FlatValue:
+                case AttackModifierMethod.None:
+                case AttackModifierMethod.FlatValue:
                     //These require no additional processing
                     break;
-                case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
+                case AttackModifierMethod.AddProficiencyBonus:
                     num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
                 default:
@@ -343,15 +344,15 @@ public static class RulesetCharacterHeroPatcher
 
             switch (provider.DamageRollModifierMethod)
             {
-                case RuleDefinitions.AttackModifierMethod.SourceConditionAmount:
-                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus:
+                case AttackModifierMethod.SourceConditionAmount:
+                case AttackModifierMethod.AddAbilityScoreBonus:
                     //These are processed by base method
                     break;
-                case RuleDefinitions.AttackModifierMethod.None:
-                case RuleDefinitions.AttackModifierMethod.FlatValue:
+                case AttackModifierMethod.None:
+                case AttackModifierMethod.FlatValue:
                     //These require no additional processing
                     break;
-                case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
+                case AttackModifierMethod.AddProficiencyBonus:
                     num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
                 default:
@@ -567,7 +568,7 @@ public static class RulesetCharacterHeroPatcher
         public static void Prefix(
             RulesetCharacterHero __instance,
             RulesetAttackMode mode,
-            ref RuleDefinitions.AttackProximity proximity)
+            ref AttackProximity proximity)
         {
             //PATCH: supports turning Produced Flame into a weapon
             //destroys Produced Flame after attacking with it
@@ -663,7 +664,7 @@ public static class RulesetCharacterHeroPatcher
             foreach (var featureDefinitionMagicAffinity in magicAffinities
                          .OfType<FeatureDefinitionMagicAffinity>())
             {
-                if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.None)
+                if (featureDefinitionMagicAffinity.RitualCasting == RitualCasting.None)
                 {
                     continue;
                 }
@@ -674,7 +675,7 @@ public static class RulesetCharacterHeroPatcher
                     // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (featureDefinitionMagicAffinity.RitualCasting)
                     {
-                        case RuleDefinitions.RitualCasting.PactTomeRitual:
+                        case RitualCasting.PactTomeRitual:
                         {
                             var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
@@ -691,7 +692,7 @@ public static class RulesetCharacterHeroPatcher
                             break;
                         }
 
-                        case RuleDefinitions.RitualCasting.Selection:
+                        case RitualCasting.Selection:
                         {
                             var spells = spellRepertoire.KnownSpells
                                 .Where(knownSpell =>
@@ -703,11 +704,11 @@ public static class RulesetCharacterHeroPatcher
                             break;
                         }
 
-                        case RuleDefinitions.RitualCasting.Prepared
+                        case RitualCasting.Prepared
                             when spellRepertoire.SpellCastingFeature.SpellReadyness ==
-                                 RuleDefinitions.SpellReadyness.Prepared &&
+                                 SpellReadyness.Prepared &&
                                  spellRepertoire.SpellCastingFeature.SpellKnowledge ==
-                                 RuleDefinitions.SpellKnowledge.WholeList:
+                                 SpellKnowledge.WholeList:
                         {
                             var maxSpellLevel = SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
                             var spells = spellRepertoire.PreparedSpells
@@ -718,9 +719,9 @@ public static class RulesetCharacterHeroPatcher
 
                             break;
                         }
-                        case RuleDefinitions.RitualCasting.Spellbook
+                        case RitualCasting.Spellbook
                             when spellRepertoire.SpellCastingFeature.SpellKnowledge ==
-                                 RuleDefinitions.SpellKnowledge.Spellbook:
+                                 SpellKnowledge.Spellbook:
                         {
                             __instance.CharacterInventory.EnumerateAllItems(__instance.Items);
 
@@ -809,7 +810,7 @@ public static class RulesetCharacterHeroPatcher
             var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;
             var level = __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var experience = __instance.TryGetAttributeValue(AttributeDefinitions.Experience);
-            var nextLevelThreshold = RuleDefinitions.ComputeNextLevelThreshold(level + 1);
+            var nextLevelThreshold = ComputeNextLevelThreshold(level + 1);
 
             __result = ((Main.Settings.NoExperienceOnLevelUp && Gui.GameLocation != null) ||
                         (nextLevelThreshold > 0 && experience >= nextLevelThreshold)) &&

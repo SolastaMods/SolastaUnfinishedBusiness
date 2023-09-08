@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -27,7 +28,7 @@ public static class HealthGaugeGroupPatcher
                 return;
             }
 
-            if (__instance.GuiCharacter.RulesetCharacterMonster is not { Side: RuleDefinitions.Side.Enemy })
+            if (__instance.GuiCharacter.RulesetCharacterMonster is not { Side: Side.Enemy })
             {
                 return;
             }

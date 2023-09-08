@@ -38,17 +38,20 @@ public sealed class WizardArcaneFighter : AbstractSubclass
         var additionalActionArcaneFighter = FeatureDefinitionBuilder
             .Create($"AdditionalAction{Name}") //left old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new SpellFighting(ConditionDefinitionBuilder
-                .Create($"Condition{Name}SpellFighting")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                    .Create("AdditionalActionSpellFighting")
-                    .SetGuiPresentation($"AdditionalAction{Name}", Category.Feature)
-                    .SetActionType(ActionDefinitions.ActionType.Main)
-                    .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-                    .AddToDB())
-                .AddToDB()))
+            .SetCustomSubFeatures(
+                new SpellFighting(
+                    ConditionDefinitionBuilder
+                        .Create($"Condition{Name}SpellFighting")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAdditionalActionBuilder
+                                .Create("AdditionalActionSpellFighting")
+                                .SetGuiPresentation($"AdditionalAction{Name}", Category.Feature)
+                                .SetActionType(ActionDefinitions.ActionType.Main)
+                                .SetRestrictedActions(ActionDefinitions.Id.CastMain)
+                                .AddToDB())
+                        .AddToDB()))
             .AddToDB();
 
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder

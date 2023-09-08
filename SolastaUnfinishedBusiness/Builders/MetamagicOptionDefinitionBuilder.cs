@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -11,11 +12,11 @@ internal class
     {
         base.Initialise();
         Definition.metamagicType =
-            (RuleDefinitions.MetamagicType)9000; // use a dummy value to avoid conflicts with vanilla
+            (MetamagicType)9000; // use a dummy value to avoid conflicts with vanilla
     }
 
     internal MetamagicOptionDefinitionBuilder SetCost(
-        RuleDefinitions.MetamagicCostMethod costMethod = RuleDefinitions.MetamagicCostMethod.FixedValue,
+        MetamagicCostMethod costMethod = MetamagicCostMethod.FixedValue,
         int sorceryPointsCost = 1)
     {
         Definition.costMethod = costMethod;

@@ -26,18 +26,21 @@ public static class ActionSwitching
 
         //Make Horde Breaker add condition instead of using trigger
         var hordeBreaker = FeatureDefinitionAdditionalActions.AdditionalActionHunterHordeBreaker;
-        hordeBreaker.AddCustomSubFeatures(new HordeBreaker(ConditionDefinitionBuilder
-            .Create("ConditionHunterHordeBreaker")
-            .SetGuiPresentationNoContent()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                .Create("AdditionalActionHunterHordeBreaker2")
-                .SetGuiPresentation(hordeBreaker.GuiPresentation)
-                .SetActionType(ActionDefinitions.ActionType.Main)
-                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                .SetMaxAttacksNumber(1)
-                .AddToDB())
-            .AddToDB()));
+        hordeBreaker.AddCustomSubFeatures(
+            new HordeBreaker(
+                ConditionDefinitionBuilder
+                    .Create("ConditionHunterHordeBreaker")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(
+                        FeatureDefinitionAdditionalActionBuilder
+                            .Create("AdditionalActionHunterHordeBreaker2")
+                            .SetGuiPresentation(hordeBreaker.GuiPresentation)
+                            .SetActionType(ActionDefinitions.ActionType.Main)
+                            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                            .SetMaxAttacksNumber(1)
+                            .AddToDB())
+                    .AddToDB()));
     }
 
     private static void EnumerateFeaturesHierarchically<T>(

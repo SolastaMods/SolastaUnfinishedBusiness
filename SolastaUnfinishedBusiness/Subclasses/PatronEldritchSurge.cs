@@ -11,8 +11,8 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.CustomBuilders.EldritchVersatility;
@@ -45,17 +45,19 @@ public class PatronEldritchSurge : AbstractSubclass
         .Create($"Power{Name}BlastReload")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.Permanent)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetDurationData(DurationType.Permanent)
-            .SetEffectForms(EffectFormBuilder
+        .SetEffectDescription(
+            EffectDescriptionBuilder
                 .Create()
-                .SetConditionForm(
-                    BlastReloadSupportRulesetCondition.BindingDefinition,
-                    ConditionForm.ConditionOperation.Add)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            BlastReloadSupportRulesetCondition.BindingDefinition,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
-            .Build())
         .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 

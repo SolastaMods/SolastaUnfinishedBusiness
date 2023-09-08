@@ -168,11 +168,12 @@ public sealed class RangerArcanist : AbstractSubclass
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
                 PowerDomainElementalHeraldOfTheElementsThunder)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(MagicMissile.EffectDescription)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Sphere, 3)
-                .SetEffectForms(effectForms)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(MagicMissile.EffectDescription)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Sphere, 3)
+                    .SetEffectForms(effectForms)
+                    .Build())
             .SetOverriddenPower(overriddenPower)
             .AddToDB();
     }

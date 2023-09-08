@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using static EquipmentDefinitions;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -355,17 +356,17 @@ internal static class FixesContext
     {
         //Changes Champion's Improved Critical to set crit threshold to 19, instead of forcing if worse - fixes stacking with feats
         var modifier = AttributeModifierMartialChampionImprovedCritical;
-        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+        modifier.modifierOperation = AttributeModifierOperation.Set;
 
         //Changes Champion's Superior Critical to set crit threshold to 18, instead of forcing if worse - fixes stacking with feats
         modifier = AttributeModifierMartialChampionSuperiorCritical;
-        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+        modifier.modifierOperation = AttributeModifierOperation.Set;
 
         //Changes critical threshold of Sudden Death dagger to set
         modifier = AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3;
 
         //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues. in UB we fixed those original issues, so making it to SET to not break stacking
-        modifier.modifierOperation = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set;
+        modifier.modifierOperation = AttributeModifierOperation.Set;
         modifier.modifierValue = 18;
     }
 

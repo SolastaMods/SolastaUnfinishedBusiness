@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -23,7 +24,7 @@ internal static class PowerBundle
 
     internal static void RechargeLinkedPowers(
         [NotNull] RulesetCharacter character,
-        RuleDefinitions.RestType restType)
+        RestType restType)
     {
         var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
 
@@ -47,9 +48,9 @@ internal static class PowerBundle
             // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or
             // it recharges on a long rest and this is a long rest
             if (!pointPoolPowerDefinitions.Contains(rechargedPower)
-                && (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest
-                    || (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest
-                        && restType == RuleDefinitions.RestType.LongRest)))
+                && (rechargedPower.RechargeRate == RechargeRate.ShortRest
+                    || (rechargedPower.RechargeRate == RechargeRate.LongRest
+                        && restType == RestType.LongRest)))
             {
                 pointPoolPowerDefinitions.Add(rechargedPower);
             }
@@ -200,12 +201,12 @@ internal static class PowerBundle
 
     internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
     {
-        if (power.CostPerUse == 0 || power.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
+        if (power.CostPerUse == 0 || power.RechargeRate == RechargeRate.AtWill)
         {
             return int.MaxValue;
         }
 
-        if (power.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
+        if (power.RechargeRate == RechargeRate.KiPoints)
         {
             return (character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints) /
                    power.CostPerUse;
@@ -528,7 +529,7 @@ internal static class PowerBundle
 
         if (usablePower.OriginClass != null
             || usablePower.OriginRace != null
-            || usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
+            || usablePower.PowerDefinition.RechargeRate == RechargeRate.AtWill)
         {
             return;
         }

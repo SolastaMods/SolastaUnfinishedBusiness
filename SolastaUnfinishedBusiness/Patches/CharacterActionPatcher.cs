@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -110,7 +111,7 @@ public static class CharacterActionPatcher
                 }
 
                 //PATCH: support for `IActionFinishedByEnemy`
-                if (Gui.Battle != null && rulesetCharacter.Side != RuleDefinitions.Side.Ally)
+                if (Gui.Battle != null && rulesetCharacter.Side != Side.Ally)
                 {
                     foreach (var target in Gui.Battle.GetOpposingContenders(rulesetCharacter.Side)
                                  .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })

@@ -37,12 +37,16 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(EffectDescriptionBuilder.Create(CustomActionIdContext.FarStep)
-                .SetDurationData(DurationType.Minute, 1)
-                .AddEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(CustomActionIdContext.FarStep)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 

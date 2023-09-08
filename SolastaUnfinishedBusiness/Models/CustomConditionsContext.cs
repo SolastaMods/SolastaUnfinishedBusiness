@@ -92,11 +92,12 @@ internal static class CustomConditionsContext
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureInvisibilityEveryRound")
-                .SetGuiPresentationNoContent()
-                .SetCustomSubFeatures(new InvisibilityEveryRoundBehavior())
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("FeatureInvisibilityEveryRound")
+                    .SetGuiPresentationNoContent()
+                    .SetCustomSubFeatures(new InvisibilityEveryRoundBehavior())
+                    .AddToDB())
             .AddToDB();
 
         return conditionInvisibilityEveryRound;
@@ -149,11 +150,12 @@ internal static class CustomConditionsContext
                 Sprites.GetSprite("ConditionFlightSuspended", Resources.ConditionFlightSuspended, 32))
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureFlightSuspended")
-                .SetGuiPresentationNoContent()
-                .SetCustomSubFeatures(new FlightSuspendBehavior())
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("FeatureFlightSuspended")
+                    .SetGuiPresentationNoContent()
+                    .SetCustomSubFeatures(new FlightSuspendBehavior())
+                    .AddToDB())
             .AddToDB();
 
         // I ran into sync issues if I didn't generate the actions here

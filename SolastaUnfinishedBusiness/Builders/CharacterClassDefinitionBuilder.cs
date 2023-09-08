@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA.AI;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -13,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class CharacterClassDefinitionBuilder
     : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
 {
-    internal CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
+    internal CharacterClassDefinitionBuilder SetHitDice(DieType die)
     {
         Definition.hitDice = die;
         return this;

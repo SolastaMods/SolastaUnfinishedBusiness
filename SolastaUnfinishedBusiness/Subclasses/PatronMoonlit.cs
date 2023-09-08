@@ -75,10 +75,11 @@ public sealed class PatronMoonlit : AbstractSubclass
             .Create($"Power{Name}DarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness)
             .SetUsesProficiencyBonus(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Darkness.EffectDescription)
-                .SetDurationData(DurationType.Minute, 1)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -86,10 +87,11 @@ public sealed class PatronMoonlit : AbstractSubclass
             .Create($"Power{Name}FullMoon")
             .SetGuiPresentation(Category.Feature, Daylight)
             .SetUsesProficiencyBonus(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Daylight.EffectDescription)
-                .SetDurationData(DurationType.Minute, 1)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Daylight.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -97,10 +99,11 @@ public sealed class PatronMoonlit : AbstractSubclass
             .Create($"Power{Name}DanceOfTheNightSky")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Fly.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 4)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Fly.EffectDescription)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 4)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -108,38 +111,39 @@ public sealed class PatronMoonlit : AbstractSubclass
             .Create($"Power{Name}MoonTouched")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Dexterity,
-                    20)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                                    $"Condition{Name}MoonTouched")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetConditionType(ConditionType.Neutral)
-                                .SetFeatures(MoveModeFly2, MovementAffinityConditionLevitate)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.Levitate, 10)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Dexterity,
+                        20)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                                        $"Condition{Name}MoonTouched")
+                                    .SetGuiPresentation(Category.Condition)
+                                    .SetConditionType(ConditionType.Neutral)
+                                    .SetFeatures(MoveModeFly2, MovementAffinityConditionLevitate)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.Levitate, 10)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 

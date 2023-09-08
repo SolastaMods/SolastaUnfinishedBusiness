@@ -266,9 +266,11 @@ public static class CustomActionIdContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
                     .UseQuickAnimations()
                     .Build())

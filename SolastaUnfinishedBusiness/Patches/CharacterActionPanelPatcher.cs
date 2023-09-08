@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -419,7 +420,7 @@ public static class CharacterActionPanelPatcher
             // BEGIN VANILLA CODE
             spellEffect.MetamagicOption = metamagicOption;
 
-            if (metamagicOption.Type == RuleDefinitions.MetamagicType.QuickenedSpell)
+            if (metamagicOption.Type == MetamagicType.QuickenedSpell)
             {
                 __instance.actionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
                     .AllActionDefinitions[ActionDefinitions.Id.CastBonus];

@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -11,7 +12,7 @@ internal class FeatureDefinitionDamageAffinityBuilder
     internal FeatureDefinitionDamageAffinityBuilder SetAncestryType(ExtraAncestryType ancestryType)
     {
         Definition.ancestryDefinesDamageType = true;
-        Definition.ancestryType = (RuleDefinitions.AncestryType)ancestryType;
+        Definition.ancestryType = (AncestryType)ancestryType;
         return this;
     }
 
@@ -30,7 +31,7 @@ internal class FeatureDefinitionDamageAffinityBuilder
 #endif
 
     internal FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(
-        RuleDefinitions.DamageAffinityType damageAffinityType)
+        DamageAffinityType damageAffinityType)
     {
         Definition.DamageAffinityType = damageAffinityType;
         return this;

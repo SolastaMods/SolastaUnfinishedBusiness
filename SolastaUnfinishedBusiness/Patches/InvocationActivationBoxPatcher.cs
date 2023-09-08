@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -144,7 +145,7 @@ public static class InvocationActivationBoxPatcher
             ServiceRepository.GetService<IGuiWrapperService>()
                 .GetGuiPowerDefinition(power.Name).SetupTooltip(box.spellTooltip, character);
 
-            var atWill = power.rechargeRate == RuleDefinitions.RechargeRate.AtWill;
+            var atWill = power.rechargeRate == RechargeRate.AtWill;
 
             box.infinitySymbol.gameObject.SetActive(atWill);
 

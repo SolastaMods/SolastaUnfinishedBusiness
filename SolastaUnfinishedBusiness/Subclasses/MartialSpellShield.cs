@@ -3,8 +3,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static AttributeDefinitions;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static AttributeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -91,14 +92,15 @@ public sealed class MartialSpellShield : AbstractSubclass
         var conditionArcaneDeflection = ConditionDefinitionBuilder
             .Create($"Condition{Name}ArcaneDeflection")
             .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature, ConditionShielded)
-            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{Name}ArcaneDeflection")
-                .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    ArmorClass,
-                    3)
-                .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}ArcaneDeflection")
+                    .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
+                    .SetModifier(
+                        AttributeModifierOperation.Additive,
+                        ArmorClass,
+                        3)
+                    .AddToDB())
             .AddToDB();
 
         var powerArcaneDeflection = FeatureDefinitionPowerBuilder
@@ -142,7 +144,7 @@ public sealed class MartialSpellShield : AbstractSubclass
                                         .Create($"AttributeModifier{Name}ProtectiveBarrier")
                                         .SetGuiPresentation($"Condition{Name}ProtectiveBarrier", Category.Condition)
                                         .SetModifier(
-                                            FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                            AttributeModifierOperation.Additive,
                                             ArmorClass, 2)
                                         .AddToDB())
                                 .AddToDB()))

@@ -35,7 +35,8 @@ internal static class CustomItemsContext
             .SetStaticProperties(
                 ItemPropertyDescriptionsContext.BuildFrom(
                     FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle, false),
-                ItemPropertyDescriptionsContext.BuildFrom(FeatureDefinitionPerceptionAffinityBuilder
+                ItemPropertyDescriptionsContext.BuildFrom(
+                    FeatureDefinitionPerceptionAffinityBuilder
                         .Create("PerceptionAffinityHelmOfAwareness")
                         .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle,
                             "Feature/&PerceptionAffinityHelmOfAwarenessDescription")
@@ -63,14 +64,15 @@ internal static class CustomItemsContext
             .SetGold(120)
             .SetWeight(0.5f)
             .SetStaticProperties(ItemPropertyDescriptionsContext
-                .BuildFrom(FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create("AbilityCheckAffinityGlovesOfThievery")
-                    .SetGuiPresentationNoContent()
-                    .BuildAndSetAffinityGroups(RuleDefinitions.CharacterAbilityCheckAffinity.None,
-                        RuleDefinitions.DieType.D1, 5,
-                        (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
-                        (AttributeDefinitions.Dexterity, ToolDefinitions.ThievesToolsType))
-                    .AddToDB(), false))
+                .BuildFrom(
+                    FeatureDefinitionAbilityCheckAffinityBuilder
+                        .Create("AbilityCheckAffinityGlovesOfThievery")
+                        .SetGuiPresentationNoContent()
+                        .BuildAndSetAffinityGroups(RuleDefinitions.CharacterAbilityCheckAffinity.None,
+                            RuleDefinitions.DieType.D1, 5,
+                            (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
+                            (AttributeDefinitions.Dexterity, ToolDefinitions.ThievesToolsType))
+                        .AddToDB(), false))
             .AddToDB();
 
         MerchantContext.AddItem(item, ShopItemType.MagicItemUncommon);

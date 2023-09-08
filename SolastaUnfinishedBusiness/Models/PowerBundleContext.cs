@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -38,7 +39,7 @@ internal static class PowerBundleContext
             var ruleChar = functorParameters.RestingHero;
             var usablePower = UsablePowersProvider.Get(power, ruleChar);
 
-            if (power.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
+            if (power.EffectDescription.TargetType == TargetType.Self)
             {
                 GameLocationCharacter fromActor = null;
                 var retarget = power.GetFirstSubFeatureOfType<IRetargetCustomRestPower>();
@@ -81,7 +82,7 @@ internal static class PowerBundleContext
                     formsParams.FillFromActiveEffect(rules
                         .InstantiateEffectPower(ruleChar, usablePower, false)
                         .AddAsActivePowerToSource());
-                    formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+                    formsParams.effectSourceType = EffectSourceType.Power;
 
                     //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
                     ruleChar.UpdateUsageForPower(usablePower, power.CostPerUse);

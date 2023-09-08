@@ -88,12 +88,14 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create($"Power{Name}GiftOfTheWind")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerFighterSecondWind)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFighterSecondWind)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(_conditionGiftOfTheWind))
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFighterSecondWind)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(_conditionGiftOfTheWind))
+                    .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasShield))
             .AddToDB();
 

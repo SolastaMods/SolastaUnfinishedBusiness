@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using static RuleDefinitions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -107,7 +108,7 @@ internal static class GuardianAuraHpSwap
         }
 
         defender.RulesetCharacter.HealingReceived(
-            defender.RulesetCharacter, damageAmount, unit.Guid, RuleDefinitions.HealingCap.MaximumHitPoints, null);
+            defender.RulesetCharacter, damageAmount, unit.Guid, HealingCap.MaximumHitPoints, null);
         defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
 
         if (damage != null)
@@ -122,7 +123,7 @@ internal static class GuardianAuraHpSwap
                 attacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(RuleDefinitions.DieType.D1, new List<int>(), damageAmount),
+                new RollInfo(DieType.D1, new List<int>(), damageAmount),
                 true,
                 out _);
         }

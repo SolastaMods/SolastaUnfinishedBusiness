@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 

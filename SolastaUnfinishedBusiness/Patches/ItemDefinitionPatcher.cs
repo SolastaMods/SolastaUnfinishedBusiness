@@ -2,6 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.DataMiner.ItemDefinitionVerification;
 
 namespace SolastaUnfinishedBusiness.Patches;

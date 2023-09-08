@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -8,24 +9,24 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionCombatAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionCombatAffinity, FeatureDefinitionCombatAffinityBuilder>
 {
-    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierDieType(DieType dieType)
     {
-        Definition.myAttackModifierValueDetermination = RuleDefinitions.CombatAffinityValueDetermination.Die;
+        Definition.myAttackModifierValueDetermination = CombatAffinityValueDetermination.Die;
         Definition.myAttackModifierDieType = dieType;
         return this;
     }
 
     internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifier(
         ExtraCombatAffinityValueDetermination determination,
-        RuleDefinitions.AttackModifierSign modifierSign = RuleDefinitions.AttackModifierSign.Add)
+        AttackModifierSign modifierSign = AttackModifierSign.Add)
     {
-        Definition.myAttackModifierValueDetermination = (RuleDefinitions.CombatAffinityValueDetermination)determination;
+        Definition.myAttackModifierValueDetermination = (CombatAffinityValueDetermination)determination;
         Definition.myAttackModifierSign = modifierSign;
         return this;
     }
 
     internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierSign(
-        RuleDefinitions.AttackModifierSign modifierSign)
+        AttackModifierSign modifierSign)
     {
         Definition.myAttackModifierSign = modifierSign;
         return this;
@@ -38,21 +39,21 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackAdvantage(AdvantageType advantage)
     {
         Definition.myAttackAdvantage = advantage;
         return this;
     }
 
     internal FeatureDefinitionCombatAffinityBuilder SetAttackOfOpportunityOnMeAdvantage(
-        RuleDefinitions.AdvantageType advantage)
+        AdvantageType advantage)
     {
         Definition.attackOfOpportunityOnMeAdvantageType = advantage;
         return this;
     }
 
     internal FeatureDefinitionCombatAffinityBuilder SetAttackOnMeAdvantage(
-        RuleDefinitions.AdvantageType advantage,
+        AdvantageType advantage,
         int attackOnMeCountLimit = -1)
     {
         Definition.attackOnMeAdvantage = advantage;
@@ -66,7 +67,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionCombatAffinityBuilder SetPermanentCover(RuleDefinitions.CoverType permanentCover)
+    internal FeatureDefinitionCombatAffinityBuilder SetPermanentCover(CoverType permanentCover)
     {
         Definition.permanentCover = permanentCover;
         return this;
@@ -80,7 +81,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
     }
 #endif
 
-    internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(RuleDefinitions.SituationalContext context,
+    internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(SituationalContext context,
         ConditionDefinition requiredCondition = null)
     {
         Definition.situationalContext = context;
@@ -90,7 +91,7 @@ internal class FeatureDefinitionCombatAffinityBuilder
 
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
-        Definition.situationalContext = (RuleDefinitions.SituationalContext)context;
+        Definition.situationalContext = (SituationalContext)context;
         return this;
     }
 

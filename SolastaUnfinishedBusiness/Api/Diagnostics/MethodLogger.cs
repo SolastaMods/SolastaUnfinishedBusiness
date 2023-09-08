@@ -1,6 +1,8 @@
 ﻿#if false
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 

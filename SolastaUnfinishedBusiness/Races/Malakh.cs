@@ -10,8 +10,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
@@ -185,24 +185,26 @@ internal static class RaceMalakhBuilder
             .Create($"Power{Name}AngelicVisage")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainOblivionMarkOfFate)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
-                .SetSavingThrowData(true,
-                    AttributeDefinitions.Charisma, true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Charisma)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
-                            ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true, true)
-                        .Build()
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetSavingThrowData(true,
+                        AttributeDefinitions.Charisma, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Charisma)
+                    .SetEffectForms(
+                        EffectFormBuilder.Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder.Create()
+                            .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true, true)
+                            .Build()
+                    )
+                    .Build())
             .AddToDB();
     }
 
@@ -221,14 +223,16 @@ internal static class RaceMalakhBuilder
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(conditionAngelicFlight, ConditionForm.ConditionOperation.Add, true)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.Create()
+                            .SetConditionForm(conditionAngelicFlight, ConditionForm.ConditionOperation.Add, true)
+                            .Build())
+                    .Build())
             .AddToDB();
     }
 
@@ -255,20 +259,22 @@ internal static class RaceMalakhBuilder
             .Create($"Power{Name}AngelicRadiance")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainLawHolyRetribution)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(conditionAngelicRadiance, ConditionForm.ConditionOperation.Add, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetLightSourceForm(
-                            LightSourceType.Sun, 2, 2,
-                            faerieFireLightSource.lightSourceForm.color,
-                            faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.Create()
+                            .SetConditionForm(conditionAngelicRadiance, ConditionForm.ConditionOperation.Add, true)
+                            .Build(),
+                        EffectFormBuilder.Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Sun, 2, 2,
+                                faerieFireLightSource.lightSourceForm.color,
+                                faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         return powerMalakhAngelicRadiance;

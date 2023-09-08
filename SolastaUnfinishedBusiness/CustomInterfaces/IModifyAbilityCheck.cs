@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -15,6 +16,6 @@ public interface IModifyAbilityCheck
         int rollModifier,
         string abilityScoreName,
         string proficiencyName,
-        List<RuleDefinitions.TrendInfo> advantageTrends,
-        List<RuleDefinitions.TrendInfo> modifierTrends);
+        List<TrendInfo> advantageTrends,
+        List<TrendInfo> modifierTrends);
 }

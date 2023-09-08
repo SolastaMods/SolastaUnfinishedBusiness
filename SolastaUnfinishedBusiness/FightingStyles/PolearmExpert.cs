@@ -16,17 +16,21 @@ internal sealed class PolearmExpert : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("PolearmExpert")
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("PolearmExpert", Resources.PolearmExpert, 256))
-        .SetFeatures(FeatureDefinitionBuilder
-            .Create("FeaturePolearm")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new CanMakeAoOOnReachEntered { WeaponValidator = (mode, _, _) => ValidatorsWeapon.IsPolearmType(mode) },
-                new AddPolearmFollowUpAttack(QuarterstaffType),
-                new AddPolearmFollowUpAttack(SpearType),
-                new AddPolearmFollowUpAttack(HalberdWeaponType),
-                new AddPolearmFollowUpAttack(PikeWeaponType),
-                new AddPolearmFollowUpAttack(LongMaceWeaponType))
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionBuilder
+                .Create("FeaturePolearm")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new CanMakeAoOOnReachEntered
+                    {
+                        WeaponValidator = (mode, _, _) => ValidatorsWeapon.IsPolearmType(mode)
+                    },
+                    new AddPolearmFollowUpAttack(QuarterstaffType),
+                    new AddPolearmFollowUpAttack(SpearType),
+                    new AddPolearmFollowUpAttack(HalberdWeaponType),
+                    new AddPolearmFollowUpAttack(PikeWeaponType),
+                    new AddPolearmFollowUpAttack(LongMaceWeaponType))
+                .AddToDB())
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()

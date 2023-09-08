@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -80,7 +81,7 @@ public static class GameLocationCharacterPatcher
         public static void Prefix(
             [NotNull] GameLocationCharacter __instance,
             GameLocationCharacter target,
-            RuleDefinitions.RollOutcome outcome,
+            RollOutcome outcome,
             CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)

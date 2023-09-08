@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -19,7 +20,7 @@ public static class SpellRepertoireLinePatcher
         public static void Prefix([NotNull] List<SpellDefinition> spellDefinitions)
         {
             //PATCH: hide reaction spells from spell panel
-            spellDefinitions.RemoveAll(x => x.ActivationTime == RuleDefinitions.ActivationTime.Reaction);
+            spellDefinitions.RemoveAll(x => x.ActivationTime == ActivationTime.Reaction);
         }
 
         [UsedImplicitly]

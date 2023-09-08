@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 // ReSharper disable once CheckNamespace
 namespace TA.AI.Activities;
@@ -79,10 +80,10 @@ public class BreakFree : ActivityBase
                 AttributeDefinitions.Strength, string.Empty, actionMod);
 
             gameLocationCharacter.RollAbilityCheck(
-                AttributeDefinitions.Strength, string.Empty, checkDC, RuleDefinitions.AdvantageType.None, actionMod,
+                AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, actionMod,
                 false, -1, out var outcome, out _, true);
 
-            success = outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess;
+            success = outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
             if (success)
             {

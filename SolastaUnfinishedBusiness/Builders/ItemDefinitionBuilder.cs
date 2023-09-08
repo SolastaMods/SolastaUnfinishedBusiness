@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -15,7 +16,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         Definition.IsDocument = true;
         Definition.documentDescription ??= new DocumentDescription();
         Definition.DocumentDescription.recipeDefinition = recipeDefinition;
-        Definition.DocumentDescription.loreType = RuleDefinitions.LoreType.CraftingRecipe;
+        Definition.DocumentDescription.loreType = LoreType.CraftingRecipe;
         Definition.DocumentDescription.destroyAfterReading = true;
         Definition.DocumentDescription.locationKnowledgeLevel = GameCampaignDefinitions.NodeKnowledge.Known;
         Definition.DocumentDescription.ContentFragments.SetRange(contentFragments);
@@ -209,7 +210,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
-    internal ItemDefinitionBuilder SetItemRarity(RuleDefinitions.ItemRarity rarity)
+    internal ItemDefinitionBuilder SetItemRarity(ItemRarity rarity)
     {
         Definition.itemRarity = rarity;
         return this;

@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -57,12 +58,12 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         attackMode.toHitBonus -= oldValue;
         attackMode.toHitBonus += newValue;
 
-        var info = new RuleDefinitions.TrendInfo(newValue, RuleDefinitions.FeatureSourceType.AbilityScore,
+        var info = new TrendInfo(newValue, FeatureSourceType.AbilityScore,
             attackMode.AbilityScore, null);
 
         var i = attackMode.toHitBonusTrends
             .FindIndex(x => x.value == oldValue
-                            && x.sourceType == RuleDefinitions.FeatureSourceType.AbilityScore
+                            && x.sourceType == FeatureSourceType.AbilityScore
                             && x.sourceName == oldAttribute);
 
         if (i >= 0)
@@ -87,7 +88,7 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
 
         i = damage.DamageBonusTrends
             .FindIndex(x => x.value == oldValue
-                            && x.sourceType == RuleDefinitions.FeatureSourceType.AbilityScore
+                            && x.sourceType == FeatureSourceType.AbilityScore
                             && x.sourceName == oldAttribute);
         if (i < 0)
         {
@@ -180,8 +181,8 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
 
         var (newNumber, newDie, newVersatileDie) = _getWeaponDice(character, damage);
 
-        var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
-        var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
+        var newDamage = DieAverage(newDie) * newNumber;
+        var oldDamage = DieAverage(damage.DieType) * damage.DiceNumber;
 
         if (newDamage > oldDamage)
         {
@@ -189,8 +190,8 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
             damage.DiceNumber = newNumber;
         }
 
-        newDamage = RuleDefinitions.DieAverage(newVersatileDie) * newNumber;
-        oldDamage = RuleDefinitions.DieAverage(damage.VersatileDieType) * damage.DiceNumber;
+        newDamage = DieAverage(newVersatileDie) * newNumber;
+        oldDamage = DieAverage(damage.VersatileDieType) * damage.DiceNumber;
 
         if (newDamage > oldDamage)
         {
@@ -198,7 +199,7 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
         }
     }
 
-    internal delegate (int number, RuleDefinitions.DieType dieType, RuleDefinitions.DieType versatileDieType)
+    internal delegate (int number, DieType dieType, DieType versatileDieType)
         GetWeaponDiceHandler(
             RulesetCharacter character,
             DamageForm damageForm);

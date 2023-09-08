@@ -19,11 +19,11 @@ using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.PatronEldritchSurge;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -53,17 +53,19 @@ internal static class EldritchVersatility
         .Create($"Power{Name}PointPool")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.Permanent)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetDurationData(DurationType.Permanent)
-            .SetEffectForms(EffectFormBuilder
+        .SetEffectDescription(
+            EffectDescriptionBuilder
                 .Create()
-                .SetConditionForm(
-                    VersatilitySupportRulesetCondition.BindingDefinition,
-                    ConditionForm.ConditionOperation.Add)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            VersatilitySupportRulesetCondition.BindingDefinition,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
-            .Build())
         .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
@@ -92,11 +94,12 @@ internal static class EldritchVersatility
         .Create($"Condition{PatronEldritchSurge.Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionRaging)
         .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
-        .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-            .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionType.Main)
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionAdditionalActionBuilder
+                .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionType.Main)
+                .AddToDB())
         .SetCustomSubFeatures(new ConditionBlastOverloadCustom())
         .AddToDB();
 

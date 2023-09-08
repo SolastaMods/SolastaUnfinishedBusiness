@@ -12,8 +12,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -529,12 +529,13 @@ internal static class Level20SubclassesContext
             .Create("FeatureRoguishHoodlumBrutalAssault")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new CustomAdditionalDamageBrutalAssault(FeatureDefinitionAdditionalDamageBuilder
-                    .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
-                    .SetGuiPresentationNoContent(true)
-                    .SetNotificationTag("BrutalAssault")
-                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-                    .AddToDB()))
+                new CustomAdditionalDamageBrutalAssault(
+                    FeatureDefinitionAdditionalDamageBuilder
+                        .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
+                        .SetGuiPresentationNoContent(true)
+                        .SetNotificationTag("BrutalAssault")
+                        .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+                        .AddToDB()))
             .AddToDB();
 
         RoguishHoodlum.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishHoodlumBrutalAssault, 17));
@@ -583,17 +584,19 @@ internal static class Level20SubclassesContext
             .Create("PowerRoguishShadowcasterShadowForm")
             .SetGuiPresentation(Category.Feature, Darkvision)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetParticleEffectParameters(Malediction)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionRoguishShadowcasterShadowForm, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(Malediction)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionRoguishShadowcasterShadowForm,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         RoguishShadowCaster.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerRoguishShadowcasterShadowForm, 17));

@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -66,7 +67,7 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         var num = EffectLevel - 1;
         var targetType = EffectDescription.TargetType;
 
-        if (targetType == RuleDefinitions.TargetType.Position || EffectDescription.IsAoE)
+        if (targetType == TargetType.Position || EffectDescription.IsAoE)
         {
             targetParameter += EffectDescription.EffectAdvancement.ComputeAdditionalTargetCellsBySlotDelta(num);
         }
@@ -75,11 +76,11 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (targetType)
             {
-                case RuleDefinitions.TargetType.Individuals:
-                case RuleDefinitions.TargetType.IndividualsUnique:
+                case TargetType.Individuals:
+                case TargetType.IndividualsUnique:
                     targetParameter += EffectDescription.EffectAdvancement.ComputeAdditionalTargetsBySlotDelta(num);
                     break;
-                case RuleDefinitions.TargetType.ArcFromIndividual:
+                case TargetType.ArcFromIndividual:
                     targetParameter += EffectDescription.EffectAdvancement.ComputeAdditionalSubtargetsBySlotDelta(num);
                     break;
             }

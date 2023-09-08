@@ -604,21 +604,25 @@ internal static class SrdAndHouseRulesContext
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCustomSubFeatures(CanIdentifyOnRest.Mark)
             .SetUsesFixed(ActivationTime.Rest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(
-                    Side.Ally,
-                    RangeType.Self,
-                    1,
-                    TargetType.Self)
-                .SetDurationData(
-                    DurationType.Minute,
-                    1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        afterRestIdentifyCondition,
-                        ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Self,
+                        1,
+                        TargetType.Self)
+                    .SetDurationData(
+                        DurationType.Minute,
+                        1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                afterRestIdentifyCondition,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 

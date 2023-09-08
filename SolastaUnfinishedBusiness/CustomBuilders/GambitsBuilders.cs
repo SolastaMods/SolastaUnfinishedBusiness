@@ -81,12 +81,13 @@ internal static class GambitsBuilders
 
         #region Helpers
 
-        var spendDieOnAttackHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerReactionSpendGambitDieOnAttackHit")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
-            .AddToDB());
+        var spendDieOnAttackHit = new AddUsablePowerFromCondition(
+            FeatureDefinitionPowerSharedPoolBuilder
+                .Create("PowerReactionSpendGambitDieOnAttackHit")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+                .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
+                .AddToDB());
 
         //power that is used spends gambit die
         var spendDiePower = FeatureDefinitionPowerSharedPoolBuilder
@@ -165,15 +166,16 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                                .SetSilent(Silent.None)
-                                .SetPossessive()
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                .SetFeatures(GambitDieDamage)
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(GambitDieDamage)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -372,15 +374,16 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                                .SetSilent(Silent.None)
-                                .SetPossessive()
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                .SetFeatures(GambitDieDamage)
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(GambitDieDamage)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -487,12 +490,13 @@ internal static class GambitsBuilders
                                     .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
                                         ConditionDefinitions.ConditionDistracted)
                                     .SetConditionType(ConditionType.Detrimental)
-                                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                                        .Create($"CombatAffinity{name}")
-                                        .SetGuiPresentation(name, Category.Feature)
-                                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                        .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                                        .AddToDB())
+                                    .SetFeatures(
+                                        FeatureDefinitionCombatAffinityBuilder
+                                            .Create($"CombatAffinity{name}")
+                                            .SetGuiPresentation(name, Category.Feature)
+                                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                                            .AddToDB())
                                     //Lasts until the end of the target's turn
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -523,15 +527,16 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                                .SetSilent(Silent.None)
-                                .SetPossessive()
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                .SetFeatures(GambitDieDamage)
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(GambitDieDamage)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -560,21 +565,22 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetSilent(Silent.None)
-                                .SetPossessive()
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                .SetFeatures(
-                                    GambitDieDamage,
-                                    featureSpendDieOnAttack,
-                                    FeatureDefinitionCombatAffinityBuilder
-                                        .Create($"CombatAffinity{name}")
-                                        .SetGuiPresentation(name, Category.Feature)
-                                        .SetMyAttackAdvantage(AdvantageType.Advantage)
-                                        .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(
+                                        GambitDieDamage,
+                                        featureSpendDieOnAttack,
+                                        FeatureDefinitionCombatAffinityBuilder
+                                            .Create($"CombatAffinity{name}")
+                                            .SetGuiPresentation(name, Category.Feature)
+                                            .SetMyAttackAdvantage(AdvantageType.Advantage)
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -603,19 +609,21 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetSilent(Silent.None)
-                                .SetPossessive()
-                                .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
-                                    .Create($"Feature{name}")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetCustomSubFeatures(
-                                        new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
-                                        new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                                    .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetFeatures(
+                                        GambitDieDamageOnce, FeatureDefinitionBuilder
+                                            .Create($"Feature{name}")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetCustomSubFeatures(
+                                                new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
+                                                new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -644,12 +652,13 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
-                                .SetSilent(Silent.None)
-                                .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
+                                    .SetSilent(Silent.None)
+                                    .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
@@ -669,11 +678,12 @@ internal static class GambitsBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.None)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{name}Good")
-                .SetGuiPresentation($"Condition{name}Good", Category.Condition)
-                .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{name}Good")
+                    .SetGuiPresentation($"Condition{name}Good", Category.Condition)
+                    .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                    .AddToDB())
             .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
@@ -683,11 +693,12 @@ internal static class GambitsBuilders
             .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.None)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{name}Bad")
-                .SetGuiPresentation($"Condition{name}Bad", Category.Condition)
-                .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{name}Bad")
+                    .SetGuiPresentation($"Condition{name}Bad", Category.Condition)
+                    .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                    .AddToDB())
             .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
@@ -714,12 +725,13 @@ internal static class GambitsBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentationNoContent(true)
-                                .SetCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad))
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad))
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.Haste)

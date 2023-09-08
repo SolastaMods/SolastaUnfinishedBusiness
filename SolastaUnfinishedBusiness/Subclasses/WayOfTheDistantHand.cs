@@ -129,18 +129,20 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitionBuilder
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
                                     .Create("ConditionWayOfTheDistantHandDistract")
                                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                                     .SetConditionType(ConditionType.Detrimental)
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                                        .Create("CombatAffinityWayOfTheDistantHandDistract")
-                                        .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
-                                            Category.Feature)
-                                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                        .AddToDB())
+                                    .SetFeatures(
+                                        FeatureDefinitionCombatAffinityBuilder
+                                            .Create("CombatAffinityWayOfTheDistantHandDistract")
+                                            .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
+                                                Category.Feature)
+                                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                            .AddToDB())
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -244,17 +246,19 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
-                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
-                                .SetConditionType(ConditionType.Detrimental)
-                                .SetSpecialDuration(DurationType.Round, 1)
-                                .SetFeatures(FeatureDefinitionMovementAffinityBuilder
-                                    .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetBaseSpeedMultiplicativeModifier(0)
-                                    .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
+                                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
+                                    .SetConditionType(ConditionType.Detrimental)
+                                    .SetSpecialDuration(DurationType.Round, 1)
+                                    .SetFeatures(
+                                        FeatureDefinitionMovementAffinityBuilder
+                                            .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetBaseSpeedMultiplicativeModifier(0)
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
@@ -275,10 +279,12 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         AttributeDefinitions.Strength,
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
+                            .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
@@ -302,17 +308,20 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("ConditionWayOfTheDistantHandUpgradedDistract")
-                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                                .SetConditionType(ConditionType.Detrimental)
-                                .SetSpecialDuration(DurationType.Round, 1)
-                                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                                    .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
-                                    .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract", Category.Feature)
-                                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                    .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionWayOfTheDistantHandUpgradedDistract")
+                                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                                    .SetConditionType(ConditionType.Detrimental)
+                                    .SetSpecialDuration(DurationType.Round, 1)
+                                    .SetFeatures(
+                                        FeatureDefinitionCombatAffinityBuilder
+                                            .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
+                                            .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract",
+                                                Category.Feature)
+                                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)

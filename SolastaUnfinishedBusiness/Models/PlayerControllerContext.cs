@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -88,8 +89,8 @@ internal static class PlayerControllerContext
         }
 
         SideFlipped = true;
-        enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
-        players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
+        enemies.ForEach(x => x.ChangeSide(Side.Ally));
+        players.ForEach(x => x.ChangeSide(Side.Enemy));
         Gui.ActivePlayerController.ControlledCharacters.Clear();
         Gui.ActivePlayerController.ControlledCharacters.AddRange(enemies);
     }
@@ -107,8 +108,8 @@ internal static class PlayerControllerContext
         var players = battle.PlayerContenders;
 
         SideFlipped = false;
-        enemies.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Enemy));
-        players.ForEach(x => x.ChangeSide(RuleDefinitions.Side.Ally));
+        enemies.ForEach(x => x.ChangeSide(Side.Enemy));
+        players.ForEach(x => x.ChangeSide(Side.Ally));
         Gui.ActivePlayerController.ControlledCharacters.Clear();
         Gui.ActivePlayerController.ControlledCharacters.AddRange(players);
     }

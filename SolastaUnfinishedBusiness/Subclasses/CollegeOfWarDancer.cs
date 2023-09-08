@@ -10,8 +10,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
@@ -39,18 +39,19 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         .AllowMultipleInstances()
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetPossessive()
-        .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageWarDanceMomentum")
-            .SetGuiPresentationNoContent(true)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetDamageDice(DieType.D6, 2)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetAttackModeOnly()
-            .SetIgnoreCriticalDoubleDice(true)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetNotificationTag("Momentum")
-            .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageWarDanceMomentum")
+                .SetGuiPresentationNoContent(true)
+                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+                .SetDamageDice(DieType.D6, 2)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetAttackModeOnly()
+                .SetIgnoreCriticalDoubleDice(true)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+                .SetNotificationTag("Momentum")
+                .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
+                .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
@@ -59,14 +60,15 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .AllowMultipleInstances()
-        .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionWarDanceMomentum")
-            .SetGuiPresentation(ImproveWarDance.GuiPresentation)
-            .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
-            .SetActionType(ActionType.Main)
-            .SetMaxAttacksNumber(1)
-            .SetRestrictedActions(Id.AttackMain)
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionAdditionalActionBuilder
+                .Create("AdditionalActionWarDanceMomentum")
+                .SetGuiPresentation(ImproveWarDance.GuiPresentation)
+                .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
+                .SetActionType(ActionType.Main)
+                .SetMaxAttacksNumber(1)
+                .SetRestrictedActions(Id.AttackMain)
+                .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
@@ -83,15 +85,17 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .Create(PowerWarDanceName)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(ConditionWarDance),
-                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration)
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionWarDance),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration)
+                    )
+                    .Build())
             .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
                 ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
@@ -127,7 +131,8 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         return ConditionDefinitionBuilder
             .Create("ConditionWarDance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
-            .AddFeatures(FeatureDefinitionMovementAffinityBuilder
+            .AddFeatures(
+                FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityConditionWarDanceExtraMovement3")
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(3)

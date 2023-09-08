@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -75,13 +76,13 @@ internal class ConditionDefinitionBuilder
 
     internal ConditionDefinitionBuilder AdditionalDiceDamageWhenHit(
         int dieNumber = 0,
-        RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
-        RuleDefinitions.AdditionalDamageType damageTypeDetermination =
-            RuleDefinitions.AdditionalDamageType.SameAsBaseDamage,
+        DieType dieType = DieType.D1,
+        AdditionalDamageType damageTypeDetermination =
+            AdditionalDamageType.SameAsBaseDamage,
         string damageType = null
     )
     {
-        if (damageTypeDetermination == RuleDefinitions.AdditionalDamageType.Specific
+        if (damageTypeDetermination == AdditionalDamageType.Specific
             && string.IsNullOrEmpty(damageType))
         {
             throw new ArgumentException("Damage type must be set if damage type determination set to Specific");
@@ -114,7 +115,7 @@ internal class ConditionDefinitionBuilder
     }
 #endif
 
-    internal ConditionDefinitionBuilder SetConditionType(RuleDefinitions.ConditionType value)
+    internal ConditionDefinitionBuilder SetConditionType(ConditionType value)
     {
         Definition.conditionType = value;
         return this;
@@ -122,7 +123,7 @@ internal class ConditionDefinitionBuilder
 
     internal ConditionDefinitionBuilder Detrimental()
     {
-        return SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+        return SetConditionType(ConditionType.Detrimental);
     }
 
     internal ConditionDefinitionBuilder SetParentCondition(ConditionDefinition value)
@@ -184,16 +185,16 @@ internal class ConditionDefinitionBuilder
     }
 
     internal ConditionDefinitionBuilder SetSpecialDuration(
-        RuleDefinitions.DurationType durationType = RuleDefinitions.DurationType.Round,
+        DurationType durationType = DurationType.Round,
         int duration = 0,
-        RuleDefinitions.TurnOccurenceType turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn)
+        TurnOccurenceType turnOccurence = TurnOccurenceType.EndOfTurn)
     {
         // ReSharper disable once InvocationIsSkipped
         // PreConditions.IsValidDuration(durationType, duration);
 
         if (duration != 0)
         {
-            Definition.durationParameterDie = RuleDefinitions.DieType.D1;
+            Definition.durationParameterDie = DieType.D1;
         }
 
         Definition.specialDuration = true;
@@ -209,7 +210,7 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    internal ConditionDefinitionBuilder SetSpecialInterruptions(params ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.SetRange(value);
         return this;
@@ -217,11 +218,11 @@ internal class ConditionDefinitionBuilder
 
     internal ConditionDefinitionBuilder SetSpecialInterruptions(params ExtraConditionInterruption[] value)
     {
-        Definition.SpecialInterruptions.SetRange(value.Select(v => (RuleDefinitions.ConditionInterruption)v));
+        Definition.SpecialInterruptions.SetRange(value.Select(v => (ConditionInterruption)v));
         return this;
     }
 
-    internal ConditionDefinitionBuilder AddSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
+    internal ConditionDefinitionBuilder AddSpecialInterruptions(params ConditionInterruption[] value)
     {
         Definition.SpecialInterruptions.AddRange(value);
         return this;

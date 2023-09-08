@@ -6,6 +6,7 @@
 - changed Martial Spell Shield progression with new features closer to TT at levels 10th and 18th
 - changed Way of Silhouette progression by moving strong cloak of silhouette from level 6th to 11th
 - fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
+- fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
 
 1.5.94.13:
  
