@@ -1,6 +1,8 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -60,23 +62,29 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
 
-        var additionalDamageDisablingStrike = FeatureDefinitionAdditionalDamageBuilder
+        // kept name for backward compatibility
+        var additionalDamageDisablingStrike = FeatureDefinitionPowerBuilder
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.Negates,
-                AttributeDefinitions.Dexterity)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    ConditionDefinition = conditionDisablingStrike,
-                    Operation = ConditionOperationDescription.ConditionOperation.Add,
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveOccurence = TurnOccurenceType.EndOfTurn,
-                    saveAffinity = EffectSavingThrowType.Negates
-                })
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                    (OperationType.Set,
+                        mode != null
+                        && GameLocationCharacter.GetFromActor(character)?.OncePerTurnIsValid("DisablingStrike") ==
+                        true)))
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDisablingStrike, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         //
@@ -113,23 +121,26 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .AddFeatures(attributeModifierImprovedDisablingStrike)
             .AddToDB();
 
-        var additionalDamageImprovedDisablingStrike = FeatureDefinitionAdditionalDamageBuilder
+        // kept name for backward compatibility
+        var additionalDamageImprovedDisablingStrike = FeatureDefinitionPowerBuilder
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.Negates,
-                AttributeDefinitions.Dexterity)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    ConditionDefinition = conditionImprovedDisablingStrike,
-                    Operation = ConditionOperationDescription.ConditionOperation.Add,
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveOccurence = TurnOccurenceType.EndOfTurn,
-                    saveAffinity = EffectSavingThrowType.Negates
-                })
-            .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrike(additionalDamageDisablingStrike))
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, _, _, _, mode, _) => (OperationType.Set, mode != null)))
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionImprovedDisablingStrike, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .Build())
+                    .Build())
+            .SetOverriddenPower(additionalDamageDisablingStrike)
             .AddToDB();
 
         //
@@ -179,28 +190,5 @@ public sealed class RangerSurvivalist : AbstractSubclass
     {
         FeatureSetAnalyticalMind.FeatureSet.Add(
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatExecutioner"));
-    }
-
-    private sealed class CustomCodeImprovedDisablingStrike : IDefinitionCustomCode
-    {
-        private readonly FeatureDefinitionAdditionalDamage _additionalDamageDisablingStrike;
-
-        public CustomCodeImprovedDisablingStrike(FeatureDefinitionAdditionalDamage additionalDamageDisablingStrike)
-        {
-            _additionalDamageDisablingStrike = additionalDamageDisablingStrike;
-        }
-
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == _additionalDamageDisablingStrike);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // Empty
-        }
     }
 }
