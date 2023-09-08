@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -285,8 +286,17 @@ public static class GameLocationCharacterPatcher
             rulesetCharacter.GetSubFeaturesByType<IActionExecutionHandled>()
                 .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
             //PATCH: support for action switching
-            ActionSwitching.CheckIfActionSwitched(__instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank,
-                _bonusAttacks);
+            if (actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+                rulesetEffectSpell.MetamagicOption == DatabaseHelper.MetamagicOptionDefinitions.MetamagicQuickenedSpell)
+            {
+                // another hack to ensure we don't get offered more than we should on action switching
+                // for whatever reason we get the spell casting state loaded before we get to this point
+                // causing all spells to be offered after a quickened instead of only cantrips
+                __instance.UsedBonusSpell = true;
+            }
+
+            ActionSwitching.CheckIfActionSwitched(
+                __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
         }
     }
 
