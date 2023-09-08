@@ -1,12 +1,12 @@
 Condition/&ConditionRiftWalkerRiftCloakDescription=У вас есть сопротивление ко всем типам урона.
-Condition/&ConditionRiftWalkerRiftCloakTitle=Защищен плащом-разломом
+Condition/&ConditionRiftWalkerRiftCloakTitle=Укрыт Покровом разлома
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Вы не можете быть опутаны.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Свобода разлома
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Когда ваши хиты уменьшаются до 0, но вы не убиты на месте, вместо этого ваши хиты снижаются до 1, поскольку вы на мгновение растворяетесь в пустоте, чтобы уменьшить урон. Вы можете использовать эту способность один раз до продолжительного отдыха.
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidTitle=Раствориться в пустоте
 Feature/&PowerRiftWalkerBlinkDescription=Бонусным действием вы исчезаете со своего текущего плана существования, предотвращая все повреждения. В начале вашего следующего хода вы возвращаетесь в пространство, из которого исчезли. Вы можете использовать эту способность дважды до продолжительного отдыха.
 Feature/&PowerRiftWalkerBlinkTitle=Мерцание
-Feature/&PowerRiftWalkerRiftCloakDescription=Ваш контроль над порталами разлома усилился до такой степени, что теперь действием вы можете даровать сопротивление всем видам урона союзнику, которого вы можете видеть. Вы можете использовать эту способность по желанию.
+Feature/&PowerRiftWalkerRiftCloakDescription=Ваш контроль над порталами разлома усилился до такой степени, что теперь действием вы можете даровать сопротивление всем видам урона союзнику, которого вы можете видеть. Вы можете использовать эту способность один раз до продолжительного отдыха.
 Feature/&PowerRiftWalkerRiftCloakTitle=Покров разлома
 Feature/&PowerRiftWalkerRiftPortalDescription=На мгновение окружив себя энергией разлома, бонусным действием вы телепортируетесь в незанятое пространство, которое можете видеть. Теперь при телепортации вы можете взять с собой союзника, а радиус действия значительно увеличивается. Вы можете использовать эту способность один раз до короткого отдыха.
 Feature/&PowerRiftWalkerRiftPortalTitle=Портал разлома
