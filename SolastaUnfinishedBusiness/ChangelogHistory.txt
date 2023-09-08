@@ -1,10 +1,15 @@
 ﻿1.5.94.14:
 
-- added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock and Wizard
-- changed Resonating Strike to do fire damage, and renamed it to Burning Blade [as not all flames are green]
-- changed Patron Riftwalker powers to have fixed uses instead of proficiency bonus amount [RESPEC required]
-- changed Martial Spell Shield progression with new features closer to TT at levels 10th and 18th
+- RESPEC required on Patron Riftwalker and Roguish Opportunist
+
+- added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock and Wizard spell repertoires
+- changed College of Audacity to consider critical hits on whirl damage, and better interact with mod critical options
+- changed Martial Spell Shield progression by replacing levels 10th and 18th features with new ones closer to TT
+- changed Patron Riftwalker progression by having all powers with fixed uses instead of proficiency bonus amount
+- changed Resonating Strike to do fire damage, and renamed it to Burning Blade as not all flames are green
+- changed Roguish Opportunist progression as suggested by Nd, original author, and HiddenHax
 - changed Way of Silhouette progression by moving strong cloak of silhouette from level 6th to 11th
+- fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
 - fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
 - fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
 
