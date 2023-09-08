@@ -372,7 +372,6 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetRequiredCondition(ConditionDefinitions.ConditionWildShapeSubstituteForm)
-            .SetDurationData(DurationType.Instantaneous)
             .SetEffectForms(healingForm)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .SetParticleEffectParameters(SpellDefinitions.Heal)

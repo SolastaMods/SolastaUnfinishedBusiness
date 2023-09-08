@@ -101,7 +101,6 @@ internal static partial class SpellBuilders
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
-                        .SetDurationData(DurationType.Instantaneous)
                         .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                         .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                         .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 3, DieType.D8))
@@ -130,7 +129,6 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                     additionalDicePerIncrement: 1)
                 .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)

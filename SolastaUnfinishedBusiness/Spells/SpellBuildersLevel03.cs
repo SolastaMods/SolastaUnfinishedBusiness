@@ -88,7 +88,6 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-            .SetDurationData(DurationType.Instantaneous)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
             .SetSavingThrowData(
                 false,
@@ -181,7 +180,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
                 .ExcludeCaster()
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)

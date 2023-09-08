@@ -42,7 +42,6 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
                 12)
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
@@ -131,7 +130,6 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
             .SetSavingThrowData(
@@ -181,7 +179,6 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
@@ -265,7 +262,6 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetParticleEffectParameters(ShadowDagger)
             .SetSavingThrowData(
@@ -345,7 +341,6 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetParticleEffectParameters(ShadowDagger)
             .SetSavingThrowData(
@@ -420,7 +415,6 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Constitution,
                 false,
                 EffectDifficultyClassComputation.SpellCastingFeature)
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
             .ExcludeCaster()
             .SetEffectForms(
@@ -634,7 +628,6 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
@@ -993,7 +986,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
                     false,

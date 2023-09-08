@@ -86,20 +86,23 @@ internal static class RaceMalakhBuilder
             .Create($"Power{Name}HealingTouch")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.CureWounds)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Instantaneous)
-                .AddEffectForms(EffectFormBuilder.Create()
-                    .SetHealingForm(
-                        HealingComputation.Dice,
-                        0,
-                        DieType.D1,
-                        0,
-                        false,
-                        HealingCap.MaximumHitPoints)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                0,
+                                DieType.D1,
+                                0,
+                                false,
+                                HealingCap.MaximumHitPoints)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var additionalDamageMalakhAngelicForm = FeatureDefinitionAdditionalDamageBuilder

@@ -262,15 +262,16 @@ public static class CustomActionIdContext
             .SetGuiPresentation(NAME, Category.Action, Sprites.PowerFarStep)
             .SetUsesFixed(ActivationTime.BonusAction)
             .DelegatedToAction()
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                        .Build())
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
+                    .UseQuickAnimations()
                     .Build())
-                .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
-                .UseQuickAnimations()
-                .Build())
             .AddToDB();
 
         ActionDefinitionBuilder

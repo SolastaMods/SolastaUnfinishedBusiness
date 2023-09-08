@@ -129,7 +129,6 @@ public sealed class MartialDefender : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
                     .SetEffectForms(EffectFormBuilder.MotionForm(MotionForm.MotionType.FallProne))
                     .Build())

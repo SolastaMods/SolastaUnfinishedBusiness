@@ -47,7 +47,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
                     .InviteOptionalAlly()
                     .SetParticleEffectParameters(Banishment)
@@ -123,7 +122,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         var effectDescriptionForcefulStep = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
             .SetParticleEffectParameters(PowerMelekTeleport)
             .SetEffectForms(

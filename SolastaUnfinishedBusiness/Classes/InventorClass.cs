@@ -647,7 +647,6 @@ internal static class InventorClass
             .SetUsesFixed(ActivationTime.Rest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetDurationData(DurationType.Instantaneous)
                 .Build())
             .AddToDB();
     }

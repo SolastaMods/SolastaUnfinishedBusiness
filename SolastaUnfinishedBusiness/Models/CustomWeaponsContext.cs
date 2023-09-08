@@ -172,7 +172,6 @@ internal static class CustomWeaponsContext
                                 false,
                                 EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                             .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
-                            .SetDurationData(DurationType.Instantaneous)
                             .SetEffectForms(EffectFormBuilder
                                 .Create()
                                 .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)

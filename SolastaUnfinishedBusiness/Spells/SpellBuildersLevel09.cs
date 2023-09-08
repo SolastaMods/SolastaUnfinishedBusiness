@@ -71,7 +71,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -107,7 +106,6 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 8)
                 // 20 dice number because hits dont stack even on single target
                 .SetEffectForms(
@@ -150,7 +148,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -205,7 +202,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder

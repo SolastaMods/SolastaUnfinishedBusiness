@@ -143,7 +143,6 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

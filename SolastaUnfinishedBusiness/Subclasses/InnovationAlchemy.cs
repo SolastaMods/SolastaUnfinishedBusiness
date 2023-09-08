@@ -608,7 +608,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                 .SetParticleEffectParameters(particleParameters)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .SetDamageForm(damageType, 3, dieType)
@@ -645,7 +644,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
                 .ExcludeCaster()
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
@@ -699,7 +697,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     EffectDifficultyClassComputation.SpellCastingFeature,
                     AttributeDefinitions.Intelligence)
                 .SetParticleEffectParameters(particleParameters)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(damageType, 2, dieType)

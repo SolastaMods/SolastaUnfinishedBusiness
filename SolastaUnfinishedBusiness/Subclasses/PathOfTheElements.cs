@@ -222,7 +222,6 @@ public sealed class PathOfTheElements : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
-                    .SetDurationData(DurationType.Instantaneous)
                     //.SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetSavingThrowData(
                         false,
@@ -262,7 +261,6 @@ public sealed class PathOfTheElements : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
-                    .SetDurationData(DurationType.Instantaneous)
                     //.SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetSavingThrowData(
                         false,

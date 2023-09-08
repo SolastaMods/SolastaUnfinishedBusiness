@@ -226,7 +226,6 @@ internal static class OtherFeats
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetHealingForm(
                         HealingComputation.Dice,

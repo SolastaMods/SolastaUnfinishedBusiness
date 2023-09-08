@@ -185,7 +185,6 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
 
         var effectTouchOfDarkness = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(VampiricTouch)
             .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
             .SetEffectForms(
