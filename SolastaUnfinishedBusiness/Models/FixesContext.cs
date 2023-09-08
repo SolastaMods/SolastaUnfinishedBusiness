@@ -50,8 +50,24 @@ internal static class FixesContext
         FixBlackDragonLegendaryActions();
         FixMummyDreadfulGlareSavingAttribute();
         FixArmorClassOnLegendaryArmors();
+        ExtendCharmImmunityToDemonicInfluence(); // TODO: add a mod setting for this
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void ExtendCharmImmunityToDemonicInfluence()
+    {
+        var affinities = DatabaseRepository.GetDatabase<FeatureDefinitionConditionAffinity>()
+            .Where(x => x.ConditionType == "ConditionCharmed" &&
+                        x.ConditionAffinityType == ConditionAffinityType.Immunity);
+
+        var conditions = DatabaseRepository.GetDatabase<ConditionDefinition>()
+            .Where(x => x.Features.Intersect(affinities).Any());
+
+        foreach (var condition in conditions)
+        {
+            condition.Features.Add(FeatureDefinitionConditionAffinitys.ConditionAffinityDemonicInfluenceImmunity);
+        }
     }
 
     private static void FixPowerDragonbornBreathWeaponDiceProgression()
@@ -62,7 +78,7 @@ internal static class FixesContext
         foreach (var power in powers)
         {
             power.EffectDescription.EffectForms[0].diceByLevelTable =
-                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (6, 1), (11, 2), (17, 3));
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (6, 1), (11, 2), (16, 3));
         }
     }
 
