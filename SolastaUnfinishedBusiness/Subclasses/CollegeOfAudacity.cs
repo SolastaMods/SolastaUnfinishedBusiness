@@ -343,7 +343,6 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             actingCharacter.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
 
             // targets
-            var originalTarget = action.ActionParams.TargetCharacters[0];
             var targetCharacters = new List<GameLocationCharacter>();
 
             // damage roll
@@ -361,7 +360,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add damage whirl condition and target
             if (power == _powerDefensiveWhirl)
             {
-                targetCharacters.Add(originalTarget);
+                targetCharacters.Add(action.ActionParams.TargetCharacters[0]);
 
                 var firstRoll = rolls[0];
 
@@ -383,7 +382,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add mobile whirl condition and target
             else if (power == _powerMobileWhirl)
             {
-                targetCharacters.Add(originalTarget);
+                targetCharacters.Add(action.ActionParams.TargetCharacters[0]);
 
                 var conditionDisengaging = ConditionDefinitions.ConditionDisengaging;
 
@@ -405,11 +404,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add slashing whirl targets
             else if (power == _powerSlashingWhirl)
             {
-                targetCharacters.Add(originalTarget);
-
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                if (gameLocationBattleService != null)
+                if (gameLocationBattleService is { Battle: not null })
                 {
                     targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
                         .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
@@ -418,9 +415,23 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             }
 
             // apply damage to targets
+            var isFirstTarget = true;
+
             foreach (var rulesetDefender in
                      targetCharacters.Select(targetCharacter => targetCharacter.RulesetCharacter))
             {
+                if (isFirstTarget)
+                {
+                    isFirstTarget = false;
+                }
+                // Slashing Whirl scenario
+                else
+                {
+                    rolls = new List<int>();
+                    damageRoll =
+                        rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
+                }
+
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
