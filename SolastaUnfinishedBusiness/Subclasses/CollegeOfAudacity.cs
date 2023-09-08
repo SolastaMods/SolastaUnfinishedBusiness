@@ -340,21 +340,30 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
+            actingCharacter.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
+
             // targets
             var originalTarget = action.ActionParams.TargetCharacters[0];
             var targetCharacters = new List<GameLocationCharacter>();
 
-            actingCharacter.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
-
+            // damage roll
             var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
                 ? DieType.D6
                 : rulesetCharacter.GetBardicInspirationDieValue();
-            var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+            var damageForm = new DamageForm
+            {
+                DamageType = _damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
+            };
+            var rolls = new List<int>();
+            var damageRoll =
+                rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
 
             // add damage whirl condition and target
             if (power == _powerDefensiveWhirl)
             {
                 targetCharacters.Add(originalTarget);
+
+                var firstRoll = rolls[0];
 
                 rulesetCharacter.InflictCondition(
                     _conditionDefensiveWhirl.Name,
@@ -366,7 +375,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     rulesetCharacter.CurrentFaction.Name,
                     1,
                     null,
-                    damageRoll,
+                    firstRoll,
                     0,
                     0);
             }
@@ -408,28 +417,10 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 }
             }
 
-            // prepare damage form
-            var dices = new List<int> { damageRoll };
-            var diceNumber = _criticalHit ? 2 : 1;
-
-            if (diceNumber > 1)
-            {
-                var criticalDamageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-                damageRoll += criticalDamageRoll;
-                dices.Add(criticalDamageRoll);
-            }
-
             // apply damage to targets
-            foreach (var targetCharacter in targetCharacters)
+            foreach (var rulesetDefender in
+                     targetCharacters.Select(targetCharacter => targetCharacter.RulesetCharacter))
             {
-                var rulesetDefender = targetCharacter.RulesetCharacter;
-
-                var damageForm = new DamageForm
-                {
-                    DamageType = _damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
-                };
-
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
@@ -440,7 +431,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     rulesetCharacter.Guid,
                     false,
                     new List<string>(),
-                    new RollInfo(dieType, dices, 0),
+                    new RollInfo(dieType, rolls, 0),
                     false,
                     out _);
             }

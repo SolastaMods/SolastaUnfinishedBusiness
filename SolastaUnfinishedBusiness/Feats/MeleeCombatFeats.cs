@@ -1315,38 +1315,39 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var dieRoll = 0;
             var rolls = new List<int>();
-            var damage = new DamageForm
+            var damageForm = new DamageForm
             {
                 DamageType = originalDamageForm.DamageType,
                 DieType = originalDamageForm.DieType,
                 DiceNumber = 0,
                 BonusDamage = bonusDamage
             };
+            var damageRoll = 0;
 
             if (outcome is RollOutcome.CriticalSuccess)
             {
-                dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
-                damage.DiceNumber = 1;
-                rolls.Add(dieRoll);
+                damageForm.DiceNumber = 1;
+                damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, bonusDamage, 0, 1, false, false, false,
+                    rolls);
             }
 
-            rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
+            rulesetAttacker.LogCharacterAffectsTarget(
+                rulesetDefender,
                 DevastatingStrikesTitle,
                 "Feedback/&FeatFeatFellHandedDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
             RulesetActor.InflictDamage(
-                dieRoll + bonusDamage,
-                damage,
-                damage.DamageType,
+                damageRoll,
+                damageForm,
+                damageForm.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 attacker.Guid,
                 false,
                 attackMode.AttackTags,
-                new RollInfo(damage.DieType, rolls, bonusDamage),
+                new RollInfo(damageForm.DieType, rolls, bonusDamage),
                 true,
                 out _);
         }

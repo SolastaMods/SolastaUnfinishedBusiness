@@ -788,7 +788,6 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var dice = new List<int>();
             var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var diceNumber = characterLevel switch
             {
@@ -797,31 +796,25 @@ internal static partial class SpellBuilders
                 >= 5 => 2,
                 _ => 1
             };
-
-            for (var i = 0; i < diceNumber; i++)
-            {
-                var damageRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
-
-                dice.Add(damageRoll);
-            }
-
             var damageForm = new DamageForm
             {
                 DamageType = DamageTypeThunder, DieType = DieType.D8, DiceNumber = diceNumber, BonusDamage = 0
             };
+            var rolls = new List<int>();
+            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
             EffectHelpers.StartVisualEffect(attacker, defender, Shatter);
             RulesetActor.InflictDamage(
-                dice.Sum(),
+                damageRoll,
                 damageForm,
-                DamageTypeThunder,
+                damageForm.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 attacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(DieType.D8, dice, 0),
+                new RollInfo(damageForm.DieType, rolls, 0),
                 false,
                 out _);
             rulesetDefender.RemoveCondition(usableCondition);

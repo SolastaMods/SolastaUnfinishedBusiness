@@ -554,7 +554,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private static void InflictBurstingArrowAreaDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ArcaneArcherData arcaneArcherData)
+        ArcaneArcherData arcaneArcherData,
+        CharacterAction action)
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
@@ -563,25 +564,14 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             return;
         }
 
-        var dice = new List<int>();
-        var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
+        var criticalSuccess = action.AttackRollOutcome == RollOutcome.CriticalSuccess;
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
         var diceNumber = classLevel switch
         {
             >= 17 => 4,
             >= 11 => 3,
             _ => 2
-        };
-
-        for (var i = 0; i < diceNumber; i++)
-        {
-            var damageRoll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
-
-            dice.Add(damageRoll);
-        }
-
-        var damageForm = new DamageForm
-        {
-            DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
         };
 
         // apply damage to all targets
@@ -590,19 +580,27 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                      .ToList() // avoid changing enumerator
                      .Select(targetCharacter => targetCharacter.RulesetCharacter))
         {
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
+            };
+            var rolls = new List<int>();
+            var damageRoll = rulesetAttacker.RollDamage(
+                damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
+
             EffectHelpers.StartVisualEffect(
                 attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
             RulesetActor.InflictDamage(
-                dice.Sum(),
+                damageRoll,
                 damageForm,
-                DamageTypeForce,
+                damageForm.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 attacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(DieType.D6, dice, 0),
+                new RollInfo(damageForm.DieType, rolls, 0),
                 false,
                 out _);
         }
@@ -650,7 +648,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             // apply arrow behaviors after attack is complete
             if (PowerSpent == _powerBurstingArrow)
             {
-                InflictBurstingArrowAreaDamage(attacker, defender, arcaneArcherData);
+                InflictBurstingArrowAreaDamage(attacker, defender, arcaneArcherData, action);
             }
             else
             {
