@@ -32,7 +32,7 @@
     "targetConditionAsset": "Definition:ConditionWildShapeSubstituteForm:7bb134227813c9340949c7c091077b11",
     "targetSide": "Ally",
     "durationType": "Instantaneous",
-    "durationParameter": 0,
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
