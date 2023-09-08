@@ -3,22 +3,32 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnComputeAttackModifierOpportunistQuickStrike:e2c95a18-2afb-5d56-9c53-06efd1070556",
+      "featureDefinition": "Definition:PowerRoguishOpportunistDebilitatingStrike:78f2cc86-ecbb-5ae4-b0b4-326f8cb07037",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOpportunistDebilitatingStrike:7c726a61-63b4-5500-a812-dc188a9b93be",
+      "featureDefinition": "Definition:FeatureRoguishOpportunistOpportunity:838a2f97-29f7-51d3-8160-47ac9f224f74",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishOpportunistImprovedDebilitatingStrike:c688562f-e623-5cd5-bb05-b522b91f3d0e",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureRoguishOpportunistSeizeTheChance:cca88ecc-0956-5fa4-88fa-8ad0b2bcf610",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishOpportunistBlindside:0a122427-5692-54c1-a4d1-618f35c0f072",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOpportunistExposingWeakness:b6ba70b5-c3b4-5dfe-879e-41ecc08e7ae9",
+      "featureDefinition": "Definition:PowerRoguishOpportunistExposedWeakness:2b2db3af-ccab-5313-984e-323eb75645c6",
       "level": 17
     }
   ],

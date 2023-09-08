@@ -4,12 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityOpportunistExposingWeakness:baf6762b-baf8-5d7b-ae48-8c0d856ff5a9",
-    "Definition:SavingThrowAffinityOpportunistDebilitatingStrike:a3b7eb92-3f35-53ae-b25c-ce4f7ecbfabe"
+    "Definition:SavingThrowAffinityRoguishOpportunistDebilitatingStrike:9606365c-6ee2-55cd-9a61-915464c3f215"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
@@ -131,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionOpportunistExposedTitle",
-    "description": "Condition/&ConditionOpportunistExposedDescription",
+    "title": "Condition/&ConditionRoguishOpportunistDebilitatedTitle",
+    "description": "Condition/&ConditionRoguishOpportunistDebilitatedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
@@ -152,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62693c5e-594c-55d2-accd-a7985796e32b",
+  "guid": "25efa820-65fc-5a19-b218-2a0e9e8f666f",
   "contentPack": 9999,
-  "name": "ConditionOpportunistExposed"
+  "name": "ConditionRoguishOpportunistDebilitated"
 }

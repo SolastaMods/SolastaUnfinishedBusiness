@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle",
-    "description": "Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription",
+    "title": "Feature/&FeatureRoguishOpportunistOpportunityTitle",
+    "description": "Feature/&FeatureRoguishOpportunistOpportunityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e2c95a18-2afb-5d56-9c53-06efd1070556",
+  "guid": "838a2f97-29f7-51d3-8160-47ac9f224f74",
   "contentPack": 9999,
-  "name": "OnComputeAttackModifierOpportunistQuickStrike"
+  "name": "FeatureRoguishOpportunistOpportunity"
 }

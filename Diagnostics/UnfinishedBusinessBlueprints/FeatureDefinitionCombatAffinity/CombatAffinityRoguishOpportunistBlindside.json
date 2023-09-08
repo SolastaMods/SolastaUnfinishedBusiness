@@ -4,12 +4,12 @@
   "canRageToOvercomeSurprise": false,
   "attackOfOpportunityImmunity": false,
   "attackOfOpportunityOnMeAdvantageType": "None",
-  "attackOnMeAdvantage": "Advantage",
+  "attackOnMeAdvantage": "None",
   "attackOnMeCountLimit": -1,
   "autoCritical": false,
   "criticalHitImmunity": false,
   "myAttackAffinityFilter": "Always",
-  "myAttackAdvantage": "None",
+  "myAttackAdvantage": "Disadvantage",
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
@@ -35,8 +35,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOpportunistExposingWeaknessTitle",
-    "description": "Feature/&PowerOpportunistExposingWeaknessDescription",
+    "title": "Condition/&ConditionRoguishOpportunistBlindsidedTitle",
+    "description": "Condition/&ConditionRoguishOpportunistBlindsidedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -56,7 +56,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "baf6762b-baf8-5d7b-ae48-8c0d856ff5a9",
+  "guid": "d825a319-1fe3-5902-a583-ca02065a14f1",
   "contentPack": 9999,
-  "name": "CombatAffinityOpportunistExposingWeakness"
+  "name": "CombatAffinityRoguishOpportunistBlindside"
 }
