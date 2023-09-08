@@ -55,7 +55,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency)
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -108,7 +108,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency)
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -153,7 +153,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency)
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -193,7 +193,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency)
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -270,7 +270,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             }
 
             // grant advantage if first round or attacker is performing an opportunity attack
-            if (Gui.Battle.CurrentRound == 1 &&
+            if (Gui.Battle.CurrentRound > 1 &&
                 attackMode.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
