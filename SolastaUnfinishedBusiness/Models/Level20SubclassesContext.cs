@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -304,12 +303,6 @@ internal static class Level20SubclassesContext
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("SavingThrowAfterRollQuiveringPalm")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new TryAlterOutcomeSavingThrowQuiveringPalm())
-                    .AddToDB())
             .AddToDB();
 
         var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
@@ -321,15 +314,10 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
                     .SetParticleEffectParameters(DreadfulOmen)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 10, DieType.D10)
-                            .Build())
                     .Build())
             .AddToDB();
 
@@ -340,9 +328,9 @@ internal static class Level20SubclassesContext
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
-            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
+            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3, 3)
-            .SetAutoActivationPowerTag("9024") // this is the action ID for Quivering Palm
+            .SetAutoActivationPowerTag(((int)ExtraActionId.QuiveringPalmToggle).ToString())
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -355,7 +343,7 @@ internal static class Level20SubclassesContext
 
         powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
             ForcePowerUseInSpendPowerAction.Marker,
-            new ActionFinishedByMeQuiveringPalm(
+            new UsePowerFinishedByMeQuiveringPalm(
                 powerTraditionOpenHandQuiveringPalm,
                 conditionTraditionOpenHandQuiveringPalm));
 
@@ -838,8 +826,8 @@ internal static class Level20SubclassesContext
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
+                || rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
             {
                 return true;
             }
@@ -849,7 +837,7 @@ internal static class Level20SubclassesContext
                 return true;
             }
 
-            var isValid = target.RulesetCharacter.HasConditionOfType("ConditionTraditionOpenHandQuiveringPalm");
+            var isValid = target.RulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
 
             if (!isValid)
             {
@@ -866,84 +854,74 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
-            var rulesetCondition = rulesetDefender?.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+            var target = action.ActionParams.TargetCharacters[0];
+            var rulesetTarget = target.RulesetCharacter;
 
-            if (rulesetCondition != null)
+            if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionDefinition.Name, out var activeCondition))
             {
-                rulesetDefender.RemoveCondition(rulesetCondition);
-            }
-        }
-    }
-
-    private sealed class TryAlterOutcomeSavingThrowQuiveringPalm : ITryAlterOutcomeSavingThrow
-    {
-        public void OnFailedSavingTryAlterOutcome(
-            RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
-            BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
-        {
-            if (target is not RulesetCharacter rulesetTarget)
-            {
-                return;
-            }
-
-            rulesetTarget.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect,
-                "ConditionTraditionOpenHandQuiveringPalm",
-                out var activeCondition);
-
-            if (activeCondition == null)
-            {
-                return;
+                yield break;
             }
 
             rulesetTarget.RemoveCondition(activeCondition);
 
-            if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            // takes 10d10 Necrotic
+            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                return;
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeNecrotic, DieType = DieType.D10, DiceNumber = 10, BonusDamage = 0
+                };
+                var rolls = new List<int>();
+                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    damageForm.DamageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    rulesetTarget,
+                    false,
+                    rulesetAttacker.Guid,
+                    false,
+                    new List<string>(),
+                    new RollInfo(damageForm.DieType, rolls, 0),
+                    false,
+                    out _);
+
+                yield break;
             }
 
             // reduces to 1 hit point
             var totalDamage = rulesetTarget.CurrentHitPoints + rulesetTarget.TemporaryHitPoints - 1;
+            var condition = ConditionDefinitions.ConditionStunned_MonkStunningStrike;
 
-            target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
-
-            effectForms.SetRange(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionDefinitions.ConditionStunned_MonkStunningStrike,
-                        ConditionForm.ConditionOperation.Add)
-                    .Build());
+            rulesetTarget.SustainDamage(totalDamage, "DamagePure", false, action.ActingCharacter.Guid, null, out _);
+            rulesetTarget.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
-    private sealed class ActionFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
+    private sealed class UsePowerFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedByMeQuiveringPalm(
+        public UsePowerFinishedByMeQuiveringPalm(
             FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
@@ -963,19 +941,19 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in battle.EnemyContenders
+            foreach (var rulesetDefender in battle.EnemyContenders
                          .Where(x =>
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              x != gameLocationDefender)
-                         .ToList()) // avoid changing enumerator
+                         .ToList()
+                         .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
             {
-                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
-                var rulesetCondition = rulesetDefender.AllConditions
-                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
+                if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect,
+                        _conditionDefinition.Name,
+                        out var activeCondition))
                 {
-                    rulesetDefender.RemoveCondition(rulesetCondition);
+                    rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
         }
