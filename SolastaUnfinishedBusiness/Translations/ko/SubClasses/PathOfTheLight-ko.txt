@@ -8,7 +8,7 @@ Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementDescription=일루미
 Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementTitle=일루미네이팅 스트라이크 개선
 Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityDescription=빛의 야만인의 길로 밝혀지면 보이지 않게 될 수 없습니다.
 Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityTitle=조명
-Feature/&FeatureSetPathOfTheLightIlluminatingBurstDescription=분노에 돌입한 차례에 30피트 내에 있는 최대 세 명의 적을 비추도록 선택할 수 있습니다. 그들은 건강 내성 굴림(DC = 8 + 숙련도 보너스 + 건강 수정치)에 성공하거나 4d6 복사 피해를 입고 1분 동안 일루미네이팅 스트라이크의 조명을 받아야 합니다. 이런 식으로 조명을 받은 생물은 각 턴이 끝날 때 또 다른 건강 내성 굴림을 합니다. 저장에 성공하면 효과가 종료됩니다.
+Feature/&FeatureSetPathOfTheLightIlluminatingBurstDescription=당신이 분노에 들어간 턴에 당신은 당신으로부터 30피트 내의 적 최대 3명을 조명하도록 선택할 수 있습니다. 그들은 건강 내성 굴림(DC 8 + 숙련도 보너스 + 건강 수정치)에 성공해야 하며, 그렇지 않으면 4d6의 복사 피해를 입고 1분 동안 조명 일격의 빛을 받아야 합니다. 이런 식으로 조명된 생물은 매 턴이 끝날 때마다 또 다른 건강 내성 굴림을 합니다. 저장에 성공하면 효과가 종료됩니다.
 Feature/&FeatureSetPathOfTheLightIlluminatingBurstTitle=일루미네이팅 버스트
 Feature/&FeatureSetPathOfTheLightIlluminatingStrikeDescription=당신이 격노하는 동안, 당신의 차례에 공격으로 맞은 첫 번째 생물은 추가로 1d6의 방사 피해를 받고 다음 차례가 시작될 때까지 마법처럼 빛납니다. 또한 생물은 당신에게 불리하지 않고 보이지 않게 될 수 없는 모든 공격 굴림에 불이익을 받습니다.
 Feature/&FeatureSetPathOfTheLightIlluminatingStrikeTitle=일루미네이팅 스트라이크
