@@ -622,7 +622,7 @@ internal static class Level20SubclassesContext
 
         var magicAffinityChildRiftMagicMastery = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySorcererChildRiftMagicMastery")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetPreserveSlotRolls(19, 5)
             .AddToDB();
 
@@ -647,12 +647,41 @@ internal static class Level20SubclassesContext
         powerSorcererChildMasterRiftOffering.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
             conditionMasterLifeDrainedSorcererChildRiftOffering;
 
-        SorcerousChildRift.FeatureUnlocks.Add(new FeatureUnlockByLevel(magicAffinityChildRiftMagicMastery, 18));
-        SorcerousChildRift.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerSorcererChildMasterRiftOffering, 18));
+        var featureSetSorcererChildRiftRiftMagicMastery = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSorcererChildRiftMagicMastery")
+            .AddFeatureSet(magicAffinityChildRiftMagicMastery, powerSorcererChildMasterRiftOffering)
+            .AddToDB();
 
+        SorcerousChildRift.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetSorcererChildRiftRiftMagicMastery, 18));
+
+        //
+        // Haunted Soul
+        //
+        
+        
         //
         // Mana Overflow
         //
+
+        var powerSorcererManaPainterMasterDrain = FeatureDefinitionPowerBuilder
+            .Create(PowerSorcererManaPainterDrain, "PowerSorcererManaPainterManaOverflow")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
+                    .Build())
+            .SetOverriddenPower(PowerSorcererManaPainterDrain)
+            .AddToDB();
+
+        var featureSetSorcererManaPainterManaOverflow = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSorcererManaPainterManaOverflow")
+            .AddFeatureSet(powerSorcererManaPainterMasterDrain)
+            .AddToDB();
+
+        SorcerousManaPainter.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
     }
 
     #region Sorcerer
@@ -699,6 +728,60 @@ internal static class Level20SubclassesContext
             }
 
             break;
+        }
+    }
+
+    private sealed class TryAlterOutcomeSavingThrowManaOverflow : ITryAlterOutcomeSavingThrow
+    {
+        private readonly FeatureDefinitionPower _powerManaOverflow;
+
+        public TryAlterOutcomeSavingThrowManaOverflow(FeatureDefinitionPower powerManaOverflow)
+        {
+            _powerManaOverflow = powerManaOverflow;
+        }
+
+        public void OnFailedSavingTryAlterOutcome(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            if (saveOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                return;
+            }
+
+            if (target is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            var hero = rulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
+            {
+                return;
+            }
+
+            hero.LogCharacterUsedPower(_powerManaOverflow);
+            hero.GainSorceryPoints(1);
         }
     }
 
