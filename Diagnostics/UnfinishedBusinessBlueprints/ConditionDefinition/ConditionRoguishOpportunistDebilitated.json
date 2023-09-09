@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:SavingThrowAffinityRoguishOpportunistDebilitatingStrike:9606365c-6ee2-55cd-9a61-915464c3f215"
   ],

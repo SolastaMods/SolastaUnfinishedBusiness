@@ -13,17 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoguishOpportunistImprovedDebilitatingStrike:c688562f-e623-5cd5-bb05-b522b91f3d0e",
-      "level": 9
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureRoguishOpportunistSeizeTheChance:cca88ecc-0956-5fa4-88fa-8ad0b2bcf610",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoguishOpportunistBlindside:0a122427-5692-54c1-a4d1-618f35c0f072",
+      "featureDefinition": "Definition:PowerRoguishOpportunistImprovedDebilitatingStrike:c688562f-e623-5cd5-bb05-b522b91f3d0e",
       "level": 13
     },
     {

@@ -11,6 +11,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -42,6 +43,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var conditionDebilitated = ConditionDefinitionBuilder
             .Create($"Condition{Name}Debilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(savingThrowAffinityDebilitatingStrike)
             .AddToDB();
@@ -62,6 +64,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                             .SetConditionForm(conditionDebilitated, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(InflictWounds)
                     .Build())
             .AddToDB();
 
@@ -76,6 +79,16 @@ public sealed class RoguishOpportunist : AbstractSubclass
             new ModifyAttackActionModifierOpportunity(featureOpportunity));
 
         // LEVEL 09
+
+        // Seize the Chance
+
+        var featureSeizeTheChance = FeatureDefinitionBuilder
+            .Create($"Feature{Name}SeizeTheChance")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
+            .AddToDB();
+
+        // LEVEL 13
 
         // Improved Debilitating Strike
 
@@ -93,10 +106,11 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .AddToDB();
 
         var conditionImprovedDebilitated = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ImprovedDebilitated")
+            .Create(ConditionHindered, $"Condition{Name}ImprovedDebilitated")
             .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(savingThrowAffinityImprovedDebilitatingStrike)
+            .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike)
             .AddToDB();
 
         var powerImprovedDebilitatingStrike = FeatureDefinitionPowerBuilder
@@ -115,53 +129,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
                             .SetConditionForm(conditionImprovedDebilitated, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(InflictWounds)
                     .Build())
             .SetOverriddenPower(powerDebilitatingStrike)
-            .AddToDB();
-
-        // Seize the Chance
-
-        var featureSeizeTheChance = FeatureDefinitionBuilder
-            .Create($"Feature{Name}SeizeTheChance")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
-            .AddToDB();
-
-        // LEVEL 13
-
-        // Blindside
-
-        var combatAffinityBlindside = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}Blindside")
-            .SetGuiPresentation($"Condition{Name}Blindsided", Category.Condition)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .AddToDB();
-
-        var conditionBlindside = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Blindsided")
-            .SetGuiPresentation(Category.Condition, ConditionBaned)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(savingThrowAffinityImprovedDebilitatingStrike, combatAffinityBlindside)
-            .AddToDB();
-
-        var powerBlindside = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Blindside")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
-                    .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionBlindside, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .Build())
-            .SetOverriddenPower(powerImprovedDebilitatingStrike)
             .AddToDB();
 
         // LEVEL 17
@@ -170,17 +140,17 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}ExposedWeakness")
-            .SetGuiPresentation($"Condition{Name}Exposed", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
         var conditionExposed = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Exposed")
-            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .Create(ConditionHindered, $"Condition{Name}Exposed")
+            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(
+            .AddFeatures(
                 savingThrowAffinityImprovedDebilitatingStrike,
-                combatAffinityBlindside,
                 combatAffinityOpportunistExposingWeakness)
             .AddToDB();
 
@@ -200,8 +170,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
                             .SetConditionForm(conditionExposed, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(InflictWounds)
                     .Build())
-            .SetOverriddenPower(powerBlindside)
+            .SetOverriddenPower(powerImprovedDebilitatingStrike)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -209,8 +180,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("RoguishOpportunist", Resources.RoguishOpportunist, 256))
             .AddFeaturesAtLevel(3, featureOpportunity, powerDebilitatingStrike)
-            .AddFeaturesAtLevel(9, featureSeizeTheChance, powerImprovedDebilitatingStrike)
-            .AddFeaturesAtLevel(13, powerBlindside)
+            .AddFeaturesAtLevel(9, featureSeizeTheChance)
+            .AddFeaturesAtLevel(13, powerImprovedDebilitatingStrike)
             .AddFeaturesAtLevel(17, powerExposedWeakness)
             .AddToDB();
     }
@@ -353,6 +324,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             return action.RolledSaveThrow
                    && action.SaveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
                    && helper.CanReact()
+                   && helper != Gui.Battle.ActiveContender
                    && defender.IsOppositeSide(helper.Side);
         }
     }
