@@ -103,7 +103,7 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EmpoweredHealing")
             .SetGuiPresentation(Category.Feature, HealingWord)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 1, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

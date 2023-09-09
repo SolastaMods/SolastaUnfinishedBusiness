@@ -95,7 +95,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
         var powerManaShieldPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ManaShieldPoints")
             .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature, spriteManaShield)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2, 0)
             .SetEffectDescription(effectDescriptionManaShield)
             .AddToDB();
 

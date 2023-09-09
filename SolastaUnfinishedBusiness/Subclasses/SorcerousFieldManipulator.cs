@@ -145,7 +145,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepPoints")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
             .SetEffectDescription(effectDescriptionForcefulStep)
             .SetCustomSubFeatures(new ActionFinishedByMeForcefulStep(powerForcefulStepApply))
             .AddToDB();
