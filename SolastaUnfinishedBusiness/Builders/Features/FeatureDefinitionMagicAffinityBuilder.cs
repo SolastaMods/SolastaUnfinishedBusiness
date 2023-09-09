@@ -9,6 +9,16 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionMagicAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionMagicAffinity, FeatureDefinitionMagicAffinityBuilder>
 {
+    internal FeatureDefinitionMagicAffinityBuilder SetPreserveSlotRolls(
+        int preserveSlotThreshold, int preserveSlotLevelCap)
+    {
+        Definition.preserveSlotRoll = true;
+        Definition.preserveSlotThreshold = preserveSlotThreshold;
+        Definition.preserveSlotLevelCap = preserveSlotLevelCap;
+
+        return this;
+    }
+
     internal FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
         ConcentrationAffinity concentrationAffinity,
         int threshold = -1)

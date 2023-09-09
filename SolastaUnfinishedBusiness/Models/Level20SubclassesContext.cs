@@ -616,7 +616,93 @@ internal static class Level20SubclassesContext
 
     private static void SorcererLoad()
     {
+        //
+        // Child of The Rift
+        //
+
+        var magicAffinityChildRiftMagicMastery = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinitySorcererChildRiftMagicMastery")
+            .SetGuiPresentation(Category.Feature)
+            .SetPreserveSlotRolls(19, 5)
+            .AddToDB();
+
+        var attributeModifierMasterLifeDrained = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierSorcererChildRiftMasterLifeDrained")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.SorceryPoints, 2)
+            .AddToDB();
+
+        var conditionMasterLifeDrainedSorcererChildRiftOffering = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionLifeDrainedSorcererChildRiftOffering,
+                "ConditionLifeDrainedSorcererChildRiftMasterOffering")
+            .SetFeatures(attributeModifierMasterLifeDrained)
+            .AddToDB();
+
+        var powerSorcererChildMasterRiftOffering = FeatureDefinitionPowerBuilder
+            .Create(PowerSorcererChildRiftOffering, "PowerSorcererChildRiftMasterOffering")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerSorcererChildRiftOffering)
+            .AddToDB();
+
+        powerSorcererChildMasterRiftOffering.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            conditionMasterLifeDrainedSorcererChildRiftOffering;
+
+        SorcerousChildRift.FeatureUnlocks.Add(new FeatureUnlockByLevel(magicAffinityChildRiftMagicMastery, 18));
+        SorcerousChildRift.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerSorcererChildMasterRiftOffering, 18));
+
+        //
+        // Mana Overflow
+        //
     }
+
+    #region Sorcerer
+
+    internal static void OnChildRiftPreserveSpellSlot(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
+    {
+        var hero = __instance.GetOriginalHero();
+
+        if (hero == null ||
+            hero.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, SorcerousChildRift.Name) == 0)
+        {
+            return;
+        }
+
+        var sorcererRepertoire =
+            hero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == CharacterClassDefinitions.Sorcerer);
+
+        if (sorcererRepertoire == null)
+        {
+            return;
+        }
+
+        // recover lowest level used spell slot
+        for (var i = 1; i <= 5; i++)
+        {
+            sorcererRepertoire.GetSlotsNumber(i, out var remaining, out var max);
+
+            if (remaining == max)
+            {
+                continue;
+            }
+
+            // recover across all repertoires for multiclass scenarios
+            if (LevelUpContext.IsMulticlass(hero))
+            {
+                foreach (var spellRepertoire in hero.SpellRepertoires.Where(x => x.SpellCastingRace == null))
+                {
+                    spellRepertoire.usedSpellsSlots[i]--;
+                }
+            }
+            else
+            {
+                sorcererRepertoire.usedSpellsSlots[i]--;
+            }
+
+            break;
+        }
+    }
+
+    #endregion
 
     #region Fighter
 

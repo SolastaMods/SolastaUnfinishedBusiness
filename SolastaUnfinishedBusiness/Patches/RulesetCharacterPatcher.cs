@@ -1705,6 +1705,9 @@ public static class RulesetCharacterPatcher
                     if (rolledValue >= preserveSlotThreshold)
                     {
                         __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
+
+                        //PATCH: special case for Child of The Rift level 18th feature
+                        Level20SubclassesContext.OnChildRiftPreserveSpellSlot(__instance, activeSpell);
                     }
                     else
                     {

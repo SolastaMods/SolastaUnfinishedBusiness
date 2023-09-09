@@ -453,6 +453,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionLevitate { get; } =
             GetDefinition<ConditionDefinition>("ConditionLevitate");
 
+        internal static ConditionDefinition ConditionLifeDrainedSorcererChildRiftOffering { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLifeDrainedSorcererChildRiftOffering");
+
         internal static ConditionDefinition ConditionLightSensitive { get; } =
             GetDefinition<ConditionDefinition>("ConditionLightSensitive");
 
@@ -1721,6 +1724,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
+
+        internal static FeatureDefinitionPower PowerSorcererChildRiftOffering { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftOffering");
 
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");
