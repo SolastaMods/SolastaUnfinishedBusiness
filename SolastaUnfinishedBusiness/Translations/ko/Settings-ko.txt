@@ -87,6 +87,7 @@ ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 캐릭터 검사�
 ModUi/&EnableCharacterExport=문자를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=불이 붙은 캐릭터는 빛을 발산해야 합니다. <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=치트 메뉴 활성화
+ModUi/&EnableCustomPortraits=맞춤 인물 사진을 활성화합니다\n\n. <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b 아래에 <i><b><color=#F0DAA0>Portraits</color></b></i> 폴더를 만듭니다. ></i> 모드 폴더\n. 해당 폴더에 256 x 384px, 영웅 이름을 딴 PNG 이미지[예: Anton, Celia, Nialla 등]가 저장됩니다.
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 사용\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기 포함, 모든 환경의 애셋 혼합 없음]</color></i>
 ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레이 활성화 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10 및 18에서 재주 선택 활성화

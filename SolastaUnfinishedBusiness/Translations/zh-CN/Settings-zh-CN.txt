@@ -87,6 +87,7 @@ ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
 ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
 ModUi/&EnableCheatMenu=启用作弊菜单
+ModUi/&EnableCustomPortraits=启用自定义肖像\n\n。在 <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b 下创建一个 <i><b><color=#F0DAA0>Portraits</color></b></i> 文件夹></i> mod 文件夹\n。放置在该文件夹中，256 x 384 px，以您的英雄名字命名的 PNG 图像 [即：Anton、Celia、Nialla 等]
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150和200x200的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
 ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级2、10和18启用专长选择

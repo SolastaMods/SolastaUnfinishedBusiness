@@ -274,6 +274,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddPaladinSmiteToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
     public bool EnableDistanceOnTooltip { get; set; }
+    public bool EnableCustomPortraits { get; set; }
 
     public int[][][] FormationGridSets { get; set; } =
     {

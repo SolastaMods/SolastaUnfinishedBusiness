@@ -87,6 +87,7 @@ ModUi/&EnableCharacterChecker=メイン画面 > キャラクターでキャラ�
 ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color> を有効にして文字をエクスポートします
 ModUi/&EnableCharactersOnFireToEmitLight=炎上のキャラクターは光を発する必要があります<i><color=#F0DAA0>[キューブ オブ ライト、ファイア エレメンタル、ファイア ジェスター、ファイア オスプレイ、ファイア スパイダー、および炎の条件ファミリー]</color></i>
 ModUi/&EnableCheatMenu=チートメニューを有効にする
+ModUi/&EnableCustomPortraits=カスタム ポートレートを有効にします\n\n。 <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b の下に <i><b><color=#F0DAA0>Portraits</color></b></i> フォルダを作成します。 ></i>mod フォルダ\n。そのフォルダーに、ヒーローの名前にちなんで名付けられた 256 x 384 ピクセルの PNG 画像 [例: Anton、Celia、Nialla など] が配置されます。
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=クラスレベル2、10、18で特技選択を有効にする

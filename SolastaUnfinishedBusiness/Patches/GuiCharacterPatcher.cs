@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -380,4 +381,98 @@ public static class GuiCharacterPatcher
             tooltip.TooltipClass = string.Empty;
         }
     }
+
+    //PATCH: supports custom portraits on heroes and monsters
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.AssignPortraitImage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class AssignPortraitImage_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GuiCharacter __instance, RawImage portraitImage)
+        {
+            ChangePortrait(__instance, portraitImage);
+        }
+    }
+
+    //PATCH: supports custom portraits on heroes and monsters
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.AssignActiveCharacterPortraitImage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class AssignActiveCharacterPortraitImage_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GuiCharacter __instance, RawImage portraitRawImage)
+        {
+            ChangePortrait(__instance, portraitRawImage);
+        }
+    }
+
+    #region Custom Portraits Helpers
+
+    private static readonly Dictionary<string, Texture2D> CustomHeroPortraits = new();
+    private static readonly Dictionary<string, Texture2D> CustomMonsterPortraits = new();
+
+    private static void ChangePortrait(GuiCharacter __instance, RawImage rawImage)
+    {
+        if (!Main.Settings.EnableCustomPortraits)
+        {
+            return;
+        }
+
+        if (__instance.RulesetCharacterMonster != null)
+        {
+            if (TryGetMonsterPortrait(
+                    __instance.RulesetCharacterMonster.MonsterDefinition.Name, rawImage, out var texture))
+            {
+                rawImage.texture = texture;
+            }
+        }
+        else
+        {
+            if (TryGetHeroPortrait(
+                    __instance.RulesetCharacterHero?.Name ?? __instance.Snapshot.Name, rawImage, out var texture))
+            {
+                rawImage.texture = texture;
+            }
+        }
+    }
+
+    private static bool TryGetHeroPortrait(string name, RawImage original, out Texture2D texture)
+    {
+        var filename = $"{Main.ModFolder}/Portraits/{name}.png";
+
+        return TryGetPortrait(CustomHeroPortraits, name, filename, original, out texture);
+    }
+
+    private static bool TryGetMonsterPortrait(string name, RawImage original, out Texture2D texture)
+    {
+        var filename = $"{Main.ModFolder}/MonsterPortraits/{name}.png";
+
+        return TryGetPortrait(CustomMonsterPortraits, name, filename, original, out texture);
+    }
+
+    private static bool TryGetPortrait(
+        IDictionary<string, Texture2D> dict, string name, string filename, RawImage original, out Texture2D texture)
+    {
+        if (dict.TryGetValue(name, out texture))
+        {
+            return true;
+        }
+
+        if (!File.Exists(filename))
+        {
+            return false;
+        }
+
+        var fileData = File.ReadAllBytes(filename);
+
+        texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, true);
+        texture.LoadImage(fileData);
+        dict.Add(name, texture);
+
+        return true;
+    }
+
+    #endregion
 }

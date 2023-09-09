@@ -3,6 +3,7 @@
 - RESPEC required on Patron Riftwalker and Roguish Opportunist
 
 - added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock and Wizard spell repertoires
+- added support for Custom Portraits with a new setting under Mod UI / Interface
 - changed College of Audacity to consider critical hits on whirl damage, and better interact with mod critical options
 - changed Martial Spell Shield progression by replacing levels 10th and 18th features with new ones closer to TT
 - changed Patron Riftwalker progression by having all powers with fixed uses instead of proficiency bonus amount
