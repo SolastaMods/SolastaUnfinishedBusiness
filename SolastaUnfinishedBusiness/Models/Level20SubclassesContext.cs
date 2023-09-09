@@ -687,6 +687,7 @@ internal static class Level20SubclassesContext
                             .Build())
                     .Build())
             .SetShowCasting(true)
+            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark)
             .AddToDB();
 
         var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerSharedPoolBuilder
@@ -710,6 +711,7 @@ internal static class Level20SubclassesContext
                             .Build())
                     .Build())
             .SetShowCasting(true)
+            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerSorcererDraconicBloodlinePresence, true,
