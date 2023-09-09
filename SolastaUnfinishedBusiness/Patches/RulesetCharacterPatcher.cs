@@ -1707,10 +1707,19 @@ public static class RulesetCharacterPatcher
 
                 if (rolledValue >= preserveSlotThreshold)
                 {
-                    __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
+                    var console = Gui.Game.GameConsole;
+                    var entry =
+                        new GameConsoleEntry("Feedback/&PreserveSlotLine", console.consoleTableDefinition)
+                        {
+                            Indent = true
+                        };
 
-                    //PATCH: special case for Child of The Rift level 18th feature
-                    Level20SubclassesContext.OnChildRiftPreserveSpellSlot(__instance, activeSpell);
+                    console.AddCharacterEntry(__instance, entry);
+                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, rolledValue.ToString());
+                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(DieType.D20));
+                    console.AddEntry(entry);
+
+                    __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
                 }
                 else
                 {
