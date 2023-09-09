@@ -1,5 +1,9 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=Вы ослаблены забастовкой оппортунистов.
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=Вы ослаблены Оппортунистом и бросаете все спасброски со штрафом -1d4.
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=Ослабленный
+Condition/&ConditionRoguishOpportunistExposedDescription=Вы ослаблены Оппортунистом, все спасброски совершаются со штрафом -1d6, скорость передвижения снижается на 10 футов, и все броски атаки против вас имеют преимущество.
+Condition/&ConditionRoguishOpportunistExposedTitle=Ослабленный
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=Вы ослаблены Оппортунистом, все спасброски совершаются со штрафом -1d6, а скорость передвижения снижается на 10 футов.
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=Ослабленный
 Feature/&FeatureRoguishOpportunistOpportunityDescription=В первом раунде боя вы совершаете все броски атаки с преимуществом. Кроме того, вы всегда совершаете все возможные атаки с преимуществом.
 Feature/&FeatureRoguishOpportunistOpportunityTitle=Возможность
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Если враг проваливает спасбросок и сейчас не ваша очередь, вы можете использовать свою реакцию, чтобы атаковать его. Здесь можно провести скрытую атаку.

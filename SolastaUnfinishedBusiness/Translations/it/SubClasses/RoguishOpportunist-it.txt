@@ -1,5 +1,9 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=Sei debilitato da uno sciopero opportunista.
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=Sei debilitato da un Opportunista e tiri tutti i tiri salvezza con una penalità di -1d4.
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=Debilitato
+Condition/&ConditionRoguishOpportunistExposedDescription=Sei debilitato da un Opportunista, esegui tutti i tiri salvezza con una penalità di -1d6, la tua velocità di movimento è ridotta di 3 metri e tutti i tiri per colpire contro di te hanno vantaggio.
+Condition/&ConditionRoguishOpportunistExposedTitle=Debilitato
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=Sei debilitato da un Opportunista, esegui tutti i tiri salvezza con una penalità di -1d6 e la tua velocità di movimento è ridotta di 3 metri.
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=Debilitato
 Feature/&FeatureRoguishOpportunistOpportunityDescription=Durante il primo round di combattimento, esegui tutti i tiri per colpire con vantaggio. Inoltre, tiri sempre tutti gli attacchi di opportunità con vantaggio.
 Feature/&FeatureRoguishOpportunistOpportunityTitle=Opportunità
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Quando un nemico fallisce un tiro salvezza e non è il tuo turno, puoi usare la tua reazione per sferrare un attacco contro di lui. Qui è possibile attivare un attacco furtivo.

@@ -1,5 +1,9 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=Você está debilitado por um ataque oportunista.
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=Você é debilitado por um Oportunista e rola todos os testes de resistência com penalidade de -1d4.
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=Debilitado
+Condition/&ConditionRoguishOpportunistExposedDescription=Você é debilitado por um Oportunista, rolando todos os testes de resistência com -1d6 de penalidade, tendo a velocidade de movimento reduzida em 3 metros e todas as jogadas de ataque contra você têm vantagem.
+Condition/&ConditionRoguishOpportunistExposedTitle=Debilitado
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=Você é debilitado por um Oportunista, realizando todos os testes de resistência com -1d6 de penalidade e tendo sua velocidade de movimento reduzida em 3 metros.
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=Debilitado
 Feature/&FeatureRoguishOpportunistOpportunityDescription=Durante a primeira rodada de combate, você rola todas as jogadas de ataque com vantagem. Além disso, você sempre lança todos os ataques de oportunidade com vantagem.
 Feature/&FeatureRoguishOpportunistOpportunityTitle=Oportunidade
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Quando um inimigo falha em um teste de resistência e não é seu turno, você pode usar sua reação para fazer um ataque contra ele. Um ataque furtivo pode ser acionado aqui.

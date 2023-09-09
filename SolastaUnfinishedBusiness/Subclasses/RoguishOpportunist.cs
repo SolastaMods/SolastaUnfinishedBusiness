@@ -56,8 +56,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
-                    .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetSavingThrowData(false, Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -94,7 +94,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         var savingThrowAffinityImprovedDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}ImprovedDebilitatingStrike")
-            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}ImprovedDebilitated", Category.Condition)
             .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
                 DieType.D6, 1, false,
                 Charisma,
@@ -107,7 +107,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         var conditionImprovedDebilitated = ConditionDefinitionBuilder
             .Create(ConditionHindered, $"Condition{Name}ImprovedDebilitated")
-            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition, ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike)
@@ -121,8 +121,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
-                    .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetSavingThrowData(false, Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -140,13 +140,13 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}ExposedWeakness")
-            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}Exposed", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
         var conditionExposed = ConditionDefinitionBuilder
             .Create(ConditionHindered, $"Condition{Name}Exposed")
-            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition, ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(
@@ -162,8 +162,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
-                    .SetSavingThrowData(false, Dexterity, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetSavingThrowData(false, Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

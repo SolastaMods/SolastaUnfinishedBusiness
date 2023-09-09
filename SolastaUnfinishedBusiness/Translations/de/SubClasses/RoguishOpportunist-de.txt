@@ -1,5 +1,9 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=Sie werden durch einen opportunistischen Streik geschwächt.
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=Du wirst durch einen Opportunisten geschwächt und wirfst alle Rettungswürfe mit einem Malus von -1W4.
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=Geschwächt
+Condition/&ConditionRoguishOpportunistExposedDescription=Du wirst durch einen Opportunisten geschwächt, der alle Rettungswürfe mit einem Malus von -1W6 ausführt, seine Bewegungsgeschwindigkeit um 10 Fuß verringert und alle Angriffswürfe gegen dich im Vorteil hat.
+Condition/&ConditionRoguishOpportunistExposedTitle=Geschwächt
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=Du wirst durch einen Opportunisten geschwächt, der alle Rettungswürfe mit einem Malus von -1W6 ausführt und dessen Bewegungsgeschwindigkeit um 10 Fuß verringert wird.
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=Geschwächt
 Feature/&FeatureRoguishOpportunistOpportunityDescription=Während der ersten Kampfrunde würfelst du alle Angriffswürfe mit Vorteil. Außerdem würfelst du immer alle Gelegenheitsangriffe mit Vorteil.
 Feature/&FeatureRoguishOpportunistOpportunityTitle=Gelegenheit
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Wenn einem Feind ein Rettungswurf misslingt und Sie nicht an der Reihe sind, können Sie Ihre Reaktion nutzen, um einen Angriff gegen ihn durchzuführen. Hier kann ein Schleichangriff ausgelöst werden.

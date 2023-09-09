@@ -1,5 +1,9 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=당신은 기회주의 파업으로 인해 쇠약해졌습니다.
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=당신은 기회주의자에 의해 쇠약해지고 모든 내성굴림에 -1d4 페널티를 받습니다.
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=쇠약해진
+Condition/&ConditionRoguishOpportunistExposedDescription=당신은 기회주의자에 의해 쇠약해지고 모든 내성 굴림에 -1d6 페널티가 적용되고 이동 속도가 10피트 감소하며 당신에 대한 모든 공격 굴림이 유리해집니다.
+Condition/&ConditionRoguishOpportunistExposedTitle=쇠약해진
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=당신은 기회주의자에 의해 약화되어 모든 내성 굴림에 -1d6 페널티를 받고 이동 속도가 10피트 감소합니다.
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=쇠약해진
 Feature/&FeatureRoguishOpportunistOpportunityDescription=첫 번째 전투 라운드 동안 당신은 모든 공격 굴림을 유리하게 굴립니다. 게다가, 당신은 항상 모든 기회 공격을 유리하게 굴립니다.
 Feature/&FeatureRoguishOpportunistOpportunityTitle=기회
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=적이 내성굴림에 실패하고 당신의 차례가 아닐 때, 당신은 반응을 이용해 공격할 수 있습니다. 여기에서 몰래 공격이 실행될 수 있습니다.

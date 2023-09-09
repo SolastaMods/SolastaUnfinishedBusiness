@@ -1,5 +1,9 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=你因机会主义的罢工而变得虚弱。
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=你被机会主义者削弱了并且在所有豁免检定中受到 -1d4 的惩罚。
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=身体虚弱
+Condition/&ConditionRoguishOpportunistExposedDescription=你被机会主义者削弱了，所有豁免检定都会受到 -1d6 的惩罚，移动速度降低 10 英尺，并且所有针对你的攻击检定都具有优势。
+Condition/&ConditionRoguishOpportunistExposedTitle=身体虚弱
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=你被机会主义者削弱了，所有豁免检定都会受到 -1d6 的惩罚，并且移动速度降低 10 英尺。
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=身体虚弱
 Feature/&FeatureRoguishOpportunistOpportunityDescription=在第一轮战斗中，你在所有攻击检定中都具有优势。此外，你总是能以优势进行所有借机攻击。
 Feature/&FeatureRoguishOpportunistOpportunityTitle=机会
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=当敌人未能通过豁免检定并且还没有轮到你时，你可以利用你的反应对其进行攻击。这里可以触发偷袭。
