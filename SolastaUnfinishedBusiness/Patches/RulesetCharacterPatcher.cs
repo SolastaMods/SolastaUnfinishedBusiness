@@ -1707,18 +1707,6 @@ public static class RulesetCharacterPatcher
 
                 if (rolledValue >= preserveSlotThreshold)
                 {
-                    var console = Gui.Game.GameConsole;
-                    var entry =
-                        new GameConsoleEntry("Feedback/&PreserveSlotLine", console.consoleTableDefinition)
-                        {
-                            Indent = true
-                        };
-
-                    console.AddCharacterEntry(__instance, entry);
-                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, rolledValue.ToString());
-                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(DieType.D20));
-                    console.AddEntry(entry);
-
                     __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
                 }
                 else
