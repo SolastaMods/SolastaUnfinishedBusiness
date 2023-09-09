@@ -1509,6 +1509,17 @@ internal static class CharacterContext
         PowerBundle.RegisterPowerBundle(powerPool, true,
             powerDisarm, powerPoison, powerTrip, powerWithdraw, powerDaze, powerKnockOut, powerObscure);
 
+        // add proper effects to all cunning strike sub powers
+        foreach (var power in powerPool.GetBundle()!.SubPowers)
+        {
+            power.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+                ConditionDefinitions.ConditionDazzled.conditionStartParticleReference;
+            power.EffectDescription.EffectParticleParameters.conditionParticleReference =
+                ConditionDefinitions.ConditionDazzled.conditionParticleReference;
+            power.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+                ConditionDefinitions.ConditionDazzled.conditionEndParticleReference;
+        }
+
         var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCunningStrikeToggle")
             .SetGuiPresentationNoContent(true)
