@@ -44,8 +44,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create($"Condition{Name}Debilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(savingThrowAffinityDebilitatingStrike)
+            .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
 
         var powerDebilitatingStrike = FeatureDefinitionPowerBuilder
@@ -109,8 +110,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create(ConditionHindered, $"Condition{Name}ImprovedDebilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike)
+            .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
 
         var powerImprovedDebilitatingStrike = FeatureDefinitionPowerBuilder
@@ -148,10 +150,11 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create(ConditionHindered, $"Condition{Name}Exposed")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(
                 savingThrowAffinityImprovedDebilitatingStrike,
                 combatAffinityOpportunistExposingWeakness)
+            .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
 
         var powerExposedWeakness = FeatureDefinitionPowerBuilder

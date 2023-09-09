@@ -90,8 +90,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRoguishOpportunistDebilitatedTitle",
-    "description": "Condition/&ConditionRoguishOpportunistDebilitatedDescription",
+    "title": "Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle",
+    "description": "Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
