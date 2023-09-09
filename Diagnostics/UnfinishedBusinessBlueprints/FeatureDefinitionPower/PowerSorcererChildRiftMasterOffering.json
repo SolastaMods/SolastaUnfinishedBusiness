@@ -114,7 +114,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionActingCunningly",
-          "conditionDefinition": "Definition:ConditionLifeDrainedSorcererChildRiftMasterOffering:f723d0f0-c0d0-547b-9ffe-c00d5b8eb843",
+          "conditionDefinition": "Definition:ConditionLifeDrainedSorcererChildRiftOffering:e94d3b9b1956e09438aa77ab039d14be",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -142,7 +142,7 @@
           "$type": "SpellSlotsForm, Assembly-CSharp",
           "type": "GainSorceryPoints",
           "maxSlotLevel": 1,
-          "sorceryPointsGain": 1,
+          "sorceryPointsGain": 2,
           "powerDefinition": null
         },
         "hasFilterId": false,

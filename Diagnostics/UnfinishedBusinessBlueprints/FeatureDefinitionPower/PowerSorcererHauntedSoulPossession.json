@@ -13,11 +13,11 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 10,
@@ -53,9 +53,7 @@
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
-    "restrictedCreatureFamilies": [
-      "Beast"
-    ],
+    "restrictedCreatureFamilies": [],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
@@ -63,6 +61,33 @@
     "effectApplication": "All",
     "effectFormFilters": [],
     "effectForms": [
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionMindDominatedByHauntedSoul",
+          "conditionDefinition": "Definition:ConditionMindDominatedByHauntedSoul:6ee262c6-8b77-5870-a8c0-7ce899a527d7",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
@@ -97,39 +122,12 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMindDominatedByHauntedSoul",
-          "conditionDefinition": "Definition:ConditionMindDominatedByHauntedSoul:6ee262c6-8b77-5870-a8c0-7ce899a527d7",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
@@ -141,7 +139,7 @@
       "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
-      "alteredDuration": "Minutes_1_10_480_1440_Infinite"
+      "alteredDuration": "None"
     },
     "speedType": "Instant",
     "speedParameter": 10.0,
@@ -369,9 +367,9 @@
     "description": "Feature/&PowerSorcererHauntedSoulPossessionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "3c0ead0251ff3ba4ca05fc28e4ba5647",
+      "m_SubObjectName": "VengefulSpirits",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

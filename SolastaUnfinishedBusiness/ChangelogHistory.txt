@@ -7,7 +7,7 @@
 - changed Martial Spell Shield progression by replacing levels 10th and 18th features with new ones closer to TT
 - changed Patron Riftwalker progression by having all powers with fixed uses instead of proficiency bonus amount
 - changed Resonating Strike to do fire damage, and renamed it to Burning Blade as not all flames are green
-- changed Roguish Opportunist progression as suggested by @HiddenHax and original author @Nd
+- changed Roguish Opportunist progression as suggested by HiddenHax and original author Nd
 - changed vanilla Sorcerous Child of The Rift progression with Magic Mastery at level 18th
 - changed vanilla Sorcerous Draconic Bloodline progression with Draconic Presence at level 18th
 - changed vanilla Sorcerous Haunted Soul progression with Possession at level 18th
@@ -16,6 +16,7 @@
 - fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
 - fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
 - fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
+- improved Cunning Strike and Devious Strike sub powers effects
 
 1.5.94.13:
  

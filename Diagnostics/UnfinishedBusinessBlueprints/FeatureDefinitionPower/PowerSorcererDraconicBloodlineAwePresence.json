@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -309,12 +309,12 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "SorceryPoints",
-  "costPerUse": 1,
+  "costPerUse": 5,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -332,8 +332,8 @@
     "description": "Feature/&PowerSorcererDraconicBloodlineAwePresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c0ead0251ff3ba4ca05fc28e4ba5647",
-      "m_SubObjectName": "VengefulSpirits",
+      "m_AssetGUID": "bc938fbed7c65d245bf4accea49f2be1",
+      "m_SubObjectName": "BlindingFlash",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
