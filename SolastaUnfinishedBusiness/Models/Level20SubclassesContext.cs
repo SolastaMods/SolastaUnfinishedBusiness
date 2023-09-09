@@ -657,6 +657,69 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetSorcererChildRiftRiftMagicMastery, 18));
 
         //
+        // Draconic Bloodline
+        //
+
+        var powerSorcererDraconicBloodlinePresence = FeatureDefinitionPowerBuilder
+            .Create("PowerSorcererDraconicBloodlinePresence")
+            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5)
+            .AddToDB();
+
+        var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSorcererDraconicBloodlineAwePresence")
+            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
+            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlinePresence)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 21)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionCharmed,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetShowCasting(true)
+            .AddToDB();
+
+        var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSorcererDraconicBloodlineFearPresence")
+            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
+            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlinePresence)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 21)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetShowCasting(true)
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerSorcererDraconicBloodlinePresence, true,
+            powerSorcererDraconicBloodlineAwePresence,
+            powerSorcererDraconicBloodlineFearPresence);
+
+        SorcerousDraconicBloodline.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetSorcererChildRiftRiftMagicMastery, 18));
+
+        //
         // Haunted Soul
         //
 
@@ -696,7 +759,7 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));
 
         //
-        // Mana Overflow
+        // Mana Painter
         //
 
         var powerSorcererManaPainterMasterDrain = FeatureDefinitionPowerBuilder
@@ -724,6 +787,10 @@ internal static class Level20SubclassesContext
     }
 
     #region Sorcerer
+
+    //
+    // Magic Mastery
+    //
 
     internal static void OnChildRiftPreserveSpellSlot(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
     {
@@ -770,6 +837,10 @@ internal static class Level20SubclassesContext
         }
     }
 
+    //
+    // Possession
+    //
+
     private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
     {
         private readonly ConditionDefinition _conditionPossession;
@@ -815,6 +886,10 @@ internal static class Level20SubclassesContext
             // Empty
         }
     }
+
+    //
+    // Mana Overflow
+    //
 
     private sealed class TryAlterOutcomeSavingThrowManaOverflow : ITryAlterOutcomeSavingThrow
     {
@@ -979,7 +1054,7 @@ internal static class Level20SubclassesContext
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(10);
             rulesetCharacter.InflictCondition(
-                RuleDefinitions.ConditionDodging,
+                ConditionDodging,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -1363,15 +1438,15 @@ internal static class Level20SubclassesContext
             }
 
             return rulesetDefender.HasAnyConditionOfType(
-                RuleDefinitions.ConditionBlinded,
-                RuleDefinitions.ConditionFrightened,
-                RuleDefinitions.ConditionRestrained,
-                RuleDefinitions.ConditionGrappled,
-                RuleDefinitions.ConditionIncapacitated,
-                RuleDefinitions.ConditionParalyzed,
-                RuleDefinitions.ConditionPoisoned,
-                RuleDefinitions.ConditionProne,
-                RuleDefinitions.ConditionStunned);
+                ConditionBlinded,
+                ConditionFrightened,
+                ConditionRestrained,
+                ConditionGrappled,
+                ConditionIncapacitated,
+                ConditionParalyzed,
+                ConditionPoisoned,
+                ConditionProne,
+                ConditionStunned);
         }
     }
 

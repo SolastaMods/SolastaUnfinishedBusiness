@@ -158,10 +158,9 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 ## Level 18
 
-* None
+* Magic Mastery
 
-You can use your Bonus Action to sacrifice 5 Hit Points, in order to regain immediately two sorcery points. The sacrificed Hit Points are recovered after a long rest.
-
+At 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you now regain the slot upon rolling 19 or 20, as well as one another spell slot of the lowest level you have expended thus far. Additionally, this benefit also extends to your sorcery points, granting you twice the amount you spend if you roll 19 or 20.
 
 
 
@@ -652,6 +651,13 @@ When dealing spell damage that matches your draconic ancestry, you add your char
 * Dragon Wings
 
 At level 14, you obtain the ability to sprout a pair of Dragon Wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn.
+
+
+## Level 18
+
+* Magic Mastery
+
+At 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you now regain the slot upon rolling 19 or 20, as well as one another spell slot of the lowest level you have expended thus far. Additionally, this benefit also extends to your sorcery points, granting you twice the amount you spend if you roll 19 or 20.
 
 
 
@@ -1342,9 +1348,11 @@ At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point
 
 ## Level 18
 
-* None
+* Mana Overflow
 
-Make a melee spell attack. On a successful hit, the target creature takes 3D10+your charisma modifier Force Damage, you regain 2 sorcery points. You need to take a Short Rest to recover this power.
+At 18th level, you gain the following benefits:
+• Whenever you succeed on a saving throw against a spell or other magic effects, you regain 1 sorcery point.
+• Your Mana Drain does 3d10 + your Charisma modifier damage and restores 2 sorcery points instead.
 
 
 

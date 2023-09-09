@@ -7,10 +7,11 @@
 - changed Martial Spell Shield progression by replacing levels 10th and 18th features with new ones closer to TT
 - changed Patron Riftwalker progression by having all powers with fixed uses instead of proficiency bonus amount
 - changed Resonating Strike to do fire damage, and renamed it to Burning Blade as not all flames are green
-- changed Roguish Opportunist progression as suggested by Nd, original author, and HiddenHax
-- changed Sorcerous Child of The Rift progression with Magic Mastery at level 18th
-- changed Sorcerous Haunted Soul progression with Possession at level 18th
-- changed Sorcerous Mana Painter progression with Mana Overflow at level 18th
+- changed Roguish Opportunist progression as suggested by @HiddenHax and original author @Nd
+- changed vanilla Sorcerous Child of The Rift progression with Magic Mastery at level 18th
+- changed vanilla Sorcerous Draconic Bloodline progression with Draconic Presence at level 18th
+- changed vanilla Sorcerous Haunted Soul progression with Possession at level 18th
+- changed vanilla Sorcerous Mana Painter progression with Mana Overflow at level 18th
 - changed Way of Silhouette progression by moving strong cloak of silhouette from level 6th to 11th
 - fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
 - fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
