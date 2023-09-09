@@ -388,9 +388,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
                 rulesetCharacter.InflictCondition(
                     conditionDisengaging.Name,
-                    conditionDisengaging.DurationType,
-                    conditionDisengaging.DurationParameter,
-                    conditionDisengaging.TurnOccurence,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagCombat,
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
