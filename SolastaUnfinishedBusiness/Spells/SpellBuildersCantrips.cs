@@ -683,7 +683,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var conditionBoomingBladeSheathed = ConditionDefinitionBuilder
-            .Create(ConditionHighlighted, "ConditionBoomingBladeSheathed")
+            .Create(ConditionShine, "ConditionBoomingBladeSheathed")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(featureSheathed)
