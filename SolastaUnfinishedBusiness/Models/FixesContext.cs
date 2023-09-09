@@ -58,17 +58,7 @@ internal static class FixesContext
 
     private static void ExtendCharmImmunityToDemonicInfluence()
     {
-        var affinities = DatabaseRepository.GetDatabase<FeatureDefinitionConditionAffinity>()
-            .Where(x => x.ConditionType == "ConditionCharmed" &&
-                        x.ConditionAffinityType == ConditionAffinityType.Immunity);
-
-        var conditions = DatabaseRepository.GetDatabase<ConditionDefinition>()
-            .Where(x => x.Features.Intersect(affinities).Any());
-
-        foreach (var condition in conditions)
-        {
-            condition.Features.Add(FeatureDefinitionConditionAffinitys.ConditionAffinityDemonicInfluenceImmunity);
-        }
+        ConditionDefinitions.ConditionUnderDemonicInfluence.parentCondition = ConditionDefinitions.ConditionCharmed;
     }
 
     private static void FixPowerDragonbornBreathWeaponDiceProgression()

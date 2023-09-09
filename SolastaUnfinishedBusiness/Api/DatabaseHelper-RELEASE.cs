@@ -615,6 +615,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionTurned { get; } =
             GetDefinition<ConditionDefinition>("ConditionTurned");
 
+        internal static ConditionDefinition ConditionUnderDemonicInfluence { get; } =
+            GetDefinition<ConditionDefinition>("ConditionUnderDemonicInfluence");
+
         internal static ConditionDefinition ConditionWardedByWardingBond { get; } =
             GetDefinition<ConditionDefinition>("ConditionWardedByWardingBond");
 
@@ -1754,6 +1757,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerTraditionCourtMageSpellShield { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageSpellShield");
+
+        internal static FeatureDefinitionPower PowerTraditionLightBlindingFlash { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionLightBlindingFlash");
 
         internal static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi");
