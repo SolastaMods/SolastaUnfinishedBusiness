@@ -626,26 +626,13 @@ internal static class Level20SubclassesContext
             .SetPreserveSlotRolls(19, 5)
             .AddToDB();
 
-        var attributeModifierMasterLifeDrained = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierSorcererChildRiftMasterLifeDrained")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.SorceryPoints, 2)
-            .AddToDB();
-
-        var conditionMasterLifeDrainedSorcererChildRiftOffering = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionLifeDrainedSorcererChildRiftOffering,
-                "ConditionLifeDrainedSorcererChildRiftMasterOffering")
-            .SetFeatures(attributeModifierMasterLifeDrained)
-            .AddToDB();
-
         var powerSorcererChildMasterRiftOffering = FeatureDefinitionPowerBuilder
             .Create(PowerSorcererChildRiftOffering, "PowerSorcererChildRiftMasterOffering")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerSorcererChildRiftOffering)
             .AddToDB();
 
-        powerSorcererChildMasterRiftOffering.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-            conditionMasterLifeDrainedSorcererChildRiftOffering;
+        powerSorcererChildMasterRiftOffering.EffectDescription.EffectForms[2].SpellSlotsForm.sorceryPointsGain = 2;
 
         var featureSetSorcererChildRiftRiftMagicMastery = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererChildRiftMagicMastery")
@@ -662,13 +649,13 @@ internal static class Level20SubclassesContext
 
         var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererDraconicBloodlineAwePresence")
-            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5)
+            .SetGuiPresentation(Category.Feature, PowerTraditionLightBlindingFlash)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 21)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 21)
                     .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -687,12 +674,12 @@ internal static class Level20SubclassesContext
         var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererDraconicBloodlineFearPresence")
             .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 21)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 21)
                     .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -734,7 +721,7 @@ internal static class Level20SubclassesContext
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(DominateBeast)
+                    .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Cube, 5)
                     .SetSavingThrowData(false, AttributeDefinitions.Charisma, true,
@@ -742,14 +729,15 @@ internal static class Level20SubclassesContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D10)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetConditionForm(conditionMindDominatedByHauntedSoul, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionMindDominatedByHauntedSoul, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
+                    .SetParticleEffectParameters(DominateBeast)
                     .Build())
             .AddToDB();
 
@@ -763,22 +751,21 @@ internal static class Level20SubclassesContext
         var powerSorcererManaPainterMasterDrain = FeatureDefinitionPowerBuilder
             .Create(PowerSorcererManaPainterDrain, "PowerSorcererManaPainterManaOverflow")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
-                    .Build())
             .SetOverriddenPower(PowerSorcererManaPainterDrain)
             .AddToDB();
 
-        powerSorcererManaPainterMasterDrain.SetCustomSubFeatures(
-            new TryAlterOutcomeSavingThrowManaOverflow(powerSorcererManaPainterMasterDrain));
+        powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[1].SpellSlotsForm.sorceryPointsGain = 2;
 
         var featureSetSorcererManaPainterManaOverflow = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererManaPainterManaOverflow")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerSorcererManaPainterMasterDrain)
             .AddToDB();
+
+
+        powerSorcererManaPainterMasterDrain.SetCustomSubFeatures(
+            new TryAlterOutcomeSavingThrowManaOverflow(featureSetSorcererManaPainterManaOverflow));
 
         SorcerousManaPainter.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
@@ -891,11 +878,11 @@ internal static class Level20SubclassesContext
 
     private sealed class TryAlterOutcomeSavingThrowManaOverflow : ITryAlterOutcomeSavingThrow
     {
-        private readonly FeatureDefinitionPower _powerManaOverflow;
+        private readonly FeatureDefinition _featureManaOverflow;
 
-        public TryAlterOutcomeSavingThrowManaOverflow(FeatureDefinitionPower powerManaOverflow)
+        public TryAlterOutcomeSavingThrowManaOverflow(FeatureDefinition featureManaOverflow)
         {
-            _powerManaOverflow = powerManaOverflow;
+            _featureManaOverflow = featureManaOverflow;
         }
 
         public void OnFailedSavingTryAlterOutcome(
@@ -938,7 +925,7 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            hero.LogCharacterUsedPower(_powerManaOverflow);
+            hero.LogCharacterUsedFeature(_featureManaOverflow);
             hero.GainSorceryPoints(1);
         }
     }

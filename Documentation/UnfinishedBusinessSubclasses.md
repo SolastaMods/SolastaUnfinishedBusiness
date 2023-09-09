@@ -2009,7 +2009,7 @@ Starting at 13th level, whenever you sneak attack a creature, that creature must
 
 * Exposed Weakness
 
-Starting at 17th level, attacks against creatures affected by Debilitating Strike, are made with advantage.
+Starting at 17th level, attacks against creatures affected by Debilitating Strike are made with advantage.
 
 
 
