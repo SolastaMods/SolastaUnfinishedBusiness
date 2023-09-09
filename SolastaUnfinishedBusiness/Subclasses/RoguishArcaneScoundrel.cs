@@ -177,7 +177,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         // kept name for backward compatibility
         var additionalDamagePossessed = FeatureDefinitionPowerBuilder
             .Create(ADDITIONAL_DAMAGE_POSSESSED)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"Condition{Name}Possessed", Category.Condition)
             .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
