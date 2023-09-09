@@ -1698,21 +1698,23 @@ public static class RulesetCharacterPatcher
                     preserveSlotThresholdFeature = (FeatureDefinition)featureDefinition;
                 }
 
+                var rolledValue = 0;
+
                 if (preserveSlotThreshold != Int32.MaxValue)
                 {
-                    var rolledValue = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+                    rolledValue = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+                }
 
-                    if (rolledValue >= preserveSlotThreshold)
-                    {
-                        __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
+                if (rolledValue >= preserveSlotThreshold)
+                {
+                    __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
 
-                        //PATCH: special case for Child of The Rift level 18th feature
-                        Level20SubclassesContext.OnChildRiftPreserveSpellSlot(__instance, activeSpell);
-                    }
-                    else
-                    {
-                        activeSpell.SpellRepertoire.SpendSpellSlot(activeSpell.SlotLevel);
-                    }
+                    //PATCH: special case for Child of The Rift level 18th feature
+                    Level20SubclassesContext.OnChildRiftPreserveSpellSlot(__instance, activeSpell);
+                }
+                else
+                {
+                    activeSpell.SpellRepertoire.SpendSpellSlot(activeSpell.SlotLevel);
                 }
             }
 
