@@ -216,9 +216,16 @@ public static class RulesetImplementationManagerLocationPatcher
                             break;
                     }
 
-                    characterMonster.InflictCondition(addedCondition.Name, formsParams.durationType,
-                        formsParams.durationParameter, formsParams.endOfEffect, "11Effect", source.Guid,
-                        source.CurrentFaction.Name, formsParams.effectLevel, string.Empty, sourceAmount,
+                    characterMonster.InflictCondition(
+                        addedCondition.Name,
+                        formsParams.durationType,
+                        formsParams.durationParameter,
+                        formsParams.endOfEffect,
+                        AttributeDefinitions.TagEffect,
+                        source.Guid,
+                        source.CurrentFaction.Name,
+                        formsParams.effectLevel,
+                        string.Empty, sourceAmount,
                         sourceAbilityBonus,
                         proficiencyBonus);
 
