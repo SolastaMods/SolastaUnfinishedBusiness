@@ -6,8 +6,6 @@ using System.Linq;
 using System.IO;
 using I2.Loc;
 using JetBrains.Annotations;
-using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.DataMiner;
 using Object = UnityEngine.Object;
