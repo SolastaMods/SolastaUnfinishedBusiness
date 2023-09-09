@@ -622,7 +622,7 @@ internal static class Level20SubclassesContext
 
         var magicAffinityChildRiftMagicMastery = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySorcererChildRiftMagicMastery")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetPreserveSlotRolls(19, 5)
             .AddToDB();
 
@@ -660,16 +660,10 @@ internal static class Level20SubclassesContext
         // Draconic Bloodline
         //
 
-        var powerSorcererDraconicBloodlinePresence = FeatureDefinitionPowerBuilder
-            .Create("PowerSorcererDraconicBloodlinePresence")
-            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5)
-            .AddToDB();
-
-        var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererDraconicBloodlineAwePresence")
             .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
-            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlinePresence)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -690,10 +684,10 @@ internal static class Level20SubclassesContext
             .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark)
             .AddToDB();
 
-        var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererDraconicBloodlineFearPresence")
             .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
-            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlinePresence)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -714,12 +708,14 @@ internal static class Level20SubclassesContext
             .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark)
             .AddToDB();
 
-        PowerBundle.RegisterPowerBundle(powerSorcererDraconicBloodlinePresence, true,
-            powerSorcererDraconicBloodlineAwePresence,
-            powerSorcererDraconicBloodlineFearPresence);
+        var featureSetSorcererDraconicBloodlinePresence = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSorcererDraconicBloodlinePresence")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerSorcererDraconicBloodlineAwePresence, powerSorcererDraconicBloodlineFearPresence)
+            .AddToDB();
 
         SorcerousDraconicBloodline.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(featureSetSorcererChildRiftRiftMagicMastery, 18));
+            new FeatureUnlockByLevel(featureSetSorcererDraconicBloodlinePresence, 18));
 
         //
         // Haunted Soul
@@ -734,7 +730,7 @@ internal static class Level20SubclassesContext
 
         var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererHauntedSoulPossession")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
