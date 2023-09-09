@@ -649,6 +649,7 @@ internal static class Level20SubclassesContext
 
         var featureSetSorcererChildRiftRiftMagicMastery = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererChildRiftMagicMastery")
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(magicAffinityChildRiftMagicMastery, powerSorcererChildMasterRiftOffering)
             .AddToDB();
 
@@ -658,8 +659,42 @@ internal static class Level20SubclassesContext
         //
         // Haunted Soul
         //
-        
-        
+
+        var conditionMindDominatedByHauntedSoul = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionMindDominatedByCaster, "ConditionMindDominatedByHauntedSoul")
+            .AddToDB();
+
+        conditionMindDominatedByHauntedSoul.SetCustomSubFeatures(
+            new NotifyConditionRemovalPossession(conditionMindDominatedByHauntedSoul));
+
+        var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
+            .Create("PowerSorcererHauntedSoulPossession")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DominateBeast)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Cube, 5)
+                    .SetSavingThrowData(false, AttributeDefinitions.Charisma, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionMindDominatedByHauntedSoul, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        SorcerousHauntedSoul.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));
+
         //
         // Mana Overflow
         //
@@ -675,8 +710,12 @@ internal static class Level20SubclassesContext
             .SetOverriddenPower(PowerSorcererManaPainterDrain)
             .AddToDB();
 
+        powerSorcererManaPainterMasterDrain.SetCustomSubFeatures(
+            new TryAlterOutcomeSavingThrowManaOverflow(powerSorcererManaPainterMasterDrain));
+
         var featureSetSorcererManaPainterManaOverflow = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererManaPainterManaOverflow")
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerSorcererManaPainterMasterDrain)
             .AddToDB();
 
@@ -728,6 +767,52 @@ internal static class Level20SubclassesContext
             }
 
             break;
+        }
+    }
+
+    private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
+    {
+        private readonly ConditionDefinition _conditionPossession;
+
+        public NotifyConditionRemovalPossession(ConditionDefinition conditionPossession)
+        {
+            _conditionPossession = conditionPossession;
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            if (rulesetCondition.ConditionDefinition != _conditionPossession)
+            {
+                return;
+            }
+
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetAttacker == null)
+            {
+                return;
+            }
+
+            var conditionExhausted = ConditionDefinitions.ConditionExhausted;
+
+            removedFrom.InflictCondition(
+                conditionExhausted.Name,
+                conditionExhausted.DurationType,
+                conditionExhausted.DurationParameter,
+                conditionExhausted.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            // Empty
         }
     }
 
@@ -894,7 +979,7 @@ internal static class Level20SubclassesContext
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(10);
             rulesetCharacter.InflictCondition(
-                ConditionDodging,
+                RuleDefinitions.ConditionDodging,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -1278,15 +1363,15 @@ internal static class Level20SubclassesContext
             }
 
             return rulesetDefender.HasAnyConditionOfType(
-                ConditionBlinded,
-                ConditionFrightened,
-                ConditionRestrained,
-                ConditionGrappled,
-                ConditionIncapacitated,
-                ConditionParalyzed,
-                ConditionPoisoned,
-                ConditionProne,
-                ConditionStunned);
+                RuleDefinitions.ConditionBlinded,
+                RuleDefinitions.ConditionFrightened,
+                RuleDefinitions.ConditionRestrained,
+                RuleDefinitions.ConditionGrappled,
+                RuleDefinitions.ConditionIncapacitated,
+                RuleDefinitions.ConditionParalyzed,
+                RuleDefinitions.ConditionPoisoned,
+                RuleDefinitions.ConditionProne,
+                RuleDefinitions.ConditionStunned);
         }
     }
 

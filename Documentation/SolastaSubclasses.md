@@ -156,6 +156,14 @@ You can use your Bonus Action to sacrifice 5 Hit Points, in order to regain imme
 At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied space you can see. Any enemy within 1 cell of your landing position takes force damage equal to your CHA modifier (minimum 1). You can use Riftwalk a number of times equal to your proficiency bonus per long rest.
 
 
+## Level 18
+
+* None
+
+You can use your Bonus Action to sacrifice 5 Hit Points, in order to regain immediately two sorcery points. The sacrificed Hit Points are recovered after a long rest.
+
+
+
 
 # 4. - Circle of Balance
 
@@ -487,14 +495,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ## Level 7
 
-* Coordinated Defense
+* Coordinated Defense​​​​​​​
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ## Level 10
 
-* Invigorating Shout
+* Invigorating Shout​​​​​​​
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -951,6 +959,13 @@ You can use a bonus action to call forth the spirits inside you for up to 1 minu
 At level 14, once per turn when you kill one or more creatures with a spell of level 1 or higher, you regain 1 sorcery point. Soul Drain does not work on creatures of CR 1/2 or lower.
 
 
+## Level 18
+
+* Possession
+
+At 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 5x5 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion.You can use this feature once per long rest.
+
+
 
 # 21. - Hoodlum
 
@@ -1325,6 +1340,13 @@ When you finish a Short Rest, you can regain a number of Sorcery points equal to
 At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point you spend.
 
 
+## Level 18
+
+* None
+
+Make a melee spell attack. On a successful hit, the target creature takes 3D10+your charisma modifier Force Damage, you regain 2 sorcery points. You need to take a Short Rest to recover this power.
+
+
 
 # 28. - Marksman
 
@@ -1377,7 +1399,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
 
 * Mischief Domain Spells
 
@@ -1411,7 +1433,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
 
 
 ## Level 8

@@ -1984,7 +1984,7 @@ Opportunist are those who never let a chance to finish their enemies slide. They
 
 * Debilitating Strike
 
-Whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or roll all saving throws with –1d4 penalty until the end of your next turn. 
+Starting at 3rd level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or roll all saving throws with –1d4 penalty until the end of your next turn. 
 
 * Opportunity
 
@@ -1993,20 +1993,16 @@ During the first round of combat, you roll all attack rolls with advantage. In a
 
 ## Level 9
 
-* Improved Debilitating Strike
-
-Whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or roll all saving throws with –1d6 penalty until the end of your next turn.
-
 * Seize the Chance
 
-When an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. A sneak attack can be triggered here.
+Starting at 9th level, when an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. A sneak attack can be triggered here.
 
 
 ## Level 13
 
-* Blindside
+* Improved Debilitating Strike
 
-Starting at 13th level, creatures affected by Debilitating Strike, roll all attacks with disadvantage.
+Starting at 13th level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or have the movement speed reduced by 10 ft, and roll all saving throws with –1d6 penalty until the end of your next turn.
 
 
 ## Level 17

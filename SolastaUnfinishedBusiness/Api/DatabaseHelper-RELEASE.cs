@@ -366,6 +366,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionEnfeebled { get; } =
             GetDefinition<ConditionDefinition>("ConditionEnfeebled");
 
+        internal static ConditionDefinition ConditionExhausted { get; } =
+            GetDefinition<ConditionDefinition>("ConditionExhausted");
+
         internal static ConditionDefinition ConditionFlying { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying");
 
@@ -476,6 +479,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionMarkedByHunter { get; } =
             GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
+
+        internal static ConditionDefinition ConditionMindDominatedByCaster { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMindDominatedByCaster");
 
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
