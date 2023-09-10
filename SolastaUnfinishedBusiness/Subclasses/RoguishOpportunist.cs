@@ -240,8 +240,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
             }
 
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(
-                    1, FeatureSourceType.CharacterFeature,
-                    _featureOpportunistOpportunity.Name, _featureOpportunistOpportunity));
+                1, FeatureSourceType.CharacterFeature,
+                _featureOpportunistOpportunity.Name, _featureOpportunistOpportunity));
         }
     }
 

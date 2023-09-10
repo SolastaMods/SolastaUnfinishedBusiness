@@ -741,6 +741,7 @@
   <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
   <FormationGridSelectedSet>0</FormationGridSelectedSet>
   <EnableDistanceOnTooltip>false</EnableDistanceOnTooltip>
+  <EnableCustomPortraits>false</EnableCustomPortraits>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
       <ArrayOfInt>

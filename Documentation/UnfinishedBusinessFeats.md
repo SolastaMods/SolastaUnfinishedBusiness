@@ -336,7 +336,7 @@ You have a profound understanding on how to manipulate poisons:
 
 # 73. - Poisonous Skin
 
-Any creature that hits you in melee or is hit by your unarmed attack, shoves you or is shoved by you needs to succeed on Constitution saving throw against DC 8 + your Proficiency Bonus + your Constitution modifier or become Poisoned for 1 minute.
+Any creature that hits you in melee or is hit by your unarmed attack, shoves you or is shoved by you needs to succeed on Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or become Poisoned for 1 minute.
 
 # 74. - Polearm Expert
 

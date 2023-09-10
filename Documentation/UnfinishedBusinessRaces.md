@@ -377,7 +377,7 @@ Intelligence +2
 
 * Psionic Wave
 
-You can use your action to unleash a psionic wave in a 15-foot cone. All creatures in the area must make an Intelligence saving throw. The DC for this saving throw is equal to 8 + your Intelligence modifier + you proficiency bonus. A creature takes 2d6 Psychic damage on a failed save, and half as much damage on a successful one. The damage increases by 1d6 when you reach 6th, 11th and 16th levels. After you use this trait, you can't use it again until you finish a short or long rest.
+You can use your action to unleash a psionic wave in a 15-foot cone. All creatures in the area must make an Intelligence saving throw (DC 8 + + you proficiency bonus + your Intelligence modifier). A creature takes 2d6 Psychic damage on a failed save, and half as much damage on a successful one. The damage increases by 1d6 when you reach 6th, 11th and 16th levels. After you use this trait, you can't use it again until you finish a short or long rest.
 
 * Reactive Retribution
 

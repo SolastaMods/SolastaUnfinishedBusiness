@@ -930,7 +930,7 @@ Advantage on concentration checks, be able to use your weapons as spellcasting f
 
 * Improved War Dance
 
-While Dance Of War is active you gain extra main hand attack after all main actions are spent. Each hit with that extra attack grants another extra attack, up to half your Proficiency Bonus (rounded down) extra attacks in total. These extra attacks can only be melee.
+While Dance Of War is active you gain extra main hand attack after all main actions are spent. Each hit with that extra attack grants another extra attack, up to half your proficiency bonus (rounded down) extra attacks in total. These extra attacks can only be melee.
 
 
 ## Level 14
@@ -1028,7 +1028,7 @@ While wielding a shield, you can shove or push a target as a bonus action.
 
 * Shout of Provocation
 
-As an action you shout and provoke all hostile creatures within 30ft of you. Each creature must succeed on a charisma saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or it will have disadvantage on all attacks against targets other than you but has advantage on all attacks targeting you until the start of your next turn.
+As an action you shout and provoke all hostile creatures within 30ft of you. Each creature must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or it will have disadvantage on all attacks against targets other than you but has advantage on all attacks targeting you until the start of your next turn.
 
 
 ## Level 10
@@ -1114,7 +1114,7 @@ You have resistance to Necrotic damage.
 
 * Divine Strike
 
-Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage is increased to 2d8 at 14th level.
+Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage increases to 2d8 at 14th level.
 
 
 ## Level 10
@@ -2485,7 +2485,7 @@ Once per short rest, you may reinforce a non magical piece of armor or shield. T
 
 * Divine Strike
 
-Once per turn, deal +1d8 fire damage on weapon attacks. This damage is increased to 2d8 at 14th level.
+Once per turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
 
 
 ## Level 10
@@ -3308,7 +3308,7 @@ Starting at 6th level, you apply one additional instance of Discordance conditio
 
 * Burst of Disharmony
 
-At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending Ki points. Each point you spend, to a maximum of your Proficiency bonus, increases the damage by 1d6.
+At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending Ki points. Each point you spend, to a maximum of your proficiency bonus, increases the damage by 1d6.
 
 
 ## Level 17
@@ -3510,7 +3510,7 @@ Starting at 11th level, after using your attack action, you can spend 2 ki to us
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 
