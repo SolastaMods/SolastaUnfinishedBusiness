@@ -87,6 +87,7 @@ ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela p
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider e família de condição on fire]</color></i>
 ModUi/&EnableCheatMenu=Ative o menu de truques
+ModUi/&EnableCustomPortraits=Ative retratos personalizados\n\n. Crie uma pasta <i><b><color=#F0DAA0>Retratos</color></b></i> em <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b </i> pasta mod\n. Coloque uma imagem PNG nessa pasta, com o nome do nome do seu herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n. Use imagens com tamanho de 256 x 384 pixels <i><color=#F0DAA0>[otimize-as primeiro em https://tinypng.com]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 10 e 18

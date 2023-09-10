@@ -87,6 +87,7 @@ ModUi/&EnableCharacterChecker=Включить кнопку "Тест персо
 ModUi/&EnableCharacterExport=Включить экспорт персонажа по нажатию <color=#1E81B0>CTRL-SHIFT-(E)</color>
 ModUi/&EnableCharactersOnFireToEmitLight=Горящие персонажи должны излучать свет <i><color=#F0DAA0>[Куб света, Огненный элементаль, Огненный балагур, Огненная скопа, Огненный паук, а также любые горящие существа]</color></i>
 ModUi/&EnableCheatMenu=Включить меню читов
+ModUi/&EnableCustomPortraits=Включите пользовательские портреты\n\n. Создайте папку <i><b><color=#F0DAA0>Portraits</color></b></i> в папке <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b </i> папка мода\n. Поместите в эту папку изображение PNG, названное в честь имени вашего героя <i><color=#F0DAA0>[т. е.: Антон, Селия, Ниалла и т. д.]</color></i>\n. Используйте изображения размером 256 x 384 пикселей <i><color=#F0DAA0>[сначала оптимизируйте их на https://tinypng.com]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Включить Создатель Подземелий ПРО\n<i><color=#F0DAA0>[включает простые комнаты, размеры подземелий 150x150 и 200x200, а также смешивание ассетов из разных наборов окружений без танцев с бубном]</color></i>
 ModUi/&EnableEpicPointsAndArray=Включить эпические варианты поинт-бай системы (35 очков) и массива характеристик <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Включить возможность выбора черты на уровнях класса 2, 10 и 18
