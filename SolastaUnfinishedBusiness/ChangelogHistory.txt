@@ -8,8 +8,9 @@
 - changed Martial Arcane Archer to consider critical on arcane damage, and better interact with mod critical options
 - changed Martial Spell Shield progression by replacing levels 10th and 18th features with new ones closer to TT
 - changed Patron Riftwalker progression by having all powers with fixed uses instead of proficiency bonus amount
-- changed Resonating Strike to do fire damage, and renamed it to Burning Blade as not all flames are green
+- changed Resonating Strike spell to do fire damage, and renamed it to Burning Blade as not all flames are green
 - changed Roguish Opportunist progression as suggested by HiddenHax and original author Nd
+- changed Shadow Blade spell to use Scimitar+2 model instead of Scimitar, and attack impact to use Arcane Sword SFX
 - changed Way of Silhouette progression by moving strong cloak of silhouette from level 6th to 11th
 - fixed action switching interaction with actions that offer further selections in a modal and get cancelled by player
 - fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
@@ -18,6 +19,7 @@
 - fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
 - fixed vanilla Sorcerous Mana Painter mana absorption incorrectly granting advantage on constitution savings
 - fixed level up workflow causing an exception when going back and forth through the mod custom UI level up stage
+- improved vanilla Oath of Devotion progression with Holy Nimbus at level 20th
 - improved vanilla Oath of Judgment progression with Final Judgement at level 20th
 - improved vanilla Oath of Motherland progression with Flames of the Motherland at level 20th
 - improved vanilla Oath of Tirmar progression with Inquisitor’s Zeal at level 20th
