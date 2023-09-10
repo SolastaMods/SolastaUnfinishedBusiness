@@ -160,7 +160,7 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 * Rift Magic Mastery
 
-At 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you now regain the slot upon rolling a 18, 19 or 20.
+Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling a 18, 19 or 20.
 
 
 
@@ -657,7 +657,7 @@ At level 14, you obtain the ability to sprout a pair of Dragon Wings from your b
 
 * Draconic Presence
 
-At 18th level, as an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear to a distance of 60 feet. For 1 minute or until you lose your concentration, each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed or frightened until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+Starting at 18th level, as an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear to a distance of 60 feet. For 1 minute or until you lose your concentration, each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed or frightened until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
 
 
 
@@ -969,7 +969,7 @@ At level 14, once per turn when you kill one or more creatures with a spell of l
 
 * Possession
 
-At 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 5x5 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion. You can use this feature once per long rest.
+Starting at 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 5x5 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion. You can use this feature once per long rest.
 
 
 
@@ -1350,7 +1350,7 @@ At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point
 
 * Mana Overflow
 
-At 18th level, you gain the following benefits:
+Starting at 18th level, you gain the following benefits:
 • Whenever you succeed on a saving throw against a spell or other magic effects, you regain 1 sorcery point.
 • Your Mana Drain does 4d10 + your Charisma modifier damage and restores 2 sorcery points instead.
 
@@ -2008,7 +2008,7 @@ You can use your Sneak Attack when you damage enemies with spells which require 
 
 * Shadow Form
 
-At 17th level, you can use your bonus action to magically transform yourself into a shadowy form for one minute. While in this form, you gain the following benefits:
+Starting at 17th level, you can use your bonus action to magically transform yourself into a shadowy form for one minute. While in this form, you gain the following benefits:
 • You have resistance to all damage types except radiant.
 • You are immune to difficult terrains.
 • You don't provoke opportunity attacks.
