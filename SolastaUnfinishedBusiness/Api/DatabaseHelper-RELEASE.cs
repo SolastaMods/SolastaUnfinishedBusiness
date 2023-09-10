@@ -1970,6 +1970,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
 
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityManaPainterAbsorption { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityManaPainterAbsorption");
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones");
 

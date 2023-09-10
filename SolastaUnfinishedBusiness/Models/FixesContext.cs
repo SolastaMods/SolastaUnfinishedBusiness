@@ -51,9 +51,15 @@ internal static class FixesContext
         FixBlackDragonLegendaryActions();
         FixMummyDreadfulGlareSavingAttribute();
         FixArmorClassOnLegendaryArmors();
-        ExtendCharmImmunityToDemonicInfluence(); // TODO: add a mod setting for this
+        ExtendCharmImmunityToDemonicInfluence();
+        FixSavingThrowAffinityManaPainterAbsorption();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixSavingThrowAffinityManaPainterAbsorption()
+    {
+        FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();
     }
 
     private static void ExtendCharmImmunityToDemonicInfluence()
