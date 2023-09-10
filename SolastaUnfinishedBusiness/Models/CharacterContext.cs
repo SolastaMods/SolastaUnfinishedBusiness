@@ -1424,10 +1424,10 @@ internal static class CharacterContext
             .AddToDB();
 
         var conditionDazed = ConditionDefinitionBuilder
-            .Create($"Condition{Devious}Dazed")
+            .Create(ConditionDefinitions.ConditionDazzled, $"Condition{Devious}Dazed")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(featureDazed, actionAffinityDazed)
+            .SetFeatures(featureDazed, actionAffinityDazed)
             .AddToDB();
 
         var powerDaze = FeatureDefinitionPowerSharedPoolBuilder
@@ -1451,7 +1451,7 @@ internal static class CharacterContext
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        // Knock Out
+            // Knock Out
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
@@ -1508,17 +1508,6 @@ internal static class CharacterContext
 
         PowerBundle.RegisterPowerBundle(powerPool, true,
             powerDisarm, powerPoison, powerTrip, powerWithdraw, powerDaze, powerKnockOut, powerObscure);
-
-        // add proper effects to all cunning strike sub powers
-        foreach (var power in powerPool.GetBundle()!.SubPowers)
-        {
-            power.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-                ConditionDefinitions.ConditionDazzled.conditionStartParticleReference;
-            power.EffectDescription.EffectParticleParameters.conditionParticleReference =
-                ConditionDefinitions.ConditionDazzled.conditionParticleReference;
-            power.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-                ConditionDefinitions.ConditionDazzled.conditionEndParticleReference;
-        }
 
         var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCunningStrikeToggle")
