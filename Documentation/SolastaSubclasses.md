@@ -1560,6 +1560,13 @@ Starting at level 15, you are always under the effects of a protection from evil
 Your Aura of Devotion range increased to 30 ft.
 
 
+## Level 20
+
+* Holy Nimbus
+
+Starting at 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage. In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead. Once you use this feature, you can't use it again until you finish a long rest.
+
+
 
 # 32. - Oath of Judgement
 
@@ -1738,9 +1745,13 @@ Your Aura of Truth range increased to 30 ft.
 
 ## Level 20
 
-* Feature/&PowerOathOfTirmarInquisitorZealTitle
+* Inquisitor's Zeal
 
-Feature/&PowerOathOfTirmarInquisitorZealDescription
+Starting at 20th level, as a bonus action, you gain the following benefits for one minute:
+• You have truesight with a range of 120 feet.
+• You have advantage with attacks against enemies who have darkvision.
+• You and all allies within 30 feet of you have advantage on all Wisdom saving throws.
+You can use this feature once per long rest.
 
 
 

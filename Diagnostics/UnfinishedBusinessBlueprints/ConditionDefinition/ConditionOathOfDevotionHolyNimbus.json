@@ -4,11 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierOathOfJugementFinalJudgementCaster:b04df104-0bd1-5b2e-80bc-bbeae6352241",
-    "Definition:AttributeModifierThirdExtraAttack:7cd137e1-0ef0-5827-a90b-15d8793e4914",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6"
+    "Definition:SavingThrowAffinityOathOfDevotionHolyNimbus:f51b2530-8752-5f2f-b3f7-99e118a99732"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -134,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionOathOfJugementFinalJudgementCasterTitle",
-    "description": "Condition/&ConditionOathOfJugementFinalJudgementCasterDescription",
+    "title": "Condition/&ConditionOathOfDevotionHolyNimbusTitle",
+    "description": "Condition/&ConditionOathOfDevotionHolyNimbusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a723156c787808644b470992b3f992df",
@@ -155,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "58071db3-587f-5853-ac7c-83e93c12cc7b",
+  "guid": "6fd0d0d3-2c17-514a-b466-00f5aeea94f0",
   "contentPack": 9999,
-  "name": "ConditionOathOfJugementFinalJudgementCaster"
+  "name": "ConditionOathOfDevotionHolyNimbus"
 }
