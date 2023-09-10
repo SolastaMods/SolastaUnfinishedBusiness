@@ -160,7 +160,7 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 * Rift Magic Mastery
 
-At 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you now regain the slot upon rolling 19 or 20, as well as one another spell slot of the lowest level you have expended thus far. Additionally, this benefit also extends to your sorcery points, granting you twice the amount you spend if you roll 19 or 20.
+At 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you now regain the slot upon rolling a 18, 19 or 20.
 
 
 
@@ -494,14 +494,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ## Level 7
 
-* Coordinated Defense​​​​​​​
+* Coordinated Defense
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ## Level 10
 
-* Invigorating Shout​​​​​​​
+* Invigorating Shout
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -1351,7 +1351,7 @@ At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point
 * Mana Overflow
 
 At 18th level, you gain the following benefits:
-• Whenever you succeed on a saving throw against a spell or other magic effects, you regain 2 sorcery point.
+• Whenever you succeed on a saving throw against a spell or other magic effects, you regain 1 sorcery point.
 • Your Mana Drain does 4d10 + your Charisma modifier damage and restores 2 sorcery points instead.
 
 
@@ -1407,7 +1407,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
 
 * Mischief Domain Spells
 
@@ -1441,7 +1441,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
 
 
 ## Level 8

@@ -623,7 +623,7 @@ internal static class Level20SubclassesContext
         var magicAffinityChildRiftMagicMastery = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySorcererChildRiftMagicMastery")
             .SetGuiPresentation(Category.Feature)
-            .SetPreserveSlotRolls(19, 5)
+            .SetPreserveSlotRolls(18, 5)
             .AddToDB();
 
         var powerSorcererChildMasterRiftOffering = FeatureDefinitionPowerBuilder
@@ -741,6 +741,10 @@ internal static class Level20SubclassesContext
                     .Build())
             .AddToDB();
 
+        powerSorcererHauntedSoulPossession.SetCustomSubFeatures(
+            new UsePowerFinishedByMePossession(
+                powerSorcererHauntedSoulPossession, conditionMindDominatedByHauntedSoul));
+
         SorcerousHauntedSoul.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));
 
@@ -763,7 +767,6 @@ internal static class Level20SubclassesContext
             .AddFeatureSet(powerSorcererManaPainterMasterDrain)
             .AddToDB();
 
-
         powerSorcererManaPainterMasterDrain.SetCustomSubFeatures(
             new TryAlterOutcomeSavingThrowManaOverflow(featureSetSorcererManaPainterManaOverflow));
 
@@ -774,57 +777,64 @@ internal static class Level20SubclassesContext
     #region Sorcerer
 
     //
-    // Magic Mastery
-    //
-
-    internal static void OnChildRiftPreserveSpellSlot(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
-    {
-        var hero = __instance.GetOriginalHero();
-
-        if (hero == null ||
-            hero.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, SorcerousChildRift.Name) == 0)
-        {
-            return;
-        }
-
-        var sorcererRepertoire =
-            hero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == CharacterClassDefinitions.Sorcerer);
-
-        if (sorcererRepertoire == null)
-        {
-            return;
-        }
-
-        // recover lowest level used spell slot
-        for (var i = 1; i <= 5; i++)
-        {
-            sorcererRepertoire.GetSlotsNumber(i, out var remaining, out var max);
-
-            if (remaining == max)
-            {
-                continue;
-            }
-
-            // recover across all repertoires for multiclass scenarios
-            if (LevelUpContext.IsMulticlass(hero))
-            {
-                foreach (var spellRepertoire in hero.SpellRepertoires.Where(x => x.SpellCastingRace == null))
-                {
-                    spellRepertoire.usedSpellsSlots[i]--;
-                }
-            }
-            else
-            {
-                sorcererRepertoire.usedSpellsSlots[i]--;
-            }
-
-            break;
-        }
-    }
-
-    //
     // Possession
     //
+
+    private sealed class UsePowerFinishedByMePossession : IUsePowerFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerPossession;
+        private readonly ConditionDefinition _conditionPossession;
+
+        public UsePowerFinishedByMePossession(
+            FeatureDefinitionPower powerPossession, ConditionDefinition conditionPossession)
+        {
+            _powerPossession = powerPossession;
+            _conditionPossession = conditionPossession;
+        }
+
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        {
+            if (power != _powerPossession)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (action.ActionParams.TargetCharacters.Count != 1)
+            {
+                yield break;
+            }
+
+            var target = action.ActionParams.TargetCharacters[0];
+            var rulesetTarget = target.RulesetCharacter;
+
+            if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            rulesetTarget.InflictCondition(
+                _conditionPossession.Name,
+                _conditionPossession.DurationType,
+                _conditionPossession.DurationParameter,
+                _conditionPossession.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                0,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
 
     private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
     {
@@ -923,6 +933,14 @@ internal static class Level20SubclassesContext
             if (hero == null)
             {
                 return;
+            }
+
+            var attacker = GameLocationCharacter.GetFromActor(hero);
+            var defender = GameLocationCharacter.GetFromActor(target);
+
+            if (attacker != null && defender != null)
+            {
+                EffectHelpers.StartVisualEffect(attacker, defender, MageArmor, EffectHelpers.EffectType.Caster);
             }
 
             hero.LogCharacterUsedFeature(_featureManaOverflow);

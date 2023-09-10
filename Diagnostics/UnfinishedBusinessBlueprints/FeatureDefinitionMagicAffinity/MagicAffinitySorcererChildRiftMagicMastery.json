@@ -44,7 +44,7 @@
   "additionalSlots": [],
   "metamagicOptions": [],
   "preserveSlotRoll": true,
-  "preserveSlotThreshold": 19,
+  "preserveSlotThreshold": 18,
   "preserveSlotLevelCap": 5,
   "healingPerSpentSorceryPoint": 0,
   "sorceryPointAlteredParticle": null,
