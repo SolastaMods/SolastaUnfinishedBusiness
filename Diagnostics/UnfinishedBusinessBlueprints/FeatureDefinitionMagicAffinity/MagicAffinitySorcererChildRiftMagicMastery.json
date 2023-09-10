@@ -45,7 +45,7 @@
   "metamagicOptions": [],
   "preserveSlotRoll": true,
   "preserveSlotThreshold": 18,
-  "preserveSlotLevelCap": 5,
+  "preserveSlotLevelCap": 9,
   "healingPerSpentSorceryPoint": 0,
   "sorceryPointAlteredParticle": null,
   "myselfFamilyRestrictions": [],

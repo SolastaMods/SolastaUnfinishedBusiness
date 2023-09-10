@@ -623,25 +623,11 @@ internal static class Level20SubclassesContext
         var magicAffinityChildRiftMagicMastery = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySorcererChildRiftMagicMastery")
             .SetGuiPresentation(Category.Feature)
-            .SetPreserveSlotRolls(18, 5)
-            .AddToDB();
-
-        var powerSorcererChildMasterRiftOffering = FeatureDefinitionPowerBuilder
-            .Create(PowerSorcererChildRiftOffering, "PowerSorcererChildRiftMasterOffering")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetOverriddenPower(PowerSorcererChildRiftOffering)
-            .AddToDB();
-
-        powerSorcererChildMasterRiftOffering.EffectDescription.EffectForms[2].SpellSlotsForm.sorceryPointsGain = 2;
-
-        var featureSetSorcererChildRiftRiftMagicMastery = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetSorcererChildRiftMagicMastery")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(magicAffinityChildRiftMagicMastery, powerSorcererChildMasterRiftOffering)
+            .SetPreserveSlotRolls(18, 9)
             .AddToDB();
 
         SorcerousChildRift.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(featureSetSorcererChildRiftRiftMagicMastery, 18));
+            new FeatureUnlockByLevel(magicAffinityChildRiftMagicMastery, 18));
 
         //
         // Draconic Bloodline
@@ -729,17 +715,15 @@ internal static class Level20SubclassesContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionMindDominatedByHauntedSoul, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
                             .SetDamageForm(DamageTypeNecrotic, 6, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
-                    .SetParticleEffectParameters(DominateBeast)
+                    .SetParticleEffectParameters(PowerSorcererHauntedSoulSpiritVisage)
                     .Build())
             .AddToDB();
+
+        powerSorcererHauntedSoulPossession.EffectDescription.EffectParticleParameters.impactParticleReference =
+            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         powerSorcererHauntedSoulPossession.SetCustomSubFeatures(
             new UsePowerFinishedByMePossession(
@@ -782,8 +766,8 @@ internal static class Level20SubclassesContext
 
     private sealed class UsePowerFinishedByMePossession : IUsePowerFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerPossession;
         private readonly ConditionDefinition _conditionPossession;
+        private readonly FeatureDefinitionPower _powerPossession;
 
         public UsePowerFinishedByMePossession(
             FeatureDefinitionPower powerPossession, ConditionDefinition conditionPossession)
@@ -794,7 +778,7 @@ internal static class Level20SubclassesContext
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (power != _powerPossession)
+            if (power != _powerPossession || (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success))
             {
                 yield break;
             }
