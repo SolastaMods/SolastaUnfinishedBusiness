@@ -369,7 +369,9 @@ internal static partial class SpellBuilders
 
         itemShadowBlade.activeTags.Clear();
         itemShadowBlade.isLightSourceItem = false;
-        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.Scimitar.ItemPresentation.AssetReference;
+        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.ScimitarPlus2.ItemPresentation.AssetReference;
+        itemShadowBlade.weaponDefinition.EffectDescription.EffectParticleParameters.impactParticleReference =
+            EffectProxyDefinitions.ProxyArcaneSword.attackImpactParticle;
 
         var weaponDescription = itemShadowBlade.WeaponDescription;
 
