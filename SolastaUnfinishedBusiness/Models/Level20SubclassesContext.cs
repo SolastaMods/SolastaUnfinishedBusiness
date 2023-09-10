@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -696,6 +697,7 @@ internal static class Level20SubclassesContext
 
         var conditionMindDominatedByHauntedSoul = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionMindDominatedByCaster, "ConditionMindDominatedByHauntedSoul")
+            .SetSpecialInterruptions(Array.Empty<ConditionInterruption>())
             .AddToDB();
 
         conditionMindDominatedByHauntedSoul.SetCustomSubFeatures(
@@ -709,13 +711,18 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Cube, 5)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Cube, 4)
                     .SetSavingThrowData(false, AttributeDefinitions.Charisma, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeNecrotic, 6, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionMindDominatedByHauntedSoul, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .SetParticleEffectParameters(PowerSorcererHauntedSoulSpiritVisage)
@@ -724,10 +731,6 @@ internal static class Level20SubclassesContext
 
         powerSorcererHauntedSoulPossession.EffectDescription.EffectParticleParameters.impactParticleReference =
             RayOfEnfeeblement.EffectDescription.EffectParticleParameters.impactParticleReference;
-
-        powerSorcererHauntedSoulPossession.SetCustomSubFeatures(
-            new UsePowerFinishedByMePossession(
-                powerSorcererHauntedSoulPossession, conditionMindDominatedByHauntedSoul));
 
         SorcerousHauntedSoul.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));
@@ -763,62 +766,6 @@ internal static class Level20SubclassesContext
     //
     // Possession
     //
-
-    private sealed class UsePowerFinishedByMePossession : IUsePowerFinishedByMe
-    {
-        private readonly ConditionDefinition _conditionPossession;
-        private readonly FeatureDefinitionPower _powerPossession;
-
-        public UsePowerFinishedByMePossession(
-            FeatureDefinitionPower powerPossession, ConditionDefinition conditionPossession)
-        {
-            _powerPossession = powerPossession;
-            _conditionPossession = conditionPossession;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != _powerPossession || (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success))
-            {
-                yield break;
-            }
-
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (action.ActionParams.TargetCharacters.Count != 1)
-            {
-                yield break;
-            }
-
-            var target = action.ActionParams.TargetCharacters[0];
-            var rulesetTarget = target.RulesetCharacter;
-
-            if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            rulesetTarget.InflictCondition(
-                _conditionPossession.Name,
-                _conditionPossession.DurationType,
-                _conditionPossession.DurationParameter,
-                _conditionPossession.TurnOccurence,
-                AttributeDefinitions.TagCombat,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                0,
-                null,
-                0,
-                0,
-                0);
-        }
-    }
 
     private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
     {

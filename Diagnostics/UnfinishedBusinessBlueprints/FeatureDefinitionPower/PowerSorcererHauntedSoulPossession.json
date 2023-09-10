@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 5,
+    "targetParameter": 4,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -92,6 +92,33 @@
           "specialDeathCondition": null,
           "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "HalfDamage",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionMindDominatedByHauntedSoul",
+          "conditionDefinition": "Definition:ConditionMindDominatedByHauntedSoul:6ee262c6-8b77-5870-a8c0-7ce899a527d7",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
