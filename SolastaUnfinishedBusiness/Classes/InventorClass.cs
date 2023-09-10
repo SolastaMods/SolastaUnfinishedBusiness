@@ -979,9 +979,7 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
         GameLocationCharacter defender,
         GameLocationCharacter helper)
     {
-        return action.RolledSaveThrow
-               && action.SaveOutcome is RollOutcome.Failure
-               && helper.CanReact()
+        return helper.CanReact()
                && !defender.IsOppositeSide(helper.Side)
                && action.SaveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
     }

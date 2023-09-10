@@ -1258,7 +1258,7 @@ internal static class EldritchVersatility
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(battleManager, action, defender, helper))
+            if (!ShouldTrigger(battleManager, defender, helper))
             {
                 yield break;
             }
@@ -1325,13 +1325,10 @@ internal static class EldritchVersatility
 
         private static bool ShouldTrigger(
             IGameLocationBattleService gameLocationBattleService,
-            CharacterAction action,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            return action.RolledSaveThrow
-                   && action.SaveOutcome is RollOutcome.Failure
-                   && helper.CanReact()
+            return helper.CanReact()
                    && !defender.IsOppositeSide(helper.Side)
                    && gameLocationBattleService.IsWithinXCells(helper, defender, 7)
                    && gameLocationBattleService.CanAttackerSeeCharacterFromPosition(

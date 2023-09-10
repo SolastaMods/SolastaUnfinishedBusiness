@@ -278,7 +278,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
 
-            if (!ShouldTrigger(action, defender, originalHelper))
+            if (!ShouldTrigger(defender, originalHelper))
             {
                 yield break;
             }
@@ -318,14 +318,11 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         }
 
         private static bool ShouldTrigger(
-            CharacterAction action,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            return action.RolledSaveThrow
-                   && action.SaveOutcome is RollOutcome.Failure
-                   && !defender.IsOppositeSide(helper.Side)
-                   && helper.CanReact();
+            return helper.CanReact()
+                   && !defender.IsOppositeSide(helper.Side);
         }
 
         private static bool TryModifyRoll(

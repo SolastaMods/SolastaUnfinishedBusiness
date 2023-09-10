@@ -273,12 +273,12 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(action, defender, helper))
+            if (!ShouldTrigger(defender, helper))
             {
                 yield break;
             }
 
-            var attackMode = helper.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackMode = helper.FindActionAttackMode(ActionDefinitions.Id.AttackOpportunity);
 
             if (attackMode == null)
             {
@@ -320,13 +320,10 @@ public sealed class RoguishOpportunist : AbstractSubclass
         }
 
         private static bool ShouldTrigger(
-            CharacterAction action,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            return action.RolledSaveThrow
-                   && action.SaveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
-                   && helper.CanReact()
+            return helper.CanReact()
                    && helper != Gui.Battle.ActiveContender
                    && defender.IsOppositeSide(helper.Side);
         }
