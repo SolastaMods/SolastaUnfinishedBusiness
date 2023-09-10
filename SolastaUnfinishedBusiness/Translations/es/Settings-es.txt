@@ -87,7 +87,6 @@ ModUi/&EnableCharacterChecker=Habilite el botón Verificador de caracteres en la
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes en llamas deberían emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y la familia de personas en llamas]</color></i>
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
-ModUi/&EnableCustomPortraits=Habilitar retratos personalizados\n\n. Cree una carpeta <i><b><color=#F0DAA0>Retratos</color></b></i> en <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b >>i> carpeta mod\n. Colocadas en esa carpeta, 256 x 384 px, imágenes PNG con el nombre de tu héroe [es decir: Anton, Celia, Nialla, etc.]
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y recursos de mezcla sencillos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18

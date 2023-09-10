@@ -87,7 +87,6 @@ ModUi/&EnableCharacterChecker=Abilita il pulsante Controllo caratteri nella sche
 ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il personaggio
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi in fiamme dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di Luce, Elementale del Fuoco, Giullare del Fuoco, Osprey del Fuoco, Ragno del Fuoco e famiglia delle condizioni in fiamme]</color></i>
 ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
-ModUi/&EnableCustomPortraits=Abilita ritratti personalizzati\n\n. Crea una cartella <i><b><color=#F0DAA0>Ritratti</color></b></i> nella cartella <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b ></i> cartella mod\n. Inserite in quella cartella, 256 x 384 px, immagini PNG che prendono il nome dal tuo eroe [ad esempio: Anton, Celia, Nialla, ecc.]
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>
 ModUi/&EnableEpicPointsAndArray=Abilita un epico sistema di acquisto e array da 35 punti <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei talenti ai livelli di classe 2, 10 e 18

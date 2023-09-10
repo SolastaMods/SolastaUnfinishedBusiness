@@ -87,7 +87,6 @@ ModUi/&EnableCharacterChecker=Activez le bouton de sélection de personnage sur 
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le personnage
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages en feu émettent de la lumière <i><color=#F0DAA0>[Cube de Lumière, Élémentaire de feu, Bouffon de feu, Balbuzard de feu, Araignée de feu et la famille de condition "en feu"]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu de triche
-ModUi/&EnableCustomPortraits=Activez les portraits personnalisés\n\n. Créez un dossier <i><b><color=#F0DAA0>Portraits</color></b></i> sous <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b ></i> dossier mod\n. Placées dans ce dossier, 256 x 384 px, images PNG nommées d'après le prénom de votre héros [c'est-à-dire : Anton, Celia, Nialla, etc.]
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat et répartition "épique" de 35 points <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des Dons aux niveaux de classe 2, 10 et 18
