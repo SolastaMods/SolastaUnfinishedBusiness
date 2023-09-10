@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -146,6 +146,7 @@ public static class GameLocationCharacterPatcher
             bool accountDelegatedPowers)
         {
             var power = usablePower.PowerDefinition;
+            
             return (accountDelegatedPowers || !power.DelegatedToAction)
                    && character.CanUsePower(power, false);
         }
@@ -176,14 +177,15 @@ public static class GameLocationCharacterPatcher
         }
 
         [UsedImplicitly]
-        public static void Postfix(GameLocationCharacter __instance,
+        public static void Postfix(
+            GameLocationCharacter __instance,
             ref ActionDefinitions.ActionStatus __result,
             ActionDefinitions.Id actionId,
             ActionDefinitions.ActionScope scope,
             ActionDefinitions.ActionStatus actionTypeStatus,
-            RulesetAttackMode optionalAttackMode,
-            bool ignoreMovePoints,
-            bool allowUsingDelegatedPowersAsPowers)
+            // RulesetAttackMode optionalAttackMode,
+            bool ignoreMovePoints)
+            // bool allowUsingDelegatedPowersAsPowers)
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
@@ -282,12 +284,15 @@ public static class GameLocationCharacterPatcher
 
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
+
             //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
             rulesetCharacter.GetSubFeaturesByType<IActionExecutionHandled>()
                 .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
-            //PATCH: support for action switching
-            if (actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-                rulesetEffectSpell.MetamagicOption == DatabaseHelper.MetamagicOptionDefinitions.MetamagicQuickenedSpell)
+
+            //PATCH: support for action switching interaction with metamagic quickened spell
+            if (Main.Settings.EnableActionSwitching
+                && actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell
+                && rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
             {
                 // another hack to ensure we don't get offered more than we should on action switching
                 // for whatever reason we get the spell casting state loaded before we get to this point
@@ -295,6 +300,7 @@ public static class GameLocationCharacterPatcher
                 __instance.UsedBonusSpell = true;
             }
 
+            //PATCH: support for action switching
             ActionSwitching.CheckIfActionSwitched(
                 __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
         }
@@ -355,7 +361,8 @@ public static class GameLocationCharacterPatcher
     public static class CheckConcentration_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(GameLocationCharacter __instance,
+        public static void Postfix(
+            GameLocationCharacter __instance,
             int damage,
             string damageType,
             bool stillConscious)
