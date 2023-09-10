@@ -22,6 +22,7 @@ using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -1707,6 +1708,12 @@ public static class RulesetCharacterPatcher
 
                 if (rolledValue >= preserveSlotThreshold)
                 {
+                    var caster = GameLocationCharacter.GetFromActor(__instance);
+
+                    EffectHelpers.StartVisualEffect(
+                        caster, caster, LesserRestoration,
+                        EffectHelpers.EffectType.Caster);
+
                     __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
                 }
                 else
