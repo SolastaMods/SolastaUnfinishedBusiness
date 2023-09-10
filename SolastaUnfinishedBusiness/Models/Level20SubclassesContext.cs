@@ -444,6 +444,8 @@ internal static class Level20SubclassesContext
         // Oath of Judgement
         //
 
+        // Aura of Rightenousness
+
         var powerOathOfJugementAuraRightenousness18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfJugementAuraRightenousness, "PowerOathOfJugementAuraRightenousness18")
             .SetOrUpdateGuiPresentation(Category.Feature)
@@ -454,9 +456,44 @@ internal static class Level20SubclassesContext
 
         OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
 
+        // Final Judgement
+
+        var conditionOathOfJugementFinalJudgementCaster = ConditionDefinitionBuilder
+            .Create("ConditionOathOfJugementFinalJudgementCaster")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierOathOfJugementFinalJudgementCaster")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
+                    .AddToDB(),
+                AttributeModifierThirdExtraAttack,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinitySlashingResistance)
+            .AddToDB();
+
+        var powerOathOfJugementFinalJudgement = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfJugementFinalJudgement")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOathOfJugementFinalJudgementCaster))
+                    .Build())
+            .AddToDB();
+
+        OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementFinalJudgement, 20));
+
         //
         // Oath of Motherland
         //
+
+        // Volcanic Aura
 
         var powerOathOfMotherlandVolcanicAura18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfMotherlandVolcanicAura, "PowerOathOfMotherlandVolcanicAura18")
@@ -467,6 +504,64 @@ internal static class Level20SubclassesContext
         powerOathOfMotherlandVolcanicAura18.EffectDescription.targetParameter = 13;
 
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
+
+        // Flames of Motherland
+
+        var additionalDamageOathOfMotherlandFlamesOfMotherland = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("FlamesOfMotherland")
+            .SetDamageDice(DieType.D6, 2)
+            .SetSpecificDamageType(DamageTypeFire)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .AddToDB();
+
+        var powerOathOfMotherlandFlamesOfMotherlandRetaliate = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfMotherlandRetaliateFlamesOfMotherland")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypePiercing, 0, DieType.D1, 10))
+                    .SetParticleEffectParameters(FireBolt)
+                    .Build())
+            .AddToDB();
+
+        var damageAffinityOathOfMotherlandFlamesOfMotherland = FeatureDefinitionDamageAffinityBuilder
+            .Create("DamageAffinityOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentationNoContent(true)
+            .SetDamageAffinityType(DamageAffinityType.None)
+            .SetDamageType(DamageTypeFire)
+            .SetRetaliate(powerOathOfMotherlandFlamesOfMotherlandRetaliate, 1, true)
+            .AddToDB();
+
+        var conditionOathOfMotherlandFlamesOfMotherland = ConditionDefinitionBuilder
+            .Create("ConditionOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetFeatures(
+                additionalDamageOathOfMotherlandFlamesOfMotherland, damageAffinityOathOfMotherlandFlamesOfMotherland)
+            .AddToDB();
+
+        var powerOathOfMotherlandFlamesOfMotherland = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeFire, 8, DieType.D6),
+                        EffectFormBuilder.ConditionForm(conditionOathOfMotherlandFlamesOfMotherland,
+                            ConditionForm.ConditionOperation.Add, true, true))
+                    .Build())
+            .AddToDB();
+
+        OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandFlamesOfMotherland, 20));
 
         //
         // Oath of Tirmar
@@ -481,6 +576,54 @@ internal static class Level20SubclassesContext
         powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
 
         OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
+
+        // Inquisitor’s Zeal
+
+        var savingThrowAffinityOathOfTirmarInquisitorZeal = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create("SavingThrowAffinityOathOfTirmarInquisitorZeal")
+            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
+        var conditionOathOfTirmarInquisitorZeal = ConditionDefinitionBuilder
+            .Create("ConditionOathOfTirmarInquisitorZeal")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetFeatures(savingThrowAffinityOathOfTirmarInquisitorZeal)
+            .AddToDB();
+
+        var featureOathOfTirmarInquisitorZealAdvantage = FeatureDefinitionBuilder
+            .Create("FeatureOathOfTirmarInquisitorZealAdvantage")
+            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition)
+            .AddToDB();
+
+        featureOathOfTirmarInquisitorZealAdvantage.SetCustomSubFeatures(
+            new ModifyAttackActionModifierInquisitorZeal(featureOathOfTirmarInquisitorZealAdvantage));
+
+        var conditionOathOfTirmarInquisitorSelfZeal = ConditionDefinitionBuilder
+            .Create("ConditionOathOfTirmarInquisitorSelfZeal")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetFeatures(FeatureDefinitionSenses.SenseTruesight24, featureOathOfTirmarInquisitorZealAdvantage)
+            .AddToDB();
+
+        var powerOathOfJugementInquisitorZeal = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfTirmarInquisitorZeal")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorZeal),
+                        EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorSelfZeal,
+                            ConditionForm.ConditionOperation.Add, true, true))
+                    .Build())
+            .AddToDB();
+
+        OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementInquisitorZeal, 20));
     }
 
     private static void RogueLoad()
@@ -760,6 +903,47 @@ internal static class Level20SubclassesContext
         SorcerousManaPainter.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
     }
+
+    #region Paladin
+
+    //
+    // Inquisitor's Zeal
+    //
+
+    private sealed class ModifyAttackActionModifierInquisitorZeal : IModifyAttackActionModifier
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ModifyAttackActionModifierInquisitorZeal(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            // only weapon attacks
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            // only enemies with darkvision
+            if (defender.GetFeaturesByType<FeatureDefinitionSense>().All(x => x.senseType != SenseMode.Type.Darkvision))
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(-1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+        }
+    }
+
+    #endregion
 
     #region Sorcerer
 

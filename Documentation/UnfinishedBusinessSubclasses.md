@@ -1995,7 +1995,7 @@ During the first round of combat, you roll all attack rolls with advantage. In a
 
 * Seize the Chance
 
-Starting at 9th level, when an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. A sneak attack can be triggered here.
+Starting at 9th level, when an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. A sneak attack can be triggered here even if already used on this turn.
 
 
 ## Level 13

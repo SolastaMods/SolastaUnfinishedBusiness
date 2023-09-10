@@ -15,9 +15,12 @@
 - fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
 - fixed higher ground rules setting adding a +2 to attack modifiers instead of +1 on spell attacks
 - fixed Martial Arcane Archer not granting additional arcane arrow usages at levels 10th at 18th
+- fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
 - fixed vanilla Sorcerous Mana Painter mana absorption incorrectly granting advantage on constitution savings
 - fixed level up workflow causing an exception when going back and forth through the mod custom UI level up stage
-- improved vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
+- improved vanilla Oath of Judgment progression with Final Judgement at level 20th
+- improved vanilla Oath of Motherland progression with Flames of the Motherland at level 20th
+- improved vanilla Oath of Tirmar progression with Inquisitor’s Zeal at level 20th
 - improved vanilla Sorcerous Child of The Rift progression with Rift Magic Mastery at level 18th
 - improved vanilla Sorcerous Draconic Bloodline progression with Draconic Presence at level 18th
 - improved vanilla Sorcerous Haunted Soul progression with Possession at level 18th

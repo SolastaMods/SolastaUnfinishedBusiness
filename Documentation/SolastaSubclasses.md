@@ -1610,6 +1610,17 @@ Starting at level 15, whenever an enemy within 6 cells deals damage to you, you 
 Your Aura of Rightenousness range increased to 30 ft.
 
 
+## Level 20
+
+* Final Judgement
+
+Starting at 20th level, as an action, you gain the following benefits for one minute:
+• You have resistance to bludgeoning, piercing, and slashing damage from non magical weapons.
+• When you take the Attack action on your turn, you can make one additional attack as part of that action.
+• Your critical threshold reduces by 1.
+You can use this feature once per long rest.
+
+
 
 # 33. - Oath of the Motherland
 
@@ -1658,6 +1669,17 @@ Starting at level 15, you are immune to fire and your skin covers with stone sca
 * Improved Volcanic Aura
 
 Your Volcanic Aura range increased to 30 ft.
+
+
+## Level 20
+
+* Flames of Motherland
+
+Starting at 20th level, as an action, you gain the following benefits for one minute:
+• Upon activation, all enemy creatures within 30 feet of you receive 8d6 fire damage.
+• All your weapon attacks deal an additional 2d6 fire damage.
+• Any creature within 5 feet of you that hits you with a melee weapon attack receives 10 fire damage.
+You can use this feature once per long rest.
 
 
 
@@ -1712,6 +1734,13 @@ Starting at level 15, when you use a melee attack to strike an opponent who has 
 * Improved Aura of Truth
 
 Your Aura of Truth range increased to 30 ft.
+
+
+## Level 20
+
+* Feature/&PowerOathOfTirmarInquisitorZealTitle
+
+Feature/&PowerOathOfTirmarInquisitorZealDescription
 
 
 
