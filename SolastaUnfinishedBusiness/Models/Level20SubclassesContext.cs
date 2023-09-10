@@ -430,6 +430,8 @@ internal static class Level20SubclassesContext
         // Oath of Devotion
         //
 
+        // Devotion Aura
+
         var powerOathOfDevotionAuraDevotion18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfDevotionAuraDevotion, "PowerOathOfDevotionAuraDevotion18")
             .SetOrUpdateGuiPresentation(Category.Feature)
@@ -439,6 +441,55 @@ internal static class Level20SubclassesContext
         powerOathOfDevotionAuraDevotion18.EffectDescription.targetParameter = 13;
 
         OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
+
+        // Holy Nimbus
+
+        var conditionOathOfDevotionHolyNimbus = ConditionDefinitionBuilder
+            .Create("ConditionOathOfDevotionHolyNimbus")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create("SavingThrowAffinityOathOfDevotionHolyNimbus")
+                    .SetGuiPresentation("ConditionOathOfDevotionHolyNimbus", Category.Condition)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
+                    .AddToDB())
+            .AddToDB();
+
+        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var powerOathOfDevotionHolyNimbus = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfDevotionHolyNimbus")
+            .SetGuiPresentation(Category.Feature, PowerTraditionLightBlindingFlash)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeRadiant, 0, DieType.D1, 10),
+                        EffectFormBuilder.ConditionForm(conditionOathOfDevotionHolyNimbus,
+                            ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
+                            .Build())
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
+                    .Build())
+            .AddToDB();
+
+        OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionHolyNimbus, 20));
 
         //
         // Oath of Judgement
@@ -460,7 +511,7 @@ internal static class Level20SubclassesContext
 
         var conditionOathOfJugementFinalJudgementCaster = ConditionDefinitionBuilder
             .Create("ConditionOathOfJugementFinalJudgementCaster")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
             .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -476,7 +527,7 @@ internal static class Level20SubclassesContext
 
         var powerOathOfJugementFinalJudgement = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfJugementFinalJudgement")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerTraditionCourtMageSpellShield)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -484,6 +535,7 @@ internal static class Level20SubclassesContext
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOathOfJugementFinalJudgementCaster))
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
                     .Build())
             .AddToDB();
 
@@ -539,7 +591,7 @@ internal static class Level20SubclassesContext
 
         var conditionOathOfMotherlandFlamesOfMotherland = ConditionDefinitionBuilder
             .Create("ConditionOathOfMotherlandFlamesOfMotherland")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetPossessive()
             .SetFeatures(
                 additionalDamageOathOfMotherlandFlamesOfMotherland, damageAffinityOathOfMotherlandFlamesOfMotherland)
@@ -547,7 +599,7 @@ internal static class Level20SubclassesContext
 
         var powerOathOfMotherlandFlamesOfMotherland = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfMotherlandFlamesOfMotherland")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -558,6 +610,7 @@ internal static class Level20SubclassesContext
                         EffectFormBuilder.DamageForm(DamageTypeFire, 8, DieType.D6),
                         EffectFormBuilder.ConditionForm(conditionOathOfMotherlandFlamesOfMotherland,
                             ConditionForm.ConditionOperation.Add, true, true))
+                    .SetParticleEffectParameters(Fireball)
                     .Build())
             .AddToDB();
 
@@ -609,17 +662,18 @@ internal static class Level20SubclassesContext
 
         var powerOathOfJugementInquisitorZeal = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfTirmarInquisitorZeal")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerPactChainQuasit)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 13)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorZeal),
                         EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorSelfZeal,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(PowerPaladinLayOnHands)
                     .Build())
             .AddToDB();
 
