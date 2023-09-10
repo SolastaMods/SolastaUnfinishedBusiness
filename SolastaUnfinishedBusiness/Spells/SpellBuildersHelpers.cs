@@ -76,14 +76,17 @@ internal static partial class SpellBuilders
         private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
         private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
 
+        // changed below to 1 based on
+        // https://rpg.stackexchange.com/questions/177342/can-the-spell-booming-blade-be-affected-by-the-twinned-spell-metamagic
+
         internal static readonly IAttackAfterMagicEffect BoomingBladeAttack =
-            new AttackAfterMagicEffect(2);
+            new AttackAfterMagicEffect(1);
 
         internal static readonly IAttackAfterMagicEffect ResonatingStrikeAttack =
             new AttackAfterMagicEffect(1);
 
         internal static readonly IAttackAfterMagicEffect SunlitBladeAttack =
-            new AttackAfterMagicEffect(2);
+            new AttackAfterMagicEffect(1);
 
         private readonly int _maxAttacks;
 
