@@ -590,6 +590,14 @@ public static class ActionSwitching
 
         Main.Info($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
+        //PATCH: fixed action switching interaction with actions that offer further selections in a modal and get cancelled by player
+        if (filters.Count <= rank)
+        {
+            Main.Info($"RefundActionUse ABORTED [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
+
+            return;
+        }
+
         var data = PerformanceFilterExtraData.GetData(filters[rank]);
 
         if (data != null)
