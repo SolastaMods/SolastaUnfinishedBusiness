@@ -168,6 +168,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot Additional Use
 
+        var powerArcaneShotAdditionalUse1At10 = FeatureDefinitionPowerUseModifierBuilder
+            .Create(PowerArcaneShotAdditionalUse1, $"PowerUseModifier{Name}ArcaneShotUse1At10")
+            .AddToDB();
+
         // Arcane Shot Choice
 
         // LEVEL 15
@@ -185,6 +189,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot Additional Use
 
+        var powerArcaneShotAdditionalUse1At18 = FeatureDefinitionPowerUseModifierBuilder
+            .Create(PowerArcaneShotAdditionalUse1, $"PowerUseModifier{Name}ArcaneShotUse1At18")
+            .AddToDB();
+
         // Arcane Shot Choice
 
         // MAIN
@@ -201,13 +209,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 featureGuidedShot,
                 invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(10,
-                PowerArcaneShotAdditionalUse1,
+                powerArcaneShotAdditionalUse1At10,
                 invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(15,
                 featureEverReadyShot,
                 invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(18,
-                PowerArcaneShotAdditionalUse1,
+                powerArcaneShotAdditionalUse1At18,
                 invocationPoolArcaneShotChoice1)
             .AddToDB();
     }

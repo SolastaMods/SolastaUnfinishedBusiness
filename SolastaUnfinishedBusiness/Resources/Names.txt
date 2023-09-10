@@ -602,8 +602,6 @@ RaceOligath	Sur	Traaktem
 RaceOligath	Sur	Gekssurt
 RaceOligath	Sur	Thruntar
 RaceOligath	Sur	Vazred
-RaceOligath	Sur	Razhil
-RaceOligath	Sur	Agrin
 RaceWyrmkin	Sur	Elkart
 RaceWyrmkin	Sur	Trelluj
 RaceWyrmkin	Sur	Ornort
@@ -615,5 +613,3 @@ RaceWyrmkin	Sur	Strukssar
 RaceWyrmkin	Sur	Thraksaeurt
 RaceWyrmkin	Sur	Vernart
 RaceWyrmkin	Sur	Maeradok
-RaceWyrmkin	Sur	Rhubarb
-RaceWyrmkin	Sur	Mossy

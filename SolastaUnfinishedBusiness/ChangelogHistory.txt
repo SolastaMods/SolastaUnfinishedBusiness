@@ -4,7 +4,8 @@
 
 - added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock and Wizard spell repertoires
 - added support for Custom Portraits with a new setting under Mod UI / Interface
-- changed College of Audacity to consider critical hits on whirl damage, and better interact with mod critical options
+- changed College of Audacity to consider critical on whirl damage, and better interact with mod critical options
+- changed Martial Arcane Archer to consider critical on arcane damage, and better interact with mod critical options
 - changed Martial Spell Shield progression by replacing levels 10th and 18th features with new ones closer to TT
 - changed Patron Riftwalker progression by having all powers with fixed uses instead of proficiency bonus amount
 - changed Resonating Strike to do fire damage, and renamed it to Burning Blade as not all flames are green
@@ -13,6 +14,7 @@
 - fixed action switching interaction with actions that offer further selections in a modal and get cancelled by player
 - fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
 - fixed higher ground rules setting adding a +2 to attack modifiers instead of +1 on spell attacks
+- fixed Martial Arcane Archer not granting additional arcane arrow usages at levels 10th at 18th
 - fixed vanilla Sorcerous Mana Painter mana absorption incorrectly granting advantage on constitution savings
 - fixed level up workflow causing an exception when going back and forth through the mod custom UI level up stage
 - improved vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
