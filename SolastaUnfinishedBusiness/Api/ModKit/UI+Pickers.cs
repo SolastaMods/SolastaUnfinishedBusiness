@@ -385,8 +385,7 @@ internal static partial class UI
         IEnumerable<T> range,
         int xCols,
         Func<T, string> titleFormatter = null,
-        params GUILayoutOption[] options
-    )
+        params GUILayoutOption[] options)
     {
         titleFormatter ??= a => $"{a}";
 

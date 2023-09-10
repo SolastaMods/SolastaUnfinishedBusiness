@@ -82,8 +82,7 @@ internal static class MulticlassContext
                 SkillDefinitions.Religion,
                 SkillDefinitions.SleightOfHand,
                 SkillDefinitions.Stealth,
-                SkillDefinitions.Survival
-            )
+                SkillDefinitions.Survival)
             .AddToDB();
 
     private static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
@@ -99,8 +98,7 @@ internal static class MulticlassContext
                 SkillDefinitions.Nature,
                 SkillDefinitions.Perception,
                 SkillDefinitions.Survival,
-                SkillDefinitions.Stealth
-            )
+                SkillDefinitions.Stealth)
             .AddToDB();
 
     private static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
@@ -119,8 +117,7 @@ internal static class MulticlassContext
                 SkillDefinitions.Performance,
                 SkillDefinitions.Persuasion,
                 SkillDefinitions.SleightOfHand,
-                SkillDefinitions.Stealth
-            )
+                SkillDefinitions.Stealth)
             .AddToDB();
 
     private static readonly MethodInfo NullMethod = null;
@@ -401,8 +398,7 @@ internal static class MulticlassContext
             // CharacterInformationPanel
             (
                 typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ??
-                NullMethod, HeroContext.InformationPanel
-            )
+                NullMethod, HeroContext.InformationPanel)
         };
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");

@@ -224,8 +224,7 @@ public class PatronEldritchSurge : AbstractSubclass
             // _cantripsUsedThisTurn only has entries for Eldritch Surge of at least level 14
             if (spellRepertoireLine.actionType != ActionType.Bonus ||
                 !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(rulesetCharacter,
-                    out var supportCondition)
-               )
+                    out var supportCondition))
             {
                 return;
             }
@@ -252,8 +251,7 @@ public class PatronEldritchSurge : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetCustomSubFeatures(Marker,
-                    new BlastReloadCustom()
-                )
+                    new BlastReloadCustom())
                 .AddToDB();
         }
 

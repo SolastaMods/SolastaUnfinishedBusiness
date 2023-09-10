@@ -60,8 +60,7 @@ public sealed class RangerArcanist : AbstractSubclass
                 {
                     ConditionDefinition = conditionMarkedByArcanist,
                     Operation = ConditionOperationDescription.ConditionOperation.Add
-                }
-            )
+                })
             .AddToDB();
 
         var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder

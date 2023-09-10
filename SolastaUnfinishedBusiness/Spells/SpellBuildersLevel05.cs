@@ -73,8 +73,7 @@ internal static partial class SpellBuilders
             .AddEffectForms(
                 EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
                 EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
-                EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false)
-            )
+                EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
             .Build();
 
         var spell = SpellDefinitionBuilder

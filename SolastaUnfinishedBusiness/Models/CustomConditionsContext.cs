@@ -183,8 +183,7 @@ internal static class CustomConditionsContext
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionFlightSuspend),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlying,
-                            ConditionForm.ConditionOperation.Remove)
-                    )
+                            ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(
@@ -217,8 +216,7 @@ internal static class CustomConditionsContext
                         EffectFormBuilder.ConditionForm(conditionFlightSuspend,
                             ConditionForm.ConditionOperation.Remove),
                         EffectFormBuilder.ConditionForm(conditionFlightSuspendConcentrationTracker,
-                            ConditionForm.ConditionOperation.Remove)
-                    )
+                            ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(

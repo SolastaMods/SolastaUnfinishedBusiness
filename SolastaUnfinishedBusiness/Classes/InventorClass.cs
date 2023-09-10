@@ -109,8 +109,7 @@ internal static class InventorClass
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma
-            )
+                AttributeDefinitions.Charisma)
             .AddSkillPreferences(
                 SkillDefinitions.Athletics,
                 SkillDefinitions.History,
@@ -118,14 +117,12 @@ internal static class InventorClass
                 SkillDefinitions.Stealth,
                 SkillDefinitions.Religion,
                 SkillDefinitions.Perception,
-                SkillDefinitions.Survival
-            )
+                SkillDefinitions.Survival)
             .AddToolPreferences(
                 ToolTypeDefinitions.EnchantingToolType,
                 ToolTypeDefinitions.HerbalismKitType,
                 ToolTypeDefinitions.PoisonersKitType,
-                ToolTypeDefinitions.ScrollKitType
-            )
+                ToolTypeDefinitions.ScrollKitType)
             //TODO: Add more preferred feats
             .AddFeatPreferences(
                 OtherFeats.FeatWarCaster,
@@ -154,14 +151,12 @@ internal static class InventorClass
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1),
                     EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                         EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
-                }
-            )
+                })
             .AddEquipmentRow(
                 EquipmentOptionsBuilder.Option(ItemDefinitions.LightCrossbow,
                     EquipmentDefinitions.OptionWeapon, 1),
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Bolt,
-                    EquipmentDefinitions.OptionAmmoPack, 1)
-            )
+                    EquipmentDefinitions.OptionAmmoPack, 1))
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
@@ -177,8 +172,7 @@ internal static class InventorClass
                 {
                     EquipmentOptionsBuilder.Option(ItemDefinitions.ComponentPouch_Bracers,
                         EquipmentDefinitions.OptionFocus, 1)
-                }
-            )
+                })
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
                     EquipmentOptionsBuilder.Option(ItemDefinitions.StuddedLeather,
@@ -188,8 +182,7 @@ internal static class InventorClass
                 {
                     EquipmentOptionsBuilder.Option(ItemDefinitions.ScaleMail,
                         EquipmentDefinitions.OptionArmor, 1)
-                }
-            )
+                })
             .AddEquipmentRow(
                 new List<CharacterClassDefinition.HeroEquipmentOption>
                 {
@@ -200,8 +193,7 @@ internal static class InventorClass
                 {
                     EquipmentOptionsBuilder.Option(ItemDefinitions.ExplorerPack,
                         EquipmentDefinitions.OptionStarterPack, 1)
-                }
-            )
+                })
 
             #endregion
 
@@ -258,8 +250,7 @@ internal static class InventorClass
                         ToolTypeDefinitions.EnchantingToolType.Name,
                         ToolTypeDefinitions.HerbalismKitType.Name,
                         ToolTypeDefinitions.PoisonersKitType.Name,
-                        ToolTypeDefinitions.ScrollKitType.Name
-                    )
+                        ToolTypeDefinitions.ScrollKitType.Name)
                     .AddToDB())
 
             // Skill points
@@ -276,8 +267,7 @@ internal static class InventorClass
                         SkillDefinitions.Medecine,
                         SkillDefinitions.Nature,
                         SkillDefinitions.Perception,
-                        SkillDefinitions.SleightOfHand
-                    )
+                        SkillDefinitions.SleightOfHand)
                     .AddToDB())
 
             #endregion
@@ -303,8 +293,7 @@ internal static class InventorClass
             #region Level 04
 
             .AddFeaturesAtLevel(4,
-                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            )
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
 
             #endregion
 
@@ -323,8 +312,7 @@ internal static class InventorClass
             #region Level 08
 
             .AddFeaturesAtLevel(8,
-                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            )
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
 
             #endregion
 
@@ -345,8 +333,7 @@ internal static class InventorClass
             #region Level 12
 
             .AddFeaturesAtLevel(12,
-                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            )
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
 
             #endregion
 
@@ -359,8 +346,7 @@ internal static class InventorClass
             #region Level 16
 
             .AddFeaturesAtLevel(16,
-                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            )
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
 
             #endregion
 
@@ -429,8 +415,7 @@ internal static class InventorClass
                 ToolTypeDefinitions.EnchantingToolType.Name,
                 ToolTypeDefinitions.HerbalismKitType.Name,
                 ToolTypeDefinitions.PoisonersKitType.Name,
-                ToolTypeDefinitions.ScrollKitType.Name
-            )
+                ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
     }
 
@@ -446,8 +431,7 @@ internal static class InventorClass
                 ToolTypeDefinitions.EnchantingToolType.Name,
                 ToolTypeDefinitions.HerbalismKitType.Name,
                 ToolTypeDefinitions.PoisonersKitType.Name,
-                ToolTypeDefinitions.ScrollKitType.Name
-            )
+                ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
     }
 
@@ -500,8 +484,7 @@ internal static class InventorClass
                 SpellDefinitions.PoisonSpray,
                 SpellDefinitions.Resistance,
                 SpellDefinitions.ShockingGrasp,
-                SpellDefinitions.SpareTheDying
-            )
+                SpellDefinitions.SpareTheDying)
             // absorb elements, snare, catapult, tasha's caustic brew
             .SetSpellsAtLevel(1,
                 SpellDefinitions.CureWounds,
@@ -513,8 +496,7 @@ internal static class InventorClass
                 SpellDefinitions.Grease,
                 SpellDefinitions.Identify,
                 SpellDefinitions.Jump,
-                SpellDefinitions.Longstrider
-            )
+                SpellDefinitions.Longstrider)
             // web, pyrotechnics, enlarge/reduce
             .SetSpellsAtLevel(2,
                 SpellDefinitions.Aid,
@@ -528,8 +510,7 @@ internal static class InventorClass
                 SpellDefinitions.MagicWeapon,
                 SpellDefinitions.ProtectionFromPoison,
                 SpellDefinitions.SeeInvisibility,
-                SpellDefinitions.SpiderClimb
-            )
+                SpellDefinitions.SpiderClimb)
             // blink, elemental weapon, flame arrows
             .SetSpellsAtLevel(3,
                 SpellDefinitions.CreateFood,
@@ -537,17 +518,14 @@ internal static class InventorClass
                 SpellDefinitions.Fly,
                 SpellDefinitions.Haste,
                 SpellDefinitions.ProtectionFromEnergy,
-                SpellDefinitions.Revivify
-            )
+                SpellDefinitions.Revivify)
             // everything
             .SetSpellsAtLevel(4,
                 SpellDefinitions.FreedomOfMovement,
-                SpellDefinitions.Stoneskin
-            )
+                SpellDefinitions.Stoneskin)
             // everything
             .SetSpellsAtLevel(5,
-                SpellDefinitions.GreaterRestoration
-            )
+                SpellDefinitions.GreaterRestoration)
             .FinalizeSpells(maxLevel: 5)
             .AddToDB();
     }
@@ -598,8 +576,7 @@ internal static class InventorClass
                 SpellDefinitions.Dazzle,
                 SpellDefinitions.Light,
                 SpellDefinitions.Shine,
-                SpellDefinitions.Sparkle
-            )
+                SpellDefinitions.Sparkle)
             .AddToDB();
     }
 
@@ -808,8 +785,7 @@ internal static class InventorClass
                 .AddFunctions(new DeviceFunctionDescriptionBuilder()
                     .SetUsage(useAmount: 1, useAffinity: DeviceFunctionDescription.FunctionUseAffinity.ChargeCost)
                     .SetSpell(spell)
-                    .Build()
-                )
+                    .Build())
                 .Build())
             .AddToDB();
     }

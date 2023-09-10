@@ -40,8 +40,7 @@ internal static class FlexibleRacesContext
                 "Language_Terran",
                 "Language_Tirmarian",
                 "Language_Elvish",
-                "Language_Draconic"
-            )
+                "Language_Draconic")
             .AddToDB();
 
     internal static readonly FeatureDefinitionFeatureSet FeatureSetLanguageCommonPlusOne

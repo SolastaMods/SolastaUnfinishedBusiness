@@ -49,8 +49,7 @@ internal static class SubraceIronbornDwarfBuilder
             .SetFeaturesAtLevel(1,
                 attributeModifierIronbornDwarfStrengthAbilityScoreIncrease,
                 proficiencyIronbornDwarfArmorTraining,
-                FeatureDefinitionProficiencys.ProficiencyDwarfLanguages
-            )
+                FeatureDefinitionProficiencys.ProficiencyDwarfLanguages)
             .AddToDB();
 
         // using avg heights from PHB, scale factor is 53/49, or about 1.08

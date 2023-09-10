@@ -85,8 +85,7 @@ public static class RulesetActorPatcher
             ref int rolledDamage,
             string damageType,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            RollInfo rollInfo
-        )
+            RollInfo rollInfo)
         {
             //PATCH: support for FeatureDefinitionReduceDamage
             var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);

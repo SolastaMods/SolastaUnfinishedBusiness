@@ -119,8 +119,7 @@ public sealed class InnovationArmor : AbstractSubclass
                     .SetGuiPresentation(InfiltratorMarkerName, Category.Condition)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth))
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
 
         var guardianMode = FeatureDefinitionPowerSharedPoolBuilder
@@ -131,8 +130,7 @@ public sealed class InnovationArmor : AbstractSubclass
                 ValidatorsPowerUse.NotInCombat,
                 new AddGauntletAttack(),
                 DoNotTerminateWhileUnconscious.Marker,
-                SkipEffectRemovalOnLocationChange.Always
-            )
+                SkipEffectRemovalOnLocationChange.Always)
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -141,8 +139,7 @@ public sealed class InnovationArmor : AbstractSubclass
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
-                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true)
-                    )
+                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true))
                     .Build())
             .AddToDB();
 
@@ -154,8 +151,7 @@ public sealed class InnovationArmor : AbstractSubclass
                 ValidatorsPowerUse.NotInCombat,
                 new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
                 DoNotTerminateWhileUnconscious.Marker,
-                SkipEffectRemovalOnLocationChange.Always
-            )
+                SkipEffectRemovalOnLocationChange.Always)
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -306,8 +302,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 guardian,
-                infiltrator
-            )
+                infiltrator)
             .AddToDB();
     }
 

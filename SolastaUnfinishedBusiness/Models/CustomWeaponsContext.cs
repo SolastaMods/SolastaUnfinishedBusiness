@@ -613,8 +613,7 @@ internal static class CustomWeaponsContext
                     .SetGuiPresentationNoContent()
                     .SetCustomSubFeatures(
                         new ModifyWeaponProducedFlameDice(),
-                        new AddThrowProducedFlameAttack()
-                    )
+                        new AddThrowProducedFlameAttack())
                     .AddToDB(), false));
 
         flame.IsWeapon = true;

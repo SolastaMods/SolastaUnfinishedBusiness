@@ -170,8 +170,7 @@ internal static class EldritchVersatility
                     .Build())
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetCustomSubFeatures(
-                PowerFromInvocation.Marker
-            )
+                PowerFromInvocation.Marker)
             .AddToDB();
         featureOrPower.AddCustomSubFeatures(new BattlefieldConversionRestoreSlot(featureOrPower));
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
@@ -685,8 +684,7 @@ internal static class EldritchVersatility
                         .Create("FeatureBlastBreakthroughRemoveImmunity")
                         .SetGuiPresentationNoContent(true)
                         .SetCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
-                        .AddToDB()
-                )
+                        .AddToDB())
                 .AddToDB();
 
         private static readonly FeatureDefinitionMagicAffinity FeatureBlastBreakthroughNoPenalty =
@@ -1101,8 +1099,7 @@ internal static class EldritchVersatility
 
             if (!alreadyBlocked &&
                 (int3.Distance(posOwner, posDefender) > 6f ||
-                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner))
-               )
+                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner)))
             {
                 yield break;
             }
@@ -1376,8 +1373,7 @@ internal static class EldritchVersatility
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !IsInvocationActive(featureOwner, InvocationName, out _) ||
-                !featureOwner.GetVersatilitySupportCondition(out var supportCondition)
-               )
+                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }

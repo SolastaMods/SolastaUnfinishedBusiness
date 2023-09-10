@@ -81,8 +81,7 @@ public static class GameLocationBattleManagerPatcher
                     "Contains",
                     -1,
                     "GameLocationBattleManager.CanPerformReadiedActionOnCharacter.Contains",
-                    new CodeInstruction(OpCodes.Call, customBindMethod)
-                )
+                    new CodeInstruction(OpCodes.Call, customBindMethod))
                 .ReplaceCall(
                     "FindActionAttackMode",
                     -1,
@@ -264,8 +263,7 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter defender,
             RulesetAttackMode attackerAttackMode,
             RulesetEffect rulesetEffect,
-            int damageAmount
-        )
+            int damageAmount)
         {
             //PATCH: support for Sentinel feat - allows reaction attack on enemy attacking ally 
             while (values.MoveNext())
@@ -447,8 +445,7 @@ public static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect,
             ActionModifier attackModifier,
-            int attackRoll
-        )
+            int attackRoll)
         {
             // ReSharper disable once InvertIf
             if (__instance.Battle != null &&
@@ -528,8 +525,7 @@ public static class GameLocationBattleManagerPatcher
             RulesetEffect rulesetEffect,
             ActionModifier attackModifier,
             bool rolledSavingThrow,
-            bool saveOutcomeSuccess
-        )
+            bool saveOutcomeSuccess)
         {
             //PATCH: support for features that trigger when defender gets hit, like `FeatureDefinitionReduceDamage` 
             while (values.MoveNext())
@@ -709,8 +705,7 @@ public static class GameLocationBattleManagerPatcher
         public static void Postfix(
             BattleDefinitions.AttackEvaluationParams attackParams,
             bool __result,
-            GameLocationBattleManager __instance
-        )
+            GameLocationBattleManager __instance)
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
@@ -1029,8 +1024,7 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter defender,
             ActionModifier saveModifier,
             bool hasHitVisual,
-            bool hasBorrowedLuck
-        )
+            bool hasBorrowedLuck)
         {
             while (values.MoveNext())
             {

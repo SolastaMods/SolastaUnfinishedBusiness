@@ -93,8 +93,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(ConditionWarDance),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration)
-                    )
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration))
                     .Build())
             .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
                 ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
@@ -147,9 +146,8 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                         new StopMomentumAndAttacksWhenRemoved(),
                         new WarDanceFlurryPhysicalAttack(),
                         new WarDanceFlurryWeaponAttackModifier(),
-                        new WarDanceExtraAttacks()
-                    ).AddToDB()
-            )
+                        new WarDanceExtraAttacks())
+                    .AddToDB())
             .AddToDB();
     }
 

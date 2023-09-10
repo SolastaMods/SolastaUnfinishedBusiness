@@ -779,8 +779,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         if (!IsFinalStep
             || !initialized
-            || (!_allPools.Empty() && _allPools[_allPools.Count - 1].Remaining > 0)
-           )
+            || (!_allPools.Empty() && _allPools[_allPools.Count - 1].Remaining > 0))
         {
             failureString = Gui.Localize("UI/&CustomFeatureSelectionStageNotDone");
             return false;

@@ -206,7 +206,7 @@ internal static class PowerBundle
             return int.MaxValue;
         }
 
-        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
         switch (power.RechargeRate)
         {
             case RechargeRate.BardicInspiration:

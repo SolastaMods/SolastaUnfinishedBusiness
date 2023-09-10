@@ -662,8 +662,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
         IPowerUseValidity validator,
-        params EffectForm[] effects
-    )
+        params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
 

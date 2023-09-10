@@ -26,8 +26,7 @@ internal sealed class PushesOrDragFromEffectPoint
         bool forceSelfConditionOnly,
         RuleDefinitions.EffectApplication effectApplication,
         List<EffectFormFilter> filters,
-        CharacterActionMagicEffect action
-    )
+        CharacterActionMagicEffect action)
     {
         var positions = action.ActionParams.Positions;
 

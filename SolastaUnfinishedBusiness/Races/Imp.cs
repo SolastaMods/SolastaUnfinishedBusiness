@@ -63,8 +63,7 @@ internal static class RaceImpBuilder
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(
                 FeatureDefinitionAttributeModifiers.AttributeModifierHalflingAbilityScoreIncrease,
-                FeatureDefinitionAttributeModifiers.AttributeModifierDragonbornAbilityScoreIncreaseCha
-            )
+                FeatureDefinitionAttributeModifiers.AttributeModifierDragonbornAbilityScoreIncreaseCha)
             .AddToDB();
 
         var castSpellImpInfernal = FeatureDefinitionCastSpellBuilder
@@ -113,8 +112,7 @@ internal static class RaceImpBuilder
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(
                 FeatureDefinitionAttributeModifiers.AttributeModifierHalflingAbilityScoreIncrease,
-                FeatureDefinitionAttributeModifiers.AttributeModifierHalfOrcAbilityScoreIncreaseCon
-            )
+                FeatureDefinitionAttributeModifiers.AttributeModifierHalfOrcAbilityScoreIncreaseCon)
             .AddToDB();
 
         var actionAffinityImpForestInnateCunning = FeatureDefinitionActionAffinityBuilder
@@ -142,8 +140,7 @@ internal static class RaceImpBuilder
                 featureSetImpForestAbilityScoreIncrease,
                 actionAffinityImpForestInnateCunning,
                 powerImpForestImpishWrath,
-                FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry
-            )
+                FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry)
             .AddToDB();
 
         raceImpForest.racePresentation.preferedSkinColors = new RangedInt(28, 37);
@@ -175,8 +172,7 @@ internal static class RaceImpBuilder
             if (action.AttackRollOutcome != RollOutcome.Success
                 && action.AttackRollOutcome != RollOutcome.CriticalSuccess
                 && action.SaveOutcome != RollOutcome.Success
-                && action.SaveOutcome != RollOutcome.CriticalSuccess
-               )
+                && action.SaveOutcome != RollOutcome.CriticalSuccess)
             {
                 yield break;
             }

@@ -1662,8 +1662,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttack,
-                powerTurnOffPowerAttack
-            )
+                powerTurnOffPowerAttack)
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffPowerAttack;

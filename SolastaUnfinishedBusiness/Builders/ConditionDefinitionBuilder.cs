@@ -79,8 +79,7 @@ internal class ConditionDefinitionBuilder
         DieType dieType = DieType.D1,
         AdditionalDamageType damageTypeDetermination =
             AdditionalDamageType.SameAsBaseDamage,
-        string damageType = null
-    )
+        string damageType = null)
     {
         if (damageTypeDetermination == AdditionalDamageType.Specific
             && string.IsNullOrEmpty(damageType))

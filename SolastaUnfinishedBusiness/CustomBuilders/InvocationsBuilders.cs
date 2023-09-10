@@ -145,8 +145,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(
                 GuiPresentationBuilder.CreateTitleKey(NAME, Category.Invocation),
                 Gui.Format(GuiPresentationBuilder.CreateDescriptionKey(NAME, Category.Invocation), spell.FormatTitle()),
-                spell
-            )
+                spell)
             .SetRequirements(5)
             .SetGrantedSpell(spell, false, true)
             .AddToDB();

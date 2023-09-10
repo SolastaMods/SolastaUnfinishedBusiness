@@ -1006,8 +1006,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder.Create()
                             .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .AddToDB();
 

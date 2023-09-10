@@ -89,8 +89,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 steelDefenderPower,
                 BuildCommandSteelDefender(),
                 BuildSteelDefenderShortRestRecovery(),
-                BuildSteelDefenderAffinity()
-            )
+                BuildSteelDefenderAffinity())
             .AddToDB();
     }
 
@@ -117,8 +116,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 HasModifiedUses.Marker,
                 new ValidatorsPowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
-                new TargetDefendingBlade()
-            )
+                new TargetDefendingBlade())
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -314,8 +312,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
                     .SetFeatures(hpBonus) // 1 hp per INT mod
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
     }
 
@@ -333,8 +330,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeForce, 1, DieType.D8)
                             .Build())
-                    .Build()
-            )
+                    .Build())
             .AddToDB();
 
         var monster = MonsterDefinitionBuilder
@@ -344,12 +340,10 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
             .SetSkillScores(
                 (SkillDefinitions.Athletics, 2), //has feature that adds summoner's PB
-                (SkillDefinitions.Perception, 0) //has feature that adds summoner's PB x2
-            )
+                (SkillDefinitions.Perception, 0)) //has feature that adds summoner's PB x2
             .SetSavingThrowScores(
                 (AttributeDefinitions.Dexterity, 1), //has feature that adds summoner's PB
-                (AttributeDefinitions.Constitution, 2) //has feature that adds summoner's PB
-            )
+                (AttributeDefinitions.Constitution, 2)) //has feature that adds summoner's PB
             .SetStandardHitPoints(2)
             .SetHitPointsBonus(2) //doesn't seem to be used anywhere
             .SetHitDice(DieType.D8, 1) //TODO: setup to 1 die per inventor level
@@ -399,8 +393,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity
-            )
+                FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
             .SetCreatureTags(SteelDefenderTag)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetFullyControlledWhenAllied(true)

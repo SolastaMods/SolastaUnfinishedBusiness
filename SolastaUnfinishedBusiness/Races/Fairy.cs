@@ -123,8 +123,7 @@ internal static class RaceFairyBuilder
                         EffectFormBuilder.ConditionForm(conditionFairyWings, ConditionForm.ConditionOperation.Remove),
                         //Leaving this for compatibility
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
-                            ConditionForm.ConditionOperation.Remove)
-                    )
+                            ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(

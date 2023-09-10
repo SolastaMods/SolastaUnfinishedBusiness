@@ -202,8 +202,7 @@ internal static class RaceMalakhBuilder
                             .Build(),
                         EffectFormBuilder.Create()
                             .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true, true)
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .AddToDB();
     }

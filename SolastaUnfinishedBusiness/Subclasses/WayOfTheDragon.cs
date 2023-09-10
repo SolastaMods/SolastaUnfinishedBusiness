@@ -446,8 +446,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                                 conditionDragonFuryAcid,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
-                                true
-                            )
+                                true)
                             .Build())
                     .Build())
             .AddToDB();
@@ -530,8 +529,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                                 conditionDragonFuryPoison,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
-                                true
-                            )
+                                true)
                             .Build())
                     .Build())
             .AddToDB();
@@ -573,8 +571,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                                 conditionDragonFuryFire,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
-                                true
-                            )
+                                true)
                             .Build())
                     .Build())
             .AddToDB();
@@ -616,8 +613,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                                 conditionDragonFuryCold,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
-                                true
-                            )
+                                true)
                             .Build())
                     .Build())
             .AddToDB();

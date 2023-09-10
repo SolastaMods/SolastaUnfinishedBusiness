@@ -184,8 +184,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
 
         var deadEyeSprite = Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);

@@ -104,8 +104,7 @@ public sealed class MartialMarshal : AbstractSubclass
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetNotificationTag("KnowYourEnemy")
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
     }
 
@@ -177,8 +176,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 DamageAffinityAcidResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityThunderResistance,
-                ConditionAffinityHinderedByFrostImmunity
-            )
+                ConditionAffinityHinderedByFrostImmunity)
             .SetAttackIterations(new MonsterAttackIteration(
                 MonsterAttackDefinitionBuilder
                     .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword,
