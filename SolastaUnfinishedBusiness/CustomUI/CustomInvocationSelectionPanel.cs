@@ -213,6 +213,12 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void ResetLearnings(int stepNumber, Action onDone = null)
     {
+        // this happens when users go back on selection if UI is offered on 1st level [i.e.: Draconic Choices]
+        if (IsFinalStep)
+        {
+            stepNumber = 0;
+        }
+
         var pool = _allPools[stepNumber];
 
         pool.Used = 0;
