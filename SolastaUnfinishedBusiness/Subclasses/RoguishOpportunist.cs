@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
+using static FeatureDefinitionSavingThrowAffinity;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -19,7 +20,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class RoguishOpportunist : AbstractSubclass
 {
     private const string Name = "RoguishOpportunist";
-    private const string RefreshSneakAttack = "RefreshSneakAttack";
 
     public RoguishOpportunist()
     {
@@ -30,8 +30,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var savingThrowAffinityDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}DebilitatingStrike")
             .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition)
-            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
-                DieType.D4, 1, false,
+            .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
                 Charisma,
                 Constitution,
                 Dexterity,
@@ -96,8 +95,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var savingThrowAffinityImprovedDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}ImprovedDebilitatingStrike")
             .SetGuiPresentation($"Condition{Name}ImprovedDebilitated", Category.Condition)
-            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
-                DieType.D6, 1, false,
+            .SetModifiers(ModifierType.RemoveDice, DieType.D6, 1, false,
                 Charisma,
                 Constitution,
                 Dexterity,
@@ -151,9 +149,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .AddFeatures(
-                savingThrowAffinityImprovedDebilitatingStrike,
-                combatAffinityOpportunistExposingWeakness)
+            .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike, combatAffinityOpportunistExposingWeakness)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
 
@@ -236,13 +232,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 return;
             }
 
-            // refresh sneak attack
-            if (attackMode.AttackTags.Contains(RefreshSneakAttack))
-            {
-                attacker.UsedSpecialFeatures.Remove(
-                    AdditionalDamageRogueSneakAttack.Name);
-            }
-
             // grant advantage if first round or attacker is performing an opportunity attack
             if (Gui.Battle.CurrentRound > 1 &&
                 attackMode.actionType != ActionDefinitions.ActionType.Reaction)
@@ -250,8 +239,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(
+            attackModifier.attackAdvantageTrends.Add(new TrendInfo(
                     1, FeatureSourceType.CharacterFeature,
                     _featureOpportunistOpportunity.Name, _featureOpportunistOpportunity));
         }
@@ -273,7 +261,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(defender, helper))
+            if (!ShouldTrigger(battleManager, defender, helper))
             {
                 yield break;
             }
@@ -285,19 +273,19 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 yield break;
             }
 
-            attackMode.AttackTags.Add(RefreshSneakAttack);
-
+            var actionModifier = new ActionModifier();
             var attackParam = new BattleDefinitions.AttackEvaluationParams();
+            var removedSneakAttackMark = attacker.UsedSpecialFeatures.Remove(AdditionalDamageRogueSneakAttack.Name);
 
             if (attackMode.Ranged)
             {
                 attackParam.FillForPhysicalRangeAttack(helper, helper.LocationPosition, attackMode,
-                    defender, defender.LocationPosition, new ActionModifier());
+                    defender, defender.LocationPosition, actionModifier);
             }
             else
             {
                 attackParam.FillForPhysicalReachAttack(helper, helper.LocationPosition, attackMode,
-                    defender, defender.LocationPosition, new ActionModifier());
+                    defender, defender.LocationPosition, actionModifier);
             }
 
             if (!battleManager.CanAttack(attackParam))
@@ -312,18 +300,26 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 ActionDefinitions.Id.AttackOpportunity,
                 helper.RulesetCharacter.AttackModes[0],
                 defender,
-                new ActionModifier());
+                actionModifier);
 
             actionService.ReactForOpportunityAttack(reactionParams);
 
             yield return battleManager.WaitForReactions(helper, actionService, count);
+
+            // put back the sneak attack mark if it's removed and reaction was discarded
+            if (!reactionParams.ReactionValidated && removedSneakAttackMark)
+            {
+                attacker.UsedSpecialFeatures.Add(AdditionalDamageRogueSneakAttack.Name, 1);
+            }
         }
 
         private static bool ShouldTrigger(
+            IGameLocationBattleService battleService,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
             return helper.CanReact()
+                   && battleService.IsValidAttackerForOpportunityAttackOnCharacter(helper, defender)
                    && helper != Gui.Battle.ActiveContender
                    && defender.IsOppositeSide(helper.Side);
         }
