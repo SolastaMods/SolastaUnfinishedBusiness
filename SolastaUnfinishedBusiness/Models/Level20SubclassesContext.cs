@@ -472,8 +472,9 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
                     .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 0, DieType.D1, 10),
                         EffectFormBuilder.ConditionForm(conditionOathOfDevotionHolyNimbus,
@@ -606,6 +607,7 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeFire, 8, DieType.D6),
                         EffectFormBuilder.ConditionForm(conditionOathOfMotherlandFlamesOfMotherland,
