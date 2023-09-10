@@ -206,10 +206,56 @@ internal static class PowerBundle
             return int.MaxValue;
         }
 
-        if (power.RechargeRate == RechargeRate.KiPoints)
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+        switch (power.RechargeRate)
         {
-            return (character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints) /
-                   power.CostPerUse;
+            case RechargeRate.BardicInspiration:
+                return (character.TryGetAttributeValue(AttributeDefinitions.BardicInspirationNumber) -
+                        character.UsedBardicInspiration) /
+                       power.CostPerUse;
+            case RechargeRate.ChannelDivinity:
+                return (character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) -
+                        character.UsedChannelDivinity) /
+                       power.CostPerUse;
+            case RechargeRate.HealingPool:
+                return (character.TryGetAttributeValue(AttributeDefinitions.HealingPool) - character.UsedHealingPool) /
+                       power.CostPerUse;
+            case RechargeRate.MaxHitPoints:
+                return character.TryGetAttributeValue(AttributeDefinitions.HitPoints) / power.CostPerUse;
+            case RechargeRate.RagePoints:
+                return (character.TryGetAttributeValue(AttributeDefinitions.RagePoints) - character.UsedRagePoints) /
+                       power.CostPerUse;
+            case RechargeRate.SorceryPoints:
+                return (character.TryGetAttributeValue(AttributeDefinitions.SorceryPoints) -
+                        character.UsedSorceryPoints) /
+                       power.CostPerUse;
+            case RechargeRate.KiPoints:
+                return (character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints) /
+                       power.CostPerUse;
+#if false
+            case RechargeRate.AtWill:
+                break;
+            case RechargeRate.OneMinute:
+                break;
+            case RechargeRate.ShortRest:
+                break;
+            case RechargeRate.LongRest:
+                break;
+            case RechargeRate.Dawn:
+                break;
+            case RechargeRate.D6_6:
+                break;
+            case RechargeRate.SpellSlot:
+                break;
+            case RechargeRate.None:
+                break;
+            case RechargeRate.D6_56:
+                break;
+            case RechargeRate.BindChain:
+                break;
+            case RechargeRate.TurnStart:
+                break;
+#endif
         }
 
         if (power is IPowerSharedPool poolPower)
