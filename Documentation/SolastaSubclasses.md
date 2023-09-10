@@ -969,7 +969,7 @@ At level 14, once per turn when you kill one or more creatures with a spell of l
 
 * Possession
 
-Starting at 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 5x5 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion. You can use this feature once per long rest.
+Starting at 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 4x4 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion. You can use this feature once per long rest.
 
 
 

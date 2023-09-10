@@ -10,12 +10,10 @@
 - changed Resonating Strike to do fire damage, and renamed it to Burning Blade as not all flames are green
 - changed Roguish Opportunist progression as suggested by HiddenHax and original author Nd
 - changed Way of Silhouette progression by moving strong cloak of silhouette from level 6th to 11th
-- fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
 - fixed action switching interaction with actions that offer further selections in a modal and get cancelled by player
-- fixed College of Audacity mobile whirl duration to be until start of next turn instead of 1 hour
-- fixed higher ground rules adding +2 to attack modifier instead of +1 on magical attacks
-- fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
-- improved Cunning Strike and Devious Strike sub powers effects
+- fixed action switching interaction with quickened spells to only offer cantrips after casting, instead of all spells
+- fixed higher ground rules setting adding a +2 to attack modifiers instead of +1 on spell attacks
+- improved vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
 - improved vanilla Sorcerous Child of The Rift progression with Magic Mastery at level 18th
 - improved vanilla Sorcerous Draconic Bloodline progression with Draconic Presence at level 18th
 - improved vanilla Sorcerous Haunted Soul progression with Possession at level 18th

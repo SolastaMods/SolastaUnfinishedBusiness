@@ -73,16 +73,6 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return SetAdvancement(advancement, DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
-        ExtraAdditionalDamageAdvancement advancement,
-        int start = 0,
-        int increment = 1,
-        int step = 1,
-        int begin = 1)
-    {
-        return SetAdvancement((AdditionalDamageAdvancement)advancement, start, increment, step, begin);
-    }
-
     internal FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(
         AdditionalDamageTriggerCondition trigger)
     {
