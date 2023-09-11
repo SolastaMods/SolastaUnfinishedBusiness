@@ -657,7 +657,7 @@ At level 14, you obtain the ability to sprout a pair of Dragon Wings from your b
 
 * Draconic Presence
 
-Starting at 18th level, as an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear to a distance of 60 feet. For 1 minute or until you lose your concentration, each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed or frightened until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+Starting at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear to a distance of 60 feet. Each hostile creature in that area must succeed on a Wisdom saving throw or be charmed or frightened. Each creature can repeat the saving throw at the end of each of its turns.
 
 
 
@@ -1748,9 +1748,9 @@ Your Aura of Truth range increased to 30 ft.
 * Inquisitor's Zeal
 
 Starting at 20th level, as a bonus action, you gain the following benefits for one minute:
-• You have truesight with a range of 120 feet.
+• You have true sight with a range of 120 feet.
 • You have advantage with attacks against enemies who have darkvision.
-• You and all allies within 30 feet of you have advantage on all Wisdom saving throws.
+• You and all allies have advantage on all Wisdom saving throws.
 You can use this feature once per long rest.
 
 

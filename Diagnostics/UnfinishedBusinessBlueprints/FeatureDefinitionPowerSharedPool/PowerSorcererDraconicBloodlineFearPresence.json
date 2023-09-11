@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 21,
+    "targetParameter": 13,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnTurnStart, OnEnter",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -74,12 +74,12 @@
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionCharmed",
-          "conditionDefinition": "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
+          "conditionDefinitionName": "ConditionFrightened",
+          "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "c7dab70ff98d3ac4695734f118d8b9f2",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -164,8 +164,8 @@
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "activeEffectImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -314,7 +314,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 0,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -328,12 +328,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSorcererDraconicBloodlineAwePresenceTitle",
-    "description": "Feature/&PowerSorcererDraconicBloodlineAwePresenceDescription",
+    "title": "Feature/&PowerSorcererDraconicBloodlineFearPresenceTitle",
+    "description": "Feature/&PowerSorcererDraconicBloodlineFearPresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bc938fbed7c65d245bf4accea49f2be1",
-      "m_SubObjectName": "BlindingFlash",
+      "m_AssetGUID": "64cd942eb64eafc408351594d6bb52a6",
+      "m_SubObjectName": "Fear",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "09931585-27de-5a10-98b4-3a6f55d39bd3",
+  "guid": "c31634e0-3835-536d-862d-1239c6275d0d",
   "contentPack": 9999,
-  "name": "PowerSorcererDraconicBloodlineAwePresence"
+  "name": "PowerSorcererDraconicBloodlineFearPresence"
 }

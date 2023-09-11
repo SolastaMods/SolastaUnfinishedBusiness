@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -444,22 +445,19 @@ internal static class Level20SubclassesContext
 
         // Holy Nimbus
 
+        var savingThrowAffinityOathOfDevotionHolyNimbus = FeatureDefinitionBuilder
+            .Create("SavingThrowAffinityOathOfDevotionHolyNimbus")
+            .SetGuiPresentation("ConditionOathOfDevotionHolyNimbus", Category.Condition)
+            .AddToDB();
+
+        savingThrowAffinityOathOfDevotionHolyNimbus.SetCustomSubFeatures(
+            new ModifySavingThrowHolyNimbus(savingThrowAffinityOathOfDevotionHolyNimbus));
+
         var conditionOathOfDevotionHolyNimbus = ConditionDefinitionBuilder
             .Create("ConditionOathOfDevotionHolyNimbus")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
             .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create("SavingThrowAffinityOathOfDevotionHolyNimbus")
-                    .SetGuiPresentation("ConditionOathOfDevotionHolyNimbus", Category.Condition)
-                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
-                    .AddToDB())
+            .SetFeatures(savingThrowAffinityOathOfDevotionHolyNimbus)
             .AddToDB();
 
         var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
@@ -473,7 +471,8 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart |
+                                        RecurrentEffect.OnEnter)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 0, DieType.D1, 10),
@@ -525,6 +524,13 @@ internal static class Level20SubclassesContext
                 DamageAffinityPiercingResistance,
                 DamageAffinitySlashingResistance)
             .AddToDB();
+
+        conditionOathOfJugementFinalJudgementCaster.conditionStartParticleReference =
+            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
+        conditionOathOfJugementFinalJudgementCaster.conditionParticleReference =
+            ConditionDefinitions.ConditionShine.conditionParticleReference;
+        conditionOathOfJugementFinalJudgementCaster.conditionEndParticleReference =
+            new AssetReference();
 
         var powerOathOfJugementFinalJudgement = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfJugementFinalJudgement")
@@ -616,6 +622,16 @@ internal static class Level20SubclassesContext
                     .Build())
             .AddToDB();
 
+        var effectParticleParameters =
+            powerOathOfMotherlandFlamesOfMotherland.EffectDescription.EffectParticleParameters;
+
+        effectParticleParameters.conditionStartParticleReference =
+            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        effectParticleParameters.conditionParticleReference =
+            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        effectParticleParameters.conditionEndParticleReference =
+            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandFlamesOfMotherland, 20));
 
         //
@@ -642,7 +658,7 @@ internal static class Level20SubclassesContext
 
         var conditionOathOfTirmarInquisitorZeal = ConditionDefinitionBuilder
             .Create("ConditionOathOfTirmarInquisitorZeal")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionTruesight)
             .SetPossessive()
             .SetFeatures(savingThrowAffinityOathOfTirmarInquisitorZeal)
             .AddToDB();
@@ -657,9 +673,12 @@ internal static class Level20SubclassesContext
 
         var conditionOathOfTirmarInquisitorSelfZeal = ConditionDefinitionBuilder
             .Create("ConditionOathOfTirmarInquisitorSelfZeal")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionTruesight)
             .SetPossessive()
-            .SetFeatures(FeatureDefinitionSenses.SenseTruesight24, featureOathOfTirmarInquisitorZealAdvantage)
+            .SetFeatures(
+                savingThrowAffinityOathOfTirmarInquisitorZeal,
+                FeatureDefinitionSenses.SenseTruesight24,
+                featureOathOfTirmarInquisitorZealAdvantage)
             .AddToDB();
 
         var powerOathOfJugementInquisitorZeal = FeatureDefinitionPowerBuilder
@@ -670,12 +689,13 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorZeal),
                         EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorSelfZeal,
                             ConditionForm.ConditionOperation.Add, true))
-                    .SetParticleEffectParameters(PowerPaladinLayOnHands)
+                    .SetParticleEffectParameters(TrueSeeing)
                     .Build())
             .AddToDB();
 
@@ -833,16 +853,30 @@ internal static class Level20SubclassesContext
         // Draconic Bloodline
         //
 
-        var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerBuilder
+        var powerSorcererDraconicBloodlineAweOrFearPresence = FeatureDefinitionPowerBuilder
+            .Create("PowerSorcererDraconicBloodlineAweOrFearPresence")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
+            .SetEffectDescription( // for display purposes only
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .Build())
+            .AddToDB();
+
+        var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSorcererDraconicBloodlineAwePresence")
             .SetGuiPresentation(Category.Feature, PowerTraditionLightBlindingFlash)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
+            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlineAweOrFearPresence, 5)
+            // .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 21)
-                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -850,23 +884,23 @@ internal static class Level20SubclassesContext
                             .Create()
                             .SetConditionForm(ConditionDefinitions.ConditionCharmed,
                                 ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
                     .Build())
             .SetShowCasting(true)
-            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark)
             .AddToDB();
 
-        var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerBuilder
+        var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSorcererDraconicBloodlineFearPresence")
-            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
+            .SetGuiPresentation(Category.Feature, Fear)
+            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlineAweOrFearPresence, 5)
+            // .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 21)
-                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -874,17 +908,23 @@ internal static class Level20SubclassesContext
                             .Create()
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
+                    .SetParticleEffectParameters(PowerDragonFrightfulPresence)
                     .Build())
             .SetShowCasting(true)
-            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark)
             .AddToDB();
+
+        powerSorcererDraconicBloodlineFearPresence.EffectDescription.EffectParticleParameters.impactParticleReference =
+            new AssetReference();
 
         var featureSetSorcererDraconicBloodlinePresence = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererDraconicBloodlinePresence")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerSorcererDraconicBloodlineAwePresence, powerSorcererDraconicBloodlineFearPresence)
+            .AddFeatureSet(
+                powerSorcererDraconicBloodlineAweOrFearPresence,
+                powerSorcererDraconicBloodlineAwePresence,
+                powerSorcererDraconicBloodlineFearPresence)
             .AddToDB();
 
         SorcerousDraconicBloodline.FeatureUnlocks.Add(
@@ -963,6 +1003,37 @@ internal static class Level20SubclassesContext
     #region Paladin
 
     //
+    // Holy Nimbus
+    //
+
+    private sealed class ModifySavingThrowHolyNimbus : IModifySavingThrow
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ModifySavingThrowHolyNimbus(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        {
+            return attributeScore == AttributeDefinitions.Wisdom
+                   && rulesetCaster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" };
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+
+            return attribute;
+        }
+    }
+
+    //
     // Inquisitor's Zeal
     //
 
@@ -995,7 +1066,7 @@ internal static class Level20SubclassesContext
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
         }
     }
 

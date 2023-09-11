@@ -5,6 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:FeatureOathOfTirmarInquisitorZealAdvantage:4434679b-98c8-5754-bb94-3ecc3da54079",
+    "Definition:SavingThrowAffinityOathOfTirmarInquisitorZeal:d549a9e7-6736-55e7-a176-8a6c550b7cd3",
     "Definition:SenseTruesight24:364620407c08a584caf6c11ee80af855"
   ],
   "allowMultipleInstances": false,
@@ -135,9 +136,9 @@
     "description": "Condition/&ConditionOathOfTirmarInquisitorSelfZealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "da3138226e574a442803ae1229974089",
+      "m_SubObjectName": "ConditionDarkvision",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -8,13 +8,13 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 7,
+    "targetParameter": 13,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": true,
+    "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
-    "ignoreCover": false,
+    "savingThrowAbility": "Wisdom",
+    "ignoreCover": true,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "damageAffinitiesByFamily": [],
@@ -71,45 +71,18 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionOathOfTirmarInquisitorZeal",
-          "conditionDefinition": "Definition:ConditionOathOfTirmarInquisitorZeal:20d18091-b81f-5bdf-a67f-ed8446b44a07",
+          "conditionDefinitionName": "ConditionCharmed",
+          "conditionDefinition": "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionOathOfTirmarInquisitorSelfZeal",
-          "conditionDefinition": "Definition:ConditionOathOfTirmarInquisitorSelfZeal:b8046ab1-17e6-5381-8ea2-419d30a21e84",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -142,13 +115,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e533b60cf16eae846b302bba4c7eb84f",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b13dadf17e629f1498260cda5653cf71",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -166,7 +139,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7e4bb615fae08a14ab527ab661cd6cbf",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -190,7 +163,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c403157f4552068439eefad683faff34",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -276,7 +249,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "eec5108ec2d793743bcc6fb319a2c499",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -288,7 +261,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "79bf35a1ddfe7ec4891fe49f553176f8",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -335,8 +308,8 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
-  "costPerUse": 1,
+  "rechargeRate": "SorceryPoints",
+  "costPerUse": 5,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -355,12 +328,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOathOfTirmarInquisitorZealTitle",
-    "description": "Feature/&PowerOathOfTirmarInquisitorZealDescription",
+    "title": "Feature/&PowerSorcererDraconicBloodlineAwePresenceTitle",
+    "description": "Feature/&PowerSorcererDraconicBloodlineAwePresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "15fb8928ba3584f4dba2c227cf82409d",
-      "m_SubObjectName": "PactChainQuasit",
+      "m_AssetGUID": "bc938fbed7c65d245bf4accea49f2be1",
+      "m_SubObjectName": "BlindingFlash",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -376,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2c284229-f8bd-505f-b8e0-bd9b6bbb4239",
+  "guid": "09931585-27de-5a10-98b4-3a6f55d39bd3",
   "contentPack": 9999,
-  "name": "PowerOathOfTirmarInquisitorZeal"
+  "name": "PowerSorcererDraconicBloodlineAwePresence"
 }

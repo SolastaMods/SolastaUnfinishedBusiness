@@ -606,6 +606,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBody");
 
+        internal static ConditionDefinition ConditionTruesight { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTruesight");
+
         internal static ConditionDefinition ConditionTrueStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionTrueStrike");
 
@@ -1589,6 +1592,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDragonBreath_YoungGreen_Poison { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_YoungGreen_Poison");
+
+        internal static FeatureDefinitionPower PowerDragonFrightfulPresence { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence");
 
         internal static FeatureDefinitionPower PowerDruidWildShape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape");
@@ -3266,6 +3272,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Fireball { get; } = GetDefinition<SpellDefinition>("Fireball");
         internal static SpellDefinition FireBolt { get; } = GetDefinition<SpellDefinition>("FireBolt");
         internal static SpellDefinition FireShield { get; } = GetDefinition<SpellDefinition>("FireShield");
+        internal static SpellDefinition FireShieldWarm { get; } = GetDefinition<SpellDefinition>("FireShieldWarm");
         internal static SpellDefinition FlameBlade { get; } = GetDefinition<SpellDefinition>("FlameBlade");
         internal static SpellDefinition FlameStrike { get; } = GetDefinition<SpellDefinition>("FlameStrike");
         internal static SpellDefinition FlamingSphere { get; } = GetDefinition<SpellDefinition>("FlamingSphere");
@@ -3399,6 +3406,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Stoneskin { get; } = GetDefinition<SpellDefinition>("Stoneskin");
         internal static SpellDefinition Tongues { get; } = GetDefinition<SpellDefinition>("Tongues");
         internal static SpellDefinition Thunderwave { get; } = GetDefinition<SpellDefinition>("Thunderwave");
+        internal static SpellDefinition TrueSeeing { get; } = GetDefinition<SpellDefinition>("TrueSeeing");
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");
         internal static SpellDefinition VampiricTouch { get; } = GetDefinition<SpellDefinition>("VampiricTouch");
         internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");

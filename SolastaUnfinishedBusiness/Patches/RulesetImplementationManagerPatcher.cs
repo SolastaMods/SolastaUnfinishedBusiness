@@ -650,7 +650,8 @@ public static class RulesetImplementationManagerPatcher
         }
 
         private static void GetBestSavingThrowAbilityScore(
-            RulesetActor rulesetActor, ActionModifier actionModifier, ref string attributeScore)
+            RulesetActor rulesetActor, RulesetActor rulesetCaster, ActionModifier actionModifier,
+            ref string attributeScore)
         {
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
             {
@@ -665,9 +666,9 @@ public static class RulesetImplementationManagerPatcher
             var attr = attributeScore;
 
             foreach (var attribute in rulesetCharacter
-                         .GetSubFeaturesByType<IModifySavingThrowAttribute>()
-                         .Where(x => x.IsValid(rulesetCharacter, attr))
-                         .Select(x => x.SavingThrowAttribute(rulesetCharacter, actionModifier)))
+                         .GetSubFeaturesByType<IModifySavingThrow>()
+                         .Where(x => x.IsValid(rulesetCharacter, rulesetCaster, attr))
+                         .Select(x => x.AttributeAndActionModifier(rulesetCharacter, actionModifier, attr)))
             {
                 var newSavingThrowBonus =
                     AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attribute)) +
@@ -706,8 +707,8 @@ public static class RulesetImplementationManagerPatcher
                 OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
             }
 
-            //PATCH: supports IModifySavingThrowAttribute interface
-            GetBestSavingThrowAbilityScore(target, actionModifier, ref savingThrowAbility);
+            //PATCH: supports IModifySavingThrow interface
+            GetBestSavingThrowAbilityScore(target, caster, actionModifier, ref savingThrowAbility);
         }
 
         [UsedImplicitly]
