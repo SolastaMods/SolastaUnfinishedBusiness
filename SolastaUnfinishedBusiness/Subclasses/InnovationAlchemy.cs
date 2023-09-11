@@ -91,9 +91,11 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("AlchemyBombElement", Resources.AlchemyBombElement, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -113,9 +115,11 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("AlchemyBombAdvanced", Resources.AlchemyBombAdvanced, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 
@@ -210,13 +214,14 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(ConditionDefinitionBuilder
-                .Create($"ConditionInnovationAlchemy{DAMAGE}")
-                .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionShocked)
-                .SetGuiPresentation(ConditionDefinitions.ConditionShocked.GuiPresentation)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetConditionForm(
+                ConditionDefinitionBuilder
+                    .Create($"ConditionInnovationAlchemy{DAMAGE}")
+                    .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionShocked)
+                    .SetGuiPresentation(ConditionDefinitions.ConditionShocked.GuiPresentation)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
         var sprite = Sprites.GetSprite("AlchemyBombLightningSplash", Resources.AlchemyBombLightningSplash, 128);
@@ -246,15 +251,16 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var poisoned = ConditionDefinitions.ConditionPoisoned.GuiPresentation;
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(ConditionDefinitionBuilder
-                .Create($"ConditionInnovationAlchemy{DAMAGE}")
-                .SetGuiPresentation(poisoned.Title, "Condition/&ConditionInnovationAlchemyDamagePoisonDescription",
-                    poisoned.SpriteReference)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetConditionForm(
+                ConditionDefinitionBuilder
+                    .Create($"ConditionInnovationAlchemy{DAMAGE}")
+                    .SetGuiPresentation(poisoned.Title, "Condition/&ConditionInnovationAlchemyDamagePoisonDescription",
+                        poisoned.SpriteReference)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                    .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
         var spray = PoisonSpray.EffectDescription.effectParticleParameters;
@@ -352,7 +358,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(ConditionDefinitionBuilder
+            .SetConditionForm(
+                ConditionDefinitionBuilder
                     .Create($"ConditionInnovationAlchemy{DAMAGE}")
                     .SetGuiPresentation(branded)
                     .SetConditionType(ConditionType.Detrimental)
@@ -392,16 +399,19 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(ConditionDefinitionBuilder
-                .Create($"ConditionInnovationAlchemy{DAMAGE}")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
-                .SetRecurrentEffectForms(EffectFormBuilder.Create()
-                    .SetDamageForm(DAMAGE, dieType: DIE_TYPE, diceNumber: 2)
-                    .Build())
-                .SetSpecialDuration(DurationType.Round, 1)
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetConditionForm(
+                ConditionDefinitionBuilder
+                    .Create($"ConditionInnovationAlchemy{DAMAGE}")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
+                    .SetRecurrentEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DAMAGE, dieType: DIE_TYPE, diceNumber: 2)
+                            .Build())
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
         var splash = VampiricTouch.EffectDescription.effectParticleParameters;
@@ -433,18 +443,20 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(ConditionDefinitionBuilder
+            .SetConditionForm(
+                ConditionDefinitionBuilder
                     .Create($"ConditionInnovationAlchemy{DAMAGE}")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                     .SetConditionType(ConditionType.Detrimental)
-                    .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-                        .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
-                        .SetGuiPresentationNoContent()
-                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
-                            false,
-                            AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom,
-                            AttributeDefinitions.Charisma)
-                        .AddToDB())
+                    .SetFeatures(
+                        FeatureDefinitionSavingThrowAffinityBuilder
+                            .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
+                            .SetGuiPresentationNoContent()
+                            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
+                                false,
+                                AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom,
+                                AttributeDefinitions.Charisma)
+                            .AddToDB())
                     .SetSpecialDuration(DurationType.Round, 1)
                     .AddToDB(),
                 ConditionForm.ConditionOperation.Add)
@@ -479,18 +491,20 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(ConditionDefinitionBuilder
+            .SetConditionForm(
+                ConditionDefinitionBuilder
                     .Create($"ConditionInnovationAlchemy{DAMAGE}")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
                     .SetConditionType(ConditionType.Detrimental)
-                    .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-                        .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
-                        .SetGuiPresentationNoContent()
-                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
-                            false,
-                            AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
-                            AttributeDefinitions.Constitution)
-                        .AddToDB())
+                    .SetFeatures(
+                        FeatureDefinitionSavingThrowAffinityBuilder
+                            .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
+                            .SetGuiPresentationNoContent()
+                            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
+                                false,
+                                AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
+                                AttributeDefinitions.Constitution)
+                            .AddToDB())
                     .SetSpecialDuration(DurationType.Round, 1)
                     .AddToDB(),
                 ConditionForm.ConditionOperation.Add)
@@ -534,12 +548,16 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetShowCasting(false)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
@@ -555,16 +573,21 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetShowCasting(false)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"ConditionInnovationAlchemyMarker{DamageTypeFire}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"ConditionInnovationAlchemyMarker{DamageTypeFire}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
@@ -603,20 +626,23 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
-                .SetParticleEffectParameters(particleParameters)
-                .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetDamageForm(damageType, 3, dieType)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
+                    .SetParticleEffectParameters(particleParameters)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.None)
+                            .SetDamageForm(damageType, 3, dieType)
+                            .Build())
+                    .AddEffectForms(effects)
+                    .SetSpeed(SpeedType.CellsPerSeconds, 12)
+                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
                     .Build())
-                .AddEffectForms(effects)
-                .SetSpeed(SpeedType.CellsPerSeconds, 12)
-                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
-                .Build())
             .SetUseSpellAttack()
             .AddToDB();
 
@@ -636,33 +662,35 @@ public sealed class InnovationAlchemy : AbstractSubclass
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
         IPowerUseValidity validator,
-        params EffectForm[] effects
-    )
+        params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
 
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
-                .ExcludeCaster()
-                .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .SetSavingThrowData(
-                    false,
-                    savingThrowAbility,
-                    false,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Intelligence)
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
-                .SetParticleEffectParameters(particleParameters)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(damageType, 2, dieType)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
+                    .ExcludeCaster()
+                    .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        savingThrowAbility,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Intelligence)
+                    .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
+                    .SetParticleEffectParameters(particleParameters)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(damageType, 2, dieType)
+                            .Build())
+                    .AddEffectForms(effects)
                     .Build())
-                .AddEffectForms(effects)
-                .Build())
             .AddToDB();
 
         power.SetCustomSubFeatures(
@@ -688,25 +716,28 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
-                .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
-                .SetSavingThrowData(
-                    false,
-                    savingThrowAbility,
-                    false,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Intelligence)
-                .SetParticleEffectParameters(particleParameters)
-                .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .SetDamageForm(damageType, 2, dieType)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere)
+                    .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetCellsPerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        savingThrowAbility,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Intelligence)
+                    .SetParticleEffectParameters(particleParameters)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(damageType, 2, dieType)
+                            .Build())
+                    .AddEffectForms(effects)
+                    .SetSpeed(SpeedType.CellsPerSeconds, 8)
                     .Build())
-                .AddEffectForms(effects)
-                .SetSpeed(SpeedType.CellsPerSeconds, 8)
-                .Build())
             .AddToDB();
 
         power.SetCustomSubFeatures(

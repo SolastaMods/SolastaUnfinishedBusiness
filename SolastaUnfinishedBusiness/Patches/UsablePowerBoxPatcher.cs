@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -38,7 +39,7 @@ public static class UsablePowerBoxPatcher
             Tooltips.AddContextToPowerBoxTooltip(__instance);
 
             //PATCH: make reaction powers not active
-            if (__instance.usablePower.PowerDefinition.activationTime == RuleDefinitions.ActivationTime.Reaction)
+            if (__instance.usablePower.PowerDefinition.activationTime == ActivationTime.Reaction)
             {
                 __instance.canvasGroup.interactable = false;
                 __instance.titleActiveLabel.gameObject.SetActive(false);

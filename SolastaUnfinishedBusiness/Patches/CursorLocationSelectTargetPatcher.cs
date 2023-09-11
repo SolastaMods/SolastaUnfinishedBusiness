@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Spells;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
 
@@ -39,7 +40,7 @@ public static class CursorLocationSelectTargetPatcher
             //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
             if (__instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
                 rulesetEffectSpell.EffectDescription.RangeType is
-                    RuleDefinitions.RangeType.Touch or RuleDefinitions.RangeType.MeleeHit)
+                    RangeType.Touch or RangeType.MeleeHit)
             {
                 var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -62,7 +63,7 @@ public static class CursorLocationSelectTargetPatcher
                         var effectDescription = new EffectDescription();
 
                         effectDescription.Copy(__instance.effectDescription);
-                        effectDescription.rangeType = RuleDefinitions.RangeType.RangeHit;
+                        effectDescription.rangeType = RangeType.RangeHit;
                         effectDescription.rangeParameter = 24;
 
                         __instance.effectDescription = effectDescription;

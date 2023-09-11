@@ -10,9 +10,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static ActionDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -432,17 +432,18 @@ public sealed class RangerWildMaster : AbstractSubclass
             .Create(name)
             .SetGuiPresentation(title, description, monsterDefinition, true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSummonCreatureForm(1, spiritBeast.Name)
-                        .Build())
-                .SetParticleEffectParameters(ConjureElementalAir)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, spiritBeast.Name)
+                            .Build())
+                    .SetParticleEffectParameters(ConjureElementalAir)
+                    .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 SkipEffectRemovalOnLocationChange.Always,
@@ -596,14 +597,16 @@ public sealed class RangerWildMaster : AbstractSubclass
             .Create("PowerWildMasterSpiritBeastCommand")
             .SetGuiPresentation(Category.Feature, Command)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetCustomSubFeatures(new ShowInCombatWhenHasSpiritBeast())
             .AddToDB();
 

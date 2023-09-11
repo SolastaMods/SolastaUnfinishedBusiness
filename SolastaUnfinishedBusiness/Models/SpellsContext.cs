@@ -201,6 +201,8 @@ internal static class SpellsContext
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
         RegisterSpell(AirBlast, 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildBoomingBlade(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);

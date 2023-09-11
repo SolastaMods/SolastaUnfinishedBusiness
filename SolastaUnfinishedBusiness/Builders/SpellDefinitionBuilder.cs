@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -44,13 +45,13 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         return this;
     }
 
-    internal SpellDefinitionBuilder SetCastingTime(RuleDefinitions.ActivationTime castingTime)
+    internal SpellDefinitionBuilder SetCastingTime(ActivationTime castingTime)
     {
         Definition.castingTime = castingTime;
         return this;
     }
 
-    internal SpellDefinitionBuilder SetRitualCasting(RuleDefinitions.ActivationTime ritualCastingTime)
+    internal SpellDefinitionBuilder SetRitualCasting(ActivationTime ritualCastingTime)
     {
         Definition.ritual = true;
         Definition.ritualCastingTime = ritualCastingTime;
@@ -63,7 +64,7 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         return this;
     }
 
-    internal SpellDefinitionBuilder SetVocalSpellSameType(RuleDefinitions.VocalSpellSemeType type)
+    internal SpellDefinitionBuilder SetVocalSpellSameType(VocalSpellSemeType type)
     {
         Definition.vocalSpellSemeType = type;
         return this;
@@ -75,7 +76,7 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         return this;
     }
 
-    internal SpellDefinitionBuilder SetMaterialComponent(RuleDefinitions.MaterialComponentType materialComponentType)
+    internal SpellDefinitionBuilder SetMaterialComponent(MaterialComponentType materialComponentType)
     {
         Definition.materialComponentType = materialComponentType;
         return this;
@@ -86,7 +87,7 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         int specificMaterialComponentCostGp,
         bool specificMaterialComponentConsumed)
     {
-        Definition.materialComponentType = RuleDefinitions.MaterialComponentType.Specific;
+        Definition.materialComponentType = MaterialComponentType.Specific;
         Definition.specificMaterialComponentTag = specificMaterialComponentTag;
         Definition.specificMaterialComponentCostGp = specificMaterialComponentCostGp;
         Definition.specificMaterialComponentConsumed = specificMaterialComponentConsumed;

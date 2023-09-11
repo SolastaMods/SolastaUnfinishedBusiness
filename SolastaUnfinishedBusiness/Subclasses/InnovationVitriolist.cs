@@ -9,8 +9,8 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -75,11 +75,12 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .Create($"Condition{Name}Corroded")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeavilyEncumbered)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{Name}Corroded")
-                .SetGuiPresentation($"Condition{Name}Corroded", Category.Condition)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
-                .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}Corroded")
+                    .SetGuiPresentation($"Condition{Name}Corroded", Category.Condition)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
+                    .AddToDB())
             .AddToDB();
 
         var powerCorrosion = FeatureDefinitionPowerSharedPoolBuilder
@@ -247,7 +248,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddToDB();

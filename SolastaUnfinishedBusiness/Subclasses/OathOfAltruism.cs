@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -34,8 +35,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 BuildSpellGroup(5, CalmEmotions, HoldPerson),
                 BuildSpellGroup(9, Counterspell, HypnoticPattern),
                 BuildSpellGroup(13, DominateBeast, GuardianOfFaith),
-                BuildSpellGroup(17, HoldMonster, WallOfForce)
-            )
+                BuildSpellGroup(17, HoldMonster, WallOfForce))
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
@@ -78,12 +78,12 @@ public sealed class OathOfAltruism : AbstractSubclass
         var powerTakeThePain = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TakeThePain")
             .SetGuiPresentation(Category.Feature, BeaconOfHope)
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ChannelDivinity)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
-                        RuleDefinitions.TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 5,
+                        TargetType.IndividualsUnique)
                     .Build())
             .SetCustomSubFeatures(new AfterActionFinishedByMeTakeThePain())
             .AddToDB();
@@ -100,7 +100,7 @@ public sealed class OathOfAltruism : AbstractSubclass
         var magicAffinityExaltedProtector = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ExaltedProtector")
             .SetGuiPresentation($"Power{Name}ExaltedProtector", Category.Feature)
-            .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
         var conditionExaltedProtector = ConditionDefinitionBuilder
@@ -116,7 +116,7 @@ public sealed class OathOfAltruism : AbstractSubclass
 
         var powerExaltedProtector = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, $"Power{Name}ExaltedProtector")
-            .SetUsesFixed(RuleDefinitions.ActivationTime.Permanent)
+            .SetUsesFixed(ActivationTime.Permanent)
             .SetGuiPresentation(Category.Feature, GuardianOfFaith)
             .AddToDB();
 
@@ -186,7 +186,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                     .TryGetAttributeValue(AttributeDefinitions.Charisma));
 
                 self.RulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + myCharismaModifier,
-                    RuleDefinitions.DurationType.UntilAnyRest, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                    DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                     self.RulesetCharacter.guid);
             }
         }
@@ -266,9 +266,9 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             rulesetDefender.InflictCondition(
                 ConditionShielded.Name,
-                RuleDefinitions.DurationType.Round,
+                DurationType.Round,
                 1,
-                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 unitCharacter.guid,
                 unitCharacter.CurrentFaction.Name,

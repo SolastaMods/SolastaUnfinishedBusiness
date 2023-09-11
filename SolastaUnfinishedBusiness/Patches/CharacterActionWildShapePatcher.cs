@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -29,7 +30,7 @@ public class CharacterActionWildShapePatcher
             {
                 newParams.ActingCharacter = monster.OriginalFormCharacter.EntityImplementation as GameLocationCharacter;
                 monster.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagConjure,
-                    RuleDefinitions.ConditionWildShapeSubstituteForm);
+                    ConditionWildShapeSubstituteForm);
             }
 
             service.ExecuteAction(newParams, null, true);

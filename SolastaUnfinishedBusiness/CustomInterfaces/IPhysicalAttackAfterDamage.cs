@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -12,7 +13,7 @@ public interface IPhysicalAttackAfterDamage
     public void OnPhysicalAttackAfterDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        RuleDefinitions.RollOutcome outcome,
+        RollOutcome outcome,
         CharacterActionParams actionParams,
         RulesetAttackMode attackMode,
         ActionModifier attackModifier);

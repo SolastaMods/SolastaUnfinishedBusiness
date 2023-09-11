@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -38,7 +39,7 @@ public static class GameLocationActionManagerPatcher
             //PATCH: replace `OpportunityAttack` reaction with warcaster one
 
             //replace only for player characters
-            if (reactionParams.ActingCharacter.Side != RuleDefinitions.Side.Ally)
+            if (reactionParams.ActingCharacter.Side != Side.Ally)
             {
                 return true;
             }

@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -414,7 +415,7 @@ internal static class MulticlassGameUiContext
 
         var builder = new StringBuilder();
         var hero = character.RulesetCharacterHero;
-        var dieTypesCount = new Dictionary<RuleDefinitions.DieType, int>();
+        var dieTypesCount = new Dictionary<DieType, int>();
         const char SEPARATOR = ' ';
 
         foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
@@ -739,7 +740,7 @@ internal static class MulticlassGameUiContext
         }
         else
         {
-            var num = Mathf.Max(0.0f, RuleDefinitions.ExperienceThresholds[characterLevel] - experience);
+            var num = Mathf.Max(0.0f, ExperienceThresholds[characterLevel] - experience);
 
             builder.Append(Gui.Format("Format/&LevelAndExperienceFormat", characterLevel.ToString("N0"),
                 experience.ToString("N0"), num.ToString("N0"), (characterLevel + 1).ToString("N0")));

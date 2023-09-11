@@ -2,8 +2,8 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
+using static FeatureDefinitionAbilityCheckAffinity;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 

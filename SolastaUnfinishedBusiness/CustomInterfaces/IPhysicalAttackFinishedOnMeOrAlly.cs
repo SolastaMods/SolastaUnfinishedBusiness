@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -13,6 +14,6 @@ public interface IPhysicalAttackFinishedOnMeOrAlly
         GameLocationCharacter defender,
         GameLocationCharacter me,
         RulesetAttackMode attackerAttackMode,
-        RuleDefinitions.RollOutcome attackRollOutcome,
+        RollOutcome attackRollOutcome,
         int damageAmount);
 }

@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using UnityEngine;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
@@ -103,8 +104,7 @@ public sealed class MartialMarshal : AbstractSubclass
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetNotificationTag("KnowYourEnemy")
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
     }
 
@@ -116,20 +116,24 @@ public sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalStudyYourEnemy")
             .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(IdentifyCreatures.EffectDescription)
-                .SetDurationData(DurationType.Instantaneous)
-                .ClearRestrictedCreatureFamilies()
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionMarshalStudyYourEnemy")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new StudyYourEnemy())
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(IdentifyCreatures)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .ClearRestrictedCreatureFamilies()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionMarshalStudyYourEnemy")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetCustomSubFeatures(new StudyYourEnemy())
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .Build())
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .Build())
             .AddToDB();
     }
 
@@ -172,21 +176,22 @@ public sealed class MartialMarshal : AbstractSubclass
                 DamageAffinityAcidResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityThunderResistance,
-                ConditionAffinityHinderedByFrostImmunity
-            )
+                ConditionAffinityHinderedByFrostImmunity)
             .SetAttackIterations(new MonsterAttackIteration(
                 MonsterAttackDefinitionBuilder
                     .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword,
                         "MonsterAttackMarshalEternalComrade")
                     .SetToHitBonus(5)
-                    .SetEffectDescription(EffectDescriptionBuilder
-                        .Create()
-                        .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
-                        .SetEffectForms(EffectFormBuilder
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
+                            .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
+                                    .Build())
                             .Build())
-                        .Build())
                     .SetMagical()
                     .AddToDB(),
                 1))
@@ -210,15 +215,16 @@ public sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalSummonEternalComrade")
             .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 2)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(ConjureAnimalsOneBeast.EffectDescription)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSummonCreatureForm(1, EternalComradeName)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ConjureAnimalsOneBeast.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, EternalComradeName)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
@@ -226,7 +232,7 @@ public sealed class MartialMarshal : AbstractSubclass
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+            .SetModifier(AttributeModifierOperation.AddConditionAmount,
                 AttributeDefinitions.HitPoints)
             .AddToDB();
 
@@ -312,18 +318,19 @@ public sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionEncourage, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionEncourage, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetShowCasting(false)
             .AddToDB();
     }
@@ -335,18 +342,19 @@ public sealed class MartialMarshal : AbstractSubclass
             .Create("PowerMarshalImprovedEncouragement")
             .SetGuiPresentation(Category.Feature, Bless)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionEncourage, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionEncourage, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetOverriddenPower(overridenPower)
             .SetShowCasting(false)
             .AddToDB();
@@ -368,7 +376,7 @@ public sealed class MartialMarshal : AbstractSubclass
                         .Create($"AttributeModifierKnowledgeableDefenseAC{i}")
                         .SetGuiPresentation("Feature/&FeatureMarshalKnowledgeableDefenseTitle",
                             $"Feature/&AttributeModifierACPlus{i}Description")
-                        .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        .SetModifier(AttributeModifierOperation.Additive,
                             AttributeDefinitions.ArmorClass, i)
                         .AddToDB())
                 .AddToDB();

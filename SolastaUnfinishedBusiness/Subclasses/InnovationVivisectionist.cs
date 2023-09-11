@@ -65,7 +65,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder

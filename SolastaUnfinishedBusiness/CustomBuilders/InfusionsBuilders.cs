@@ -39,12 +39,13 @@ internal static class InventorInfusions
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
-        UpgradeInfusionPower(power, UpgradeLevel, FeatureDefinitionMagicAffinityBuilder
-            //TODO: RAW needs to require attunement
-            .Create($"MagicAffinity{name}Upgraded")
-            .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-            .SetCastingModifiers(2, dcModifier: 2)
-            .AddToDB());
+        UpgradeInfusionPower(
+            power, UpgradeLevel, FeatureDefinitionMagicAffinityBuilder
+                //TODO: RAW needs to require attunement
+                .Create($"MagicAffinity{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetCastingModifiers(2, dcModifier: 2)
+                .AddToDB());
 
         #endregion
 
@@ -58,11 +59,12 @@ internal static class InventorInfusions
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                 .AddToDB());
 
-        UpgradeInfusionPower(power, UpgradeLevel, FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{name}Upgraded")
-            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-            .AddToDB());
+        UpgradeInfusionPower(
+            power, UpgradeLevel, FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+                .AddToDB());
 
         #endregion
 
@@ -70,21 +72,23 @@ internal static class InventorInfusions
 
         name = "InfusionEnhanceWeapon";
         sprite = Sprites.GetSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
-        power = BuildInfuseItemPowerInvocation(1, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
-            .Create($"AttackModifier{name}")
-            .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-            .SetAttackRollModifier(1)
-            .SetDamageRollModifier(1)
-            .SetMagicalWeapon()
-            .AddToDB());
+        power = BuildInfuseItemPowerInvocation(
+            1, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
+                .AddToDB());
 
-        UpgradeInfusionPower(power, UpgradeLevel, FeatureDefinitionAttackModifierBuilder
-            .Create($"AttackModifier{name}Upgraded")
-            .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
-            .SetAttackRollModifier(2)
-            .SetDamageRollModifier(2)
-            .SetMagicalWeapon()
-            .AddToDB());
+        UpgradeInfusionPower(
+            power, UpgradeLevel, FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}Upgraded")
+                .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
+                .SetAttackRollModifier(2)
+                .SetDamageRollModifier(2)
+                .SetMagicalWeapon()
+                .AddToDB());
 
         #endregion
 
@@ -92,12 +96,13 @@ internal static class InventorInfusions
 
         name = "InfusionMindSharpener";
         sprite = Sprites.GetSprite("MindSharpener", Resources.MindSharpener, 128);
-        BuildInfuseItemPowerInvocation(1, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
-            .Create($"MagicAffinity{name}")
-            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
-            //RAW it adds reaction to not break concentration
-            .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
-            .AddToDB());
+        BuildInfuseItemPowerInvocation(
+            1, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
+                .Create($"MagicAffinity{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
+                //RAW it adds reaction to not break concentration
+                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 10)
+                .AddToDB());
 
         #endregion
 
@@ -105,14 +110,15 @@ internal static class InventorInfusions
 
         sprite = Sprites.GetSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeapon";
-        BuildInfuseItemPowerInvocation(1, name, sprite, IsThrownWeapon, FeatureDefinitionAttackModifierBuilder
-            .Create($"AttackModifier{name}")
-            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
-            .SetCustomSubFeatures(ReturningWeapon.AlwaysValid)
-            .SetAttackRollModifier(1)
-            .SetDamageRollModifier(1)
-            .SetMagicalWeapon()
-            .AddToDB());
+        BuildInfuseItemPowerInvocation(
+            1, name, sprite, IsThrownWeapon, FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
+                .SetCustomSubFeatures(ReturningWeapon.AlwaysValid)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
+                .AddToDB());
 
         #endregion
 
@@ -120,14 +126,15 @@ internal static class InventorInfusions
 
         sprite = Sprites.GetSprite("RepeatingShot", Resources.RepeatingShot, 128);
         name = "InfusionRepeatingShot";
-        BuildInfuseItemPowerInvocation(1, name, sprite, IsLoading, FeatureDefinitionAttackModifierBuilder
-            .Create($"AttackModifier{name}")
-            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionJump)
-            .SetCustomSubFeatures(RepeatingShot.Instance)
-            .SetAttackRollModifier(1)
-            .SetDamageRollModifier(1)
-            .SetMagicalWeapon()
-            .AddToDB());
+        BuildInfuseItemPowerInvocation(
+            1, name, sprite, IsLoading, FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{name}")
+                .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionJump)
+                .SetCustomSubFeatures(RepeatingShot.Instance)
+                .SetAttackRollModifier(1)
+                .SetDamageRollModifier(1)
+                .SetMagicalWeapon()
+                .AddToDB());
 
         #endregion
 
@@ -165,12 +172,13 @@ internal static class InventorInfusions
             powers.Add(power);
         }
 
-        var masterPower = BuildInfuseItemPowerInvocation(1, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{name}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
-            .AddToDB());
+        var masterPower = BuildInfuseItemPowerInvocation(
+            1, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{name}")
+                .SetGuiPresentation(name, Category.Feature, sprite)
+                .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
+                .SetCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
 
@@ -226,12 +234,13 @@ internal static class InventorInfusions
             powers.Add(power);
         }
 
-        masterPower = BuildInfuseItemPowerInvocation(6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{name}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
-            .AddToDB());
+        masterPower = BuildInfuseItemPowerInvocation(
+            6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{name}")
+                .SetGuiPresentation(name, Category.Feature, sprite)
+                .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
+                .SetCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
 
@@ -269,12 +278,13 @@ internal static class InventorInfusions
             powers.Add(power);
         }
 
-        masterPower = BuildInfuseItemPowerInvocation(10, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{name}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
-            .AddToDB());
+        masterPower = BuildInfuseItemPowerInvocation(
+            10, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{name}")
+                .SetGuiPresentation(name, Category.Feature, sprite)
+                .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
+                .SetCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
 
@@ -449,10 +459,12 @@ internal static class InventorInfusions
                 itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
             .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
             .SetDurationData(DurationType.Permanent)
-            .SetEffectForms(EffectFormBuilder.Create()
-                .HasSavingThrow(EffectSavingThrowType.None)
-                .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
-                .Build())
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.None)
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1, properties.ToArray())
+                    .Build())
             .Build();
     }
 
@@ -468,18 +480,20 @@ internal static class InventorInfusions
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
                 PowerFromInvocation.Marker)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(SpellDefinitions.Bless)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .HasSavingThrow(EffectSavingThrowType.None)
-                    .SetSummonItemForm(item, 1, true)
+                    .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(SpellDefinitions.Bless)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.None)
+                            .SetSummonItemForm(item, 1, true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         power.GuiPresentation.title = item.FormatTitle();

@@ -91,42 +91,45 @@ internal static class ClassFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCallForCharge")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionPowerBuilder
-                .Create($"Power{NAME}")
-                .SetGuiPresentation(Category.Feature,
-                    Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
-                .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                        .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"Condition{NAME}")
-                                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                        .SetPossessive()
-                                        .SetFeatures(
-                                            FeatureDefinitionMovementAffinityBuilder
-                                                .Create($"MovementAffinity{NAME}")
-                                                .SetGuiPresentation($"Condition{NAME}", Category.Condition)
-                                                .SetBaseSpeedAdditiveModifier(3)
-                                                .AddToDB(),
-                                            FeatureDefinitionCombatAffinityBuilder
-                                                .Create($"CombatAffinity{NAME}")
-                                                .SetGuiPresentation($"Condition{NAME}", Category.Condition)
-                                                .SetMyAttackAdvantage(AdvantageType.Advantage)
-                                                .AddToDB())
-                                        .AddToDB(),
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .SetParticleEffectParameters(MagicWeapon)
-                        .Build())
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionPowerBuilder
+                    .Create($"Power{NAME}")
+                    .SetGuiPresentation(Category.Feature,
+                        Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
+                    .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest,
+                        AttributeDefinitions.Charisma)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetConditionForm(
+                                        ConditionDefinitionBuilder
+                                            .Create($"Condition{NAME}")
+                                            .SetGuiPresentation(Category.Condition,
+                                                ConditionDefinitions.ConditionBlessed)
+                                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                            .SetPossessive()
+                                            .SetFeatures(
+                                                FeatureDefinitionMovementAffinityBuilder
+                                                    .Create($"MovementAffinity{NAME}")
+                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition)
+                                                    .SetBaseSpeedAdditiveModifier(3)
+                                                    .AddToDB(),
+                                                FeatureDefinitionCombatAffinityBuilder
+                                                    .Create($"CombatAffinity{NAME}")
+                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition)
+                                                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                                                    .AddToDB())
+                                            .AddToDB(),
+                                        ConditionForm.ConditionOperation.Add)
+                                    .Build())
+                            .SetParticleEffectParameters(MagicWeapon)
+                            .Build())
+                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetValidators(ValidatorsFeat.IsPaladinLevel1)
             .AddToDB();
@@ -661,19 +664,25 @@ internal static class ClassFeats
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotTitle", i.ToString()),
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotDescription", i.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
-                    .SetDurationData(DurationType.UntilLongRest)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create($"Condition{NAME}Gain{i}Slot")
-                            .SetGuiPresentationNoContent(true)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetFeatures(
-                                GetDefinition<FeatureDefinitionMagicAffinity>($"MagicAffinityAdditionalSpellSlot{i}"))
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.UntilLongRest)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    ConditionDefinitionBuilder
+                                        .Create($"Condition{NAME}Gain{i}Slot")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetSilent(Silent.WhenAddedOrRemoved)
+                                        .SetFeatures(
+                                            GetDefinition<FeatureDefinitionMagicAffinity>(
+                                                $"MagicAffinityAdditionalSpellSlot{i}"))
+                                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                                .Build())
                         .Build())
-                    .Build())
                 .AddToDB();
 
             powerGainSlot.SetCustomSubFeatures(new SpendWildShapeUse(powerGainSlot));
@@ -1144,21 +1153,23 @@ internal static class ClassFeats
                     Gui.Format($"Feature/&Power{NAME}Title", Gui.ToRoman(i)),
                     Gui.Format($"Feature/&Power{NAME}Description", i.ToString(), rounds.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, powerPool)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
-                    .SetDurationData(DurationType.Round, rounds)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(
-                        ConditionDefinitionBuilder
-                            .Create($"Condition{NAME}{i}")
-                            .SetGuiPresentation(
-                                "Condition/&ConditionFeatSlayTheEnemiesTitle",
-                                Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
-                                    i.ToString()), ConditionDefinitions.ConditionTrueStrike)
-                            .SetPossessive()
-                            .SetFixedAmount(i)
-                            .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
-                            .AddToDB()))
-                    .Build())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round, rounds)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}{i}")
+                                .SetGuiPresentation(
+                                    "Condition/&ConditionFeatSlayTheEnemiesTitle",
+                                    Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
+                                        i.ToString()), ConditionDefinitions.ConditionTrueStrike)
+                                .SetPossessive()
+                                .SetFixedAmount(i)
+                                .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
+                                .AddToDB()))
+                        .Build())
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(
                         c =>

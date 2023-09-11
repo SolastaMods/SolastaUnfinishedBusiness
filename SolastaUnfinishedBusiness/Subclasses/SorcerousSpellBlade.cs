@@ -9,8 +9,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -95,7 +95,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
         var powerManaShieldPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ManaShieldPoints")
             .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature, spriteManaShield)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2, 0)
             .SetEffectDescription(effectDescriptionManaShield)
             .AddToDB();
 

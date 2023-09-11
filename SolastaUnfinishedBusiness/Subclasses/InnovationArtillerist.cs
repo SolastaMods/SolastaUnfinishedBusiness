@@ -14,9 +14,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static ActionDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
@@ -283,7 +283,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
@@ -306,7 +305,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddToDB();
@@ -419,7 +417,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
@@ -796,17 +793,18 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(name + level)
             .SetGuiPresentation($"Power{Name}{powerName}", Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Hour, 1)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 1, TargetType.Position)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSummonCreatureForm(1, monster.Name)
-                        .Build())
-                .SetParticleEffectParameters(ConjureGoblinoids)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 1, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, monster.Name)
+                            .Build())
+                    .SetParticleEffectParameters(ConjureGoblinoids)
+                    .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
             .AddToDB();
@@ -895,17 +893,18 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(name + level)
             .SetGuiPresentation(name, Category.Feature, GuiPresentationBuilder.EmptyString, hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Hour, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionDefinition, ConditionForm.ConditionOperation.Add, true)
-                        .Build())
-                .SetParticleEffectParameters(ConjureGoblinoids)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDefinition, ConditionForm.ConditionOperation.Add, true)
+                            .Build())
+                    .SetParticleEffectParameters(ConjureGoblinoids)
+                    .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
             .AddToDB();

@@ -20,7 +20,7 @@
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageThunder",
+  "specificDamageType": "DamageFire",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": 9000,
   "diceByRankTable": [
@@ -32,102 +32,102 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
-      "diceNumber": 1
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
-      "diceNumber": 1
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
-      "diceNumber": 1
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 4,
-      "diceNumber": 1
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 5,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 6,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 7,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 8,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 9,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 11,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 12,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 13,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 14,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 15,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 16,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 17,
-      "diceNumber": 4
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 18,
-      "diceNumber": 4
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 19,
-      "diceNumber": 4
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 20,
-      "diceNumber": 4
+      "diceNumber": 3
     }
   ],
   "familiesWithAdditionalDice": [],
@@ -144,7 +144,7 @@
   "lightSourceForm": null,
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
+    "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

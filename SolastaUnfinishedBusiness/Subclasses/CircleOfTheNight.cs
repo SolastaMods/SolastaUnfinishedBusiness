@@ -174,15 +174,19 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetOverriddenPower(PowerDruidWildShape)
             .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
             .DelegatedToAction()
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.HalfClassLevelHours)
-                .SetParticleEffectParameters(PowerDruidWildShape)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetShapeChangeForm(ShapeChangeForm.Type.ClassLevelListSelection, true,
-                        ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.HalfClassLevelHours)
+                    .SetParticleEffectParameters(PowerDruidWildShape)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetShapeChangeForm(ShapeChangeForm.Type.ClassLevelListSelection, true,
+                                ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         power.SetCustomSubFeatures(new ActionFinishedByMeWildShape(power));
@@ -372,7 +376,6 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetRequiredCondition(ConditionDefinitions.ConditionWildShapeSubstituteForm)
-            .SetDurationData(DurationType.Instantaneous)
             .SetEffectForms(healingForm)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .SetParticleEffectParameters(SpellDefinitions.Heal)

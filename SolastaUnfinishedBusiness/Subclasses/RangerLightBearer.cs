@@ -12,8 +12,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -93,7 +94,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             .Create($"AttributeModifier{Name}LifeBringerBase")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+                AttributeModifierOperation.Set,
                 AttributeDefinitions.HealingPool)
             .AddToDB();
 
@@ -101,7 +102,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             .Create($"AttributeModifier{Name}LifeBringerAdditive")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeModifierOperation.Additive,
                 AttributeDefinitions.HealingPool, 1)
             .AddToDB();
 
@@ -218,7 +219,6 @@ public sealed class RangerLightBearer : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder

@@ -10,11 +10,11 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
@@ -43,31 +43,32 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
-                .ExcludeCaster()
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Constitution,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeCold, 3, DieType.D8)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build())
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionGrappledRestrainedIceBound, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                    .ExcludeCaster()
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeCold, 3, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionGrappledRestrainedIceBound, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(2)
             .SetVerboseComponent(false)
@@ -132,11 +133,12 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .CopyParticleReferences(ConditionBlurred)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureMirrorImage")
-                .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
-                .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("FeatureMirrorImage")
+                    .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+                    .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+                    .AddToDB())
             .AddToDB();
 
         var spell = MirrorImage;
@@ -153,9 +155,11 @@ internal static partial class SpellBuilders
         spell.effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(DurationType.Minute, 1)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetEffectForms(EffectFormBuilder.Create()
-                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                .Build())
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                    .Build())
             .SetParticleEffectParameters(Blur)
             .Build();
 
@@ -193,18 +197,19 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(2)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(InsectPlague.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Strength,
-                    false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(InsectPlague.EffectDescription)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Strength,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .Build())
             .AddToDB();
 
         //TODO: move this into a builder
@@ -244,18 +249,19 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpikeGrowth.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 3)
-                .SetDurationData(DurationType.Minute, 10)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                .SetRecurrentEffect(RecurrentEffect.OnEnter)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Wisdom,
-                    false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpikeGrowth.EffectDescription)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 3)
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Wisdom,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .Build())
             .SetRequiresConcentration(false)
             .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
@@ -311,25 +317,26 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetSpellLevel(2)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Grease)
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
-                .SetDurationData(DurationType.Hour, 1)
-                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    Entangle.EffectDescription.EffectForms[0],
-                    Entangle.EffectDescription.EffectForms[1],
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionRestrainedBySpellWeb, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Grease)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        Entangle.EffectDescription.EffectForms[0],
+                        Entangle.EffectDescription.EffectForms[1],
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionRestrainedBySpellWeb, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
@@ -362,7 +369,9 @@ internal static partial class SpellBuilders
 
         itemShadowBlade.activeTags.Clear();
         itemShadowBlade.isLightSourceItem = false;
-        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.Scimitar.ItemPresentation.AssetReference;
+        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.ScimitarPlus2.ItemPresentation.AssetReference;
+        itemShadowBlade.weaponDefinition.EffectDescription.EffectParticleParameters.impactParticleReference =
+            EffectProxyDefinitions.ProxyArcaneSword.attackImpactParticle;
 
         var weaponDescription = itemShadowBlade.WeaponDescription;
 

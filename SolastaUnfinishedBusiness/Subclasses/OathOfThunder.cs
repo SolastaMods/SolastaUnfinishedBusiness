@@ -77,7 +77,6 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -179,7 +178,6 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
                     .InviteOptionalAlly()
                     .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
@@ -200,7 +198,6 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -227,7 +224,6 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 5)
                     .SetSavingThrowData(true, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)

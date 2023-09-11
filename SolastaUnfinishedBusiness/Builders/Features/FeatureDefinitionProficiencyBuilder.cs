@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -9,7 +10,7 @@ internal class FeatureDefinitionProficiencyBuilder
     : DefinitionBuilder<FeatureDefinitionProficiency, FeatureDefinitionProficiencyBuilder>
 {
     internal FeatureDefinitionProficiencyBuilder SetProficiencies(
-        RuleDefinitions.ProficiencyType type,
+        ProficiencyType type,
         params string[] proficiencies)
     {
         Definition.proficiencyType = type;

@@ -11,9 +11,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -66,7 +66,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
 
-        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowAttributeFuriousDefense(featureFuriousDefense));
+        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowFuriousDefense(featureFuriousDefense));
 
         // LEVEL 10
 
@@ -296,24 +296,25 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class ModifySavingThrowAttributeFuriousDefense : IModifySavingThrowAttribute
+    private sealed class ModifySavingThrowFuriousDefense : IModifySavingThrow
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ModifySavingThrowAttributeFuriousDefense(FeatureDefinition featureDefinition)
+        public ModifySavingThrowFuriousDefense(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(RulesetActor rulesetActor, string attributeScore)
+        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Dexterity &&
                    rulesetActor.HasAnyConditionOfType(ConditionRaging);
         }
 
-        public string SavingThrowAttribute(
+        public string AttributeAndActionModifier(
             RulesetActor rulesetActor,
-            ActionModifier actionModifier)
+            ActionModifier actionModifier,
+            string attribute)
         {
             (rulesetActor as RulesetCharacter)!.LogCharacterUsedFeature(_featureDefinition);
 

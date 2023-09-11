@@ -156,6 +156,13 @@ You can use your Bonus Action to sacrifice 5 Hit Points, in order to regain imme
 At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied space you can see. Any enemy within 1 cell of your landing position takes force damage equal to your CHA modifier (minimum 1). You can use Riftwalk a number of times equal to your proficiency bonus per long rest.
 
 
+## Level 18
+
+* Rift Magic Mastery
+
+Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling a 18, 19 or 20.
+
+
 
 # 4. - Circle of Balance
 
@@ -646,6 +653,13 @@ When dealing spell damage that matches your draconic ancestry, you add your char
 At level 14, you obtain the ability to sprout a pair of Dragon Wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn.
 
 
+## Level 18
+
+* Draconic Presence
+
+Starting at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear to a distance of 60 feet. Each hostile creature in that area must succeed on a Wisdom saving throw or be charmed or frightened. Each creature can repeat the saving throw at the end of each of its turns.
+
+
 
 # 16. - Elemental (Fire)
 
@@ -949,6 +963,13 @@ You can use a bonus action to call forth the spirits inside you for up to 1 minu
 * Soul Drain
 
 At level 14, once per turn when you kill one or more creatures with a spell of level 1 or higher, you regain 1 sorcery point. Soul Drain does not work on creatures of CR 1/2 or lower.
+
+
+## Level 18
+
+* Possession
+
+Starting at 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 4x4 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion. You can use this feature once per long rest.
 
 
 
@@ -1325,6 +1346,15 @@ When you finish a Short Rest, you can regain a number of Sorcery points equal to
 At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point you spend.
 
 
+## Level 18
+
+* Mana Overflow
+
+Starting at 18th level, you gain the following benefits:
+• Whenever you succeed on a saving throw against a spell or other magic effects, you regain 1 sorcery point.
+• Your Mana Drain does 4d10 + your Charisma modifier damage and restores 2 sorcery points instead.
+
+
 
 # 28. - Marksman
 
@@ -1530,6 +1560,13 @@ Starting at level 15, you are always under the effects of a protection from evil
 Your Aura of Devotion range increased to 30 ft.
 
 
+## Level 20
+
+* Holy Nimbus
+
+Starting at 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage. In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead. Once you use this feature, you can't use it again until you finish a long rest.
+
+
 
 # 32. - Oath of Judgement
 
@@ -1580,6 +1617,17 @@ Starting at level 15, whenever an enemy within 6 cells deals damage to you, you 
 Your Aura of Rightenousness range increased to 30 ft.
 
 
+## Level 20
+
+* Final Judgement
+
+Starting at 20th level, as an action, you gain the following benefits for one minute:
+• You have resistance to bludgeoning, piercing, and slashing damage from non magical weapons.
+• When you take the Attack action on your turn, you can make one additional attack as part of that action.
+• Your critical threshold reduces by 1.
+You can use this feature once per long rest.
+
+
 
 # 33. - Oath of the Motherland
 
@@ -1628,6 +1676,17 @@ Starting at level 15, you are immune to fire and your skin covers with stone sca
 * Improved Volcanic Aura
 
 Your Volcanic Aura range increased to 30 ft.
+
+
+## Level 20
+
+* Flames of Motherland
+
+Starting at 20th level, as an action, you gain the following benefits for one minute:
+• Upon activation, all enemy creatures within 30 feet of you receive 8d6 fire damage.
+• All your weapon attacks deal an additional 2d6 fire damage.
+• Any creature within 5 feet of you that hits you with a melee weapon attack receives 10 fire damage.
+You can use this feature once per long rest.
 
 
 
@@ -1682,6 +1741,17 @@ Starting at level 15, when you use a melee attack to strike an opponent who has 
 * Improved Aura of Truth
 
 Your Aura of Truth range increased to 30 ft.
+
+
+## Level 20
+
+* Inquisitor's Zeal
+
+Starting at 20th level, as a bonus action, you gain the following benefits for one minute:
+• You have true sight with a range of 120 feet.
+• You have advantage with attacks against enemies who have darkvision.
+• You and all allies have advantage on all Wisdom saving throws.
+You can use this feature once per long rest.
 
 
 
@@ -1978,7 +2048,7 @@ You can use your Sneak Attack when you damage enemies with spells which require 
 
 * Shadow Form
 
-At 17th level, you can use your bonus action to magically transform yourself into a shadowy form for one minute. While in this form, you gain the following benefits:
+Starting at 17th level, you can use your bonus action to magically transform yourself into a shadowy form for one minute. While in this form, you gain the following benefits:
 • You have resistance to all damage types except radiant.
 • You are immune to difficult terrains.
 • You don't provoke opportunity attacks.

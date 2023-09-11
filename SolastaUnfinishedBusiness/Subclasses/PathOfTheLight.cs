@@ -46,13 +46,14 @@ public sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 InvisibleConditions
-                    .Select(x => FeatureDefinitionConditionAffinityBuilder
-                        .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
-                                x.Name.Replace("Condition", string.Empty))
-                        .SetGuiPresentationNoContent(true)
-                        .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                        .SetConditionType(x)
-                        .AddToDB())
+                    .Select(
+                        x => FeatureDefinitionConditionAffinityBuilder
+                            .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
+                                    x.Name.Replace("Condition", string.Empty))
+                            .SetGuiPresentationNoContent(true)
+                            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                            .SetConditionType(x)
+                            .AddToDB())
                     .OfType<FeatureDefinition>()
                     .ToArray())
             .AddToDB();
@@ -163,23 +164,24 @@ public sealed class PathOfTheLight : AbstractSubclass
             .Create("PowerPathOfTheLightEyesOfTruth")
             .SetGuiPresentation(Category.Feature, SeeInvisibility)
             .SetUsesFixed(ActivationTime.Permanent)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create("ConditionPathOfTheLightEyesOfTruth")
-                                .SetGuiPresentation(Category.Condition, ConditionSeeInvisibility)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionPathOfTheLightEyesOfTruth")
+                                    .SetGuiPresentation(Category.Condition, ConditionSeeInvisibility)
+                                    .SetSilent(Silent.WhenAddedOrRemoved)
+                                    .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetShowCasting(false)
             .AddToDB();
 

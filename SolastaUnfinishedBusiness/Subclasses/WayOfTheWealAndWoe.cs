@@ -10,8 +10,8 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -203,21 +203,13 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                         {
                             rulesetAttacker.LogCharacterUsedFeature(_featureTheirWoe);
-                            InflictMartialArtDieDamage(
-                                rulesetAttacker,
-                                rulesetDefender,
-                                attackMode,
-                                attackModifier);
+                            InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, outcome);
                         }
                     }
                     else
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureWoe);
-                        InflictMartialArtDieDamage(
-                            rulesetAttacker,
-                            rulesetAttacker,
-                            attackMode,
-                            attackModifier);
+                        InflictMartialArtDieDamage(rulesetAttacker, rulesetAttacker, attackMode, outcome);
                     }
 
                     // Weal (RESET)
@@ -237,11 +229,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     if (level >= 11 && rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
-                        InflictMartialArtDieDamage(
-                            rulesetAttacker,
-                            rulesetDefender,
-                            attackMode,
-                            attackModifier);
+                        InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, outcome);
                     }
 
                     // Weal (RESET)
@@ -254,16 +242,16 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             RulesetCharacter rulesetAttacker,
             RulesetActor rulesetDefender,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome)
         {
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+            var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
-            if (damageForm == null)
+            if (originalDamageForm == null)
             {
                 return;
             }
 
-            var damageType = damageForm.DamageType;
+            var criticalSuccess = outcome == RollOutcome.CriticalSuccess;
             var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
             var dieType = level switch
             {
@@ -272,22 +260,25 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                 >= 5 => DieType.D6,
                 _ => DieType.D4
             };
-            var advantage = ComputeAdvantage(attackModifier.attackAdvantageTrends);
-            var damage = new DamageForm { DamageType = damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0 };
-            var dieRoll = RollDie(dieType, advantage, out _, out _);
-            var rolls = new List<int> { dieRoll };
+            var rolls = new List<int>();
+            var damageForm = new DamageForm
+            {
+                DamageType = originalDamageForm.DamageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
+            };
+            var damageRoll =
+                rulesetAttacker.RollDamage(damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
 
             RulesetActor.InflictDamage(
-                dieRoll,
-                damage,
-                damage.DamageType,
+                damageRoll,
+                damageForm,
+                damageForm.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 rulesetAttacker.Guid,
                 false,
                 attackMode.AttackTags,
-                new RollInfo(damage.DieType, rolls, 0),
+                new RollInfo(damageForm.DieType, rolls, 0),
                 false,
                 out _);
         }

@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
@@ -358,21 +359,21 @@ internal static class LevelUpContext
 
             switch (castingFeature.spellKnowledge)
             {
-                case RuleDefinitions.SpellKnowledge.Selection:
+                case SpellKnowledge.Selection:
                     knownSpells.TryAddRange(
                         spellRepertoire.AutoPreparedSpells.Where(x => x.SpellLevel <= maxSpellLevel), tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
                     break;
-                case RuleDefinitions.SpellKnowledge.Spellbook:
+                case SpellKnowledge.Spellbook:
                     knownSpells.TryAddRange(
                         spellRepertoire.AutoPreparedSpells.Where(x => x.SpellLevel <= maxSpellLevel), tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
                     knownSpells.TryAddRange(spellRepertoire.EnumerateAvailableScribedSpells(), tag);
                     break;
-                case RuleDefinitions.SpellKnowledge.FixedList:
-                case RuleDefinitions.SpellKnowledge.WholeList:
+                case SpellKnowledge.FixedList:
+                case SpellKnowledge.WholeList:
                     knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(
                         castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells)
@@ -650,7 +651,7 @@ internal static class LevelUpContext
         // only whole list casters
         if (spellRepertoire == null
             || spellRepertoire.SpellCastingFeature.SpellKnowledge !=
-            RuleDefinitions.SpellKnowledge.WholeList)
+            SpellKnowledge.WholeList)
         {
             return;
         }
@@ -698,7 +699,7 @@ internal static class LevelUpContext
 
                 case FeatureDefinitionProficiency
                 {
-                    ProficiencyType: RuleDefinitions.ProficiencyType.FightingStyle
+                    ProficiencyType: ProficiencyType.FightingStyle
                 } featureDefinitionProficiency:
                     featureDefinitionProficiency.Proficiencies
                         .ForEach(prof =>
@@ -733,7 +734,7 @@ internal static class LevelUpContext
 
                 case FeatureDefinitionProficiency
                 {
-                    ProficiencyType: RuleDefinitions.ProficiencyType.FightingStyle
+                    ProficiencyType: ProficiencyType.FightingStyle
                 } featureDefinitionProficiency:
                     featureDefinitionProficiency.Proficiencies
                         .ForEach(prof =>

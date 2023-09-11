@@ -26,6 +26,11 @@
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 0,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
       "diceNumber": 0
     },
@@ -168,7 +173,12 @@
     "applyToSelf": false,
     "forceOnSelf": false
   },
-  "impactParticleReference": null,
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,

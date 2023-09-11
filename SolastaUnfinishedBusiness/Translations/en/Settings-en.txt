@@ -41,7 +41,7 @@ ModUi/&Blueprints=Blueprints
 ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
 ModUi/&Category=Category
-ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to constitution modifier per short rest
+ModUi/&ChangeDragonbornElementalBreathUsages=Change <color=#D89555>Dragonborn</color> elemental breath usages to Constitution modifier per short rest
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
 ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
@@ -87,6 +87,7 @@ ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
 ModUi/&EnableCharactersOnFireToEmitLight=Characters on fire should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
+ModUi/&EnableCustomPortraits=Enable custom portraits\n\n. Create a <i><b><color=#F0DAA0>Portraits</color></b></i> folder under the <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b></i> mod folder\n. Place a PNG image in that folder, named after your hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n. Use images 256 x 384 pixels in size <i><color=#F0DAA0>[optimize them first at https://tinypng.com]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18

@@ -5,6 +5,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Classes;
 using UnityEngine;
+using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -57,7 +59,7 @@ internal static class MulticlassInOutRulesContext
         var attribute = hero.GetAttribute(attributeName);
         var activeModifiers = attribute.ActiveModifiers;
         var currentValue = attribute.BaseValue + activeModifiers
-            .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .Where(x => x.Operation == AttributeModifierOperation.Additive)
             .Sum(activeModifier => Mathf.FloorToInt(activeModifier.Value));
 
         return Mathf.Clamp(currentValue, int.MinValue,
@@ -79,8 +81,7 @@ internal static class MulticlassInOutRulesContext
                          .Select(y => y.FeatureDefinition)
                          .OfType<FeatureDefinitionAttributeModifier>()
                          .Where(z => AttributeDefinitions.AbilityScoreNames.Contains(z.ModifiedAttribute) &&
-                                     z.ModifierOperation == FeatureDefinitionAttributeModifier
-                                         .AttributeModifierOperation
+                                     z.ModifierOperation == AttributeModifierOperation
                                          .Additive)))
         {
             attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] +=
@@ -114,34 +115,34 @@ internal static class MulticlassInOutRulesContext
 
         switch (classDefinition.Name)
         {
-            case RuleDefinitions.BarbarianClass:
+            case BarbarianClass:
                 return strength >= 13;
 
-            case RuleDefinitions.BardClass:
-            case RuleDefinitions.SorcererClass:
-            case RuleDefinitions.WarlockClass:
+            case BardClass:
+            case SorcererClass:
+            case WarlockClass:
                 return charisma >= 13;
 
-            case RuleDefinitions.ClericClass:
-            case RuleDefinitions.DruidClass:
+            case ClericClass:
+            case DruidClass:
                 return wisdom >= 13;
 
-            case RuleDefinitions.FighterClass:
+            case FighterClass:
                 return strength >= 13 || dexterity >= 13;
 
-            case RuleDefinitions.MonkClass:
+            case MonkClass:
                 return wisdom >= 13 && dexterity >= 13;
 
-            case RuleDefinitions.RangerClass:
+            case RangerClass:
                 return dexterity >= 13 && wisdom >= 13;
 
-            case RuleDefinitions.PaladinClass:
+            case PaladinClass:
                 return strength >= 13 && charisma >= 13;
 
-            case RuleDefinitions.RogueClass:
+            case RogueClass:
                 return dexterity >= 13;
 
-            case RuleDefinitions.WizardClass:
+            case WizardClass:
             case InventorClass.ClassName:
                 return intelligence >= 13;
 

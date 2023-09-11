@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -74,7 +75,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDeadMasterUndeadChains")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+            .SetModifier(AttributeModifierOperation.AddConditionAmount,
                 AttributeDefinitions.HitPoints)
             .AddToDB();
 
@@ -88,7 +89,8 @@ public sealed class WizardDeadMaster : AbstractSubclass
             .Create(ChainsName)
             .SetGuiPresentation(Category.Feature)
             .SetRequiredMonsterTag(CreateDeadTag)
-            .SetAddedConditions(ConditionDefinitionBuilder
+            .SetAddedConditions(
+                ConditionDefinitionBuilder
                     .Create("ConditionDeadMasterUndeadChainsProficiency")
                     .SetGuiPresentation(ChainsName, Category.Feature)
                     .SetSilent(Silent.WhenAddedOrRemoved)
@@ -228,16 +230,20 @@ public sealed class WizardDeadMaster : AbstractSubclass
                     .SetMaterialComponent(MaterialComponentType.Mundane)
                     .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
                     .SetCastingTime(ActivationTime.Action)
-                    .SetEffectDescription(EffectDescriptionBuilder.Create()
-                        .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, count)
-                        .SetDurationData(DurationType.Minute, duration)
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
-                            additionalSummonsPerIncrement: 1)
-                        .SetParticleEffectParameters(VampiricTouch)
-                        .SetEffectForms(EffectFormBuilder.Create()
-                            .SetSummonCreatureForm(1, monster.Name)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, count)
+                            .SetDurationData(DurationType.Minute, duration)
+                            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
+                                additionalSummonsPerIncrement: 1)
+                            .SetParticleEffectParameters(VampiricTouch)
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetSummonCreatureForm(1, monster.Name)
+                                    .Build())
                             .Build())
-                        .Build())
                     .AddToDB();
 
                 spells.Add(createDeadSpell);

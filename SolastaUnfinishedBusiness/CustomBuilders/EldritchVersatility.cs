@@ -19,11 +19,11 @@ using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.PatronEldritchSurge;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -53,17 +53,19 @@ internal static class EldritchVersatility
         .Create($"Power{Name}PointPool")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.Permanent)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetDurationData(DurationType.Permanent)
-            .SetEffectForms(EffectFormBuilder
+        .SetEffectDescription(
+            EffectDescriptionBuilder
                 .Create()
-                .SetConditionForm(
-                    VersatilitySupportRulesetCondition.BindingDefinition,
-                    ConditionForm.ConditionOperation.Add)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            VersatilitySupportRulesetCondition.BindingDefinition,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
-            .Build())
         .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
@@ -92,11 +94,12 @@ internal static class EldritchVersatility
         .Create($"Condition{PatronEldritchSurge.Name}BlastOverload")
         .SetGuiPresentation(Category.Condition, ConditionRaging)
         .CopyParticleReferences(ConditionDefinitions.ConditionRaging)
-        .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-            .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionType.Main)
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionAdditionalActionBuilder
+                .Create($"AdditionalAction{PatronEldritchSurge.Name}BlastOverload")
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionType.Main)
+                .AddToDB())
         .SetCustomSubFeatures(new ConditionBlastOverloadCustom())
         .AddToDB();
 
@@ -167,8 +170,7 @@ internal static class EldritchVersatility
                     .Build())
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetCustomSubFeatures(
-                PowerFromInvocation.Marker
-            )
+                PowerFromInvocation.Marker)
             .AddToDB();
         featureOrPower.AddCustomSubFeatures(new BattlefieldConversionRestoreSlot(featureOrPower));
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
@@ -682,8 +684,7 @@ internal static class EldritchVersatility
                         .Create("FeatureBlastBreakthroughRemoveImmunity")
                         .SetGuiPresentationNoContent(true)
                         .SetCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
-                        .AddToDB()
-                )
+                        .AddToDB())
                 .AddToDB();
 
         private static readonly FeatureDefinitionMagicAffinity FeatureBlastBreakthroughNoPenalty =
@@ -1098,8 +1099,7 @@ internal static class EldritchVersatility
 
             if (!alreadyBlocked &&
                 (int3.Distance(posOwner, posDefender) > 6f ||
-                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner))
-               )
+                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner)))
             {
                 yield break;
             }
@@ -1243,28 +1243,26 @@ internal static class EldritchVersatility
         }
     }
 
-    private class EldritchWardAidSave : IMeOrAllySaveFailPossible
+    private class EldritchWardAidSave : ITryAlterOutcomeFailedSavingThrow
     {
-        public IEnumerator OnMeOrAllySaveFailPossible(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter defender, GameLocationCharacter featureOwner,
-            ActionModifier saveModifier, bool hasHitVisual, bool hasBorrowedLuck)
+        public IEnumerator OnFailedSavingTryAlterOutcome(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
         {
-            var posOwner = featureOwner.locationPosition;
-            var posDefender = defender.locationPosition;
-
-            if (!action.rolledSaveThrow ||
-                !featureOwner.CanReact() ||
-                !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner) ||
-                int3.Distance(posDefender, posOwner) > 6f
-               )
+            if (!ShouldTrigger(battleManager, defender, helper))
             {
                 yield break;
             }
 
-            var ownerCharacter = featureOwner.RulesetCharacter;
-            ownerCharacter.GetVersatilitySupportCondition(out var supportCondition);
+            var ownerCharacter = helper.RulesetCharacter;
 
-            if (supportCondition is null)
+            if (!ownerCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
@@ -1283,7 +1281,7 @@ internal static class EldritchVersatility
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            var actionParams = new CharacterActionParams(featureOwner, (Id)ExtraActionId.DoNothingReaction)
+            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionEldritchWard"
                     .Formatted(Category.Reaction, defender.Name)
@@ -1291,7 +1289,7 @@ internal static class EldritchVersatility
 
             RequestCustomReaction(actionService, "EldritchWard", actionParams, requiredSaveAddition);
 
-            yield return battleManager.WaitForReactions(featureOwner, actionService, count);
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {
@@ -1320,6 +1318,18 @@ internal static class EldritchVersatility
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
                 Gui.Format(GameConsole.SaveSuccessOutcome, dc));
             console.AddEntry(entry);
+        }
+
+        private static bool ShouldTrigger(
+            IGameLocationBattleService gameLocationBattleService,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            return helper.CanReact()
+                   && !defender.IsOppositeSide(helper.Side)
+                   && gameLocationBattleService.IsWithinXCells(helper, defender, 7)
+                   && gameLocationBattleService.CanAttackerSeeCharacterFromPosition(
+                       defender.LocationPosition, helper.LocationPosition, defender, helper);
         }
     }
 
@@ -1363,8 +1373,7 @@ internal static class EldritchVersatility
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !IsInvocationActive(featureOwner, InvocationName, out _) ||
-                !featureOwner.GetVersatilitySupportCondition(out var supportCondition)
-               )
+                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }

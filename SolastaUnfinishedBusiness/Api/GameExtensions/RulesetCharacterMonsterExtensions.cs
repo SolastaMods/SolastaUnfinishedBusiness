@@ -13,8 +13,7 @@ public static class RulesetCharacterMonsterExtensions
         WeaponDescription weaponDescription,
         bool canAddAbilityDamageBonus,
         List<IAttackModificationProvider> attackModifiers,
-        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin
-    )
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
         var slotName = EquipmentDefinitions.SlotTypeMainHand;
         var hero = monster.OriginalFormCharacter as RulesetCharacterHero;

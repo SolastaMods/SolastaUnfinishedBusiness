@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -138,13 +139,13 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
 
         // We let targets collection be empty with RangeType MeleeHit on sub power so it can be handled manually in code
         // i.e.: Cunning / Devious Strike powers that need to be applied on attack finished not before hit
-        if (effectDescription.RangeType == RuleDefinitions.RangeType.MeleeHit)
+        if (effectDescription.RangeType == RangeType.MeleeHit)
         {
             return;
         }
 
-        if (effectDescription.RangeType == RuleDefinitions.RangeType.Self
-            || effectDescription.TargetType == RuleDefinitions.TargetType.Self)
+        if (effectDescription.RangeType == RangeType.Self
+            || effectDescription.TargetType == TargetType.Self)
         {
             targetCharacters.Add(actingCharacter);
             modifiers.Add(_modifier);

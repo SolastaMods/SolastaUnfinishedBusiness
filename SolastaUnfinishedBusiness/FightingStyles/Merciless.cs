@@ -20,20 +20,25 @@ internal sealed class Merciless : AbstractFightingStyle
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
         .SetGuiPresentation("Merciless", Category.FightingStyle)
-        .SetEffectDescription(EffectDescriptionBuilder.Create()
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Cube)
-            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Wisdom,
-                true,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Strength)
-            .SetEffectForms(EffectFormBuilder.Create()
-                .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear, ConditionForm.ConditionOperation.Add)
-                .HasSavingThrow(EffectSavingThrowType.Negates)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Cube)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    true,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Strength)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                            ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
                 .Build())
-            .Build())
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder

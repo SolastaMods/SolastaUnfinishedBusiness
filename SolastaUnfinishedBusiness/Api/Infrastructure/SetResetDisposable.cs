@@ -1,6 +1,8 @@
 ﻿#if false
 using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 

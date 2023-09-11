@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -8,7 +9,7 @@ internal class FeatureDefinitionDieRollModifierBuilder
     : DefinitionBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
 {
     internal FeatureDefinitionDieRollModifierBuilder SetModifiers(
-        RuleDefinitions.RollContext context,
+        RollContext context,
         int rerollCount,
         int minRollValue,
         int minReRollValue,

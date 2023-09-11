@@ -3,8 +3,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA.AI;
-using static BestiaryDefinitions;
 using static RuleDefinitions;
+using static BestiaryDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 

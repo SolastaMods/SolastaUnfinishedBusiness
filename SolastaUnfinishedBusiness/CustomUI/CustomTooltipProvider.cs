@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -148,7 +149,7 @@ internal class CustomItemTooltipProvider : CustomTooltipProvider,
     public string EffectsHeader => _guiItem.EffectsHeader;
     public int RangeParameter => _guiItem.RangeParameter;
     public bool ForceTight => _guiItem.ForceTight;
-    public RuleDefinitions.EffectApplication EffectApplication => _guiItem.EffectApplication;
+    public EffectApplication EffectApplication => _guiItem.EffectApplication;
     public string SpecialFormsDescription => _guiItem.SpecialFormsDescription;
     public List<EffectForm> EffectForms => _guiItem.EffectForms;
     public ItemDefinition ItemDefinition => _guiItem.ItemDefinition;

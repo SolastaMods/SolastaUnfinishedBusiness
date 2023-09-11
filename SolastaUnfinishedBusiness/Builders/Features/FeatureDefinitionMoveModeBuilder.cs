@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -17,7 +18,7 @@ internal class FeatureDefinitionMoveModeBuilder : FeatureDefinitionBuilder<Featu
     {
     }
 
-    internal FeatureDefinitionMoveModeBuilder SetMode(RuleDefinitions.MoveMode moveMode, int speed)
+    internal FeatureDefinitionMoveModeBuilder SetMode(MoveMode moveMode, int speed)
     {
         Definition.moveMode = moveMode;
         Definition.speed = speed;

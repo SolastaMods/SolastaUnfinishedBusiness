@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -31,7 +32,7 @@ public static class HitDiceRestItemPatcher
             if (remainingHitDiceCount > 0)
             {
                 restHealingBonusDiceCount += __instance.restHealingBonuses
-                    .Count(restHealingBonus => restHealingBonus.Die != RuleDefinitions.DieType.D1);
+                    .Count(restHealingBonus => restHealingBonus.Die != DieType.D1);
             }
 
             var key = maxHitDiceCount + restHealingBonusDiceCount <= 16

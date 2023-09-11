@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -14,7 +15,7 @@ internal class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition,
     }
 
     internal LootPackDefinitionBuilder AddExplicitItem(ItemDefinition item, int diceNumber = 1,
-        RuleDefinitions.DieType diceType = RuleDefinitions.DieType.D1, int bonus = 0)
+        DieType diceType = DieType.D1, int bonus = 0)
     {
         Definition.ItemOccurencesList.Add(new ItemOccurence
         {

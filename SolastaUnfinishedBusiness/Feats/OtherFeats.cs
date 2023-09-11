@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -166,10 +167,11 @@ internal static class OtherFeats
     {
         return FeatDefinitionBuilder
             .Create("FeatFrostAdaptation")
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierFeatFrostAdaptation")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    .SetModifier(AttributeModifierOperation.Additive,
                         AttributeDefinitions.Constitution, 1)
                     .AddToDB(),
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
@@ -224,22 +226,25 @@ internal static class OtherFeats
             .Create("PowerFeatHealerMedKit")
             .SetGuiPresentation(Category.Feature, spriteMedKit)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetHealingForm(
-                        HealingComputation.Dice,
-                        4,
-                        DieType.D6,
-                        1,
-                        false,
-                        HealingCap.MaximumHitPoints)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                4,
+                                DieType.D6,
+                                1,
+                                false,
+                                HealingCap.MaximumHitPoints)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+                            .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                .Build())
             .AddToDB();
 
         var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
@@ -247,21 +252,25 @@ internal static class OtherFeats
             .Create("PowerFeatHealerResuscitate")
             .SetGuiPresentation(Category.Feature, spriteResuscitate)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetTargetFiltering(
-                    TargetFilteringMethod.CharacterOnly,
-                    TargetFilteringTag.No,
-                    5,
-                    DieType.D8)
-                .SetDurationData(DurationType.Permanent)
-                .SetRequiredCondition(ConditionDefinitions.ConditionDead)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetReviveForm(12, ReviveHitPoints.One)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(
+                        TargetFilteringMethod.CharacterOnly,
+                        TargetFilteringTag.No,
+                        5,
+                        DieType.D8)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRequiredCondition(ConditionDefinitions.ConditionDead)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetReviveForm(12, ReviveHitPoints.One)
+                            .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                .Build())
             .AddToDB();
 
         var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 256, 128);
@@ -301,17 +310,21 @@ internal static class OtherFeats
                 Sprites.GetSprite("PowerInspiringLeader", Resources.PowerInspiringLeader, 256, 128))
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetTempHpForm()
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                    .SetBonusMode(AddBonusMode.AbilityBonus)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm()
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                .Build())
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -409,7 +422,7 @@ internal static class OtherFeats
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierMonkKiPointsAddProficiencyBonus")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                    .SetModifier(AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.KiPoints)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
@@ -452,12 +465,13 @@ internal static class OtherFeats
     {
         return FeatDefinitionBuilder
             .Create("FeatTough")
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierFeatTough")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.HitPointBonusPerLevel, 2)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierFeatTough")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive,
+                        AttributeDefinitions.HitPointBonusPerLevel, 2)
+                    .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -477,7 +491,7 @@ internal static class OtherFeats
                     .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddHalfProficiencyBonus,
+                        AttributeModifierOperation.AddHalfProficiencyBonus,
                         AttributeDefinitions.SorceryPoints)
                     .AddToDB(),
                 FeatureDefinitionPointPoolBuilder
@@ -535,14 +549,15 @@ internal static class OtherFeats
         return FeatDefinitionBuilder
             .Create(FeatWarCaster)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionMagicAffinityBuilder
-                .Create(MagicAffinityFeatWarCaster)
-                .SetGuiPresentation(FeatWarCaster, Category.Feat)
-                .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
-                    SpellParamsModifierType.None)
-                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
-                .SetHandsFullCastingModifiers(true, true, true)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create(MagicAffinityFeatWarCaster)
+                    .SetGuiPresentation(FeatWarCaster, Category.Feat)
+                    .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
+                        SpellParamsModifierType.None)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                    .SetHandsFullCastingModifiers(true, true, true)
+                    .AddToDB())
             .SetMustCastSpellsPrerequisite()
             .SetCustomSubFeatures(WarCasterMarker.Mark)
             .AddToDB();
@@ -584,13 +599,14 @@ internal static class OtherFeats
             var feat = FeatDefinitionBuilder
                 .Create($"{NAME}{damageType}")
                 .SetGuiPresentation(guiPresentation)
-                .SetFeatures(FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
-                    .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                    .SetGuiPresentation(guiPresentation)
-                    .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                        "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
-                    .SetCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
-                    .AddToDB())
+                .SetFeatures(
+                    FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                        .SetCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
+                        .AddToDB())
                 .SetMustCastSpellsPrerequisite()
                 .SetFeatFamily("ElementalAdept")
                 .AddToDB();
@@ -790,11 +806,12 @@ internal static class OtherFeats
                     AttributeDefinitions.Constitution, false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Constitution)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                    .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
-                    .Build())
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                        .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                 .Build())
         .AddToDB();

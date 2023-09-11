@@ -48,8 +48,7 @@ internal static partial class UI
         bool isEmpty,
         bool disclosureStyle = false,
         float width = 0,
-        params GUILayoutOption[] options
-    )
+        params GUILayoutOption[] options)
     {
         options = options.AddDefaults();
 
@@ -258,8 +257,7 @@ internal static partial class UI
         ref int bitfield,
         int offset,
         float width = 0,
-        params GUILayoutOption[] options
-    )
+        params GUILayoutOption[] options)
     {
         var bit = ((1 << offset) & bitfield) != 0;
         var newBit = bit;

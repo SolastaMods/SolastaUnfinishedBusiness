@@ -121,15 +121,17 @@ internal static class RaceKoboldBuilder
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerDraconicCry", Resources.PowerDraconicCry, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .SetUniqueInstance()
             .AddToDB();
 

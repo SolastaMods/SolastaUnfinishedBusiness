@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using TA;
+using static RuleDefinitions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -96,7 +97,7 @@ internal static class AttacksOfOpportunity
 
         if (character.HasSubFeatureOfType<IIgnoreAoOIfAttacked>() &&
             character.proximityByAttackedCreature.TryGetValue(attacker.Guid, out var value) &&
-            value == (int)RuleDefinitions.AttackProximity.Melee)
+            value == (int)AttackProximity.Melee)
         {
             return false;
         }

@@ -7,8 +7,8 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
@@ -33,15 +33,16 @@ internal static class SubraceDarkelfBuilder
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListDarkelf")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
-                .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
-                .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
-                .FinalizeSpells()
-                .AddToDB())
+            .SetSpellList(
+                SpellListDefinitionBuilder
+                    .Create("SpellListDarkelf")
+                    .SetGuiPresentationNoContent(true)
+                    .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
+                    .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
+                    .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
+                    .FinalizeSpells()
+                    .AddToDB())
             .AddToDB();
 
         var darkelfSpriteReference = Sprites.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);

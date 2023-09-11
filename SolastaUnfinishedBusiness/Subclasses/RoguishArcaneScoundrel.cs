@@ -142,7 +142,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -175,23 +174,17 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
-        var additionalDamagePossessed = FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageRogueSneakAttack, ADDITIONAL_DAMAGE_POSSESSED)
-            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = conditionPossessed
-                })
-            .SetCustomSubFeatures(new CustomCodeAdditionalDamagePossessed())
+        // kept name for backward compatibility
+        var additionalDamagePossessed = FeatureDefinitionPowerBuilder
+            .Create(ADDITIONAL_DAMAGE_POSSESSED)
+            .SetGuiPresentation($"Condition{Name}Possessed", Category.Condition)
+            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPossessed))
+                    .Build())
             .AddToDB();
-
 
         static bool CanUseEssenceTheft(RulesetCharacter character)
         {
@@ -228,7 +221,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             new ValidatorsPowerUse(CanUseEssenceTheft),
             new CustomBehaviorEssenceTheft(powerEssenceTheft, conditionPossessed));
 
-
         var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TricksOfTheTrade")
             .SetGuiPresentation(Category.Feature)
@@ -242,7 +234,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"FeatureSet{Name}PremeditationSlot")
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(MagicAffinityAdditionalSpellSlot4)
-            .SetCustomSubFeatures(new CustomCodePremeditationSlot4())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -367,24 +358,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodeAdditionalDamagePossessed : IDefinitionCustomCode, IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
-
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // Empty
-        }
-    }
-
     private sealed class CustomBehaviorEssenceTheft : IUsePowerInitiatedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
@@ -447,23 +420,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             }
 
             damage.dieType = DieType.D8;
-        }
-    }
-
-    private sealed class CustomCodePremeditationSlot4 : IDefinitionCustomCode
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(
-                    x => x == MagicAffinityAdditionalSpellSlot4);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // Empty
         }
     }
 }

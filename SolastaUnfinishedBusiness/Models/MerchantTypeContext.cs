@@ -220,10 +220,11 @@ internal static class MerchantContext
     private static void StockItem([NotNull] MerchantDefinition merchant, ItemDefinition item,
         [NotNull] BaseDefinition status)
     {
-        merchant.StockUnitDescriptions.Add(StockBuilder
-            .SetItem(item)
-            .SetFaction(merchant.FactionAffinity, status.Name)
-            .Build()
+        merchant.StockUnitDescriptions.Add(
+            StockBuilder
+                .SetItem(item)
+                .SetFaction(merchant.FactionAffinity, status.Name)
+                .Build()
         );
     }
 

@@ -1,15 +1,16 @@
-﻿using System;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static AttributeDefinitions;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static AttributeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -22,7 +23,9 @@ public sealed class MartialSpellShield : AbstractSubclass
 
     public MartialSpellShield()
     {
-        var castSpellSpellShield = FeatureDefinitionCastSpellBuilder
+        // Spell Casting
+
+        var castSpell = FeatureDefinitionCastSpellBuilder
             .Create($"CastSpell{Name}")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
@@ -37,28 +40,70 @@ public sealed class MartialSpellShield : AbstractSubclass
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
             .AddToDB();
 
-        var magicAffinitySpellShieldCombatMagicVigor = FeatureDefinitionMagicAffinityBuilder
+        // LEVEL 10
+
+        // Blade Weaving
+
+        var conditionBladeWeaving = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BladeWeaving")
+            .SetGuiPresentation(Category.Condition, ConditionDazzled)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{Name}BladeWeaving")
+                    .SetGuiPresentation($"Condition{Name}BladeWeaving", Category.Condition)
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                        Strength,
+                        Dexterity,
+                        Constitution,
+                        Intelligence,
+                        Wisdom,
+                        Charisma)
+                    .AddToDB())
+            .AddToDB();
+
+        // kept name for backward compatibility
+        var additionalDamageBladeWeaving = FeatureDefinitionAdditionalDamageBuilder
             .Create($"MagicAffinity{Name}CombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = conditionBladeWeaving
+                })
+            .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
             .AddToDB();
 
-        magicAffinitySpellShieldCombatMagicVigor.SetCustomSubFeatures(
-            new ActionModifierMagicAffinityCombatMagicVigor(magicAffinitySpellShieldCombatMagicVigor));
+        // LEVEL 07
 
-        var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
+        // Cantrip Attack
+
+        // War Magic
+
+        // LEVEL 15
+
+        // Arcane Deflection
+
+        var conditionArcaneDeflection = ConditionDefinitionBuilder
             .Create($"Condition{Name}ArcaneDeflection")
             .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature, ConditionShielded)
-            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{Name}ArcaneDeflection")
-                .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    ArmorClass,
-                    3)
-                .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}ArcaneDeflection")
+                    .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
+                    .SetModifier(
+                        AttributeModifierOperation.Additive,
+                        ArmorClass,
+                        3)
+                    .AddToDB())
             .AddToDB();
 
-        var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
+        var powerArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded)
             .SetUsesFixed(ActivationTime.Reaction)
@@ -67,31 +112,54 @@ public sealed class MartialSpellShield : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionSpellShieldArcaneDeflection,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionArcaneDeflection, ConditionForm.ConditionOperation.Add, true, true))
+                    .SetParticleEffectParameters(Shield)
                     .Build())
             .AddToDB();
 
-        var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder
-            .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales,
-                $"ActionAffinity{Name}RangedDefense")
-            .SetGuiPresentation($"Power{Name}RangedDeflection", Category.Feature)
+        // LEVEL 18
+
+        // Protective Barrier
+
+        // kept name for backward compatibility
+        var powerProtectiveBarrier = FeatureDefinitionPowerBuilder
+            .Create($"ActionAffinity{Name}RangedDefense")
+            .SetGuiPresentation($"Power{Name}RangedDeflection", Category.Feature, PowerTraditionCourtMageSpellShield)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 4)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}ProtectiveBarrier")
+                                .SetGuiPresentation(Category.Condition, MageArmor)
+                                .SetPossessive()
+                                .SetFeatures(
+                                    FeatureDefinitionAttributeModifierBuilder
+                                        .Create($"AttributeModifier{Name}ProtectiveBarrier")
+                                        .SetGuiPresentation($"Condition{Name}ProtectiveBarrier", Category.Condition)
+                                        .SetModifier(
+                                            AttributeModifierOperation.Additive,
+                                            ArmorClass, 2)
+                                        .AddToDB())
+                                .AddToDB()))
+                    .SetParticleEffectParameters(PowerTraditionCourtMageSpellShield)
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Martial{Name}")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialSpellShield, 256))
-            .AddFeaturesAtLevel(3, MagicAffinityCasterFightingCombatMagicImproved, castSpellSpellShield)
+            .AddFeaturesAtLevel(3, MagicAffinityCasterFightingCombatMagicImproved, castSpell)
             .AddFeaturesAtLevel(7, AttackReplaceWithCantripCasterFighting, PowerCasterFightingWarMagic)
-            .AddFeaturesAtLevel(10, magicAffinitySpellShieldCombatMagicVigor)
-            .AddFeaturesAtLevel(15, powerSpellShieldArcaneDeflection)
-            .AddFeaturesAtLevel(18, actionAffinitySpellShieldRangedDefense)
+            .AddFeaturesAtLevel(10, additionalDamageBladeWeaving)
+            .AddFeaturesAtLevel(15, powerArcaneDeflection)
+            .AddFeaturesAtLevel(18, powerProtectiveBarrier)
             .AddToDB();
     }
 
@@ -104,47 +172,4 @@ public sealed class MartialSpellShield : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    private sealed class ActionModifierMagicAffinityCombatMagicVigor : IModifyAttackActionModifier, IModifySpellDC
-    {
-        private readonly FeatureDefinitionMagicAffinity _featureDefinitionMagicAffinity;
-
-        public ActionModifierMagicAffinityCombatMagicVigor(
-            FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity)
-        {
-            _featureDefinitionMagicAffinity = featureDefinitionMagicAffinity;
-        }
-
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
-        {
-            if (attackProximity != BattleDefinitions.AttackProximity.MagicDistance &&
-                attackProximity != BattleDefinitions.AttackProximity.MagicRange &&
-                attackProximity != BattleDefinitions.AttackProximity.MagicReach)
-            {
-                return;
-            }
-
-            var modifier = GetSpellDC(myself);
-
-            attackModifier.attackRollModifier += modifier;
-            attackModifier.attackToHitTrends.Add(new TrendInfo(
-                modifier, FeatureSourceType.CharacterFeature, _featureDefinitionMagicAffinity.Name,
-                _featureDefinitionMagicAffinity));
-        }
-
-        public int GetSpellDC(RulesetCharacter caster)
-        {
-            var strModifier =
-                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));
-            var dexModifier =
-                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Dexterity));
-
-            return Math.Max(strModifier, dexModifier);
-        }
-    }
 }

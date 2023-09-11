@@ -8,8 +8,8 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.FightingStyles;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -391,8 +391,7 @@ internal static class RulesetCharacterExtensions
         RollOutcome outcome = RollOutcome.Neutral,
         bool displayModifier = false,
         int modifier = 0,
-        AdvantageType advantage = AdvantageType.None
-    )
+        AdvantageType advantage = AdvantageType.None)
     {
         if (Gui.GameLocation.FiniteStateMachine.CurrentState is LocationState_NarrativeSequence or LocationState_Map)
         {

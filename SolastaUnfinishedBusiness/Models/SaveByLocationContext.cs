@@ -145,8 +145,7 @@ internal static class SaveByLocationContext
                             Directory.EnumerateFiles(d, "*.sav")
                                 .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                         LocationType = LocationType.CustomCampaign
-                    })
-            )
+                    }))
             .Concat(
                 Directory.EnumerateDirectories(OfficialSaveGameDirectory)
                     .Select(d => new
@@ -156,8 +155,7 @@ internal static class SaveByLocationContext
                             Directory.EnumerateFiles(d, "*.sav")
                                 .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                         LocationType = LocationType.StandardCampaign
-                    })
-            )
+                    }))
             .Concat(
                 Enumerable.Repeat(
                     new
@@ -168,8 +166,7 @@ internal static class SaveByLocationContext
                                 .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                         LocationType = LocationType.Default
                     }
-                    , 1)
-            )
+                    , 1))
             .Where(d => d.LastWriteTime.HasValue)
             .OrderByDescending(d => d.LastWriteTime)
             .FirstOrDefault();
@@ -255,8 +252,7 @@ internal static class SaveByLocationContext
                 .OrderBy(l => l.Title)
                 .Concat(AllUserLocations
                     .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
-                    .OrderBy(l => l.Title)
-                )
+                    .OrderBy(l => l.Title))
                 .ToList();
 
         guiDropdown.AddOptions(

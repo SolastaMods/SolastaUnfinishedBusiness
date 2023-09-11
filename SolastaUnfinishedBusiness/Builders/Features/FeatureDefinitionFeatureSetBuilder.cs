@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -31,7 +32,7 @@ internal class FeatureDefinitionFeatureSetBuilder
         ExtraAncestryType ancestryType,
         params string[] ancestryDamageTypeMap)
     {
-        Definition.ancestryType = (RuleDefinitions.AncestryType)ancestryType;
+        Definition.ancestryType = (AncestryType)ancestryType;
         Definition.ancestryDamageTypeMap.AddRange(ancestryDamageTypeMap);
         return this;
     }

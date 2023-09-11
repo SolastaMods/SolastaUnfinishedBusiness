@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -11,7 +12,7 @@ internal class FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
         FeatureDefinitionDieRollModifierDamageTypeDependentBuilder>
 {
     internal FeatureDefinitionDieRollModifierDamageTypeDependentBuilder SetModifiers(
-        RuleDefinitions.RollContext context,
+        RollContext context,
         int rerollCount,
         int minRollValue,
         int minReRollValue,

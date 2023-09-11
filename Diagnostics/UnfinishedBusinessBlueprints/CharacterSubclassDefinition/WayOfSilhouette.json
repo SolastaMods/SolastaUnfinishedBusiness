@@ -18,11 +18,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong:11148dc3-2ce8-5793-a86b-1ed6f9aa4fc5",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWayOfSilhouetteSilhouetteStep:91b0a741-32f5-50df-bc7b-1c964ceb1397",
       "level": 6
     },
@@ -30,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD6:27d86ca8-312f-5e8c-b519-c845b5497f66",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong:11148dc3-2ce8-5793-a86b-1ed6f9aa4fc5",
+      "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

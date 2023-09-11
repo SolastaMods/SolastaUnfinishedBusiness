@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -131,13 +132,14 @@ internal static class MeleeCombatFeats
         var conditionDefensiveDuelist = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
-                    AttributeDefinitions.ArmorClass)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        AttributeModifierOperation.AddProficiencyBonus,
+                        AttributeDefinitions.ArmorClass)
+                    .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -151,14 +153,15 @@ internal static class MeleeCombatFeats
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionDefensiveDuelist,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDefensiveDuelist,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build())
             .SetCustomSubFeatures(
                 new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
@@ -228,12 +231,13 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create($"Feature{NAME}Reach")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseWeaponReach(1, validWeapon,
-                    ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}Reach")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new IncreaseWeaponReach(1, validWeapon,
+                        ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
+                    .AddToDB())
             .AddToDB();
 
         var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
@@ -241,36 +245,41 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite($"Power{NAME}Reach", Resources.SpearMasteryReach, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(SpellDefinitions.Shield)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionFeatSpearMasteryReach,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(SpellDefinitions.Shield)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionFeatSpearMasteryReach,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
+                    .UseQuickAnimations()
                     .Build())
-                .UseQuickAnimations()
-                .Build())
             .AddToDB();
 
         var conditionDamage = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Damage")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                .Create($"AdditionalDamage{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag("SpearMastery")
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                //Adding any property so that custom restricted context would trigger
-                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-                .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
-                .SetIgnoreCriticalDoubleDice(true)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create($"AdditionalDamage{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("SpearMastery")
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                    //Adding any property so that custom restricted context would trigger
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                    .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                        (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                    .SetIgnoreCriticalDoubleDice(true)
+                    .AddToDB())
             .AddToDB();
 
         IEnumerator AddCondition(
@@ -312,18 +321,19 @@ internal static class MeleeCombatFeats
             .Create($"Condition{NAME}Charge")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create($"Feature{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
-                {
-                    AllowRange = false,
-                    AccountAoOImmunity = true,
-                    WeaponValidator = validWeapon,
-                    BeforeReaction = AddCondition,
-                    AfterReaction = RemoveCondition
-                })
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
+                    {
+                        AllowRange = false,
+                        AccountAoOImmunity = true,
+                        WeaponValidator = validWeapon,
+                        BeforeReaction = AddCondition,
+                        AfterReaction = RemoveCondition
+                    })
+                    .AddToDB())
             .AddToDB();
 
         var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
@@ -331,15 +341,19 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite($"Power{NAME}Charge", Resources.SpearMasteryCharge, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(conditionFeatSpearMasteryCharge,
-                        ConditionForm.ConditionOperation.Add, true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionFeatSpearMasteryCharge,
+                                ConditionForm.ConditionOperation.Add, true)
+                            .Build())
+                    .UseQuickAnimations()
                     .Build())
-                .UseQuickAnimations()
-                .Build())
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -373,7 +387,7 @@ internal static class MeleeCombatFeats
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ArmorClass")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+            .SetModifier(AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
             .AddToDB();
@@ -705,7 +719,7 @@ internal static class MeleeCombatFeats
                     .Create($"AttributeModifier{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeModifierOperation.Additive,
                         AttributeDefinitions.ArmorClass, 1)
                     .AddToDB())
             .AddToDB();
@@ -797,15 +811,17 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite(nameof(Resources.PowerAttackIcon), Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Add)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
@@ -817,16 +833,17 @@ internal static class MeleeCombatFeats
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffCleavingAttack);
@@ -1298,38 +1315,39 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var dieRoll = 0;
             var rolls = new List<int>();
-            var damage = new DamageForm
+            var damageForm = new DamageForm
             {
                 DamageType = originalDamageForm.DamageType,
                 DieType = originalDamageForm.DieType,
                 DiceNumber = 0,
                 BonusDamage = bonusDamage
             };
+            var damageRoll = 0;
 
             if (outcome is RollOutcome.CriticalSuccess)
             {
-                dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
-                damage.DiceNumber = 1;
-                rolls.Add(dieRoll);
+                damageForm.DiceNumber = 1;
+                damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, bonusDamage, 0, 1, false, false, false,
+                    rolls);
             }
 
-            rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
+            rulesetAttacker.LogCharacterAffectsTarget(
+                rulesetDefender,
                 DevastatingStrikesTitle,
                 "Feedback/&FeatFeatFellHandedDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
             RulesetActor.InflictDamage(
-                dieRoll + bonusDamage,
-                damage,
-                damage.DamageType,
+                damageRoll,
+                damageForm,
+                damageForm.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 attacker.Guid,
                 false,
                 attackMode.AttackTags,
-                new RollInfo(damage.DieType, rolls, bonusDamage),
+                new RollInfo(damageForm.DieType, rolls, bonusDamage),
                 true,
                 out _);
         }
@@ -1349,12 +1367,16 @@ internal static class MeleeCombatFeats
             .Create($"Power{NAME}Advantage")
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
             .SetUsesFixed(ActivationTime.Reaction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.FallProne)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var feat = FeatDefinitionBuilder
@@ -1599,16 +1621,17 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
@@ -1619,16 +1642,17 @@ internal static class MeleeCombatFeats
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
@@ -1638,8 +1662,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttack,
-                powerTurnOffPowerAttack
-            )
+                powerTurnOffPowerAttack)
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffPowerAttack;

@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -13,7 +14,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
 {
     internal FeatureDefinitionAdditionalDamageBuilder SetSpecificDamageType(string damageType)
     {
-        Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.Specific;
+        Definition.additionalDamageType = AdditionalDamageType.Specific;
         Definition.specificDamageType = damageType;
         return this;
     }
@@ -24,9 +25,9 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
+    internal FeatureDefinitionAdditionalDamageBuilder SetDamageDice(DieType dieType, int diceNumber)
     {
-        Definition.damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.Die;
+        Definition.damageValueDetermination = AdditionalDamageValueDetermination.Die;
         Definition.damageDiceNumber = diceNumber;
         Definition.damageDieType = dieType;
         return this;
@@ -46,7 +47,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
 
     [UsedImplicitly]
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
-        RuleDefinitions.AdditionalDamageAdvancement advancement,
+        AdditionalDamageAdvancement advancement,
         IEnumerable<DiceByRank> ranks)
     {
         Definition.damageAdvancement = advancement;
@@ -59,11 +60,11 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         ExtraAdditionalDamageAdvancement advancement,
         IEnumerable<DiceByRank> ranks)
     {
-        return SetAdvancement((RuleDefinitions.AdditionalDamageAdvancement)advancement, ranks);
+        return SetAdvancement((AdditionalDamageAdvancement)advancement, ranks);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
-        RuleDefinitions.AdditionalDamageAdvancement advancement,
+        AdditionalDamageAdvancement advancement,
         int start = 0,
         int increment = 1,
         int step = 1,
@@ -72,18 +73,8 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return SetAdvancement(advancement, DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
-        ExtraAdditionalDamageAdvancement advancement,
-        int start = 0,
-        int increment = 1,
-        int step = 1,
-        int begin = 1)
-    {
-        return SetAdvancement((RuleDefinitions.AdditionalDamageAdvancement)advancement, start, increment, step, begin);
-    }
-
     internal FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(
-        RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+        AdditionalDamageTriggerCondition trigger)
     {
         Definition.triggerCondition = trigger;
         return this;
@@ -92,7 +83,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     internal FeatureDefinitionAdditionalDamageBuilder SetTriggerCondition(
         ExtraAdditionalDamageTriggerCondition trigger)
     {
-        return SetTriggerCondition((RuleDefinitions.AdditionalDamageTriggerCondition)trigger);
+        return SetTriggerCondition((AdditionalDamageTriggerCondition)trigger);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredSpecificSpell(SpellDefinition spell)
@@ -133,14 +124,14 @@ internal class FeatureDefinitionAdditionalDamageBuilder
 
     internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(
         ConditionDefinition requiredCondition,
-        RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+        AdditionalDamageTriggerCondition trigger)
     {
         Definition.requiredTargetCondition = requiredCondition;
         Definition.triggerCondition = trigger;
         return this;
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
+    internal FeatureDefinitionAdditionalDamageBuilder SetFrequencyLimit(FeatureLimitedUsage limit)
     {
         Definition.limitedUsage = limit;
         return this;
@@ -171,21 +162,21 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredProperty(
-        RuleDefinitions.RestrictedContextRequiredProperty property)
+        RestrictedContextRequiredProperty property)
     {
         Definition.requiredProperty = property;
         return this;
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdditionalDamageType(
-        RuleDefinitions.AdditionalDamageType damageType)
+        AdditionalDamageType damageType)
     {
         Definition.additionalDamageType = damageType;
         return this;
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
-        RuleDefinitions.AdditionalDamageValueDetermination determination)
+        AdditionalDamageValueDetermination determination)
     {
         Definition.damageValueDetermination = determination;
         return this;
@@ -194,7 +185,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
         ExtraAdditionalDamageValueDetermination determination)
     {
-        return SetDamageValueDetermination((RuleDefinitions.AdditionalDamageValueDetermination)determination);
+        return SetDamageValueDetermination((AdditionalDamageValueDetermination)determination);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAddLightSource(bool addLightSource)
@@ -227,16 +218,16 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     protected override void Initialise()
     {
         base.Initialise();
-        Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
+        Definition.damageAdvancement = AdditionalDamageAdvancement.None;
         Definition.damageDiceNumber = 0;
         Definition.flatBonus = 0;
         Definition.notificationTag = string.Empty;
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetSavingThrowData(
-        RuleDefinitions.EffectDifficultyClassComputation dcComputation =
-            RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
-        RuleDefinitions.EffectSavingThrowType damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.Negates,
+        EffectDifficultyClassComputation dcComputation =
+            EffectDifficultyClassComputation.SpellCastingFeature,
+        EffectSavingThrowType damageSaveAffinity = EffectSavingThrowType.Negates,
         string savingThrowAbility = AttributeDefinitions.Constitution,
         string savingThrowDcAbilityModifier = AttributeDefinitions.Wisdom,
         int savingThrowDc = 12)

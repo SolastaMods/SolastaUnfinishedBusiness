@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -17,7 +18,7 @@ public interface IAttackBeforeHitConfirmedOnMeOrAlly
         ActionModifier attackModifier,
         RulesetAttackMode attackMode,
         bool rangedAttack,
-        RuleDefinitions.AdvantageType advantageType,
+        AdvantageType advantageType,
         List<EffectForm> actualEffectForms,
         RulesetEffect rulesetEffect,
         bool firstTarget,

@@ -136,7 +136,6 @@ public sealed class WizardGraviturgist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetParticleEffectParameters(SpellDefinitions.EldritchBlast)
                     .AddEffectForms(
                         EffectFormBuilder

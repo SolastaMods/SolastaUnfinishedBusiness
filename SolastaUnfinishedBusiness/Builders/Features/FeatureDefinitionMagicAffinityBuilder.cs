@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -8,8 +9,18 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionMagicAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionMagicAffinity, FeatureDefinitionMagicAffinityBuilder>
 {
+    internal FeatureDefinitionMagicAffinityBuilder SetPreserveSlotRolls(
+        int preserveSlotThreshold, int preserveSlotLevelCap)
+    {
+        Definition.preserveSlotRoll = true;
+        Definition.preserveSlotThreshold = preserveSlotThreshold;
+        Definition.preserveSlotLevelCap = preserveSlotLevelCap;
+
+        return this;
+    }
+
     internal FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
-        RuleDefinitions.ConcentrationAffinity concentrationAffinity,
+        ConcentrationAffinity concentrationAffinity,
         int threshold = -1)
     {
         Definition.concentrationAffinity = concentrationAffinity;
@@ -36,7 +47,7 @@ internal class FeatureDefinitionMagicAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RuleDefinitions.RitualCasting ritual)
+    internal FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RitualCasting ritual)
     {
         Definition.ritualCasting = ritual;
         return this;
@@ -44,9 +55,9 @@ internal class FeatureDefinitionMagicAffinityBuilder
 
     internal FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(
         int attackModifier = 0,
-        RuleDefinitions.SpellParamsModifierType attackModifierType = RuleDefinitions.SpellParamsModifierType.FlatValue,
+        SpellParamsModifierType attackModifierType = SpellParamsModifierType.FlatValue,
         int dcModifier = 0,
-        RuleDefinitions.SpellParamsModifierType dcModifierType = RuleDefinitions.SpellParamsModifierType.FlatValue,
+        SpellParamsModifierType dcModifierType = SpellParamsModifierType.FlatValue,
         bool noProximityPenalty = false,
         bool cantripRetribution = false,
         bool halfDamageCantrips = false)
@@ -88,8 +99,8 @@ internal class FeatureDefinitionMagicAffinityBuilder
         float scribeDurationMultiplier,
         float scribeCostMultiplier,
         int additionalScribedSpells,
-        RuleDefinitions.AdvantageType scribeAdvantage,
-        RuleDefinitions.PreparedSpellsModifier preparedModifier)
+        AdvantageType scribeAdvantage,
+        PreparedSpellsModifier preparedModifier)
     {
         Definition.scribeCostMultiplier = scribeCostMultiplier;
         Definition.scribeDurationMultiplier = scribeDurationMultiplier;

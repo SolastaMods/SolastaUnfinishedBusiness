@@ -4,21 +4,22 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class RuleDefinitionsPatcher
 {
-    [HarmonyPatch(typeof(RuleDefinitions), nameof(RuleDefinitions.ComputeAdvantage))]
+    [HarmonyPatch(typeof(RuleDefinitions), nameof(ComputeAdvantage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeAdvantage_Patch
     {
         [UsedImplicitly]
         public static void Postfix(
-            [NotNull] List<RuleDefinitions.TrendInfo> trends,
-            ref RuleDefinitions.AdvantageType __result)
+            [NotNull] List<TrendInfo> trends,
+            ref AdvantageType __result)
         {
             //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
             if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
@@ -31,21 +32,21 @@ public static class RuleDefinitionsPatcher
 
             if (!(hasAdvantage ^ hasDisadvantage))
             {
-                __result = RuleDefinitions.AdvantageType.None;
+                __result = AdvantageType.None;
             }
             else if (hasAdvantage)
             {
-                __result = RuleDefinitions.AdvantageType.Advantage;
+                __result = AdvantageType.Advantage;
             }
             else
             {
-                __result = RuleDefinitions.AdvantageType.Disadvantage;
+                __result = AdvantageType.Disadvantage;
             }
         }
     }
 
     //PATCH: allows tweaking effects on heroes with extra ancestry types
-    [HarmonyPatch(typeof(RuleDefinitions), nameof(RuleDefinitions.TryGetAncestryDamageTypeFromCharacter))]
+    [HarmonyPatch(typeof(RuleDefinitions), nameof(TryGetAncestryDamageTypeFromCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class TryGetAncestryDamageTypeFromCharacter_Patch
@@ -54,14 +55,14 @@ public static class RuleDefinitionsPatcher
         public static void Postfix(
             ref bool __result,
             ulong guid,
-            RuleDefinitions.AncestryType ancestryType,
+            AncestryType ancestryType,
             ref string ancestryDamageType)
         {
             // reuse any Barbarian Claw effect with Path of the Elements
-            if (!__result && ancestryType == RuleDefinitions.AncestryType.BarbarianClaw)
+            if (!__result && ancestryType == AncestryType.BarbarianClaw)
             {
-                __result = RuleDefinitions.TryGetAncestryDamageTypeFromCharacter(
-                    guid, (RuleDefinitions.AncestryType)ExtraAncestryType.PathOfTheElements, out ancestryDamageType);
+                __result = TryGetAncestryDamageTypeFromCharacter(
+                    guid, (AncestryType)ExtraAncestryType.PathOfTheElements, out ancestryDamageType);
             }
         }
     }

@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -366,8 +367,8 @@ public static class RulesetSpellRepertoirePatcher
             var castingFeature = __instance.spellCastingFeature;
 
             //PATCH: fix case when whole list prepared casters learn spell that's not in their spell list because it was enabled for them through mod options, but then that option is disabled 
-            if (castingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList
-                && castingFeature.spellReadyness == RuleDefinitions.SpellReadyness.Prepared)
+            if (castingFeature.SpellKnowledge == SpellKnowledge.WholeList
+                && castingFeature.spellReadyness == SpellReadyness.Prepared)
             {
                 __result = __instance.PreparedSpells.Contains(consideredSpellDefinition);
             }

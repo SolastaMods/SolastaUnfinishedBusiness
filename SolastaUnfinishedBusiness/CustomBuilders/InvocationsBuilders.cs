@@ -28,21 +28,22 @@ internal static class InvocationsBuilders
             .Create("InvocationEldritchSmite")
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
             .SetRequirements(5, pact: FeatureSetPactBlade)
-            .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageInvocationEldritchSmite")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag(EldritchSmiteTag)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.SpendSpellSlot)
-                .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-                .SetAttackModeOnly()
-                .SetDamageDice(DieType.D8, 0)
-                .SetSpecificDamageType(DamageTypeForce)
-                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
-                .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                .SetCustomSubFeatures(
-                    WarlockHolder.Instance,
-                    new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
-                .AddToDB())
+            .SetGrantedFeature(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageInvocationEldritchSmite")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag(EldritchSmiteTag)
+                    .SetTriggerCondition(AdditionalDamageTriggerCondition.SpendSpellSlot)
+                    .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                    .SetAttackModeOnly()
+                    .SetDamageDice(DieType.D8, 0)
+                    .SetSpecificDamageType(DamageTypeForce)
+                    .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
+                    .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
+                    .SetCustomSubFeatures(
+                        WarlockHolder.Instance,
+                        new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
+                    .AddToDB())
             .AddToDB();
     }
 
@@ -144,8 +145,7 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(
                 GuiPresentationBuilder.CreateTitleKey(NAME, Category.Invocation),
                 Gui.Format(GuiPresentationBuilder.CreateDescriptionKey(NAME, Category.Invocation), spell.FormatTitle()),
-                spell
-            )
+                spell)
             .SetRequirements(5)
             .SetGrantedSpell(spell, false, true)
             .AddToDB();
@@ -194,9 +194,11 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(NAME, Category.Invocation)
             .AddToDB();
 
-        powerInvocationGraspingBlast.EffectDescription.effectForms.SetRange(EffectFormBuilder.Create()
-            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
-            .Build());
+        powerInvocationGraspingBlast.EffectDescription.effectForms.SetRange(
+            EffectFormBuilder
+                .Create()
+                .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                .Build());
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -213,14 +215,15 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
-            .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
-                .Create($"AdditionalDamage{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-                .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
-                .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
-                    ConditionDefinitions.ConditionHindered_By_Frost)
-                .AddToDB())
+            .SetGrantedFeature(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create($"AdditionalDamage{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
+                    .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
+                    .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
+                        ConditionDefinitions.ConditionHindered_By_Frost)
+                    .AddToDB())
             .SetRequirements(spell: SpellDefinitions.EldritchBlast)
             .AddToDB();
     }
@@ -264,10 +267,11 @@ internal static class InvocationsBuilders
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(FeatureDefinitionPowers.PowerSorakShadowEscape)
-                .UseQuickAnimations()
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FeatureDefinitionPowers.PowerSorakShadowEscape)
+                    .UseQuickAnimations()
+                    .Build())
             .AddToDB();
 
         _ = ActionDefinitionBuilder
@@ -669,7 +673,8 @@ internal static class InvocationsBuilders
         var conditionAbilityQuasit = ConditionDefinitionBuilder
             .Create("ConditionAbilityQuasit")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainQuasit)
-            .AddFeatures(FeatureDefinitionAdditionalActionBuilder
+            .AddFeatures(
+                FeatureDefinitionAdditionalActionBuilder
                     .Create("AdditionalActionAbilityQuasit")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Main)

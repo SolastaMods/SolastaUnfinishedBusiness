@@ -3,8 +3,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -103,7 +103,7 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EmpoweredHealing")
             .SetGuiPresentation(Category.Feature, HealingWord)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 1, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -127,7 +127,6 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(PowerSorcererManaPainterDrain.EffectDescription.EffectForms[1])
                     .Build())

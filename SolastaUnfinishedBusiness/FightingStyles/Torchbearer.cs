@@ -18,26 +18,27 @@ internal sealed class Torchbearer : AbstractFightingStyle
         .SetGuiPresentation(Category.Feature,
             Sprites.GetSprite("PowerTorchBearer", Resources.PowerTorchBearer, 256, 128))
         .SetUsesFixed(ActivationTime.BonusAction)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create(SpellDefinitions.Fireball.EffectDescription)
-            .SetCanBePlacedOnCharacter(false)
-            .SetDurationData(DurationType.Round, 3)
-            .SetSpeed(SpeedType.Instant, 11f)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionDefinitions.ConditionOnFire1D4, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
-                    .Build())
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                false,
-                EffectDifficultyClassComputation.FixedValue,
-                AttributeDefinitions.Dexterity,
-                8)
-            .Build())
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(SpellDefinitions.Fireball.EffectDescription)
+                .SetCanBePlacedOnCharacter(false)
+                .SetDurationData(DurationType.Round, 3)
+                .SetSpeed(SpeedType.Instant, 11f)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitions.ConditionOnFire1D4, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                        .Build())
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Dexterity,
+                    false,
+                    EffectDifficultyClassComputation.FixedValue,
+                    AttributeDefinitions.Dexterity,
+                    8)
+                .Build())
         .SetShowCasting(false)
         .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasLightSourceOffHand))
         .AddToDB();

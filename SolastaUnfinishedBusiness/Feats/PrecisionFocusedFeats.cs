@@ -114,8 +114,7 @@ internal static class PrecisionFocusedFeats
                             .Create()
                             .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
                                 new FeatureUnlockByLevel(attackModifierWisePrecision, 0))
-                            .Build()
-                    )
+                            .Build())
                     .Build())
             .AddToDB();
 

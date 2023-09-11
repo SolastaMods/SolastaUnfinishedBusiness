@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -418,7 +419,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
         var bonus = features
             .OfType<FeatureDefinitionAttributeModifier>()
             .Where(x => x.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
-                        x.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+                        x.ModifierOperation == AttributeModifierOperation.Additive)
             .Sum(x => x.ModifierValue);
 
         if (offHandItem.ItemDefinition.Magical || bonus > 0)

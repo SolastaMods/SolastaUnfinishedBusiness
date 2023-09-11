@@ -262,56 +262,58 @@ internal static class Level20Context
             .Create("PowerMonkEmptyBody")
             .SetGuiPresentation(Category.Feature, emptyBodySprite)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4, 4)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionInvisibleGreater,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("ConditionMonkEmptyBody")
-                                .SetGuiPresentation(
-                                    Category.Condition,
-                                    DatabaseHelper.ConditionDefinitions.ConditionShielded)
-                                .AddFeatures(
-                                    DamageAffinityAcidResistance,
-                                    DamageAffinityColdResistance,
-                                    DamageAffinityFireResistance,
-                                    DamageAffinityLightningResistance,
-                                    DamageAffinityNecroticResistance,
-                                    DamageAffinityPoisonResistance,
-                                    DamageAffinityPsychicResistance,
-                                    DamageAffinityRadiantResistance,
-                                    DamageAffinityThunderResistance,
-                                    FeatureDefinitionDamageAffinityBuilder
-                                        .Create("DamageAffinityMonkEmptyBodyBludgeoningResistance")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetDamageType(DamageTypeBludgeoning)
-                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                        .AddToDB(),
-                                    FeatureDefinitionDamageAffinityBuilder
-                                        .Create("DamageAffinityMonkEmptyBodyPiercingResistance")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetDamageType(DamageTypePiercing)
-                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                        .AddToDB(),
-                                    FeatureDefinitionDamageAffinityBuilder
-                                        .Create("DamageAffinityMonkEmptyBodySlashingResistance")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetDamageType(DamageTypeSlashing)
-                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                        .AddToDB())
-                                .SetPossessive()
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionInvisibleGreater,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionMonkEmptyBody")
+                                    .SetGuiPresentation(
+                                        Category.Condition,
+                                        DatabaseHelper.ConditionDefinitions.ConditionShielded)
+                                    .AddFeatures(
+                                        DamageAffinityAcidResistance,
+                                        DamageAffinityColdResistance,
+                                        DamageAffinityFireResistance,
+                                        DamageAffinityLightningResistance,
+                                        DamageAffinityNecroticResistance,
+                                        DamageAffinityPoisonResistance,
+                                        DamageAffinityPsychicResistance,
+                                        DamageAffinityRadiantResistance,
+                                        DamageAffinityThunderResistance,
+                                        FeatureDefinitionDamageAffinityBuilder
+                                            .Create("DamageAffinityMonkEmptyBodyBludgeoningResistance")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetDamageType(DamageTypeBludgeoning)
+                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                            .AddToDB(),
+                                        FeatureDefinitionDamageAffinityBuilder
+                                            .Create("DamageAffinityMonkEmptyBodyPiercingResistance")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetDamageType(DamageTypePiercing)
+                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                            .AddToDB(),
+                                        FeatureDefinitionDamageAffinityBuilder
+                                            .Create("DamageAffinityMonkEmptyBodySlashingResistance")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetDamageType(DamageTypeSlashing)
+                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                            .AddToDB())
+                                    .SetPossessive()
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var battleStartedListenerMonkPerfectSelf = FeatureDefinitionBuilder
@@ -412,7 +414,7 @@ internal static class Level20Context
             .AddToDB();
 
         powerRogueStrokeOfLuck.SetCustomSubFeatures(
-            new PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+            new TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -447,17 +449,18 @@ internal static class Level20Context
             .Create(PowerSorcerousRestorationName)
             .SetGuiPresentation("PowerSorcererSorcerousRestoration", Category.Feature)
             .SetUsesFixed(ActivationTime.Rest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectForms(effectFormRestoration)
-                .SetTargetingData(
-                    Side.Ally,
-                    RangeType.Self,
-                    1,
-                    TargetType.Self)
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
-                    .EffectParticleParameters)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(effectFormRestoration)
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Self,
+                        1,
+                        TargetType.Self)
+                    .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
+                        .EffectParticleParameters)
+                    .Build())
             .AddToDB();
 
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -964,11 +967,11 @@ internal static class Level20Context
         }
     }
 
-    private class PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck : IPhysicalAttackTryAlterOutcome
+    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck : ITryAlterOutcomePhysicalAttack
     {
         private readonly FeatureDefinitionPower _power;
 
-        public PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        public TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
         {
             _power = power;
         }

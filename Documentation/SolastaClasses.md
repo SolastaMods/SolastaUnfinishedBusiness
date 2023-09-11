@@ -179,7 +179,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Primal Champion
 
-At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
+Starting at 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
 
 
 

@@ -216,7 +216,6 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(ShockingGrasp)
-                    .SetDurationData(DurationType.Instantaneous)
                     .Build())
             .AddToDB();
 

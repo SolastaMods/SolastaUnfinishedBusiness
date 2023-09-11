@@ -5,9 +5,9 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Races;
@@ -49,8 +49,7 @@ internal static class SubraceIronbornDwarfBuilder
             .SetFeaturesAtLevel(1,
                 attributeModifierIronbornDwarfStrengthAbilityScoreIncrease,
                 proficiencyIronbornDwarfArmorTraining,
-                FeatureDefinitionProficiencys.ProficiencyDwarfLanguages
-            )
+                FeatureDefinitionProficiencys.ProficiencyDwarfLanguages)
             .AddToDB();
 
         // using avg heights from PHB, scale factor is 53/49, or about 1.08

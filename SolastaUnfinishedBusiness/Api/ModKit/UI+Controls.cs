@@ -166,8 +166,7 @@ internal static partial class UI
         string name,
         Action<string> action,
         Action enterAction,
-        params GUILayoutOption[] options
-    )
+        params GUILayoutOption[] options)
     {
         if (name != null)
         {
@@ -203,8 +202,7 @@ internal static partial class UI
         Action enterAction,
         int min = 0,
         int max = int.MaxValue,
-        params GUILayoutOption[] options
-    )
+        params GUILayoutOption[] options)
     {
         var changed = false;
         var hitEnter = false;

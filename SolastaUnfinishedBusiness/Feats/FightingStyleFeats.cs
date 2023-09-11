@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomValidators;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -30,7 +31,7 @@ internal static class FightingStyleFeats
             .SetFeatures(
                 FeatureDefinitionProficiencyBuilder
                     .Create($"ProficiencyFeat{fightingStyle.Name}")
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
+                    .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
                     .SetGuiPresentation(guiPresentation)
                     .AddToDB())
             .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))

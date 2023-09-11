@@ -10,8 +10,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -128,7 +128,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -206,16 +205,17 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlack)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDragonbornBreathWeaponBlack.EffectDescription)
-                .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlack)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Wisdom,
-                    20)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDragonbornBreathWeaponBlack.EffectDescription)
+                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlack)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom,
+                        20)
+                    .Build())
             .AddToDB();
 
         powerBlackElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
@@ -240,16 +240,17 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlue)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDragonbornBreathWeaponBlue.EffectDescription)
-                .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlue)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Wisdom,
-                    20)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDragonbornBreathWeaponBlue.EffectDescription)
+                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlue)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom,
+                        20)
+                    .Build())
             .AddToDB();
 
         powerBlueElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
@@ -274,26 +275,29 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGreen)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
-                .SetParticleEffectParameters(StinkingCloud)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
-                .SetDurationData(DurationType.Round, 3)
-                .AddEffectForms(EffectFormBuilder.Create()
-                        .SetSummonEffectProxyForm(
-                            EffectProxyDefinitionBuilder
-                                .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
-                                .AddToDB())
-                        .Build(),
-                    StinkingCloud.EffectDescription
-                        .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Wisdom,
-                    20)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
+                    .SetParticleEffectParameters(StinkingCloud)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .SetDurationData(DurationType.Round, 3)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(
+                                EffectProxyDefinitionBuilder
+                                    .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+                                    .AddToDB())
+                            .Build(),
+                        StinkingCloud.EffectDescription
+                            .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom,
+                        20)
+                    .Build())
             .AddToDB();
 
         powerGreenElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
@@ -318,16 +322,17 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDragonbornBreathWeaponGold.EffectDescription)
-                .SetParticleEffectParameters(PowerDragonbornBreathWeaponGold)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Wisdom,
-                    20)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDragonbornBreathWeaponGold.EffectDescription)
+                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponGold)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom,
+                        20)
+                    .Build())
             .AddToDB();
 
         powerGoldElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
@@ -352,16 +357,17 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponSilver)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDragonbornBreathWeaponSilver)
-                .SetParticleEffectParameters(PowerDragonbornBreathWeaponSilver)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Wisdom,
-                    20)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDragonbornBreathWeaponSilver)
+                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponSilver)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom,
+                        20)
+                    .Build())
             .AddToDB();
 
         powerSilverElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
@@ -427,19 +433,22 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, AcidSplash)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryAcid.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(AcidSplash)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionDragonFuryAcid,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true
-                    )
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(AcidSplash)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDragonFuryAcid,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var additionalDamageLightning = FeatureDefinitionAdditionalDamageBuilder
@@ -466,18 +475,22 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, ShockingGrasp)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryLightning.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetParticleEffectParameters(LightningBolt)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionDragonFuryLightning,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(LightningBolt)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDragonFuryLightning,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var additionalDamagePoison = FeatureDefinitionAdditionalDamageBuilder
@@ -503,19 +516,22 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PoisonSpray)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryPoison.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(PoisonSpray)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionDragonFuryPoison,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true
-                    )
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(PoisonSpray)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDragonFuryPoison,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var additionalDamageFire = FeatureDefinitionAdditionalDamageBuilder
@@ -542,19 +558,22 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, ProduceFlame)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryFire.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(Fireball)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionDragonFuryFire,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true
-                    )
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(Fireball)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDragonFuryFire,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var additionalDamageCold = FeatureDefinitionAdditionalDamageBuilder
@@ -581,19 +600,22 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature, RayOfFrost)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryCold.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(ConeOfCold)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionDragonFuryCold,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true
-                    )
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(ConeOfCold)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionDragonFuryCold,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var featureWayOfDragonFury = FeatureDefinitionFeatureSetBuilder

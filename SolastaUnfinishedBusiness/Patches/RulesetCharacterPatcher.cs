@@ -17,10 +17,12 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
-using static ActionDefinitions;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -1567,9 +1569,8 @@ public static class RulesetCharacterPatcher
                         ModifiedAttribute: AttributeDefinitions.ArmorClass
                     } attributeModifier ||
                     (attributeModifier.ModifierOperation !=
-                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive &&
-                     attributeModifier.ModifierOperation != FeatureDefinitionAttributeModifier
-                         .AttributeModifierOperation.AddProficiencyBonus))
+                     AttributeModifierOperation.Additive &&
+                     attributeModifier.ModifierOperation != AttributeModifierOperation.AddProficiencyBonus))
                 {
                     continue;
                 }
@@ -1671,6 +1672,59 @@ public static class RulesetCharacterPatcher
             {
                 __result = classHolder;
             }
+        }
+    }
+
+    //PATCH: implements a better algorithm on SpendSpellSlot to support more than 1 affinity that preserves slot roll
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SpendSpellSlot))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SpendSpellSlot_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
+        {
+            FeatureDefinition preserveSlotThresholdFeature = null;
+            var preserveSlotThreshold = Int32.MaxValue;
+
+            var effectLevel = activeSpell.EffectLevel;
+
+            if (effectLevel > 0)
+            {
+                foreach (var featureDefinition in __instance.GetFeaturesByType<ISpellCastingAffinityProvider>()
+                             .Where(featureDefinition => featureDefinition.PreserveSlotRoll
+                                                         && featureDefinition.PreserveSlotLevelCap >= effectLevel))
+                {
+                    preserveSlotThreshold = Math.Min(preserveSlotThreshold, featureDefinition.PreserveSlotThreshold);
+                    preserveSlotThresholdFeature = (FeatureDefinition)featureDefinition;
+                }
+
+                var rolledValue = 0;
+
+                if (preserveSlotThreshold != Int32.MaxValue)
+                {
+                    rolledValue = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+                }
+
+                if (rolledValue >= preserveSlotThreshold)
+                {
+                    var caster = GameLocationCharacter.GetFromActor(__instance);
+
+                    EffectHelpers.StartVisualEffect(
+                        caster, caster, LesserRestoration,
+                        EffectHelpers.EffectType.Caster);
+
+                    __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
+                }
+                else
+                {
+                    activeSpell.SpellRepertoire.SpendSpellSlot(activeSpell.SlotLevel);
+                }
+            }
+
+            __instance.AccountUsedMagicAndPower(activeSpell.SlotLevel);
+
+            return false;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -8,7 +9,7 @@ internal class FeatureDefinitionConditionAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionConditionAffinity, FeatureDefinitionConditionAffinityBuilder>
 {
     internal FeatureDefinitionConditionAffinityBuilder SetConditionAffinityType(
-        RuleDefinitions.ConditionAffinityType value)
+        ConditionAffinityType value)
     {
         Definition.conditionAffinityType = value;
         return this;

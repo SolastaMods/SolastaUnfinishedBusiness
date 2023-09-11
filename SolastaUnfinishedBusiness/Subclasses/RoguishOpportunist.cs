@@ -6,108 +6,182 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using static AttributeDefinitions;
+using static FeatureDefinitionSavingThrowAffinity;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
 public sealed class RoguishOpportunist : AbstractSubclass
 {
-    private const string RefreshSneakAttack = "RefreshSneakAttack";
+    private const string Name = "RoguishOpportunist";
 
     public RoguishOpportunist()
     {
-        var onComputeAttackModifierOpportunistQuickStrike = FeatureDefinitionBuilder
-            .Create("OnComputeAttackModifierOpportunistQuickStrike")
+        // LEVEL 03
+
+        // Debilitating Strike
+
+        var savingThrowAffinityDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}DebilitatingStrike")
+            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition)
+            .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
+                Charisma,
+                Constitution,
+                Dexterity,
+                Intelligence,
+                Strength,
+                Wisdom)
+            .AddToDB();
+
+        var conditionDebilitated = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Debilitated")
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetFeatures(savingThrowAffinityDebilitatingStrike)
+            .CopyParticleReferences(ConditionSlowed)
+            .AddToDB();
+
+        var powerDebilitatingStrike = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DebilitatingStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
+                    .SetSavingThrowData(false, Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDebilitated, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(InflictWounds)
+                    .Build())
+            .AddToDB();
+
+        // Opportunity
+
+        var featureOpportunity = FeatureDefinitionBuilder
+            .Create($"Feature{Name}Opportunity")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        onComputeAttackModifierOpportunistQuickStrike.SetCustomSubFeatures(
-            new ModifyAttackActionModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
+        featureOpportunity.SetCustomSubFeatures(
+            new ModifyAttackActionModifierOpportunity(featureOpportunity));
 
-        var savingThrowAffinityConditionOpportunistDebilitated = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SavingThrowAffinityOpportunistDebilitatingStrike")
-            .SetGuiPresentationNoContent(true)
-            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
-                DieType.D6, 1, false,
-                AttributeDefinitions.Charisma, AttributeDefinitions.Constitution,
-                AttributeDefinitions.Dexterity, AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Strength, AttributeDefinitions.Wisdom)
-            .AddToDB();
+        // LEVEL 09
 
-        var powerOpportunistDebilitatingStrike = FeatureDefinitionAdditionalDamageBuilder
-            .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack,
-                "PowerOpportunistDebilitatingStrike")
+        // Seize the Chance
+
+        var featureSeizeTheChance = FeatureDefinitionBuilder
+            .Create($"Feature{Name}SeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            // use flat bonus to allow it to interact correct with sneak attack
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    hasSavingThrow = true,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create("ConditionOpportunistDebilitated")
-                        .SetGuiPresentation(Category.Condition, ConditionBaned)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetSpecialDuration(DurationType.Round, 1)
-                        .SetFeatures(savingThrowAffinityConditionOpportunistDebilitated)
-                        .AddToDB(),
-                    saveAffinity = EffectSavingThrowType.Negates
-                })
-            .SetSavingThrowData(EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency,
-                EffectSavingThrowType.Negates, AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity)
+            .SetCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
             .AddToDB();
 
-        var featureRoguishOpportunistSeizeTheChance = FeatureDefinitionBuilder
-            .Create("FeatureRoguishOpportunistSeizeTheChance")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new FollowUpStrikeWhenFoesFailedSavingThrow())
+        // LEVEL 13
+
+        // Improved Debilitating Strike
+
+        var savingThrowAffinityImprovedDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}ImprovedDebilitatingStrike")
+            .SetGuiPresentation($"Condition{Name}ImprovedDebilitated", Category.Condition)
+            .SetModifiers(ModifierType.RemoveDice, DieType.D6, 1, false,
+                Charisma,
+                Constitution,
+                Dexterity,
+                Intelligence,
+                Strength,
+                Wisdom)
             .AddToDB();
+
+        var conditionImprovedDebilitated = ConditionDefinitionBuilder
+            .Create(ConditionHindered, $"Condition{Name}ImprovedDebilitated")
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike)
+            .CopyParticleReferences(ConditionSlowed)
+            .AddToDB();
+
+        var powerImprovedDebilitatingStrike = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ImprovedDebilitatingStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
+                    .SetSavingThrowData(false, Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionImprovedDebilitated, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(InflictWounds)
+                    .Build())
+            .SetOverriddenPower(powerDebilitatingStrike)
+            .AddToDB();
+
+        // LEVEL 17
+
+        // Exposed Weakness
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
-            .Create("CombatAffinityOpportunistExposingWeakness")
-            .SetGuiPresentation("PowerOpportunistExposingWeakness", Category.Feature)
+            .Create($"CombatAffinity{Name}ExposedWeakness")
+            .SetGuiPresentation($"Condition{Name}Exposed", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
-        var powerOpportunistExposingWeakness = FeatureDefinitionAdditionalDamageBuilder
-            .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack,
-                "PowerOpportunistExposingWeakness")
+        var conditionExposed = ConditionDefinitionBuilder
+            .Create(ConditionHindered, $"Condition{Name}Exposed")
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike, combatAffinityOpportunistExposingWeakness)
+            .CopyParticleReferences(ConditionSlowed)
+            .AddToDB();
+
+        var powerExposedWeakness = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ExposedWeakness")
             .SetGuiPresentation(Category.Feature)
-            // use flat bonus to allow it to interact correct with sneak attack
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    hasSavingThrow = true,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create("ConditionOpportunistExposed")
-                        .SetGuiPresentation(Category.Condition, ConditionBaned)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetSpecialDuration(DurationType.Round, 1)
-                        .SetFeatures(
-                            savingThrowAffinityConditionOpportunistDebilitated,
-                            combatAffinityOpportunistExposingWeakness)
-                        .AddToDB(),
-                    saveAffinity = EffectSavingThrowType.Negates
-                })
-            .SetSavingThrowData(EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency,
-                EffectSavingThrowType.Negates, AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity)
-            //.SetCustomSubFeatures(new CustomBehaviorExposingWeakness(powerOpportunistDebilitatingStrike))
+            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
+                    .SetSavingThrowData(false, Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionExposed, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(InflictWounds)
+                    .Build())
+            .SetOverriddenPower(powerImprovedDebilitatingStrike)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("RoguishOpportunist", Resources.RoguishOpportunist, 256))
-            .AddFeaturesAtLevel(3, onComputeAttackModifierOpportunistQuickStrike)
-            .AddFeaturesAtLevel(9, powerOpportunistDebilitatingStrike)
-            .AddFeaturesAtLevel(13, featureRoguishOpportunistSeizeTheChance)
-            .AddFeaturesAtLevel(17, powerOpportunistExposingWeakness)
+            .AddFeaturesAtLevel(3, featureOpportunity, powerDebilitatingStrike)
+            .AddFeaturesAtLevel(9, featureSeizeTheChance)
+            .AddFeaturesAtLevel(13, powerImprovedDebilitatingStrike)
+            .AddFeaturesAtLevel(17, powerExposedWeakness)
             .AddToDB();
     }
 
@@ -121,94 +195,100 @@ public sealed class RoguishOpportunist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyAttackActionModifierOpportunistQuickStrike : IModifyAttackActionModifier
-    {
-        private readonly FeatureDefinition _featureDefinition;
+    //
+    // Opportunity
+    //
 
-        public ModifyAttackActionModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
+    private sealed class ModifyAttackActionModifierOpportunity : IModifyAttackActionModifier
+    {
+        private readonly FeatureDefinition _featureOpportunistOpportunity;
+
+        public ModifyAttackActionModifierOpportunity(FeatureDefinition featureOpportunistQuickStrike)
         {
-            _featureDefinition = featureDefinition;
+            _featureOpportunistOpportunity = featureOpportunistQuickStrike;
         }
 
         public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
+            RulesetCharacter rulesetAttacker,
+            RulesetCharacter rulesetDefender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
-                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
+            if (Gui.Battle == null ||
+                attackMode == null ||
+                attackProximity is not
+                    (BattleDefinitions.AttackProximity.PhysicalRange
+                    or BattleDefinitions.AttackProximity.PhysicalReach))
             {
                 return;
             }
 
-            var hero = GameLocationCharacter.GetFromActor(myself);
-            var target = GameLocationCharacter.GetFromActor(defender);
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
 
-            if (attackMode == null || hero == null || target == null)
+            if (attacker == null || defender == null)
             {
                 return;
             }
 
-            // refresh sneak attack
-            if (attackMode.AttackTags.Contains(RefreshSneakAttack))
-            {
-                hero.UsedSpecialFeatures.Remove(
-                    FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack.Name);
-            }
-
-            // grant advantage if attacker is performing an opportunity attack or has higher initiative.
-            if (hero.LastInitiative <= target.LastInitiative &&
+            // grant advantage if first round or attacker is performing an opportunity attack
+            if (Gui.Battle.CurrentRound > 1 &&
                 attackMode.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+            attackModifier.attackAdvantageTrends.Add(new TrendInfo(
+                1, FeatureSourceType.CharacterFeature,
+                _featureOpportunistOpportunity.Name, _featureOpportunistOpportunity));
         }
     }
 
-    private sealed class FollowUpStrikeWhenFoesFailedSavingThrow : IOnDefenderFailedSavingThrow
+    //
+    // Seize the Chance
+    //
+
+    private sealed class TryAlterOutcomeFailedSavingThrowSeizeTheChance : ITryAlterOutcomeFailedSavingThrow
     {
-        public IEnumerator OnDefenderFailedSavingThrow(
-            GameLocationBattleManager __instance,
+        public IEnumerator OnFailedSavingTryAlterOutcome(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier saveModifier,
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (target.Side == me.Side || !me.CanReact())
+            if (!ShouldTrigger(battleManager, defender, helper))
             {
                 yield break;
             }
 
-            var attackMode = me.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackMode = helper.FindActionAttackMode(ActionDefinitions.Id.AttackOpportunity);
 
             if (attackMode == null)
             {
                 yield break;
             }
 
-            attackMode.AttackTags.Add(RefreshSneakAttack);
-
+            var actionModifier = new ActionModifier();
             var attackParam = new BattleDefinitions.AttackEvaluationParams();
+            var removedSneakAttackMark = attacker.UsedSpecialFeatures.Remove(AdditionalDamageRogueSneakAttack.Name);
 
             if (attackMode.Ranged)
             {
-                attackParam.FillForPhysicalRangeAttack(me, me.LocationPosition, attackMode,
-                    target, target.LocationPosition, new ActionModifier());
+                attackParam.FillForPhysicalRangeAttack(helper, helper.LocationPosition, attackMode,
+                    defender, defender.LocationPosition, actionModifier);
             }
             else
             {
-                attackParam.FillForPhysicalReachAttack(me, me.LocationPosition, attackMode,
-                    target, target.LocationPosition, new ActionModifier());
+                attackParam.FillForPhysicalReachAttack(helper, helper.LocationPosition, attackMode,
+                    defender, defender.LocationPosition, actionModifier);
             }
 
-            if (!__instance.CanAttack(attackParam))
+            if (!battleManager.CanAttack(attackParam))
             {
                 yield break;
             }
@@ -216,15 +296,32 @@ public sealed class RoguishOpportunist : AbstractSubclass
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
             var reactionParams = new CharacterActionParams(
-                me,
+                helper,
                 ActionDefinitions.Id.AttackOpportunity,
-                me.RulesetCharacter.AttackModes[0],
-                target,
-                new ActionModifier());
+                helper.RulesetCharacter.AttackModes[0],
+                defender,
+                actionModifier);
 
             actionService.ReactForOpportunityAttack(reactionParams);
 
-            yield return __instance.WaitForReactions(me, actionService, count);
+            yield return battleManager.WaitForReactions(helper, actionService, count);
+
+            // put back the sneak attack mark if it's removed and reaction was discarded
+            if (!reactionParams.ReactionValidated && removedSneakAttackMark)
+            {
+                attacker.UsedSpecialFeatures.Add(AdditionalDamageRogueSneakAttack.Name, 1);
+            }
+        }
+
+        private static bool ShouldTrigger(
+            IGameLocationBattleService battleService,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            return helper.CanReact()
+                   && battleService.IsValidAttackerForOpportunityAttackOnCharacter(helper, defender)
+                   && helper != Gui.Battle.ActiveContender
+                   && defender.IsOppositeSide(helper.Side);
         }
     }
 }

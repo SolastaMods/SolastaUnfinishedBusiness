@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -15,7 +16,7 @@ internal class FeatureDefinitionReduceDamageBuilder
         params string[] damageTypes)
     {
         Definition.DamageTypes.SetRange(damageTypes);
-        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
+        Definition.TriggerCondition = AdditionalDamageTriggerCondition.AlwaysActive;
         Definition.ReducedDamage = reducedDamage;
         return this;
     }
@@ -27,7 +28,7 @@ internal class FeatureDefinitionReduceDamageBuilder
         params string[] damageTypes)
     {
         Definition.SpellCastingClass = spellCastingClass;
-        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot;
+        Definition.TriggerCondition = AdditionalDamageTriggerCondition.SpendSpellSlot;
         Definition.ReducedDamage = reducedDamage;
         Definition.DamageTypes.SetRange(damageTypes);
         return this;

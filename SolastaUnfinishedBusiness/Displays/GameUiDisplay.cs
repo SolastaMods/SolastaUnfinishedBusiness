@@ -240,6 +240,18 @@ internal static class GameUiDisplay
             Main.Settings.EnableDistanceOnTooltip = toggle;
         }
 
+        UI.Label();
+
+        toggle = Main.Settings.EnableCustomPortraits;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCustomPortraits"), ref toggle))
+        {
+            Main.Settings.EnableCustomPortraits = toggle;
+        }
+
+        UI.Label();
+        UI.Label();
+        UI.Label();
+
         #endregion
 
         #region Formation

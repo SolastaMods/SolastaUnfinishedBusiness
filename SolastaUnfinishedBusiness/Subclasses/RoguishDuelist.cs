@@ -86,7 +86,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         var featureMasterDuelist = FeatureDefinitionBuilder
             .Create($"Feature{Name}{MasterDuelist}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new PhysicalAttackTryAlterOutcomeMasterDuelist(powerMasterDuelist))
+            .SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackMasterDuelist(powerMasterDuelist))
             .AddToDB();
 
         var featureSetMasterDuelist = FeatureDefinitionFeatureSetBuilder
@@ -208,11 +208,11 @@ public sealed class RoguishDuelist : AbstractSubclass
     // Master Duelist
     //
 
-    private class PhysicalAttackTryAlterOutcomeMasterDuelist : IPhysicalAttackTryAlterOutcome
+    private class TryAlterOutcomePhysicalAttackMasterDuelist : ITryAlterOutcomePhysicalAttack
     {
         private readonly FeatureDefinitionPower _power;
 
-        public PhysicalAttackTryAlterOutcomeMasterDuelist(FeatureDefinitionPower power)
+        public TryAlterOutcomePhysicalAttackMasterDuelist(FeatureDefinitionPower power)
         {
             _power = power;
         }

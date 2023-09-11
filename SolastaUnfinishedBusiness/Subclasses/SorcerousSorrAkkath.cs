@@ -7,9 +7,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static AttributeDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static AttributeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -185,7 +185,6 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
 
         var effectTouchOfDarkness = EffectDescriptionBuilder
             .Create()
-            .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(VampiricTouch)
             .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
             .SetEffectForms(

@@ -37,12 +37,16 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(EffectDescriptionBuilder.Create(CustomActionIdContext.FarStep)
-                .SetDurationData(DurationType.Minute, 1)
-                .AddEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(CustomActionIdContext.FarStep)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 
@@ -69,8 +73,7 @@ internal static partial class SpellBuilders
             .AddEffectForms(
                 EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
                 EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
-                EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false)
-            )
+                EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
             .Build();
 
         var spell = SpellDefinitionBuilder

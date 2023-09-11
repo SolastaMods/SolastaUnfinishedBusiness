@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
@@ -33,7 +34,7 @@ public sealed class RoguishSlayer : AbstractSubclass
         var attributeModifierElimination = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{Elimination}")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway,
+            .SetModifier(AttributeModifierOperation.ForceAnyway,
                 AttributeDefinitions.CriticalThreshold, 1)
             .AddToDB();
 
@@ -157,11 +158,12 @@ public sealed class RoguishSlayer : AbstractSubclass
             .Create($"Power{Name}{CloakOfShadows}")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpellDefinitions.Invisibility.EffectDescription)
-                .SetDurationData(DurationType.Minute, 2)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Invisibility.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 2)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
             .AddToDB();
 
         //

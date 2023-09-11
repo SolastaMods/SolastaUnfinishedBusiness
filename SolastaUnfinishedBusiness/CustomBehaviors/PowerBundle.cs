@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -23,7 +24,7 @@ internal static class PowerBundle
 
     internal static void RechargeLinkedPowers(
         [NotNull] RulesetCharacter character,
-        RuleDefinitions.RestType restType)
+        RestType restType)
     {
         var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
 
@@ -47,9 +48,9 @@ internal static class PowerBundle
             // Only add to recharge here if it (recharges on a short rest and this is a short or long rest) or
             // it recharges on a long rest and this is a long rest
             if (!pointPoolPowerDefinitions.Contains(rechargedPower)
-                && (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest
-                    || (rechargedPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest
-                        && restType == RuleDefinitions.RestType.LongRest)))
+                && (rechargedPower.RechargeRate == RechargeRate.ShortRest
+                    || (rechargedPower.RechargeRate == RechargeRate.LongRest
+                        && restType == RestType.LongRest)))
             {
                 pointPoolPowerDefinitions.Add(rechargedPower);
             }
@@ -200,15 +201,61 @@ internal static class PowerBundle
 
     internal static int GetRemainingPowerUses(this RulesetCharacter character, [NotNull] FeatureDefinitionPower power)
     {
-        if (power.CostPerUse == 0 || power.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
+        if (power.CostPerUse == 0 || power.RechargeRate == RechargeRate.AtWill)
         {
             return int.MaxValue;
         }
 
-        if (power.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (power.RechargeRate)
         {
-            return (character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints) /
-                   power.CostPerUse;
+            case RechargeRate.BardicInspiration:
+                return (character.TryGetAttributeValue(AttributeDefinitions.BardicInspirationNumber) -
+                        character.UsedBardicInspiration) /
+                       power.CostPerUse;
+            case RechargeRate.ChannelDivinity:
+                return (character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) -
+                        character.UsedChannelDivinity) /
+                       power.CostPerUse;
+            case RechargeRate.HealingPool:
+                return (character.TryGetAttributeValue(AttributeDefinitions.HealingPool) - character.UsedHealingPool) /
+                       power.CostPerUse;
+            case RechargeRate.MaxHitPoints:
+                return character.TryGetAttributeValue(AttributeDefinitions.HitPoints) / power.CostPerUse;
+            case RechargeRate.RagePoints:
+                return (character.TryGetAttributeValue(AttributeDefinitions.RagePoints) - character.UsedRagePoints) /
+                       power.CostPerUse;
+            case RechargeRate.SorceryPoints:
+                return (character.TryGetAttributeValue(AttributeDefinitions.SorceryPoints) -
+                        character.UsedSorceryPoints) /
+                       power.CostPerUse;
+            case RechargeRate.KiPoints:
+                return (character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints) /
+                       power.CostPerUse;
+#if false
+            case RechargeRate.AtWill:
+                break;
+            case RechargeRate.OneMinute:
+                break;
+            case RechargeRate.ShortRest:
+                break;
+            case RechargeRate.LongRest:
+                break;
+            case RechargeRate.Dawn:
+                break;
+            case RechargeRate.D6_6:
+                break;
+            case RechargeRate.SpellSlot:
+                break;
+            case RechargeRate.None:
+                break;
+            case RechargeRate.D6_56:
+                break;
+            case RechargeRate.BindChain:
+                break;
+            case RechargeRate.TurnStart:
+                break;
+#endif
         }
 
         if (power is IPowerSharedPool poolPower)
@@ -528,7 +575,7 @@ internal static class PowerBundle
 
         if (usablePower.OriginClass != null
             || usablePower.OriginRace != null
-            || usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
+            || usablePower.PowerDefinition.RechargeRate == RechargeRate.AtWill)
         {
             return;
         }

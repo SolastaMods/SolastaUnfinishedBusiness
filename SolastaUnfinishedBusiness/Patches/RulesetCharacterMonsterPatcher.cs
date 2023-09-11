@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -131,7 +132,7 @@ public static class RulesetCharacterMonsterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterMonster __instance, ref int __result,
             string abilityScoreName,
-            List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
+            List<TrendInfo> savingThrowModifierTrends)
         {
             //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the saving throws
             AddPBToSummonCheck.ModifyCheckBonus<ISavingThrowPerformanceProvider>(__instance, ref __result,
@@ -147,7 +148,7 @@ public static class RulesetCharacterMonsterPatcher
     {
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterMonster __instance, ref int __result,
-            List<RuleDefinitions.TrendInfo> abilityCheckModifierTrends,
+            List<TrendInfo> abilityCheckModifierTrends,
             string proficiencyName)
         {
             //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the skill checks

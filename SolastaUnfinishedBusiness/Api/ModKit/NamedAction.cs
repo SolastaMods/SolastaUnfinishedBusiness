@@ -53,8 +53,7 @@ public class NamedMutator<TV, T>
         string name,
         Action<TV, T, int> action,
         Func<TV, T, bool> canPerform = null,
-        bool isRepeatable = false
-    )
+        bool isRepeatable = false)
     {
         Name = name;
         Action = action;

@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -36,7 +37,7 @@ internal static class CommonBuilders
             .Create("AttributeModifierCasterFightingExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeModifierOperation.ForceIfBetter,
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
@@ -45,7 +46,7 @@ internal static class CommonBuilders
             .Create("AttributeModifierThirdExtraAttack")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                AttributeModifierOperation.ForceIfBetter,
                 AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 

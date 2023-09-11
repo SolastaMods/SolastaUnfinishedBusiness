@@ -9,8 +9,8 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
@@ -340,21 +340,29 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
-            // targets
-            var originalTarget = action.ActionParams.TargetCharacters[0];
-            var targetCharacters = new List<GameLocationCharacter>();
-
             actingCharacter.UsedSpecialFeatures.TryAdd(WhirlMarker, 1);
 
+            // targets
+            var targetCharacters = new List<GameLocationCharacter>();
+
+            // damage roll
             var dieType = rulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)
                 ? DieType.D6
                 : rulesetCharacter.GetBardicInspirationDieValue();
-            var damageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+            var damageForm = new DamageForm
+            {
+                DamageType = _damageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
+            };
+            var rolls = new List<int>();
+            var damageRoll =
+                rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
 
             // add damage whirl condition and target
             if (power == _powerDefensiveWhirl)
             {
-                targetCharacters.Add(originalTarget);
+                targetCharacters.Add(action.ActionParams.TargetCharacters[0]);
+
+                var firstRoll = rolls[0];
 
                 rulesetCharacter.InflictCondition(
                     _conditionDefensiveWhirl.Name,
@@ -366,7 +374,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     rulesetCharacter.CurrentFaction.Name,
                     1,
                     null,
-                    damageRoll,
+                    firstRoll,
                     0,
                     0);
             }
@@ -374,15 +382,15 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add mobile whirl condition and target
             else if (power == _powerMobileWhirl)
             {
-                targetCharacters.Add(originalTarget);
+                targetCharacters.Add(action.ActionParams.TargetCharacters[0]);
 
                 var conditionDisengaging = ConditionDefinitions.ConditionDisengaging;
 
                 rulesetCharacter.InflictCondition(
                     conditionDisengaging.Name,
-                    conditionDisengaging.DurationType,
-                    conditionDisengaging.DurationParameter,
-                    conditionDisengaging.TurnOccurence,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagCombat,
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
@@ -396,11 +404,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add slashing whirl targets
             else if (power == _powerSlashingWhirl)
             {
-                targetCharacters.Add(originalTarget);
-
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                if (gameLocationBattleService != null)
+                if (gameLocationBattleService is { Battle: not null })
                 {
                     targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
                         .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
@@ -408,27 +414,23 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 }
             }
 
-            // prepare damage form
-            var dices = new List<int> { damageRoll };
-            var diceNumber = _criticalHit ? 2 : 1;
-
-            if (diceNumber > 1)
-            {
-                var criticalDamageRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-                damageRoll += criticalDamageRoll;
-                dices.Add(criticalDamageRoll);
-            }
-
             // apply damage to targets
-            foreach (var targetCharacter in targetCharacters)
-            {
-                var rulesetDefender = targetCharacter.RulesetCharacter;
+            var isFirstTarget = true;
 
-                var damageForm = new DamageForm
+            foreach (var rulesetDefender in
+                     targetCharacters.Select(targetCharacter => targetCharacter.RulesetCharacter))
+            {
+                if (isFirstTarget)
                 {
-                    DamageType = _damageType, DieType = dieType, DiceNumber = diceNumber, BonusDamage = 0
-                };
+                    isFirstTarget = false;
+                }
+                // Slashing Whirl scenario
+                else
+                {
+                    rolls = new List<int>();
+                    damageRoll =
+                        rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
+                }
 
                 RulesetActor.InflictDamage(
                     damageRoll,
@@ -440,7 +442,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     rulesetCharacter.Guid,
                     false,
                     new List<string>(),
-                    new RollInfo(dieType, dices, 0),
+                    new RollInfo(dieType, rolls, 0),
                     false,
                     out _);
             }

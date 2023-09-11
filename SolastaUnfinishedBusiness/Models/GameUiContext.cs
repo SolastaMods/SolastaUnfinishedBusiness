@@ -12,6 +12,7 @@ using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using Object = UnityEngine.Object;
@@ -355,11 +356,11 @@ internal static class GameUiContext
     {
         var spellActivationTime = actionType switch
         {
-            ActionDefinitions.ActionType.Bonus => RuleDefinitions.ActivationTime.BonusAction,
-            ActionDefinitions.ActionType.Main => RuleDefinitions.ActivationTime.Action,
-            ActionDefinitions.ActionType.Reaction => RuleDefinitions.ActivationTime.Reaction,
-            ActionDefinitions.ActionType.NoCost => RuleDefinitions.ActivationTime.NoCost,
-            _ => RuleDefinitions.ActivationTime.Action
+            ActionDefinitions.ActionType.Bonus => ActivationTime.BonusAction,
+            ActionDefinitions.ActionType.Main => ActivationTime.Action,
+            ActionDefinitions.ActionType.Reaction => ActivationTime.Reaction,
+            ActionDefinitions.ActionType.NoCost => ActivationTime.NoCost,
+            _ => ActivationTime.Action
         };
 
         if (level == 0)
@@ -373,11 +374,11 @@ internal static class GameUiContext
 
         switch (spellRepertoire.SpellCastingFeature.SpellReadyness)
         {
-            case RuleDefinitions.SpellReadyness.Prepared when spellRepertoire.PreparedSpells
+            case SpellReadyness.Prepared when spellRepertoire.PreparedSpells
                 .Any(spellDefinition =>
                     spellDefinition.SpellLevel == level
                     && spellDefinition.ActivationTime == spellActivationTime):
-            case RuleDefinitions.SpellReadyness.AllKnown
+            case SpellReadyness.AllKnown
                 when spellRepertoire.KnownSpells.Any(spellDefinition => spellDefinition.SpellLevel == level)
                      || spellRepertoire.ExtraSpellsByTag.Any(x => x.Value.Any(s => s.SpellLevel == level)):
 
@@ -656,7 +657,7 @@ internal static class GameUiContext
 
         foreach (var itemPresentation in crowns.Select(x => x.ItemPresentation))
         {
-            var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
+            var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(CreatureSex.Male);
 
             maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
                 ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape

@@ -193,8 +193,7 @@ internal class EffectDescriptionBuilder
         TargetFilteringMethod targetFilteringMethod,
         TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,
         int poolFilterDiceNumber = 0,
-        DieType poolFilterDieType = DieType.D1
-    )
+        DieType poolFilterDieType = DieType.D1)
     {
         _effect.targetFilteringMethod = targetFilteringMethod;
         _effect.targetFilteringTag = targetFilteringTag;

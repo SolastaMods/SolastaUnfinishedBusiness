@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -45,7 +46,7 @@ public static class GameLocationCharacterManagerPatcher
             var rulesetCharacter = character.RulesetCharacter;
 
             if (!rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
-                    RuleDefinitions.ConditionWildShapeSubstituteForm))
+                    ConditionWildShapeSubstituteForm))
             {
                 //not shape shifted - use default method
                 return true;

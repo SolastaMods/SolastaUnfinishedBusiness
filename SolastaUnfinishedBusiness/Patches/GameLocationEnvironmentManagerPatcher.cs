@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -27,7 +28,7 @@ public static class GameLocationEnvironmentManagerPatcher
 
             var validate = new Func<
                 RulesetEffect,
-                RuleDefinitions.RecurrentEffect,
+                RecurrentEffect,
                 ulong
             >(ValidateApplicationOfEffect).Method;
 
@@ -39,11 +40,11 @@ public static class GameLocationEnvironmentManagerPatcher
                 new CodeInstruction(OpCodes.Call, validate));
         }
 
-        private static ulong ValidateApplicationOfEffect(RulesetEffect effect, RuleDefinitions.RecurrentEffect context)
+        private static ulong ValidateApplicationOfEffect(RulesetEffect effect, RecurrentEffect context)
         {
             var guid = effect.SourceGuid;
 
-            if (context != RuleDefinitions.RecurrentEffect.OnTurnStart)
+            if (context != RecurrentEffect.OnTurnStart)
             {
                 return guid;
             }

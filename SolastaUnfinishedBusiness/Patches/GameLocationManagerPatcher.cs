@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Races;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -167,7 +168,7 @@ public static class GameLocationManagerPatcher
                 var effectDescription = effect.EffectDescription;
 
                 if (willEnterChainedLocation
-                    && RuleDefinitions.MatchesMagicType(effectDescription, RuleDefinitions.MagicType.SummonsCreature))
+                    && MatchesMagicType(effectDescription, MagicType.SummonsCreature))
                 {
                     return;
                 }

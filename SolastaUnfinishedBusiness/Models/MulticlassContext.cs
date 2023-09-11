@@ -10,12 +10,13 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
+using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -34,7 +35,7 @@ internal static class MulticlassContext
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBarbarianArmorMulticlass")
             .SetGuiPresentation("Feature/&BarbarianArmorProficiencyTitle", ArmorTrainingDescription)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Armor,
+            .SetProficiencies(ProficiencyType.Armor,
                 EquipmentDefinitions.ShieldCategory)
             .AddToDB();
 
@@ -42,7 +43,7 @@ internal static class MulticlassContext
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFighterArmorMulticlass")
             .SetGuiPresentation("Feature/&FighterArmorProficiencyTitle", ArmorTrainingDescription)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Armor,
+            .SetProficiencies(ProficiencyType.Armor,
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory)
@@ -52,7 +53,7 @@ internal static class MulticlassContext
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyPaladinArmorMulticlass")
             .SetGuiPresentation("Feature/&PaladinArmorProficiencyTitle", ArmorTrainingDescription)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Armor,
+            .SetProficiencies(ProficiencyType.Armor,
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory)
@@ -81,8 +82,7 @@ internal static class MulticlassContext
                 SkillDefinitions.Religion,
                 SkillDefinitions.SleightOfHand,
                 SkillDefinitions.Stealth,
-                SkillDefinitions.Survival
-            )
+                SkillDefinitions.Survival)
             .AddToDB();
 
     private static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
@@ -98,8 +98,7 @@ internal static class MulticlassContext
                 SkillDefinitions.Nature,
                 SkillDefinitions.Perception,
                 SkillDefinitions.Survival,
-                SkillDefinitions.Stealth
-            )
+                SkillDefinitions.Stealth)
             .AddToDB();
 
     private static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
@@ -118,8 +117,7 @@ internal static class MulticlassContext
                 SkillDefinitions.Performance,
                 SkillDefinitions.Persuasion,
                 SkillDefinitions.SleightOfHand,
-                SkillDefinitions.Stealth
-            )
+                SkillDefinitions.Stealth)
             .AddToDB();
 
     private static readonly MethodInfo NullMethod = null;
@@ -224,7 +222,7 @@ internal static class MulticlassContext
 
         foreach (var power in dragonbornBreathPowers)
         {
-            power.EffectDescription.effectForms[0].levelType = RuleDefinitions.LevelSourceType.CharacterLevel;
+            power.EffectDescription.effectForms[0].levelType = LevelSourceType.CharacterLevel;
         }
     }
 
@@ -400,8 +398,7 @@ internal static class MulticlassContext
             // CharacterInformationPanel
             (
                 typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ??
-                NullMethod, HeroContext.InformationPanel
-            )
+                NullMethod, HeroContext.InformationPanel)
         };
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");

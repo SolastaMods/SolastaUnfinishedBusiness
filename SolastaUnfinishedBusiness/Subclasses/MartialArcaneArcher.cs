@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -162,11 +163,17 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureGuidedShot.SetCustomSubFeatures(new PhysicalAttackTryAlterOutcomeGuidedShot(featureGuidedShot));
+        featureGuidedShot.SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackGuidedShot(featureGuidedShot));
 
         // LEVEL 10
 
         // Arcane Shot Additional Use
+
+        var powerArcaneShotAdditionalUse1At10 = FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifier{Name}ArcaneShotUse1At10")
+            .SetGuiPresentation($"PowerUseModifier{Name}ArcaneShotUse1", Category.Feature)
+            .SetFixedValue(PowerArcaneShot, 1)
+            .AddToDB();
 
         // Arcane Shot Choice
 
@@ -185,6 +192,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot Additional Use
 
+        var powerArcaneShotAdditionalUse1At18 = FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifier{Name}ArcaneShotUse1At18")
+            .SetGuiPresentation($"PowerUseModifier{Name}ArcaneShotUse1", Category.Feature)
+            .SetFixedValue(PowerArcaneShot, 1)
+            .AddToDB();
+
         // Arcane Shot Choice
 
         // MAIN
@@ -201,13 +214,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 featureGuidedShot,
                 invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(10,
-                PowerArcaneShotAdditionalUse1,
+                powerArcaneShotAdditionalUse1At10,
                 invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(15,
                 featureEverReadyShot,
                 invocationPoolArcaneShotChoice1)
             .AddFeaturesAtLevel(18,
-                PowerArcaneShotAdditionalUse1,
+                powerArcaneShotAdditionalUse1At18,
                 invocationPoolArcaneShotChoice1)
             .AddToDB();
     }
@@ -431,6 +444,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
+        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
+        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionShine.conditionParticleReference;
+        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            new AssetReference();
+
         ArcaneShotPowers.Add(powerInsightArrow,
             new ArcaneArcherData
             {
@@ -554,7 +574,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private static void InflictBurstingArrowAreaDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ArcaneArcherData arcaneArcherData)
+        ArcaneArcherData arcaneArcherData,
+        CharacterAction action)
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
@@ -563,25 +584,14 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             return;
         }
 
-        var dice = new List<int>();
-        var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
+        var criticalSuccess = action.AttackRollOutcome == RollOutcome.CriticalSuccess;
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
         var diceNumber = classLevel switch
         {
             >= 17 => 4,
             >= 11 => 3,
             _ => 2
-        };
-
-        for (var i = 0; i < diceNumber; i++)
-        {
-            var damageRoll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
-
-            dice.Add(damageRoll);
-        }
-
-        var damageForm = new DamageForm
-        {
-            DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
         };
 
         // apply damage to all targets
@@ -590,19 +600,27 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                      .ToList() // avoid changing enumerator
                      .Select(targetCharacter => targetCharacter.RulesetCharacter))
         {
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
+            };
+            var rolls = new List<int>();
+            var damageRoll = rulesetAttacker.RollDamage(
+                damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
+
             EffectHelpers.StartVisualEffect(
                 attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
             RulesetActor.InflictDamage(
-                dice.Sum(),
+                damageRoll,
                 damageForm,
-                DamageTypeForce,
+                damageForm.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
                 attacker.Guid,
                 false,
                 new List<string>(),
-                new RollInfo(DieType.D6, dice, 0),
+                new RollInfo(damageForm.DieType, rolls, 0),
                 false,
                 out _);
         }
@@ -650,7 +668,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             // apply arrow behaviors after attack is complete
             if (PowerSpent == _powerBurstingArrow)
             {
-                InflictBurstingArrowAreaDamage(attacker, defender, arcaneArcherData);
+                InflictBurstingArrowAreaDamage(attacker, defender, arcaneArcherData, action);
             }
             else
             {
@@ -675,11 +693,11 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Guided Shot
     //
 
-    private class PhysicalAttackTryAlterOutcomeGuidedShot : IPhysicalAttackTryAlterOutcome
+    private class TryAlterOutcomePhysicalAttackGuidedShot : ITryAlterOutcomePhysicalAttack
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackTryAlterOutcomeGuidedShot(FeatureDefinition featureDefinition)
+        public TryAlterOutcomePhysicalAttackGuidedShot(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -101,12 +102,12 @@ public static class CharacterActionBreakFreePatcher
             __instance.ActingCharacter.ComputeAbilityCheckActionModifier(
                 abilityScoreName, proficiencyName, actionModifier);
             __instance.ActingCharacter.RollAbilityCheck(
-                abilityScoreName, proficiencyName, checkDC, RuleDefinitions.AdvantageType.None, actionModifier, false,
+                abilityScoreName, proficiencyName, checkDC, AdvantageType.None, actionModifier, false,
                 -1, out var outcome, out var successDelta, true);
             __instance.AbilityCheckRollOutcome = outcome;
             __instance.AbilityCheckSuccessDelta = successDelta;
 
-            if (__instance.AbilityCheckRollOutcome == RuleDefinitions.RollOutcome.Failure)
+            if (__instance.AbilityCheckRollOutcome == RollOutcome.Failure)
             {
                 yield return ServiceRepository.GetService<IGameLocationBattleService>()
                     .HandleFailedAbilityCheck(__instance, __instance.ActingCharacter, actionModifier);
@@ -115,9 +116,9 @@ public static class CharacterActionBreakFreePatcher
             var breakFreeExecuted = __instance.ActingCharacter.RulesetCharacter.BreakFreeExecuted;
 
             breakFreeExecuted?.Invoke(__instance.ActingCharacter.RulesetCharacter,
-                __instance.AbilityCheckRollOutcome == RuleDefinitions.RollOutcome.Success);
+                __instance.AbilityCheckRollOutcome == RollOutcome.Success);
 
-            if (__instance.AbilityCheckRollOutcome == RuleDefinitions.RollOutcome.Success)
+            if (__instance.AbilityCheckRollOutcome == RollOutcome.Success)
             {
                 __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
             }

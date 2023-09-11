@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -54,7 +55,7 @@ public static class ItemMenuModalPatcher
             }
 
             return rulesetCharacterHero.SpellRepertoires
-                .Where(x => x.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Spellbook)
+                .Where(x => x.SpellCastingFeature.SpellKnowledge == SpellKnowledge.Spellbook)
                 .ToList();
         }
 

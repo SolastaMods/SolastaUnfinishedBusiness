@@ -18,8 +18,9 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
-using static ConsoleStyleDuplet;
+using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
+using static ConsoleStyleDuplet;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -84,8 +85,7 @@ public static class RulesetActorPatcher
             ref int rolledDamage,
             string damageType,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            RollInfo rollInfo
-        )
+            RollInfo rollInfo)
         {
             //PATCH: support for FeatureDefinitionReduceDamage
             var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
@@ -209,7 +209,7 @@ public static class RulesetActorPatcher
     public static class ProcessConditionsMatchingOccurenceType_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
+        public static void Postfix(RulesetActor __instance, TurnOccurenceType occurenceType)
         {
             //PATCH: support for `IRemoveConditionOnSourceTurnStart` - removes appropriately marked conditions
             ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
@@ -369,7 +369,7 @@ public static class RulesetActorPatcher
             var myEnumerate = new Action<
                 RulesetActor,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>,
+                Dictionary<FeatureDefinition, FeatureOrigin>,
                 ulong
             >(EnumerateIDamageAffinityProvider).Method;
 
@@ -383,7 +383,7 @@ public static class RulesetActorPatcher
         private static void EnumerateIDamageAffinityProvider(
             RulesetActor actor,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
+            Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin,
             ulong guid)
         {
             //PATCH: supports IIgnoreDamageAffinity   
@@ -438,7 +438,7 @@ public static class RulesetActorPatcher
         private static void EnumerateIDieRollModificationProvider(
             RulesetCharacter __instance,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse, featuresOrigin);
 
@@ -463,7 +463,7 @@ public static class RulesetActorPatcher
                 .ToList();
 
             var damageTypesFromProxyAttacks = proxies
-                .Where(x => x.canAttack && x.attackMethod == RuleDefinitions.ProxyAttackMethod.CasterSpellAbility)
+                .Where(x => x.canAttack && x.attackMethod == ProxyAttackMethod.CasterSpellAbility)
                 .Select(x => x.DamageType).ToList();
 
             var damageTypesFromProxyAttackPowers = proxies
@@ -498,18 +498,18 @@ public static class RulesetActorPatcher
 
         [UsedImplicitly]
         public static int RollDie(
-            RuleDefinitions.DieType dieType,
-            RuleDefinitions.AdvantageType advantageType,
+            DieType dieType,
+            AdvantageType advantageType,
             out int firstRoll,
             out int secondRoll,
             float rollAlterationScore,
             RulesetActor actor,
-            RuleDefinitions.RollContext rollContext)
+            RollContext rollContext)
         {
             int result;
 
-            if (rollContext == RuleDefinitions.RollContext.AttackRoll &&
-                advantageType == RuleDefinitions.AdvantageType.Advantage && ElvenPrecisionLogic.Active)
+            if (rollContext == RollContext.AttackRoll &&
+                advantageType == AdvantageType.Advantage && ElvenPrecisionLogic.Active)
             {
                 result = Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
             }
@@ -536,7 +536,7 @@ public static class RulesetActorPatcher
                 }
             }
 
-            if (rollContext != RuleDefinitions.RollContext.AttackRoll)
+            if (rollContext != RollContext.AttackRoll)
             {
                 return result;
             }
@@ -549,7 +549,7 @@ public static class RulesetActorPatcher
 
         private static int Roll3DicesAndKeepBest(
             string roller,
-            RuleDefinitions.DieType diceType,
+            DieType diceType,
             out int firstRoll,
             out int secondRoll,
             float rollAlterationScore)
@@ -559,8 +559,8 @@ public static class RulesetActorPatcher
             int DoRoll()
             {
                 return karmic
-                    ? RuleDefinitions.RollKarmicDie(diceType, rollAlterationScore)
-                    : 1 + DeterministicRandom.Range(0, RuleDefinitions.DiceMaxValue[(int)diceType]);
+                    ? RollKarmicDie(diceType, rollAlterationScore)
+                    : 1 + DeterministicRandom.Range(0, DiceMaxValue[(int)diceType]);
             }
 
             var roll1 = DoRoll();
@@ -591,12 +591,12 @@ public static class RulesetActorPatcher
         // TODO: make this more generic
         [UsedImplicitly]
         public static void Prefix(RulesetActor __instance,
-            RuleDefinitions.DieType dieType,
-            RuleDefinitions.RollContext rollContext,
+            DieType dieType,
+            RollContext rollContext,
             ref bool enumerateFeatures,
             ref bool canRerollDice)
         {
-            if (dieType == RuleDefinitions.DieType.D1)
+            if (dieType == DieType.D1)
             {
                 canRerollDice = false;
                 return;
@@ -604,7 +604,7 @@ public static class RulesetActorPatcher
 
             //PATCH: support for `RoguishRaven` Rogue subclass
             if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
-                rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)
+                rollContext != RollContext.AttackDamageValueRoll)
             {
                 return;
             }
@@ -712,7 +712,7 @@ public static class RulesetActorPatcher
         private static void EnumerateFeatureDefinitionSavingThrowAffinity(
             RulesetCharacter __instance,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse,
                 featuresOrigin);
@@ -767,7 +767,7 @@ public static class RulesetActorPatcher
         private static void EnumerateFeatureDefinitionSpellImmunity(
             RulesetCharacter __instance,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
 
@@ -807,7 +807,7 @@ public static class RulesetActorPatcher
         private static void EnumerateFeatureDefinitionSpellImmunityLevel(
             RulesetCharacter __instance,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
             __instance.EnumerateFeaturesToBrowse<ISpellAffinityProvider>(featuresToBrowse, featuresOrigin);
 

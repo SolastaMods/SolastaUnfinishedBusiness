@@ -16,8 +16,8 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -143,16 +143,17 @@ internal static class CharacterContext
         .Create("PowerHelp")
         .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 256, 128))
         .SetUsesFixed(ActivationTime.Action)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
-                    .Build())
-            .Build())
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
         .SetUniqueInstance()
         .AddToDB();
 
@@ -1335,7 +1336,6 @@ internal static class CharacterContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals)
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1424,10 +1424,10 @@ internal static class CharacterContext
             .AddToDB();
 
         var conditionDazed = ConditionDefinitionBuilder
-            .Create($"Condition{Devious}Dazed")
+            .Create(ConditionDefinitions.ConditionDazzled, $"Condition{Devious}Dazed")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(featureDazed, actionAffinityDazed)
+            .SetFeatures(featureDazed, actionAffinityDazed)
             .AddToDB();
 
         var powerDaze = FeatureDefinitionPowerSharedPoolBuilder

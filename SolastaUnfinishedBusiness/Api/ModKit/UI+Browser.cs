@@ -37,8 +37,7 @@ internal static partial class UI
             Func<T, TDef, Action> addItem = null,
             Func<T, TItem, Action> removeItem = null,
             // ReSharper disable once UnusedParameter.Global
-            Func<T, TItem, Action> childrenOnGUI = null
-        )
+            Func<T, TItem, Action> childrenOnGUI = null)
         {
             // ReSharper disable once NotAccessedVariable
             var searchChanged = false;
@@ -126,8 +125,7 @@ internal static partial class UI
             Func<T, TItem, Action> decrementValue = null,
             Func<T, TDef, Action> addItem = null,
             Func<T, TItem, Action> removeItem = null,
-            Func<T, TItem, Action> childrenOnGUI = null
-        )
+            Func<T, TItem, Action> childrenOnGUI = null)
         {
             // var remWidth = UmmWidth;
             _matchCount++;
@@ -235,8 +233,7 @@ internal static partial class UI
             var filtered = new List<TDef>();
             foreach (var def in definitions)
             {
-                if (def.GetType().ToString().Contains(searchTextParam)
-                   )
+                if (def.GetType().ToString().Contains(searchTextParam))
                 {
                     filtered.Add(def);
                 }

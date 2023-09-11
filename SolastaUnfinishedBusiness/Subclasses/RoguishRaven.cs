@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -48,19 +49,21 @@ public sealed class RoguishRaven : AbstractSubclass
             .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new RefreshSneakAttackOnKill(),
-                new KillingSpree(ConditionDefinitionBuilder
-                    .Create("ConditionRavenKillingSpree")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                        .Create("AdditionalActionRavenKillingSpree2")
-                        .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
-                        .SetActionType(ActionDefinitions.ActionType.Main)
-                        .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                        .SetMaxAttacksNumber(1)
-                        .SetCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
-                        .AddToDB())
-                    .AddToDB()))
+                new KillingSpree(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionRavenKillingSpree")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAdditionalActionBuilder
+                                .Create("AdditionalActionRavenKillingSpree2")
+                                .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
+                                .SetActionType(ActionDefinitions.ActionType.Main)
+                                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                                .SetMaxAttacksNumber(1)
+                                .SetCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                                .AddToDB())
+                        .AddToDB()))
             .AddToDB();
 
         // pain maker
@@ -83,7 +86,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
             .Create("FeatureRavenDeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new PhysicalAttackTryAlterOutcomeDeadlyAim(powerSteadyAim))
+            .SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerSteadyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
@@ -159,7 +162,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
                     .SetGuiPresentation(Category.Feature)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    .SetModifier(AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
                     .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetSituationalContext(SituationalContext.AttackingWithRangedWeapon)
@@ -181,8 +184,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
-                    .AddToDB()
-            )
+                    .AddToDB())
             .AddToDB();
 
         var deadEyeSprite = Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64);
@@ -191,20 +193,22 @@ public sealed class RoguishRaven : AbstractSubclass
             .Create("PowerRavenHeartSeekingShot")
             .SetGuiPresentation("FeatureSetRavenHeartSeekingShot", Category.Feature, deadEyeSprite)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionRavenHeartSeekingShotTrigger, ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionRavenHeartSeekingShotTrigger,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
@@ -214,22 +218,23 @@ public sealed class RoguishRaven : AbstractSubclass
             .Create("PowerRavenTurnOffHeartSeekingShot")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionRavenHeartSeekingShotTrigger,
-                            ConditionForm.ConditionOperation.Remove)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionRavenHeartSeekingShotTrigger,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenTurnOffHeartSeekingShot);
@@ -321,11 +326,11 @@ public sealed class RoguishRaven : AbstractSubclass
         }
     }
 
-    private class PhysicalAttackTryAlterOutcomeDeadlyAim : IPhysicalAttackTryAlterOutcome
+    private class TryAlterOutcomePhysicalAttackDeadlyAim : ITryAlterOutcomePhysicalAttack
     {
         private readonly FeatureDefinitionPower _power;
 
-        public PhysicalAttackTryAlterOutcomeDeadlyAim(FeatureDefinitionPower power)
+        public TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power)
         {
             _power = power;
         }

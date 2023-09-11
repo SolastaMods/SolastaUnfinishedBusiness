@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using static RuleDefinitions;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -524,7 +525,7 @@ public static class CharacterBuildingManagerPatcher
 
             // this IF is only difference from original game code (in original block is always executed)
             if (tag != AttributeDefinitions.TagRace ||
-                featureDefinitionCastSpell.SpellKnowledge != RuleDefinitions.SpellKnowledge.FixedList)
+                featureDefinitionCastSpell.SpellKnowledge != SpellKnowledge.FixedList)
             {
                 __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, tag,
                     heroBuildingData.TempAcquiredCantripsNumber);

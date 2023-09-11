@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -10,5 +11,5 @@ public interface IModifyAC
         [UsedImplicitly] bool dryRun,
         [UsedImplicitly] FeatureDefinition dryRunFeature,
         out RulesetAttributeModifier attributeModifier,
-        out RuleDefinitions.TrendInfo trendInfo);
+        out TrendInfo trendInfo);
 }

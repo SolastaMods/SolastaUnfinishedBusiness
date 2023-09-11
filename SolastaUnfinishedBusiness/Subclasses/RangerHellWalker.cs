@@ -192,19 +192,23 @@ public sealed class RangerHellWalker : AbstractSubclass
                     .SetDroppedLootDefinition(null)
                     .AddToDB()
             })
-            .Select(t => FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{Name}FiendishSpawn{t.t.monsterName}")
-                .SetGuiPresentation(t.newMonsterDefinition.GuiPresentation)
-                .SetSharedPool(ActivationTime.Action, powerFiendishSpawnPool)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetSummonCreatureForm(1, t.newMonsterDefinition.Name)
-                        .Build())
-                    .Build())
-                .AddToDB())
+            .Select(
+                t => FeatureDefinitionPowerSharedPoolBuilder
+                    .Create($"Power{Name}FiendishSpawn{t.t.monsterName}")
+                    .SetGuiPresentation(t.newMonsterDefinition.GuiPresentation)
+                    .SetSharedPool(ActivationTime.Action, powerFiendishSpawnPool)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .SetDurationData(DurationType.Minute, 1)
+                            .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetSummonCreatureForm(1, t.newMonsterDefinition.Name)
+                                    .Build())
+                            .Build())
+                    .AddToDB())
             .Cast<FeatureDefinitionPower>()
             .ToList();
 

@@ -10,11 +10,11 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -43,15 +43,16 @@ internal static class RaceFairyBuilder
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create($"SpellList{Name}")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellsContext.BurstOfRadiance)
-                .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
-                .SetSpellsAtLevel(2, SpellsContext.ColorBurst)
-                .FinalizeSpells()
-                .AddToDB())
+            .SetSpellList(
+                SpellListDefinitionBuilder
+                    .Create($"SpellList{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellsContext.BurstOfRadiance)
+                    .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
+                    .SetSpellsAtLevel(2, SpellsContext.ColorBurst)
+                    .FinalizeSpells()
+                    .AddToDB())
             .AddToDB();
 
         // Languages
@@ -117,14 +118,12 @@ internal static class RaceFairyBuilder
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionFairyWings, ConditionForm.ConditionOperation.Remove),
                         //Leaving this for compatibility
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
-                            ConditionForm.ConditionOperation.Remove)
-                    )
+                            ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(

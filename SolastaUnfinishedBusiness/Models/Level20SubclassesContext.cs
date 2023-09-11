@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,8 +13,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -302,15 +303,8 @@ internal static class Level20SubclassesContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Day, 1)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("SavingThrowAfterRollQuiveringPalm")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnSavingThrowAfterRollQuiveringPalm())
-                    .AddToDB())
             .AddToDB();
 
         var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
@@ -322,15 +316,10 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
                     .SetParticleEffectParameters(DreadfulOmen)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 10, DieType.D10)
-                            .Build())
                     .Build())
             .AddToDB();
 
@@ -341,27 +330,22 @@ internal static class Level20SubclassesContext
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
-            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
+            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3, 3)
-            .SetAutoActivationPowerTag("9024") // this is the action ID for Quivering Palm
+            .SetAutoActivationPowerTag(((int)ExtraActionId.QuiveringPalmToggle).ToString())
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Day, 1)
                     .SetParticleEffectParameters(Bane)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionTraditionOpenHandQuiveringPalm,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTraditionOpenHandQuiveringPalm))
                     .Build())
             .AddToDB();
 
         powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
             ForcePowerUseInSpendPowerAction.Marker,
-            new ActionFinishedByMeQuiveringPalm(
+            new UsePowerFinishedByMeQuiveringPalm(
                 powerTraditionOpenHandQuiveringPalm,
                 conditionTraditionOpenHandQuiveringPalm));
 
@@ -447,6 +431,8 @@ internal static class Level20SubclassesContext
         // Oath of Devotion
         //
 
+        // Devotion Aura
+
         var powerOathOfDevotionAuraDevotion18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfDevotionAuraDevotion, "PowerOathOfDevotionAuraDevotion18")
             .SetOrUpdateGuiPresentation(Category.Feature)
@@ -457,9 +443,59 @@ internal static class Level20SubclassesContext
 
         OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
 
+        // Holy Nimbus
+
+        var savingThrowAffinityOathOfDevotionHolyNimbus = FeatureDefinitionBuilder
+            .Create("SavingThrowAffinityOathOfDevotionHolyNimbus")
+            .SetGuiPresentation("ConditionOathOfDevotionHolyNimbus", Category.Condition)
+            .AddToDB();
+
+        savingThrowAffinityOathOfDevotionHolyNimbus.SetCustomSubFeatures(
+            new ModifySavingThrowHolyNimbus(savingThrowAffinityOathOfDevotionHolyNimbus));
+
+        var conditionOathOfDevotionHolyNimbus = ConditionDefinitionBuilder
+            .Create("ConditionOathOfDevotionHolyNimbus")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+            .SetPossessive()
+            .SetFeatures(savingThrowAffinityOathOfDevotionHolyNimbus)
+            .AddToDB();
+
+        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var powerOathOfDevotionHolyNimbus = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfDevotionHolyNimbus")
+            .SetGuiPresentation(Category.Feature, PowerTraditionLightBlindingFlash)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart |
+                                        RecurrentEffect.OnEnter)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeRadiant, 0, DieType.D1, 10),
+                        EffectFormBuilder.ConditionForm(conditionOathOfDevotionHolyNimbus,
+                            ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
+                            .Build())
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
+                    .Build())
+            .AddToDB();
+
+        OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionHolyNimbus, 20));
+
         //
         // Oath of Judgement
         //
+
+        // Aura of Rightenousness
 
         var powerOathOfJugementAuraRightenousness18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfJugementAuraRightenousness, "PowerOathOfJugementAuraRightenousness18")
@@ -471,9 +507,52 @@ internal static class Level20SubclassesContext
 
         OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
 
+        // Final Judgement
+
+        var conditionOathOfJugementFinalJudgementCaster = ConditionDefinitionBuilder
+            .Create("ConditionOathOfJugementFinalJudgementCaster")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierOathOfJugementFinalJudgementCaster")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
+                    .AddToDB(),
+                AttributeModifierThirdExtraAttack,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinitySlashingResistance)
+            .AddToDB();
+
+        conditionOathOfJugementFinalJudgementCaster.conditionStartParticleReference =
+            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
+        conditionOathOfJugementFinalJudgementCaster.conditionParticleReference =
+            ConditionDefinitions.ConditionShine.conditionParticleReference;
+        conditionOathOfJugementFinalJudgementCaster.conditionEndParticleReference =
+            new AssetReference();
+
+        var powerOathOfJugementFinalJudgement = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfJugementFinalJudgement")
+            .SetGuiPresentation(Category.Feature, PowerTraditionCourtMageSpellShield)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOathOfJugementFinalJudgementCaster))
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
+                    .Build())
+            .AddToDB();
+
+        OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementFinalJudgement, 20));
+
         //
         // Oath of Motherland
         //
+
+        // Volcanic Aura
 
         var powerOathOfMotherlandVolcanicAura18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfMotherlandVolcanicAura, "PowerOathOfMotherlandVolcanicAura18")
@@ -484,6 +563,76 @@ internal static class Level20SubclassesContext
         powerOathOfMotherlandVolcanicAura18.EffectDescription.targetParameter = 13;
 
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
+
+        // Flames of Motherland
+
+        var additionalDamageOathOfMotherlandFlamesOfMotherland = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("FlamesOfMotherland")
+            .SetDamageDice(DieType.D6, 2)
+            .SetSpecificDamageType(DamageTypeFire)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .AddToDB();
+
+        var powerOathOfMotherlandFlamesOfMotherlandRetaliate = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfMotherlandRetaliateFlamesOfMotherland")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypePiercing, 0, DieType.D1, 10))
+                    .SetParticleEffectParameters(FireBolt)
+                    .Build())
+            .AddToDB();
+
+        var damageAffinityOathOfMotherlandFlamesOfMotherland = FeatureDefinitionDamageAffinityBuilder
+            .Create("DamageAffinityOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentationNoContent(true)
+            .SetDamageAffinityType(DamageAffinityType.None)
+            .SetDamageType(DamageTypeFire)
+            .SetRetaliate(powerOathOfMotherlandFlamesOfMotherlandRetaliate, 1, true)
+            .AddToDB();
+
+        var conditionOathOfMotherlandFlamesOfMotherland = ConditionDefinitionBuilder
+            .Create("ConditionOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
+            .SetPossessive()
+            .SetFeatures(
+                additionalDamageOathOfMotherlandFlamesOfMotherland, damageAffinityOathOfMotherlandFlamesOfMotherland)
+            .AddToDB();
+
+        var powerOathOfMotherlandFlamesOfMotherland = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfMotherlandFlamesOfMotherland")
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeFire, 8, DieType.D6),
+                        EffectFormBuilder.ConditionForm(conditionOathOfMotherlandFlamesOfMotherland,
+                            ConditionForm.ConditionOperation.Add, true, true))
+                    .SetParticleEffectParameters(Fireball)
+                    .Build())
+            .AddToDB();
+
+        var effectParticleParameters =
+            powerOathOfMotherlandFlamesOfMotherland.EffectDescription.EffectParticleParameters;
+
+        effectParticleParameters.conditionStartParticleReference =
+            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        effectParticleParameters.conditionParticleReference =
+            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        effectParticleParameters.conditionEndParticleReference =
+            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
+        OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandFlamesOfMotherland, 20));
 
         //
         // Oath of Tirmar
@@ -498,6 +647,59 @@ internal static class Level20SubclassesContext
         powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
 
         OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
+
+        // Inquisitor’s Zeal
+
+        var savingThrowAffinityOathOfTirmarInquisitorZeal = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create("SavingThrowAffinityOathOfTirmarInquisitorZeal")
+            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
+        var conditionOathOfTirmarInquisitorZeal = ConditionDefinitionBuilder
+            .Create("ConditionOathOfTirmarInquisitorZeal")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionTruesight)
+            .SetPossessive()
+            .SetFeatures(savingThrowAffinityOathOfTirmarInquisitorZeal)
+            .AddToDB();
+
+        var featureOathOfTirmarInquisitorZealAdvantage = FeatureDefinitionBuilder
+            .Create("FeatureOathOfTirmarInquisitorZealAdvantage")
+            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition)
+            .AddToDB();
+
+        featureOathOfTirmarInquisitorZealAdvantage.SetCustomSubFeatures(
+            new ModifyAttackActionModifierInquisitorZeal(featureOathOfTirmarInquisitorZealAdvantage));
+
+        var conditionOathOfTirmarInquisitorSelfZeal = ConditionDefinitionBuilder
+            .Create("ConditionOathOfTirmarInquisitorSelfZeal")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionTruesight)
+            .SetPossessive()
+            .SetFeatures(
+                savingThrowAffinityOathOfTirmarInquisitorZeal,
+                FeatureDefinitionSenses.SenseTruesight24,
+                featureOathOfTirmarInquisitorZealAdvantage)
+            .AddToDB();
+
+        var powerOathOfJugementInquisitorZeal = FeatureDefinitionPowerBuilder
+            .Create("PowerOathOfTirmarInquisitorZeal")
+            .SetGuiPresentation(Category.Feature, PowerPactChainQuasit)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorZeal),
+                        EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorSelfZeal,
+                            ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(TrueSeeing)
+                    .Build())
+            .AddToDB();
+
+        OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementInquisitorZeal, 20));
     }
 
     private static void RogueLoad()
@@ -547,12 +749,13 @@ internal static class Level20SubclassesContext
             .Create("FeatureRoguishHoodlumBrutalAssault")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new CustomAdditionalDamageBrutalAssault(FeatureDefinitionAdditionalDamageBuilder
-                    .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
-                    .SetGuiPresentationNoContent(true)
-                    .SetNotificationTag("BrutalAssault")
-                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-                    .AddToDB()))
+                new CustomAdditionalDamageBrutalAssault(
+                    FeatureDefinitionAdditionalDamageBuilder
+                        .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
+                        .SetGuiPresentationNoContent(true)
+                        .SetNotificationTag("BrutalAssault")
+                        .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+                        .AddToDB()))
             .AddToDB();
 
         RoguishHoodlum.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishHoodlumBrutalAssault, 17));
@@ -601,17 +804,19 @@ internal static class Level20SubclassesContext
             .Create("PowerRoguishShadowcasterShadowForm")
             .SetGuiPresentation(Category.Feature, Darkvision)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetParticleEffectParameters(Malediction)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionRoguishShadowcasterShadowForm, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(Malediction)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionRoguishShadowcasterShadowForm,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         RoguishShadowCaster.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerRoguishShadowcasterShadowForm, 17));
@@ -631,7 +836,361 @@ internal static class Level20SubclassesContext
 
     private static void SorcererLoad()
     {
+        //
+        // Child of The Rift
+        //
+
+        var magicAffinityChildRiftMagicMastery = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinitySorcererChildRiftMagicMastery")
+            .SetGuiPresentation(Category.Feature)
+            .SetPreserveSlotRolls(18, 9)
+            .AddToDB();
+
+        SorcerousChildRift.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(magicAffinityChildRiftMagicMastery, 18));
+
+        //
+        // Draconic Bloodline
+        //
+
+        var powerSorcererDraconicBloodlineAweOrFearPresence = FeatureDefinitionPowerBuilder
+            .Create("PowerSorcererDraconicBloodlineAweOrFearPresence")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
+            .SetEffectDescription( // for display purposes only
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .Build())
+            .AddToDB();
+
+        var powerSorcererDraconicBloodlineAwePresence = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSorcererDraconicBloodlineAwePresence")
+            .SetGuiPresentation(Category.Feature, PowerTraditionLightBlindingFlash)
+            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlineAweOrFearPresence, 5)
+            // .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionCharmed,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .Build())
+                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
+                    .Build())
+            .SetShowCasting(true)
+            .AddToDB();
+
+        var powerSorcererDraconicBloodlineFearPresence = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerSorcererDraconicBloodlineFearPresence")
+            .SetGuiPresentation(Category.Feature, Fear)
+            .SetSharedPool(ActivationTime.Action, powerSorcererDraconicBloodlineAweOrFearPresence, 5)
+            // .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 5, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .Build())
+                    .SetParticleEffectParameters(PowerDragonFrightfulPresence)
+                    .Build())
+            .SetShowCasting(true)
+            .AddToDB();
+
+        powerSorcererDraconicBloodlineFearPresence.EffectDescription.EffectParticleParameters.impactParticleReference =
+            new AssetReference();
+
+        var featureSetSorcererDraconicBloodlinePresence = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSorcererDraconicBloodlinePresence")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                powerSorcererDraconicBloodlineAweOrFearPresence,
+                powerSorcererDraconicBloodlineAwePresence,
+                powerSorcererDraconicBloodlineFearPresence)
+            .AddToDB();
+
+        SorcerousDraconicBloodline.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetSorcererDraconicBloodlinePresence, 18));
+
+        //
+        // Haunted Soul
+        //
+
+        var conditionMindDominatedByHauntedSoul = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionMindDominatedByCaster, "ConditionMindDominatedByHauntedSoul")
+            .SetSpecialInterruptions(Array.Empty<ConditionInterruption>())
+            .AddToDB();
+
+        conditionMindDominatedByHauntedSoul.SetCustomSubFeatures(
+            new NotifyConditionRemovalPossession(conditionMindDominatedByHauntedSoul));
+
+        var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
+            .Create("PowerSorcererHauntedSoulPossession")
+            .SetGuiPresentation(Category.Feature, PowerSorcererHauntedSoulVengefulSpirits)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Cube, 4)
+                    .SetSavingThrowData(false, AttributeDefinitions.Charisma, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionMindDominatedByHauntedSoul, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .SetParticleEffectParameters(PowerSorcererHauntedSoulSpiritVisage)
+                    .Build())
+            .AddToDB();
+
+        powerSorcererHauntedSoulPossession.EffectDescription.EffectParticleParameters.impactParticleReference =
+            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.impactParticleReference;
+
+        SorcerousHauntedSoul.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));
+
+        //
+        // Mana Painter
+        //
+
+        var powerSorcererManaPainterMasterDrain = FeatureDefinitionPowerBuilder
+            .Create(PowerSorcererManaPainterDrain, "PowerSorcererManaPainterManaOverflow")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerSorcererManaPainterDrain)
+            .AddToDB();
+
+        powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[1].SpellSlotsForm.sorceryPointsGain = 2;
+
+        var featureSetSorcererManaPainterManaOverflow = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSorcererManaPainterManaOverflow")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerSorcererManaPainterMasterDrain)
+            .AddToDB();
+
+        powerSorcererManaPainterMasterDrain.SetCustomSubFeatures(
+            new TryAlterOutcomeSavingThrowManaOverflow(featureSetSorcererManaPainterManaOverflow));
+
+        SorcerousManaPainter.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
     }
+
+    #region Paladin
+
+    //
+    // Holy Nimbus
+    //
+
+    private sealed class ModifySavingThrowHolyNimbus : IModifySavingThrow
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ModifySavingThrowHolyNimbus(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        {
+            return attributeScore == AttributeDefinitions.Wisdom
+                   && rulesetCaster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" };
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+
+            return attribute;
+        }
+    }
+
+    //
+    // Inquisitor's Zeal
+    //
+
+    private sealed class ModifyAttackActionModifierInquisitorZeal : IModifyAttackActionModifier
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ModifyAttackActionModifierInquisitorZeal(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            // only weapon attacks
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            // only enemies with darkvision
+            if (defender.GetFeaturesByType<FeatureDefinitionSense>().All(x => x.senseType != SenseMode.Type.Darkvision))
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+        }
+    }
+
+    #endregion
+
+    #region Sorcerer
+
+    //
+    // Possession
+    //
+
+    private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
+    {
+        private readonly ConditionDefinition _conditionPossession;
+
+        public NotifyConditionRemovalPossession(ConditionDefinition conditionPossession)
+        {
+            _conditionPossession = conditionPossession;
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            if (rulesetCondition.ConditionDefinition != _conditionPossession)
+            {
+                return;
+            }
+
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetAttacker == null)
+            {
+                return;
+            }
+
+            var conditionExhausted = ConditionDefinitions.ConditionExhausted;
+
+            removedFrom.InflictCondition(
+                conditionExhausted.Name,
+                conditionExhausted.DurationType,
+                conditionExhausted.DurationParameter,
+                conditionExhausted.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            // Empty
+        }
+    }
+
+    //
+    // Mana Overflow
+    //
+
+    private sealed class TryAlterOutcomeSavingThrowManaOverflow : ITryAlterOutcomeSavingThrow
+    {
+        private readonly FeatureDefinition _featureManaOverflow;
+
+        public TryAlterOutcomeSavingThrowManaOverflow(FeatureDefinition featureManaOverflow)
+        {
+            _featureManaOverflow = featureManaOverflow;
+        }
+
+        public void OnFailedSavingTryAlterOutcome(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            if (saveOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                return;
+            }
+
+            if (target is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            var hero = rulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
+            {
+                return;
+            }
+
+            var attacker = GameLocationCharacter.GetFromActor(hero);
+            var defender = GameLocationCharacter.GetFromActor(target);
+
+            if (attacker != null && defender != null)
+            {
+                EffectHelpers.StartVisualEffect(attacker, defender, MageArmor, EffectHelpers.EffectType.Caster);
+            }
+
+            hero.LogCharacterUsedFeature(_featureManaOverflow);
+            hero.GainSorceryPoints(1);
+        }
+    }
+
+    #endregion
 
     #region Fighter
 
@@ -844,8 +1403,8 @@ internal static class Level20SubclassesContext
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
+                || rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
             {
                 return true;
             }
@@ -855,7 +1414,7 @@ internal static class Level20SubclassesContext
                 return true;
             }
 
-            var isValid = target.RulesetCharacter.HasConditionOfType("ConditionTraditionOpenHandQuiveringPalm");
+            var isValid = target.RulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
 
             if (!isValid)
             {
@@ -865,91 +1424,81 @@ internal static class Level20SubclassesContext
             return isValid;
         }
 
-
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             if (action.ActionParams.TargetCharacters.Count == 0)
             {
                 yield break;
             }
 
-            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
-            var rulesetCondition = rulesetDefender?.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+            var target = action.ActionParams.TargetCharacters[0];
+            var rulesetTarget = target.RulesetCharacter;
 
-            if (rulesetCondition != null)
+            if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionDefinition.Name, out var activeCondition))
             {
-                rulesetDefender.RemoveCondition(rulesetCondition);
-            }
-        }
-    }
-
-    private sealed class OnSavingThrowAfterRollQuiveringPalm : IOnSavingThrowAfterRoll
-    {
-        public void OnSavingThrowAfterRoll(
-            RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
-            BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
-        {
-            if (target is not RulesetCharacter rulesetTarget)
-            {
-                return;
+                yield break;
             }
 
-            var rulesetCondition = rulesetTarget.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition.Name == "ConditionTraditionOpenHandQuiveringPalm");
+            rulesetTarget.RemoveCondition(activeCondition);
 
-            if (rulesetCondition != null)
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            // takes 10d10 Necrotic
+            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                rulesetTarget.RemoveCondition(rulesetCondition);
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeNecrotic, DieType = DieType.D10, DiceNumber = 10, BonusDamage = 0
+                };
+                var rolls = new List<int>();
+                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    damageForm.DamageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    rulesetTarget,
+                    false,
+                    rulesetAttacker.Guid,
+                    false,
+                    new List<string>(),
+                    new RollInfo(damageForm.DieType, rolls, 0),
+                    false,
+                    out _);
+
+                yield break;
             }
 
-            if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                return;
-            }
-
+            // reduces to 1 hit point
             var totalDamage = rulesetTarget.CurrentHitPoints + rulesetTarget.TemporaryHitPoints - 1;
+            var condition = ConditionDefinitions.ConditionStunned_MonkStunningStrike;
 
-            target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
-            effectForms.SetRange(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionDefinitions.ConditionStunned_MonkStunningStrike,
-                        ConditionForm.ConditionOperation.Add)
-                    .Build());
+            rulesetTarget.SustainDamage(totalDamage, "DamagePure", false, action.ActingCharacter.Guid, null, out _);
+            rulesetTarget.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
-    private sealed class ActionFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
+    private sealed class UsePowerFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ActionFinishedByMeQuiveringPalm(
+        public UsePowerFinishedByMeQuiveringPalm(
             FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition conditionDefinition)
         {
@@ -969,19 +1518,19 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in battle.EnemyContenders
+            foreach (var rulesetDefender in battle.EnemyContenders
                          .Where(x =>
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              x != gameLocationDefender)
-                         .ToList()) // avoid changing enumerator
+                         .ToList()
+                         .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
             {
-                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
-                var rulesetCondition = rulesetDefender.AllConditions
-                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
+                if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect,
+                        _conditionDefinition.Name,
+                        out var activeCondition))
                 {
-                    rulesetDefender.RemoveCondition(rulesetCondition);
+                    rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
         }

@@ -146,10 +146,11 @@ internal static class CustomWeaponsContext
     {
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
-        HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypeForce, 1, DieType.D4)
-            .Build());
+        HandwrapsOfForce.WeaponDescription.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeForce, 1, DieType.D4)
+                .Build());
 
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.IsUsableDevice = true;
@@ -157,28 +158,29 @@ internal static class CustomWeaponsContext
             .SetRecharge(RechargeRate.AtWill)
             .SetSaveDc(EffectHelpers.BasedOnUser)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
-                .SetPower(FeatureDefinitionPowerBuilder
-                    .Create("PowerHandwrapsOfPulling")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetUsesFixed(ActivationTime.BonusAction)
-                    .SetEffectDescription(
-                        EffectDescriptionBuilder
-                            .Create()
-                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.IndividualsUnique)
-                            .ExcludeCaster()
-                            .SetSavingThrowData(
-                                true,
-                                AttributeDefinitions.Strength,
-                                false,
-                                EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
-                            .SetDurationData(DurationType.Instantaneous)
-                            .SetEffectForms(EffectFormBuilder
+                .SetPower(
+                    FeatureDefinitionPowerBuilder
+                        .Create("PowerHandwrapsOfPulling")
+                        .SetGuiPresentation(Category.Feature)
+                        .SetUsesFixed(ActivationTime.BonusAction)
+                        .SetEffectDescription(
+                            EffectDescriptionBuilder
                                 .Create()
-                                .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                                .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.IndividualsUnique)
+                                .ExcludeCaster()
+                                .SetSavingThrowData(
+                                    true,
+                                    AttributeDefinitions.Strength,
+                                    false,
+                                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple)
+                                .SetEffectForms(
+                                    EffectFormBuilder
+                                        .Create()
+                                        .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                                        .Build())
                                 .Build())
-                            .Build())
-                    .AddToDB())
+                        .AddToDB())
                 .Build())
             .Build();
 
@@ -283,10 +285,11 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] { LightningImpactVFX, WeaponPlus1AttackOnly });
         HalberdLightning.SetCustomSubFeatures(scale);
-        HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
-            .Build());
+        HalberdLightning.WeaponDescription.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
+                .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdLightning, 14, 18,
             HalberdPrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
@@ -381,10 +384,11 @@ internal static class CustomWeaponsContext
             properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
-        PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
-            .Build());
+        PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
+                .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePsychic, 14, 18,
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
@@ -470,10 +474,11 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] { ThunderImpactVFX, WeaponPlus1AttackOnly });
         LongMaceThunder.SetCustomSubFeatures(scale);
-        LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
-            .Build());
+        LongMaceThunder.WeaponDescription.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
+                .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMaceThunder, 14, 18,
             LongMacePrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
@@ -567,10 +572,11 @@ internal static class CustomWeaponsContext
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] { AcidImpactVFX, WeaponPlus1AttackOnly });
         HandXbowAcid.SetCustomSubFeatures(scale);
-        HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
-            .Build());
+        HandXbowAcid.WeaponDescription.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
+                .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowAcid, 14, 18,
             HandXbowPrimed,
             ItemDefinitions.Ingredient_Enchant_Stardust), ShopItemType.ShopCrafting);
@@ -595,18 +601,20 @@ internal static class CustomWeaponsContext
 
         var weapon = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.weaponDefinition);
 
-        weapon.EffectDescription.effectForms.Add(EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypeFire, 1, DieType.D8)
-            .Build());
-        flame.staticProperties.Add(BuildFrom(FeatureDefinitionBuilder
-            .Create("FeatureProducedFlameThrower")
-            .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(
-                new ModifyWeaponProducedFlameDice(),
-                new AddThrowProducedFlameAttack()
-            )
-            .AddToDB(), false));
+        weapon.EffectDescription.effectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetDamageForm(DamageTypeFire, 1, DieType.D8)
+                .Build());
+        flame.staticProperties.Add(
+            BuildFrom(
+                FeatureDefinitionBuilder
+                    .Create("FeatureProducedFlameThrower")
+                    .SetGuiPresentationNoContent()
+                    .SetCustomSubFeatures(
+                        new ModifyWeaponProducedFlameDice(),
+                        new AddThrowProducedFlameAttack())
+                    .AddToDB(), false));
 
         flame.IsWeapon = true;
         flame.weaponDefinition = weapon;
@@ -635,21 +643,25 @@ internal static class CustomWeaponsContext
 
         const string CONDITION_NAME = "ConditionThunderGauntletDistract";
 
-        baseDescription.EffectDescription.EffectForms.Add(EffectFormBuilder.Create()
-            .SetConditionForm(ConditionDefinitionBuilder
-                .Create(CONDITION_NAME)
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-                .SetPossessive()
-                .SetConditionType(ConditionType.Detrimental)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityThunderGauntletDistract")
-                    .SetGuiPresentationNoContent()
-                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                    .AddToDB())
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
-            .Build());
+        baseDescription.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create(CONDITION_NAME)
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                        .SetPossessive()
+                        .SetConditionType(ConditionType.Detrimental)
+                        .SetSpecialDuration(DurationType.Round, 1)
+                        .SetFeatures(
+                            FeatureDefinitionCombatAffinityBuilder
+                                .Create("CombatAffinityThunderGauntletDistract")
+                                .SetGuiPresentationNoContent()
+                                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                                .AddToDB())
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                .Build());
 
         var effectParticleParameters = new EffectParticleParameters();
 
@@ -685,14 +697,17 @@ internal static class CustomWeaponsContext
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypeLightning;
 
-        baseDescription.EffectDescription.EffectForms.Add(EffectFormBuilder.Create()
-            .SetConditionForm(ConditionDefinitionBuilder
-                .Create(AttackedWithLauncherConditionName)
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .AddToDB(), ConditionForm.ConditionOperation.Add, true)
-            .Build());
+        baseDescription.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create(AttackedWithLauncherConditionName)
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add, true)
+                .Build());
 
         baseDescription.EffectDescription.effectParticleParameters =
             SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters;

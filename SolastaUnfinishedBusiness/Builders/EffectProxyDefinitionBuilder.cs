@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -53,7 +54,7 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
         return this;
     }
 
-    internal EffectProxyDefinitionBuilder SetAttackMethod(RuleDefinitions.ProxyAttackMethod proxyAttackMethod)
+    internal EffectProxyDefinitionBuilder SetAttackMethod(ProxyAttackMethod proxyAttackMethod)
     {
         Definition.attackMethod = proxyAttackMethod;
         return this;

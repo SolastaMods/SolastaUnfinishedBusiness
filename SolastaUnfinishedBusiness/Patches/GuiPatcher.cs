@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -16,9 +17,9 @@ public static class GuiPatcher
     public static class FormatEffectRange_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(ref string __result, RuleDefinitions.RangeType rangeType, int rangeValue)
+        public static void Postfix(ref string __result, RangeType rangeType, int rangeValue)
         {
-            if (rangeValue > 1 && rangeType is RuleDefinitions.RangeType.Touch or RuleDefinitions.RangeType.MeleeHit)
+            if (rangeValue > 1 && rangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 __result += " " + Gui.FormatDistance(rangeValue);
             }
@@ -35,7 +36,7 @@ public static class GuiPatcher
         public static bool Prefix(
             ref string __result,
             string output,
-            List<RuleDefinitions.TrendInfo> trends,
+            List<TrendInfo> trends,
             bool ignoreZero)
         {
             foreach (var trend in trends

@@ -143,11 +143,11 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitionBuilder
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
                                     .Create($"Condition{Name}RegainBardicInspirationOnKill")
                                     .SetGuiPresentationNoContent(true)
                                     .SetSilent(Silent.WhenAddedOrRemoved)

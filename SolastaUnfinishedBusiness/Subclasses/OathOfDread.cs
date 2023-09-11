@@ -31,17 +31,18 @@ public sealed class OathOfDread : AbstractSubclass
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
-            .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB())
+        .SetFeatures(
+            FeatureDefinitionSavingThrowAffinityBuilder
+                .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
+                .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
+                .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                    AttributeDefinitions.Strength,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Intelligence,
+                    AttributeDefinitions.Wisdom,
+                    AttributeDefinitions.Charisma)
+                .AddToDB())
         .AddToDB();
 
     public OathOfDread()

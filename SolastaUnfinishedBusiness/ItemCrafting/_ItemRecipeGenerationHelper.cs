@@ -118,13 +118,14 @@ internal static class ItemRecipeGenerationHelper
         };
 
         var recipes = enchantedToIngredient.Keys
-            .Select(item => RecipeDefinitionBuilder
-                .Create("RecipeEnchant" + item.Name)
-                .SetGuiPresentation(item.GuiPresentation)
-                .AddIngredients(enchantedToIngredient[item])
-                .SetCraftedItem(item)
-                .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType)
-                .AddToDB())
+            .Select(
+                item => RecipeDefinitionBuilder
+                    .Create("RecipeEnchant" + item.Name)
+                    .SetGuiPresentation(item.GuiPresentation)
+                    .AddIngredients(enchantedToIngredient[item])
+                    .SetCraftedItem(item)
+                    .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType)
+                    .AddToDB())
             .ToList();
 
         const string GROUP_KEY = "EnchantingIngredients";
@@ -217,13 +218,14 @@ internal static class ItemRecipeGenerationHelper
         };
 
         var recipes = forgeryToIngredient.Keys
-            .Select(item => RecipeDefinitionBuilder
-                .Create("RecipeForgery" + item.Name)
-                .AddIngredients(forgeryToIngredient[item])
-                .SetCraftedItem(item)
-                .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
-                .SetGuiPresentation(item.GuiPresentation)
-                .AddToDB())
+            .Select(
+                item => RecipeDefinitionBuilder
+                    .Create("RecipeForgery" + item.Name)
+                    .AddIngredients(forgeryToIngredient[item])
+                    .SetCraftedItem(item)
+                    .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
+                    .SetGuiPresentation(item.GuiPresentation)
+                    .AddToDB())
             .ToList();
 
         var scrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>
@@ -238,13 +240,14 @@ internal static class ItemRecipeGenerationHelper
         };
 
         recipes.AddRange(scrollForgeries.Keys
-            .Select(item => RecipeDefinitionBuilder
-                .Create("RecipeForgery" + item.Name)
-                .AddIngredients(scrollForgeries[item])
-                .SetCraftedItem(item)
-                .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType)
-                .SetGuiPresentation(item.GuiPresentation)
-                .AddToDB()));
+            .Select(
+                item => RecipeDefinitionBuilder
+                    .Create("RecipeForgery" + item.Name)
+                    .AddIngredients(scrollForgeries[item])
+                    .SetCraftedItem(item)
+                    .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType)
+                    .SetGuiPresentation(item.GuiPresentation)
+                    .AddToDB()));
 
         const string GROUP_KEY = "RelicForgeries";
 

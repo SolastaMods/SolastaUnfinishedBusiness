@@ -858,7 +858,7 @@ You can enact your will on reality with special powers a number of times a day e
 
 * Command Undead
 
-You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC equals to 8 + your proficiency bonus + your spellcaster attribute modifier) or be controlled for 1 minute.
+You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC 8 + your proficiency bonus + your spellcaster attribute modifier) or be controlled for 1 minute.
 
 * Harden to Necrotic
 
@@ -879,7 +879,7 @@ You leave a lasting impression on people around you. When you make a Persuasion 
 
 * Disheartening Performance
 
-Your valiance in battle demoralizes your enemies. As a bonus action, you can expend one use of your Bardic Inspiration and choose one hostile creature you can see within 60 feet of you. Roll the Bardic Inspiration die. The creature must subtract the number rolled from the first saving throw it succeeds on before the start of your next turn.
+Your valiance in battle demoralizes your enemies. As a bonus action, you can expend one use of your Bardic Inspiration and choose one hostile creature you can see within 60 feet of you. Roll the Bardic Inspiration die. The creature must subtract the number rolled from the first saving throw it succeeds on before the end of your next turn.
 
 
 ## Level 6
@@ -930,7 +930,7 @@ Advantage on concentration checks, be able to use your weapons as spellcasting f
 
 * Improved War Dance
 
-While Dance Of War is active you gain extra main hand attack after all main actions are spent. Each hit with that extra attack grants another extra attack, up to half your Proficiency Bonus (rounded down) extra attacks in total. These extra attacks can only be melee.
+While Dance Of War is active you gain extra main hand attack after all main actions are spent. Each hit with that extra attack grants another extra attack, up to half your proficiency bonus (rounded down) extra attacks in total. These extra attacks can only be melee.
 
 
 ## Level 14
@@ -996,7 +996,7 @@ You have immunity to necrotic damage, and your hit point maximum can't be reduce
 
 * Command Undead
 
-You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC equals to 8 + your proficiency bonus + your spellcaster attribute modifier) or be controlled for 1 minute.
+You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC 8 + your proficiency bonus + your spellcaster attribute modifier) or be controlled for 1 minute.
 
 
 
@@ -1028,7 +1028,7 @@ While wielding a shield, you can shove or push a target as a bonus action.
 
 * Shout of Provocation
 
-As an action you shout and provoke all hostile creatures within 30ft of you. Each creature must succeed on a charisma saving throw (DC is 8 + your proficiency bonus + your Constitution modifier) or it will have disadvantage on all attacks against targets other than you but has advantage on all attacks targeting you until the start of your next turn.
+As an action you shout and provoke all hostile creatures within 30ft of you. Each creature must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or it will have disadvantage on all attacks against targets other than you but has advantage on all attacks targeting you until the start of your next turn.
 
 
 ## Level 10
@@ -1114,7 +1114,7 @@ You have resistance to Necrotic damage.
 
 * Divine Strike
 
-Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage is increased to 2d8 at 14th level.
+Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage increases to 2d8 at 14th level.
 
 
 ## Level 10
@@ -1982,30 +1982,34 @@ Opportunist are those who never let a chance to finish their enemies slide. They
 
 ## Level 3
 
-* Quick Strike
+* Debilitating Strike
 
-Starting at 3rd level, you have advantage attacking enemies whose initiative is lower than yours. In addition, you also have advantage when performing attacks of opportunity.
+Starting at 3rd level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or roll all saving throws with –1d4 penalty until the end of your next turn. 
+
+* Opportunity
+
+During the first round of combat, you roll all attack rolls with advantage. In addition, you always roll all attacks of opportunity with advantage.
 
 
 ## Level 9
 
-* Debilitating Strike
+* Seize the Chance
 
-Starting at 9th level, your sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or have all saving throws reduced by 1D6 for one round.
+Starting at 9th level, when an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. A sneak attack can be triggered here even if already used on this turn.
 
 
 ## Level 13
 
-* Seize the Chance
+* Improved Debilitating Strike
 
-Starting at 13th level, when an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. A sneak attack can be triggered here.
+Starting at 13th level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or have the movement speed reduced by 10 ft, and roll all saving throws with –1d6 penalty until the end of your next turn.
 
 
 ## Level 17
 
-* Exposing Weakness
+* Exposed Weakness
 
-Starting at 17th level, any attack against a creature that fails the saving throw of your Debilitating Strike feature is made with advantage.
+Starting at 17th level, attacks against creatures affected by Debilitating Strike are made with advantage.
 
 
 
@@ -2090,7 +2094,7 @@ The additional damage dealt by Illuminating Strike increases to 2d6.
 
 * Illuminating Burst
 
-On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 ft of you. They must succeed on a Constitution saving throw (DC equal to 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
+On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 ft of you. They must succeed on a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
 
 
 
@@ -2420,7 +2424,7 @@ Starting at 13th level, you can use your bonus action to become invisible for 1 
 
 * Fatal Strike
 
-Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature.
+Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier). On a failed save, double the damage of your attack against the creature.
 
 
 
@@ -2481,7 +2485,7 @@ Once per short rest, you may reinforce a non magical piece of armor or shield. T
 
 * Divine Strike
 
-Once per turn, deal +1d8 fire damage on weapon attacks. This damage is increased to 2d8 at 14th level.
+Once per turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
 
 
 ## Level 10
@@ -2603,9 +2607,9 @@ You can use your bonus action to attack using the weapon in your main hand after
 
 ## Level 10
 
-* Vigor
+* Blade Weaving
 
-Add your Strength or Dexterity modifier, whichever is higher, to your spell saving throw DC and spell attack roll.
+When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes before the end of your next turn.
 
 
 ## Level 15
@@ -2617,9 +2621,9 @@ You can use your arcane powers to shield yourself as a reaction. This gives you 
 
 ## Level 18
 
-* Ranged Deflection
+* Protective Barrier
 
-When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
+You can use your action to target up to 4 friendly creatures. Each affected creature gains +2 AC while the barrier lasts. You can use this feature once per long rest.
 
 
 
@@ -3047,7 +3051,7 @@ Your patron is one of the rare beings who calls the void between worlds their ho
 
 * Blink
 
-As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
+As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from. You can use this feature twice per long rest.
 
 * Expanded Spells
 
@@ -3066,7 +3070,7 @@ As a bonus action, you vanish from your current plane of existence, preventing a
 
 * Rift Step
 
-Briefly surrounded by the energy of the void between worlds, you teleport up to 30 ft to an unoccupied space that you can see.
+As a bonus action, you teleport to an unoccupied space that you can see. You can use this feature once per short rest.
 
 
 ## Level 6
@@ -3077,25 +3081,25 @@ You cannot be restrained.
 
 * Rift Strike
 
-When damaged by a melee attack, you can use your reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
+When damaged by a melee attack, you can use your reaction to create a portal that banishes the attacker for 1 round from your plane of existence. You can use this feature once per short rest.
 
 
 ## Level 10
 
 * Fade Into the Void
 
-When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest.
+When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can use this feature once per long rest.
 
 * Rift Portal
 
-Briefly surrounded by the energy of the rift, you teleport to an unoccupied space. You can now bring an ally with you when teleporting and the range has increased significantly.
+As a bonus action, you teleport to an unoccupied space that you can see, and can bring an ally with you. You can use this feature once per short rest.
 
 
 ## Level 14
 
 * Rift Cloak
 
-Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
+As a main action, your control of rift portals has increased to the point that you can now grant resistance against all damage types to an ally that you can see. You can use this feature once per long rest.
 
 
 
@@ -3304,7 +3308,7 @@ Starting at 6th level, you apply one additional instance of Discordance conditio
 
 * Burst of Disharmony
 
-At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending Ki points. Each point you spend, to a maximum of your Proficiency bonus, increases the damage by 1d6.
+At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending Ki points. Each point you spend, to a maximum of your proficiency bonus, increases the damage by 1d6.
 
 
 ## Level 17
@@ -3448,10 +3452,6 @@ You can spend 2 Ki points to cast darkness, darkvision, pass without trace, or s
 
 ## Level 6
 
-* Improved Cloak of Silhouettes
-
-Cloak of Silhouettes now works in dim light and magical darkness in addition to natural darkness.
-
 * Silhouette Step
 
 You can teleport as a bonus action up to 30 ft to an unoccupied space you can see. You can use this power a number of times per long rest equal to your proficiency bonus.
@@ -3462,6 +3462,10 @@ Once per turn, you can deal extra damage equal to your martial arts die if you h
 
 
 ## Level 11
+
+* Improved Cloak of Silhouettes
+
+Cloak of Silhouettes now works in dim light and magical darkness in addition to natural darkness.
 
 * Improved Silhouette Step
 
@@ -3506,7 +3510,7 @@ Starting at 11th level, after using your attack action, you can spend 2 ki to us
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 

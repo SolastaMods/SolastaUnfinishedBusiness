@@ -4,6 +4,7 @@
 
 using SolastaUnfinishedBusiness.Builders;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -20,7 +21,8 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, LightningBolt.GuiPresentation.SpriteReference)
-            .SetEffectDescription(EffectDescriptionBuilder
+            .SetEffectDescription(
+EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 20)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)

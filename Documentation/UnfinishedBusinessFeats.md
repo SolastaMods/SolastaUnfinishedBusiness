@@ -287,7 +287,7 @@ You have practiced moving in medium armor to gain the following benefits:
 
 # 62. - Merciless
 
-When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of your next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
+When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of your next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 
 # 63. - Metamagic Adept
 
@@ -336,7 +336,7 @@ You have a profound understanding on how to manipulate poisons:
 
 # 73. - Poisonous Skin
 
-Any creature that hits you in melee or is hit by your unarmed attack, shoves you or is shoved by you needs to succeed on Constitution saving throw against DC 8 + your Proficiency Bonus + your Constitution modifier or become Poisoned for 1 minute.
+Any creature that hits you in melee or is hit by your unarmed attack, shoves you or is shoved by you needs to succeed on Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or become Poisoned for 1 minute.
 
 # 74. - Polearm Expert
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -44,7 +43,8 @@ public sealed class CollegeOfValiance : AbstractSubclass
         var featureDishearteningPerformance = FeatureDefinitionBuilder
             .Create($"Feature{Name}DishearteningPerformance")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new OnSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance))
+            .SetCustomSubFeatures(
+                new OnFailedSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance))
             .AddToDB();
 
         conditionDishearteningPerformance.Features.Add(featureDishearteningPerformance);
@@ -166,16 +166,17 @@ public sealed class CollegeOfValiance : AbstractSubclass
         }
     }
 
-    private sealed class OnSavingThrowAfterRollDishearteningPerformance : IOnSavingThrowAfterRoll
+    private sealed class OnFailedSavingThrowAfterRollDishearteningPerformance : ITryAlterOutcomeSavingThrow
     {
         private readonly ConditionDefinition _conditionDishearteningPerformance;
 
-        public OnSavingThrowAfterRollDishearteningPerformance(ConditionDefinition conditionDishearteningPerformance)
+        public OnFailedSavingThrowAfterRollDishearteningPerformance(
+            ConditionDefinition conditionDishearteningPerformance)
         {
             _conditionDishearteningPerformance = conditionDishearteningPerformance;
         }
 
-        public void OnSavingThrowAfterRoll(
+        public void OnFailedSavingTryAlterOutcome(
             RulesetCharacter caster,
             Side sourceSide,
             RulesetActor target,
@@ -198,20 +199,22 @@ public sealed class CollegeOfValiance : AbstractSubclass
             ref RollOutcome saveOutcome,
             ref int saveOutcomeDelta)
         {
-            var usableCondition =
-                target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDishearteningPerformance);
-
-            if (usableCondition == null)
-            {
-                return;
-            }
-
             if (saveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
 
-            var bardCharacter = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
+            target.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                _conditionDishearteningPerformance.Name,
+                out var activeCondition);
+
+            if (activeCondition == null)
+            {
+                return;
+            }
+
+            var bardCharacter = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
             if (bardCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -239,7 +242,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
                 saveOutcome = RollOutcome.Failure;
             }
 
-            target.RemoveCondition(usableCondition);
+            target.RemoveCondition(activeCondition);
         }
     }
 }

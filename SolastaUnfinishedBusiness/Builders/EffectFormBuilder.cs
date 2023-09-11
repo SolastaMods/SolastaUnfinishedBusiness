@@ -333,7 +333,9 @@ internal class EffectFormBuilder
         int brightRange,
         int dimAdditionalRange,
         Color color,
-        AssetReference graphicsPrefabReference)
+        AssetReference graphicsPrefabReference,
+        bool applyToSelf = false,
+        bool forceOnSelf = false)
     {
         var lightSourceForm = new LightSourceForm
         {
@@ -341,7 +343,9 @@ internal class EffectFormBuilder
             brightRange = brightRange,
             dimAdditionalRange = dimAdditionalRange,
             color = color,
-            graphicsPrefabReference = graphicsPrefabReference
+            graphicsPrefabReference = graphicsPrefabReference,
+            applyToSelf = applyToSelf,
+            forceOnSelf = forceOnSelf
         };
 
         _effectForm.lightSourceForm = lightSourceForm;

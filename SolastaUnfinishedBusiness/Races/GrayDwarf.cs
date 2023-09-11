@@ -8,8 +8,8 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
@@ -108,26 +108,29 @@ internal static class SubraceGrayDwarfBuilder
             .Create("PowerGrayDwarfStoneStrength")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Stoneskin)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerGrayDwarfInvisibility = FeatureDefinitionPowerBuilder
             .Create("PowerGrayDwarfInvisibility")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpellDefinitions.Invisibility.EffectDescription)
-                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.Invisibility.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
             .AddToDB();
 
         var grayDwarfRacePresentation = Dwarf.RacePresentation.DeepCopy();

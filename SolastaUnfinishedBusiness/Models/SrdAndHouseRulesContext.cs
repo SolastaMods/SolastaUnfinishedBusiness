@@ -604,21 +604,25 @@ internal static class SrdAndHouseRulesContext
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCustomSubFeatures(CanIdentifyOnRest.Mark)
             .SetUsesFixed(ActivationTime.Rest)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(
-                    Side.Ally,
-                    RangeType.Self,
-                    1,
-                    TargetType.Self)
-                .SetDurationData(
-                    DurationType.Minute,
-                    1)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        afterRestIdentifyCondition,
-                        ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(
+                        Side.Ally,
+                        RangeType.Self,
+                        1,
+                        TargetType.Self)
+                    .SetDurationData(
+                        DurationType.Minute,
+                        1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                afterRestIdentifyCondition,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 
@@ -904,8 +908,7 @@ internal static class UpcastConjureElementalAndFey
                         .GetFirstFormOfType(EffectForm.EffectFormType.Summon)
                         .SummonForm
                         .MonsterDefinitionName
-                }
-            )
+                })
             .Select(s => new
             {
                 s.SpellDefinition,
@@ -1089,8 +1092,7 @@ internal static class FlankingAndHigherGroundRules
                 || ally == defender
                 || ally.Side != attacker.Side
                 || !ally.CanAct()
-                || !gameLocationBattleService.IsWithin1Cell(ally, defender)
-               )
+                || !gameLocationBattleService.IsWithin1Cell(ally, defender))
             {
                 continue;
             }
