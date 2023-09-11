@@ -8,13 +8,14 @@ UNFINISHED BUSINESS:
 
 - added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock, and Wizard spell repertoires
 - added support for Custom Portraits with a new setting, and instructions under Mod UI > Interface
-- changed College of Audacity, and Martial Arcane Archer to consider critical on their additional damage
+- changed College of Audacity, and Martial Arcane Archer to consider critical hits on their additional damage
 - changed Resonating Strike spell to do fire damage, and renamed it to Burning Blade as not all flames are green
 - changed Martial Spell Shield, Patron Riftwalker, Roguish Opportunist, and Way of Silhouette progressions
-- fixed action switching interaction with cancelled action modals during battle, and spells quickened by caster
-- fixed higher ground rules setting adding a +2 to spell attack modifiers instead of expected +1
+- fixed action switching interaction with cancelled action modals during battles, and spells quickened by caster
+- fixed higher ground rules setting adding a +2 to spell attack modifiers instead of an expected +1
 - fixed Martial Arcane Archer not granting additional arcane arrow usages at levels 10th at 18th
-- fixed an exception on level up workflow, when going back and forth through the custom UI stage
+- fixed Way of Discordance stacking conditions logic to correctly trigger discordance damage whenever it's 3
+- fixed an exception on level up workflow, when going back and forth through the feature selection custom UI stage
 
 VANILLA:
 
