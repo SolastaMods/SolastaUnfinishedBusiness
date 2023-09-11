@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -438,6 +439,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
+
+        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
+        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionShine.conditionParticleReference;
+        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            new AssetReference();
 
         ArcaneShotPowers.Add(powerInsightArrow,
             new ArcaneArcherData
