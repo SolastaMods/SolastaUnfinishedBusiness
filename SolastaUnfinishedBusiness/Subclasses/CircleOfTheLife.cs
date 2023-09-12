@@ -66,7 +66,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .SetCustomSubFeatures(new NotifyConditionRemovalVerdancy())
+            .SetCustomSubFeatures(new OnConditionAddedOrRemovedVerdancy())
             .AddFeatures(featureVerdancyTarget)
             .AddToDB();
 
@@ -74,7 +74,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .Create(conditionVerdancy, ConditionVerdancy14)
             // uses 4 but it will trigger 5 times as required because of the time we add it
             .SetSpecialDuration(DurationType.Round, 4, TurnOccurenceType.EndOfSourceTurn)
-            .SetCustomSubFeatures(new NotifyConditionRemovalVerdancy())
+            .SetCustomSubFeatures(new OnConditionAddedOrRemovedVerdancy())
             .AddToDB();
 
         var featureVerdancy = FeatureDefinitionBuilder
@@ -99,7 +99,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .AddFeatures(featureSeedOfLife)
             .AddToDB();
 
-        conditionSeedOfLife.SetCustomSubFeatures(new NotifyConditionRemovalSeedOfLife());
+        conditionSeedOfLife.SetCustomSubFeatures(new OnConditionAddedOrRemovedSeedOfLife());
 
         var powerSeedOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SeedOfLife")
@@ -245,16 +245,16 @@ public sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class NotifyConditionRemovalVerdancy : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedVerdancy : IOnConditionAddedOrRemoved
     {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            RemoveRevitalizingBoonIfRequired(removedFrom);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            RemoveRevitalizingBoonIfRequired(target);
         }
     }
 
@@ -327,23 +327,23 @@ public sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class NotifyConditionRemovalSeedOfLife : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedSeedOfLife : IOnConditionAddedOrRemoved
     {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            RemoveRevitalizingBoonIfRequired(removedFrom);
+            // Empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            RemoveRevitalizingBoonIfRequired(target);
 
             var druidLevel = GetDruidLevel(rulesetCondition.sourceGuid);
 
-            if (druidLevel > 0 && removedFrom.CurrentHitPoints > 0)
+            if (druidLevel > 0 && target.CurrentHitPoints > 0)
             {
-                removedFrom.ReceiveHealing(druidLevel * 2, true, rulesetCondition.guid);
+                target.ReceiveHealing(druidLevel * 2, true, rulesetCondition.guid);
             }
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            // Empty
         }
     }
 

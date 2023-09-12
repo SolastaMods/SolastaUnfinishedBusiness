@@ -596,7 +596,7 @@ internal static class SrdAndHouseRulesContext
         var afterRestIdentifyCondition = ConditionDefinitionBuilder
             .Create("AfterRestIdentify")
             .SetGuiPresentation(Category.Condition)
-            .SetCustomSubFeatures(IdentifyItems.Mark)
+            .SetCustomSubFeatures(OnConditionAddedOrRemovedIdentifyItems.Mark)
             .AddToDB();
 
         FeatureDefinitionPowerBuilder
@@ -696,21 +696,18 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private sealed class IdentifyItems : ICustomConditionFeature
+    private sealed class OnConditionAddedOrRemovedIdentifyItems : IOnConditionAddedOrRemoved
     {
-        private IdentifyItems()
-        {
-        }
+        public static OnConditionAddedOrRemovedIdentifyItems Mark { get; } = new();
 
-        public static IdentifyItems Mark { get; } = new();
-
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             (target as RulesetCharacterHero)?.AutoIdentifyInventoryItems();
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 }

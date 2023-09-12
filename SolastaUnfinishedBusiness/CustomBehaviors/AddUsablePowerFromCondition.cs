@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 /**Adds power to character's usable powers when condition is applied and removes it when condition is removed*/
-public class AddUsablePowerFromCondition : ICustomConditionFeature
+public class AddUsablePowerFromCondition : IOnConditionAddedOrRemoved
 {
     private readonly FeatureDefinitionPower _power;
 
@@ -13,7 +13,7 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
         _power = power;
     }
 
-    public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         if (target.UsablePowers.Any(u => u.PowerDefinition == _power))
         {
@@ -27,7 +27,7 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
         target.RefreshUsablePower(usablePower);
     }
 
-    public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         target.UsablePowers.RemoveAll(usablePower => usablePower.PowerDefinition == _power);
     }

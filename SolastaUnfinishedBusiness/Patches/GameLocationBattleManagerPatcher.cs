@@ -873,24 +873,6 @@ public static class GameLocationBattleManagerPatcher
             RulesetAttackMode rulesetAttackMode,
             RulesetEffect activeEffect)
         {
-            //PATCH: INotifyConditionRemoval
-            var rulesetDownedCreature = downedCreature.RulesetCharacter;
-
-            foreach (var rulesetCondition in
-                     RulesetCharacterMonsterPatcher.HandleDeathForEffectConditions_Patch.ConditionsBeforeDeath)
-            {
-                if (rulesetCondition.ConditionDefinition == null)
-                {
-                    continue;
-                }
-
-                foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
-                             .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
-                {
-                    notifyConditionRemoval.BeforeDyingWithCondition(rulesetDownedCreature, rulesetCondition);
-                }
-            }
-
             while (values.MoveNext())
             {
                 yield return values.Current;
@@ -902,14 +884,11 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
-            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<IOnTargetReducedToZeroHp>()
-                         .Select(x => x.HandleCharacterReducedToZeroHp(
-                             attacker, downedCreature, rulesetAttackMode, activeEffect)))
+            foreach (var onTargetReducedToZeroHp in
+                     attacker.RulesetActor.GetSubFeaturesByType<IOnTargetReducedToZeroHp>())
             {
-                while (extraEvents.MoveNext())
-                {
-                    yield return extraEvents.Current;
-                }
+                yield return onTargetReducedToZeroHp.HandleCharacterReducedToZeroHp(
+                    attacker, downedCreature, rulesetAttackMode, activeEffect);
             }
 
             if (__instance.Battle == null)
@@ -918,14 +897,11 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support for `ISourceReducedToZeroHP` feature
-            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<IOnSourceReducedToZeroHp>()
-                         .Select(x => x.HandleSourceReducedToZeroHp(
-                             attacker, downedCreature, rulesetAttackMode, activeEffect)))
+            foreach (var onSourceReducedToZeroHp in downedCreature.RulesetActor
+                         .GetSubFeaturesByType<IOnSourceReducedToZeroHp>())
             {
-                while (extraEvents.MoveNext())
-                {
-                    yield return extraEvents.Current;
-                }
+                yield return onSourceReducedToZeroHp.HandleSourceReducedToZeroHp(
+                    attacker, downedCreature, rulesetAttackMode, activeEffect);
             }
         }
     }

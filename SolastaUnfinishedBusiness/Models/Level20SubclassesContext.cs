@@ -940,7 +940,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         conditionMindDominatedByHauntedSoul.SetCustomSubFeatures(
-            new NotifyConditionRemovalPossession(conditionMindDominatedByHauntedSoul));
+            new OnConditionAddedOrRemovedPossession(conditionMindDominatedByHauntedSoul));
 
         var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererHauntedSoulPossession")
@@ -1078,16 +1078,21 @@ internal static class Level20SubclassesContext
     // Possession
     //
 
-    private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedPossession : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _conditionPossession;
 
-        public NotifyConditionRemovalPossession(ConditionDefinition conditionPossession)
+        public OnConditionAddedOrRemovedPossession(ConditionDefinition conditionPossession)
         {
             _conditionPossession = conditionPossession;
         }
 
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // Empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (rulesetCondition.ConditionDefinition != _conditionPossession)
             {
@@ -1103,7 +1108,7 @@ internal static class Level20SubclassesContext
 
             var conditionExhausted = ConditionDefinitions.ConditionExhausted;
 
-            removedFrom.InflictCondition(
+            target.InflictCondition(
                 conditionExhausted.Name,
                 conditionExhausted.DurationType,
                 conditionExhausted.DurationParameter,
@@ -1116,11 +1121,6 @@ internal static class Level20SubclassesContext
                 0,
                 0,
                 0);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            // Empty
         }
     }
 

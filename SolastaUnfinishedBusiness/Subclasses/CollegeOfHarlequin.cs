@@ -183,7 +183,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ConditionCombatInspired : ICustomConditionFeature
+    private sealed class ConditionCombatInspired : IOnConditionAddedOrRemoved
     {
         private const string Line = "Feedback/&BardicInspirationUsedToBoostCombatAbility";
         private readonly string _feature;
@@ -193,7 +193,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             _feature = feature;
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
             {
@@ -219,14 +219,15 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             rulesetCondition.amount = dieRoll;
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 
-    private sealed class ConditionRegainBardicInspirationDieOnKill : ICustomConditionFeature
+    private sealed class ConditionRegainBardicInspirationDieOnKill : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero)
             {
@@ -239,8 +240,9 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 

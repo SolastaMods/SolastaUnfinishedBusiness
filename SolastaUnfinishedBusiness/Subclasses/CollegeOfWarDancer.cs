@@ -375,13 +375,14 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class StopMomentumAndAttacksWhenRemoved : ICustomConditionFeature
+    private sealed class StopMomentumAndAttacksWhenRemoved : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             target.RemoveAllConditionsOfType(WarDanceMomentum.Name, WarDanceExtraAttack.Name);
         }

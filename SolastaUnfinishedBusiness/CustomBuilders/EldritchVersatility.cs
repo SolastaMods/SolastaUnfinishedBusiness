@@ -100,7 +100,7 @@ internal static class EldritchVersatility
                 .SetGuiPresentationNoContent(true)
                 .SetActionType(ActionType.Main)
                 .AddToDB())
-        .SetCustomSubFeatures(new ConditionBlastOverloadCustom())
+        .SetCustomSubFeatures(new OnConditionAddedOrRemovedBlastOverload())
         .AddToDB();
 
     public static readonly FeatureDefinitionPower PowerBlastOverload = FeatureDefinitionPowerBuilder
@@ -337,7 +337,7 @@ internal static class EldritchVersatility
                 .SetSpecialInterruptions(ConditionInterruption.LevelUp, ConditionInterruption.LongRest)
                 .SetCustomSubFeatures(
                     Marker,
-                    new VersatilitySupportConditionCustom())
+                    new OnConditionAddedOrRemovedVersatility())
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .AddToDB();
         }
@@ -587,9 +587,9 @@ internal static class EldritchVersatility
             HasBlastPursuit = false;
         }
 
-        private sealed class VersatilitySupportConditionCustom :
-            ICharacterTurnStartListener, ICustomConditionFeature, IMagicalAttackBeforeHitConfirmedOnEnemy,
-            ICharacterBattleEndedListener
+        private sealed class OnConditionAddedOrRemovedVersatility :
+            ICharacterTurnStartListener, ICharacterBattleEndedListener,
+            IOnConditionAddedOrRemoved, IMagicalAttackBeforeHitConfirmedOnEnemy
         {
             public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
             {
@@ -614,33 +614,6 @@ internal static class EldritchVersatility
                 if (locationCharacter.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
                 {
                     supportCondition.ClearEarnedPointsInThisTurn();
-                }
-            }
-
-            // Do first time init
-            public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
-            {
-                if (rulesetCondition is not VersatilitySupportRulesetCondition supportCondition)
-                {
-                    return;
-                }
-
-                supportCondition.InitSupportCondition(target);
-                TurnOffPointReservingPower(target, supportCondition);
-            }
-
-            // The clearing is called when next time this condition is added
-            // So we can do some cleaning here
-            // This condition is removed on level up and long rest, so we reapply it.
-            // But don't do this right here because if we are respec the character, this should cause a dead loop
-            // We just remove the power from power used by me list.
-            public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
-            {
-                Main.Info("Condition Versatility interrupted");
-
-                if (target.CurrentHitPoints > 0)
-                {
-                    target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
                 }
             }
 
@@ -669,6 +642,33 @@ internal static class EldritchVersatility
                         ? 2
                         : 1
                 );
+            }
+
+            // Do first time init
+            public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+            {
+                if (rulesetCondition is not VersatilitySupportRulesetCondition supportCondition)
+                {
+                    return;
+                }
+
+                supportCondition.InitSupportCondition(target);
+                TurnOffPointReservingPower(target, supportCondition);
+            }
+
+            // The clearing is called when next time this condition is added
+            // So we can do some cleaning here
+            // This condition is removed on level up and long rest, so we reapply it.
+            // But don't do this right here because if we are respec the character, this should cause a dead loop
+            // We just remove the power from power used by me list.
+            public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+            {
+                Main.Info("Condition Versatility interrupted");
+
+                if (target.CurrentHitPoints > 0)
+                {
+                    target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
+                }
             }
         }
     }
@@ -1084,7 +1084,7 @@ internal static class EldritchVersatility
             .Create("ConditionEldritchAegisAddAC")
             .SetGuiPresentation(Category.Condition, ConditionMagicallyArmored)
             .SetPossessive()
-            .SetCustomSubFeatures(new EldritchAegisAddACCustom())
+            .SetCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
             .AddToDB();
 
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
@@ -1187,20 +1187,8 @@ internal static class EldritchVersatility
             console.AddEntry(entry);
         }
 
-        private sealed class EldritchAegisAddACCustom : IModifyAC, ICustomConditionFeature
+        private sealed class OnConditionAddedOrRemovedEldritchAegis : IModifyAC, IOnConditionAddedOrRemoved
         {
-            public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
-            {
-                // empty
-            }
-
-            public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
-            {
-                RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var sourceCharacter);
-                sourceCharacter.GetVersatilitySupportCondition(out var supportCondition);
-                supportCondition?.ClearPointSpentOnAddingAC();
-            }
-
             public void GetAC(RulesetCharacter owner, bool callRefresh, bool dryRun, FeatureDefinition dryRunFeature,
                 out RulesetAttributeModifier attributeModifier, out TrendInfo trendInfo)
             {
@@ -1213,6 +1201,18 @@ internal static class EldritchVersatility
                     acBonus, AttributeDefinitions.TagCombat);
                 trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, activeCondition.Name, null,
                     attributeModifier);
+            }
+
+            public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+            {
+                // empty
+            }
+
+            public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+            {
+                RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var sourceCharacter);
+                sourceCharacter.GetVersatilitySupportCondition(out var supportCondition);
+                supportCondition?.ClearPointSpentOnAddingAC();
             }
         }
     }
@@ -1424,9 +1424,9 @@ internal static class EldritchVersatility
         }
     }
 
-    private class ConditionBlastOverloadCustom : ICustomConditionFeature
+    private class OnConditionAddedOrRemovedBlastOverload : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target.GetVersatilitySupportCondition(out var supportCondition))
             {
@@ -1434,7 +1434,7 @@ internal static class EldritchVersatility
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (!target.GetVersatilitySupportCondition(out var supportCondition))
             {

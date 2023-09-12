@@ -406,7 +406,7 @@ public sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class RefundPowerUseWhenTargetWithConditionDies : INotifyConditionRemoval
+    private class RefundPowerUseWhenTargetWithConditionDies : IOnConditionAddedOrRemoved
     {
         private readonly FeatureDefinition _feature;
         private readonly FeatureDefinitionPower _power;
@@ -417,10 +417,20 @@ public sealed class MartialTactician : AbstractSubclass
             _feature = feature;
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+            // empty
+        }
 
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // SHOULD ONLY TRIGGER ON DEATH
+            if (target is not { IsDeadOrDyingOrUnconscious: true })
+            {
+                return;
+            }
+
+            var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
 
             if (character == null)
             {
@@ -433,6 +443,7 @@ public sealed class MartialTactician : AbstractSubclass
             }
 
             var locCharacter = GameLocationCharacter.GetFromActor(character);
+
             if (locCharacter == null)
             {
                 return;
@@ -441,7 +452,6 @@ public sealed class MartialTactician : AbstractSubclass
             // once per turn
             if (!locCharacter.OncePerTurnIsValid("OvercomingStrategy"))
             {
-                Main.Info("OvercomingStrategy: once per turn . exiting.");
                 return;
             }
 
@@ -453,10 +463,6 @@ public sealed class MartialTactician : AbstractSubclass
             character.LogCharacterUsedFeature(_feature, indent: true);
             locCharacter.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(_power, -1);
-        }
-
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
         }
     }
 

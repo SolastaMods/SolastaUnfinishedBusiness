@@ -154,7 +154,7 @@ internal static class CustomConditionsContext
                 FeatureDefinitionBuilder
                     .Create("FeatureFlightSuspended")
                     .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(new FlightSuspendBehavior())
+                    .SetCustomSubFeatures(new OnConditionAddedOrRemovedFlightSuspendBehavior())
                     .AddToDB())
             .AddToDB();
 
@@ -308,7 +308,7 @@ internal static class CustomConditionsContext
         return false;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
@@ -331,7 +331,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster &&
                 !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
@@ -340,7 +340,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster)
             {
@@ -426,9 +426,9 @@ internal static class CustomConditionsContext
         }
     }
 
-    private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedFlightSuspendBehavior : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster monster)
             {
@@ -486,7 +486,8 @@ internal static class CustomConditionsContext
                     catch (Exception ex)
                     {
                         // ReSharper disable once InvocationIsSkipped
-                        Main.Log($"FlightSuspendBehavior ApplyFeature EXCEPTION Tracker {ex} {ex.StackTrace}");
+                        Main.Log(
+                            $"OnConditionAddedOrRemovedFlightSuspendBehavior ApplyFeature EXCEPTION Tracker {ex} {ex.StackTrace}");
                         return;
                     }
 
@@ -509,7 +510,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster)
             {
@@ -570,19 +571,10 @@ internal static class CustomConditionsContext
                 catch (Exception ex)
                 {
                     // ReSharper disable once InvocationIsSkipped
-                    Main.Log($"FlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
+                    Main.Log(
+                        $"OnConditionAddedOrRemovedFlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
                 }
             }
-        }
-
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            removedFrom.RemoveCondition(rulesetCondition);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            rulesetActor.RemoveCondition(rulesetCondition);
         }
     }
 }

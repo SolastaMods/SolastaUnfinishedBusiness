@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -13,7 +12,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
@@ -26,13 +24,14 @@ public sealed class PathOfTheLight : AbstractSubclass
 
     private const string PowerPathOfTheLightIlluminatingBurstName = "PowerPathOfTheLightIlluminatingBurst";
 
-    private static readonly List<ConditionDefinition> InvisibleConditions =
-        new() { ConditionInvisibleBase, ConditionDefinitions.ConditionInvisible, ConditionInvisibleGreater };
-
     public PathOfTheLight()
     {
         var faerieFireLightSource =
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var invisibleConditions = DatabaseRepository.GetDatabase<ConditionDefinition>()
+            .Where(x => x == ConditionInvisibleBase || x.parentCondition == ConditionInvisibleBase)
+            .ToList();
 
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
             FeatureDefinitionAttackDisadvantageBuilder
@@ -45,9 +44,8 @@ public sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                InvisibleConditions
-                    .Select(
-                        x => FeatureDefinitionConditionAffinityBuilder
+                invisibleConditions.Select(x =>
+                        FeatureDefinitionConditionAffinityBuilder
                             .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
                                     x.Name.Replace("Condition", string.Empty))
                             .SetGuiPresentationNoContent(true)
@@ -67,7 +65,7 @@ public sealed class PathOfTheLight : AbstractSubclass
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
-            .SetCustomSubFeatures(new ConditionIlluminated())
+            .SetCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
             .AddToDB();
 
         var lightSourceForm = new LightSourceForm();
@@ -85,28 +83,20 @@ public sealed class PathOfTheLight : AbstractSubclass
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .AddConditionOperation(
+                ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    Operation = ConditionOperationDescription.ConditionOperation.Add,
-                    ConditionDefinition = conditionPathOfTheLightIlluminated
-                })
+                invisibleConditions.Select(x =>
+                    new ConditionOperationDescription
+                    {
+                        Operation = ConditionOperationDescription.ConditionOperation.Remove, ConditionDefinition = x
+                    }).ToArray())
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
             .SetCustomSubFeatures(new BarbarianHolder())
             .AddToDB();
 
         additionalDamagePathOfTheLightIlluminatingStrike.DiceByRankTable[9].diceNumber = 2;
-
-        foreach (var invisibleCondition in InvisibleConditions)
-        {
-            additionalDamagePathOfTheLightIlluminatingStrike.ConditionOperations.Add(
-                new ConditionOperationDescription
-                {
-                    Operation = ConditionOperationDescription.ConditionOperation.Remove,
-                    ConditionDefinition = invisibleCondition
-                });
-        }
 
         var featureSetPathOfTheLightIlluminatingStrike = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetPathOfTheLightIlluminatingStrike")
@@ -245,7 +235,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                             .SetConditionType(ConditionType.Detrimental)
                             .SetParentCondition(conditionPathOfTheLightIlluminated)
                             .SetSilent(Silent.WhenAdded)
-                            .SetCustomSubFeatures(new ConditionIlluminatedByBurst())
+                            .SetCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
@@ -322,69 +312,63 @@ public sealed class PathOfTheLight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static void ApplyLightsProtectionHealing(ulong sourceGuid)
-    {
-        if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||
-            conditionSource.IsDeadOrDyingOrUnconscious)
-        {
-            return;
-        }
-
-        var levels = conditionSource.GetClassLevel(CharacterClassDefinitions.Barbarian);
-        var amountHealed = (levels + 1) / 2;
-
-        conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
-    }
-
-    private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
-    {
-        if (removedFrom is not RulesetCharacter character)
-        {
-            return;
-        }
-
-        // includes conditions that have Illuminated as their parent (like the Illuminating Burst condition)
-        if (character.HasConditionOfTypeOrSubType(ConditionPathOfTheLightIlluminatedName) ||
-            (character.PersonalLightSource?.SourceName != AdditionalDamagePathOfTheLightIlluminatingStrikeName &&
-             character.PersonalLightSource?.SourceName != PowerPathOfTheLightIlluminatingBurstName))
-        {
-            return;
-        }
-
-        var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-        var gameLocationCharacter = GameLocationCharacter.GetFromActor(removedFrom);
-
-        visibilityService.RemoveCharacterLightSource(gameLocationCharacter, character.PersonalLightSource);
-        character.PersonalLightSource = null;
-    }
-
     //
     // behavior classes
     //
 
-    private sealed class ConditionIlluminated : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst : IOnConditionAddedOrRemoved
     {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        internal static readonly OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst Marker = new();
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            HandleAfterIlluminatedConditionRemoved(removedFrom);
+            // empty
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
-        }
-    }
+            HandleAfterIlluminatedConditionRemoved(target);
 
-    private sealed class ConditionIlluminatedByBurst : INotifyConditionRemoval
-    {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            HandleAfterIlluminatedConditionRemoved(removedFrom);
+            if (target is { IsDeadOrDyingOrUnconscious: true })
+            {
+                ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
+            }
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, [NotNull] RulesetCondition rulesetCondition)
+        private static void ApplyLightsProtectionHealing(ulong sourceGuid)
         {
-            ApplyLightsProtectionHealing(rulesetCondition.SourceGuid);
+            if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||
+                conditionSource.IsDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+
+            var levels = conditionSource.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            var amountHealed = (levels + 1) / 2;
+
+            conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
+        }
+
+        private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
+        {
+            if (removedFrom is not RulesetCharacter character)
+            {
+                return;
+            }
+
+            // includes conditions that have Illuminated as their parent (like the Illuminating Burst condition)
+            if (character.HasConditionOfTypeOrSubType(ConditionPathOfTheLightIlluminatedName) ||
+                (character.PersonalLightSource?.SourceName != AdditionalDamagePathOfTheLightIlluminatingStrikeName &&
+                 character.PersonalLightSource?.SourceName != PowerPathOfTheLightIlluminatingBurstName))
+            {
+                return;
+            }
+
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(removedFrom);
+
+            visibilityService.RemoveCharacterLightSource(gameLocationCharacter, character.PersonalLightSource);
+            character.PersonalLightSource = null;
         }
     }
 

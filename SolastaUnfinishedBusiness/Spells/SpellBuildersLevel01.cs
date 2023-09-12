@@ -1068,7 +1068,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ConditionUsesPowerOnTarget : ICustomConditionFeature
+    private sealed class ConditionUsesPowerOnTarget : IOnConditionAddedOrRemoved
     {
         private readonly FeatureDefinitionPower _power;
         private readonly bool _removeCondition;
@@ -1079,7 +1079,7 @@ internal static partial class SpellBuilders
             _removeCondition = removeCondition;
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var defender = GameLocationCharacter.GetFromActor(target);
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
@@ -1102,8 +1102,9 @@ internal static partial class SpellBuilders
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 

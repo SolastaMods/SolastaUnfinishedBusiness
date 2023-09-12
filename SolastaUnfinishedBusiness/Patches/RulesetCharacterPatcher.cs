@@ -140,12 +140,12 @@ public static class RulesetCharacterPatcher
             var definition = activeCondition.ConditionDefinition;
 
             //PATCH: notifies custom condition features that condition is applied
-            definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.OnApplyCondition(__instance, activeCondition));
+            definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
+                .Do(c => c.OnConditionAdded(__instance, activeCondition));
 
             definition.Features
-                .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .Do(c => c.OnApplyCondition(__instance, activeCondition));
+                .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
+                .Do(c => c.OnConditionAdded(__instance, activeCondition));
         }
     }
 
@@ -157,15 +157,18 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
+            //PATCH: support 'EnableCharactersOnFireToEmitLight'
+            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
+
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;
 
-            definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.OnRemoveCondition(__instance, activeCondition));
+            definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
+                .Do(c => c.OnConditionRemoved(__instance, activeCondition));
 
             definition.Features
-                .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .Do(c => c.OnRemoveCondition(__instance, activeCondition));
+                .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
+                .Do(c => c.OnConditionRemoved(__instance, activeCondition));
         }
     }
 

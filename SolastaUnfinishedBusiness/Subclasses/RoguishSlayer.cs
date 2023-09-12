@@ -407,7 +407,7 @@ public sealed class RoguishSlayer : AbstractSubclass
     }
 
     private sealed class CustomBehaviorChainOfExecution :
-        INotifyConditionRemoval, IOnTargetReducedToZeroHp, IDefinitionCustomCode
+        IOnConditionAddedOrRemoved, IOnTargetReducedToZeroHp, IDefinitionCustomCode
     {
         private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
         private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;
@@ -434,13 +434,19 @@ public sealed class RoguishSlayer : AbstractSubclass
             // empty
         }
 
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // Empty
+            // empty
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // SHOULD ONLY TRIGGER ON DEATH
+            if (target is not { IsDeadOrDyingOrUnconscious: true })
+            {
+                return;
+            }
+
             if (rulesetCondition.ConditionDefinition != _conditionChainOfExecutionDetrimental ||
                 !RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.sourceGuid, out var rulesetCharacter))
             {

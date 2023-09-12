@@ -153,7 +153,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             .AddToDB();
 
         conditionDammingStrike.SetCustomSubFeatures(
-            new NotifyConditionRemovalDammingStrike(conditionMarkOfTheDammed));
+            new OnConditionAddedOrRemovedDammingStrike(conditionMarkOfTheDammed));
 
         powerMarkOfTheDammed.SetCustomSubFeatures(
             new CustomBehaviorMarkOfTheDammed(powerMarkOfTheDammed, conditionMarkOfTheDammed));
@@ -289,29 +289,29 @@ public sealed class RangerHellWalker : AbstractSubclass
     // DammingStrike
     //
 
-    private sealed class NotifyConditionRemovalDammingStrike : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedDammingStrike : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public NotifyConditionRemovalDammingStrike(ConditionDefinition conditionDefinition)
+        public OnConditionAddedOrRemovedDammingStrike(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var otherRulesetCondition =
-                removedFrom.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+                target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
 
             if (otherRulesetCondition != null)
             {
-                removedFrom.RemoveCondition(otherRulesetCondition);
+                target.RemoveCondition(otherRulesetCondition);
             }
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            // Empty
         }
     }
 

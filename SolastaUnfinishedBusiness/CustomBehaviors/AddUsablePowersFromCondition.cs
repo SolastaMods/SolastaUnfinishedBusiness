@@ -7,15 +7,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
  * Adds all powers from condition definition's feature list to character's usable powers when condition is applied
  * and removes them when condition is removed.
  */
-public class AddUsablePowersFromCondition : ICustomConditionFeature
+public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
 {
-    private AddUsablePowersFromCondition()
-    {
-    }
-
     internal static AddUsablePowersFromCondition Marker { get; } = new();
 
-    public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         foreach (var power in rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>())
         {
@@ -32,9 +28,11 @@ public class AddUsablePowersFromCondition : ICustomConditionFeature
         }
     }
 
-    public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+    public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        var powers = rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>().ToList();
+        var powers = rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>()
+            .ToList();
+
         target.UsablePowers.RemoveAll(usablePower => powers.Contains(usablePower.PowerDefinition));
     }
 }

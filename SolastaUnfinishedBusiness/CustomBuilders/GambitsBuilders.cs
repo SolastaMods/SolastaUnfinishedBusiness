@@ -149,7 +149,7 @@ internal static class GambitsBuilders
             ForcePowerUseInSpendPowerAction.Marker,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        ICustomConditionFeature reaction = new AddUsablePowerFromCondition(reactionPower);
+        IOnConditionAddedOrRemoved reaction = new AddUsablePowerFromCondition(reactionPower);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -1061,7 +1061,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ApplyConditionDependingOnSide : ICustomConditionFeature
+    private sealed class ApplyConditionDependingOnSide : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _good, _bad;
 
@@ -1071,7 +1071,7 @@ internal static class GambitsBuilders
             _bad = bad;
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
 
@@ -1096,8 +1096,9 @@ internal static class GambitsBuilders
                 0);
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 
