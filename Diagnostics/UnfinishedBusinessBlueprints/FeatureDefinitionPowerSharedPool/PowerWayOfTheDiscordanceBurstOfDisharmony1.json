@@ -343,7 +343,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "KiPoints",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
