@@ -35,7 +35,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetCustomSubFeatures(
                     new CustomCodeWayOfTheDistantHandCombat(),
                     new RangedAttackInMeleeDisadvantageRemover(
-                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                        ValidatorsWeapon.IsZenArrowAttack,
                         ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
                     new AddTagToWeaponWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
                 .AddToDB();
@@ -189,7 +189,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
             .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsZenArrowAttack))
+            .SetCustomSubFeatures(
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.IsZenArrowAttack))
             .AddToDB();
 
         //
@@ -343,8 +344,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, IsZenArrowAttack(mode, null, character))),
+                ValidatorsRestrictedContext.IsZenArrowAttack,
                 new CustomCodeUnseenEyes())
             .AddToDB();
 
@@ -386,12 +386,6 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    // ReSharper disable once UnusedParameter.Local
-    private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return mode is { Ranged: true } && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition);
-    }
 
     private sealed class CustomCodeWayOfTheDistantHandCombat : IDefinitionCustomCode
     {

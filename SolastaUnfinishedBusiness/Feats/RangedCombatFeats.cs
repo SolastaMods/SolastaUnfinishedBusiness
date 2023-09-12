@@ -53,7 +53,7 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
                         new CanUseAttribute(
                             AttributeDefinitions.Strength,
@@ -82,7 +82,7 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isCrossbow(mode, null, character))),
                         new CanUseAttribute(
                             AttributeDefinitions.Strength,

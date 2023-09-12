@@ -983,7 +983,7 @@ internal static class OtherFeats
                     FeatureDefinitionCombatAffinityBuilder
                         .Create($"CombatAffinity{NAME}{className}")
                         .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                        .SetCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
                                 mode.sourceDefinition is SpellDefinition &&
                                 mode.EffectDescription.RangeType == RangeType.RangeHit)))

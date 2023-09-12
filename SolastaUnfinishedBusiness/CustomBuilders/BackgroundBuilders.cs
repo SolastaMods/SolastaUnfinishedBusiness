@@ -33,7 +33,7 @@ internal static class BackgroundsBuilders
                     .SetGuiPresentation($"Proficiency{BackgroundFarmer}Weapons", Category.Feature, hidden: true)
                     .SetAttackRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
                                 ValidatorsWeapon.IsOfWeaponType(ClubType, HandaxeType)(mode, null, null))))
                     .AddToDB(),

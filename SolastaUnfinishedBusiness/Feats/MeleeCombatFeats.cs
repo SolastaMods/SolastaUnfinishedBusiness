@@ -164,7 +164,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                     (OperationType.Set,
                         ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
                             TagsDefinitions.WeaponTagFinesse))))
@@ -276,8 +276,9 @@ internal static class MeleeCombatFeats
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     //Adding any property so that custom restricted context would trigger
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-                    .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                        (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                    .SetCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
+                        (_, _, character, _, ranged, mode, _) =>
+                            (OperationType.Set, !ranged && validWeapon(mode, null, character))))
                     .SetIgnoreCriticalDoubleDice(true)
                     .AddToDB())
             .AddToDB();
@@ -367,7 +368,7 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, ranged, mode, _) =>
                             (OperationType.Set, !ranged && validWeapon(mode, null, character))),
                         new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())

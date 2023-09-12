@@ -14,16 +14,16 @@ internal delegate (OperationType, bool) IsContextValidHandler(
     RulesetAttackMode attackMode,
     RulesetEffect rulesetEffect);
 
-internal class RestrictedContextValidator : IRestrictedContextValidator
+internal class ValidateContextInsteadOfRestrictedProperty : IValidateContextInsteadOfRestrictedProperty
 {
     private readonly IsContextValidHandler _validator;
 
-    public RestrictedContextValidator(IsContextValidHandler validator)
+    public ValidateContextInsteadOfRestrictedProperty(IsContextValidHandler validator)
     {
         _validator = validator;
     }
 
-    internal RestrictedContextValidator(OperationType operation, IsCharacterValidHandler validator)
+    internal ValidateContextInsteadOfRestrictedProperty(OperationType operation, IsCharacterValidHandler validator)
         : this((_, _, character, _, _, _, _) => (operation, validator(character)))
     {
         // Empty
@@ -42,9 +42,10 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
     }
 
 #if false
-    public static RestrictedContextValidator And(OperationType type, params IRestrictedContextValidator[] validators)
+    public static ValidateContextInsteadOfRestrictedProperty And(
+        OperationType type, params IValidateContextInsteadOfRestrictedProperty[] validators)
     {
-        return new RestrictedContextValidator(
+        return new ValidateContextInsteadOfRestrictedProperty(
             (definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect) =>
             {
                 foreach (var validator in validators)
@@ -64,9 +65,10 @@ internal class RestrictedContextValidator : IRestrictedContextValidator
     }
 #endif
 
-    public static RestrictedContextValidator Or(OperationType type, params IRestrictedContextValidator[] validators)
+    public static ValidateContextInsteadOfRestrictedProperty Or(
+        OperationType type, params IValidateContextInsteadOfRestrictedProperty[] validators)
     {
-        return new RestrictedContextValidator(
+        return new ValidateContextInsteadOfRestrictedProperty(
             (definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect) =>
             {
                 foreach (var validator in validators)
@@ -102,7 +104,7 @@ public static class RestrictedContextValidatorPatch
             return def;
         }
 
-        var validator = definition.GetFirstSubFeatureOfType<IRestrictedContextValidator>();
+        var validator = definition.GetFirstSubFeatureOfType<IValidateContextInsteadOfRestrictedProperty>();
 
         if (validator == null)
         {

@@ -60,7 +60,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetMagicalWeapon()
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, _, _) =>
+                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) =>
                     (OperationType.Set,
                         ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)(character))))
             .AddToDB();

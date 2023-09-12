@@ -134,7 +134,7 @@ internal static class FixesContext
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinDivineSmite.AddCustomSubFeatures(
-            RestrictedContextValidator.Or(
+            ValidateContextInsteadOfRestrictedProperty.Or(
                 OperationType.Set,
                 ValidatorsRestrictedContext.IsMeleeWeaponAttack,
                 ValidatorsRestrictedContext.IsOathOfDemonHunter,
@@ -144,7 +144,7 @@ internal static class FixesContext
         AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinImprovedDivineSmite.AddCustomSubFeatures(
-            RestrictedContextValidator.Or(
+            ValidateContextInsteadOfRestrictedProperty.Or(
                 OperationType.Set,
                 ValidatorsRestrictedContext.IsMeleeWeaponAttack,
                 ValidatorsRestrictedContext.IsOathOfDemonHunter,
@@ -203,7 +203,7 @@ internal static class FixesContext
     {
         //BEHAVIOR: allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
         FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
+            new ValidateContextInsteadOfRestrictedProperty((_, _, _, item, _, _, _) => (OperationType.Set,
                 ValidatorsWeapon.IsWeaponType(item,
                     CustomWeaponsContext.HandXbowWeaponType,
                     CustomWeaponsContext.LightningLauncherType,

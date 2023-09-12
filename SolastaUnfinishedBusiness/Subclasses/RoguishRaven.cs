@@ -151,7 +151,8 @@ public sealed class RoguishRaven : AbstractSubclass
             .AddToDB();
 
         var validateHasTwoHandedRangedWeapon =
-            new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon);
+            new ValidateContextInsteadOfRestrictedProperty(OperationType.Set,
+                ValidatorsCharacter.HasTwoHandedRangedWeapon);
 
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder

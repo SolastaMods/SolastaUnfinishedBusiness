@@ -1212,7 +1212,7 @@ internal static class CharacterContext
         internal WeaponTypeDefinition WeaponType { get; set; }
     }
 
-    private sealed class MonkWeaponSpecializationDiceUpgrade : IRestrictedContextValidator
+    private sealed class MonkWeaponSpecializationDiceUpgrade : IValidateContextInsteadOfRestrictedProperty
     {
         private readonly WeaponTypeDefinition _weaponTypeDefinition;
 

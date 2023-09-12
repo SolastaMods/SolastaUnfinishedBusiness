@@ -59,7 +59,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetCustomSubFeatures(
                 new RogueClassHolder(),
-                new RestrictedContextValidator(
+                new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
                         (OperationType.Set, IsBladeCallerWeapon(mode, null, character))))
             .AddToDB();
