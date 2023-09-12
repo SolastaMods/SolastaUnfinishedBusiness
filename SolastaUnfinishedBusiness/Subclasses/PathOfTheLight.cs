@@ -83,14 +83,14 @@ public sealed class PathOfTheLight : AbstractSubclass
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .AddConditionOperation(
-                ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetConditionOperations(
                 invisibleConditions.Select(x =>
                     new ConditionOperationDescription
                     {
                         Operation = ConditionOperationDescription.ConditionOperation.Remove, ConditionDefinition = x
                     }).ToArray())
+            .AddConditionOperation(
+                ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
             .SetCustomSubFeatures(new BarbarianHolder())
