@@ -155,7 +155,7 @@ internal static class EldritchVersatility
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new BattlefieldShorthandCopySpells())
+                new BattlefieldShorthandCopyMagicalAttackCastedSpells())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
 
@@ -674,7 +674,7 @@ internal static class EldritchVersatility
     }
 
     private sealed class BlastBreakthroughCustom :
-        ToggleableInvocation, ISpellCast, IModifyDamageAffinity, IActionExecutionHandled
+        ToggleableInvocation, IMagicalAttackCastedSpell, IModifyDamageAffinity, IActionExecutionHandled
     {
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
@@ -884,7 +884,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class BattlefieldShorthandCopySpells : ISpellCast
+    private sealed class BattlefieldShorthandCopyMagicalAttackCastedSpells : IMagicalAttackCastedSpell
     {
         public IEnumerator OnSpellCast(
             RulesetCharacter featureOwner,
@@ -1333,7 +1333,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private class BlastEmpowerCustom : ToggleableInvocation, IActionExecutionHandled, ISpellCast
+    private class BlastEmpowerCustom : ToggleableInvocation, IActionExecutionHandled, IMagicalAttackCastedSpell
     {
         public BlastEmpowerCustom(string name)
         {

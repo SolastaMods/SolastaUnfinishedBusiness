@@ -1266,7 +1266,7 @@ public static class GameLocationBattleManagerPatcher
 
             foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {
-                var allyFeatures = allyCharacter.GetSubFeaturesByType<ISpellCast>();
+                var allyFeatures = allyCharacter.GetSubFeaturesByType<IMagicalAttackCastedSpell>();
 
                 foreach (var feature in allyFeatures)
                 {
