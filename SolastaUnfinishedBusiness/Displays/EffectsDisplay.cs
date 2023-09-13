@@ -1,7 +1,9 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -50,7 +52,7 @@ internal static class EffectsDisplay
 
         if (ToggleCondition)
         {
-            DisplayEffects(EffectHelpers.EffectType.Condition);
+            DisplayConditionEffects();
         }
 
         UI.Label();
@@ -93,6 +95,8 @@ internal static class EffectsDisplay
             return;
         }
 
+        UI.Label();
+
         using var scrollView =
             new GUILayout.ScrollViewScope(EffectPosition, UI.AutoWidth(), UI.AutoHeight());
 
@@ -114,6 +118,99 @@ internal static class EffectsDisplay
                     UI.Width((float)30));
 
                 var label = effect.Key + " - " + effect.Value.First().Item1;
+
+                UI.Label(label, UI.AutoWidth());
+            }
+        }
+    }
+
+    private static readonly ConditionDefinition DummyCondition = ConditionDefinitionBuilder
+        .Create("DummyCondition")
+        .SetGuiPresentation("Dummy", "Dummy")
+        .SetSpecialDuration(RuleDefinitions.DurationType.Round, 1)
+        .AddToDB();
+
+    private static void DisplayConditionEffects()
+    {
+        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+        UI.Label();
+
+        using var scrollView =
+            new GUILayout.ScrollViewScope(EffectPosition, UI.AutoWidth(), UI.AutoHeight());
+
+        EffectPosition = scrollView.scrollPosition;
+
+        UI.Label();
+
+        foreach (var conditionEffect in EffectsContext.ConditionEffects)
+        {
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("+".Bold().Red(), () =>
+                    {
+                        var source = gameLocationCharacterService.PartyCharacters[0];
+                        var rulesetCharacter = source.RulesetCharacter;
+                        var baseDefinition = conditionEffect.Value.First().Item2;
+
+                        switch (baseDefinition)
+                        {
+                            case ConditionDefinition conditionDefinition:
+                            {
+                                DummyCondition.conditionStartParticleReference =
+                                    conditionDefinition.conditionStartParticleReference;
+                                DummyCondition.conditionParticleReference =
+                                    conditionDefinition.conditionParticleReference;
+                                DummyCondition.conditionEndParticleReference =
+                                    conditionDefinition.conditionEndParticleReference;
+                                break;
+                            }
+                            case SpellDefinition spellDefinition:
+                            {
+                                var effectParticleParameters =
+                                    spellDefinition.EffectDescription.EffectParticleParameters;
+
+                                DummyCondition.conditionStartParticleReference =
+                                    effectParticleParameters.conditionStartParticleReference;
+                                DummyCondition.conditionParticleReference =
+                                    effectParticleParameters.conditionParticleReference;
+                                DummyCondition.conditionEndParticleReference =
+                                    effectParticleParameters.conditionEndParticleReference;
+                                break;
+                            }
+                            case FeatureDefinitionPower featureDefinitionPower:
+                            {
+                                var effectParticleParameters =
+                                    featureDefinitionPower.EffectDescription.EffectParticleParameters;
+
+                                DummyCondition.conditionStartParticleReference =
+                                    effectParticleParameters.conditionStartParticleReference;
+                                DummyCondition.conditionParticleReference =
+                                    effectParticleParameters.conditionParticleReference;
+                                DummyCondition.conditionEndParticleReference =
+                                    effectParticleParameters.conditionEndParticleReference;
+                                break;
+                            }
+                        }
+
+                        rulesetCharacter.RemoveAllConditionsOfType(DummyCondition.Name);
+                        rulesetCharacter.InflictCondition(
+                            DummyCondition.Name,
+                            DummyCondition.DurationType,
+                            DummyCondition.DurationParameter,
+                            DummyCondition.TurnOccurence,
+                            AttributeDefinitions.TagEffect,
+                            rulesetCharacter.guid,
+                            rulesetCharacter.CurrentFaction.Name,
+                            1,
+                            null,
+                            0,
+                            0,
+                            0);
+                    },
+                    UI.Width((float)30));
+
+                var label = conditionEffect.Key + " - " + conditionEffect.Value.First().Item1;
 
                 UI.Label(label, UI.AutoWidth());
             }

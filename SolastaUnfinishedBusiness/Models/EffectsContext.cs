@@ -9,6 +9,8 @@ public static class EffectsContext
     internal static readonly
         Dictionary<EffectHelpers.EffectType, Dictionary<string, List<(string, EffectParticleParameters)>>> Effects =
             new();
+    
+    internal static readonly Dictionary<string, List<(string, BaseDefinition)>> ConditionEffects = new();
 
     internal static void DumpEffects()
     {
@@ -63,9 +65,7 @@ public static class EffectsContext
 
     private static void DumpConditionEffects()
     {
-        Effects.Add(EffectHelpers.EffectType.Condition,
-            new Dictionary<string, List<(string, EffectParticleParameters)>>());
-
+        var conditions = DatabaseRepository.GetDatabase<ConditionDefinition>();
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
 
@@ -81,9 +81,9 @@ public static class EffectsContext
                 continue;
             }
 
-            Effects[EffectHelpers.EffectType.Condition]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
-            Effects[EffectHelpers.EffectType.Condition][effectReferenceGuid].Add((name, effectParticleParameters));
+            ConditionEffects
+                .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
+            ConditionEffects[effectReferenceGuid].Add((name, power));
         }
 
         foreach (var spell in spells
@@ -98,9 +98,25 @@ public static class EffectsContext
                 continue;
             }
 
-            Effects[EffectHelpers.EffectType.Condition]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
-            Effects[EffectHelpers.EffectType.Condition][effectReferenceGuid].Add((name, effectParticleParameters));
+            ConditionEffects
+                .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
+            ConditionEffects[effectReferenceGuid].Add((name, spell));
+        }
+        
+        foreach (var condition in conditions
+                     .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
+        {
+            var name = condition.Name;
+            var effectReferenceGuid = condition.conditionParticleReference?.AssetGUID;
+
+            if (string.IsNullOrEmpty(effectReferenceGuid))
+            {
+                continue;
+            }
+
+            ConditionEffects
+                .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
+            ConditionEffects[effectReferenceGuid].Add((name, condition));
         }
     }
 
