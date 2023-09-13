@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Aura2API;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -23,9 +25,10 @@ internal static class EffectHelpers
         var prefab = effectType switch
         {
             EffectType.Caster => magicEffect.EffectDescription.EffectParticleParameters.CasterParticle,
+            EffectType.Condition => magicEffect.EffectDescription.EffectParticleParameters.ConditionParticle,
             EffectType.Effect => magicEffect.EffectDescription.EffectParticleParameters.EffectParticle,
             EffectType.Impact => magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle,
-            EffectType.Condition => magicEffect.EffectDescription.EffectParticleParameters.ConditionParticle,
+            EffectType.Zone => magicEffect.EffectDescription.EffectParticleParameters.ZoneParticle,
             _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
         };
 
@@ -35,6 +38,35 @@ internal static class EffectHelpers
         }
 
         var sentParameters = new ParticleSentParameters(attacker, defender, magicEffect.Name);
+
+        WorldLocationPoolManager
+            .GetElement(prefab, true)
+            .GetComponent<ParticleSetup>()
+            .Setup(sentParameters);
+    }
+
+    internal static void StartVisualEffect(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        EffectParticleParameters effectParticleParameters,
+        EffectType effectType = EffectType.Impact)
+    {
+        var prefab = effectType switch
+        {
+            EffectType.Caster => effectParticleParameters.CasterParticle,
+            EffectType.Condition => effectParticleParameters.ConditionParticle,
+            EffectType.Effect => effectParticleParameters.EffectParticle,
+            EffectType.Impact => effectParticleParameters.ImpactParticle,
+            EffectType.Zone => effectParticleParameters.ZoneParticle,
+            _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
+        };
+
+        if (prefab == null)
+        {
+            return;
+        }
+
+        var sentParameters = new ParticleSentParameters(attacker, defender, "test");
 
         WorldLocationPoolManager
             .GetElement(prefab, true)
@@ -231,9 +263,10 @@ internal static class EffectHelpers
 
     internal enum EffectType
     {
-        Caster = 0,
-        Effect = 1,
-        Impact = 2,
-        Condition = 3
+        Caster,
+        Condition,
+        Effect,
+        Impact,
+        Zone
     }
 }

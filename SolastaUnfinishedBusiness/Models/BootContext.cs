@@ -129,6 +129,9 @@ internal static class BootContext
             // Dump documentations to mod folder
             DocumentationContext.DumpDocumentation();
 
+            // Effects Browser
+            EffectsContext.DumpEffects();
+
             AddExtraTooltipDefinitions();
 
             // Manages update or welcome messages
