@@ -129,26 +129,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class OnConditionAdded_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
-        {
-            var definition = activeCondition.ConditionDefinition;
-
-            //PATCH: notifies custom condition features that condition is applied
-            definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
-                .Do(c => c.OnConditionAdded(__instance, activeCondition));
-
-            definition.Features
-                .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
-                .Do(c => c.OnConditionAdded(__instance, activeCondition));
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionRemoved))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

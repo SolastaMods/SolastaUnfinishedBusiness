@@ -72,6 +72,21 @@ public static class RulesetActorPatcher
         public static void Postfix(RulesetActor __instance, RulesetCondition newCondition)
         {
             SrdAndHouseRulesContext.AddLightSourceIfNeeded(__instance, newCondition);
+
+            var definition = newCondition.ConditionDefinition;
+
+            //PATCH: notifies custom condition features that condition is applied
+            if (__instance is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
+                .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
+
+            definition.Features
+                .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
+                .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
         }
     }
 
