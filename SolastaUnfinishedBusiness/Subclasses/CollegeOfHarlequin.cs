@@ -246,7 +246,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         }
     }
 
-    private sealed class TerrificPerformance : IOnTargetReducedToZeroHp
+    private sealed class TerrificPerformance : IOnReducedToZeroHpEnemy
     {
         private readonly FeatureDefinitionPower _power14;
         private readonly FeatureDefinitionPower _power6;
@@ -257,7 +257,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             _power14 = power14;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

@@ -136,7 +136,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureMomentum.SetCustomSubFeatures(new OnTargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
+        featureMomentum.SetCustomSubFeatures(new OnReducedToZeroHpEnemyMomentum(featureMomentum, conditionMomentum));
 
         // LEVEL 10
 
@@ -347,12 +347,12 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Momentum
     //
 
-    private class OnTargetReducedToZeroHpMomentum : IOnTargetReducedToZeroHp
+    private class OnReducedToZeroHpEnemyMomentum : IOnReducedToZeroHpEnemy
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public OnTargetReducedToZeroHpMomentum(
+        public OnReducedToZeroHpEnemyMomentum(
             FeatureDefinition featureDefinition,
             ConditionDefinition conditionDefinition)
         {
@@ -360,7 +360,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

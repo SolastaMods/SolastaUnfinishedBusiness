@@ -306,7 +306,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    private sealed class StarkHarvest : IOnTargetReducedToZeroHp
+    private sealed class StarkHarvest : IOnReducedToZeroHpEnemy
     {
         private readonly FeatureDefinition _feature;
 
@@ -315,7 +315,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
             _feature = feature;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

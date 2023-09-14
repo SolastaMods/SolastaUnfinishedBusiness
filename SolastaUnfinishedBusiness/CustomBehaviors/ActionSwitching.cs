@@ -617,7 +617,7 @@ public static class ActionSwitching
         data.LoadSpellcasting(character, type);
     }
 
-    private sealed class HordeBreaker : IOnTargetReducedToZeroHp
+    private sealed class HordeBreaker : IOnReducedToZeroHpEnemy
     {
         private readonly ConditionDefinition _condition;
 
@@ -626,7 +626,7 @@ public static class ActionSwitching
             _condition = condition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

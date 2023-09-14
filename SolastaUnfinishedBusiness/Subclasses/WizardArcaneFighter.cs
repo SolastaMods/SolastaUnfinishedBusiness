@@ -91,7 +91,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class SpellFighting : IOnTargetReducedToZeroHp
+    private sealed class SpellFighting : IOnReducedToZeroHpEnemy
     {
         private readonly ConditionDefinition _condition;
 
@@ -100,7 +100,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             _condition = condition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

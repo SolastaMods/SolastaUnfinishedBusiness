@@ -872,8 +872,8 @@ internal static class MeleeCombatFeats
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraPhysicalAttackFeatCleavingPhysicalAttack : IPhysicalAttackAfterDamage,
-        IOnTargetReducedToZeroHp
+    private sealed class AddExtraPhysicalAttackFeatCleavingPhysicalAttack :
+        IPhysicalAttackAfterDamage, IOnReducedToZeroHpEnemy
     {
         private readonly ConditionDefinition _conditionCleavingAttackFinish;
 
@@ -882,7 +882,7 @@ internal static class MeleeCombatFeats
             _conditionCleavingAttackFinish = conditionCleavingAttackFinish;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

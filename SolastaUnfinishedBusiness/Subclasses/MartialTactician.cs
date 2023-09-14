@@ -346,7 +346,7 @@ public sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class RefundPowerUseAfterKill : IOnTargetReducedToZeroHp
+    private class RefundPowerUseAfterKill : IOnReducedToZeroHpEnemy
     {
         private readonly FeatureDefinition _feature;
         private readonly FeatureDefinitionPower _power;
@@ -357,7 +357,7 @@ public sealed class MartialTactician : AbstractSubclass
             _feature = feature;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

@@ -48,7 +48,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var additionalActionRavenKillingSpree = FeatureDefinitionBuilder
             .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new RefreshSneakAttackOnKill(),
+            .SetCustomSubFeatures(new RefreshSneakAttackOnReducedToZeroHpKill(),
                 new KillingSpree(
                     ConditionDefinitionBuilder
                         .Create("ConditionRavenKillingSpree")
@@ -253,9 +253,9 @@ public sealed class RoguishRaven : AbstractSubclass
     {
     }
 
-    private sealed class RefreshSneakAttackOnKill : IOnTargetReducedToZeroHp
+    private sealed class RefreshSneakAttackOnReducedToZeroHpKill : IOnReducedToZeroHpEnemy
     {
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
@@ -281,7 +281,7 @@ public sealed class RoguishRaven : AbstractSubclass
         public CharacterClassDefinition Class { get; }
     }
 
-    private sealed class KillingSpree : IOnTargetReducedToZeroHp
+    private sealed class KillingSpree : IOnReducedToZeroHpEnemy
     {
         private readonly ConditionDefinition _condition;
 
@@ -290,7 +290,7 @@ public sealed class RoguishRaven : AbstractSubclass
             _condition = condition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

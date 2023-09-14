@@ -419,7 +419,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
-            new OnSourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
+            new OnReducedToZeroHpMePhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
@@ -1248,16 +1248,16 @@ internal static class Level20SubclassesContext
 
     #region Monk
 
-    private sealed class OnSourceReducedToZeroHpPhysicalPerfection : IOnSourceReducedToZeroHp
+    private sealed class OnReducedToZeroHpMePhysicalPerfection : IOnReducedToZeroHpMe
     {
         private readonly FeatureDefinitionPower _powerPhysicalPerfection;
 
-        public OnSourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        public OnReducedToZeroHpMePhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
         {
             _powerPhysicalPerfection = powerPhysicalPerfection;
         }
 
-        public IEnumerator HandleSourceReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpMe(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
             RulesetAttackMode attackMode,

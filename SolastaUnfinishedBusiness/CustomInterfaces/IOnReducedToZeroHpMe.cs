@@ -3,9 +3,9 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IOnSourceReducedToZeroHp
+public interface IOnReducedToZeroHpMe
 {
-    public IEnumerator HandleSourceReducedToZeroHp(
+    public IEnumerator HandleReducedToZeroHpMe(
         GameLocationCharacter attacker,
         GameLocationCharacter source,
         [UsedImplicitly] RulesetAttackMode attackMode,

@@ -407,7 +407,7 @@ public sealed class RoguishSlayer : AbstractSubclass
     }
 
     private sealed class CustomBehaviorChainOfExecution :
-        IOnConditionAddedOrRemoved, IOnTargetReducedToZeroHp, IDefinitionCustomCode
+        IOnConditionAddedOrRemoved, IOnReducedToZeroHpEnemy, IDefinitionCustomCode
     {
         private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
         private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;
@@ -456,7 +456,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             ApplyConditionChainOfExecutionGranted(rulesetCharacter);
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

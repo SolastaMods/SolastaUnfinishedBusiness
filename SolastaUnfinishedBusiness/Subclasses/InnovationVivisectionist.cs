@@ -131,7 +131,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .AddToDB();
 
         powerOrganDonation.SetCustomSubFeatures(
-            new OnTargetReducedToZeroHpOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
+            new OnReducedToZeroHpEnemyOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
 
         // LEVEL 15
 
@@ -246,13 +246,13 @@ public sealed class InnovationVivisectionist : AbstractSubclass
         }
     }
 
-    private class OnTargetReducedToZeroHpOrganDonation : IOnTargetReducedToZeroHp
+    private class OnReducedToZeroHpEnemyOrganDonation : IOnReducedToZeroHpEnemy
     {
         private readonly FeatureDefinitionPower _powerEmergencyCure;
         private readonly FeatureDefinitionPower _powerEmergencySurgery;
         private readonly FeatureDefinitionPower _powerOrganDonation;
 
-        public OnTargetReducedToZeroHpOrganDonation(
+        public OnReducedToZeroHpEnemyOrganDonation(
             FeatureDefinitionPower powerOrganDonation,
             FeatureDefinitionPower powerEmergencySurgery,
             FeatureDefinitionPower powerEmergencyCure)
@@ -262,7 +262,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             _powerEmergencyCure = powerEmergencyCure;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

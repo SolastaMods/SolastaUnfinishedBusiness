@@ -48,7 +48,7 @@ internal sealed class Merciless : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnTargetReducedToZeroHpFightingStyleMerciless())
+                .SetCustomSubFeatures(new OnReducedToZeroHpEnemyFightingStyleMerciless())
                 .AddToDB())
         .AddToDB();
 
@@ -57,8 +57,8 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnTargetReducedToZeroHpFightingStyleMerciless :
-        IOnTargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
+    private sealed class OnReducedToZeroHpEnemyFightingStyleMerciless :
+        IOnReducedToZeroHpEnemy, IAttackBeforeHitConfirmedOnEnemy
     {
         private bool _isCritical;
 
@@ -79,7 +79,7 @@ internal sealed class Merciless : AbstractFightingStyle
             yield break;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
