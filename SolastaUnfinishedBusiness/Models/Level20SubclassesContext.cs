@@ -1137,7 +1137,7 @@ internal static class Level20SubclassesContext
             _featureManaOverflow = featureManaOverflow;
         }
 
-        public void OnFailedSavingTryAlterOutcome(
+        public void OnSavingTryAlterOutcome(
             RulesetCharacter caster,
             Side sourceSide,
             RulesetActor target,

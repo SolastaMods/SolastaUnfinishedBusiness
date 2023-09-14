@@ -176,7 +176,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             _conditionDishearteningPerformance = conditionDishearteningPerformance;
         }
 
-        public void OnFailedSavingTryAlterOutcome(
+        public void OnSavingTryAlterOutcome(
             RulesetCharacter caster,
             Side sourceSide,
             RulesetActor target,

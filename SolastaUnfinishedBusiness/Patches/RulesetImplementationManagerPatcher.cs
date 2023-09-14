@@ -744,7 +744,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: supports ITryAlterOutcomeSavingThrow interface
             foreach (var tryAlterOutcomeSavingThrow in target.GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
             {
-                tryAlterOutcomeSavingThrow.OnFailedSavingTryAlterOutcome(
+                tryAlterOutcomeSavingThrow.OnSavingTryAlterOutcome(
                     caster,
                     sourceSide,
                     target,
