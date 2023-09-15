@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageWayOfTheDiscordanceDiscordance:0ed2611e-97c1-5a15-b6bc-0f469cdb214d",
-    "Definition:PowerWayOfTheDiscordanceDiscordance:2dbb6868-d4dc-584c-b2b8-105c93f8d8cb"
+    "Definition:PowerWayOfTheDiscordanceChaosChanneling:fd2b1abe-6116-53e5-bcc2-053aec7b4477",
+    "Definition:PowerWayOfTheDiscordanceChaosChannelingPoints:c8f8dba6-dcb8-5915-bae3-cf7dbd18605b"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle",
-    "description": "Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription",
+    "title": "Feature/&FeatureSetWayOfTheDiscordanceChaosChannelingTitle",
+    "description": "Feature/&FeatureSetWayOfTheDiscordanceChaosChannelingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "60ffcecb-0fac-53b9-a5af-aa3920456822",
+  "guid": "c351d4f1-8d07-595f-8f16-158711d53668",
   "contentPack": 9999,
-  "name": "FeatureSetWayOfTheDiscordanceDiscordance"
+  "name": "FeatureSetWayOfTheDiscordanceChaosChanneling"
 }

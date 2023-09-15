@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Burst of Disharmony [6 Ki]",
-    "description": "Spend 6 Ki Point to deal 8d6 damage.",
+    "description": "Spend 6 Ki Point to deal 9d6 damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

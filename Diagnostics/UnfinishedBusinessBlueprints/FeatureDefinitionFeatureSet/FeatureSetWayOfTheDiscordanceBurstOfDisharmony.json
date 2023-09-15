@@ -1,0 +1,49 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony:e2b2e61a-7617-5285-a7f6-0467d9bb83cd",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony10:e4cba1a1-7cfb-5ad3-93df-10813843445b",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony2:90c83b6d-6de3-5421-b0d3-3d8646fb01ea",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony3:9fdd139f-d40d-5514-a335-da0135e6049e",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony4:0de1c24f-e0b0-5461-90e6-be797b3f9018",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony5:aa1a0cc4-3728-5fe3-8a46-06fdfd00c071",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony6:a7a3fa52-51a9-5f94-a34c-cdc606c5f92a",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony7:b256a936-7af1-5967-a0f0-96ab52983933",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony8:9d255ac1-a52f-57f0-8e91-abe62b97af23",
+    "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony9:ad498e29-ae05-5803-9c62-794901001438"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWayOfTheDiscordanceBurstOfDisharmonyTitle",
+    "description": "Feature/&FeatureSetWayOfTheDiscordanceBurstOfDisharmonyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "098750d7-e96a-53c3-8bbb-5b1b08f786b8",
+  "contentPack": 9999,
+  "name": "FeatureSetWayOfTheDiscordanceBurstOfDisharmony"
+}

@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Burst of Disharmony [1 Ki]",
-    "description": "Spend 1 Ki Point to deal 3d6 damage.",
+    "title": "Burst of Disharmony [10 Ki]",
+    "description": "Spend 10 Ki Point to deal 13d6 damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -187,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7a4a4ea4-0c4a-5faf-b75c-5d18c1770bcb",
+  "guid": "d68ecd41-5682-5217-b0f4-860577613bd9",
   "contentPack": 9999,
-  "name": "SpellPowerWayOfTheDiscordanceBurstOfDisharmony1"
+  "name": "SpellPowerWayOfTheDiscordanceBurstOfDisharmony10"
 }

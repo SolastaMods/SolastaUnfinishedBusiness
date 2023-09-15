@@ -10,14 +10,12 @@
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Permanent",
-  "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationType": "Day",
+  "durationParameterDie": "D1",
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "BattleEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -41,27 +39,22 @@
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "21b24f77d8d5a1548bd56c8e5a41e596",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "5e0c09929253f31419d4e56161b7dda8",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "recurrentEffectParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
+  "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -156,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc8301dc-5868-5614-b83f-3a101e97b3aa",
+  "guid": "1b814933-050d-57fe-aa68-21b3a3f83447",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheDiscordanceProfoundTurmoilMark"
+  "name": "ConditionWayOfTheDiscordanceHadTurmoil"
 }

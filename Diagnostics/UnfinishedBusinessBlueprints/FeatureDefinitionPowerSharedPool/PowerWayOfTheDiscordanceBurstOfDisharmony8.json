@@ -79,7 +79,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 8,
+          "diceNumber": 11,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -344,7 +344,7 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "AtWill",
-  "costPerUse": 5,
+  "costPerUse": 8,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -363,8 +363,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Burst of Disharmony [5 Ki]",
-    "description": "Spend 5 Ki Point to deal 8d6 damage.",
+    "title": "Burst of Disharmony [8 Ki]",
+    "description": "Spend 8 Ki Point to deal 11d6 damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -384,7 +384,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa1a0cc4-3728-5fe3-8a46-06fdfd00c071",
+  "guid": "9d255ac1-a52f-57f0-8e91-abe62b97af23",
   "contentPack": 9999,
-  "name": "PowerWayOfTheDiscordanceBurstOfDisharmony5"
+  "name": "PowerWayOfTheDiscordanceBurstOfDisharmony8"
 }

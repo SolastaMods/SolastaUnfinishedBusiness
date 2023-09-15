@@ -2,23 +2,22 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
-  "features": [
-    "Definition:AttackModifierWayOfTheDiscordanceProfoundTurmoil:c5e37b15-a37c-5a00-a649-be02f3384793",
-    "Definition:SavingThrowAffinityWayOfTheDiscordanceProfoundTurmoil:e4780e27-15f3-5810-9f9c-9e23ac16ebb7"
-  ],
+  "conditionType": "Beneficial",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Minute",
-  "durationParameterDie": "D1",
-  "durationParameter": 1,
+  "durationType": "Round",
+  "durationParameterDie": "D4",
+  "durationParameter": 0,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "AnyBattleTurnEnd"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -42,27 +41,22 @@
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "21b24f77d8d5a1548bd56c8e5a41e596",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "5e0c09929253f31419d4e56161b7dda8",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "recurrentEffectParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
+  "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -93,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -135,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle",
-    "description": "Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "53a1d33b98088644f8c549fcdb63404f",
-      "m_SubObjectName": "ConditionDoomed",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -157,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5bd41c30-1d8c-5e5a-b017-bab834ec1858",
+  "guid": "63898af9-f375-5188-ba12-49a42a650ae5",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheDiscordanceProfoundTurmoil"
+  "name": "ConditionWayOfTheDiscordanceHadDiscordanceDamageThisTurn"
 }

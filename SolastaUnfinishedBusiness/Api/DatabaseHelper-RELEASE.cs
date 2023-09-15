@@ -23,6 +23,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition PowerNoCost { get; } = GetDefinition<ActionDefinition>("PowerNoCost");
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
+        internal static ActionDefinition SpendPower { get; } = GetDefinition<ActionDefinition>("SpendPower");
         internal static ActionDefinition StepBack { get; } = GetDefinition<ActionDefinition>("StepBack");
 
         internal static ActionDefinition StunningStrikeToggle { get; } =
@@ -581,6 +582,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionStoneResilience { get; } =
             GetDefinition<ConditionDefinition>("ConditionStoneResilience");
+
+        internal static ConditionDefinition ConditionStrikeOfChaosAttackAdvantage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStrikeOfChaosAttackAdvantage");
 
         internal static ConditionDefinition ConditionStunned { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned");
@@ -1731,6 +1735,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerShadowTamerRopeGrapple { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerShadowTamerRopeGrapple");
 
+        internal static FeatureDefinitionPower PowerSorakDreadLaughter { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakDreadLaughter");
+
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
 
@@ -1745,6 +1752,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSorcererManaPainterTap { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterTap");
+
+        internal static FeatureDefinitionPower PowerSorcererChildRiftDeflection { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftDeflection");
+
+        internal static FeatureDefinitionPower PowerSorcererChildRiftRiftwalkLandingDamage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalkLandingDamage");
 
         internal static FeatureDefinitionPower PowerSpellBladeSpellTyrant { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSpellBladeSpellTyrant");

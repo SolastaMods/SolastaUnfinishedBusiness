@@ -3,22 +3,32 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWayOfTheDiscordanceChaosChanneling:c351d4f1-8d07-595f-8f16-158711d53668",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfTheDiscordanceDiscordance:60ffcecb-0fac-53b9-a5af-aa3920456822",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWayOfTheDiscordanceSchism:1ebc4bdc-5e8c-5d98-a0a5-c23474f3e564",
+      "featureDefinition": "Definition:PowerWayOfTheDiscordanceTurmoil:d547fc72-c3d8-5580-97f2-1913deb8e59d",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony:e2b2e61a-7617-5285-a7f6-0467d9bb83cd",
+      "featureDefinition": "Definition:FeatureSetWayOfTheDiscordanceBurstOfDisharmony:098750d7-e96a-53c3-8bbb-5b1b08f786b8",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfTheDiscordanceProfoundTurmoil:3cab4daa-e55c-5a7e-939a-9a09cc713898",
+      "featureDefinition": "Definition:FeatureWayOfTheDiscordanceEntropicStrikes:bcb2c751-b6dd-53a0-8e05-97e3580c66a5",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDiscordanceTidesOfChaos:fdc5046c-543a-57a5-8028-9955f25c74e9",
       "level": 17
     }
   ],

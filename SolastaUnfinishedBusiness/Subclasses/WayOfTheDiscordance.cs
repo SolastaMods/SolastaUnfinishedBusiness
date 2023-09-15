@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -11,11 +11,14 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using static RuleDefinitions;
 using static AttributeDefinitions;
+using static ConditionForm;
 using static FeatureDefinitionSavingThrowAffinity;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -24,71 +27,23 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WayOfTheDiscordance : AbstractSubclass
 {
     private const string Name = "WayOfTheDiscordance";
-
-    private const string ConditionProfoundTurmoilName = $"Condition{Name}ProfoundTurmoil";
-
-    private static readonly ConditionDefinition ConditionProfoundTurmoil = ConditionDefinitionBuilder
-        .Create(ConditionProfoundTurmoilName)
-        .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
-        .SetPossessive()
-        .SetConditionType(ConditionType.Detrimental)
-        .SetSpecialDuration(DurationType.Minute, 1)
-        .CopyParticleReferences(ConditionMalediction)
-        .AddFeatures(
-            FeatureDefinitionSavingThrowAffinityBuilder
-                .Create($"SavingThrowAffinity{Name}ProfoundTurmoil")
-                .SetGuiPresentation(ConditionProfoundTurmoilName, Category.Condition)
-                .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
-                    Charisma,
-                    Constitution,
-                    Dexterity,
-                    Intelligence,
-                    Strength,
-                    Wisdom)
-                .AddToDB(),
-            FeatureDefinitionAttackModifierBuilder
-                .Create($"AttackModifier{Name}ProfoundTurmoil")
-                .SetGuiPresentation(ConditionProfoundTurmoilName, Category.Condition)
-                .SetAttackRollModifier(-2)
-                .AddToDB())
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionProfoundTurmoilMark = ConditionDefinitionBuilder
-        .Create($"Condition{Name}ProfoundTurmoilMark")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialDuration(DurationType.Permanent)
-        .CopyParticleReferences(ConditionMalediction)
-        .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
-        .AddToDB();
-
-    private static readonly FeatureDefinitionPower PowerProfoundTurmoil = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}ProfoundTurmoil")
-        .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetSavingThrowData(false, Charisma, false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.None)
-                        .SetConditionForm(ConditionProfoundTurmoilMark, ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                        .SetConditionForm(ConditionProfoundTurmoil, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
-        .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-        .AddToDB();
+    private const int TurmoilLevel = 6;
+    private const int EntropicStrikesLevel = 11;
 
     public WayOfTheDiscordance()
     {
+        // LEVEL 03
+
+        // Discordance
+
+        var conditionHadDiscordanceDamageThisTurn = ConditionDefinitionBuilder
+            .Create($"Condition{Name}HadDiscordanceDamageThisTurn")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         var conditionDiscordance = ConditionDefinitionBuilder
             .Create($"Condition{Name}Discordance")
             .SetGuiPresentation(Category.Condition, ConditionMarkedByBrandingSmite)
@@ -97,62 +52,212 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Minute, 1)
             .AllowMultipleInstances()
-            .SetPossessive()
+            .AddToDB();
+
+        var additionalDamageDiscordance = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}Discordance")
+            .SetGuiPresentationNoContent(true)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = conditionDiscordance
+                })
+            .SetCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
+                    (OperationType.Set,
+                        ValidatorsWeapon.IsUnarmed(character, mode)
+                        && (!Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                                .HasConditionOfType(conditionHadDiscordanceDamageThisTurn)
+                            || character.GetClassLevel(CharacterClassDefinitions.Monk) >= EntropicStrikesLevel))))
             .AddToDB();
 
         var powerDiscordanceDamage = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DiscordanceDamage")
-            .SetGuiPresentation("FeatureSetWayOfTheDiscordanceDiscordance", Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .Create($"Power{Name}Discordance")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(Bane)
+                    // won't impact OnAttackHitAuto but required by Burst of Discordance chained actions to work correctly
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 3 * 3 * 3)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 1, DieType.D4),
+                        EffectFormBuilder.ConditionForm(conditionHadDiscordanceDamageThisTurn))
+                    .SetParticleEffectParameters(PowerSorakDreadLaughter)
                     .Build())
             .AddToDB();
 
-        var powerDiscordance = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DiscordanceBase")
-            .SetGuiPresentation("FeatureSetWayOfTheDiscordanceDiscordance", Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+        // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
+        powerDiscordanceDamage.SetCustomSubFeatures(
+            new ValidatorsPowerUse(
+                character => ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
+                             && Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                                 .HasConditionOfType(conditionDiscordance)),
+            new ModifyEffectDescriptionDiscordance(powerDiscordanceDamage));
+
+        var featureSetDiscordance = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Discordance")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(additionalDamageDiscordance, powerDiscordanceDamage)
             .AddToDB();
 
-        powerDiscordance.SetCustomSubFeatures(
-            new PhysicalAttackAfterDamageDiscordance(conditionDiscordance, powerDiscordanceDamage));
+        // Chaos Channeling
+
+        var conditionChaosChanneling = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ChaosChanneling")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetCustomSubFeatures(new ModifyWeaponAttackModeChaosChanneling())
+            .AddToDB();
+
+        var powerChaosChanneling = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ChaosChanneling")
+            .SetGuiPresentation($"FeatureSet{Name}ChaosChanneling", Category.Feature, PowerOathOfDevotionTurnUnholy)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionChaosChanneling))
+                    .SetParticleEffectParameters(PowerSorcererChildRiftDeflection)
+                    .Build())
+            .AddToDB();
+
+        var powerChaosChannelingPoints = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ChaosChannelingPoints")
+            .SetGuiPresentation($"FeatureSet{Name}ChaosChanneling", Category.Feature, PowerOathOfDevotionTurnUnholy)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 1, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionChaosChanneling))
+                    .SetParticleEffectParameters(PowerSorcererChildRiftDeflection)
+                    .Build())
+            .AddToDB();
+
+        powerChaosChanneling.SetCustomSubFeatures(
+            new ValidatorsPowerUse(character =>
+                UsablePowersProvider.Get(powerChaosChanneling, character).RemainingUses > 0));
+
+        powerChaosChannelingPoints.SetCustomSubFeatures(
+            new ValidatorsPowerUse(character =>
+                UsablePowersProvider.Get(powerChaosChanneling, character).RemainingUses == 0));
+
+        var featureSetChaosChanneling = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ChaosChanneling")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerChaosChanneling, powerChaosChannelingPoints)
+            .AddToDB();
+
+        // LEVEL 06
+
+        // Turmoil
+
+        var combatAffinityTurmoil = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}Turmoil")
+            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), string.Empty)
+            .SetMyAttackModifierSign(AttackModifierSign.Substract)
+            .SetMyAttackModifierDieType(DieType.D4)
+            .AddToDB();
+
+        var savingThrowAffinityTurmoil = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}Turmoil")
+            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), string.Empty)
+            .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
+                Charisma,
+                Constitution,
+                Dexterity,
+                Intelligence,
+                Strength,
+                Wisdom)
+            .AddToDB();
+
+        var conditionTurmoil = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Turmoil")
+            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .CopyParticleReferences(ConditionStrikeOfChaosAttackAdvantage)
+            .AddFeatures(combatAffinityTurmoil, savingThrowAffinityTurmoil)
+            .AddToDB();
+
+        var conditionHadTurmoil = ConditionDefinitionBuilder
+            .Create($"Condition{Name}HadTurmoil")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Day, 1)
+            .AddToDB();
+
+        var powerTurmoil = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Turmoil")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    // won't impact OnAttackHitAuto but required by Burst of Discordance chained actions to work correctly
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 3 * 3 * 3)
+                    .SetSavingThrowData(false, Charisma, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionHadTurmoil),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionTurmoil, ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .Build())
+                    .SetParticleEffectParameters(PowerSorakDreadLaughter)
+                    .Build())
+            .AddToDB();
+
+        // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
+        // it also hasn't been removed so far by the Discordance damage power
+        powerTurmoil.SetCustomSubFeatures(
+            new ValidatorsPowerUse(character =>
+                ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
+                && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                    .HasConditionOfType(conditionHadTurmoil)
+                && Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                    .HasConditionOfType(conditionDiscordance)));
+
+        // LEVEL 11
+
+        // Burst of Disharmony
 
         var powerBurstOfDisharmonyPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstOfDisharmony")
-            .SetGuiPresentation(Category.Feature,
+            .SetGuiPresentation(Category.Feature, $"FeatureSet{Name}BurstOfDisharmony",
                 Sprites.GetSprite("PowerBurstOfDisharmony", Resources.PowerBurstOfDisharmony, 128))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 0, 0)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .AddToDB();
 
         var powerBurstOfDisharmonyList = new List<FeatureDefinitionPower>();
 
-        for (var i = 6; i >= 1; i--)
+        for (var i = 10; i >= 2; i--)
         {
-            var a = i;
+            var kiNumber = i; // closure
+            var diceNumber = 3 + kiNumber;
+            var minimumClassLevelAllowed = (kiNumber * 2) - 1;
 
             var powerBurstOfDisharmony = FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{Name}BurstOfDisharmony{i}")
+                .Create($"Power{Name}BurstOfDisharmony{kiNumber}")
                 .SetGuiPresentation(
-                    Gui.Format($"Feature/&Power{Name}SubBurstOfDisharmonyTitle", i.ToString()),
-                    Gui.Format($"Feature/&Power{Name}SubBurstOfDisharmonyDescription",
-                        i.ToString(),
-                        (i + 2).ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, powerBurstOfDisharmonyPool, i)
+                    $"Power{Name}BurstOfDisharmonyTitle".Formatted(Category.Feature, kiNumber),
+                    $"Power{Name}BurstOfDisharmonyDescription".Formatted(Category.Feature, kiNumber, diceNumber))
+                .SetSharedPool(ActivationTime.BonusAction, powerBurstOfDisharmonyPool, kiNumber)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
                         .SetDurationData(DurationType.Minute, 1)
-                        .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3, 3)
-                        .SetParticleEffectParameters(DreadfulOmen)
+                        .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3)
                         .SetSavingThrowData(
                             false,
                             Constitution,
@@ -162,38 +267,63 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                             EffectFormBuilder
                                 .Create()
                                 .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                                .SetDamageForm(DamageTypeNecrotic, 2 + i, DieType.D6)
+                                .SetDamageForm(DamageTypeNecrotic, diceNumber, DieType.D6)
                                 .Build(),
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    conditionDiscordance,
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
+                            EffectFormBuilder.ConditionForm(conditionDiscordance))
+                        .SetParticleEffectParameters(PowerSorcererChildRiftRiftwalkLandingDamage)
                         .Build())
-                .SetCustomSubFeatures(
-                    new ValidatorsPowerUse(
-                        c => c.RemainingKiPoints >= a &&
-                             c.TryGetAttributeValue(ProficiencyBonus) >= a))
                 .AddToDB();
+
+            powerBurstOfDisharmony.SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                new ChainActionAfterMagicEffectBurstOfDisharmony(
+                    conditionDiscordance, powerDiscordanceDamage, conditionTurmoil, powerTurmoil),
+                new ValidatorsPowerUse(
+                    c => c.RemainingKiPoints >= kiNumber &&
+                         c.GetClassLevel(CharacterClassDefinitions.Monk) >= minimumClassLevelAllowed));
+
+            powerBurstOfDisharmony.EffectDescription.EffectParticleParameters.impactParticleReference =
+                SpiritualWeapon.EffectDescription.EffectParticleParameters.impactParticleReference;
 
             powerBurstOfDisharmonyList.Add(powerBurstOfDisharmony);
         }
 
-        PowerBundle.RegisterPowerBundle(
-            powerBurstOfDisharmonyPool, false,
-            powerBurstOfDisharmonyList
-        );
+        PowerBundle.RegisterPowerBundle(powerBurstOfDisharmonyPool, false, powerBurstOfDisharmonyList);
 
-        var featureSetDiscordance = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Discordance")
+        var featureSetBurstOfDisharmony = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}BurstOfDisharmony")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerDiscordance)
+            .SetFeatureSet(powerBurstOfDisharmonyPool)
+            .AddFeatureSet(powerBurstOfDisharmonyList.OfType<FeatureDefinition>().ToArray())
             .AddToDB();
 
-        var featureSetSchism = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Schism")
+        // Entropic Strikes
+
+        var featureEntropicStrikes = FeatureDefinitionBuilder
+            .Create($"Feature{Name}EntropicStrikes")
             .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        // LEVEL 17
+
+        // Tides of Chaos
+
+        var powerPerfectChaos = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TidesOfChaos")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ReactionTriggerContext.CreatureReducedToZeroHp)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D4, 1, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         //
@@ -203,10 +333,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheDiscordance, 256))
-            .AddFeaturesAtLevel(3, featureSetDiscordance)
-            .AddFeaturesAtLevel(6, featureSetSchism)
-            .AddFeaturesAtLevel(11, powerBurstOfDisharmonyPool)
-            .AddFeaturesAtLevel(17, PowerProfoundTurmoil)
+            .AddFeaturesAtLevel(3, featureSetChaosChanneling, featureSetDiscordance)
+            .AddFeaturesAtLevel(6, powerTurmoil)
+            .AddFeaturesAtLevel(11, featureSetBurstOfDisharmony, featureEntropicStrikes)
+            .AddFeaturesAtLevel(17, powerPerfectChaos)
             .AddToDB();
     }
 
@@ -220,170 +350,142 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class PhysicalAttackAfterDamageDiscordance : IActionFinishedByMe, IPhysicalAttackAfterDamage
-    {
-        private const int DiscordanceLimit = 3;
-        private readonly ConditionDefinition _conditionDiscordance;
-        private readonly FeatureDefinitionPower _powerDiscordanceDamage;
+    //
+    // Discordance
+    //
 
-        public PhysicalAttackAfterDamageDiscordance(
+    private sealed class ModifyEffectDescriptionDiscordance : IModifyEffectDescription
+    {
+        private readonly BaseDefinition _powerDefinition;
+
+        public ModifyEffectDescriptionDiscordance(BaseDefinition powerDefinition)
+        {
+            _powerDefinition = powerDefinition;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
+            damageForm.DieType = AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable
+                .Find(x => x.Rank == monkLevel).DieType;
+
+            return effectDescription;
+        }
+    }
+
+    //
+    // Chaos Channeling
+    //
+
+    private sealed class ModifyWeaponAttackModeChaosChanneling : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(character, attackMode))
+            {
+                return;
+            }
+
+            attackMode.reachRange += 6;
+            attackMode.reach = true;
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            damageForm.DamageType = DamageTypeNecrotic;
+        }
+    }
+
+    //
+    // Burst of Disharmony
+    //
+
+    private sealed class ChainActionAfterMagicEffectBurstOfDisharmony : IChainActionAfterMagicEffect
+    {
+        private readonly ConditionDefinition _conditionDiscordance;
+        private readonly ConditionDefinition _conditionTurmoil;
+        private readonly FeatureDefinitionPower _powerDiscordance;
+        private readonly FeatureDefinitionPower _powerTurmoil;
+
+        public ChainActionAfterMagicEffectBurstOfDisharmony(
             ConditionDefinition conditionDiscordance,
-            FeatureDefinitionPower powerDiscordanceDamage)
+            FeatureDefinitionPower powerDiscordance,
+            ConditionDefinition conditionTurmoil,
+            FeatureDefinitionPower powerTurmoil)
         {
             _conditionDiscordance = conditionDiscordance;
-            _powerDiscordanceDamage = powerDiscordanceDamage;
+            _powerDiscordance = powerDiscordance;
+            _conditionTurmoil = conditionTurmoil;
+            _powerTurmoil = powerTurmoil;
         }
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public CharacterAction GetNextAction(CharacterActionMagicEffect action)
         {
-            var gameLocationAttacker = action.ActingCharacter;
-            var rulesetAttacker = gameLocationAttacker.RulesetCharacter;
-            var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+            // Discordance Damage
+            var targets = new List<GameLocationCharacter>();
 
-            // handle Schism behavior
-            // if in the future we need to nerf this, gotta add a check for RemainingRounds == 1
-            if (monkLevel >= 6)
+            targets.SetRange(action.actionParams.TargetCharacters
+                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                            && x.RulesetCharacter.AllConditions.Count(y =>
+                                y.ConditionDefinition == _conditionDiscordance) > 1));
+
+            if (targets.Empty())
             {
-                foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                             .Where(t =>
-                                 t.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                 && t.RulesetCharacter.AllConditions
-                                     .Any(x =>
-                                         x.ConditionDefinition == ConditionStunned_MonkStunningStrike
-                                         && x.RemainingRounds <= 1))
-                             .ToList()) // avoid changing enumerator
-                {
-                    ApplyCondition(gameLocationAttacker, gameLocationDefender);
-                }
+                return null;
             }
 
-            // although it should be one target only, we better keep it compatible for any future feature
-            foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Select(gameLocationCharacter => new
-                         {
-                             gameLocationCharacter,
-                             discordanceCount = gameLocationCharacter.RulesetCharacter.AllConditions
-                                 .FindAll(x => x.ConditionDefinition == _conditionDiscordance)
-                                 .Count
-                         })
-                         .Where(t =>
-                             t.gameLocationCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             t.discordanceCount >= DiscordanceLimit)
-                         .Select(t => t.gameLocationCharacter)
-                         .ToList()) // avoid changing enumerator
-            {
-                var rulesetDefender = gameLocationDefender.RulesetCharacter;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
-                if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    continue;
-                }
+            var actionParamsDiscordance = action.ActionParams.Clone();
+            var usablePowerDiscordance = UsablePowersProvider.Get(_powerDiscordance, rulesetCharacter);
 
-                // remove conditions up to the limit to also support Schism scenario
-                rulesetDefender.AllConditions
-                    .FindAll(x => x.ConditionDefinition == _conditionDiscordance)
-                    .OrderBy(x => x.RemainingRounds)
-                    .Take(DiscordanceLimit)
-                    .ToList() // avoid changing enumerator
-                    .ForEach(x => rulesetDefender.RemoveCondition(x));
-
-                // setup explosion power and increase damage dice based on Monk progression
-                var usablePower = UsablePowersProvider.Get(_powerDiscordanceDamage, rulesetAttacker);
-                var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                    .AddAsActivePowerToSource();
-                var damageForm = effectPower.EffectDescription.FindFirstDamageForm();
-
-                if (damageForm == null || monkLevel <= 0)
-                {
-                    continue;
-                }
-
-                damageForm.BonusDamage = ComputeAbilityScoreModifier(rulesetAttacker.TryGetAttributeValue(Wisdom));
-                damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
-                    .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
-
-                effectPower.EffectDescription.effectParticleParameters.targetParticleReference =
-                    effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
-
-                EffectHelpers.StartVisualEffect(
-                    gameLocationAttacker, gameLocationDefender, Malediction, EffectHelpers.EffectType.Effect);
-                effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
-                ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
-            }
-
-            yield break;
-        }
-
-        // only add condition if monk weapon or unarmed
-        public void OnPhysicalAttackAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
-                !attacker.RulesetCharacter.IsMonkWeapon(item))
-            {
-                return;
-            }
-
-            ApplyCondition(attacker, defender);
-        }
-
-        private void ApplyCondition(IControllableCharacter attacker, IControllableCharacter defender)
-        {
-            var rulesetAttacker = attacker?.RulesetCharacter;
-            var rulesetDefender = defender?.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
-            rulesetDefender.InflictCondition(
-                _conditionDiscordance.Name,
-                _conditionDiscordance.DurationType,
-                _conditionDiscordance.DurationParameter,
-                _conditionDiscordance.TurnOccurence,
-                TagCombat,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
-
-        private static void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name) ||
-                rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk) < 17)
-            {
-                return;
-            }
-
-            var usablePower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+            actionParamsDiscordance.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParamsDiscordance.RulesetEffect = rulesetImplementationService
+                .InstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false)
                 .AddAsActivePowerToSource();
+            actionParamsDiscordance.TargetCharacters.SetRange(targets);
 
-            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsDiscordance));
+
+            // Turmoil
+            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            if (monkLevel < TurmoilLevel)
+            {
+                return null;
+            }
+
+            targets.RemoveAll(x =>
+                x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
+                || x.RulesetCharacter.HasConditionOfType(_conditionTurmoil));
+
+            if (targets.Empty())
+            {
+                return null;
+            }
+
+            var actionParamsTurmoil = action.ActionParams.Clone();
+            var usablePowerTurmoil = UsablePowersProvider.Get(_powerTurmoil, rulesetCharacter);
+
+            actionParamsTurmoil.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParamsTurmoil.RulesetEffect = rulesetImplementationService
+                .InstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false)
+                .AddAsActivePowerToSource();
+            actionParamsTurmoil.TargetCharacters.SetRange(targets);
+
+            return new CharacterActionSpendPower(actionParamsTurmoil);
         }
     }
 }

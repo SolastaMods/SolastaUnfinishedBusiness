@@ -9,7 +9,7 @@
     "targetType": "Cube",
     "itemSelectionType": "None",
     "targetParameter": 3,
-    "targetParameter2": 3,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -79,7 +79,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 5,
+          "diceNumber": 6,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -150,7 +150,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2987ab28a75b4b9488822c04bf2c7833",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +186,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ee0bbc9c177ea3b4e9440e87dbb3f77e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +198,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f93c33eb8373a334abc48b2bdbe12ed4",
+        "m_AssetGUID": "6761334c4b1addb4e85821a73cbaa6e3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -343,7 +343,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "KiPoints",
+  "rechargeRate": "AtWill",
   "costPerUse": 3,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -364,7 +364,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Burst of Disharmony [3 Ki]",
-    "description": "Spend 3 Ki Point to deal 5d6 damage.",
+    "description": "Spend 3 Ki Point to deal 6d6 damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

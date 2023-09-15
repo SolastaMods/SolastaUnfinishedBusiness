@@ -1,17 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony10:d68ecd41-5682-5217-b0f4-860577613bd9",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony9:74f36496-6418-53fb-8934-f11b570cd3af",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony8:e2909a9e-90a7-5bd4-9a20-cd38a3ef8bb0",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony7:8932b433-f835-5821-8ebd-e3617eb0ccbb",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony6:13fcd322-5ad9-51b8-95ab-202c6cb6db04",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony5:ac205aab-c7b4-5430-92be-528722d1a7d0",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony4:a3417c75-c7b2-5618-b301-5707fa06c1c8",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony3:d74267a9-e774-5cdc-bc48-b8972115d875",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony2:d31d3aca-9add-5bd2-9bfd-9c29a97ea762"
-  ],
+  "subspellsList": [],
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
@@ -176,11 +166,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle",
-    "description": "FeatureSetWayOfTheDiscordanceBurstOfDisharmony",
+    "title": "Burst of Disharmony [9 Ki]",
+    "description": "Spend 9 Ki Point to deal 12d6 damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a2425783-4d39-5318-8d2f-3b8899bcb18b",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -197,7 +187,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d9f483cf-e189-5c1e-8c12-d35ea16d5905",
+  "guid": "74f36496-6418-53fb-8934-f11b570cd3af",
   "contentPack": 9999,
-  "name": "SpellPowerWayOfTheDiscordanceBurstOfDisharmony"
+  "name": "SpellPowerWayOfTheDiscordanceBurstOfDisharmony9"
 }
