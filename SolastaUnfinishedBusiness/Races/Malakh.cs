@@ -286,7 +286,7 @@ internal static class RaceMalakhBuilder
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationBattleService == null || !gameLocationBattleService.IsBattleInProgress)
+            if (gameLocationBattleService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 return;
             }
