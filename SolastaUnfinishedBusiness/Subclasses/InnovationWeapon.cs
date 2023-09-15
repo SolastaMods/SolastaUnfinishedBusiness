@@ -585,8 +585,8 @@ public sealed class InnovationWeapon : AbstractSubclass
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                   character.powersUsedByMe.Any(p =>
+            return Gui.Battle != null
+                   && character.powersUsedByMe.Any(p =>
                        p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
         }
     }

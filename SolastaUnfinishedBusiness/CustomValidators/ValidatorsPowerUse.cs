@@ -9,11 +9,9 @@ internal delegate bool IsPowerUseValidHandler(RulesetCharacter character, Featur
 
 internal sealed class ValidatorsPowerUse : IPowerUseValidity
 {
-    public static readonly IPowerUseValidity NotInCombat = new ValidatorsPowerUse(_ =>
-        !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
+    public static readonly IPowerUseValidity NotInCombat = new ValidatorsPowerUse(_ => Gui.Battle == null);
 
-    public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ =>
-        ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
+    public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ => Gui.Battle != null);
 
     private readonly IsPowerUseValidHandler[] _validators;
 

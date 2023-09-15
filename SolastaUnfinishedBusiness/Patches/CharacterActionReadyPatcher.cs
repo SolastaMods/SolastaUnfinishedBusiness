@@ -30,7 +30,7 @@ public static class CharacterActionReadyPatcher
 
         private static IEnumerator Execute(CharacterActionReady action)
         {
-            if (!ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress)
+            if (Gui.Battle == null)
             {
                 yield break;
             }

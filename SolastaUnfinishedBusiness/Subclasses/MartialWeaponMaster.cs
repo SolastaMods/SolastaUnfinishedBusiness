@@ -366,9 +366,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }

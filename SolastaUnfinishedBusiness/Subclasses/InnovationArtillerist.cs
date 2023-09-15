@@ -934,8 +934,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                   HasCannon(character);
+            return Gui.Battle != null && HasCannon(character);
         }
     }
 

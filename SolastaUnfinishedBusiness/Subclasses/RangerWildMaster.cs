@@ -708,7 +708,7 @@ public sealed class RangerWildMaster : AbstractSubclass
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
+            return Gui.Battle != null &&
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
         }
     }
