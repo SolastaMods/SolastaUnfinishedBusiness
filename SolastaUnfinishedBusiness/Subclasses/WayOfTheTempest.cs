@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -34,7 +36,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .Create($"MovementAffinity{Name}TempestSwiftness")
             .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedAdditiveModifier(2)
-            .SetCustomSubFeatures(new ActionFinishedByMeTempestSwiftness())
+            .SetCustomSubFeatures(new UsePowerFinishedByMeTempestSwiftness())
             .AddToDB();
 
         // LEVEL 06
@@ -184,7 +186,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)
@@ -203,6 +205,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                             .Create()
                             .SetConditionForm(conditionEyeOfTheStorm, ConditionForm.ConditionOperation.Remove)
                             .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .SetCustomSubFeatures(ValidatorsPowerUse.InCombat)
             .AddToDB();
@@ -221,7 +224,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
         powerEyeOfTheStorm.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new ActionFinishedByMeEyeOfTheStorm(powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
+            new ChainActionAfterMagicEffectEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}EyeOfTheStorm")
@@ -257,7 +260,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
     // Tempest Swiftness
     //
 
-    private sealed class ActionFinishedByMeTempestSwiftness : IUsePowerFinishedByMe
+    private sealed class UsePowerFinishedByMeTempestSwiftness : IUsePowerFinishedByMe
     {
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
@@ -401,56 +404,45 @@ public sealed class WayOfTheTempest : AbstractSubclass
     // Eye of The Storm
     //
 
-    private sealed class ActionFinishedByMeEyeOfTheStorm : IUsePowerFinishedByMe
+    private sealed class ChainActionAfterMagicEffectEyeOfTheStorm : IChainActionAfterMagicEffect
     {
         private readonly ConditionDefinition _conditionEyeOfTheStorm;
-        private readonly FeatureDefinitionPower _powerEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStormLeap;
 
-        public ActionFinishedByMeEyeOfTheStorm(
-            FeatureDefinitionPower powerEyeOfTheStorm,
+        public ChainActionAfterMagicEffectEyeOfTheStorm(
             FeatureDefinitionPower powerEyeOfTheStormLeap,
             ConditionDefinition conditionEyeOfTheStorm)
         {
-            _powerEyeOfTheStorm = powerEyeOfTheStorm;
             _powerEyeOfTheStormLeap = powerEyeOfTheStormLeap;
             _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public CharacterAction GetNextAction(CharacterActionMagicEffect action)
         {
-            if (power != _powerEyeOfTheStorm)
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                yield break;
+                return null;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var actionParams = action.ActionParams.Clone();
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerEyeOfTheStormLeap, rulesetAttacker);
 
-            if (battleService == null)
-            {
-                yield break;
-            }
-
-            var attacker = action.ActingCharacter;
-            var rulesetCharacter = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerEyeOfTheStormLeap, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x.RulesetCharacter.AllConditions
+                        .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
+                                  y.SourceGuid == rulesetAttacker.Guid))
+                .ToList());
 
-            foreach (var defender in battleService.Battle.AllContenders
-                         .Where(x =>
-                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             x.IsOppositeSide(attacker.Side) &&
-                             x.RulesetCharacter.AllConditions
-                                 .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
-                                           y.SourceGuid == rulesetCharacter.Guid))
-                         .ToList()) // avoid changing enumerator
-            {
-                EffectHelpers.StartVisualEffect(
-                    attacker, defender, PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);
-                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
-            }
+            return new CharacterActionSpendPower(actionParams);
         }
     }
 }

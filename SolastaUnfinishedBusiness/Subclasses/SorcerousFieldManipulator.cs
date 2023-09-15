@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
@@ -94,7 +95,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetSavingThrowData(
                         true,
@@ -139,19 +140,21 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         powerForcefulStepFixed.SetCustomSubFeatures(
-            new PowerUseValidityForcefulStepFixed(powerForcefulStepFixed),
-            new ActionFinishedByMeForcefulStep(powerForcefulStepApply));
+            new ValidatorsPowerUse(character =>
+                UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
+            new ChainActionAfterMagicEffectForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepPoints")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
             .SetEffectDescription(effectDescriptionForcefulStep)
-            .SetCustomSubFeatures(new ActionFinishedByMeForcefulStep(powerForcefulStepApply))
             .AddToDB();
 
         powerForcefulStepPoints.SetCustomSubFeatures(
-            new PowerUseValidityForcefulStepPoints(powerForcefulStepFixed));
+            new ValidatorsPowerUse(character =>
+                UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
+            new ChainActionAfterMagicEffectForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ForcefulStep")
@@ -302,90 +305,42 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     }
 
     //
-    // Forceful Step Fixed
+    // Forceful Step
     //
 
-    private sealed class PowerUseValidityForcefulStepFixed : IPowerUseValidity
-    {
-        private readonly FeatureDefinitionPower _powerForcefulStepFixed;
-
-        public PowerUseValidityForcefulStepFixed(FeatureDefinitionPower powerForcefulStepFixed)
-        {
-            _powerForcefulStepFixed = powerForcefulStepFixed;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var usablePower = UsablePowersProvider.Get(_powerForcefulStepFixed, character);
-
-            return usablePower.RemainingUses > 0;
-        }
-    }
-
-    //
-    // Forceful Step Points
-    //
-
-    private sealed class PowerUseValidityForcefulStepPoints : IPowerUseValidity
-    {
-        private readonly FeatureDefinitionPower _powerForcefulStepFixed;
-
-        public PowerUseValidityForcefulStepPoints(FeatureDefinitionPower powerForcefulStepFixed)
-        {
-            _powerForcefulStepFixed = powerForcefulStepFixed;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var usablePower = UsablePowersProvider.Get(_powerForcefulStepFixed, character);
-
-            return usablePower.RemainingUses == 0;
-        }
-    }
-
-    //
-    // Forceful Step Apply
-    //
-
-    private sealed class ActionFinishedByMeForcefulStep : IUsePowerFinishedByMe
+    private sealed class ChainActionAfterMagicEffectForcefulStep : IChainActionAfterMagicEffect
     {
         private readonly FeatureDefinitionPower _powerApply;
 
-        public ActionFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
+        public ChainActionAfterMagicEffectForcefulStep(FeatureDefinitionPower powerApply)
         {
             _powerApply = powerApply;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public CharacterAction GetNextAction(CharacterActionMagicEffect baseEffect)
         {
-            if (power.Name != $"Power{Name}ForcefulStepFixed" && power.Name != $"Power{Name}ForcefulStepPoints")
-            {
-                yield break;
-            }
-
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                yield break;
+                return null;
             }
 
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var actionParams = baseEffect.ActionParams.Clone();
+            var rulesetAttacker = baseEffect.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerApply, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    gameLocationBattleService.IsWithinXCells(baseEffect.ActingCharacter, x, 2))
+                .ToList());
 
-            foreach (var gameLocationTarget in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(x =>
-                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2))
-                         .ToList()) // avoid changing enumerator
-            {
-                EffectHelpers.StartVisualEffect(action.ActingCharacter, gameLocationTarget, EldritchBlast);
-                effectPower.ApplyEffectOnCharacter(
-                    gameLocationTarget.RulesetCharacter, true, gameLocationTarget.LocationPosition);
-            }
+            return new CharacterActionSpendPower(actionParams);
         }
     }
 }
