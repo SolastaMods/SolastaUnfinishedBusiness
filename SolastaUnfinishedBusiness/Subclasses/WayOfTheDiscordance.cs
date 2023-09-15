@@ -80,8 +80,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    // won't impact OnAttackHitAuto but required by Burst of Discordance chained actions to work correctly
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 3 * 3 * 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
@@ -203,8 +202,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    // won't impact OnAttackHitAuto but required by Burst of Discordance chained actions to work correctly
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 3 * 3 * 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, Charisma, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
                     .SetEffectForms(
@@ -277,7 +275,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             powerBurstOfDisharmony.SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 new ChainActionAfterMagicEffectBurstOfDisharmony(
-                    conditionDiscordance, powerDiscordanceDamage, conditionTurmoil, powerTurmoil),
+                    conditionDiscordance, powerDiscordanceDamage, conditionHadTurmoil, powerTurmoil),
                 new ValidatorsPowerUse(
                     c => c.RemainingKiPoints >= kiNumber &&
                          c.GetClassLevel(CharacterClassDefinitions.Monk) >= minimumClassLevelAllowed));
@@ -414,19 +412,19 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     private sealed class ChainActionAfterMagicEffectBurstOfDisharmony : IChainActionAfterMagicEffect
     {
         private readonly ConditionDefinition _conditionDiscordance;
-        private readonly ConditionDefinition _conditionTurmoil;
+        private readonly ConditionDefinition _conditionHadTurmoil;
         private readonly FeatureDefinitionPower _powerDiscordance;
         private readonly FeatureDefinitionPower _powerTurmoil;
 
         public ChainActionAfterMagicEffectBurstOfDisharmony(
             ConditionDefinition conditionDiscordance,
             FeatureDefinitionPower powerDiscordance,
-            ConditionDefinition conditionTurmoil,
+            ConditionDefinition conditionHadTurmoil,
             FeatureDefinitionPower powerTurmoil)
         {
             _conditionDiscordance = conditionDiscordance;
             _powerDiscordance = powerDiscordance;
-            _conditionTurmoil = conditionTurmoil;
+            _conditionHadTurmoil = conditionHadTurmoil;
             _powerTurmoil = powerTurmoil;
         }
 
@@ -469,7 +467,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             targets.RemoveAll(x =>
                 x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
-                || x.RulesetCharacter.HasConditionOfType(_conditionTurmoil));
+                || x.RulesetCharacter.HasConditionOfType(_conditionHadTurmoil));
 
             if (targets.Empty())
             {

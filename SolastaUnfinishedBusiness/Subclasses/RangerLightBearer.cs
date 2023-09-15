@@ -160,7 +160,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             .AddToDB();
 
         powerLightEnhanced.SetCustomSubFeatures(
-            new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow, powerLightEnhanced));
+            new UsePowerFinishedByMeBlessedGlow(powerBlessedGlow, powerLightEnhanced));
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BlessedGlow")
@@ -209,7 +209,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedByMeAngelicForm(powerAngelicFormSprout));
+        powerAngelicFormSprout.SetCustomSubFeatures(new UsePowerFinishedByMeAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -358,12 +358,12 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class MagicEffectFinishedByMeBlessedGlow : IUsePowerFinishedByMe
+    private class UsePowerFinishedByMeBlessedGlow : IUsePowerFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBlessedGlow;
         private readonly FeatureDefinitionPower _powerLightEnhanced;
 
-        public MagicEffectFinishedByMeBlessedGlow(
+        public UsePowerFinishedByMeBlessedGlow(
             FeatureDefinitionPower featureDefinitionPower,
             FeatureDefinitionPower powerLightEnhanced)
         {
@@ -415,7 +415,6 @@ public sealed class RangerLightBearer : AbstractSubclass
             }
 
             rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
-
             rulesetAttacker.LogCharacterUsedPower(_powerBlessedGlow);
 
             var usablePower = UsablePowersProvider.Get(_powerBlessedGlow, rulesetAttacker);
@@ -438,18 +437,18 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class ActionFinishedByMeAngelicForm : IUsePowerFinishedByMe
+    private sealed class UsePowerFinishedByMeAngelicForm : IUsePowerFinishedByMe
     {
-        private static FeatureDefinitionPower _featureDefinitionPower;
+        private static FeatureDefinitionPower _powerAngelicForm;
 
-        public ActionFinishedByMeAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        public UsePowerFinishedByMeAngelicForm(FeatureDefinitionPower powerAngelicForm)
         {
-            _featureDefinitionPower = featureDefinitionPower;
+            _powerAngelicForm = powerAngelicForm;
         }
 
         public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
-            if (power != _featureDefinitionPower)
+            if (power != _powerAngelicForm)
             {
                 yield break;
             }
