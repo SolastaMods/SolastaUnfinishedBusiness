@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Helpers;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -9,10 +10,16 @@ public static class RulesetEffectPowerExtensions
      * Needs to be used when we instantiate power manually (not through CharacterActionUsePower).
      * Otherwise this RulesetEffectPower won't be serialized in the save file, leading to `Cannot reconcile RulesetEffect` errors on loading a save.
      */
-    internal static RulesetEffectPower AddAsActivePowerToSource(this RulesetEffectPower rulesetPower,
-        RulesetCharacter user = null)
+    internal static RulesetEffectPower AddAsActivePowerToSource(this RulesetEffectPower rulesetPower)
     {
-        (user ?? EffectHelpers.GetCharacterByGuid(rulesetPower.SourceGuid))?.AddActivePower(rulesetPower);
+        var finalUser = EffectHelpers.GetCharacterByGuid(rulesetPower.SourceGuid);
+
+        if (finalUser != null
+            && finalUser.UsablePowers.All(x => x.PowerDefinition != rulesetPower.PowerDefinition))
+        {
+            finalUser.AddActivePower(rulesetPower);
+        }
+
         return rulesetPower;
     }
 }
