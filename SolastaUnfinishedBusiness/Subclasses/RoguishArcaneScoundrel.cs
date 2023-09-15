@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -130,6 +130,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Counterspell.EffectDescription)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .AddEffectForms(EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
                     .Build())
             .AddToDB();
 
@@ -156,8 +158,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             PowerVisibilityModifier.Hidden,
             new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
-                powerArcaneBackslashCounterSpell,
-                conditionDistractingAmbush));
+                powerArcaneBackslashCounterSpell));
 
         //
         // LEVEL 17
@@ -300,18 +301,15 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     private sealed class ActionFinishedByMeArcaneBackslash : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _powerArcaneBackslash;
         private readonly FeatureDefinitionPower _powerCounterSpell;
 
         public ActionFinishedByMeArcaneBackslash(
             FeatureDefinitionPower powerArcaneBackslash,
-            FeatureDefinitionPower powerCounterSpell,
-            ConditionDefinition conditionDistractingAmbush)
+            FeatureDefinitionPower powerCounterSpell)
         {
             _powerArcaneBackslash = powerArcaneBackslash;
             _powerCounterSpell = powerCounterSpell;
-            _conditionDistractingAmbush = conditionDistractingAmbush;
         }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
@@ -327,34 +325,19 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             }
 
             var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
 
             actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
-            foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
-            {
-                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
+            var actionParams = action.ActionParams.Clone();
+            var rulesetAttacker = actingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetAttacker);
 
-                rulesetCharacter.LogCharacterUsedPower(_powerArcaneBackslash);
-                effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
-                rulesetDefender.InflictCondition(
-                    _conditionDistractingAmbush.Name,
-                    _conditionDistractingAmbush.DurationType,
-                    _conditionDistractingAmbush.DurationParameter,
-                    _conditionDistractingAmbush.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -414,22 +415,22 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
-            rulesetAttacker.LogCharacterUsedPower(_powerBlessedGlow);
+            // TODO: check if we still need this
+            // rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
 
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerBlessedGlow, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
+                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
+                .ToList());
 
-            // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
-            foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
-                         .ToList()) // avoid changing enumerator
-            {
-                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-            }
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 
