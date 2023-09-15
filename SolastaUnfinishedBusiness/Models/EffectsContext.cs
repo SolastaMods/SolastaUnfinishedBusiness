@@ -9,7 +9,7 @@ public static class EffectsContext
     internal static readonly
         Dictionary<EffectHelpers.EffectType, Dictionary<string, List<(string, EffectParticleParameters)>>> Effects =
             new();
-    
+
     internal static readonly Dictionary<string, List<(string, BaseDefinition)>> ConditionEffects = new();
 
     internal static void DumpEffects()
@@ -28,11 +28,11 @@ public static class EffectsContext
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
 
-        foreach (var power in powers
+        foreach (var spell in spells
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = power.Name;
-            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
+            var name = spell.Name;
+            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
             var effectReferenceGuid = effectParticleParameters.casterParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
@@ -45,11 +45,11 @@ public static class EffectsContext
             Effects[EffectHelpers.EffectType.Caster][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
-        foreach (var spell in spells
+        foreach (var power in powers
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = spell.Name;
-            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
+            var name = power.Name;
+            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
             var effectReferenceGuid = effectParticleParameters.casterParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
@@ -69,12 +69,11 @@ public static class EffectsContext
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
 
-        foreach (var power in powers
+        foreach (var condition in conditions
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = power.Name;
-            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
-            var effectReferenceGuid = effectParticleParameters.conditionParticleReference?.AssetGUID;
+            var name = condition.Name;
+            var effectReferenceGuid = condition.conditionParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
             {
@@ -83,7 +82,7 @@ public static class EffectsContext
 
             ConditionEffects
                 .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
-            ConditionEffects[effectReferenceGuid].Add((name, power));
+            ConditionEffects[effectReferenceGuid].Add((name, condition));
         }
 
         foreach (var spell in spells
@@ -102,12 +101,13 @@ public static class EffectsContext
                 .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
             ConditionEffects[effectReferenceGuid].Add((name, spell));
         }
-        
-        foreach (var condition in conditions
+
+        foreach (var power in powers
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = condition.Name;
-            var effectReferenceGuid = condition.conditionParticleReference?.AssetGUID;
+            var name = power.Name;
+            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
+            var effectReferenceGuid = effectParticleParameters.conditionParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
             {
@@ -116,7 +116,7 @@ public static class EffectsContext
 
             ConditionEffects
                 .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
-            ConditionEffects[effectReferenceGuid].Add((name, condition));
+            ConditionEffects[effectReferenceGuid].Add((name, power));
         }
     }
 
@@ -128,11 +128,11 @@ public static class EffectsContext
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
 
-        foreach (var power in powers
+        foreach (var spell in spells
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = power.Name;
-            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
+            var name = spell.Name;
+            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
             var effectReferenceGuid = effectParticleParameters.impactParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
@@ -145,11 +145,11 @@ public static class EffectsContext
             Effects[EffectHelpers.EffectType.Impact][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
-        foreach (var spell in spells
+        foreach (var power in powers
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = spell.Name;
-            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
+            var name = power.Name;
+            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
             var effectReferenceGuid = effectParticleParameters.impactParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
@@ -171,11 +171,11 @@ public static class EffectsContext
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
 
-        foreach (var power in powers
+        foreach (var spell in spells
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = power.Name;
-            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
+            var name = spell.Name;
+            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
             var effectReferenceGuid = effectParticleParameters.zoneParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
@@ -188,11 +188,11 @@ public static class EffectsContext
             Effects[EffectHelpers.EffectType.Zone][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
-        foreach (var spell in spells
+        foreach (var power in powers
                      .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
         {
-            var name = spell.Name;
-            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
+            var name = power.Name;
+            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
             var effectReferenceGuid = effectParticleParameters.zoneParticleReference?.AssetGUID;
 
             if (string.IsNullOrEmpty(effectReferenceGuid))
