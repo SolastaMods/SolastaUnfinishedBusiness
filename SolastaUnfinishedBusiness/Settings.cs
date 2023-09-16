@@ -154,8 +154,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
-    public bool AllowFlightSuspend { get; set; }
-    public bool FlightSuspendWingedBoots { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
@@ -183,6 +181,8 @@ public class Settings : UnityModManager.ModSettings
     public bool FullyControlConjurations { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public bool AllowFlightSuspend { get; set; }
+    public bool FlightSuspendWingedBoots { get; set; }
     public bool EnableCharactersOnFireToEmitLight { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }

@@ -251,6 +251,21 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowFlightSuspend;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowFlightSuspend = toggle;
+        }
+
+        if (Main.Settings.AllowFlightSuspend)
+        {
+            toggle = Main.Settings.FlightSuspendWingedBoots;
+            if (UI.Toggle(Gui.Localize("ModUi/&FlightSuspendWingedBoots"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FlightSuspendWingedBoots = toggle;
+            }
+        }
+        
         toggle = Main.Settings.FullyControlConjurations;
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {

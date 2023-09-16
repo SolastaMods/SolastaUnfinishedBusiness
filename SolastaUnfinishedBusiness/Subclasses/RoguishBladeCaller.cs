@@ -282,9 +282,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             }
 
             // inflict Blade Mark condition
-            if (_bladeMarkStatus != BladeMarkStatus.Without ||
-                rulesetDefender is not { isDeadOrDyingOrUnconscious: false } ||
-                !attacker.OnceInMyTurnIsValid(BladeMark))
+            if (_bladeMarkStatus != BladeMarkStatus.Without
+                || !attacker.OnceInMyTurnIsValid(BladeMark))
             {
                 yield break;
             }

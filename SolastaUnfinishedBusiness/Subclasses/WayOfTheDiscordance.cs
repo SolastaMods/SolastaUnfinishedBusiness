@@ -526,7 +526,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAlly = ally.RulesetCharacter;
 
             if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false }
-                || !ally.OncePerTurnIsValid("TidesOfChaos"))
+                || !ally.OnceInMyTurnIsValid("TidesOfChaos"))
             {
                 yield break;
             }
@@ -573,8 +573,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var temporaryHitPointsForm = effectDescription.EffectForms[0].TemporaryHitPointsForm;
-            var level = character.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = level switch
+            var levels = character.GetClassLevel(CharacterClassDefinitions.Monk);
+            var dieType = levels switch
             {
                 >= 17 => DieType.D10,
                 >= 11 => DieType.D8,
@@ -583,7 +583,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             };
 
             temporaryHitPointsForm.dieType = dieType;
-            temporaryHitPointsForm.bonusHitPoints = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
+            temporaryHitPointsForm.bonusHitPoints = (levels + 1) / 2;
 
             return effectDescription;
         }
