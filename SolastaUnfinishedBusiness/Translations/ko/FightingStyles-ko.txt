@@ -16,7 +16,7 @@ FightingStyle/&HandAndAHalfDescription=양손가능 무기를 두 손으로 사�
 FightingStyle/&HandAndAHalfTitle=한 손 반
 FightingStyle/&LungerDescription=중량형 특성이 없는 근접 무기 하나를 들고 다른 손에 무언가를 들고 있지 않다면, 해당 무기의 사거리가 5ft로 증가합니다.
 FightingStyle/&LungerTitle=돌격자
-FightingStyle/&MercilessDescription=당신의 차례에 근접 무기 공격을 사용하여 목표를 0 HP로 줄이면, 목표를 볼 수 있는 숙련도 보너스(반올림)의 절반에 해당하는 쓰러진 목표 반경 내의 적들은 지혜 내성(DC 8 + 숙련 보너스 + 힘 수정치) 또는 다음 턴이 끝날 때까지 당신을 두려워하게 됩니다. 유발 공격이 치명타인 경우 반경은 대신 숙련도 보너스와 같습니다.
+FightingStyle/&MercilessDescription=자신 차례에 근접 무기공격으로 대상의 HP를 0으로 감소시켰다면, 대상을 시야로 확인할 수 있는 대상 반경 '자신의 숙련 보너스의 절반(올림)'ft 내의 적들은 지혜 내성굴림(DC = 8+숙련 보너스+힘 수정치) 실패 시 당신의 다음 차례 종료까지 공포 상태에 빠집니다. 만약 트리거 공격이 치명타였다면, 반경이 '숙련 보너스'ft로 증가합니다.
 FightingStyle/&MercilessTitle=무자비
 FightingStyle/&MonkShieldExpertDescription=방패 숙련을 얻고, 방패를 찬 손으로 비무장 공격을 가할 수 있게 됩니다. 또한 방패를 찼을 때도 몽크 특성을 사용할 수 있습니다.
 FightingStyle/&MonkShieldExpertTitle=수도승 방패 훈련

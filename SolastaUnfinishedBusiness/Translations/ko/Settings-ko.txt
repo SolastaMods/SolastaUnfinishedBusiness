@@ -41,7 +41,7 @@ ModUi/&Blueprints=블루프린트
 ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=분류
-ModUi/&ChangeDragonbornElementalBreathUsages=짧은 휴식마다 <color=#D89555>드래곤본</color> 원소 숨결 사용을 체질 수정자로 변경
+ModUi/&ChangeDragonbornElementalBreathUsages=<color=#D89555>드래곤본</color> 원소 숨결 횟수를 짧은 휴식마다 건강 수정치 만큼으로 변경
 ModUi/&ChangeSleetStormToCube=<color=#D89555>진눈깨비 폭풍</color>주문 범위를 원통 대신 육면체를 사용하도록 변경
 ModUi/&Changelog=<b><color=#D89555>변경 내역</color></b>
 ModUi/&Character=캐릭터
@@ -74,7 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 쓰러져 있거나 화면 �
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어에게 이 모드가 설치되어 있지 않아도 됨
 ModUi/&DungeonMakerMenu=던전 메이커
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 의복</color> 외형
-ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[주 동작 전에 서둘러 동작을 사용해야 할 때 유용함]</color></i>
+ModUi/&EnableActionSwitching=행동 전환 막대 활성화 <i><color=#F0DAA0>[가속 주문 등으로 생긴 행동과 일반 행동 선택]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사에서 추가 배경 이야기 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 지도에서 야영지, 출구, 순간이동기에 대한 추가 아이콘 활성화
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ 던전 메이커에 새 아이템 추가</i>
@@ -87,7 +87,7 @@ ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터 화면에서 캐릭터 �
 ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color>로 캐릭터 내보내기를 활성화
 ModUi/&EnableCharactersOnFireToEmitLight=불에 탄 캐릭터는 빛을 발합니다 <i><color=#F0DAA0>[빛 육면체, 화염 원소, 화염 광대, 화염 수리, 화염 거미 및 화염 상태 계열]</color></i>
 ModUi/&EnableCheatMenu=치트키 메뉴 활성화
-ModUi/&EnableCustomPortraits=맞춤 인물 사진을 활성화합니다\n\n. <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b 아래에 <i><b><color=#F0DAA0>Portraits</color></b></i> 폴더를 만듭니다. ></i> 모드 폴더\n. 해당 폴더에 영웅 이름 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n의 이름을 딴 PNG 이미지를 배치하세요. 크기가 256 x 384픽셀인 이미지를 사용하세요. <i><color=#F0DAA0>[먼저 https://tinypng.com에서 최적화]</color></i>
+ModUi/&EnableCustomPortraits=커스텀 초상화 활성화\n\n. <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b></i> 모드 폴더 아래에 <i><b><color=#F0DAA0>Portraits</color></b></i> 폴더를 생성합니다\n. 폴더 내에 PNG 파일을 넣고, 영웅의 첫 이름을 따라 이름을 변경하십시오 <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, 등.]</color></i>\n. 픽셀 사이즈 256 x 384의 이미지를 사용할 것 <i><color=#F0DAA0>[다음 링크에서 먼저 최적화하십시오- https://tinypng.com]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=던전 메이커 프로 활성화\n<i><color=#F0DAA0>[침실, 150x150 및 200x200 던전 크기 포함, 모든 환경의 에셋을 혼합하지 않음]</color></i>
 ModUi/&EnableEpicPointsAndArray=에픽 35 포인트 분배 시스템 및 정해진 능력치 분배 활성화<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10, 18에 재주 선택 활성화
@@ -106,7 +106,7 @@ ModUi/&EnableLevel20=레벨 20 활성화 <b><i><color=#C04040E0>[재시작 필�
 ModUi/&EnableLogDialoguesToConsole=연속 스토리 장면 중 게임 콘솔에 대화 기록 활성화
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=사용자 지정 캠페인에서 유효하지 않은 참조 로깅 활성화
 ModUi/&EnableMinInOutAttributes=<i>+ 최소 능력치 인/아웃 전제 조건 적용</i>
-ModUi/&EnableMonkAbundantKi=레벨 1에서 <color=#D89555>수도사</color> <b>풍부한 기</b> 활성화 <i><color=#F0DAA0>[숙련도 보너스의 절반에 해당하는 추가 기 획득]</color> </i>
+ModUi/&EnableMonkAbundantKi=<color=#D89555>몽크</color> 2레벨에<i> <b>풍부한 기</b> 활성화<color=#F0DAA0>[숙련도 보너스의 반올림에 해당하는 기를 추가로 얻습니다]</color></i>
 ModUi/&EnableMonkFightingStyle=2레벨 <color=#D89555>몽크</color>에게 <b>전투 특화</b> 선택 활성화
 ModUi/&EnableMonkWeaponSpecialization=<color=#D89555>몽크</color> 2 레벨과 11레벨에 <b>무기 특화</b> 활성화 <i><color=#F0DAA0>[선택한 무기 유형이 몽크 무기로 취급됩니다]</color></i>
 ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
@@ -136,7 +136,7 @@ ModUi/&Feats=<color=#F0DAA0>재주</color>
 ModUi/&FightingStyles=<color=#F0DAA0>전투 특화</color>
 ModUi/&FixAsianLanguagesTextWrap=아시아 언어 게임 UI 텍스트 래핑 수정 <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>섬뜩한 방출</color>의 사거리를 24로 변경 <i><color=#F0DAA0>[기존 16]</color></i>
-ModUi/&FlightSuspendWingedBoots=<i>+ 날개 달린 부츠 공식 규칙 사용 <color=#F0DAA0>[항공편 중단 시 남은 시간은 계산되지 않음]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+ 공식 룰의 날개 달린 부츠 사용 <color=#F0DAA0>[비행이 유지되는 동안은 지속시간을 계산하지 않습니다]</color></i>
 ModUi/&Formation=<color=#F0DAA0>진형:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이 게임 중에는 진형을 변경할 수 없습니다...</color>
 ModUi/&FormationHelp1=. 숫자 버튼을 사용하여 단축키를 설정합니다 <i><color=#F0DAA0>[단축키 아래 입력 활성화 고려]</color></i>
