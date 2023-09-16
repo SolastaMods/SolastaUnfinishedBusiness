@@ -19,6 +19,10 @@ public static class RulesetEffectPowerExtensions
         {
             finalUser.AddActivePower(rulesetPower);
         }
+        else
+        {
+            Main.Info($"AddAsActivePowerToSource: {rulesetPower.PowerDefinition.Name} already in UsablePowers");
+        }
 
         return rulesetPower;
     }
