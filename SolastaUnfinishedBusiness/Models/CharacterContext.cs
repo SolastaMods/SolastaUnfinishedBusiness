@@ -1276,7 +1276,8 @@ internal static class CharacterContext
 
         var conditionDisarmed = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Disarmed")
-            .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString,
+                ConditionDefinitions.ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityDisarmed)
             .AddToDB();
@@ -1455,7 +1456,8 @@ internal static class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString, ConditionDefinitions.ConditionAsleep)
+            .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString,
+                ConditionDefinitions.ConditionAsleep)
             .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 

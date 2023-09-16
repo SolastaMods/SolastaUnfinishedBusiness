@@ -501,7 +501,8 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetAddedConditions(
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastAcBonus")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", GuiPresentationBuilder.EmptyString)
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
+                        GuiPresentationBuilder.EmptyString)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
@@ -509,7 +510,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", GuiPresentationBuilder.EmptyString)
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
+                        GuiPresentationBuilder.EmptyString)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
@@ -517,7 +519,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", GuiPresentationBuilder.EmptyString)
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
+                        GuiPresentationBuilder.EmptyString)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
