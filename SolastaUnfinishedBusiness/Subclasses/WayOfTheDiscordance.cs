@@ -316,22 +316,23 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         var powerTidesOfChaos = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TidesOfChaos")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D4, 1, false,
-                                HealingCap.MaximumHitPoints)
+                            .SetTempHpForm(0, DieType.D4, 1, true)
                             .Build())
+                    .SetParticleEffectParameters(PowerPactChainPseudodragon)
                     .Build())
             .AddToDB();
 
         powerTidesOfChaos.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
             new OnReducedToZeroHpByMeOrAllyTidesOfChaos(conditionTurmoil, powerTidesOfChaos));
 
         //
@@ -524,7 +525,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         {
             var rulesetAlly = ally.RulesetCharacter;
 
-            if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false }
+                || !ally.OncePerTurnIsValid("TidesOfChaos"))
             {
                 yield break;
             }
@@ -538,11 +540,13 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
+            ally.UsedSpecialFeatures.TryAdd("TidesOfChaos", 0);
+
             // regain Ki Point
             rulesetAlly.ForceKiPointConsumption(-1);
             rulesetAlly.KiPointsAltered?.Invoke(rulesetAlly, rulesetAlly.RemainingKiPoints);
 
-            // heal
+            // temporarily heal
             var usablePower = UsablePowersProvider.Get(_powerTidesOfChaos, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
             {
@@ -568,7 +572,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var healingForm = effectDescription.EffectForms[0].HealingForm;
+            var temporaryHitPointsForm = effectDescription.EffectForms[0].TemporaryHitPointsForm;
             var level = character.GetClassLevel(CharacterClassDefinitions.Monk);
             var dieType = level switch
             {
@@ -578,8 +582,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 _ => DieType.D4
             };
 
-            healingForm.dieType = dieType;
-            healingForm.bonusHealing = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
+            temporaryHitPointsForm.dieType = dieType;
+            temporaryHitPointsForm.bonusHitPoints = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
 
             return effectDescription;
         }
