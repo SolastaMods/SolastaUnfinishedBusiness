@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -160,14 +161,16 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         var combatAffinityTurmoil = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}Turmoil")
-            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), GuiPresentationBuilder.EmptyString)
+            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition),
+                GuiPresentationBuilder.EmptyString)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)
             .AddToDB();
 
         var savingThrowAffinityTurmoil = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}Turmoil")
-            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), GuiPresentationBuilder.EmptyString)
+            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition),
+                GuiPresentationBuilder.EmptyString)
             .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
                 Charisma,
                 Constitution,
@@ -184,6 +187,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .CopyParticleReferences(ConditionStrikeOfChaosAttackAdvantage)
             .AddFeatures(combatAffinityTurmoil, savingThrowAffinityTurmoil)
+            // required by Tides of Chaos to properly identify turmoil on death
+            .SetCustomSubFeatures(new ForceConditionCategory(TagCombat))
             .AddToDB();
 
         var conditionHadTurmoil = ConditionDefinitionBuilder
@@ -308,11 +313,11 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         // Tides of Chaos
 
-        var powerPerfectChaos = FeatureDefinitionPowerBuilder
+        var powerTidesOfChaos = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TidesOfChaos")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ReactionTriggerContext.CreatureReducedToZeroHp)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -326,6 +331,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerTidesOfChaos.SetCustomSubFeatures(
+            new OnReducedToZeroHpByMeOrAllyTidesOfChaos(conditionTurmoil, powerTidesOfChaos));
+
         //
         // MAIN
         //
@@ -336,7 +344,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddFeaturesAtLevel(3, featureSetChaosChanneling, featureSetDiscordance)
             .AddFeaturesAtLevel(6, powerTurmoil)
             .AddFeaturesAtLevel(11, featureSetBurstOfDisharmony, featureEntropicStrikes)
-            .AddFeaturesAtLevel(17, powerPerfectChaos)
+            .AddFeaturesAtLevel(17, powerTidesOfChaos)
             .AddToDB();
     }
 
@@ -486,6 +494,94 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             actionParamsTurmoil.TargetCharacters.SetRange(targets);
 
             return new CharacterActionSpendPower(actionParamsTurmoil);
+        }
+    }
+
+    //
+    // Tides of Chaos
+    //
+
+    private sealed class OnReducedToZeroHpByMeOrAllyTidesOfChaos :
+        IOnReducedToZeroHpByMeOrAlly, IModifyEffectDescription
+    {
+        private readonly ConditionDefinition _conditionTurmoil;
+        private readonly FeatureDefinitionPower _powerTidesOfChaos;
+
+        public OnReducedToZeroHpByMeOrAllyTidesOfChaos(
+            ConditionDefinition conditionTurmoil,
+            FeatureDefinitionPower powerTidesOfChaos)
+        {
+            _conditionTurmoil = conditionTurmoil;
+            _powerTidesOfChaos = powerTidesOfChaos;
+        }
+
+        public IEnumerator HandleReducedToZeroHpByMeOrAlly(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            GameLocationCharacter ally,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            var rulesetAlly = ally.RulesetCharacter;
+
+            if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var rulesetDowned = downedCreature.RulesetCharacter;
+
+            if (!rulesetDowned.HasConditionOfType(_conditionTurmoil)
+                || !battleService.IsWithinXCells(attacker, downedCreature, 6))
+            {
+                yield break;
+            }
+
+            // regain Ki Point
+            rulesetAlly.ForceKiPointConsumption(-1);
+            rulesetAlly.KiPointsAltered?.Invoke(rulesetAlly, rulesetAlly.RemainingKiPoints);
+
+            // heal
+            var usablePower = UsablePowersProvider.Get(_powerTidesOfChaos, rulesetAlly);
+            var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAlly, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = { ally }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerTidesOfChaos;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var healingForm = effectDescription.EffectForms[0].HealingForm;
+            var level = character.GetClassLevel(CharacterClassDefinitions.Monk);
+            var dieType = level switch
+            {
+                >= 17 => DieType.D10,
+                >= 11 => DieType.D8,
+                >= 5 => DieType.D6,
+                _ => DieType.D4
+            };
+
+            healingForm.dieType = dieType;
+            healingForm.bonusHealing = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
+
+            return effectDescription;
         }
     }
 }
