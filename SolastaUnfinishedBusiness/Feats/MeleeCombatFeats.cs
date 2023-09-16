@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -792,7 +793,8 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Finish")
-                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, GuiPresentationBuilder.EmptyString)
+                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition,
+                        GuiPresentationBuilder.EmptyString)
                     .SetCustomSubFeatures(AdditionalActionAttackValidator.MeleeOnly)
                     .SetActionType(ActionDefinitions.ActionType.Main)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
@@ -991,7 +993,8 @@ internal static class MeleeCombatFeats
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityFeatCrusher")
-                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition, GuiPresentationBuilder.EmptyString)
+                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition,
+                            GuiPresentationBuilder.EmptyString)
                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                         .AddToDB())
                 .AddToDB()))
@@ -1392,7 +1395,7 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class PhysicalAttackAfterDamageFeatFellHanded : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackAfterDamageFeatFellHanded : IPhysicalAttackFinishedByMe
     {
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
@@ -1413,18 +1416,19 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -1433,9 +1437,10 @@ internal static class MeleeCombatFeats
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
+            var attackModifier = action.ActionParams.ActionModifiers[0];
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
@@ -1460,13 +1465,16 @@ internal static class MeleeCombatFeats
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
+                        var actionParams = action.ActionParams.Clone();
                         var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
-                        ServiceRepository.GetService<IRulesetImplementationService>()
-                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                            .AddAsActivePowerToSource()
-                            .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
-                        rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
+                        actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+                        actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                            .AddAsActivePowerToSource();
+                        actionParams.TargetCharacters.SetRange(defender);
+
+                        action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
                     }
 
                     break;
