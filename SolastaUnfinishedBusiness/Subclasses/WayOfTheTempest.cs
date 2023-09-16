@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -70,7 +69,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -186,7 +185,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)
@@ -209,6 +208,9 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(ValidatorsPowerUse.InCombat)
             .AddToDB();
+
+        powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.impactParticleReference =
+            powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         var powerEyeOfTheStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EyeOfTheStorm")

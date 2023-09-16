@@ -992,8 +992,8 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ThunderousSmite";
 
-        var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Push")
+        var powerPush = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}ThunderousSmite")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -1008,6 +1008,13 @@ internal static partial class SpellBuilders
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
+            .AddToDB();
+
+        var conditionThunderousSmiteEnemy = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ThunderousSmiteEnemy")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetCustomSubFeatures(new ConditionUsesPowerOnTarget(powerPush))
             .AddToDB();
 
         var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
@@ -1028,12 +1035,7 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create($"Condition{NAME}Enemy")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(new ConditionUsesPowerOnTarget(power))
-                        .AddToDB(),
+                    conditionDefinition = conditionThunderousSmiteEnemy,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .SetImpactParticleReference(Shatter)
@@ -1071,12 +1073,10 @@ internal static partial class SpellBuilders
     private sealed class ConditionUsesPowerOnTarget : IOnConditionAddedOrRemoved
     {
         private readonly FeatureDefinitionPower _power;
-        private readonly bool _removeCondition;
 
-        public ConditionUsesPowerOnTarget(FeatureDefinitionPower power, bool removeCondition = true)
+        public ConditionUsesPowerOnTarget(FeatureDefinitionPower power)
         {
             _power = power;
-            _removeCondition = removeCondition;
         }
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -1095,11 +1095,7 @@ internal static partial class SpellBuilders
                 .AddAsActivePowerToSource();
 
             effectPower.ApplyEffectOnCharacter(target, true, defender.LocationPosition);
-
-            if (_removeCondition)
-            {
-                target.RemoveCondition(rulesetCondition);
-            }
+            target.RemoveCondition(rulesetCondition);
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)

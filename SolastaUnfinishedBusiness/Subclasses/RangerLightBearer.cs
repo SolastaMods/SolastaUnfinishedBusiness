@@ -415,8 +415,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            // TODO: check if we still need this
-            // rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerBlessedGlow, rulesetAttacker);

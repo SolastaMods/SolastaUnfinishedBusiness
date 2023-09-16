@@ -130,7 +130,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Counterspell.EffectDescription)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .AddEffectForms(EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
                     .Build())
             .AddToDB();

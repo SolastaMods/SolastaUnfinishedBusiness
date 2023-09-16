@@ -96,49 +96,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
 
         // LEVEL 14
 
-
         // Wrath and Fury
-
-#if false
-        var conditionGrievousWound = ConditionDefinitionBuilder
-            .Create($"Condition{Name}GrievousWound")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
-            .SetPossessive()
-            .CopyParticleReferences(ConditionDefinitions.ConditionBleeding)
-            .SetConditionType(ConditionType.Detrimental)
-            .CopyParticleReferences(ConditionDefinitions.ConditionStunned)
-            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
-            .AddFeatures(ConditionDefinitions.ConditionIncapacitated.Features.ToArray())
-            .AddToDB();
-
-        var powerGrievousWound = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}GrievousWound")
-            .SetGuiPresentation($"Condition{Name}GrievousWound", Category.Condition)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength)
-                    .SetParticleEffectParameters(SpellDefinitions.VampiricTouch)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionGrievousWound, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionStunned.conditionParticleReference;
-        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionStunned.conditionEndParticleReference;
-        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionStunned.conditionStartParticleReference;
-#endif
 
         var featureWrathAndFury = FeatureDefinitionBuilder
             .Create($"Feature{Name}WrathAndFury")
@@ -147,7 +105,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                 //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
                 new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
-                new PhysicalAttackAfterDamageWrathAndFury())
+                new ActionFinishedByMeWrathAndFury())
             .AddToDB();
 
         // MAIN
@@ -194,58 +152,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
 
         return (diceNumber, upgradeDiceMap[dieType], upgradeDiceMap[versatileDieType]);
     }
-
-#if false
-    private sealed class AttackEffectAfterDamageWrathAndFury : IPhysicalAttackAfterDamage
-    {
-        private readonly FeatureDefinitionPower _powerGrievousWound;
-
-        public AttackEffectAfterDamageWrathAndFury(
-            FeatureDefinitionPower powerGrievousWound)
-        {
-            _powerGrievousWound = powerGrievousWound;
-        }
-
-        public void OnPhysicalAttackAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            // only on critical hits
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                outcome is not RollOutcome.CriticalSuccess)
-            {
-                return;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker is not {IsDeadOrDyingOrUnconscious:false})
-            {
-                return;
-            }
-
-            // only if dual wielding melee
-            if (!ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(attacker.RulesetCharacter))
-            {
-                return;
-            }
-
-            var usablePower = UsablePowersProvider.Get(_powerGrievousWound, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
-
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerGrievousWound);
-            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
-        }
-    }
-#endif
 
     private sealed class PhysicalAttackAfterDamageUnbridledFerocity : IPhysicalAttackAfterDamage
     {
@@ -325,7 +231,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class PhysicalAttackAfterDamageWrathAndFury : IActionFinishedByMe
+    private sealed class ActionFinishedByMeWrathAndFury : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -349,8 +255,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var temporaryHitPoints = (classLevel + 1) / 2;
 
-            rulesetCharacter.ReceiveTemporaryHitPoints(temporaryHitPoints, DurationType.Minute, 1,
-                TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                temporaryHitPoints, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
         }
     }
 }

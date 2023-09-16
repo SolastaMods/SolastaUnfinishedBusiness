@@ -191,6 +191,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerMightyShot.EffectDescription.EffectParticleParameters.impactParticleReference =
+            powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
+
         powerMightyShot.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),

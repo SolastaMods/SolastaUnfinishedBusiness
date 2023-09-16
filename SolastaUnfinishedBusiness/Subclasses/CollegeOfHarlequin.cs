@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -42,7 +44,6 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     //actual targeting is happening in sub-feature, this is for proper tooltip
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
-                    .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -51,6 +52,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.Fear)
                     .Build())
             .AddToDB();
 
@@ -64,7 +66,6 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1)
                     //actual targeting is happening in sub-feature, this is for proper tooltip
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -75,12 +76,13 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.Fear)
                     .Build())
             .AddToDB();
 
         powerTerrificPerformance.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new TerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
+            new OnReducedToZeroHpEnemyTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
 
         const string PowerCombatInspirationName = $"Power{Name}CombatInspiration";
@@ -246,12 +248,12 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         }
     }
 
-    private sealed class TerrificPerformance : IOnReducedToZeroHpEnemy
+    private sealed class OnReducedToZeroHpEnemyTerrificPerformance : IOnReducedToZeroHpEnemy
     {
         private readonly FeatureDefinitionPower _power14;
         private readonly FeatureDefinitionPower _power6;
 
-        public TerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
+        public OnReducedToZeroHpEnemyTerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
         {
             _power6 = power6;
             _power14 = power14;
@@ -287,20 +289,19 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
             var power = level >= 14 ? _power14 : _power6;
 
+            var actionParams = Global.CurrentAction.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(battle.EnemyContenders
+                .Where(enemy => enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                && battleService.IsWithinXCells(attacker, enemy, 3))
+                .ToList());
 
-            rulesetAttacker.LogCharacterUsedPower(power);
-
-            foreach (var enemy in battle.AllContenders
-                         .Where(unit => attacker.IsOppositeSide(unit.Side))
-                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3))
-                         .ToList())
-            {
-                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-            }
+            Global.CurrentAction.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 }

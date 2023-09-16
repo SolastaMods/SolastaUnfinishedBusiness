@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -830,22 +831,22 @@ internal static class OtherFeats
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
         //Poison character that shoves me
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
         {
-            if (characterAction.ActionId != ActionDefinitions.Id.Shove &&
-                characterAction.ActionId != ActionDefinitions.Id.ShoveBonus &&
-                characterAction.ActionId != ActionDefinitions.Id.ShoveFree)
+            if (action.ActionId != ActionDefinitions.Id.Shove &&
+                action.ActionId != ActionDefinitions.Id.ShoveBonus &&
+                action.ActionId != ActionDefinitions.Id.ShoveFree)
             {
                 yield break;
             }
 
-            if (characterAction.ActionParams.TargetCharacters == null ||
-                !characterAction.ActionParams.TargetCharacters.Contains(target))
+            if (action.ActionParams.TargetCharacters == null ||
+                !action.ActionParams.TargetCharacters.Contains(target))
             {
                 yield break;
             }
 
-            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
+            PoisonTarget(action, target.RulesetCharacter, action.ActingCharacter);
         }
 
         //Poison characters that I shove
@@ -860,7 +861,7 @@ internal static class OtherFeats
 
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                PoisonTarget(rulesetAttacker, target);
+                PoisonTarget(action, rulesetAttacker, target);
             }
         }
 
@@ -886,7 +887,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(me.RulesetCharacter, target);
+            PoisonTarget(action, me.RulesetCharacter, target);
         }
 
         //Poison melee attacker
@@ -911,10 +912,10 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(me.RulesetCharacter, attacker);
+            PoisonTarget(action, me.RulesetCharacter, attacker);
         }
 
-        private static void PoisonTarget(RulesetCharacter me, GameLocationCharacter target)
+        private static void PoisonTarget(CharacterAction action, RulesetCharacter me, GameLocationCharacter target)
         {
             var rulesetTarget = target.RulesetCharacter;
 
@@ -923,12 +924,16 @@ internal static class OtherFeats
                 return;
             }
 
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, me);
 
-            ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(me, usablePower, false)
-                .AddAsActivePowerToSource()
-                .ApplyEffectOnCharacter(rulesetTarget, true, target.LocationPosition);
+                .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(target);
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

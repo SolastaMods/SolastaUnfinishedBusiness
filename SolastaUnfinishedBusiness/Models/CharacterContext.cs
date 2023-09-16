@@ -1746,20 +1746,16 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (rulesetImplementationService == null)
-            {
-                yield break;
-            }
-
+            var actionParams = action.ActionParams.Clone();
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
-            var effectPower = rulesetImplementationService
-                .InstantiateEffectPower(rulesetAttacker, usablePower, true)
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
 
-            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

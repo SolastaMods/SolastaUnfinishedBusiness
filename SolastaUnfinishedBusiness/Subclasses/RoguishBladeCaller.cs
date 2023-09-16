@@ -375,6 +375,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
+            rulesetAttacker.UpdateUsageForPower(_powerHailOfBlades, _powerHailOfBlades.CostPerUse);
+
             var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerHailOfBlades, rulesetAttacker);
 
@@ -388,9 +390,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 .ToList());
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
-
-            // TODO: check if still needs this
-            // rulesetAttacker.UsePower(usablePower);
         }
 
         private enum BladeMarkStatus
