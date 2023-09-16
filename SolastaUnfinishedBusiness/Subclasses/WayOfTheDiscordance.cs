@@ -19,7 +19,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -46,7 +45,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         var conditionDiscordance = ConditionDefinitionBuilder
             .Create($"Condition{Name}Discordance")
-            .SetGuiPresentation(Category.Condition, ConditionMarkedByBrandingSmite)
+            .SetGuiPresentation(Category.Condition, ConditionRestrictedInsideMagicCircle)
             .SetSilent(Silent.WhenRemoved)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
@@ -108,7 +107,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         var conditionChaosChanneling = ConditionDefinitionBuilder
             .Create($"Condition{Name}ChaosChanneling")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Condition, ConditionSpiritGuardiansSelf)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetCustomSubFeatures(new ModifyWeaponAttackModeChaosChanneling())
             .AddToDB();
@@ -130,7 +129,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         var powerChaosChannelingPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ChaosChannelingPoints")
             .SetGuiPresentation($"FeatureSet{Name}ChaosChanneling", Category.Feature, PowerOathOfDevotionTurnUnholy)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 1, 0)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -234,7 +233,13 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .Create($"Power{Name}BurstOfDisharmony")
             .SetGuiPresentation(Category.Feature, $"FeatureSet{Name}BurstOfDisharmony",
                 Sprites.GetSprite("PowerBurstOfDisharmony", Resources.PowerBurstOfDisharmony, 128))
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3)
+                    .Build())
             .AddToDB();
 
         var powerBurstOfDisharmonyList = new List<FeatureDefinitionPower>();
@@ -268,7 +273,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                                 .SetDamageForm(DamageTypeNecrotic, diceNumber, DieType.D6)
                                 .Build(),
                             EffectFormBuilder.ConditionForm(conditionDiscordance))
-                        .SetParticleEffectParameters(PowerSorcererChildRiftRiftwalkLandingDamage)
+                        .SetParticleEffectParameters(PowerSorcererChildRiftRiftwalk)
                         .Build())
                 .AddToDB();
 
@@ -279,9 +284,6 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 new ValidatorsPowerUse(
                     c => c.RemainingKiPoints >= kiNumber &&
                          c.GetClassLevel(CharacterClassDefinitions.Monk) >= minimumClassLevelAllowed));
-
-            powerBurstOfDisharmony.EffectDescription.EffectParticleParameters.impactParticleReference =
-                SpiritualWeapon.EffectDescription.EffectParticleParameters.impactParticleReference;
 
             powerBurstOfDisharmonyList.Add(powerBurstOfDisharmony);
         }
