@@ -20,7 +20,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
-
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
@@ -429,7 +428,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                 .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
                 .ToList());
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
 

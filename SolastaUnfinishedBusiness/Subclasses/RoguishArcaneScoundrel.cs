@@ -335,7 +335,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            // different follow up pattern [not adding to ResultingActions]
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
 

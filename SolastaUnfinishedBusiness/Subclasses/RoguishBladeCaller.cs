@@ -388,7 +388,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                             && battleManager.IsWithinXCells(x, defender, 3))
                 .ToList());
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
 
         private enum BladeMarkStatus
