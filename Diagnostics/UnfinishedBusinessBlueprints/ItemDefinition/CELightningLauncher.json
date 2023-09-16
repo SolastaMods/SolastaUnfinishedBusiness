@@ -500,7 +500,7 @@
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Item/&CELightningLauncherUnidentifiedTitle",
-    "unidentifiedDescription": "Feature/&NoContentTitle",
+    "unidentifiedDescription": "Feature/&Emptystring",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -530,7 +530,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&CELightningLauncherTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a454d27e-7949-5474-bc69-bf8a2dd6637a",

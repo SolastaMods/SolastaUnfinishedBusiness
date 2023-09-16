@@ -470,7 +470,7 @@
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Item/&CEPikePrimedUnidentifiedTitle",
-    "unidentifiedDescription": "Feature/&NoContentTitle",
+    "unidentifiedDescription": "Feature/&Emptystring",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -502,7 +502,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&CEPikePrimedTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "920a6908-2cf1-54a8-a759-f6e3924cc203",
