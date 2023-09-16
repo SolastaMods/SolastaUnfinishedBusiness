@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Add all dice from base weapon damage to f
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 ft of you]</color></i>
+ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -87,7 +87,7 @@ ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
 ModUi/&EnableCharactersOnFireToEmitLight=Characters on fire should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
-ModUi/&EnableCustomPortraits=Enable custom portraits\n\n. Create a <i><b><color=#F0DAA0>Portraits</color></b></i> folder under the <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b></i> mod folder\n. Place a PNG image in that folder, named after your hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n. Use images 256 x 384 pixels in size <i><color=#F0DAA0>[optimize them first at https://tinypng.com]</color></i>
+ModUi/&EnableCustomPortraits=Enable custom portraits\n\n. Create a <i><b><color=#F0DAA0>Portraits</color></b></i> folder under the <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b></i> mod folder\n. Place a PNG image in that folder, named after your hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n. Use images 256 x 384 pixels in size with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>\n. You can also create subfolders <i><b><color=#F0DAA0>Monsters</color></b></i> and <i><b><color=#F0DAA0>PreGen</color></b></i> to replace vanilla assets with portraits as well 
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18
@@ -135,7 +135,7 @@ ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
+ModUi/&FixEldritchBlastRange=Use official 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>

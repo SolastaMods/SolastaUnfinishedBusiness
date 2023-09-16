@@ -87,7 +87,7 @@ ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터 화면에서 캐릭터 �
 ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color>로 캐릭터 내보내기를 활성화
 ModUi/&EnableCharactersOnFireToEmitLight=불에 탄 캐릭터는 빛을 발합니다 <i><color=#F0DAA0>[빛 육면체, 화염 원소, 화염 광대, 화염 수리, 화염 거미 및 화염 상태 계열]</color></i>
 ModUi/&EnableCheatMenu=치트키 메뉴 활성화
-ModUi/&EnableCustomPortraits=커스텀 초상화 활성화\n\n. <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b></i> 모드 폴더 아래에 <i><b><color=#F0DAA0>Portraits</color></b></i> 폴더를 생성합니다\n. 폴더 내에 PNG 파일을 넣고, 영웅의 첫 이름을 따라 이름을 변경하십시오 <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, 등.]</color></i>\n. 픽셀 사이즈 256 x 384의 이미지를 사용할 것 <i><color=#F0DAA0>[다음 링크에서 먼저 최적화하십시오- https://tinypng.com]</color></i>
+ModUi/&EnableCustomPortraits=맞춤 인물 사진을 활성화합니다\n\n. <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b 아래에 <i><b><color=#F0DAA0>Portraits</color></b></i> 폴더를 만듭니다. ></i> 모드 폴더\n. 해당 폴더에 영웅 이름 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n의 이름을 딴 PNG 이미지를 배치하세요. 투명도 레이어가 있는 256 x 384 픽셀 크기의 이미지를 사용하세요 <i><color=#F0DAA0>[최상의 결과를 위해 GIMP 사용]</color></i>\n. <i><b><color=#F0DAA0>Monsters</color></b></i> 및 <i><b><color=#F0DAA0>PreGen</color></ 하위 폴더를 만들 수도 있습니다. b></i> 바닐라 자산도 초상화로 교체
 ModUi/&EnableDungeonMakerModdedContent=던전 메이커 프로 활성화\n<i><color=#F0DAA0>[침실, 150x150 및 200x200 던전 크기 포함, 모든 환경의 에셋을 혼합하지 않음]</color></i>
 ModUi/&EnableEpicPointsAndArray=에픽 35 포인트 분배 시스템 및 정해진 능력치 분배 활성화<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10, 18에 재주 선택 활성화

@@ -23,7 +23,6 @@ using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
 
 #if DEBUG
-using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 #endif
 
 namespace SolastaUnfinishedBusiness.Displays

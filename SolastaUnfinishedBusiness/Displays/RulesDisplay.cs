@@ -20,6 +20,13 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
         }
 
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+        }
+
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
@@ -75,13 +82,6 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AddBleedingToLesserRestoration;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SrdAndHouseRulesContext.AddBleedingToRestoration();
-        }
-
         toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
         if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
                 UI.AutoWidth()))
@@ -117,6 +117,13 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddBleedingToLesserRestoration;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddBleedingToLesserRestoration = toggle;
+            SrdAndHouseRulesContext.AddBleedingToRestoration();
+        }
+
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
         if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
                 UI.AutoWidth()))
@@ -124,11 +131,11 @@ internal static class RulesDisplay
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
         }
 
-        toggle = Main.Settings.FixEldritchBlastRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.FixEldritchBlastRange = toggle;
-            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
+            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
         }
 
         toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
@@ -158,13 +165,6 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.UseCubeOnSleetStorm();
         }
 
-        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
-            SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
-        }
-
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {
@@ -182,18 +182,13 @@ internal static class RulesDisplay
             Main.Settings.IdentifyAfterRest = toggle;
         }
 
-        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
-        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.IncreaseMaxAttunedItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
+            Main.Settings.IncreaseMaxAttunedItems = toggle;
         }
 
-        toggle = Main.Settings.AllowClubsToBeThrown;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowClubsToBeThrown = toggle;
-            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
-        }
+        UI.Label();
 
         toggle = Main.Settings.AllowHasteCasting;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
@@ -202,25 +197,19 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchHastedCasing();
         }
 
+        toggle = Main.Settings.AllowStackedMaterialComponent;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowStackedMaterialComponent = toggle;
+        }
+
         toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
         }
 
-        toggle = Main.Settings.EnableHigherGroundRules;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableHigherGroundRules = toggle;
-        }
-
         UI.Label();
-
-        toggle = Main.Settings.AllowStackedMaterialComponent;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowStackedMaterialComponent = toggle;
-        }
 
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
@@ -234,6 +223,13 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+        }
+
+        toggle = Main.Settings.AllowClubsToBeThrown;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowClubsToBeThrown = toggle;
+            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
         toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
@@ -251,6 +247,12 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
+        }
+
         toggle = Main.Settings.AllowFlightSuspend;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))
         {
@@ -265,25 +267,25 @@ internal static class RulesDisplay
                 Main.Settings.FlightSuspendWingedBoots = toggle;
             }
         }
-        
-        toggle = Main.Settings.FullyControlConjurations;
-        if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FullyControlConjurations = toggle;
-            SrdAndHouseRulesContext.SwitchFullyControlConjurations();
-        }
-
-        toggle = Main.Settings.IncreaseMaxAttunedItems;
-        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.IncreaseMaxAttunedItems = toggle;
-        }
 
         toggle = Main.Settings.EnableCharactersOnFireToEmitLight;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
+        }
+        
+        toggle = Main.Settings.EnableHigherGroundRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHigherGroundRules = toggle;
+        }
+
+        toggle = Main.Settings.FullyControlConjurations;
+        if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FullyControlConjurations = toggle;
+            SrdAndHouseRulesContext.SwitchFullyControlConjurations();
         }
 
         UI.Label();
