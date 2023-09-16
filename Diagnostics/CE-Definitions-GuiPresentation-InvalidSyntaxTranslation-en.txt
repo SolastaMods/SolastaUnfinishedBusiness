@@ -118,6 +118,7 @@ ConditionSkinOfRetributionDamageFire	Description='If a creature hits you with a 
 ConditionSkinOfRetributionDamageLightning	Description='If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Lightning Damage per spell level.'.
 ConditionSkinOfRetributionDamagePoison	Description='If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Poison Damage per spell level.'.
 ConditionSkinOfRetributionDamageThunder	Description='If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Thunder Damage per spell level.'.
+ConditionThunderousSmite	Title='Thunderous Smite'.
 CraftingManualRecipeEnchantBarbarianClothes_Deflection	Title='Enchant Barbarian Clothes of Deflection'.
 CraftingManualRecipeEnchantBarbarianClothes_FlameDancing	Title='Enchant Barbarian Clothes of Flame Dancing'.
 CraftingManualRecipeEnchantBarbarianClothes_FrostWalking	Title='Enchant Barbarian Clothes of Frost Walking'.

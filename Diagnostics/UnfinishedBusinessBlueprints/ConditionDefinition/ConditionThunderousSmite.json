@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageThunderousSmite:b4fa3128-3960-51dc-a77e-cf89fb08904b"
+    "Definition:PowerThunderousSmiteThunderousSmite:dba75004-bf8b-52f2-9787-999aa36d258d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -132,8 +132,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&ThunderousSmiteTitle",
-    "description": "Spell/&ThunderousSmiteDescription",
+    "title": "Thunderous Smite",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8440ca8497e8ca64f811d09a9d4679d9",
