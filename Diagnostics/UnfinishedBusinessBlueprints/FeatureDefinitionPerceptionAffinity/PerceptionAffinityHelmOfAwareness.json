@@ -10,7 +10,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
+    "title": "Feature/&Emptystring",
     "description": "Feature/&PerceptionAffinityHelmOfAwarenessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
