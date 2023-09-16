@@ -883,11 +883,11 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            //PATCH: Support for `ITargetReducedToZeroHP` feature
-            foreach (var onTargetReducedToZeroHp in
-                     attacker.RulesetActor.GetSubFeaturesByType<IOnReducedToZeroHpEnemy>())
+            //PATCH: Support for `IOnReducedToZeroHpByMe` feature
+            foreach (var onReducedToZeroHpByMe in
+                     attacker.RulesetActor.GetSubFeaturesByType<IOnReducedToZeroHpByMe>())
             {
-                yield return onTargetReducedToZeroHp.HandleReducedToZeroHpEnemy(
+                yield return onReducedToZeroHpByMe.HandleReducedToZeroHpByMe(
                     attacker, downedCreature, rulesetAttackMode, activeEffect);
             }
 
@@ -896,11 +896,30 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            //PATCH: Support for `ISourceReducedToZeroHP` feature
-            foreach (var onSourceReducedToZeroHp in downedCreature.RulesetActor
-                         .GetSubFeaturesByType<IOnReducedToZeroHpMe>())
+            //PATCH: Support for `IOnReducedToZeroHpByMeOrAlly` feature
+            foreach (var ally in __instance.Battle
+                         .GetMyContenders(attacker.Side)
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList())
             {
-                yield return onSourceReducedToZeroHp.HandleReducedToZeroHpMe(
+                foreach (var onReducedToZeroHpByMeOrAlly in
+                         ally.RulesetActor.GetSubFeaturesByType<IOnReducedToZeroHpByMeOrAlly>())
+                {
+                    yield return onReducedToZeroHpByMeOrAlly.HandleReducedToZeroHpByMeOrAlly(
+                        attacker, downedCreature, ally, rulesetAttackMode, activeEffect);
+                }
+            }
+
+            if (__instance.Battle == null)
+            {
+                yield break;
+            }
+
+            //PATCH: Support for `IOnReducedToZeroHpByEnemy` feature
+            foreach (var onReducedToZeroHpByEnemy in downedCreature.RulesetActor
+                         .GetSubFeaturesByType<IOnReducedToZeroHpByEnemy>())
+            {
+                yield return onReducedToZeroHpByEnemy.HandleReducedToZeroHpByEnemy(
                     attacker, downedCreature, rulesetAttackMode, activeEffect);
             }
         }

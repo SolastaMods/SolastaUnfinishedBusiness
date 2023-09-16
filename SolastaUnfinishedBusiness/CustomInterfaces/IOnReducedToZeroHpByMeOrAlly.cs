@@ -2,11 +2,12 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IOnReducedToZeroHpEnemy
+public interface IOnReducedToZeroHpByMeOrAlly
 {
-    public IEnumerator HandleReducedToZeroHpEnemy(
+    public IEnumerator HandleReducedToZeroHpByMeOrAlly(
         GameLocationCharacter attacker,
         GameLocationCharacter downedCreature,
+        GameLocationCharacter ally,
         RulesetAttackMode attackMode,
         RulesetEffect activeEffect);
 }

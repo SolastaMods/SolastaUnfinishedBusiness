@@ -860,8 +860,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new AddExtraPhysicalAttackFeatCleavingPhysicalAttack(conditionCleavingAttackFinish))
+                    .SetCustomSubFeatures(new CustomBehaviorCleaving(conditionCleavingAttackFinish))
                     .AddToDB())
             .AddToDB();
 
@@ -874,17 +873,16 @@ internal static class MeleeCombatFeats
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraPhysicalAttackFeatCleavingPhysicalAttack :
-        IPhysicalAttackAfterDamage, IOnReducedToZeroHpEnemy
+    private sealed class CustomBehaviorCleaving : IPhysicalAttackAfterDamage, IOnReducedToZeroHpByMe
     {
         private readonly ConditionDefinition _conditionCleavingAttackFinish;
 
-        public AddExtraPhysicalAttackFeatCleavingPhysicalAttack(ConditionDefinition conditionCleavingAttackFinish)
+        public CustomBehaviorCleaving(ConditionDefinition conditionCleavingAttackFinish)
         {
             _conditionCleavingAttackFinish = conditionCleavingAttackFinish;
         }
 
-        public IEnumerator HandleReducedToZeroHpEnemy(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

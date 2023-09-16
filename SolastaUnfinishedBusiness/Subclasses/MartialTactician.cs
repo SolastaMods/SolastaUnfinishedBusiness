@@ -199,7 +199,7 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUseAfterKill(GambitsBuilders.GambitPool, feature));
+        feature.SetCustomSubFeatures(new OnReducedToZeroHpByMeRefundPowerUse(GambitsBuilders.GambitPool, feature));
 
         ConditionDefinitionBuilder
             .Create(MarkDamagedByGambit)
@@ -346,18 +346,18 @@ public sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class RefundPowerUseAfterKill : IOnReducedToZeroHpEnemy
+    private class OnReducedToZeroHpByMeRefundPowerUse : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinition _feature;
         private readonly FeatureDefinitionPower _power;
 
-        public RefundPowerUseAfterKill(FeatureDefinitionPower power, FeatureDefinition feature)
+        public OnReducedToZeroHpByMeRefundPowerUse(FeatureDefinitionPower power, FeatureDefinition feature)
         {
             _power = power;
             _feature = feature;
         }
 
-        public IEnumerator HandleReducedToZeroHpEnemy(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

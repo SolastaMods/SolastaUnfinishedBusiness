@@ -154,7 +154,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureBladeStorm.SetCustomSubFeatures(new OnReducedToZeroHpEnemyBladeStorm(powerHailOfBlades));
+        featureBladeStorm.SetCustomSubFeatures(new OnReducedToZeroHpByMeBladeStorm(powerHailOfBlades));
 
         // MAIN
 
@@ -404,16 +404,16 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Storm
     //
 
-    private sealed class OnReducedToZeroHpEnemyBladeStorm : IOnReducedToZeroHpEnemy
+    private sealed class OnReducedToZeroHpByMeBladeStorm : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinitionPower _powerHailOfBlades;
 
-        public OnReducedToZeroHpEnemyBladeStorm(FeatureDefinitionPower powerHailOfBlades)
+        public OnReducedToZeroHpByMeBladeStorm(FeatureDefinitionPower powerHailOfBlades)
         {
             _powerHailOfBlades = powerHailOfBlades;
         }
 
-        public IEnumerator HandleReducedToZeroHpEnemy(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

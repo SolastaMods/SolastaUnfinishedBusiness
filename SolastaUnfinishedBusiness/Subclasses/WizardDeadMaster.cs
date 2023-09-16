@@ -68,7 +68,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
             .AddToDB();
 
         targetReducedToZeroHpDeadMasterStarkHarvest.SetCustomSubFeatures(
-            new StarkHarvest(targetReducedToZeroHpDeadMasterStarkHarvest));
+            new OnReducedToZeroHpByMeStarkHarvest(targetReducedToZeroHpDeadMasterStarkHarvest));
 
         const string ChainsName = "SummoningAffinityDeadMasterUndeadChains";
 
@@ -306,16 +306,16 @@ public sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    private sealed class StarkHarvest : IOnReducedToZeroHpEnemy
+    private sealed class OnReducedToZeroHpByMeStarkHarvest : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinition _feature;
 
-        public StarkHarvest(FeatureDefinition feature)
+        public OnReducedToZeroHpByMeStarkHarvest(FeatureDefinition feature)
         {
             _feature = feature;
         }
 
-        public IEnumerator HandleReducedToZeroHpEnemy(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

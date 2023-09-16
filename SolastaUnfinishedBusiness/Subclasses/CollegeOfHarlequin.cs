@@ -79,7 +79,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
 
         powerTerrificPerformance.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new OnReducedToZeroHpEnemyTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
+            new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
 
         const string PowerCombatInspirationName = $"Power{Name}CombatInspiration";
@@ -245,18 +245,18 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         }
     }
 
-    private sealed class OnReducedToZeroHpEnemyTerrificPerformance : IOnReducedToZeroHpEnemy
+    private sealed class OnReducedToZeroHpByMeTerrificPerformance : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinitionPower _power14;
         private readonly FeatureDefinitionPower _power6;
 
-        public OnReducedToZeroHpEnemyTerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
+        public OnReducedToZeroHpByMeTerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
         {
             _power6 = power6;
             _power14 = power14;
         }
 
-        public IEnumerator HandleReducedToZeroHpEnemy(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

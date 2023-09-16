@@ -49,7 +49,7 @@ internal sealed class Merciless : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnReducedToZeroHpEnemyFightingStyleMerciless())
+                .SetCustomSubFeatures(new OnReducedToZeroHpByMeMerciless())
                 .AddToDB())
         .AddToDB();
 
@@ -58,9 +58,9 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnReducedToZeroHpEnemyFightingStyleMerciless : IOnReducedToZeroHpEnemy
+    private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe
     {
-        public IEnumerator HandleReducedToZeroHpEnemy(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
