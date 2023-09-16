@@ -1,4 +1,15 @@
-﻿1.5.94.14:
+﻿1.5.94.15:
+
+ATTENTION:
+
+- RESPEC required on Way of Discordance
+
+- changed Way of Discordance progression and SFX
+- fixed Disabling Strike applying effect to caster
+- fixed Improved Disabling Strike applying effect to caster
+- removed dependency on ApplyEffectOnCharacter [maybe fix weird serialization issue?]
+
+1.5.94.14:
 
 ATTENTION:
 

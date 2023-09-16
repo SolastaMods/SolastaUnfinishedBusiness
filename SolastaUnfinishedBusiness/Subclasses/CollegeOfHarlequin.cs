@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -287,19 +286,21 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
             var power = level >= 14 ? _power14 : _power6;
 
-            var actionParams = Global.CurrentAction.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = battle.EnemyContenders
+                    .Where(enemy => enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                    && battleService.IsWithinXCells(attacker, enemy, 3))
+                    .ToList()
+            };
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(battle.EnemyContenders
-                .Where(enemy => enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                && battleService.IsWithinXCells(attacker, enemy, 3))
-                .ToList());
-
-            Global.CurrentAction.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }

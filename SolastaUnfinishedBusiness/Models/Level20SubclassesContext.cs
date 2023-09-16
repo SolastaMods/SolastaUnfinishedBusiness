@@ -1291,11 +1291,6 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
-
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(10);
             rulesetCharacter.InflictCondition(
@@ -1311,8 +1306,19 @@ internal static class Level20SubclassesContext
                 0,
                 0,
                 0);
-            effectPower.ApplyEffectOnCharacter(rulesetCharacter, true, source.LocationPosition);
 
+            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = { source }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
         }

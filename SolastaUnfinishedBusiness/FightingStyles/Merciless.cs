@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -83,28 +82,28 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var actionParams = Global.CurrentAction.ActionParams.Clone();
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            // var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
             var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
 
-            //TODO: not sure we need this, since `UsablePowersProvider.Get` already computes DC
-            // usablePower.saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus);
-
+            // need to find a better way to determine critical
             var distance = Global.CurrentAction.AttackRollOutcome == RollOutcome.CriticalSuccess
                 ? proficiencyBonus
                 : (proficiencyBonus + 1) / 2;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance))
-                .ToList());
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = gameLocationBattleService.Battle.EnemyContenders
+                    .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance))
+                    .ToList()
+            };
 
-            Global.CurrentAction.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }
