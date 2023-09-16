@@ -7,6 +7,7 @@ ATTENTION:
 - changed Way of Discordance progression and SFX
 - fixed Disabling Strike applying effect to caster
 - fixed Improved Disabling Strike applying effect to caster
+- improved Korean translations [by akintos]
 - removed dependency on ApplyEffectOnCharacter [maybe fix weird serialization issue?]
 
 1.5.94.14:

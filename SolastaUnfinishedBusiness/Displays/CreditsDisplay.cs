@@ -58,12 +58,14 @@ internal static class CreditsDisplay
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
         ("Vess", "QA, homebrew design [Innovation Vitriolist]"),
         ("Holic75", "spells, Bolgrif"),
+        ("Artyoan", "pre-gen heroes and sample portraits"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
-        ("team-waldo", "korean font and translations"),
-        ("Dovel", "russian translations"),
+        ("team-waldo", "official korean font and translations"),
+        ("akintos", "korean translations"),
+        ("Dovel", "russian and non-official russian translations"),
         ("Ermite_Crabe", "french translations")
     };
 
