@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -235,7 +237,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             ActionModifier attackModifier,
@@ -299,15 +302,23 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            // remove any negative effect
+            actualEffectForms.Clear();
+
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
 
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetMe, usablePower, false)
-                .AddAsActivePowerToSource();
+            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetMe, usablePower, false)
+                    .AddAsActivePowerToSource()
+            };
 
-            effectPower.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
-            actualEffectForms.Clear();
-            attackMode.EffectDescription.EffectForms.Clear();
+            actionParams.TargetCharacters.SetRange(me);
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }
