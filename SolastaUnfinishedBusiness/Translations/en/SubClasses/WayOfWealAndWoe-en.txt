@@ -1,6 +1,6 @@
 Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
 Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=Brutal Weal
-Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you refund 1 ki point.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you refund 1 Ki point.
 Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=Propelled Weal
 Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
 Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=Their Woe
