@@ -11,10 +11,17 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class EffectsDisplay
 {
+    private static readonly ConditionDefinition DummyCondition = ConditionDefinitionBuilder
+        .Create("DummyCondition")
+        .SetGuiPresentation("Dummy", "Dummy")
+        .SetSpecialDuration(RuleDefinitions.DurationType.Round, 1)
+        .AddToDB();
+
     private static Vector2 EffectPosition { get; set; } = Vector2.zero;
 
     private static bool ToggleCaster { get; set; }
     private static bool ToggleCondition { get; set; }
+    private static bool ToggleEffect { get; set; }
     private static bool ToggleImpact { get; set; }
     private static bool ToggleZone { get; set; }
 
@@ -53,6 +60,20 @@ internal static class EffectsDisplay
         if (ToggleCondition)
         {
             DisplayConditionEffects();
+        }
+
+        UI.Label();
+
+        toggle = ToggleEffect;
+
+        if (UI.DisclosureToggle(Gui.Localize("Effect:"), ref toggle))
+        {
+            ToggleEffect = toggle;
+        }
+
+        if (ToggleEffect)
+        {
+            DisplayEffects(EffectHelpers.EffectType.Effect);
         }
 
         UI.Label();
@@ -102,8 +123,6 @@ internal static class EffectsDisplay
 
         EffectPosition = scrollView.scrollPosition;
 
-        UI.Label();
-
         foreach (var effect in EffectsContext.Effects[effectType])
         {
             using (UI.HorizontalScope())
@@ -123,12 +142,6 @@ internal static class EffectsDisplay
             }
         }
     }
-
-    private static readonly ConditionDefinition DummyCondition = ConditionDefinitionBuilder
-        .Create("DummyCondition")
-        .SetGuiPresentation("Dummy", "Dummy")
-        .SetSpecialDuration(RuleDefinitions.DurationType.Round, 1)
-        .AddToDB();
 
     private static void DisplayConditionEffects()
     {

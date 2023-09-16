@@ -39,7 +39,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionThunderousSmiteEnemy:0fa4ec12-e920-55da-95a1-8dd52be6faa7",
+      "conditionDefinition": "Definition:ConditionThunderousSmiteThunderousSmiteEnemy:b4417750-e202-554a-8437-b9dfa58e4939",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "StartOfTurn"

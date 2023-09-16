@@ -16,6 +16,7 @@ public static class EffectsContext
     {
         DumpCasterEffects();
         DumpConditionEffects();
+        DumpEffectEffects();
         DumpImpactEffects();
         DumpZoneEffects();
     }
@@ -117,6 +118,49 @@ public static class EffectsContext
             ConditionEffects
                 .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
             ConditionEffects[effectReferenceGuid].Add((name, power));
+        }
+    }
+
+    private static void DumpEffectEffects()
+    {
+        Effects.Add(EffectHelpers.EffectType.Effect,
+            new Dictionary<string, List<(string, EffectParticleParameters)>>());
+
+        var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
+        var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
+
+        foreach (var spell in spells
+                     .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
+        {
+            var name = spell.Name;
+            var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
+            var effectReferenceGuid = effectParticleParameters.effectParticleReference?.AssetGUID;
+
+            if (string.IsNullOrEmpty(effectReferenceGuid))
+            {
+                continue;
+            }
+
+            Effects[EffectHelpers.EffectType.Effect]
+                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+            Effects[EffectHelpers.EffectType.Effect][effectReferenceGuid].Add((name, effectParticleParameters));
+        }
+
+        foreach (var power in powers
+                     .Where(x => x.ContentPack != CeContentPackContext.CeContentPack))
+        {
+            var name = power.Name;
+            var effectParticleParameters = power.EffectDescription.EffectParticleParameters;
+            var effectReferenceGuid = effectParticleParameters.effectParticleReference?.AssetGUID;
+
+            if (string.IsNullOrEmpty(effectReferenceGuid))
+            {
+                continue;
+            }
+
+            Effects[EffectHelpers.EffectType.Effect]
+                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+            Effects[EffectHelpers.EffectType.Effect][effectReferenceGuid].Add((name, effectParticleParameters));
         }
     }
 

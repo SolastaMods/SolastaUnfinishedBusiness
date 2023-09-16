@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Aura2API;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 

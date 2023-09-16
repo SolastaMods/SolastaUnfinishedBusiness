@@ -150,7 +150,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "95303bc3bdfb35f4a9ab143c5a54eee7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -168,7 +168,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "2fcc8708ca69b4745833a47bfc3c441f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +198,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6761334c4b1addb4e85821a73cbaa6e3",
+        "m_AssetGUID": "9c2a6faa6a19ff547bb26f05835afccb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -343,7 +343,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "KiPoints",
   "costPerUse": 4,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
