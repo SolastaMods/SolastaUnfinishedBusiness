@@ -98,11 +98,12 @@ internal static class CustomSituationalContext
     private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(
         RulesetImplementationDefinitions.SituationalContextParams contextParams)
     {
-        var source = contextParams.source;
+        // WTF? Why am I getting source / target swapped only on this particular scenario
+        var source = contextParams.target;
 
         var mainWeaponIsMeleeOrUnarmed =
-            ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
-            ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source);
+            ValidatorsCharacter.HasMeleeWeaponInMainHand(source) ||
+            ValidatorsCharacter.IsUnarmedInMainHand(source);
         var levels = source.GetSubclassLevel(
             DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
 
