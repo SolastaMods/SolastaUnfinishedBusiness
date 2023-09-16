@@ -160,14 +160,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         var combatAffinityTurmoil = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}Turmoil")
-            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), string.Empty)
+            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), GuiPresentationBuilder.EmptyString)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)
             .AddToDB();
 
         var savingThrowAffinityTurmoil = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}Turmoil")
-            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), string.Empty)
+            .SetGuiPresentation($"Condition{Name}TurmoilTitle".Formatted(Category.Condition), GuiPresentationBuilder.EmptyString)
             .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
                 Charisma,
                 Constitution,
@@ -231,7 +231,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         var powerBurstOfDisharmonyPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstOfDisharmony")
-            .SetGuiPresentation(Category.Feature, $"FeatureSet{Name}BurstOfDisharmony",
+            .SetGuiPresentation($"FeatureSet{Name}BurstOfDisharmony", Category.Feature,
                 Sprites.GetSprite("PowerBurstOfDisharmony", Resources.PowerBurstOfDisharmony, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 0)
             .SetEffectDescription(

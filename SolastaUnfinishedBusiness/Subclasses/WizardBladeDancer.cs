@@ -50,7 +50,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
             .Create($"Condition{Name}BladeDance")
-            .SetGuiPresentation(BladeDanceTitle, Gui.NoLocalization, ConditionHeroism)
+            .SetGuiPresentation(BladeDanceTitle, GuiPresentationBuilder.EmptyString, ConditionHeroism)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder

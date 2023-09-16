@@ -76,7 +76,7 @@ internal static class CustomWeaponsContext
         presentation.unidentifiedTitle = GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item);
         presentation.unidentifiedDescription = hasUnidentifiedDescription
             ? GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item)
-            : Gui.NoLocalization;
+            : GuiPresentationBuilder.EmptyString;
 
         presentation.scaleFactorWhileWielded = scale;
 
@@ -132,7 +132,7 @@ internal static class CustomWeaponsContext
         }
 
         _ = noDescription
-            ? builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon)
+            ? builder.SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString, icon)
             : builder.SetGuiPresentation(Category.Item, icon);
 
         var weapon = builder.AddToDB();
@@ -211,7 +211,7 @@ internal static class CustomWeaponsContext
 
         HalberdWeaponType = WeaponTypeDefinitionBuilder
             .Create(GreataxeType, "CEHalberdType")
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
 
@@ -301,7 +301,7 @@ internal static class CustomWeaponsContext
 
         PikeWeaponType = WeaponTypeDefinitionBuilder
             .Create(SpearType, "CEPikeType")
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
 
@@ -400,7 +400,7 @@ internal static class CustomWeaponsContext
 
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
             .Create(MaulType, "CELongMaceType")
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
 
@@ -490,7 +490,7 @@ internal static class CustomWeaponsContext
 
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(LightCrossbowType, CeHandXbowType)
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();
@@ -624,7 +624,7 @@ internal static class CustomWeaponsContext
     {
         ThunderGauntletType = WeaponTypeDefinitionBuilder
             .Create(UnarmedStrikeType, "CEThunderGauntletType")
-            .SetGuiPresentation("Item/&CEThunderGauntletTitle", Gui.NoLocalization)
+            .SetGuiPresentation("Item/&CEThunderGauntletTitle", GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
 
@@ -678,7 +678,7 @@ internal static class CustomWeaponsContext
     {
         LightningLauncherType = WeaponTypeDefinitionBuilder
             .Create(ShortbowType, "CELightningLauncherType")
-            .SetGuiPresentation("Item/&CELightningLauncherTitle", Gui.NoLocalization)
+            .SetGuiPresentation("Item/&CELightningLauncherTitle", GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .SetAnimationTag("Rapier")
             .AddToDB();

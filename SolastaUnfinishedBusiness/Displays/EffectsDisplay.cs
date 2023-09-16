@@ -31,7 +31,7 @@ internal static class EffectsDisplay
 
         if (Gui.GameCampaign == null || Gui.GameCampaign.Party.CharactersList.Count < 2)
         {
-            UI.Label("You must have a game open with at least 2 heroes in the party");
+            UI.Label("You must have a game open with at least 2 heroes in the party...".Red().Bold());
 
             return;
         }
@@ -111,11 +111,6 @@ internal static class EffectsDisplay
     {
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        if (gameLocationCharacterService.PartyCharacters.Count < 2)
-        {
-            return;
-        }
-
         UI.Label();
 
         using var scrollView =
@@ -153,8 +148,6 @@ internal static class EffectsDisplay
             new GUILayout.ScrollViewScope(EffectPosition, UI.AutoWidth(), UI.AutoHeight());
 
         EffectPosition = scrollView.scrollPosition;
-
-        UI.Label();
 
         foreach (var conditionEffect in EffectsContext.ConditionEffects)
         {

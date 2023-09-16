@@ -27,10 +27,8 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
     public CollegeOfHarlequin()
     {
         var conditionTerrified = ConditionDefinitionBuilder
-            .Create("ConditionTerrifiedByHarlequinPerformance")
+            .Create(ConditionDefinitions.ConditionFrightened, "ConditionTerrifiedByHarlequinPerformance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
-            .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(ConditionDefinitions.ConditionFrightened.Features.ToArray())
             .AddFeatures(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones.Features.ToArray())
             .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .AddToDB();

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -182,7 +183,7 @@ internal class PerformanceFilterExtraData
         }
 
         var title = Feature.FormatTitle();
-        if (string.IsNullOrEmpty(title) || Feature.GuiPresentation.Title == Gui.NoLocalization)
+        if (string.IsNullOrEmpty(title) || Feature.GuiPresentation.Title == GuiPresentationBuilder.EmptyString)
         {
             title = ToString() + " (NO TITLE!)";
         }

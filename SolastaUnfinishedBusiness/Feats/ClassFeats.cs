@@ -1129,14 +1129,14 @@ internal static class ClassFeats
 
         var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Favorite")
-            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Feat, GuiPresentationBuilder.EmptyString)
             .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
         var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Regular")
-            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Feat, GuiPresentationBuilder.EmptyString)
             .SetMyAttackModifier(ExtraCombatAffinityValueDetermination.ConditionAmountIfNotFavoriteEnemy)
             .AddToDB();
 

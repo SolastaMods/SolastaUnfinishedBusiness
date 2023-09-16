@@ -150,7 +150,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 2, 2)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         powerArcaneBacklash.SetCustomSubFeatures(

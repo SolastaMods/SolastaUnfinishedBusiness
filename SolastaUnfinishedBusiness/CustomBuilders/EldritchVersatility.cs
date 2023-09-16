@@ -740,33 +740,6 @@ internal static class EldritchVersatility
             }
         }
 
-        public void ModifyDamageAffinity([UsedImplicitly] RulesetActor defender, RulesetActor attacker,
-            List<FeatureDefinition> features)
-        {
-            if (attacker is not RulesetCharacter attackCharacter ||
-                !attackCharacter.GetVersatilitySupportCondition(out var supportCondition) ||
-                !supportCondition.IsValidBlastBreakthrough)
-            {
-                return;
-            }
-
-            var modifier = GetAbilityScoreModifier(attackCharacter, AttributeDefinitions.Strength);
-
-            if (modifier < 3)
-            {
-                return;
-            }
-
-            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
-
-            if (modifier < 4)
-            {
-                return;
-            }
-
-            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity });
-        }
-
         // Spend reserved points on cast EB if success
         public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
@@ -794,6 +767,33 @@ internal static class EldritchVersatility
             castAction.actionParams.targetCharacters.ForEach(
                 x =>
                     InflictCondition(ConditionBlastBreakthroughRemoveImmunity, featureOwner, x.RulesetCharacter));
+        }
+
+        public void ModifyDamageAffinity(
+            [UsedImplicitly] RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            if (attacker is not RulesetCharacter attackCharacter ||
+                !attackCharacter.GetVersatilitySupportCondition(out var supportCondition) ||
+                !supportCondition.IsValidBlastBreakthrough)
+            {
+                return;
+            }
+
+            var modifier = GetAbilityScoreModifier(attackCharacter, AttributeDefinitions.Strength);
+
+            if (modifier < 3)
+            {
+                return;
+            }
+
+            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
+
+            if (modifier < 4)
+            {
+                return;
+            }
+
+            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity });
         }
 
         // Handle toggled in UI

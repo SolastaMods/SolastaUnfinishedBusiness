@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -46,7 +47,7 @@ public static class FeatureDefinitionAutoPreparedSpellsPatcher
 
             var description = __instance.GuiPresentation.Description;
 
-            description = description == Gui.NoLocalization ? string.Empty : Gui.Localize(description);
+            description = description == GuiPresentationBuilder.EmptyString ? string.Empty : Gui.Localize(description);
 
             __result = Gui.Format(description, result);
 

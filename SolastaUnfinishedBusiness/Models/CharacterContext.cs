@@ -1270,13 +1270,13 @@ internal static class CharacterContext
 
         var combatAffinityDisarmed = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Cunning}Disarmed")
-            .SetGuiPresentation($"Condition{Cunning}Disarmed", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{Cunning}Disarmed", Category.Condition, GuiPresentationBuilder.EmptyString)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
 
         var conditionDisarmed = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Disarmed")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString, ConditionDefinitions.ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityDisarmed)
             .AddToDB();
@@ -1368,7 +1368,7 @@ internal static class CharacterContext
 
         var conditionWithdraw = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Withdraw")
-            .SetGuiPresentation($"Condition/&Condition{Cunning}WithdrawTitle", Gui.NoLocalization,
+            .SetGuiPresentation($"Condition/&Condition{Cunning}WithdrawTitle", GuiPresentationBuilder.EmptyString,
                 ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
@@ -1455,7 +1455,7 @@ internal static class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionAsleep)
+            .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString, ConditionDefinitions.ConditionAsleep)
             .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 

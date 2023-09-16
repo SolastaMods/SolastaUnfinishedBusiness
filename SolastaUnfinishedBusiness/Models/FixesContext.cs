@@ -184,7 +184,7 @@ internal static class FixesContext
 
         WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.LongswordType, ConjuredWeaponTypeName)
-            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.NoContentTitle)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
 

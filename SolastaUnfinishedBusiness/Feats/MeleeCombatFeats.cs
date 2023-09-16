@@ -792,7 +792,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Finish")
-                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, GuiPresentationBuilder.EmptyString)
                     .SetCustomSubFeatures(AdditionalActionAttackValidator.MeleeOnly)
                     .SetActionType(ActionDefinitions.ActionType.Main)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
@@ -991,7 +991,7 @@ internal static class MeleeCombatFeats
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityFeatCrusher")
-                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition, Gui.NoLocalization)
+                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition, GuiPresentationBuilder.EmptyString)
                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                         .AddToDB())
                 .AddToDB()))
