@@ -3,13 +3,17 @@ using System.IO;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityExplorer;
+#if DEBUG
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
+#endif
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class CreditsDisplay
 {
+#if DEBUG
     private static bool _displayPatches;
+#endif
 
     // ReSharper disable once MemberCanBePrivate.Global
     internal static readonly List<(string, string)> CreditsTable = new()
@@ -99,6 +103,9 @@ internal static class CreditsDisplay
             UI.Label();
         }
 
+#if DEBUG
+        DiagnosticsDisplay.DisplayDiagnostics();
+
         UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref _displayPatches, 200);
         UI.Label();
 
@@ -107,6 +114,7 @@ internal static class CreditsDisplay
             DisplayPatches();
         }
         else
+#endif
         {
             UI.Label(
                 "<b><color=#D89555>SPECIAL THANKS:</color></b> Tactical Adventures / JetBrains <i><color=#F0DAA0>[development licenses]</color></i> / DemonicDuck, Gwizzz, Vess <i><color=#F0DAA0>[hardware acquisition]</color></i> / Balmz <i><color=#F0DAA0>[coffee eh!]</color></i>");

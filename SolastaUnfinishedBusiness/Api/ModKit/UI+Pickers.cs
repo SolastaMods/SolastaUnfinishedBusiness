@@ -284,7 +284,8 @@ internal static partial class UI
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, params GUILayoutOption[] options)
         where TEnum : struct
     {
-        var changed = false;
+        bool changed;
+
         using (HorizontalScope())
         {
             Label(title.Cyan(), Width((float)300));
@@ -299,7 +300,8 @@ internal static partial class UI
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, params GUILayoutOption[] options)
         where TEnum : struct
     {
-        var changed = false;
+        bool changed;
+
         using (HorizontalScope())
         {
             Label(title.Cyan(), Width((float)300));
@@ -314,7 +316,8 @@ internal static partial class UI
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, GUIStyle style = null,
         params GUILayoutOption[] options) where TEnum : struct
     {
-        var changed = false;
+        bool changed;
+
         using (HorizontalScope())
         {
             Label(title.Cyan(), Width((float)300));
@@ -329,7 +332,8 @@ internal static partial class UI
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols,
         Func<string, TEnum, string> titleFormatter = null, params GUILayoutOption[] options) where TEnum : struct
     {
-        var changed = false;
+        bool changed;
+
         using (HorizontalScope())
         {
             Label(title.Cyan(), Width((float)300));
@@ -345,7 +349,8 @@ internal static partial class UI
         Func<string, TEnum, string> titleFormatter = null, GUIStyle style = null, params GUILayoutOption[] options)
         where TEnum : struct
     {
-        var changed = false;
+        bool changed;
+
         using (HorizontalScope())
         {
             Label(title.Cyan(), Width((float)300));
@@ -360,7 +365,8 @@ internal static partial class UI
     public static bool EnumGrid<TEnum>(string title, Func<TEnum> get, Action<TEnum> set,
         params GUILayoutOption[] options) where TEnum : struct
     {
-        var changed = false;
+        bool changed;
+
         using (HorizontalScope())
         {
             Label(title.Cyan(), Width((float)300));
@@ -534,7 +540,7 @@ internal static partial class UI
         params GUILayoutOption[] options
     ) where T : class
     {
-        style ??= GUI.skin.button;
+        // style ??= GUI.skin.button;
 
         if (title != null)
         {

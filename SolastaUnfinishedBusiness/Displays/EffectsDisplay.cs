@@ -32,6 +32,7 @@ internal static class EffectsDisplay
         if (Gui.GameCampaign == null || Gui.GameCampaign.Party.CharactersList.Count < 2)
         {
             UI.Label("You must have a game open with at least 2 heroes in the party...".Red().Bold());
+            UI.Label();
 
             return;
         }

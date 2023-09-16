@@ -266,9 +266,6 @@ namespace SolastaUnfinishedBusiness.Displays
             ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
                 new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
                 new NamedAction("Effects", DisplayEffects),
-#if DEBUG
-                new NamedAction("Diagnostics", DisplayDiagnostics),
-#endif
                 new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
                 new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
         }

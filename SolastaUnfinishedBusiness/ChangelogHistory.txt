@@ -4,11 +4,11 @@ ATTENTION:
 
 - RESPEC required on Way of Discordance
 
+- added new portraits for pre-gen heroes, monsters, and generic heroes [by Artyoan]
 - changed Way of Discordance progression and SFX
-- fixed Disabling Strike applying effect to caster
-- fixed Improved Disabling Strike applying effect to caster
-- improved Korean translations [by akintos]
-- removed dependency on ApplyEffectOnCharacter [maybe fix weird serialization issue?]
+- fixed Disabling / Improved Disabling Strike applying effect on caster
+- fixed mod Korean translations [by akintos]
+- improved mod backend to reuse vanilla patterns as much as possible [WIP]
 
 1.5.94.14:
 
