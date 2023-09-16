@@ -31,7 +31,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Instantaneous",
+    "durationType": "Hour",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Healing",
+        "formType": "TemporaryHitPoints",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,14 +76,12 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "healingForm": {
-          "$type": "HealingForm, Assembly-CSharp",
-          "healingComputation": "Dice",
+        "temporaryHitPointsForm": {
+          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
           "diceNumber": 1,
           "dieType": "D4",
-          "bonusHealing": 0,
-          "variablePool": false,
-          "healingCap": "MaximumHitPoints"
+          "bonusHitPoints": 0,
+          "applyToSelf": true
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "aa83a600712ca5042b90c5b6128c2530",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +247,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f0ac45b8db321484f9bb90780e1ca229",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "850abba16e977fa449e09a6b0c381c47",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,13 +290,13 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Reaction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "CreatureReducedToZeroHp",
+  "reactionContext": "None",
   "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,

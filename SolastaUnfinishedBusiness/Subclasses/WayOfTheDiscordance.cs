@@ -516,6 +516,33 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             _powerTidesOfChaos = powerTidesOfChaos;
         }
 
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerTidesOfChaos;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var temporaryHitPointsForm = effectDescription.EffectForms[0].TemporaryHitPointsForm;
+            var levels = character.GetClassLevel(CharacterClassDefinitions.Monk);
+            var dieType = levels switch
+            {
+                >= 17 => DieType.D10,
+                >= 11 => DieType.D8,
+                >= 5 => DieType.D6,
+                _ => DieType.D4
+            };
+
+            temporaryHitPointsForm.dieType = dieType;
+            temporaryHitPointsForm.bonusHitPoints = (levels + 1) / 2;
+
+            return effectDescription;
+        }
+
         public IEnumerator HandleReducedToZeroHpByMeOrAlly(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -559,33 +586,6 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == _powerTidesOfChaos;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var temporaryHitPointsForm = effectDescription.EffectForms[0].TemporaryHitPointsForm;
-            var levels = character.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = levels switch
-            {
-                >= 17 => DieType.D10,
-                >= 11 => DieType.D8,
-                >= 5 => DieType.D6,
-                _ => DieType.D4
-            };
-
-            temporaryHitPointsForm.dieType = dieType;
-            temporaryHitPointsForm.bonusHitPoints = (levels + 1) / 2;
-
-            return effectDescription;
         }
     }
 }
