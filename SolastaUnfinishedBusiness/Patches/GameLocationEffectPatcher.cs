@@ -72,14 +72,14 @@ public static class GameLocationEffectPatcher
 
             if (versionProvider.GetVersionNumber() >= 1U)
             {
-                Main.Info($"SERIALIZATION: step {step}a");
+                Main.Info($"SERIALIZATION: step {step++}a");
 
                 __instance.sourceOriginalPosition =
                     serializer.SerializeAttribute("SourceOriginalPosition", __instance.sourceOriginalPosition);
             }
             else if (serializer.Mode == Serializer.SerializationMode.Read)
             {
-                Main.Info($"SERIALIZATION: step {step}b");
+                Main.Info($"SERIALIZATION: step {step++}b");
 
                 __instance.sourceOriginalPosition = __instance.position;
 
