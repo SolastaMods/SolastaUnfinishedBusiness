@@ -553,7 +553,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAlly = ally.RulesetCharacter;
 
             if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false }
-                || !ally.OnceInMyTurnIsValid("TidesOfChaos"))
+                || !ally.OncePerTurnIsValid("TidesOfChaos"))
             {
                 yield break;
             }
