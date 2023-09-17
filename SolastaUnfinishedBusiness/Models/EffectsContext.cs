@@ -6,6 +6,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class EffectsContext
 {
+    internal static bool Dirty { get; set; } = true;
+
     internal static readonly
         Dictionary<EffectHelpers.EffectType, Dictionary<string, List<(string, EffectParticleParameters)>>> Effects =
             new();
@@ -19,6 +21,8 @@ public static class EffectsContext
         DumpEffectEffects();
         DumpImpactEffects();
         DumpZoneEffects();
+
+        Dirty = false;
     }
 
     private static void DumpCasterEffects()

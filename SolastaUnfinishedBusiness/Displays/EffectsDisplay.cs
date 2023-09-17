@@ -27,6 +27,11 @@ internal static class EffectsDisplay
 
     internal static void DisplayEffects()
     {
+        if (EffectsContext.Dirty)
+        {
+            EffectsContext.DumpEffects();
+        }
+
         UI.Label();
 
         if (Gui.GameCampaign == null || Gui.GameCampaign.Party.CharactersList.Count < 2)
