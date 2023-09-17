@@ -532,6 +532,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionRestrainedByEntangle { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByEntangle");
 
+        internal static ConditionDefinition ConditionRestrainedByMagicalArrow { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRestrainedByMagicalArrow");
+
         internal static ConditionDefinition ConditionRestrainedByWeb { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrainedByWeb");
 
@@ -2062,6 +2065,8 @@ internal static partial class DatabaseHelper
     internal static class FightingStyleDefinitions
     {
         internal static FightingStyleDefinition Archery { get; } = GetDefinition<FightingStyleDefinition>("Archery");
+
+        internal static FightingStyleDefinition Defense { get; } = GetDefinition<FightingStyleDefinition>("Defense");
 
         internal static FightingStyleDefinition Protection { get; } =
             GetDefinition<FightingStyleDefinition>("Protection");

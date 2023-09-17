@@ -5,6 +5,7 @@ ATTENTION:
 - RESPEC is required on Way of Discordance before updating to this version
 - REINSTALL mod from ZIP to leverage new portraits as update button only does DLL
 
+- added Interceptor fighting style to Fighter, Paladin, and Ranger
 - added pre-gen heroes, and monsters portraits to ZIP payload [by Artyoan]
 - fixed Disabling and Improved Disabling Strike incorrect self-targeting
 - fixed Feral Tiefling not offering the Burning Hands spell on action panel
