@@ -89,7 +89,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
                             .Build())
                     .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsBladeDanceValid))
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(IsBladeDanceValid))
             .AddToDB();
 
         // LEVEL 10

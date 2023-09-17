@@ -804,7 +804,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(
+                new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
 
@@ -1606,7 +1606,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);

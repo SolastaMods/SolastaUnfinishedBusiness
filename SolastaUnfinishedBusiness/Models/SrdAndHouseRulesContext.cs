@@ -673,7 +673,7 @@ internal static class SrdAndHouseRulesContext
                && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name;
     }
 
-    private sealed class CanIdentifyOnRest : IPowerUseValidity
+    private sealed class CanIdentifyOnRest : IValidatePowerUse
     {
         private CanIdentifyOnRest()
         {

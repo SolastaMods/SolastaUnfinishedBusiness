@@ -103,7 +103,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle)
             .SetCustomSubFeatures(
-                new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
         BuildArcaneShotPowers(PowerArcaneShot);

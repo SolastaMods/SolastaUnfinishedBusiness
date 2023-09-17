@@ -34,7 +34,7 @@ public static class GameLocationBattleManagerPatcher
             RulesetCharacter caster,
             RulesetUsablePower usablePower)
         {
-            //PATCH: support for `IPowerUseValidity` when trying to react with power 
+            //PATCH: support for `IValidatePowerUse` when trying to react with power 
             if (!caster.CanUsePower(usablePower.PowerDefinition))
             {
                 __result = false;

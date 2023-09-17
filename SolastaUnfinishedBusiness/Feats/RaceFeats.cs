@@ -38,7 +38,7 @@ internal static class RaceFeats
                     .SetGuiPresentation("FeatDragonWings", Category.Feat,
                         Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                     .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-                    .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
+                    .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()

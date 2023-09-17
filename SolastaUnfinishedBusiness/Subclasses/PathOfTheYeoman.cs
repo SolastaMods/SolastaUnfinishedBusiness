@@ -63,7 +63,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(
-                new ValidatorsDefinitionApplication(
+                new ValidateDefinitionApplication(
                     ValidatorsCharacter.HasLongbow,
                     ValidatorsCharacter.DoesNotHaveHeavyArmor,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))

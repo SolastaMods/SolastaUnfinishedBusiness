@@ -7,12 +7,12 @@ namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal delegate bool IsDefinitionValidHandler(BaseDefinition definition, RulesetCharacter character);
 
-internal sealed class ValidatorsDefinitionApplication : IDefinitionApplicationValidator
+internal sealed class ValidateDefinitionApplication : IValidateDefinitionApplication
 {
     private readonly IsDefinitionValidHandler[] _validators;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal ValidatorsDefinitionApplication(params IsCharacterValidHandler[] validators)
+    internal ValidateDefinitionApplication(params IsCharacterValidHandler[] validators)
     {
         _validators = validators.Select(v => new IsDefinitionValidHandler((_, c) => v(c))).ToArray();
     }

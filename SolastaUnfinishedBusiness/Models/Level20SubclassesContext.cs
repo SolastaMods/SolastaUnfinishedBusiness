@@ -184,7 +184,7 @@ internal static class Level20SubclassesContext
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(
                 ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget)
-            .SetCustomSubFeatures(new CustomCodePositionOfStrength())
+            .SetCustomSubFeatures(new CustomLevelUpLogicPositionOfStrength())
             .AddToDB();
 
         var attributeModifierMartialMountaineerPositionOfStrengthAura = FeatureDefinitionAttributeModifierBuilder
@@ -1195,7 +1195,7 @@ internal static class Level20SubclassesContext
     // Position of Strength
     //
 
-    private sealed class CustomCodePositionOfStrength : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicPositionOfStrength : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -1325,7 +1325,7 @@ internal static class Level20SubclassesContext
     // Purity of Light
     //
 
-    private sealed class CustomBehaviorPurityOfLight : IDefinitionCustomCode, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorPurityOfLight : ICustomLevelUpLogic, IPhysicalAttackFinishedByMe
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {

@@ -59,7 +59,7 @@ public sealed class MartialDefender : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield))
+            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
             .AddToDB();
 
         // Shout of Provocation

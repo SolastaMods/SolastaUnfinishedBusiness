@@ -103,7 +103,7 @@ internal static class GambitsBuilders
             .SetFeatures(BuildGambitDieDamage("Reaction"))
             .AddToDB();
 
-        var hasGambitDice = new ValidatorsPowerUse(character => character.GetRemainingPowerCharges(GambitPool) > 0);
+        var hasGambitDice = new ValidatorsValidatePowerUse(character => character.GetRemainingPowerCharges(GambitPool) > 0);
 
         #endregion
 

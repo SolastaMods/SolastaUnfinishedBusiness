@@ -140,7 +140,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         powerForcefulStepFixed.SetCustomSubFeatures(
-            new ValidatorsPowerUse(character =>
+            new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
@@ -152,7 +152,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         powerForcefulStepPoints.SetCustomSubFeatures(
-            new ValidatorsPowerUse(character =>
+            new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 

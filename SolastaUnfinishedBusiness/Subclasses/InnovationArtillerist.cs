@@ -405,7 +405,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
                     ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
 
@@ -494,7 +494,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(powerFortifiedPosition, $"Power{Name}{FortifiedPosition}AuraTiny")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
                     ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
 
@@ -568,7 +568,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     #region REFUND CANNON
 
-    private class CustomBehaviorRefundCannon : IPowerUseValidity, IMagicEffectFinishedByMe
+    private class CustomBehaviorRefundCannon : IValidatePowerUse, IMagicEffectFinishedByMe
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
@@ -917,7 +917,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                    .Any(x => x.sourceGuid == character.guid);
     }
 
-    private class ShowInCombatWhenHasCannon : IPowerUseValidity
+    private class ShowInCombatWhenHasCannon : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
@@ -925,7 +925,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         }
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
+    private class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -1015,7 +1015,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     #region DISMISS / DETONATE CANNON
 
-    private class ShowWhenHasCannon : IPowerUseValidity
+    private class ShowWhenHasCannon : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {

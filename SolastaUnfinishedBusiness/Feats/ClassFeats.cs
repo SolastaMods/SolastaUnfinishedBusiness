@@ -738,7 +738,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IPowerUseValidity
+    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IValidatePowerUse
     {
         private readonly int _slotLevel;
         private readonly int _wildShapeAmount;
@@ -778,7 +778,7 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe, IPowerUseValidity
+    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe, IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
@@ -959,7 +959,7 @@ internal static class ClassFeats
                         .Build())
                 .SetCustomSubFeatures(
                     new ActionFinishedByMeFeatSpiritualFluidityGainSlot(),
-                    new ValidatorsPowerUse(c =>
+                    new ValidatorsValidatePowerUse(c =>
                         c.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > c.UsedChannelDivinity))
                 .AddToDB();
 
@@ -1029,7 +1029,7 @@ internal static class ClassFeats
                         .Build())
                 .SetCustomSubFeatures(
                     new ActionFinishedByMeFeatSpiritualFluidityFromSlot(),
-                    new ValidatorsPowerUse(
+                    new ValidatorsValidatePowerUse(
                         c =>
                         {
                             var remaining = 0;
@@ -1155,7 +1155,7 @@ internal static class ClassFeats
                                 .AddToDB()))
                         .Build())
                 .SetCustomSubFeatures(
-                    new ValidatorsPowerUse(
+                    new ValidatorsValidatePowerUse(
                         c =>
                         {
                             var remaining = 0;

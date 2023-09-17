@@ -1301,7 +1301,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1313,12 +1313,12 @@ public static class RulesetCharacterPatcher
             var currentAction = Global.CurrentAction;
 
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>() ==
                 null;
         }
     }
 
-    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminatePower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1330,7 +1330,7 @@ public static class RulesetCharacterPatcher
             var currentAction = Global.CurrentAction;
 
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>() ==
                 null;
         }
     }

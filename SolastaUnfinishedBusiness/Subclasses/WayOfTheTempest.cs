@@ -107,7 +107,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAllowedActionTypes()
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(
+            .SetCustomSubFeatures(new ValidateDefinitionApplication(
                 ValidatorsCharacter.HasAttacked,
                 ValidatorsCharacter.HasAvailableBonusAction,
                 ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
@@ -206,7 +206,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
-            .SetCustomSubFeatures(ValidatorsPowerUse.InCombat)
+            .SetCustomSubFeatures(ValidatorsValidatePowerUse.InCombat)
             .AddToDB();
 
         powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.impactParticleReference =
@@ -223,7 +223,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .SetParticleEffectParameters(ShockingGrasp)
                     .Build())
             .SetCustomSubFeatures(
-                ValidatorsPowerUse.InCombat,
+                ValidatorsValidatePowerUse.InCombat,
                 new MagicEffectFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm))
             .AddToDB();
 

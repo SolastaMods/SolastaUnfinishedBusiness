@@ -217,7 +217,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddToDB();
 
         powerEssenceTheft.SetCustomSubFeatures(
-            new ValidatorsPowerUse(CanUseEssenceTheft),
+            new ValidatorsValidatePowerUse(CanUseEssenceTheft),
             new CustomBehaviorEssenceTheft(powerEssenceTheft, conditionPossessed));
 
         var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder

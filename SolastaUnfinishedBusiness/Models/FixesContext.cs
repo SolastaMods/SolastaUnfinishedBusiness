@@ -289,7 +289,7 @@ internal static class FixesContext
         //BEHAVIOR: Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped
         //This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`
         ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield));
+            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield));
     }
 
     private static void FixRecklessAttackForReachWeaponsAndPathOfTheYeoman()
@@ -343,7 +343,7 @@ internal static class FixesContext
     private static void FixUncannyDodgeForRoguishDuelist()
     {
         //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
-        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
+        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidateDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }

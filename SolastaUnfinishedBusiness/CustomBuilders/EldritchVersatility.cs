@@ -299,7 +299,7 @@ internal static class EldritchVersatility
         VersatilitySupportRulesetCondition supportCondition)
     {
         var hero = target.GetOriginalHero();
-        var features = hero.GetSubFeaturesByType<ToggleableInvocation>();
+        var features = hero.GetSubFeaturesByType<ToggleableOnInvocation>();
 
         foreach (var feature in features)
         {
@@ -671,7 +671,7 @@ internal static class EldritchVersatility
     }
 
     private sealed class BlastBreakthroughCustom :
-        ToggleableInvocation, IMagicalAttackCastedSpell, IModifyDamageAffinity, IActionExecutionHandled
+        ToggleableOnInvocation, IMagicalAttackCastedSpell, IModifyDamageAffinity, IActionExecutionHandled
     {
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
@@ -974,7 +974,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class BattlefieldConversionRestoreSlot : IMagicEffectFinishedByMe, IPowerUseValidity
+    private sealed class BattlefieldConversionRestoreSlot : IMagicEffectFinishedByMe, IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
@@ -1313,7 +1313,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private class BlastEmpowerCustom : ToggleableInvocation, IActionExecutionHandled, IMagicalAttackCastedSpell
+    private class BlastEmpowerCustom : ToggleableOnInvocation, IActionExecutionHandled, IMagicalAttackCastedSpell
     {
         public BlastEmpowerCustom(string name)
         {
@@ -1426,7 +1426,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private class AddAbilityScoreBonus : IDefinitionCustomCode
+    private class AddAbilityScoreBonus : ICustomLevelUpLogic
     {
         private readonly string _abilityScore;
 
@@ -1449,7 +1449,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private class EldritchVersatilityAdeptCustom : IDefinitionCustomCode
+    private class EldritchVersatilityAdeptCustom : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
         {
@@ -1470,7 +1470,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private abstract class ToggleableInvocation : IInvocationToggled
+    private abstract class ToggleableOnInvocation : IOnInvocationToggled
     {
         public string InvocationName;
         public abstract void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation);

@@ -92,7 +92,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
         powerDiscordanceDamage.SetCustomSubFeatures(
-            new ValidatorsPowerUse(
+            new ValidatorsValidatePowerUse(
                 character => ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
                              && Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
                                  .HasConditionOfType(conditionDiscordance)),
@@ -142,11 +142,11 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         powerChaosChanneling.SetCustomSubFeatures(
-            new ValidatorsPowerUse(character =>
+            new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerChaosChanneling, character).RemainingUses > 0));
 
         powerChaosChannelingPoints.SetCustomSubFeatures(
-            new ValidatorsPowerUse(character =>
+            new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerChaosChanneling, character).RemainingUses == 0));
 
         var featureSetChaosChanneling = FeatureDefinitionFeatureSetBuilder
@@ -223,7 +223,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
         // it also hasn't been removed so far by the Discordance damage power
         powerTurmoil.SetCustomSubFeatures(
-            new ValidatorsPowerUse(character =>
+            new ValidatorsValidatePowerUse(character =>
                 ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
                 && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
                     .HasConditionOfType(conditionHadTurmoil)
@@ -286,7 +286,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 PowerVisibilityModifier.Hidden,
                 new MagicEffectFinishedByMeBurstOfDisharmony(
                     conditionDiscordance, powerDiscordanceDamage, conditionHadTurmoil, powerTurmoil),
-                new ValidatorsPowerUse(
+                new ValidatorsValidatePowerUse(
                     c => c.RemainingKiPoints >= kiNumber &&
                          c.GetClassLevel(CharacterClassDefinitions.Monk) >= minimumClassLevelAllowed));
 

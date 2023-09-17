@@ -176,7 +176,7 @@ internal static class CustomConditionsContext
                             ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasNoneOfConditions(conditionFlightSuspend.Name)))
             .AddToDB();
 
@@ -209,7 +209,7 @@ internal static class CustomConditionsContext
                             ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(conditionFlightSuspend.Name)))
             .AddToDB();
 

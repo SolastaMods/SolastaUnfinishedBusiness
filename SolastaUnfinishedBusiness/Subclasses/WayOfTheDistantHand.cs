@@ -33,7 +33,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 .Create("FeatureWayOfTheDistantHandCombat")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new CustomCodeWayOfTheDistantHandCombat(),
+                    new CustomLevelUpLogicWayOfTheDistantHandCombat(),
                     new RangedAttackInMeleeDisadvantageRemover(
                         ValidatorsWeapon.IsZenArrowAttack,
                         ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
@@ -340,7 +340,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
             .SetCustomSubFeatures(
                 ValidatorsRestrictedContext.IsZenArrowAttack,
-                new CustomCodeUnseenEyes())
+                new CustomLevelUpLogicUnseenEyes())
             .AddToDB();
 
         //
@@ -382,7 +382,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomCodeWayOfTheDistantHandCombat : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicWayOfTheDistantHandCombat : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -411,7 +411,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodeUnseenEyes : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicUnseenEyes : ICustomLevelUpLogic
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {

@@ -106,7 +106,7 @@ internal static class RaceFairyBuilder
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFairyWings))
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(IsFlightValid,
                 ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionFairyWings.Name)))
             .AddToDB();
 
@@ -126,7 +126,7 @@ internal static class RaceFairyBuilder
                             ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(
+                new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, conditionFairyWings.Name)))
             .AddToDB();
 

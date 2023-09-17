@@ -206,7 +206,7 @@ public static class GameLocationCharacterPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             return instructions
-                //PATCH: Support for `IDefinitionApplicationValidator`
+                //PATCH: Support for `IValidateDefinitionApplication`
                 .ReplaceEnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                     "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
                     FeatureApplicationValidation.EnumerateActionPerformanceProviders)

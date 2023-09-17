@@ -110,7 +110,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new CustomCodeAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
+            .SetCustomSubFeatures(new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
             .AddToDB();
 
         var additionalDamageStrikeTheVitalsD10 = FeatureDefinitionAdditionalDamageBuilder
@@ -121,7 +121,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new CustomCodeAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
+            .SetCustomSubFeatures(new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
             .AddToDB();
 
         // LEVEL 11
@@ -205,11 +205,11 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomCodeAdditionalDamageStrikeTheVitals : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicAdditionalDamageStrikeTheVitals : ICustomLevelUpLogic
     {
         private readonly FeatureDefinitionAdditionalDamage _additionalDamageToRemove;
 
-        public CustomCodeAdditionalDamageStrikeTheVitals(FeatureDefinitionAdditionalDamage additionalDamageToRemove)
+        public CustomLevelUpLogicAdditionalDamageStrikeTheVitals(FeatureDefinitionAdditionalDamage additionalDamageToRemove)
         {
             _additionalDamageToRemove = additionalDamageToRemove;
         }

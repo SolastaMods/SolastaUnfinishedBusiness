@@ -88,7 +88,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
 
     private static bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
-        var powerValidators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
+        var powerValidators = power.GetAllSubFeaturesOfType<IValidatePowerUse>();
 
         if (powerValidators.Any(v => !v.CanUsePower(character, power)))
         {

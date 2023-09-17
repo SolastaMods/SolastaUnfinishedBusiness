@@ -205,7 +205,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);

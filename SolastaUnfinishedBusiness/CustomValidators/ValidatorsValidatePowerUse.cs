@@ -7,22 +7,22 @@ namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal delegate bool IsPowerUseValidHandler(RulesetCharacter character, FeatureDefinitionPower power);
 
-internal sealed class ValidatorsPowerUse : IPowerUseValidity
+internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 {
-    public static readonly IPowerUseValidity NotInCombat = new ValidatorsPowerUse(_ => Gui.Battle == null);
+    public static readonly IValidatePowerUse NotInCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle == null);
 
-    public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ => Gui.Battle != null);
+    public static readonly IValidatePowerUse InCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle != null);
 
     private readonly IsPowerUseValidHandler[] _validators;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal ValidatorsPowerUse(params IsCharacterValidHandler[] validators)
+    internal ValidatorsValidatePowerUse(params IsCharacterValidHandler[] validators)
     {
         _validators = validators.Select(v => new IsPowerUseValidHandler((character, _) => v(character))).ToArray();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private ValidatorsPowerUse(params IsPowerUseValidHandler[] validators)
+    private ValidatorsValidatePowerUse(params IsPowerUseValidHandler[] validators)
     {
         _validators = validators;
     }
@@ -34,9 +34,9 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static IPowerUseValidity UsedLessTimesThan(int limit)
+    internal static IValidatePowerUse UsedLessTimesThan(int limit)
     {
-        return new ValidatorsPowerUse((character, power) =>
+        return new ValidatorsValidatePowerUse((character, power) =>
         {
             var user = GameLocationCharacter.GetFromActor(character);
 
@@ -51,9 +51,9 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static IPowerUseValidity HasNoneOfConditions(params string[] types)
+    internal static IValidatePowerUse HasNoneOfConditions(params string[] types)
     {
-        return new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(types));
+        return new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(types));
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

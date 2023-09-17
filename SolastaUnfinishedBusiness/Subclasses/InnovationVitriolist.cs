@@ -387,7 +387,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
     // Refund Mixture
     //
 
-    private sealed class CustomBehaviorRefundMixture : IPowerUseValidity, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorRefundMixture : IValidatePowerUse, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerMixture;
 

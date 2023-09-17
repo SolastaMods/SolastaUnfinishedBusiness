@@ -23,7 +23,7 @@ internal static class FeatureApplicationValidation
 
         features.RemoveAll(f =>
         {
-            var validator = f.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+            var validator = f.GetFirstSubFeatureOfType<IValidateDefinitionApplication>();
 
             return validator != null && !validator.IsValid(f, character);
         });
@@ -74,7 +74,7 @@ internal static class FeatureApplicationValidation
             return null;
         }
 
-        var validator = mod.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+        var validator = mod.GetFirstSubFeatureOfType<IValidateDefinitionApplication>();
 
         return validator == null || validator.IsValid(feature, character)
             ? mod

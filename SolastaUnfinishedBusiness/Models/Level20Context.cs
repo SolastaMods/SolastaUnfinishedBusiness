@@ -132,9 +132,9 @@ internal static class Level20Context
             .AddToDB();
 
         var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
-            .Create("CustomCodeBarbarianPrimalChampion")
+            .Create("CustomLevelUpLogicBarbarianPrimalChampion")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomCodeBarbarianPrimalChampion())
+            .SetCustomSubFeatures(new CustomLevelUpLogicBarbarianPrimalChampion())
             .AddToDB();
 
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -854,7 +854,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class CustomCodeBarbarianPrimalChampion : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicBarbarianPrimalChampion : ICustomLevelUpLogic
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {

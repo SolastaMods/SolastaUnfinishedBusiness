@@ -232,7 +232,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
             .AddToDB();
 
         var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder

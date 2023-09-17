@@ -210,11 +210,11 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddToDB();
 
         powerTouchOfDarknessFixed.SetCustomSubFeatures(
-            new ValidatorsPowerUse(
+            new ValidatorsValidatePowerUse(
                 character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
 
         powerTouchOfDarknessPoints.SetCustomSubFeatures(
-            new ValidatorsPowerUse(
+            new ValidatorsValidatePowerUse(
                 character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
 
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder

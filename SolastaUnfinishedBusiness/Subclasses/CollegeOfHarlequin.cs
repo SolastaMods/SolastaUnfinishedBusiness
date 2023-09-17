@@ -87,7 +87,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create(PowerCombatInspirationName)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(CombatInspirationCondition))
+            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(CombatInspirationCondition))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
             .SetEffectDescription(
                 EffectDescriptionBuilder

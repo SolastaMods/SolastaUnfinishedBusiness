@@ -107,7 +107,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
             .SetCustomSubFeatures(
-                new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerHailOfBlades)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerHailOfBlades)))
             .AddToDB();
 
         var featureSetHailOfBlades = FeatureDefinitionFeatureSetBuilder

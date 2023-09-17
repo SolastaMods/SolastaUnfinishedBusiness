@@ -447,7 +447,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsPowerUse.NotInCombat)
+                ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -619,7 +619,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         return powerWildMasterSpiritBeastCommand;
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
+    private class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -707,7 +707,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         }
     }
 
-    private class ShowInCombatWhenHasSpiritBeast : IPowerUseValidity
+    private class ShowInCombatWhenHasSpiritBeast : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {

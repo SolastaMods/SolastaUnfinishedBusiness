@@ -96,7 +96,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration))
                     .Build())
             .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
-                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
+                ValidatorsValidatePowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder

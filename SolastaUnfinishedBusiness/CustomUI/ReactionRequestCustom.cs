@@ -2,6 +2,11 @@
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
+public interface IReactionRequestWithResource
+{
+    ICustomReactionResource Resource { get; }
+}
+
 public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResource
 {
     private readonly string _type;

@@ -247,7 +247,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
         // only want the casting SFX
@@ -286,7 +286,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalIceLance),
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
         // only want the casting SFX
@@ -331,7 +331,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
         // only want the casting SFX

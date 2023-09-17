@@ -159,7 +159,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         const string SAVE = AttributeDefinitions.Dexterity;
         const DieType DIE_TYPE = DieType.D8;
         var validator =
-            new ValidatorsPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
+            new ValidatorsValidatePowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = Sprites.GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
@@ -533,7 +533,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         return toggle;
     }
 
-    private static (FeatureDefinitionPower, IPowerUseValidity) MakeElementToggleMarker(string damage)
+    private static (FeatureDefinitionPower, IValidatePowerUse) MakeElementToggleMarker(string damage)
     {
         var marker = ConditionDefinitionBuilder
             .Create($"ConditionInnovationAlchemyMarker{damage}")
@@ -562,7 +562,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
 
-        return (power, new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker.name)));
+        return (power, new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(marker.name)));
     }
 
     private static FeatureDefinitionPower MakeBombFireDamageToggle()
@@ -618,7 +618,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         DieType dieType,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
-        IPowerUseValidity validator,
+        IValidatePowerUse validator,
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombPrecise";
@@ -661,7 +661,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
-        IPowerUseValidity validator,
+        IValidatePowerUse validator,
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
@@ -708,7 +708,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
-        IPowerUseValidity validator,
+        IValidatePowerUse validator,
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombSplash";
@@ -822,7 +822,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorRefundAlchemyPool : IPowerUseValidity, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorRefundAlchemyPool : IValidatePowerUse, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerAlchemyPool;
         private readonly int _slotLevel;

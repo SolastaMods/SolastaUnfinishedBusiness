@@ -407,7 +407,7 @@ public sealed class RoguishSlayer : AbstractSubclass
     }
 
     private sealed class CustomBehaviorChainOfExecution :
-        IOnConditionAddedOrRemoved, IOnReducedToZeroHpByMe, IDefinitionCustomCode
+        IOnConditionAddedOrRemoved, IOnReducedToZeroHpByMe, ICustomLevelUpLogic
     {
         private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
         private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;

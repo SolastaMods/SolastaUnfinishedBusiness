@@ -132,7 +132,7 @@ internal static class RangedCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);
@@ -257,7 +257,7 @@ internal static class RangedCombatFeats
                                     .Build())
                             .Build())
                     .SetCustomSubFeatures(
-                        new ValidatorsPowerUse(character =>
+                        new ValidatorsValidatePowerUse(character =>
                         {
                             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 

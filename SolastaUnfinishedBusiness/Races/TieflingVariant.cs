@@ -125,7 +125,7 @@ internal static class RaceTieflingBuilder
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTieflingFeralWings))
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(IsFlightValid,
                 ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionTieflingFeralWings.Name)))
             .AddToDB();
 
@@ -145,7 +145,7 @@ internal static class RaceTieflingBuilder
                             ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
                     conditionTieflingFeralWings.Name)))
             .AddToDB();
 

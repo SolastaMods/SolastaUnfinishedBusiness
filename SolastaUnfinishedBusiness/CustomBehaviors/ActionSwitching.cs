@@ -361,7 +361,7 @@ public static class ActionSwitching
 
         features.RemoveAll(x =>
         {
-            var validator = x.feature.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+            var validator = x.feature.GetFirstSubFeatureOfType<IValidateDefinitionApplication>();
 
             return validator != null && !validator.IsValid(x.feature, character.RulesetCharacter);
         });

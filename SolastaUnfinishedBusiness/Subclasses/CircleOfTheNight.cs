@@ -23,7 +23,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
 {
     internal const string Name = "CircleOfTheNight";
 
-    private static readonly ValidatorsPowerUse CanUseCombatHealing = new(
+    private static readonly ValidatorsValidatePowerUse CanUseCombatHealing = new(
         ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
 
     public CircleOfTheNight()
@@ -384,7 +384,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
-    private sealed class ActionFinishedByMeWildShape : IMagicEffectFinishedByMe, IPreventRemoveConcentrationWithPowerUse
+    private sealed class ActionFinishedByMeWildShape : IMagicEffectFinishedByMe, IPreventRemoveConcentrationOnPowerUse
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
