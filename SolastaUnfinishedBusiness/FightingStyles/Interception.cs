@@ -13,22 +13,22 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFight
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
-internal sealed class Interceptor : AbstractFightingStyle
+internal sealed class Interception : AbstractFightingStyle
 {
-    private const string InterceptorName = "Interceptor";
+    private const string InterceptionName = "Interception";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create(InterceptorName)
+        .Create(InterceptionName)
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Defense)
         .SetFeatures(
             FeatureDefinitionPowerBuilder
-                .Create("PowerInterceptor")
-                .SetGuiPresentation(InterceptorName, Category.FightingStyle)
+                .Create("PowerInterception")
+                .SetGuiPresentation(InterceptionName, Category.FightingStyle)
                 .SetUsesFixed(ActivationTime.Reaction)
                 .SetReactionContext(ExtraReactionContext.Custom)
-                .SetCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyInterceptor(
+                .SetCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyInterception(
                     ConditionDefinitionBuilder
-                        .Create("ConditionInterceptor")
+                        .Create("ConditionInterception")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetSpecialDuration()
@@ -36,11 +36,11 @@ internal sealed class Interceptor : AbstractFightingStyle
                         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
                         .AddFeatures(
                             FeatureDefinitionReduceDamageBuilder
-                                .Create("ReduceDamageInterceptor")
-                                .SetGuiPresentation("Interceptor", Category.FightingStyle)
+                                .Create("ReduceDamageInterception")
+                                .SetGuiPresentation(InterceptionName, Category.FightingStyle)
                                 .SetAlwaysActiveReducedDamage(
                                     (_, defender) => defender.RulesetCharacter.AllConditions.FirstOrDefault(
-                                        x => x.ConditionDefinition.Name == "ConditionInterceptor")!.Amount)
+                                        x => x.ConditionDefinition.Name == "ConditionInterception")!.Amount)
                                 .AddToDB())
                         .AddToDB()))
                 .AddToDB())
@@ -51,11 +51,11 @@ internal sealed class Interceptor : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterceptor : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception : IAttackBeforeHitPossibleOnMeOrAlly
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public AttackBeforeHitPossibleOnMeOrAllyInterceptor(ConditionDefinition conditionDefinition)
+        public AttackBeforeHitPossibleOnMeOrAllyInterception(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
@@ -87,7 +87,8 @@ internal sealed class Interceptor : AbstractFightingStyle
 
             var unitCharacter = featureOwner.RulesetCharacter;
 
-            if (!unitCharacter.IsWearingShield() && !ValidatorsCharacter.HasMeleeWeaponInMainHand(unitCharacter))
+            if (ValidatorsWeapon.IsUnarmed(unitCharacter.GetMainWeapon()?.ItemDefinition, null)
+                && ValidatorsWeapon.IsUnarmed(unitCharacter.GetOffhandWeapon()?.ItemDefinition, null))
             {
                 yield break;
             }
@@ -103,10 +104,10 @@ internal sealed class Interceptor : AbstractFightingStyle
                 new CharacterActionParams(featureOwner, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter2 = Gui.Format(
-                        "Reaction/&CustomReactionInterceptorDescription", defender.Name, attacker.Name)
+                        "Reaction/&CustomReactionInterceptionDescription", defender.Name, attacker.Name)
                 };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom($"{InterceptorName}", reactionParams);
+            var reactionRequest = new ReactionRequestCustom($"{InterceptionName}", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
