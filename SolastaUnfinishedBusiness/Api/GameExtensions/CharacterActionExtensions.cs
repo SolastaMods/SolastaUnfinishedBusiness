@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -61,5 +62,23 @@ internal static class CharacterActionExtensions
         return magicEffect == null
             ? Gui.Localize("Action/&AttackTitle")
             : magicEffect.SourceDefinition.FormatTitle();
+    }
+
+    internal static bool ActionShouldKeepConcentration(this CharacterAction action)
+    {
+        var isProtectedUsePower = action is CharacterActionUsePower characterActionUsePower
+                                  && characterActionUsePower.activePower.PowerDefinition
+                                      .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
+
+        if (isProtectedUsePower)
+        {
+            return true;
+        }
+        
+        var isProtectedSpendPower = action is CharacterActionSpendPower characterActionSpendPower
+                                    && characterActionSpendPower.activePower.PowerDefinition
+                                        .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
+
+        return isProtectedSpendPower;
     }
 }

@@ -118,9 +118,7 @@ public static class CharacterActionCastSpellPatcher
         {
             var currentAction = Global.CurrentAction;
 
-            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>() ==
-                null;
+            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 
