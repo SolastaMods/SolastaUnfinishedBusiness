@@ -176,12 +176,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetSpecialInterruptions(
                             ConditionInterruption.BattleEnd,
                             ConditionInterruption.AnyBattleTurnEnd)
-                        .SetFeatures(
-                            FeatureDefinitionBuilder
-                                .Create("FeatureWayOfTheDistantHandFlurry")
-                                .SetGuiPresentationNoContent(true)
-                                .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
-                                .AddToDB())
+                        .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
                         .AddToDB()))
             .SetShowCasting(false)
             .AddToDB();

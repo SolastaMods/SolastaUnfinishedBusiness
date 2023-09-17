@@ -52,12 +52,6 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
         // Verdancy
 
-        var featureVerdancyTarget = FeatureDefinitionBuilder
-            .Create($"Feature{Name}VerdancyTarget")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CharacterTurnStartListenerVerdancy())
-            .AddToDB();
-
         var conditionVerdancy = ConditionDefinitionBuilder
             .Create(ConditionVerdancy)
             .SetGuiPresentation(Category.Condition, ConditionChildOfDarkness_DimLight)
@@ -66,8 +60,9 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .SetCustomSubFeatures(new OnConditionAddedOrRemovedVerdancy())
-            .AddFeatures(featureVerdancyTarget)
+            .SetCustomSubFeatures(
+                new OnConditionAddedOrRemovedVerdancy(),
+                new CharacterTurnStartListenerVerdancy())
             .AddToDB();
 
         var conditionVerdancy14 = ConditionDefinitionBuilder
@@ -85,21 +80,15 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
         // Seed of Life
 
-        var featureSeedOfLife = FeatureDefinitionBuilder
-            .Create($"Feature{Name}SeedOfLife")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CharacterTurnStartListenerSeedOfLife())
-            .AddToDB();
-
         var conditionSeedOfLife = ConditionDefinitionBuilder
             .Create(ConditionSeedOfLife)
             .SetGuiPresentation(Category.Condition, ConditionBlessed)
             .SetPossessive()
             .CopyParticleReferences(ConditionGuided)
-            .AddFeatures(featureSeedOfLife)
+            .SetCustomSubFeatures(
+                new OnConditionAddedOrRemovedSeedOfLife(),
+                new CharacterTurnStartListenerSeedOfLife())
             .AddToDB();
-
-        conditionSeedOfLife.SetCustomSubFeatures(new OnConditionAddedOrRemovedSeedOfLife());
 
         var powerSeedOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SeedOfLife")

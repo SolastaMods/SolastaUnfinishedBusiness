@@ -1,11 +1,9 @@
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Оплот
-Condition/&ConditionPathOfTheYeomanBulwarkTitle=Оплот
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=Когда вы в ярости, не носите тяжёлых доспехов и используете длинный лук, вы можете совершить Толчок бонусным действием.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Ошеломляющий удар
 Feature/&CombatAffinityPathOfTheYeomanBulwarkDescription=Противники совершают с помехой броски атаки дальнобойным оружием по вам.
 Feature/&CombatAffinityPathOfTheYeomanBulwarkTitle=Оплот
-Feature/&FeaturePathOfTheYeomanBulwarkDescription=Враги, находящиеся рядом с вами, не накладывают помеху на ваши атаки с помощью длинного лука, вы также можете использовать свою реакцию, чтобы совершить атаку по возможности длинным луком против врага, который движется в пределах 5 футов от вас.
-Feature/&FeaturePathOfTheYeomanBulwarkTitle=Оплот
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Враги, находящиеся рядом с вами, не накладывают помеху на ваши атаки с помощью длинного лука, вы также можете использовать свою реакцию, чтобы совершить атаку по возможности длинным луком против врага, который движется в пределах 5 футов от вас.
+Condition/&ConditionPathOfTheYeomanBulwarkTitle=Оплот
 Feature/&FeaturePathOfTheYeomanKeenEyeDescription=Безрассудная атака предоставляет преимущество при атаках длинным луком с модификатором Силы. Когда вы получаете Сильный критически удар, он также применяется к вашим силовым атакам, совершённым с помощью длинного лука.
 Feature/&FeaturePathOfTheYeomanKeenEyeTitle=Острое зрение
 Feature/&FeaturePathOfTheYeomanMightyShotDescription=Увеличьте кость урона длинного лука с d8 до d12. Когда вы в ярости и не носите тяжёлые доспехи, если вы поражаете противника атакой из длинного лука, противники в радиусе 15 футов от цели должны совершить спасбросок Ловкости или получить урон звуком, равный вашему урону ярости плюс ваш модификатор Силы.

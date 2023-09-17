@@ -13,8 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:AttributeModifierFeatRevenantGreatSwordArmorClass:01a02766-f2c4-53a4-a33a-4fc3db3988d3",
-    "Definition:ModifyAttackModeFeatRevenantGreatSword:3e71c1b7-4ab2-526c-acec-a9a5f1df99fd"
+    "Definition:AttributeModifierFeatRevenantGreatSwordArmorClass:01a02766-f2c4-53a4-a33a-4fc3db3988d3"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

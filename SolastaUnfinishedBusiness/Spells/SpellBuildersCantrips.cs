@@ -676,17 +676,11 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        var featureSheathed = FeatureDefinitionBuilder
-            .Create("FeatureBoomingBladeSheathed")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
-            .AddToDB();
-
         var conditionBoomingBladeSheathed = ConditionDefinitionBuilder
             .Create(ConditionShine, "ConditionBoomingBladeSheathed")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetFeatures(featureSheathed)
+            .SetCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
             .AddToDB();
 
         var conditionBoomingBlade = ConditionDefinitionBuilder

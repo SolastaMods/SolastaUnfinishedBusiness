@@ -89,19 +89,13 @@ internal static class SubraceGrayDwarfBuilder
             .Create(SavingThrowAffinityConditionRaging, "SavingThrowAffinityGrayDwarfStoneStrength")
             .AddToDB();
 
-        var additionalDamageGrayDwarfStoneStrength = FeatureDefinitionBuilder
-            .Create("AdditionalDamageGrayDwarfStoneStrength")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
-            .AddToDB();
-
         var conditionGrayDwarfStoneStrength = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionGrayDwarfStoneStrength")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStoneResilience)
             .SetFeatures(
                 abilityCheckAffinityGrayDwarfStoneStrength,
-                savingThrowAffinityGrayDwarfStoneStrength,
-                additionalDamageGrayDwarfStoneStrength)
+                savingThrowAffinityGrayDwarfStoneStrength)
+            .SetCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
             .AddToDB();
 
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder

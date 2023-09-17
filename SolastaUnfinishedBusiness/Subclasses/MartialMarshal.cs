@@ -87,23 +87,17 @@ public sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
-        var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
-            .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
-            .AddToDB();
-
         return FeatureDefinitionFeatureSetBuilder
             .Create(FeatureSetMarshalKnowYourEnemyName)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                onComputeAttackModifierMarshalKnowYourEnemy,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageMarshalKnowYourEnemy")
                     .SetGuiPresentationNoContent()
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetNotificationTag("KnowYourEnemy")
+                    .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
                     .AddToDB())
             .AddToDB();
     }

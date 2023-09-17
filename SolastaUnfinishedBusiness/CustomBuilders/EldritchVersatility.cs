@@ -140,8 +140,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new BlastBreakthroughCustom($"Invocation{Name}{name}"))
+            .SetCustomSubFeatures(new BlastBreakthroughCustom($"Invocation{Name}{name}"))
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Strength, featureOrPower);
 
@@ -154,8 +153,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new BattlefieldShorthandCopyMagicalAttackCastedSpells())
+            .SetCustomSubFeatures(new BattlefieldShorthandCopyMagicalAttackCastedSpells())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
 
@@ -184,8 +182,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new EldritchAegisTwistHit())
+            .SetCustomSubFeatures(new EldritchAegisTwistHit())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
 
@@ -194,8 +191,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new EldritchWardAidSave())
+            .SetCustomSubFeatures(new EldritchWardAidSave())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
 
@@ -679,12 +675,7 @@ internal static class EldritchVersatility
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
                 .SetGuiPresentationNoContent(true)
-                .AddFeatures(
-                    FeatureDefinitionBuilder
-                        .Create("FeatureBlastBreakthroughRemoveImmunity")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
-                        .AddToDB())
+                .SetCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
                 .AddToDB();
 
         private static readonly FeatureDefinitionMagicAffinity FeatureBlastBreakthroughNoPenalty =

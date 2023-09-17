@@ -51,17 +51,11 @@ public sealed class OathOfAltruism : AbstractSubclass
             .SetCustomSubFeatures(DefensiveStrikeMarker.Mark)
             .AddToDB();
 
-        var featureAuraOfTheGuardian = FeatureDefinitionBuilder
-            .Create("FeatureAuraOfTheGuardian")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianConditionMarker)
-            .AddToDB();
-
         var conditionAuraOfTheGuardian = ConditionDefinitionBuilder
             .Create($"Condition{Name}AuraOfTheGuardian")
             .SetGuiPresentation(Category.Condition, ConditionShielded)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(featureAuraOfTheGuardian)
+            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianConditionMarker)
             .AddToDB();
 
         var powerAuraOfTheGuardian = FeatureDefinitionPowerBuilder

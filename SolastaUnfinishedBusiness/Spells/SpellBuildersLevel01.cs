@@ -779,17 +779,11 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
-        var featureSanctuary = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new AttackBeforeHitConfirmedOnMeSanctuary(
-                    conditionSanctuary,
-                    conditionSanctuaryReduceDamage,
-                    conditionSanctuaryDamageResistance))
-            .AddToDB();
-
-        conditionSanctuary.Features.Add(featureSanctuary);
+        conditionSanctuary.SetCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeSanctuary(
+                conditionSanctuary,
+                conditionSanctuaryReduceDamage,
+                conditionSanctuaryDamageResistance));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1101,20 +1095,15 @@ internal static partial class SpellBuilders
     {
         const string NAME = "GiftOfAlacrity";
 
-        var featureGiftOfAlacrity = FeatureDefinitionBuilder
-            .Create("FeatureGiftOfAlacrity")
-            .SetGuiPresentation("ConditionGiftOfAlacrity", Category.Condition)
-            .AddToDB();
-
-        featureGiftOfAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(featureGiftOfAlacrity));
-
         var conditionAlacrity = ConditionDefinitionBuilder
             .Create(ConditionBlessed, "ConditionGiftOfAlacrity")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetFeatures(featureGiftOfAlacrity)
+            .SetFeatures()
             .AddToDB();
 
+        conditionAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(conditionAlacrity));
+        
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, CalmEmotions)
@@ -1142,9 +1131,9 @@ internal static partial class SpellBuilders
 
     private sealed class InitiativeEndListenerGiftOfAlacrity : IInitiativeEndListener
     {
-        private readonly FeatureDefinition _featureDefinition;
+        private readonly BaseDefinition _featureDefinition;
 
-        public InitiativeEndListenerGiftOfAlacrity(FeatureDefinition featureDefinition)
+        public InitiativeEndListenerGiftOfAlacrity(BaseDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

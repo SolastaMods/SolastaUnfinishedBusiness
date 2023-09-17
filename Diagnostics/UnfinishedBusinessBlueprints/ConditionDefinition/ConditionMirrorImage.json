@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:FeatureMirrorImageCounter:c6a1910a-77ec-5d6d-bb14-a6641a20298f"
-  ],
+  "features": [],
   "allowMultipleInstances": true,
   "silentWhenAdded": true,
   "silentWhenRemoved": false,

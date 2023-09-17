@@ -232,13 +232,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create($"Feature{NAME}Reach")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new IncreaseWeaponReach(1, validWeapon,
-                        ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
-                    .AddToDB())
+            .SetCustomSubFeatures(
+                new IncreaseWeaponReach(1, validWeapon, ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
             .AddToDB();
 
         var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
@@ -323,19 +318,14 @@ internal static class MeleeCombatFeats
             .Create($"Condition{NAME}Charge")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create($"Feature{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
-                    {
-                        AllowRange = false,
-                        AccountAoOImmunity = true,
-                        WeaponValidator = validWeapon,
-                        BeforeReaction = AddCondition,
-                        AfterReaction = RemoveCondition
-                    })
-                    .AddToDB())
+            .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
+            {
+                AllowRange = false,
+                AccountAoOImmunity = true,
+                WeaponValidator = validWeapon,
+                BeforeReaction = AddCondition,
+                AfterReaction = RemoveCondition
+            })
             .AddToDB();
 
         var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
@@ -392,11 +382,6 @@ internal static class MeleeCombatFeats
             .SetModifier(AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
-            .AddToDB();
-
-        var modifyAttackModeFinesse = FeatureDefinitionBuilder
-            .Create($"ModifyAttackMode{Name}Finesse")
-            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
             .AddToDB();
@@ -406,8 +391,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Misaye,
-                attributeModifierArmorClass,
-                modifyAttackModeFinesse)
+                attributeModifierArmorClass)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -636,8 +620,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation("FeatAlwaysReady", Category.Feat)
             .AddToDB();
 
-        featureAlwaysReady.SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady,
-            featureAlwaysReady));
+        featureAlwaysReady.SetCustomSubFeatures(
+            new CustomBehaviorAlwaysReady(conditionAlwaysReady, featureAlwaysReady));
 
         return FeatDefinitionBuilder
             .Create("FeatAlwaysReady")
@@ -779,11 +763,6 @@ internal static class MeleeCombatFeats
             Sprites.GetSprite(nameof(Resources.PowerAttackConcentrationIcon), Resources.PowerAttackConcentrationIcon,
                 64, 64));
 
-        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
-            .Create("ModifyAttackModeForWeaponFeatCleavingAttack")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
             .SetGuiPresentation(Category.Condition)
@@ -806,7 +785,6 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}")
             .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerCleavingAttack = FeatureDefinitionPowerBuilder
@@ -865,7 +843,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffCleavingAttack;
-        modifyAttackModeForWeapon
+        conditionCleavingAttack
             .SetCustomSubFeatures(
                 concentrationProvider,
                 new ModifyWeaponAttackModeFeatCleavingAttack(featCleavingAttack));
@@ -1150,19 +1128,13 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
 
-        var featureDevastatingStrikes = FeatureDefinitionBuilder
-            .Create("FeatureDevastatingStrikes")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
-            .AddToDB();
-
         var conditionDevastatingStrikes = ConditionDefinitionBuilder
             .Create("ConditionDevastatingStrikes")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(featureDevastatingStrikes)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
             .AddToDB();
 
         var feat = FeatDefinitionBuilder
@@ -1611,16 +1583,10 @@ internal static class MeleeCombatFeats
             "Tooltip/&PowerAttackConcentration",
             Sprites.GetSprite("PowerAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
 
-        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
-            .Create($"ModifyAttackModeForWeapon{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionPowerAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerAttack = FeatureDefinitionPowerBuilder
@@ -1673,8 +1639,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffPowerAttack;
-        modifyAttackModeForWeapon
-            .SetCustomSubFeatures(
+        conditionPowerAttack.SetCustomSubFeatures(
                 concentrationProvider,
                 new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
 

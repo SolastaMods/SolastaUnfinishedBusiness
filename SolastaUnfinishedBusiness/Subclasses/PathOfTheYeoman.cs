@@ -95,14 +95,6 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetBaseSpeedMultiplicativeModifier(0)
             .AddToDB();
 
-        var featureBulwark = FeatureDefinitionBuilder
-            .Create($"Feature{Name}Bulwark")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
-                new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
-            .AddToDB();
-
         var combatAffinityBulwark = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}Bulwark")
             .SetGuiPresentation(Category.Feature)
@@ -116,9 +108,11 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetPossessive()
             .AddFeatures(
                 movementAffinityBulwark,
-                featureBulwark,
                 combatAffinityBulwark)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .SetCustomSubFeatures(
+                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
+                new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
 
         var powerBulwark = FeatureDefinitionPowerBuilder

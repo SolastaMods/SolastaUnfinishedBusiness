@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityRogueDeviousStrikeDazed:4acf5836-6199-5c3c-8686-7d2b1ba9858f",
-    "Definition:FeatureRogueDeviousStrikeDazed:345dbda1-bee1-5417-8a7a-f15748fc7d72"
+    "Definition:ActionAffinityRogueDeviousStrikeDazed:4acf5836-6199-5c3c-8686-7d2b1ba9858f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

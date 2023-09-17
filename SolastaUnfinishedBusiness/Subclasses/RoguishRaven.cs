@@ -142,12 +142,7 @@ public sealed class RoguishRaven : AbstractSubclass
             .Create("ConditionRavenHeartSeekingShotTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("TriggerFeatureRavenHeartSeekingShot")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(concentrationProvider)
-                    .AddToDB())
+            .SetCustomSubFeatures(concentrationProvider)
             .AddToDB();
 
         var validateHasTwoHandedRangedWeapon =

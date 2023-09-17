@@ -144,11 +144,6 @@ public sealed class OathOfHatred : AbstractSubclass
         // Level 20
         //
 
-        var featureHatredArdentHate = FeatureDefinitionBuilder
-            .Create("FeatureHatredArdentHate")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var savingThrowAffinityHatredArdentHate = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityHatredArdentHate")
             .SetGuiPresentation("PowerHatredArdentHate", Category.Feature)
@@ -165,7 +160,7 @@ public sealed class OathOfHatred : AbstractSubclass
             .Create("ConditionHatredArdentHate")
             .SetGuiPresentation(Category.Condition, ConditionDispellingEvilAndGood)
             .SetPossessive()
-            .AddFeatures(featureHatredArdentHate, savingThrowAffinityHatredArdentHate)
+            .AddFeatures(savingThrowAffinityHatredArdentHate)
             .AddToDB();
 
         var powerHatredArdentHate = FeatureDefinitionPowerBuilder
@@ -187,7 +182,7 @@ public sealed class OathOfHatred : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        featureHatredArdentHate.SetCustomSubFeatures(new CustomBehaviorArdentHate(powerHatredArdentHate));
+        conditionHatredArdentHate.SetCustomSubFeatures(new CustomBehaviorArdentHate(powerHatredArdentHate));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("OathOfHatred")

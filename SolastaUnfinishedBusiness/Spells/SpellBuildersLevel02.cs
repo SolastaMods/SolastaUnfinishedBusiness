@@ -133,12 +133,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .CopyParticleReferences(ConditionBlurred)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("FeatureMirrorImage")
-                    .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
-                    .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
-                    .AddToDB())
+            .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
             .AddToDB();
 
         var spell = MirrorImage;
@@ -408,21 +403,15 @@ internal static partial class SpellBuilders
         itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(5, 2));
         itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(7, 3));
 
-        var featureAdvantage = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell)
-            .AddToDB();
-
-        featureAdvantage.SetCustomSubFeatures(
-            new ModifyAttackActionModifierShadowBlade(itemShadowBlade, featureAdvantage));
-
         var conditionShadowBlade = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(featureAdvantage)
             .AddToDB();
 
+        conditionShadowBlade.SetCustomSubFeatures(
+            new ModifyAttackActionModifierShadowBlade(itemShadowBlade, conditionShadowBlade));
+        
         spell.EffectDescription.EffectForms.Add(
             EffectFormBuilder
                 .Create()
@@ -451,10 +440,10 @@ internal static partial class SpellBuilders
 
     private sealed class ModifyAttackActionModifierShadowBlade : IModifyAttackActionModifier
     {
-        private readonly FeatureDefinition _featureAdvantage;
+        private readonly BaseDefinition _featureAdvantage;
         private readonly ItemDefinition _itemShadowBlade;
 
-        public ModifyAttackActionModifierShadowBlade(ItemDefinition itemShadowBlade, FeatureDefinition featureAdvantage)
+        public ModifyAttackActionModifierShadowBlade(ItemDefinition itemShadowBlade, BaseDefinition featureAdvantage)
         {
             _itemShadowBlade = itemShadowBlade;
             _featureAdvantage = featureAdvantage;
@@ -484,7 +473,7 @@ internal static partial class SpellBuilders
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureAdvantage.Name, _featureAdvantage));
+                new TrendInfo(1, FeatureSourceType.Condition, _featureAdvantage.Name, _featureAdvantage));
         }
     }
 

@@ -216,17 +216,11 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetFeatures(additionalActionElderChampion)
             .AddToDB();
 
-        var featureElderChampion = FeatureDefinitionBuilder
-            .Create($"Feature{Name}ElderChampion")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
-            .AddToDB();
-
         var conditionElderChampion = ConditionDefinitionBuilder
             .Create($"Condition{Name}ElderChampion")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
             .SetPossessive()
-            .SetFeatures(featureElderChampion)
+            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
             .AddToDB();
 
         var powerElderChampion = FeatureDefinitionPowerBuilder

@@ -96,16 +96,6 @@ internal static class GambitsBuilders
             .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .AddToDB();
 
-        //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new SpendPowerPhysicalAttackAfterPhysicalAttack(spendDiePower);
-
-        //feature that has `spendDieOnAttack` sub-feature
-        var featureSpendDieOnAttack = FeatureDefinitionBuilder
-            .Create("FeatureSpendGambitDieOnConditionRemoval")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(spendDieOnAttack)
-            .AddToDB();
-
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
             .SetGuiPresentationNoContent(true)
@@ -574,12 +564,13 @@ internal static class GambitsBuilders
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                     .SetFeatures(
                                         GambitDieDamage,
-                                        featureSpendDieOnAttack,
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create($"CombatAffinity{name}")
                                             .SetGuiPresentation(name, Category.Feature)
                                             .SetMyAttackAdvantage(AdvantageType.Advantage)
                                             .AddToDB())
+                                    .SetCustomSubFeatures(
+                                        new SpendPowerPhysicalAttackAfterPhysicalAttack(spendDiePower))
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -615,14 +606,10 @@ internal static class GambitsBuilders
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
-                                    .SetFeatures(
-                                        GambitDieDamageOnce, FeatureDefinitionBuilder
-                                            .Create($"Feature{name}")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetCustomSubFeatures(
-                                                new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
-                                                new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                                            .AddToDB())
+                                    .SetFeatures(GambitDieDamageOnce)
+                                    .SetCustomSubFeatures(
+                                        new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
+                                        new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())

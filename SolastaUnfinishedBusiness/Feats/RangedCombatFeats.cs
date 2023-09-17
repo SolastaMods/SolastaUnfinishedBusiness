@@ -108,17 +108,11 @@ internal static class RangedCombatFeats
             "Tooltip/&DeadeyeConcentration",
             Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64));
 
-        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
-            .Create($"ModifyAttackModeForWeapon{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Name, Category.Feat,
                 DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
@@ -177,10 +171,8 @@ internal static class RangedCombatFeats
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffDeadeye;
-        modifyAttackModeForWeapon
-            .SetCustomSubFeatures(
-                concentrationProvider,
-                new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
+        conditionDeadeye.SetCustomSubFeatures(
+            concentrationProvider, new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
 
         return featDeadeye;
     }
@@ -199,12 +191,7 @@ internal static class RangedCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasOffhandWeaponType(
-                            CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType))
-                    .AddToDB(),
-                FeatureDefinitionBuilder
-                    .Create($"Feature{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                            CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
                         new RangedAttackInMeleeDisadvantageRemover(),
                         new InnovationArmor.AddLauncherAttack(ActionDefinitions.ActionType.Bonus,
                             InnovationArmor.InInfiltratorMode,

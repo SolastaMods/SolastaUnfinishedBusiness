@@ -5,7 +5,6 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AbilityCheckAffinityGrayDwarfStoneStrength:d8074ff6-f67c-57b7-ad03-1bdc39eaa6f4",
-    "Definition:AdditionalDamageGrayDwarfStoneStrength:dc3cf953-e3d2-55cd-9bb0-2db20d7b5eb3",
     "Definition:SavingThrowAffinityGrayDwarfStoneStrength:a05ffebc-50da-5db7-a48c-e789b7d2216c"
   ],
   "allowMultipleInstances": false,

@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:FeatureCollegeOfValianceDishearteningPerformance:f58896de-511d-5f3b-8455-d208200dbafe"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

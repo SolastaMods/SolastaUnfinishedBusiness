@@ -40,14 +40,8 @@ public sealed class CollegeOfValiance : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
-        var featureDishearteningPerformance = FeatureDefinitionBuilder
-            .Create($"Feature{Name}DishearteningPerformance")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new OnFailedSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance))
-            .AddToDB();
-
-        conditionDishearteningPerformance.Features.Add(featureDishearteningPerformance);
+        conditionDishearteningPerformance.SetCustomSubFeatures(
+            new OnFailedSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance));
 
         var powerSteadfastDishearteningPerformance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DishearteningPerformance")
