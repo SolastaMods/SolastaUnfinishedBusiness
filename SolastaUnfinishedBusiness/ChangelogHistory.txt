@@ -2,12 +2,13 @@
 
 ATTENTION:
 
-- RESPEC required on Way of Discordance
+- RESPEC is required on Way of Discordance before updating to this version
+- REINSTALL mod from ZIP to leverage new portraits [update only touches DLL]
 
-- added new portraits for pre-gen heroes, monsters, and sample ones for heroes [by Artyoan]
-- changed Way of Discordance progression and SFX aiming on balance and fun
-- fixed Disabling / Improved Disabling Strike incorrectly applying effect on caster
-- improved mod backend to reuse vanilla patterns as much as possible [WIP aiming stability]
+- added sample heroes, and monsters portraits to ZIP payload [by Artyoan]
+- fixed Disabling and Improved Disabling Strike incorrect self-targeting
+- improved mod backend to reuse game patterns as much as possible [WIP]
+- improved Way of Discordance descriptions, progression, and SFX
 
 1.5.94.14:
 
