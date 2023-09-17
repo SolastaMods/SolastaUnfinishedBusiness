@@ -551,9 +551,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             RulesetEffect activeEffect)
         {
             var rulesetAlly = ally.RulesetCharacter;
+            var markOnceInAnyTurn = _powerTidesOfChaos.Name + attacker.Name;
 
             if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false }
-                || !ally.OncePerTurnIsValid("TidesOfChaos"))
+                || !ally.OncePerTurnIsValid(markOnceInAnyTurn))
             {
                 yield break;
             }
@@ -562,12 +563,12 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetDowned = downedCreature.RulesetCharacter;
 
             if (!rulesetDowned.HasConditionOfType(_conditionTurmoil)
-                || !battleService.IsWithinXCells(attacker, downedCreature, 6))
+                || !battleService.IsWithinXCells(ally, downedCreature, 6))
             {
                 yield break;
             }
 
-            ally.UsedSpecialFeatures.TryAdd("TidesOfChaos", 0);
+            ally.UsedSpecialFeatures.TryAdd(markOnceInAnyTurn, 0);
 
             // regain Ki Point
             rulesetAlly.ForceKiPointConsumption(-1);
