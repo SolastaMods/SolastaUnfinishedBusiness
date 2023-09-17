@@ -884,13 +884,13 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class InitialPool : IPowerUseModifier
+    private sealed class InitialPool : IModifyPowerPoolAmount
     {
         private InitialPool()
         {
         }
 
-        public static IPowerUseModifier Instance { get; } = new InitialPool();
+        public static IModifyPowerPoolAmount Instance { get; } = new InitialPool();
         public FeatureDefinitionPower PowerPool => GambitPool;
 
         public int PoolChangeAmount(RulesetCharacter character)

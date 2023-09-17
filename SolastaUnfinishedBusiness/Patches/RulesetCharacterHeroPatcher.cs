@@ -180,7 +180,7 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: Make sure availability of custom invocations doesn't affect default ones
             __result = __instance.Invocations
-                .Where(x => x.InvocationDefinition is not InvocationDefinitionCustom)
+                .Where(x => x.InvocationDefinition is not InvocationValidateDefinitionCustom)
                 .Any(__instance.CanCastInvocation);
 
             return false;

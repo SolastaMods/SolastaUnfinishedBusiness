@@ -941,7 +941,7 @@ public static class RulesetCharacterPatcher
             {
                 var definition = invocation.InvocationDefinition;
 
-                if (definition is not InvocationDefinitionCustom)
+                if (definition is not InvocationValidateDefinitionCustom)
                 {
                     continue;
                 }

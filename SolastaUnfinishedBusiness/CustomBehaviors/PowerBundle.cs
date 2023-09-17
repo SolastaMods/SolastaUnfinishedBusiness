@@ -126,7 +126,7 @@ internal static class PowerBundle
 
     internal static int GetMaxUsesForPool([NotNull] RulesetUsablePower poolPower, [NotNull] RulesetCharacter character)
     {
-        return poolPower.MaxUses + character.GetSubFeaturesByType<IPowerUseModifier>()
+        return poolPower.MaxUses + character.GetSubFeaturesByType<IModifyPowerPoolAmount>()
             .Where(m => m.PowerPool == poolPower.PowerDefinition)
             .Sum(m => m.PoolChangeAmount(character));
     }
@@ -429,7 +429,7 @@ internal static class PowerBundle
     internal static bool ValidatePrerequisites(
         [NotNull] RulesetCharacter character,
         [NotNull] BaseDefinition feature,
-        [NotNull] IEnumerable<IDefinitionWithPrerequisites.Validate> validators,
+        [NotNull] IEnumerable<IValidateDefinitionPreRequisites.Validate> validators,
         [NotNull] out List<string> prerequisites)
     {
         var result = true;

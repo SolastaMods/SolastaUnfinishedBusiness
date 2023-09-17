@@ -332,7 +332,7 @@ public static class PartyEditor
                     if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Invocations)
                     {
                         var available = BlueprintDisplay.GetBlueprints()?.OfType<InvocationDefinition>();
-                        //.Where(x => x is not InvocationDefinitionCustom);
+                        //.Where(x => x is not InvocationValidateDefinitionCustom);
 
                         if (available != null)
                         {

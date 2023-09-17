@@ -7,7 +7,7 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWithPrerequisites
+internal class InvocationValidateDefinitionCustom : InvocationDefinition, IValidateDefinitionPreRequisites
 {
     internal InvocationPoolTypeCustom PoolType { get; set; }
 
@@ -35,8 +35,8 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
     }
 
     //TODO: add validator setter
-    public IEnumerable<IDefinitionWithPrerequisites.Validate> Validators { get; } =
-        new IDefinitionWithPrerequisites.Validate[] { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
+    public IEnumerable<IValidateDefinitionPreRequisites.Validate> Validators { get; } =
+        new IValidateDefinitionPreRequisites.Validate[] { CheckRequiredLevel, CheckRequiredSpell, CheckRequiredPact };
 
     private static bool CheckRequiredLevel(
         RulesetCharacter character,
@@ -46,7 +46,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
         requirement = null;
 
         if (character is not RulesetCharacterHero hero
-            || definition is not InvocationDefinitionCustom invocation)
+            || definition is not InvocationValidateDefinitionCustom invocation)
         {
             return true;
         }
@@ -100,7 +100,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
         requirement = null;
 
         if (character is not RulesetCharacterHero hero
-            || definition is not InvocationDefinitionCustom invocation)
+            || definition is not InvocationValidateDefinitionCustom invocation)
         {
             return true;
         }
@@ -130,7 +130,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
         requirement = null;
 
         if (character is not RulesetCharacterHero hero
-            || definition is not InvocationDefinitionCustom invocation)
+            || definition is not InvocationValidateDefinitionCustom invocation)
         {
             return true;
         }

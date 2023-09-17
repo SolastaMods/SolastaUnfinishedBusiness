@@ -8,13 +8,13 @@ internal delegate bool IsInvocationValidHandler(RulesetCharacter character, Invo
 
 [UsedImplicitly]
 internal class CustomInvocationDefinitionBuilder
-    : InvocationDefinitionBuilder<InvocationDefinitionCustom, CustomInvocationDefinitionBuilder>
+    : InvocationDefinitionBuilder<InvocationValidateDefinitionCustom, CustomInvocationDefinitionBuilder>
 {
     internal CustomInvocationDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
 
-    internal CustomInvocationDefinitionBuilder(InvocationDefinitionCustom original, string name, Guid namespaceGuid)
+    internal CustomInvocationDefinitionBuilder(InvocationValidateDefinitionCustom original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)
     {
     }

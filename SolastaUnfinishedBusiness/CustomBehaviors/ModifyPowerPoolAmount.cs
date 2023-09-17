@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class PowerUseModifier : IPowerUseModifier
+public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
 {
     public int Value { get; set; } = 1;
     public PowerPoolBonusCalculationType Type { get; set; } = PowerPoolBonusCalculationType.Fixed;

@@ -22,7 +22,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private readonly List<FeaturePool> _allPools = new();
     private readonly List<(string, FeatureDefinitionCustomInvocationPool)> _gainedCustomFeatures = new();
 
-    private readonly Dictionary<PoolId, List<InvocationDefinitionCustom>> _learnedInvocations = new();
+    private readonly Dictionary<PoolId, List<InvocationValidateDefinitionCustom>> _learnedInvocations = new();
 
     private readonly Comparison<FeaturePool> _poolCompare = (a, b) =>
     {
@@ -292,7 +292,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             foreach (var invocation in invocations)
             {
-                if (invocation is not InvocationDefinitionCustom custom)
+                if (invocation is not InvocationValidateDefinitionCustom custom)
                 {
                     continue;
                 }
@@ -312,7 +312,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             foreach (var invocation in invocations)
             {
-                if (invocation is not InvocationDefinitionCustom custom)
+                if (invocation is not InvocationValidateDefinitionCustom custom)
                 {
                     continue;
                 }
@@ -412,20 +412,20 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         return _allPools[step].IsUnlearn;
     }
 
-    private List<InvocationDefinitionCustom> GetOrMakeLearnedList(PoolId id)
+    private List<InvocationValidateDefinitionCustom> GetOrMakeLearnedList(PoolId id)
     {
         if (_learnedInvocations.TryGetValue(id, out var value))
         {
             return value;
         }
 
-        var learned = new List<InvocationDefinitionCustom>();
+        var learned = new List<InvocationValidateDefinitionCustom>();
 
         _learnedInvocations.Add(id, learned);
         return learned;
     }
 
-    private List<InvocationDefinitionCustom> GetOrMakeUnlearnedList(PoolId id)
+    private List<InvocationValidateDefinitionCustom> GetOrMakeUnlearnedList(PoolId id)
     {
         return GetOrMakeLearnedList(new PoolId(id.Name, id.Tag, true));
     }
@@ -1087,9 +1087,9 @@ internal static class SpellsByLevelGroupExtensions
     internal static void CustomFeatureBind(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        List<InvocationDefinitionCustom> learned,
+        List<InvocationValidateDefinitionCustom> learned,
         int featureLevel,
-        List<InvocationDefinitionCustom> unlearned,
+        List<InvocationValidateDefinitionCustom> unlearned,
         bool canAcquireFeatures,
         bool unlearn,
         SpellBox.SpellBoxChangedHandler spellBoxChanged)
@@ -1151,8 +1151,8 @@ internal static class SpellsByLevelGroupExtensions
     private static void RefreshLearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        ICollection<InvocationDefinitionCustom> learned,
-        ICollection<InvocationDefinitionCustom> unlearnedFeatures,
+        ICollection<InvocationValidateDefinitionCustom> learned,
+        ICollection<InvocationValidateDefinitionCustom> unlearnedFeatures,
         bool canAcquireFeatures)
     {
         foreach (Transform transform in instance.spellsTable)
@@ -1188,7 +1188,7 @@ internal static class SpellsByLevelGroupExtensions
     private static void RefreshUnlearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        ICollection<InvocationDefinitionCustom> unlearnedSpells,
+        ICollection<InvocationValidateDefinitionCustom> unlearnedSpells,
         bool canUnlearnInvocations)
     {
         foreach (Transform transform in instance.spellsTable)
@@ -1236,16 +1236,16 @@ internal static class SpellsByLevelGroupExtensions
 
 internal static class SpellBoxExtensions
 {
-    private static readonly Dictionary<SpellBox, InvocationDefinitionCustom> Features = new();
+    private static readonly Dictionary<SpellBox, InvocationValidateDefinitionCustom> Features = new();
 
-    internal static InvocationDefinitionCustom GetFeature(this SpellBox box)
+    internal static InvocationValidateDefinitionCustom GetFeature(this SpellBox box)
     {
         return Features.TryGetValue(box, out var result) ? result : null;
     }
 
     internal static void CustomFeatureBind(
         this SpellBox instance,
-        InvocationDefinitionCustom feature,
+        InvocationValidateDefinitionCustom feature,
         bool unlearned,
         SpellBox.BindMode bindMode,
         SpellBox.SpellBoxChangedHandler spellBoxChanged)

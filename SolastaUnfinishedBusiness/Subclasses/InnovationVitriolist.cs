@@ -58,13 +58,13 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .AddToDB();
 
         var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureIntelligenceModifier")
+            .Create($"ModifyPowerPoolAmount{Name}MixtureIntelligenceModifier")
             .SetGuiPresentationNoContent(true)
             .SetModifier(powerMixture, PowerPoolBonusCalculationType.AttributeMod, AttributeDefinitions.Intelligence)
             .AddToDB();
 
         var powerUseModifierMixtureProficiencyBonus = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureProficiencyBonus")
+            .Create($"ModifyPowerPoolAmount{Name}MixtureProficiencyBonus")
             .SetGuiPresentationNoContent(true)
             .SetModifier(powerMixture, PowerPoolBonusCalculationType.Attribute, AttributeDefinitions.ProficiencyBonus)
             .AddToDB();

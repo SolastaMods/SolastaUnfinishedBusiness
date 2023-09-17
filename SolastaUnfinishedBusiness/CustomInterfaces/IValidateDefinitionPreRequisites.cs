@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IDefinitionWithPrerequisites
+public interface IValidateDefinitionPreRequisites
 {
     [CanBeNull]
     public delegate bool Validate(RulesetCharacter character, BaseDefinition definition, out string requirement);

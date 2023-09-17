@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 
 [UsedImplicitly]
 internal class FeatureDefinitionPowerUseModifierBuilder
-    : FeatureDefinitionBuilder<FeatureDefinitionPowerUseModifier, FeatureDefinitionPowerUseModifierBuilder>
+    : FeatureDefinitionBuilder<FeatureDefinitionModifyPowerPoolAmount, FeatureDefinitionPowerUseModifierBuilder>
 {
     internal FeatureDefinitionPowerUseModifierBuilder SetFixedValue(
         FeatureDefinitionPower poolPower,
@@ -49,7 +49,7 @@ internal class FeatureDefinitionPowerUseModifierBuilder
     {
     }
 
-    protected FeatureDefinitionPowerUseModifierBuilder(FeatureDefinitionPowerUseModifier original, string name,
+    protected FeatureDefinitionPowerUseModifierBuilder(FeatureDefinitionModifyPowerPoolAmount original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }

@@ -131,7 +131,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new PowerUseModifier
+        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
         {
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });

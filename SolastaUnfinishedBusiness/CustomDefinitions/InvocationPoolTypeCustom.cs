@@ -15,7 +15,7 @@ internal class InvocationPoolTypeCustom
 {
     private static readonly List<InvocationPoolTypeCustom> PrivatePools = new();
 
-    private readonly Dictionary<int, List<InvocationDefinitionCustom>> _privateFeaturesByLevel = new();
+    private readonly Dictionary<int, List<InvocationValidateDefinitionCustom>> _privateFeaturesByLevel = new();
 
     private InvocationPoolTypeCustom()
     {
@@ -35,7 +35,7 @@ internal class InvocationPoolTypeCustom
     internal Id NoCostActionId { get; private set; } = (Id)ExtraActionId.CastInvocationNoCost;
 
     internal List<int> AllLevels { get; } = new();
-    private List<InvocationDefinitionCustom> AllFeatures { get; } = new();
+    private List<InvocationValidateDefinitionCustom> AllFeatures { get; } = new();
 
     internal string PanelTitle { get; private set; }
 
@@ -108,7 +108,7 @@ internal class InvocationPoolTypeCustom
     internal static void RefreshAll()
     {
         var invocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
-            .OfType<InvocationDefinitionCustom>()
+            .OfType<InvocationValidateDefinitionCustom>()
             .ToList();
 
         foreach (var pool in PrivatePools)
@@ -132,14 +132,14 @@ internal class InvocationPoolTypeCustom
         return Gui.Localize(GuiPresentationBuilder.CreateTitleKey(GuiName(unlearn), Category.Feature));
     }
 
-    internal List<InvocationDefinitionCustom> GetLevelFeatures(int level)
+    internal List<InvocationValidateDefinitionCustom> GetLevelFeatures(int level)
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
         return (_privateFeaturesByLevel.TryGetValue(level, out var result) ? result : null)
-               ?? new List<InvocationDefinitionCustom>();
+               ?? new List<InvocationValidateDefinitionCustom>();
     }
 
-    private void Refresh(IEnumerable<InvocationDefinitionCustom> invocations)
+    private void Refresh(IEnumerable<InvocationValidateDefinitionCustom> invocations)
     {
         _privateFeaturesByLevel.Clear();
         AllFeatures.SetRange(invocations.Where(d => d.PoolType == this));
@@ -148,12 +148,12 @@ internal class InvocationPoolTypeCustom
         AllLevels.Sort();
     }
 
-    private List<InvocationDefinitionCustom> GetOrMakeLevelFeatures(int level)
+    private List<InvocationValidateDefinitionCustom> GetOrMakeLevelFeatures(int level)
     {
-        List<InvocationDefinitionCustom> levelFeatures;
+        List<InvocationValidateDefinitionCustom> levelFeatures;
         if (!_privateFeaturesByLevel.ContainsKey(level))
         {
-            levelFeatures = new List<InvocationDefinitionCustom>();
+            levelFeatures = new List<InvocationValidateDefinitionCustom>();
             _privateFeaturesByLevel.Add(level, levelFeatures);
         }
         else

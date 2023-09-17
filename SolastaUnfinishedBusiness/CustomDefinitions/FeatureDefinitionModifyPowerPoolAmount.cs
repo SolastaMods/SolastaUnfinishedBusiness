@@ -3,9 +3,9 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal sealed class FeatureDefinitionPowerUseModifier : FeatureDefinition, IPowerUseModifier
+internal sealed class FeatureDefinitionModifyPowerPoolAmount : FeatureDefinition, IModifyPowerPoolAmount
 {
-    internal PowerUseModifier Modifier { get; } = new();
+    internal ModifyPowerPoolAmount Modifier { get; } = new();
 
     public FeatureDefinitionPower PowerPool => Modifier.PowerPool;
 

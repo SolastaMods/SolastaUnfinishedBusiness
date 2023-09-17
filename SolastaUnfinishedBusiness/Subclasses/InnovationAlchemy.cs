@@ -759,7 +759,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
 
-        power.AddCustomSubFeatures(new PowerUseModifier
+        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
         {
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });

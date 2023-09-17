@@ -135,7 +135,7 @@ internal static class OtherFeats
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
                 MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
-                MartialArcaneArcher.PowerArcaneShotAdditionalUse1,
+                MartialArcaneArcher.ModifyPowerArcaneShotAdditionalUse1,
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
