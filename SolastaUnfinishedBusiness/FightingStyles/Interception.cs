@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -103,8 +104,8 @@ internal sealed class Interception : AbstractFightingStyle
             var reactionParams =
                 new CharacterActionParams(featureOwner, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter2 = Gui.Format(
-                        "Reaction/&CustomReactionInterceptionDescription", defender.Name, attacker.Name)
+                    StringParameter = "CustomReactionInterceptionDescription"
+                        .Formatted(Category.Reaction, defender.Name, attacker.Name)
                 };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom($"{InterceptionName}", reactionParams);

@@ -1147,8 +1147,7 @@ internal static class EldritchVersatility
 
             var actionParams = new CharacterActionParams(featureOwner, (Id)ExtraActionId.DoNothingReaction)
             {
-                StringParameter = "CustomReactionEldritchAegis"
-                    .Formatted(Category.Reaction, defender.Name)
+                StringParameter = "CustomReactionEldritchAegis".Formatted(Category.Reaction, defender.Name)
             };
 
             RequestCustomReaction(actionService, "EldritchAegis", actionParams, requiredACAddition);
@@ -1263,8 +1262,7 @@ internal static class EldritchVersatility
 
             var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
-                StringParameter = "CustomReactionEldritchWard"
-                    .Formatted(Category.Reaction, defender.Name)
+                StringParameter = "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name)
             };
 
             RequestCustomReaction(actionService, "EldritchWard", actionParams, requiredSaveAddition);

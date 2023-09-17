@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -1257,7 +1258,6 @@ internal static class GambitsBuilders
 
     private sealed class Parry : IAttackBeforeHitConfirmedOnMe
     {
-        private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
         private readonly FeatureDefinition _feature;
         private readonly FeatureDefinitionPower _pool;
@@ -1313,11 +1313,11 @@ internal static class GambitsBuilders
             var guiMe = new GuiCharacter(me);
             var guiTarget = new GuiCharacter(attacker);
 
-            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = description
+                    StringParameter = "CustomReactionGambitParryDescription"
+                        .Formatted(Category.Reaction,guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
                 };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
