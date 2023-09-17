@@ -380,8 +380,9 @@ public sealed class RangerHellWalker : AbstractSubclass
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in Gui.Battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            foreach (var gameLocationCharacter in Gui.Battle.AllContenders
+                         .Where(x => x.Side == gameLocationDefender.Side
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Where(x => x != gameLocationDefender)
                          .ToList()) // avoid changing enumerator
             {

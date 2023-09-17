@@ -429,15 +429,17 @@ public sealed class WayOfTheTempest : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerEyeOfTheStormLeap, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
                 .Where(x =>
+                    x.Side != attacker.Side &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.RulesetCharacter.AllConditions
                         .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&

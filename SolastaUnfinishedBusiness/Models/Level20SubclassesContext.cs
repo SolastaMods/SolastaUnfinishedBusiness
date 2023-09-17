@@ -1524,8 +1524,9 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var rulesetDefender in battle.EnemyContenders
+            foreach (var rulesetDefender in battle.AllContenders
                          .Where(x =>
+                             x.Side == gameLocationDefender.Side &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              x != gameLocationDefender)
                          .ToList()

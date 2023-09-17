@@ -383,8 +383,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(Gui.Battle.EnemyContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+            actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                             && battleManager.IsWithinXCells(x, defender, 3))
                 .ToList());
 

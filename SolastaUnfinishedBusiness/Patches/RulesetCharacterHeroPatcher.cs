@@ -121,11 +121,6 @@ public static class RulesetCharacterHeroPatcher
             bool dryRun,
             FeatureDefinition dryRunFeature)
         {
-            if (__instance is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
             foreach (var feature in __instance.GetSubFeaturesByType<IModifyAC>())
             {
                 feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier,

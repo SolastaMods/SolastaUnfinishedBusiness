@@ -423,8 +423,9 @@ public sealed class RangerLightBearer : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                 .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
                 .ToList());
 
@@ -481,9 +482,9 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            yield return __instance.battle
-                .GetOpposingContenders(attacker.Side)
+            yield return __instance.Battle.AllContenders
                 .Where(opposingContender =>
+                    opposingContender.Side != attacker.Side &&
                     opposingContender != defender &&
                     opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&

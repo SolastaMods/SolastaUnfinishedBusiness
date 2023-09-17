@@ -409,8 +409,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
                 if (gameLocationBattleService is { Battle: not null })
                 {
-                    targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
-                        .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
+                    targetCharacters.AddRange(gameLocationBattleService.Battle.AllContenders
+                        .Where(x => x.Side != actingCharacter.Side
+                                    && gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
                         .ToList());
                 }
             }

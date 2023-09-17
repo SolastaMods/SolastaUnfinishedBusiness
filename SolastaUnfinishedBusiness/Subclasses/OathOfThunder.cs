@@ -401,8 +401,9 @@ public sealed class OathOfThunder : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.EnemyContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 

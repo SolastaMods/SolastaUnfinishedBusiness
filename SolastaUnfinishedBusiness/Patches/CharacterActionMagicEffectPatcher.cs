@@ -273,11 +273,9 @@ public static class CharacterActionMagicEffectPatcher
             var attacker = __instance.ActingCharacter;
 
             //PATCH: support for `IMagicalAttackFinishedByMe`
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (Gui.Battle != null)
             {
-                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
+                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
                 {
                     yield return feature.OnMagicalAttackFinishedByMe(__instance, attacker, target);
                 }
@@ -285,12 +283,11 @@ public static class CharacterActionMagicEffectPatcher
 
             //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
             // ReSharper disable once InvertIf
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (Gui.Battle != null)
             {
-                foreach (var ally in Gui.Battle.GetMyContenders(attacker.Side)
-                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                foreach (var ally in Gui.Battle.AllContenders
+                             .Where(x => x.Side == attacker.Side
+                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
                     foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter

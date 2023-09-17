@@ -595,8 +595,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         };
 
         // apply damage to all targets
-        foreach (var rulesetDefender in gameLocationBattleService.Battle.GetMyContenders(defender.Side)
-                     .Where(x => gameLocationBattleService.IsWithinXCells(defender, x, 3) && x != defender)
+        foreach (var rulesetDefender in gameLocationBattleService.Battle.AllContenders
+                     .Where(x => x.Side == defender.Side
+                                 && x != defender
+                                 && gameLocationBattleService.IsWithinXCells(defender, x, 3))
                      .ToList() // avoid changing enumerator
                      .Select(targetCharacter => targetCharacter.RulesetCharacter))
         {

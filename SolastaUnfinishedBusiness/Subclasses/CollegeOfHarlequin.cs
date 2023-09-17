@@ -293,8 +293,9 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                     .AddAsActivePowerToSource(),
-                targetCharacters = battle.EnemyContenders
-                    .Where(enemy => enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                targetCharacters = battle.AllContenders
+                    .Where(enemy => enemy.Side != attacker.Side
+                                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                                     && battleService.IsWithinXCells(attacker, enemy, 3))
                     .ToList()
             };

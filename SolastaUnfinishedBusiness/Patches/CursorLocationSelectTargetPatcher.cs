@@ -39,8 +39,7 @@ public static class CursorLocationSelectTargetPatcher
 
             //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
             if (__instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-                rulesetEffectSpell.EffectDescription.RangeType is
-                    RangeType.Touch or RangeType.MeleeHit)
+                rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
