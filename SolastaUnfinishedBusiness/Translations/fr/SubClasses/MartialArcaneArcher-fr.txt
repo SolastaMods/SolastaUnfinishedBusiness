@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=La créature inflige la moitié des dégâts lors des attaques basées sur la Force et est désavantagée lors des jets de sauvegarde et des tests de capacité de Force, de Dextérité et de Constitution.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Affaibli
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=La créature ne peut pas bénéficier de l'invisibilité, les attaquants ont l'avantage. Ils éclairent également 10 cellules de lumière vive + 10 cellules de lumière faible.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Souligné
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=Vous choisissez d'apprendre un sort mineur de Wizard.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=Magie des arcanes
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=Votre tir à l'arc magique est disponible chaque fois que la bataille commence. Si vous lancez l'initiative et qu'il vous manque au moins une utilisation de Tir des arcanes, vous en regagnez une utilisation.

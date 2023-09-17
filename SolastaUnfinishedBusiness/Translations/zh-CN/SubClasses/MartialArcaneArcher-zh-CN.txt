@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=该生物对基于力量的攻击造成一半伤害，并且在力量、敏捷、体质豁免检定和能力检定上处于劣势。
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=衰弱的
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=生物不能从隐形中受益，攻击者有优势。它们还照亮 10 个亮光单元 + 10 个暗光单元。
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=突出显示
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=你选择学习一种巫师戏法。
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=奥术魔法
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=每当战斗开始时，你的魔法射箭就可以使用。如果你投出主动权并且错过了至少一次奥术射击的使用，那么你会重新获得一次使用它的机会。

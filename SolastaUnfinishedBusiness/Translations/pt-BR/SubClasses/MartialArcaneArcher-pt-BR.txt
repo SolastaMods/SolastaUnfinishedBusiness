@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=A criatura causa metade do dano em ataques baseados em Força e tem desvantagem em testes de resistência e testes de habilidade de Força, Destreza e Constituição.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Enfraquecido
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=A criatura não pode se beneficiar da invisibilidade, os atacantes têm vantagem. Eles também iluminam 10 células de luz brilhante + 10 células de luz fraca.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Destacado
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=Você escolhe aprender um truque de Mago.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=Magia Arcana
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=Seu arco e flecha mágico está disponível sempre que a batalha começa. Se você rolar a iniciativa e perder pelo menos um uso do Tiro Arcano, você recupera um uso dele.

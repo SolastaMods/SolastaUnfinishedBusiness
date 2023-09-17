@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=Die Kreatur verursacht bei auf Stärke basierenden Angriffen den halben Schaden und hat einen Nachteil bei Rettungswürfen und Fähigkeitsprüfungen auf Stärke, Geschicklichkeit und Konstitution.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Geschwächt
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=Kreaturen können nicht von der Unsichtbarkeit profitieren, Angreifer haben einen Vorteil. Sie beleuchten außerdem 10 Zellen helles Licht + 10 Zellen schwaches Licht.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Hervorgehoben
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=Sie entscheiden sich dafür, einen Zauberer-Cantrip zu lernen.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=Arkane Magie
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=Ihr magisches Bogenschießen ist verfügbar, wann immer der Kampf beginnt. Wenn Sie Initiative würfeln und mindestens eine Anwendung von „Arkaner Schuss“ verpassen, erhalten Sie eine Anwendung davon zurück.

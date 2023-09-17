@@ -419,18 +419,28 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
+        var conditionGraspingArrow = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}GraspingArrow")
+            .SetConditionParticleReference(
+                ConditionDefinitions.ConditionRestrainedByMagicalArrow.conditionParticleReference)
+            .AddToDB();
+
         ArcaneShotPowers.Add(powerGraspingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionRestrained,
+                DebuffCondition = conditionGraspingArrow,
                 EffectSpell = SpellDefinitions.Entangle,
-                EffectType = EffectHelpers.EffectType.Zone
+                EffectType = EffectHelpers.EffectType.Effect
             });
 
         // Insight Arrow
 
+        var lightSourceForm = SpellDefinitions.FaerieFire.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
+
         var conditionInsightArrow = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionHighlighted, $"Condition{Name}InsightArrow")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
             .AddToDB();
 
@@ -454,7 +464,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDamageForm(DamageTypeRadiant, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build(),
-                        SpellDefinitions.FaerieFire.EffectDescription.EffectForms[1])
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 2, 2, lightSourceForm.Color,
+                                lightSourceForm.graphicsPrefabReference)
+                            .Build())
                     .Build())
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();

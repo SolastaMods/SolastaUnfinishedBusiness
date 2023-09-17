@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=이 생물은 힘 기반 공격에 절반의 피해를 입히고 힘, 민첩, 건강 내성 굴림 및 능력 검사에 불리한 입장을 갖습니다.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=쇠약해진
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=생물은 투명화의 이점을 누릴 수 없으며 공격자는 이점을 갖습니다. 또한 밝은 빛 10셀 + 희미한 빛 10셀을 비춥니다.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=강조됨
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=위저드 캔트립 하나를 선택해 배웁니다.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=비전 마법
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=마법 궁술은 전투가 시작될 때마다 사용할 수 있습니다. 우선권을 굴린 뒤 비전 사격을 한 번이라도 사용하지 못했다면, 비전 사격을 한 번 회복할 수 있습니다.
