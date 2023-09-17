@@ -3292,30 +3292,38 @@ While most monks seek enlightenment through contemplation and achieving inner pe
 
 ## Level 3
 
+* Chaos Channeling
+
+You can gather a portion of your own accrued chaos and use it to create spikes of negative energy. As a free action, increase the range of your unarmed strikes by 30 feet and convert all damage you deal with unarmed strikes into necrotic damage until the end of your turn. You can use this feature a number of times per long rest equal to your proficiency bonus and can spend 2 Ki Points to use it again if you are out of uses.
+
 * Discordance
 
-Starting at 3rd level, you learn to manipulate the inner disharmony of your foes to create waves of distorting energy. Each time you hit a creature with a monk weapon or unarmed attack, the creature receives one instance of Discordance condition for 1 minute. When a creature receives the 3rd instance, all instances are removed, and the creature receives necrotic damage equal to your Martial Arts die + your Wisdom modifier.
+You learn to manipulate the inner chaos of your foes. Each time you hit a creature with an unarmed strike, the creature receives one instance of Discordance condition for 1 minute. When a creature receives the 2nd instance, both instances are removed, the creature receives necrotic damage equal to your Martial Arts die + Wisdom modifier, and the creature cannot receive additional Discordance condition instances until the end of that turn.
 
 
 ## Level 6
 
-* Schism
+* Turmoil
 
-Starting at 6th level, you apply one additional instance of Discordance condition when you successfully stun a creature with your Stunning Strike ability. Furthermore, while the stun condition lasts, the stunned creature receives an extra instance of Discordance from your attacks and abilities.
+Starting at 6th level, when a creature receives damage from your Discordance feature, it must succeed on Charisma saving throw (DC 8 + proficiency bonus + Wisdom modifier) or receive Turmoil condition for up to one minute, having –1d4 penalty to all attack rolls and saving throws. A creature that fails the saving throw can repeat it at the end of each of its turns. If a creature succeeds at the saving throw or the effect expires, the creature is immune to further effects of Turmoil. 
 
 
 ## Level 11
 
 * Burst of Disharmony
 
-At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending Ki points. Each point you spend, to a maximum of your proficiency bonus, increases the damage by 1d6.
+You can spend 2 Ki and use your bonus action to cause an eruption of accumulated negative energy, dealing 3d6 necrotic damage in a 3x3 cell area to enemy creatures that fail Constitution saving throw (DC 8 + proficiency bonus + Wisdom modifier, save for half) and applying one instance of Discordance condition to each affected creature regardless of if they pass the saving throw or not. For every extra Ki points you expend, you increase the damage by an extra 1d6, up to a total cost equal to half your monk level (rounded up).
+
+* Entropic Strikes
+
+A creature damaged by Discordance can now continue receiving Discordance condition instances without any limitations.
 
 
 ## Level 17
 
-* Profound Turmoil
+* Tides of Chaos
 
-Starting at 17th level, when a creature receives damage from your Discordance feature, it must succeed on Charisma saving throw or receive Turmoil condition for up to one minute. If a creature succeeds at the saving throw or the effect expires, the creature is immune to further effects of Turmoil.
+Starting at 17th level, when a creature you can see within 30 feet of you is affected by Turmoil condition and gets reduced to 0 hit points, you gain temporary hit points equal to your martial arts die + half your monk level and 1 ki point. This effect can occur only once per turn.
 
 
 
@@ -3408,7 +3416,7 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 
 * Reactive Hide
 
-Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
+Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
 A creature affected by one of the detrimental conditions must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to maximum values of 2x your martial arts dice. 
 
 
@@ -3416,14 +3424,14 @@ A creature affected by one of the detrimental conditions must still pass a Const
 
 * Elemental Breath
 
-You can use your bonus action to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive 3d6 damage (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and if you are out of uses, you can pay 2 ki instead. The damage is increased to 4d6 at 11th level, and 5d6 at 17th level.
+You can use your bonus action to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive 3d6 damage (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and if you are out of uses, you can pay 2 Ki instead. The damage is increased to 4d6 at 11th level, and 5d6 at 17th level.
 
 
 ## Level 11
 
 * Dragon's Fury
 
-Gain the ability to imbue your fists with elemental energy. You can pay 2 ki as a free action to deal 2d6 additional elemental damage with all your unarmed attacks until the end of your turn, with damage type depending on your Dragon Ancestry feature.
+Gain the ability to imbue your fists with elemental energy. You can pay 2 Ki as a free action to deal 2d6 additional elemental damage with all your unarmed attacks until the end of your turn, with damage type depending on your Dragon Ancestry feature.
 
 
 ## Level 17
@@ -3503,14 +3511,14 @@ Starting at 6th level, you become resistant to lightning damage and your bonus a
 
 * Tempest's Fury
 
-Starting at 11th level, after using your attack action, you can spend 2 ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation. All attacks provided by this feature deal additional lightning damage equal to your martial arts die.
+Starting at 11th level, after using your attack action, you can spend 3 Ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation. All attacks provided by this feature deal additional lightning damage equal to your martial arts die.
 
 
 ## Level 17
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 
@@ -3534,7 +3542,7 @@ After you make an attack roll with a monk weapon or a unarmed attack, and critic
 
 * Propelled Weal
 
-After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you refund 1 ki point.
+After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you refund 1 Ki point.
 
 
 ## Level 11
