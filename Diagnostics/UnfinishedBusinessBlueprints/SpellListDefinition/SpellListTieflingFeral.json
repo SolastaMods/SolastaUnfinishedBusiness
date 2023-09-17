@@ -1,12 +1,14 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
-  "hasCantrips": false,
+  "hasCantrips": true,
   "maxSpellLevel": 1,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 0,
-      "spells": []
+      "spells": [
+        "Definition:ProduceFlame:99a59d41bc8a00a458199a4c2e7d9571"
+      ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",

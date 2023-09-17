@@ -205,17 +205,17 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "lightSourceForm": {
           "$type": "LightSourceForm, Assembly-CSharp",
           "lightSourceType": "Basic",
-          "brightRange": 0,
+          "brightRange": 2,
           "dimAdditionalRange": 2,
           "color": {
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -397,21 +397,21 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e93a9e29f35763940acb4955ce60d5b2",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "5ed3abdf1ac428149afd181e4b2a9ecc",
+        "m_AssetGUID": "13002582a0306fe44915c63f57e4ea59",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
+        "m_AssetGUID": "0c47cc2ece484284eb5eec49a38a2cae",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
       },
       "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,

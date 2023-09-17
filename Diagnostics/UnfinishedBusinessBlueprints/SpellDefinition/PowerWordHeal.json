@@ -122,16 +122,8 @@
           "operation": "RemoveDetrimentalAll",
           "conditionsList": [
             "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
-            "Definition:ConditionCharmedByHypnoticPattern:5396f18314418ed449b0cd42f887aae1",
             "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
-            "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84",
-            "Definition:ConditionFrightenedPhantasmalKiller:68dbf6f96b39e594681a3b9f92222b45",
             "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
-            "Definition:ConditionParalyzed_CrimsonSpiderVenom:ac4c1efb47060f448a7be16ee46b04b8",
-            "Definition:ConditionParalyzed_GhoulsCaress:feb0f3f4b605db4478d2f446f527d4f6",
-            "Definition:ConditionStunned:126115c02838c1a4ca7d25682af5ddb0",
-            "Definition:ConditionStunned_MutantApeSlam:0120f37b21830004da1291cf5b34be55",
-            "Definition:ConditionStunnedConjuredDeath:a270f5d6fa09e63408c0e351a0b41e1e",
             "Definition:ConditionProne:c792a1e7b09cf9d4897b31e663a9ebfb"
           ],
           "applyToSelf": false,
