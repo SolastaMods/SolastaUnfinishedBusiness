@@ -941,7 +941,7 @@ public static class RulesetCharacterPatcher
             {
                 var definition = invocation.InvocationDefinition;
 
-                if (definition is not InvocationValidateDefinitionCustom)
+                if (definition is not InvocationDefinitionCustom)
                 {
                     continue;
                 }
@@ -1312,9 +1312,7 @@ public static class RulesetCharacterPatcher
         {
             var currentAction = Global.CurrentAction;
 
-            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>() ==
-                null;
+            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 
@@ -1329,9 +1327,7 @@ public static class RulesetCharacterPatcher
         {
             var currentAction = Global.CurrentAction;
 
-            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>() ==
-                null;
+            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 
