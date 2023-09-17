@@ -98,8 +98,9 @@ internal static class RaceTieflingBuilder
                     .Create("SpellListTieflingFeral")
                     .SetGuiPresentationNoContent(true)
                     .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellDefinitions.ProduceFlame)
                     .SetSpellsAtLevel(1, SpellDefinitions.BurningHands)
-                    .FinalizeSpells(false, 1)
+                    .FinalizeSpells(true, 1)
                     .AddToDB())
             .AddToDB();
 
