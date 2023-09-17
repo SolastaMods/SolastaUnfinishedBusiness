@@ -300,8 +300,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             EffectFormBuilder
                 .Create()
                 .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                .SetConditionForm(ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
-                    ConditionForm.ConditionOperation.Add)
+                .SetConditionForm(ConditionDefinitions.ConditionParalyzed, ConditionForm.ConditionOperation.Add)
                 .Build());
 
         var shape = MonsterDefinitionBuilder

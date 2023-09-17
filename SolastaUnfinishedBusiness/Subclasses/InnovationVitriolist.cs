@@ -396,21 +396,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             _powerMixture = powerMixture;
         }
 
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
-            var canUsePowerMixture = character.CanUsePower(_powerMixture);
-            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
-
-            return !canUsePowerMixture && hasSpellSlotsAvailable;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -428,6 +413,21 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
 
             spellRepertoire.SpendSpellSlot(slotLevel);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            var canUsePowerMixture = character.CanUsePower(_powerMixture);
+            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+
+            return !canUsePowerMixture && hasSpellSlotsAvailable;
         }
     }
 

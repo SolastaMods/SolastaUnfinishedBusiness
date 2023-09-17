@@ -356,20 +356,6 @@ public sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
-        {
-            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
-            {
-                return;
-            }
-
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider
-                {
-                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
-                });
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationDefender = action.actionParams.targetCharacters[0];
@@ -390,8 +376,22 @@ public sealed class RangerHellWalker : AbstractSubclass
                     rulesetDefender.RemoveCondition(rulesetCondition);
                 }
             }
-            
+
             yield break;
+        }
+
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
+            {
+                return;
+            }
+
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
+                });
         }
     }
 }

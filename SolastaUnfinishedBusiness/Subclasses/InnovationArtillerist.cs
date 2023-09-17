@@ -570,25 +570,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     private class CustomBehaviorRefundCannon : IValidatePowerUse, IMagicEffectFinishedByMe
     {
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
-            var hasUsedPowerActivate = character.UsablePowers
-                .Any(x => x.RemainingUses == 0 &&
-                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
-                          x.PowerDefinition.Name.EndsWith("Activate"));
-
-            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
-
-            return hasUsedPowerActivate && hasSpellSlotsAvailable;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -611,6 +592,25 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
 
             spellRepertoire.SpendSpellSlot(slotLevel);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            var hasUsedPowerActivate = character.UsablePowers
+                .Any(x => x.RemainingUses == 0 &&
+                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
+                          x.PowerDefinition.Name.EndsWith("Activate"));
+
+            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+
+            return hasUsedPowerActivate && hasSpellSlotsAvailable;
         }
     }
 

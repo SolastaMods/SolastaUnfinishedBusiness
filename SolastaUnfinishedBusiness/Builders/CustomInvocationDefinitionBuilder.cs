@@ -14,7 +14,8 @@ internal class CustomInvocationDefinitionBuilder
     {
     }
 
-    internal CustomInvocationDefinitionBuilder(InvocationValidateDefinitionCustom original, string name, Guid namespaceGuid)
+    internal CustomInvocationDefinitionBuilder(InvocationValidateDefinitionCustom original, string name,
+        Guid namespaceGuid)
         : base(original, name, namespaceGuid)
     {
     }

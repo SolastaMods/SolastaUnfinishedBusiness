@@ -411,7 +411,7 @@ internal static partial class SpellBuilders
 
         conditionShadowBlade.SetCustomSubFeatures(
             new ModifyAttackActionModifierShadowBlade(itemShadowBlade, conditionShadowBlade));
-        
+
         spell.EffectDescription.EffectForms.Add(
             EffectFormBuilder
                 .Create()

@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -268,7 +267,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneShotPowers.Add(powerBanishingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionBanished, EffectSpell = SpellDefinitions.Banishment
+                DebuffCondition = ConditionDefinitions.ConditionBanished,
+                EffectSpell = SpellDefinitions.Banishment,
+                EffectType = EffectHelpers.EffectType.Effect
             });
 
         // Beguiling Arrow
@@ -300,7 +301,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneShotPowers.Add(powerBeguilingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionCharmed, EffectSpell = SpellDefinitions.CharmPerson
+                DebuffCondition = ConditionDefinitions.ConditionCharmed,
+                EffectSpell = SpellDefinitions.CharmPerson,
+                EffectType = EffectHelpers.EffectType.Effect
             });
 
         // Bursting Arrow
@@ -324,7 +327,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .AddToDB();
 
         ArcaneShotPowers.Add(_powerBurstingArrow,
-            new ArcaneArcherData { EffectSpell = SpellDefinitions.Harm });
+            new ArcaneArcherData
+            {
+                EffectSpell = FeatureDefinitionPowers.PowerSymbolOfSleep, EffectType = EffectHelpers.EffectType.Zone
+            });
 
         // Enfeebling Arrow
 
@@ -382,7 +388,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneShotPowers.Add(powerEnfeeblingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = conditionEnfeeblingArrow, EffectSpell = SpellDefinitions.RayOfEnfeeblement
+                DebuffCondition = conditionEnfeeblingArrow,
+                EffectSpell = SpellDefinitions.RayOfEnfeeblement,
+                EffectType = EffectHelpers.EffectType.Effect
             });
 
         // Grasping Arrow
@@ -414,10 +422,17 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneShotPowers.Add(powerGraspingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionRestrained, EffectSpell = SpellDefinitions.Entangle
+                DebuffCondition = ConditionDefinitions.ConditionRestrained,
+                EffectSpell = SpellDefinitions.Entangle,
+                EffectType = EffectHelpers.EffectType.Zone
             });
 
         // Insight Arrow
+
+        var conditionInsightArrow = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionHighlighted, $"Condition{Name}InsightArrow")
+            .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
+            .AddToDB();
 
         var powerInsightArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}InsightArrow")
@@ -444,18 +459,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
-        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionShine.conditionParticleReference;
-        powerInsightArrow.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            new AssetReference();
-
         ArcaneShotPowers.Add(powerInsightArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionHighlighted,
-                EffectSpell = SpellDefinitions.GuidingBolt
+                DebuffCondition = conditionInsightArrow,
+                EffectSpell = SpellDefinitions.Shine,
+                EffectType = EffectHelpers.EffectType.Effect
             });
 
         // Shadow Arrow
@@ -487,7 +496,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneShotPowers.Add(powerShadowArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionBlinded, EffectSpell = SpellDefinitions.Blindness
+                DebuffCondition = ConditionDefinitions.ConditionBlinded,
+                EffectSpell = SpellDefinitions.Blindness,
+                EffectType = EffectHelpers.EffectType.Effect
             });
 
         // Slowing Arrow
@@ -519,7 +530,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneShotPowers.Add(powerSlowingArrow,
             new ArcaneArcherData
             {
-                DebuffCondition = ConditionDefinitions.ConditionSlowed, EffectSpell = SpellDefinitions.Slow
+                DebuffCondition = ConditionDefinitions.ConditionSlowed,
+                EffectSpell = SpellDefinitions.Slow,
+                EffectType = EffectHelpers.EffectType.Effect
             });
     }
 
@@ -554,8 +567,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             return;
         }
 
-        EffectHelpers.StartVisualEffect(
-            attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
+        EffectHelpers.StartVisualEffect(attacker, defender, arcaneArcherData.EffectSpell, arcaneArcherData.EffectType);
         rulesetDefender.InflictCondition(
             arcaneArcherData.DebuffCondition.Name,
             DurationType.Round,
@@ -611,7 +623,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
 
             EffectHelpers.StartVisualEffect(
-                attacker, defender, arcaneArcherData.EffectSpell, EffectHelpers.EffectType.Effect);
+                attacker, defender, arcaneArcherData.EffectSpell, arcaneArcherData.EffectType);
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
@@ -631,7 +643,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private struct ArcaneArcherData
     {
         public ConditionDefinition DebuffCondition;
-        public SpellDefinition EffectSpell;
+        public IMagicEffect EffectSpell;
+        public EffectHelpers.EffectType EffectType;
     }
 
     //
@@ -642,6 +655,20 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     {
         private FeatureDefinitionPower PowerSpent { get; set; }
         private RollOutcome SaveOutcome { get; set; } = RollOutcome.Success;
+
+        // collect the spent power and save outcome
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            if (characterAction is not CharacterActionSpendPower action)
+            {
+                PowerSpent = null;
+
+                yield break;
+            }
+
+            PowerSpent = action.activePower.PowerDefinition;
+            SaveOutcome = action.SaveOutcome;
+        }
 
         // apply arrow behavior after attack finishes
         public IEnumerator OnAttackFinishedByMe(
@@ -679,20 +706,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             PowerSpent = null;
             SaveOutcome = RollOutcome.Success;
-        }
-
-        // collect the spent power and save outcome
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            if (characterAction is not CharacterActionSpendPower action)
-            {
-                PowerSpent = null;
-
-                yield break;
-            }
-
-            PowerSpent = action.activePower.PowerDefinition;
-            SaveOutcome = action.SaveOutcome;
         }
     }
 

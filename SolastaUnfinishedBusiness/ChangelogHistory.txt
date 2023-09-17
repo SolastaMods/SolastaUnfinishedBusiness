@@ -3,11 +3,12 @@
 ATTENTION:
 
 - RESPEC is required on Way of Discordance before updating to this version
-- REINSTALL mod from ZIP to leverage new portraits [update only touches DLL]
+- REINSTALL mod from ZIP to leverage new portraits as update button only does DLL
 
-- added sample heroes, and monsters portraits to ZIP payload [by Artyoan]
+- added pre-gen heroes, and monsters portraits to ZIP payload [by Artyoan]
 - fixed Disabling and Improved Disabling Strike incorrect self-targeting
-- improved mod backend to reuse game patterns as much as possible [WIP]
+- fixed Feral Tiefling not offering the Burning Hands spell on action panel
+- improved mod backend to reuse game patterns as much as possible
 - improved Way of Discordance descriptions, progression, and SFX
 
 1.5.94.14:

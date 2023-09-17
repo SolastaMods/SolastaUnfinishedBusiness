@@ -159,7 +159,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
         const string SAVE = AttributeDefinitions.Dexterity;
         const DieType DIE_TYPE = DieType.D8;
         var validator =
-            new ValidatorsValidatePowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
+            new ValidatorsValidatePowerUse(character =>
+                !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = Sprites.GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
@@ -833,18 +834,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
             _slotLevel = slotLevel;
         }
 
-        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
-        {
-            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-            var used =
-                rulesetCharacter.GetMaxUsesForPool(_powerAlchemyPool) -
-                rulesetCharacter.GetRemainingPowerUses(_powerAlchemyPool);
-
-            rulesetRepertoire!.GetSlotsNumber(_slotLevel, out var remaining, out _);
-
-            return remaining > 0 && _slotLevel <= used;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -855,6 +844,18 @@ public sealed class InnovationAlchemy : AbstractSubclass
             rulesetUsablePower.remainingUses += _slotLevel;
 
             yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
+        {
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var used =
+                rulesetCharacter.GetMaxUsesForPool(_powerAlchemyPool) -
+                rulesetCharacter.GetRemainingPowerUses(_powerAlchemyPool);
+
+            rulesetRepertoire!.GetSlotsNumber(_slotLevel, out var remaining, out _);
+
+            return remaining > 0 && _slotLevel <= used;
         }
     }
 

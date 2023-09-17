@@ -274,7 +274,7 @@ internal static class RulesDisplay
             Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
-        
+
         toggle = Main.Settings.EnableHigherGroundRules;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
         {

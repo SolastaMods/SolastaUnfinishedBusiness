@@ -110,7 +110,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
+            .SetCustomSubFeatures(
+                new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
             .AddToDB();
 
         var additionalDamageStrikeTheVitalsD10 = FeatureDefinitionAdditionalDamageBuilder
@@ -121,7 +122,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
+            .SetCustomSubFeatures(
+                new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
             .AddToDB();
 
         // LEVEL 11
@@ -209,7 +211,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     {
         private readonly FeatureDefinitionAdditionalDamage _additionalDamageToRemove;
 
-        public CustomLevelUpLogicAdditionalDamageStrikeTheVitals(FeatureDefinitionAdditionalDamage additionalDamageToRemove)
+        public CustomLevelUpLogicAdditionalDamageStrikeTheVitals(
+            FeatureDefinitionAdditionalDamage additionalDamageToRemove)
         {
             _additionalDamageToRemove = additionalDamageToRemove;
         }

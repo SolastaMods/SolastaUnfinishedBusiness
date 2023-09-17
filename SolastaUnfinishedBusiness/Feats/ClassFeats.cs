@@ -749,19 +749,6 @@ internal static class ClassFeats
             _wildShapeAmount = wildShapeAmount;
         }
 
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var remaining = 0;
-
-            character.GetClassSpellRepertoire(Druid)?
-                .GetSlotsNumber(_slotLevel, out remaining, out _);
-
-            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
-                         character.GetRemainingPowerUses(PowerDruidWildShape);
-
-            return remaining > 0 && notMax;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
@@ -776,15 +763,23 @@ internal static class ClassFeats
             repertoire.SpendSpellSlot(_slotLevel);
             character.UpdateUsageForPowerPool(-_wildShapeAmount, rulesetUsablePower);
         }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var remaining = 0;
+
+            character.GetClassSpellRepertoire(Druid)?
+                .GetSlotsNumber(_slotLevel, out remaining, out _);
+
+            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
+                         character.GetRemainingPowerUses(PowerDruidWildShape);
+
+            return remaining > 0 && notMax;
+        }
     }
 
     private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe, IValidatePowerUse
     {
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
@@ -796,6 +791,11 @@ internal static class ClassFeats
             }
 
             yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
         }
     }
 

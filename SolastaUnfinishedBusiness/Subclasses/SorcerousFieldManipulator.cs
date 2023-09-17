@@ -227,7 +227,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
             // bring back power target type to position
             rulesetEffect.EffectDescription.targetType = TargetType.Position;
-            
+
             yield break;
         }
 

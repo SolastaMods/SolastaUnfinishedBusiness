@@ -51,7 +51,7 @@ public static class RichText
         return _ = $"<i>{s}</i>";
     }
 
-    internal static string Color(this string s, string color)
+    private static string Color(this string s, string color)
     {
         return _ = $"<color={color}>{s}</color>";
     }

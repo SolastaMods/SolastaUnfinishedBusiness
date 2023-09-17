@@ -1640,8 +1640,8 @@ internal static class MeleeCombatFeats
 
         concentrationProvider.StopPower = powerTurnOffPowerAttack;
         conditionPowerAttack.SetCustomSubFeatures(
-                concentrationProvider,
-                new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
+            concentrationProvider,
+            new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
 
         return featPowerAttack;
     }

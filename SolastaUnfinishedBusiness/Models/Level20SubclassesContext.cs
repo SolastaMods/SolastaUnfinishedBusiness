@@ -1526,7 +1526,7 @@ internal static class Level20SubclassesContext
                     rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
-            
+
             yield break;
         }
     }

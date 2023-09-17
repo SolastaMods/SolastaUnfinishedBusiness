@@ -813,12 +813,13 @@ internal static class Level20Context
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower
-                || characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind
-                && characterActionUsePower.activePower.PowerDefinition != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
+                || (characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind
+                    && characterActionUsePower.activePower.PowerDefinition !=
+                    CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat))
             {
                 yield break;
             }
-            
+
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })

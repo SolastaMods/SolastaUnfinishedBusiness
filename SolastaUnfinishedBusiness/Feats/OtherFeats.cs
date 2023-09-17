@@ -731,14 +731,14 @@ internal static class OtherFeats
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
                         new ActionFinishedByMeFeatMobileDash(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetPossessive()
-                                    .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                                    .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                    .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
-                                    .AddToDB()))
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();

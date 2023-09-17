@@ -20,7 +20,8 @@ public static class InvocationItemPatcher
         public static void Postfix(InvocationItem __instance)
         {
             //PATCH: makes custom invocations have custom tooltips
-            if (__instance.GuiInvocationDefinition.InvocationDefinition is not InvocationValidateDefinitionCustom custom)
+            if (__instance.GuiInvocationDefinition
+                    .InvocationDefinition is not InvocationValidateDefinitionCustom custom)
             {
                 return;
             }

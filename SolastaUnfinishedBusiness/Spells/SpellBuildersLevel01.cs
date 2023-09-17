@@ -1103,7 +1103,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(conditionAlacrity));
-        
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, CalmEmotions)

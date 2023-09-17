@@ -169,16 +169,8 @@ internal static partial class SpellBuilders
                                 false,
                                 false,
                                 ConditionDefinitions.ConditionCharmed,
-                                ConditionDefinitions.ConditionCharmedByHypnoticPattern,
                                 ConditionDefinitions.ConditionFrightened,
-                                ConditionDefinitions.ConditionFrightenedFear,
-                                ConditionDefinitions.ConditionFrightenedPhantasmalKiller,
                                 ConditionDefinitions.ConditionParalyzed,
-                                ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
-                                ConditionDefinitions.ConditionParalyzed_GhoulsCaress,
-                                ConditionDefinitions.ConditionStunned,
-                                ConditionDefinitions.ConditionStunned_MutantApeSlam,
-                                ConditionDefinitions.ConditionStunnedConjuredDeath,
                                 ConditionDefinitions.ConditionProne)
                             .Build())
                     .SetParticleEffectParameters(Regenerate)

@@ -976,21 +976,6 @@ internal static class EldritchVersatility
 
     private sealed class BattlefieldConversionRestoreSlot : IMagicEffectFinishedByMe, IValidatePowerUse
     {
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var rulesetHero = character.GetOriginalHero();
-
-            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return false;
-            }
-
-            // Have spent pact slot && have enough points
-            return SharedSpellsContext.GetWarlockUsedSlots(rulesetHero) > 0 &&
-                   character.GetVersatilitySupportCondition(out var supportCondition) &&
-                   supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.BattlefieldConversionSuccess);
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationCharacter = action.ActingCharacter;
@@ -1055,6 +1040,21 @@ internal static class EldritchVersatility
 
             warlockRepertoire.usedSpellsSlots[slotLevelIndex] = Math.Max(0, warlockUsedSlots - 1);
             warlockRepertoire.RepertoireRefreshed?.Invoke(warlockRepertoire);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var rulesetHero = character.GetOriginalHero();
+
+            if (rulesetHero is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return false;
+            }
+
+            // Have spent pact slot && have enough points
+            return SharedSpellsContext.GetWarlockUsedSlots(rulesetHero) > 0 &&
+                   character.GetVersatilitySupportCondition(out var supportCondition) &&
+                   supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.BattlefieldConversionSuccess);
         }
     }
 
