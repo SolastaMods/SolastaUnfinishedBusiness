@@ -801,7 +801,7 @@ internal static class Level20Context
         return invocationPoolWizardSignatureSpells;
     }
 
-    private sealed class ActionFinishedByMeArchDruid : IUsePowerFinishedByMe
+    private sealed class ActionFinishedByMeArchDruid : IActionFinishedByMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -810,13 +810,15 @@ internal static class Level20Context
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (power != PowerDruidWildShape && power != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
+            if (action is not CharacterActionUsePower characterActionUsePower
+                || characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind
+                && characterActionUsePower.activePower.PowerDefinition != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
             {
                 yield break;
             }
-
+            
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })

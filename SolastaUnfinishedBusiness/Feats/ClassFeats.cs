@@ -607,15 +607,16 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class UsePowerFinishedByMeFeatHardy : IUsePowerFinishedByMe
+    private sealed class UsePowerFinishedByMeFeatHardy : IActionFinishedByMe
     {
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (power != PowerFighterSecondWind)
+            if (action is not CharacterActionUsePower characterActionUsePower
+                || characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
             {
                 yield break;
             }
-
+            
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(Fighter);
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
