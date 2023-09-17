@@ -79,7 +79,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 8,
+          "diceNumber": 6,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -364,7 +364,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Burst of Disharmony [5 Ki]",
-    "description": "Spend 5 Ki Point to deal 8d6 necrotic damage.",
+    "description": "Spend 5 Ki Point to deal 6d6 necrotic damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

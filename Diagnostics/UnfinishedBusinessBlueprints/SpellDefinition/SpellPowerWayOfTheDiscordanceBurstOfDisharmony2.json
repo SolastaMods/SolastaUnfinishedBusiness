@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Burst of Disharmony [2 Ki]",
-    "description": "Spend 2 Ki Point to deal 5d6 necrotic damage.",
+    "description": "Spend 2 Ki Point to deal 3d6 necrotic damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

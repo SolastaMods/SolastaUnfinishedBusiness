@@ -252,7 +252,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         for (var i = 10; i >= 2; i--)
         {
             var kiNumber = i; // closure
-            var diceNumber = 3 + kiNumber;
+            var diceNumber = 1 + kiNumber;
             var minimumClassLevelAllowed = (kiNumber * 2) - 1;
 
             var powerBurstOfDisharmony = FeatureDefinitionPowerSharedPoolBuilder
