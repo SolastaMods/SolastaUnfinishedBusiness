@@ -427,11 +427,12 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
-                new ShowWhenHasCannon(),
-                new ChainActionAfterMagicEffectEldritchDetonation(powerDetonateSelf))
             .AddToDB();
 
+        powerDetonate.SetCustomSubFeatures(
+            new ShowWhenHasCannon(),
+            new UsePowerFinishedByMeEldritchDetonation(powerDetonate, powerDetonateSelf));
+        
         // Explosive Cannon
 
         var powerExplosiveCannonPool = FeatureDefinitionPowerBuilder
@@ -1036,45 +1037,50 @@ public sealed class InnovationArtillerist : AbstractSubclass
         }
     }
 
-    private sealed class ChainActionAfterMagicEffectEldritchDetonation : IChainActionAfterMagicEffect
+    private sealed class UsePowerFinishedByMeEldritchDetonation : IUsePowerFinishedByMe
     {
+        private readonly FeatureDefinitionPower _powerEldritchDetonate;
         private readonly FeatureDefinitionPower _powerEldritchDetonation;
 
-        internal ChainActionAfterMagicEffectEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
+        internal UsePowerFinishedByMeEldritchDetonation(
+            FeatureDefinitionPower powerEldritchDetonate,
+            FeatureDefinitionPower powerEldritchDetonation)
         {
+            _powerEldritchDetonate = powerEldritchDetonate;
             _powerEldritchDetonation = powerEldritchDetonation;
         }
 
-        [CanBeNull]
-        public CharacterAction GetNextAction(CharacterActionMagicEffect baseEffect)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != _powerEldritchDetonate)
+            {
+                yield break;
+            }
+            
             var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
 
             if (gameLocationTargetingService == null)
             {
-                return null;
+                yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var actionParams = baseEffect.ActionParams;
+            var actionParams = action.ActionParams.Clone();
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
             var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
-            var effectPower = rulesetImplementationService
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                 .AddAsActivePowerToSource();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, new List<ActionModifier>());
 
-            var newActionParams = baseEffect.ActionParams.Clone();
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
+            actionParams.RulesetEffect = effectPower;
+            actionParams.TargetCharacters.SetRange(targets);
 
-            newActionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
-            newActionParams.RulesetEffect = effectPower;
-            newActionParams.TargetCharacters.SetRange(targets);
-
-            return new CharacterActionSpendPower(actionParams);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

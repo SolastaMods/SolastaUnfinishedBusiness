@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -210,8 +211,9 @@ public sealed class OathOfThunder : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(DimensionDoor)
                     .Build())
-            .SetCustomSubFeatures(new ChainActionAfterMagicEffectBifrost(powerBifrostDamage))
             .AddToDB();
+
+        powerBifrost.SetCustomSubFeatures(new UsePowerFinishedByMeBifrost(powerBifrost, powerBifrostDamage));
 
         // LEVEL 20
 
@@ -374,26 +376,35 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ChainActionAfterMagicEffectBifrost : IChainActionAfterMagicEffect
+    private sealed class UsePowerFinishedByMeBifrost : IUsePowerFinishedByMe
     {
+        private readonly FeatureDefinitionPower _powerBifrost;
         private readonly FeatureDefinitionPower _powerBifrostDamage;
 
-        public ChainActionAfterMagicEffectBifrost(FeatureDefinitionPower powerBifrostDamage)
+        public UsePowerFinishedByMeBifrost(
+            FeatureDefinitionPower powerBifrost,
+            FeatureDefinitionPower powerBifrostDamage)
         {
+            _powerBifrost = powerBifrost;
             _powerBifrostDamage = powerBifrostDamage;
         }
 
-        public CharacterAction GetNextAction(CharacterActionMagicEffect baseEffect)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != _powerBifrost)
+            {
+                yield break;
+            }
+
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                return null;
+                yield break;
             }
 
-            var actionParams = baseEffect.ActionParams.Clone();
-            var attacker = baseEffect.ActingCharacter;
+            var actionParams = action.ActionParams.Clone();
+            var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
 
@@ -407,7 +418,7 @@ public sealed class OathOfThunder : AbstractSubclass
                             gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 
-            return new CharacterActionSpendPower(actionParams);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 }

@@ -284,7 +284,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             powerBurstOfDisharmony.SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
-                new ChainActionAfterMagicEffectBurstOfDisharmony(
+                new UsePowerFinishedByMeBurstOfDisharmony(powerBurstOfDisharmony,
                     conditionDiscordance, powerDiscordanceDamage, conditionHadTurmoil, powerTurmoil),
                 new ValidatorsPowerUse(
                     c => c.RemainingKiPoints >= kiNumber &&
@@ -420,27 +420,35 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     // Burst of Disharmony
     //
 
-    private sealed class ChainActionAfterMagicEffectBurstOfDisharmony : IChainActionAfterMagicEffect
+    private sealed class UsePowerFinishedByMeBurstOfDisharmony : IUsePowerFinishedByMe
     {
+        private readonly FeatureDefinitionPower _powerBurstOfDisharmony;
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly ConditionDefinition _conditionHadTurmoil;
         private readonly FeatureDefinitionPower _powerDiscordance;
         private readonly FeatureDefinitionPower _powerTurmoil;
 
-        public ChainActionAfterMagicEffectBurstOfDisharmony(
+        public UsePowerFinishedByMeBurstOfDisharmony(
+            FeatureDefinitionPower powerBurstOfDisharmony,
             ConditionDefinition conditionDiscordance,
             FeatureDefinitionPower powerDiscordance,
             ConditionDefinition conditionHadTurmoil,
             FeatureDefinitionPower powerTurmoil)
         {
+            _powerBurstOfDisharmony = powerBurstOfDisharmony;
             _conditionDiscordance = conditionDiscordance;
             _powerDiscordance = powerDiscordance;
             _conditionHadTurmoil = conditionHadTurmoil;
             _powerTurmoil = powerTurmoil;
         }
 
-        public CharacterAction GetNextAction(CharacterActionMagicEffect action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != _powerBurstOfDisharmony)
+            {
+                yield break;
+            }
+
             // Discordance Damage
             var targets = new List<GameLocationCharacter>();
 
@@ -451,7 +459,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             if (targets.Empty())
             {
-                return null;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -473,7 +481,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             if (monkLevel < TurmoilLevel)
             {
-                return null;
+                yield break;
             }
 
             targets.RemoveAll(x =>
@@ -482,7 +490,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             if (targets.Empty())
             {
-                return null;
+                yield break;
             }
 
             var actionParamsTurmoil = action.ActionParams.Clone();
@@ -494,7 +502,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParamsTurmoil.TargetCharacters.SetRange(targets);
 
-            return new CharacterActionSpendPower(actionParamsTurmoil);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsTurmoil));
         }
     }
 

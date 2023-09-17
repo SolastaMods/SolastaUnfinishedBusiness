@@ -119,6 +119,8 @@ public static class CharacterActionMagicEffectPatcher
         {
             var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
 
+            //TODO: improve this to avoid browsing entire hero features collection
+            
             //PATCH: supports `IUsePowerInitiatedByMe`
             if (__instance is CharacterActionUsePower characterActionUsePower1)
             {
@@ -142,6 +144,8 @@ public static class CharacterActionMagicEffectPatcher
                 yield return values.Current;
             }
 
+            //TODO: improve this to avoid browsing entire hero features collection
+            
             //PATCH: supports `IUsePowerFinishedByMe`
             if (__instance is CharacterActionUsePower characterActionUsePower2)
             {
@@ -160,6 +164,18 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
+            //PATCH: supports `ICastSpellFinishedByMe`
+            if (__instance is CharacterActionCastSpell characterActionCastSpell)
+            {
+                var spell = characterActionCastSpell.activeSpell.SpellDefinition;
+                var spellModifier = spell.GetFirstSubFeatureOfType<ICastSpellFinishedByMe>();
+
+                if (spellModifier != null)
+                {
+                    yield return spellModifier.OnCastSpellFinishedByMe(characterActionCastSpell, spell);
+                }
+            }
+
             //PATCH: supports `IPerformAttackAfterMagicEffectUse`
             var baseDefinition = __instance.GetBaseDefinition();
             var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
@@ -170,15 +186,6 @@ public static class CharacterActionMagicEffectPatcher
             {
                 __instance.ResultingActions.AddRange(
                     characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
-            }
-
-            //PATCH: supports `IChainActionAfterMagicEffect`
-            var chainAction = baseDefinition.GetFirstSubFeatureOfType<IChainActionAfterMagicEffect>()
-                ?.GetNextAction(__instance);
-
-            if (chainAction != null)
-            {
-                __instance.ResultingActions.Add(chainAction);
             }
         }
     }

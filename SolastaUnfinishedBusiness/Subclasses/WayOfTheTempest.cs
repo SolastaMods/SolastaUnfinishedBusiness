@@ -226,7 +226,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
         powerEyeOfTheStorm.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new ChainActionAfterMagicEffectEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
+            new UsePowerFinishedByMeEyeOfTheStorm(powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}EyeOfTheStorm")
@@ -406,26 +406,34 @@ public sealed class WayOfTheTempest : AbstractSubclass
     // Eye of The Storm
     //
 
-    private sealed class ChainActionAfterMagicEffectEyeOfTheStorm : IChainActionAfterMagicEffect
+    private sealed class UsePowerFinishedByMeEyeOfTheStorm : IUsePowerFinishedByMe
     {
+        private readonly FeatureDefinitionPower _powerEyeOfTheStorm;
         private readonly ConditionDefinition _conditionEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStormLeap;
 
-        public ChainActionAfterMagicEffectEyeOfTheStorm(
+        public UsePowerFinishedByMeEyeOfTheStorm(
+            FeatureDefinitionPower powerEyeOfTheStorm,
             FeatureDefinitionPower powerEyeOfTheStormLeap,
             ConditionDefinition conditionEyeOfTheStorm)
         {
+            _powerEyeOfTheStorm = powerEyeOfTheStorm;
             _powerEyeOfTheStormLeap = powerEyeOfTheStormLeap;
             _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
-        public CharacterAction GetNextAction(CharacterActionMagicEffect action)
+        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
         {
+            if (power != _powerEyeOfTheStorm)
+            {
+                yield break;
+            }
+
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                return null;
+                yield break;
             }
 
             var actionParams = action.ActionParams.Clone();
@@ -446,7 +454,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                                   y.SourceGuid == rulesetAttacker.Guid))
                 .ToList());
 
-            return new CharacterActionSpendPower(actionParams);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 }
