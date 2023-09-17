@@ -1,9 +1,9 @@
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow, and you may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within within 5 feet of you.
+Condition/&ConditionPathOfTheYeomanBulwarkTitle=Bulwark
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=While raging, not wearing heavy armor, and wielding a longbow, you may shove as a bonus action.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Staggering Blow
 Feature/&CombatAffinityPathOfTheYeomanBulwarkDescription=Enemies ranged attacks with weapons against you have disadvantage.
 Feature/&CombatAffinityPathOfTheYeomanBulwarkTitle=Bulwark
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow, and you may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within within 5 feet of you.
-Condition/&ConditionPathOfTheYeomanBulwarkTitle=Bulwark
 Feature/&FeaturePathOfTheYeomanKeenEyeDescription=Reckless Attack gives advantage to your attacks using a strength attack with a longbow. When you unlock Brutal Critical, it also applies to your strength attacks made with longbows.
 Feature/&FeaturePathOfTheYeomanKeenEyeTitle=Keen Eye
 Feature/&FeaturePathOfTheYeomanMightyShotDescription=Increase the damage dice of longbows from d8 to d12. While raging and not wearing heavy armor, when you hit an enemy with an attack from a longbow, enemies within 15 feet of the target must make a Dexterity saving throw or take thunder damage equal to your rage damage bonus plus your Strength modifier.

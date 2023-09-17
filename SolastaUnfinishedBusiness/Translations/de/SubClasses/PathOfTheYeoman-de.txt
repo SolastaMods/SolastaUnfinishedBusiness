@@ -1,9 +1,9 @@
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Gegner in Ihrer Nähe verursachen keinen Nachteil bei Angriffen, die Sie mit einem Langbogen ausführen, und Sie können Ihre Reaktion nutzen, um einen Gelegenheitsangriff mit einem Langbogen gegen einen Feind durchzuführen, der sich in einem Umkreis von 1,5 m um Sie herum bewegt.
+Condition/&ConditionPathOfTheYeomanBulwarkTitle=Bollwerk
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=Während du tobst, keine schwere Rüstung trägst und einen Langbogen schwingst, kannst du als Bonusaktion schieben.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Erschütternder Schlag
 Feature/&CombatAffinityPathOfTheYeomanBulwarkDescription=Gegner, die dich mit Waffen aus der Ferne angreifen, haben einen Nachteil.
 Feature/&CombatAffinityPathOfTheYeomanBulwarkTitle=Bollwerk
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Gegner in Ihrer Nähe verursachen keinen Nachteil bei Angriffen, die Sie mit einem Langbogen ausführen, und Sie können Ihre Reaktion nutzen, um einen Gelegenheitsangriff mit einem Langbogen gegen einen Feind durchzuführen, der sich in einem Umkreis von 1,5 m um Sie herum bewegt.
-Condition/&ConditionPathOfTheYeomanBulwarkTitle=Bollwerk
 Feature/&FeaturePathOfTheYeomanKeenEyeDescription=„Rücksichtsloser Angriff“ verleiht Ihren Angriffen einen Vorteil, indem Sie einen Kraftangriff mit einem Langbogen nutzen. Wenn Sie Brutal Critical freischalten, gilt dies auch für Ihre Kraftangriffe mit Langbögen.
 Feature/&FeaturePathOfTheYeomanKeenEyeTitle=Scharfes Auge
 Feature/&FeaturePathOfTheYeomanMightyShotDescription=Erhöhe die Schadenswürfel von Langbögen von d8 auf d12. Wenn Sie im Toben und ohne schwere Rüstung einen Feind mit einem Angriff mit einem Langbogen treffen, müssen Feinde im Umkreis von 15 Fuß um das Ziel einen Geschicklichkeitsrettungswurf durchführen oder Donnerschaden in Höhe Ihres Wutschadensbonus plus Ihrem Stärkemodifikator erleiden.
