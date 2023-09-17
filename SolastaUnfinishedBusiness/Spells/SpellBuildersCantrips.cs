@@ -869,7 +869,7 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
                 AttackAfterMagicEffect.ResonatingStrikeAttack,
-                new MagicalAttackFinishedByMeResonatingStrike(powerResonatingStrike))
+                new MagicEffectFinishedByMeResonatingStrike(powerResonatingStrike))
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -931,16 +931,16 @@ internal static partial class SpellBuilders
     }
 
     // chain resonating strike leap damage power
-    private sealed class MagicalAttackFinishedByMeResonatingStrike : ICastSpellFinishedByMe
+    private sealed class MagicEffectFinishedByMeResonatingStrike : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerResonatingStrike;
 
-        internal MagicalAttackFinishedByMeResonatingStrike(FeatureDefinitionPower powerResonatingStrike)
+        internal MagicEffectFinishedByMeResonatingStrike(FeatureDefinitionPower powerResonatingStrike)
         {
             _powerResonatingStrike = powerResonatingStrike;
         }
 
-        public IEnumerator OnCastSpellFinishedByMe(CharacterActionCastSpell action, SpellDefinition spell)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
             var targets = action.ActionParams.TargetCharacters;
 

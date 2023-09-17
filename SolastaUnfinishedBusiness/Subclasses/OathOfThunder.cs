@@ -211,9 +211,8 @@ public sealed class OathOfThunder : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(DimensionDoor)
                     .Build())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeBifrost(powerBifrostDamage))
             .AddToDB();
-
-        powerBifrost.SetCustomSubFeatures(new UsePowerFinishedByMeBifrost(powerBifrost, powerBifrostDamage));
 
         // LEVEL 20
 
@@ -376,26 +375,17 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class UsePowerFinishedByMeBifrost : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeBifrost : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerBifrost;
         private readonly FeatureDefinitionPower _powerBifrostDamage;
 
-        public UsePowerFinishedByMeBifrost(
-            FeatureDefinitionPower powerBifrost,
-            FeatureDefinitionPower powerBifrostDamage)
+        public MagicEffectFinishedByMeBifrost(FeatureDefinitionPower powerBifrostDamage)
         {
-            _powerBifrost = powerBifrost;
             _powerBifrostDamage = powerBifrostDamage;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerBifrost)
-            {
-                yield break;
-            }
-
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })

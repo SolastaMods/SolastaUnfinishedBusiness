@@ -638,7 +638,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Arcane Shot
     //
 
-    private sealed class SpendPowerFinishedByMeArcaneShot : ISpendPowerFinishedByMe, IPhysicalAttackFinishedByMe
+    private sealed class SpendPowerFinishedByMeArcaneShot : IActionFinishedByMe, IPhysicalAttackFinishedByMe
     {
         private FeatureDefinitionPower PowerSpent { get; set; }
         private RollOutcome SaveOutcome { get; set; } = RollOutcome.Success;
@@ -682,12 +682,17 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         }
 
         // collect the spent power and save outcome
-        public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            PowerSpent = power;
-            SaveOutcome = action.SaveOutcome;
+            if (characterAction is not CharacterActionSpendPower action)
+            {
+                PowerSpent = null;
 
-            yield break;
+                yield break;
+            }
+
+            PowerSpent = action.activePower.PowerDefinition;
+            SaveOutcome = action.SaveOutcome;
         }
     }
 

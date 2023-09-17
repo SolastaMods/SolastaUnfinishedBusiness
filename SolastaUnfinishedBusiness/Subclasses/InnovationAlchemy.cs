@@ -784,10 +784,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 .Create($"PowerInnovationAlchemyRefundFromSlot{i}")
                 .SetGuiPresentation(title, description)
                 .SetSharedPool(ActivationTime.BonusAction, powerRefundPool)
+                .SetCustomSubFeatures(new CustomBehaviorRefundAlchemyPool(powerPool, i))
                 .AddToDB();
-
-            powerRefundFromSlot.SetCustomSubFeatures(
-                new CustomBehaviorRefundAlchemyPool(powerRefundFromSlot, powerPool, i));
 
             powerRefundFromSlotList.Add(powerRefundFromSlot);
         }
@@ -824,18 +822,13 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorRefundAlchemyPool : IPowerUseValidity, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorRefundAlchemyPool : IPowerUseValidity, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerAlchemyPool;
-        private readonly FeatureDefinitionPower _powerRefundFromSlot;
         private readonly int _slotLevel;
 
-        public CustomBehaviorRefundAlchemyPool(
-            FeatureDefinitionPower powerRefundFromSlot,
-            FeatureDefinitionPower powerAlchemyPool,
-            int slotLevel)
+        public CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
         {
-            _powerRefundFromSlot = powerRefundFromSlot;
             _powerAlchemyPool = powerAlchemyPool;
             _slotLevel = slotLevel;
         }
@@ -852,19 +845,16 @@ public sealed class InnovationAlchemy : AbstractSubclass
             return remaining > 0 && _slotLevel <= used;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (power != _powerRefundFromSlot)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
             var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
 
             rulesetRepertoire!.SpendSpellSlot(_slotLevel);
             rulesetUsablePower.remainingUses += _slotLevel;
+
+            yield break;
         }
     }
 

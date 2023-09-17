@@ -79,7 +79,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 5,
                         TargetType.IndividualsUnique)
                     .Build())
-            .SetCustomSubFeatures(new AfterActionFinishedByMeTakeThePain())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeTakeThePain())
             .AddToDB();
 
         var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
@@ -144,20 +144,10 @@ public sealed class OathOfAltruism : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class AfterActionFinishedByMeTakeThePain : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeTakeThePain : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (!power.Name.StartsWith($"Power{Name}TakeThePain"))
-            {
-                yield break;
-            }
-
-            if (action.ActionType != ActionType.Bonus)
-            {
-                yield break;
-            }
-
             var self = action.ActingCharacter;
 
             foreach (var character in action.ActionParams.targetCharacters)
@@ -183,6 +173,8 @@ public sealed class OathOfAltruism : AbstractSubclass
                     DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                     self.RulesetCharacter.guid);
             }
+
+            yield break;
         }
     }
 

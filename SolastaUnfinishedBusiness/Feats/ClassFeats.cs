@@ -616,7 +616,7 @@ internal static class ClassFeats
             {
                 yield break;
             }
-            
+
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(Fighter);
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
@@ -684,9 +684,9 @@ internal static class ClassFeats
                                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                                 .Build())
                         .Build())
+                .SetCustomSubFeatures(new SpendWildShapeUse())
                 .AddToDB();
 
-            powerGainSlot.SetCustomSubFeatures(new SpendWildShapeUse(powerGainSlot));
             powerGainSlotPoolList.Add(powerGainSlot);
         }
 
@@ -722,10 +722,9 @@ internal static class ClassFeats
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
                         wildShapeAmount.ToString(), i.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, power)
+                .SetCustomSubFeatures(new GainWildShapeCharges(i, wildShapeAmount))
                 .AddToDB();
 
-            powerGainWildShapeFromSlot.SetCustomSubFeatures(new GainWildShapeCharges(powerGainWildShapeFromSlot, i,
-                wildShapeAmount));
             powerGainWildShapeList.Add(powerGainWildShapeFromSlot);
         }
 
@@ -739,18 +738,13 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : IUsePowerFinishedByMe, IPowerUseValidity
+    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IPowerUseValidity
     {
-        private readonly FeatureDefinitionPower _powerGainWildShapeFromSlot;
         private readonly int _slotLevel;
         private readonly int _wildShapeAmount;
 
-        public GainWildShapeCharges(
-            FeatureDefinitionPower powerGainWildShapeFromSlot,
-            int slotLevel,
-            int wildShapeAmount)
+        public GainWildShapeCharges(int slotLevel, int wildShapeAmount)
         {
-            _powerGainWildShapeFromSlot = powerGainWildShapeFromSlot;
             _slotLevel = slotLevel;
             _wildShapeAmount = wildShapeAmount;
         }
@@ -768,13 +762,8 @@ internal static class ClassFeats
             return remaining > 0 && notMax;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerGainWildShapeFromSlot)
-            {
-                yield break;
-            }
-
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
@@ -789,27 +778,15 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : IUsePowerFinishedByMe, IPowerUseValidity
+    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe, IPowerUseValidity
     {
-        private readonly FeatureDefinitionPower _powerSpendWildShapeUse;
-
-        public SpendWildShapeUse(FeatureDefinitionPower powerSpendWildShapeUse)
-        {
-            _powerSpendWildShapeUse = powerSpendWildShapeUse;
-        }
-
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
             return character.GetRemainingPowerUses(PowerDruidWildShape) > 0;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerSpendWildShapeUse)
-            {
-                yield break;
-            }
-
             var character = action.ActingCharacter.RulesetCharacter;
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
 
@@ -817,6 +794,8 @@ internal static class ClassFeats
             {
                 character.UpdateUsageForPowerPool(1, rulesetUsablePower);
             }
+
+            yield break;
         }
     }
 
@@ -979,6 +958,7 @@ internal static class ClassFeats
                                 .Build())
                         .Build())
                 .SetCustomSubFeatures(
+                    new ActionFinishedByMeFeatSpiritualFluidityGainSlot(),
                     new ValidatorsPowerUse(c =>
                         c.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > c.UsedChannelDivinity))
                 .AddToDB();
@@ -1048,6 +1028,7 @@ internal static class ClassFeats
                                 .Build())
                         .Build())
                 .SetCustomSubFeatures(
+                    new ActionFinishedByMeFeatSpiritualFluidityFromSlot(),
                     new ValidatorsPowerUse(
                         c =>
                         {
@@ -1071,29 +1052,31 @@ internal static class ClassFeats
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatures(power, powerChannelDivinityPool, powerGainSlotPool)
                 .SetValidators(ValidatorsFeat.IsClericLevel4)
-                .SetCustomSubFeatures(new ActionFinishedByMeFeatSpiritualFluidity())
                 .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatSpiritualFluidity : IUsePowerFinishedByMe
+    private sealed class ActionFinishedByMeFeatSpiritualFluidityGainSlot : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
 
-            if (power.Name.StartsWith(
-                    "PowerFeatSpiritualFluidityGainChannelDivinityFromSlot"))
-            {
-                var name = power.Name;
-                var level = int.Parse(name.Substring(name.Length - 1, 1));
-                var repertoire = character.GetClassSpellRepertoire(Cleric);
+            character.UsedChannelDivinity += 1;
 
-                repertoire?.SpendSpellSlot(level);
-            }
-            else if (power.Name.StartsWith("PowerFeatSpiritualFluidityGainSlot"))
-            {
-                character.UsedChannelDivinity += 1;
-            }
+            yield break;
+        }
+    }
+
+    private sealed class ActionFinishedByMeFeatSpiritualFluidityFromSlot : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        {
+            var character = action.ActingCharacter.RulesetCharacter;
+            var name = power.Name;
+            var level = int.Parse(name.Substring(name.Length - 1, 1));
+            var repertoire = character.GetClassSpellRepertoire(Cleric);
+
+            repertoire?.SpendSpellSlot(level);
 
             yield break;
         }
@@ -1203,9 +1186,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IUsePowerFinishedByMe
+    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (!power.Name.StartsWith("PowerFeatSlayTheEnemies"))
             {

@@ -320,7 +320,7 @@ public sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IModifyDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
+        IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -370,13 +370,8 @@ public sealed class RangerHellWalker : AbstractSubclass
                 });
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (Gui.Battle == null || power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
@@ -395,6 +390,8 @@ public sealed class RangerHellWalker : AbstractSubclass
                     rulesetDefender.RemoveCondition(rulesetCondition);
                 }
             }
+            
+            yield break;
         }
     }
 }

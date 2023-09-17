@@ -341,13 +341,10 @@ internal static class Level20SubclassesContext
                     .SetParticleEffectParameters(Bane)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTraditionOpenHandQuiveringPalm))
                     .Build())
+            .SetCustomSubFeatures(
+                ForcePowerUseInSpendPowerAction.Marker,
+                new MagicEffectFinishedByMeQuiveringPalm(conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
-
-        powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
-            new UsePowerFinishedByMeQuiveringPalm(
-                powerTraditionOpenHandQuiveringPalm,
-                conditionTraditionOpenHandQuiveringPalm));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
@@ -1394,7 +1391,7 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -1430,7 +1427,7 @@ internal static class Level20SubclassesContext
             return isValid;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (action.ActionParams.TargetCharacters.Count == 0)
             {
@@ -1499,32 +1496,21 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class UsePowerFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeQuiveringPalm : IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public UsePowerFinishedByMeQuiveringPalm(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
+        public MagicEffectFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
         {
-            _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var battle = Gui.Battle;
-
-            if (battle == null || power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var rulesetDefender in battle.AllContenders
+            foreach (var rulesetDefender in Gui.Battle.AllContenders
                          .Where(x =>
                              x.Side == gameLocationDefender.Side &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -1540,6 +1526,8 @@ internal static class Level20SubclassesContext
                     rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
+            
+            yield break;
         }
     }
 

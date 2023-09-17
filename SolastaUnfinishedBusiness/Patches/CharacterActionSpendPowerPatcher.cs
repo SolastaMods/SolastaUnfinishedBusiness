@@ -26,15 +26,6 @@ public static class CharacterActionSpendPowerPatcher
                 yield return values.Current;
             }
 
-            var power = __instance.activePower.PowerDefinition;
-
-            // exceptionally browse ruleset character instead of power
-            foreach (var spendPowerFinishedByMe in __instance.ActingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<ISpendPowerFinishedByMe>())
-            {
-                yield return spendPowerFinishedByMe.OnSpendPowerFinishedByMe(__instance, power);
-            }
-
             //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
             if (__instance.ActionParams.RulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
             {

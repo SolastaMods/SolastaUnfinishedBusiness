@@ -384,7 +384,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
-    private sealed class ActionFinishedByMeWildShape : IUsePowerFinishedByMe, IPreventRemoveConcentrationWithPowerUse
+    private sealed class ActionFinishedByMeWildShape : IMagicEffectFinishedByMe, IPreventRemoveConcentrationWithPowerUse
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
@@ -393,10 +393,9 @@ public sealed class CircleOfTheNight : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _featureDefinitionPower ||
-                !action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
+            if (!action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
             {
                 yield break;
             }

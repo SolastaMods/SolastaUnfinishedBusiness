@@ -340,7 +340,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IUsePowerInitiatedByMe, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IMagicEffectInitiatedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;
@@ -376,18 +376,13 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerEssenceTheft)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterAction.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
 
             actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
 
-            var damage = characterAction.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+            var damage = action.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
 
             // this currently works as there is only one feature in game using DamageDieProviderFromCharacter
             // we might need to change this to a proper interface if others start using it

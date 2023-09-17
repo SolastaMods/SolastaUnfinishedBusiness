@@ -284,7 +284,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             powerBurstOfDisharmony.SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
-                new UsePowerFinishedByMeBurstOfDisharmony(powerBurstOfDisharmony,
+                new MagicEffectFinishedByMeBurstOfDisharmony(
                     conditionDiscordance, powerDiscordanceDamage, conditionHadTurmoil, powerTurmoil),
                 new ValidatorsPowerUse(
                     c => c.RemainingKiPoints >= kiNumber &&
@@ -420,35 +420,27 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     // Burst of Disharmony
     //
 
-    private sealed class UsePowerFinishedByMeBurstOfDisharmony : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeBurstOfDisharmony : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerBurstOfDisharmony;
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly ConditionDefinition _conditionHadTurmoil;
         private readonly FeatureDefinitionPower _powerDiscordance;
         private readonly FeatureDefinitionPower _powerTurmoil;
 
-        public UsePowerFinishedByMeBurstOfDisharmony(
-            FeatureDefinitionPower powerBurstOfDisharmony,
+        public MagicEffectFinishedByMeBurstOfDisharmony(
             ConditionDefinition conditionDiscordance,
             FeatureDefinitionPower powerDiscordance,
             ConditionDefinition conditionHadTurmoil,
             FeatureDefinitionPower powerTurmoil)
         {
-            _powerBurstOfDisharmony = powerBurstOfDisharmony;
             _conditionDiscordance = conditionDiscordance;
             _powerDiscordance = powerDiscordance;
             _conditionHadTurmoil = conditionHadTurmoil;
             _powerTurmoil = powerTurmoil;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerBurstOfDisharmony)
-            {
-                yield break;
-            }
-
             // Discordance Damage
             var targets = new List<GameLocationCharacter>();
 

@@ -250,10 +250,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
+            .SetCustomSubFeatures(new CustomBehaviorRefundMixture(powerMixture))
             .AddToDB();
-
-        // determine power visibility based on mixture and spell slots remaining usages
-        powerRefundMixture.SetCustomSubFeatures(new CustomBehaviorRefundMixture(powerMixture, powerRefundMixture));
 
         // Vitriolic Arsenal - Prevent Reactions
 
@@ -389,17 +387,13 @@ public sealed class InnovationVitriolist : AbstractSubclass
     // Refund Mixture
     //
 
-    private sealed class CustomBehaviorRefundMixture : IPowerUseValidity, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorRefundMixture : IPowerUseValidity, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerMixture;
-        private readonly FeatureDefinitionPower _powerRefundMixture;
 
-        public CustomBehaviorRefundMixture(
-            FeatureDefinitionPower powerMixture,
-            FeatureDefinitionPower powerRefundMixture)
+        public CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
         {
             _powerMixture = powerMixture;
-            _powerRefundMixture = powerRefundMixture;
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
@@ -417,13 +411,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
             return !canUsePowerMixture && hasSpellSlotsAvailable;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerRefundMixture)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerMixture, rulesetCharacter);
 

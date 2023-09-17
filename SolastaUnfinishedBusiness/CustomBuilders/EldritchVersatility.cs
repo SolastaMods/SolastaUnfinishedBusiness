@@ -168,9 +168,10 @@ internal static class EldritchVersatility
                     .Build())
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetCustomSubFeatures(
-                PowerFromInvocation.Marker)
+                PowerFromInvocation.Marker,
+                new BattlefieldConversionRestoreSlot())
             .AddToDB();
-        featureOrPower.AddCustomSubFeatures(new BattlefieldConversionRestoreSlot(featureOrPower));
+
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
 
         #endregion
@@ -973,15 +974,8 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class BattlefieldConversionRestoreSlot : IUsePowerFinishedByMe, IPowerUseValidity
+    private sealed class BattlefieldConversionRestoreSlot : IMagicEffectFinishedByMe, IPowerUseValidity
     {
-        private readonly FeatureDefinition _triggerPower;
-
-        public BattlefieldConversionRestoreSlot(FeatureDefinition triggerPower)
-        {
-            _triggerPower = triggerPower;
-        }
-
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
             var rulesetHero = character.GetOriginalHero();
@@ -997,13 +991,8 @@ internal static class EldritchVersatility
                    supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.BattlefieldConversionSuccess);
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _triggerPower)
-            {
-                yield break;
-            }
-
             var gameLocationCharacter = action.ActingCharacter;
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
             var rulesetHero = rulesetCharacter.GetOriginalHero();

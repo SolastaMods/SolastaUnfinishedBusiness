@@ -117,69 +117,50 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
-            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+            var baseDefinition = __instance.GetBaseDefinition();
 
-            //TODO: improve this to avoid browsing entire hero features collection
-            
-            //PATCH: supports `IUsePowerInitiatedByMe`
-            if (__instance is CharacterActionUsePower characterActionUsePower1)
+            //PATCH: supports `IMagicEffectInitiatedByMe`
+            if (Gui.Battle != null)
             {
-                var power = characterActionUsePower1.activePower.PowerDefinition;
-                var modifiers = rulesetCharacter.GetSubFeaturesByType<IUsePowerInitiatedByMe>();
-                var powerModifier = power.GetFirstSubFeatureOfType<IUsePowerInitiatedByMe>();
+                var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectInitiatedByMe>();
 
-                if (powerModifier != null)
+                if (magicEffectInitiatedByMe != null)
                 {
-                    modifiers.TryAdd(powerModifier);
-                }
-
-                foreach (var usePowerFinished in modifiers)
-                {
-                    yield return usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
+                    yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(__instance, baseDefinition);
                 }
             }
 
+            // VANILLA EVENTS
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            //TODO: improve this to avoid browsing entire hero features collection
-            
-            //PATCH: supports `IUsePowerFinishedByMe`
-            if (__instance is CharacterActionUsePower characterActionUsePower2)
+            //PATCH: supports `IMagicEffectFinishedByMe`
+            if (Gui.Battle != null)
             {
-                var power = characterActionUsePower2.activePower.PowerDefinition;
-                var modifiers = rulesetCharacter.GetSubFeaturesByType<IUsePowerFinishedByMe>();
-                var powerModifier = power.GetFirstSubFeatureOfType<IUsePowerFinishedByMe>();
+                var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
 
-                if (powerModifier != null)
+                if (magicEffectFinishedByMe != null)
                 {
-                    modifiers.TryAdd(powerModifier);
-                }
-
-                foreach (var usePowerFinished in modifiers)
-                {
-                    yield return usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
-                }
-            }
-
-            //PATCH: supports `ICastSpellFinishedByMe`
-            if (__instance is CharacterActionCastSpell characterActionCastSpell)
-            {
-                var spell = characterActionCastSpell.activeSpell.SpellDefinition;
-                var spellModifier = spell.GetFirstSubFeatureOfType<ICastSpellFinishedByMe>();
-
-                if (spellModifier != null)
-                {
-                    yield return spellModifier.OnCastSpellFinishedByMe(characterActionCastSpell, spell);
+                    yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
                 }
             }
 
             //PATCH: supports `IPerformAttackAfterMagicEffectUse`
-            var baseDefinition = __instance.GetBaseDefinition();
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
-            var performAttackAfterUse = attackAfterMagicEffect?.PerformAttackAfterUse;
+
+            if (attackAfterMagicEffect == null)
+            {
+                yield break;
+            }
+
+            var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
             var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
 
             if (characterActionAttacks != null)

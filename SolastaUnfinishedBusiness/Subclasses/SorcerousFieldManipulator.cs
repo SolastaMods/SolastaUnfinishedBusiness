@@ -142,7 +142,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
         powerForcefulStepFixed.SetCustomSubFeatures(
             new ValidatorsPowerUse(character =>
                 UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
-            new UsePowerFinishedByMeForcefulStep(powerForcefulStepFixed, powerForcefulStepApply));
+            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepPoints")
@@ -154,7 +154,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
         powerForcefulStepPoints.SetCustomSubFeatures(
             new ValidatorsPowerUse(character =>
                 UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
-            new UsePowerFinishedByMeForcefulStep(powerForcefulStepPoints, powerForcefulStepApply));
+            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ForcefulStep")
@@ -219,36 +219,30 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement : IUsePowerInitiatedByMe, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorDisplacement : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != PowerSorcerousFieldManipulatorDisplacement)
-            {
-                yield break;
-            }
-
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
             // bring back power target type to position
             rulesetEffect.EffectDescription.targetType = TargetType.Position;
+            
+            yield break;
         }
 
-        public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != PowerSorcerousFieldManipulatorDisplacement)
-            {
-                yield break;
-            }
-
-            var rulesetEffect = characterAction.ActionParams.RulesetEffect;
-            var actionParams = characterAction.ActionParams;
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+            var actionParams = action.ActionParams;
 
             actionParams.Positions.SetRange(
                 GetFinalPosition(actionParams.TargetCharacters[0], actionParams.Positions[0]));
 
             // make target type individuals unique to trigger the game and only teleport targets
             rulesetEffect.EffectDescription.targetType = TargetType.IndividualsUnique;
+
+            yield break;
         }
 
         private static int3 GetFinalPosition(GameLocationCharacter target, int3 position)
@@ -308,26 +302,17 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step
     //
 
-    private sealed class UsePowerFinishedByMeForcefulStep : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeForcefulStep : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerForcefulStep;
         private readonly FeatureDefinitionPower _powerApply;
 
-        public UsePowerFinishedByMeForcefulStep(
-            FeatureDefinitionPower powerForcefulStep,
-            FeatureDefinitionPower powerApply)
+        public MagicEffectFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
         {
-            _powerForcefulStep = powerForcefulStep;
             _powerApply = powerApply;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (power != _powerForcefulStep)
-            {
-                yield break;
-            }
-            
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
@@ -350,7 +335,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2))
                 .ToList());
-            
+
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }

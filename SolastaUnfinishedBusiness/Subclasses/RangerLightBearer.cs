@@ -157,10 +157,8 @@ public sealed class RangerLightBearer : AbstractSubclass
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
             .SetOverriddenPower(powerLight)
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
             .AddToDB();
-
-        powerLightEnhanced.SetCustomSubFeatures(
-            new UsePowerFinishedByMeBlessedGlow(powerBlessedGlow, powerLightEnhanced));
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BlessedGlow")
@@ -207,9 +205,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeAngelicForm())
             .AddToDB();
-
-        powerAngelicFormSprout.SetCustomSubFeatures(new UsePowerFinishedByMeAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -358,26 +355,17 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class UsePowerFinishedByMeBlessedGlow : IUsePowerFinishedByMe
+    private class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBlessedGlow;
-        private readonly FeatureDefinitionPower _powerLightEnhanced;
 
-        public UsePowerFinishedByMeBlessedGlow(
-            FeatureDefinitionPower featureDefinitionPower,
-            FeatureDefinitionPower powerLightEnhanced)
+        public MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
         {
             _powerBlessedGlow = featureDefinitionPower;
-            _powerLightEnhanced = powerLightEnhanced;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerLightEnhanced)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -438,27 +426,17 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class UsePowerFinishedByMeAngelicForm : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeAngelicForm : IMagicEffectFinishedByMe
     {
-        private static FeatureDefinitionPower _powerAngelicForm;
-
-        public UsePowerFinishedByMeAngelicForm(FeatureDefinitionPower powerAngelicForm)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            _powerAngelicForm = powerAngelicForm;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != _powerAngelicForm)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
 
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 classLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+
+            yield break;
         }
     }
 
