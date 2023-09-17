@@ -1,7 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=Существо наносит половину урона при атаках, основанных на Силе, и имеет помеху при спасбросках и проверках навыков Силы, Ловкости и Телосложения.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Ослаблен
-Condition/&ConditionMartialArcaneArcherInsightArrowDescription=Существо не может получить выгоду от невидимости, преимущество есть у нападающих. Также они освещают 10 ячеек яркого света + 10 ячеек тусклого света.
-Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Выделено
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=Существо не получает преимущества от невидимости, атакующие его получают преимущество. Оно также излучает яркий свет на 10 клеток и тусклый свет ещё на 10 клеток.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Подсвечен
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=Вы изучаете один заговор Волшебника.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=Тайная магия
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=Ваша магическая стрельба из лука доступна в начале боя. Если при броске инициативы у вас отсутствует хотя бы одно использование Магического выстрела, вы восстанавливаете одно его использование.
