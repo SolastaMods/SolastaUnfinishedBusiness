@@ -29,7 +29,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private static FeatureDefinitionPowerSharedPool _powerBurstingArrow;
 
     internal static FeatureDefinitionPower PowerArcaneShot;
-    internal static FeatureDefinitionModifyPowerPoolAmount ModifyPowerArcaneShotAdditionalUse1;
+    internal static FeatureDefinitionPowerUseModifier ModifyPowerArcaneShotAdditionalUse1;
     internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
     internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2;
 
@@ -110,13 +110,13 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         PowerBundle.RegisterPowerBundle(PowerArcaneShot, true, ArcaneShotPowers.Keys);
 
         ModifyPowerArcaneShotAdditionalUse1 = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"ModifyPowerPoolAmount{Name}ArcaneShotUse1")
+            .Create($"PowerUseModifier{Name}ArcaneShotUse1")
             .SetGuiPresentation(Category.Feature)
             .SetFixedValue(PowerArcaneShot, 1)
             .AddToDB();
 
         var powerArcaneShotAdditionalUse2 = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"ModifyPowerPoolAmount{Name}ArcaneShotUse2")
+            .Create($"PowerUseModifier{Name}ArcaneShotUse2")
             .SetGuiPresentationNoContent(true)
             .SetFixedValue(PowerArcaneShot, 2)
             .AddToDB();
@@ -169,8 +169,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         // Arcane Shot Additional Use
 
         var powerArcaneShotAdditionalUse1At10 = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"ModifyPowerPoolAmount{Name}ArcaneShotUse1At10")
-            .SetGuiPresentation($"ModifyPowerPoolAmount{Name}ArcaneShotUse1", Category.Feature)
+            .Create($"PowerUseModifier{Name}ArcaneShotUse1At10")
+            .SetGuiPresentation($"PowerUseModifier{Name}ArcaneShotUse1", Category.Feature)
             .SetFixedValue(PowerArcaneShot, 1)
             .AddToDB();
 
@@ -192,8 +192,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         // Arcane Shot Additional Use
 
         var powerArcaneShotAdditionalUse1At18 = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"ModifyPowerPoolAmount{Name}ArcaneShotUse1At18")
-            .SetGuiPresentation($"ModifyPowerPoolAmount{Name}ArcaneShotUse1", Category.Feature)
+            .Create($"PowerUseModifier{Name}ArcaneShotUse1At18")
+            .SetGuiPresentation($"PowerUseModifier{Name}ArcaneShotUse1", Category.Feature)
             .SetFixedValue(PowerArcaneShot, 1)
             .AddToDB();
 

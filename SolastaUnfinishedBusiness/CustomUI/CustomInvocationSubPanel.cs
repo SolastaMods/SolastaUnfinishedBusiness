@@ -32,7 +32,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         if (panel.TryGetComponent<CustomInvocationSubPanel>(out var custom))
         {
             var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
-                .OfType<InvocationValidateDefinitionCustom>()
+                .OfType<InvocationDefinitionCustom>()
                 .Where(i => i.PoolType == custom.Type)
                 .Select(i => i.Name);
 
@@ -51,7 +51,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
             }
 
             var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
-                .OfType<InvocationValidateDefinitionCustom>()
+                .OfType<InvocationDefinitionCustom>()
                 .Select(i => i.Name);
 
             return hero.invocationProficiencies
@@ -71,7 +71,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         }
 
         var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
-            .OfType<InvocationValidateDefinitionCustom>()
+            .OfType<InvocationDefinitionCustom>()
             .Select(i => i.Name);
 
         return hero.invocationProficiencies
@@ -90,12 +90,12 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
         if (custom != null)
         {
-            invocations = all.OfType<InvocationValidateDefinitionCustom>()
+            invocations = all.OfType<InvocationDefinitionCustom>()
                 .Where(x => x.PoolType == custom.Type);
         }
         else
         {
-            invocations = all.Where(x => x is not InvocationValidateDefinitionCustom);
+            invocations = all.Where(x => x is not InvocationDefinitionCustom);
         }
 
         var table = panel.Table;

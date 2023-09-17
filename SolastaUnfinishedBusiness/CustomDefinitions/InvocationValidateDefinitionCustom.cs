@@ -7,7 +7,7 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal class InvocationValidateDefinitionCustom : InvocationDefinition, IValidateDefinitionPreRequisites
+internal class InvocationDefinitionCustom : InvocationDefinition, IValidateDefinitionPreRequisites
 {
     internal InvocationPoolTypeCustom PoolType { get; set; }
 
@@ -46,7 +46,7 @@ internal class InvocationValidateDefinitionCustom : InvocationDefinition, IValid
         requirement = null;
 
         if (character is not RulesetCharacterHero hero
-            || definition is not InvocationValidateDefinitionCustom invocation)
+            || definition is not InvocationDefinitionCustom invocation)
         {
             return true;
         }
@@ -100,7 +100,7 @@ internal class InvocationValidateDefinitionCustom : InvocationDefinition, IValid
         requirement = null;
 
         if (character is not RulesetCharacterHero hero
-            || definition is not InvocationValidateDefinitionCustom invocation)
+            || definition is not InvocationDefinitionCustom invocation)
         {
             return true;
         }
@@ -130,7 +130,7 @@ internal class InvocationValidateDefinitionCustom : InvocationDefinition, IValid
         requirement = null;
 
         if (character is not RulesetCharacterHero hero
-            || definition is not InvocationValidateDefinitionCustom invocation)
+            || definition is not InvocationDefinitionCustom invocation)
         {
             return true;
         }

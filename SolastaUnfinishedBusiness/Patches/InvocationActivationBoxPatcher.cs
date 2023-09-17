@@ -112,7 +112,7 @@ public static class InvocationActivationBoxPatcher
             RulesetInvocation invocation,
             RulesetCharacter character)
         {
-            var feature = invocation.invocationDefinition as InvocationValidateDefinitionCustom;
+            var feature = invocation.invocationDefinition as InvocationDefinitionCustom;
 
             if (feature == null || feature.PoolType == null || feature.grantedSpell != null)
             {

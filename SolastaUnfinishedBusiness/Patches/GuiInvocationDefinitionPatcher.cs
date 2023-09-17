@@ -52,7 +52,7 @@ public static class GuiInvocationDefinitionPatcher
         public static void Postfix(GuiInvocationDefinition __instance, ref string __result)
         {
             //PATCH: show custom subtitle for custom invocations
-            var feature = __instance.InvocationDefinition as InvocationValidateDefinitionCustom;
+            var feature = __instance.InvocationDefinition as InvocationDefinitionCustom;
 
             if (feature == null || feature.PoolType == null)
             {

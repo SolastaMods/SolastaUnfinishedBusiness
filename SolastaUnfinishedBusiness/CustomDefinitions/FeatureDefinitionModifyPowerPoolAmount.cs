@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal sealed class FeatureDefinitionModifyPowerPoolAmount : FeatureDefinition, IModifyPowerPoolAmount
+internal sealed class FeatureDefinitionPowerUseModifier : FeatureDefinition, IModifyPowerPoolAmount
 {
     internal ModifyPowerPoolAmount Modifier { get; } = new();
 

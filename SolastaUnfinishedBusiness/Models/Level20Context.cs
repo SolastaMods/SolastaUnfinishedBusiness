@@ -132,7 +132,7 @@ internal static class Level20Context
             .AddToDB();
 
         var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
-            .Create("CustomLevelUpLogicBarbarianPrimalChampion")
+            .Create("CustomCodeBarbarianPrimalChampion")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new CustomLevelUpLogicBarbarianPrimalChampion())
             .AddToDB();

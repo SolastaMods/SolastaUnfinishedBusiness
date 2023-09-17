@@ -41,7 +41,7 @@ public static class InvocationDefinitionExtensions
 
     internal static Id GetActionId(this InvocationDefinition invocation)
     {
-        if (invocation is InvocationValidateDefinitionCustom custom)
+        if (invocation is InvocationDefinitionCustom custom)
         {
             return custom.BattleActionId;
         }
@@ -59,7 +59,7 @@ public static class InvocationDefinitionExtensions
 
     internal static Id GetMainActionId(this InvocationDefinition invocation)
     {
-        return invocation is InvocationValidateDefinitionCustom custom
+        return invocation is InvocationDefinitionCustom custom
             ? custom.MainActionId
             : Id.CastInvocation;
     }

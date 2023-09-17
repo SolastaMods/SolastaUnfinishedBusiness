@@ -21,7 +21,7 @@ public static class InvocationItemPatcher
         {
             //PATCH: makes custom invocations have custom tooltips
             if (__instance.GuiInvocationDefinition
-                    .InvocationDefinition is not InvocationValidateDefinitionCustom custom)
+                    .InvocationDefinition is not InvocationDefinitionCustom custom)
             {
                 return;
             }
