@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -112,7 +113,8 @@ internal static class ArmorFeats
             .SetGuiPresentationNoContent(true)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
-            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
+            .SetCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
@@ -120,8 +122,9 @@ internal static class ArmorFeats
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
-            .SetCustomSubFeatures(new CustomBehaviorShieldTechniques())
             .AddToDB();
+
+        powerShieldTechniques.SetCustomSubFeatures(new CustomBehaviorShieldTechniques(powerShieldTechniques));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -133,6 +136,13 @@ internal static class ArmorFeats
 
     private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, ITryAlterOutcomeFailedSavingThrow
     {
+        private readonly FeatureDefinitionPower _powerShieldTechniques;
+
+        public CustomBehaviorShieldTechniques(FeatureDefinitionPower powerShieldTechniques)
+        {
+            _powerShieldTechniques = powerShieldTechniques;
+        }
+
         // validate savings bonus to only be DEX wielding shield
         public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
         {
@@ -145,6 +155,9 @@ internal static class ArmorFeats
             RulesetActor rulesetActor, ActionModifier actionModifier, string attribute)
         {
             actionModifier.SavingThrowModifier += 2;
+            // for some reason this isn't displaying on log
+            actionModifier.SavingThrowModifierTrends.Add(
+                new TrendInfo(2, FeatureSourceType.Power, _powerShieldTechniques.Name, _powerShieldTechniques));
 
             return attribute;
         }
@@ -184,10 +197,13 @@ internal static class ArmorFeats
 
             yield return battleManager.WaitForReactions(helper, manager, previousReactionCount);
 
-            if (reactionParams.ReactionValidated)
+            if (!reactionParams.ReactionValidated)
             {
-                action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
+                yield break;
             }
+
+            helper.RulesetCharacter.LogCharacterUsedPower(_powerShieldTechniques);
+            action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
         }
 
         private static bool ShouldTrigger(
