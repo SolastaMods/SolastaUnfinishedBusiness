@@ -479,7 +479,11 @@ public static class GuiCharacterPatcher
 
         var fileData = File.ReadAllBytes(filename);
 
-        texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, true);
+        texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, false)
+        {
+            wrapMode = TextureWrapMode.Clamp,
+            filterMode = FilterMode.Bilinear
+        };
         texture.LoadImage(fileData);
         dict.Add(name, texture);
 
