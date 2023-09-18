@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using JetBrains.Annotations;
 using static RuleDefinitions;
 
@@ -8,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public class CharacterActionWildShapePatcher
 {
-    //[HarmonyPatch(typeof(CharacterActionWildShape), nameof(CharacterActionWildShape.ExecuteImpl))]
+    [HarmonyPatch(typeof(CharacterActionWildShape), nameof(CharacterActionWildShape.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ExecuteImpl_Patch
