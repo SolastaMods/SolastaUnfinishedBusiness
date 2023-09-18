@@ -38,7 +38,7 @@ internal static class CustomItemsContext
                 ItemPropertyDescriptionsContext.BuildFrom(
                     FeatureDefinitionPerceptionAffinityBuilder
                         .Create("PerceptionAffinityHelmOfAwareness")
-                        .SetGuiPresentation(GuiPresentationBuilder.EmptyString,
+                        .SetGuiPresentation(Gui.NoLocalization,
                             "Feature/&PerceptionAffinityHelmOfAwarenessDescription")
                         .CannotBeSurprised()
                         .AddToDB(),

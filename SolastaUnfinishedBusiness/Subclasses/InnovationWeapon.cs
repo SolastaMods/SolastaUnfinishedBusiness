@@ -283,7 +283,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 //Bonuses from Inventor's spell attack
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderSpellAttack")
-                    .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString)
+                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)

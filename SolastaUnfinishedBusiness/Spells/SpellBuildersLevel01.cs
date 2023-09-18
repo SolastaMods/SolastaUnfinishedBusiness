@@ -1013,7 +1013,7 @@ internal static partial class SpellBuilders
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), GuiPresentationBuilder.EmptyString,
+            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
                 ConditionBrandingSmite)
             .SetPossessive()
             .SetFeatures(powerThunderousSmite)

@@ -479,7 +479,7 @@ internal static class GambitsBuilders
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}Effect")
-                                    .SetGuiPresentation(Category.Condition, GuiPresentationBuilder.EmptyString,
+                                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
                                         ConditionDefinitions.ConditionDistracted)
                                     .SetConditionType(ConditionType.Detrimental)
                                     .SetFeatures(

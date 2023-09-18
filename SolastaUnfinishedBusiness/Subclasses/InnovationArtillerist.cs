@@ -878,7 +878,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(name + level)
-            .SetGuiPresentation(name, Category.Feature, GuiPresentationBuilder.EmptyString, hidden: true)
+            .SetGuiPresentation(name, Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
             .SetEffectDescription(
                 EffectDescriptionBuilder

@@ -502,7 +502,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastAcBonus")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
-                        GuiPresentationBuilder.EmptyString)
+                        Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
@@ -511,7 +511,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
-                        GuiPresentationBuilder.EmptyString)
+                        Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
@@ -520,7 +520,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
-                        GuiPresentationBuilder.EmptyString)
+                        Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
