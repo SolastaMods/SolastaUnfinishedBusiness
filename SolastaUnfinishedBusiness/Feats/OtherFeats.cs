@@ -241,12 +241,12 @@ internal static class OtherFeats
                                 1,
                                 false,
                                 HealingCap.MaximumHitPoints)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                     .Build())
             .AddToDB();
+
+        powerFeatHealerMedKit.SetCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
 
         var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
         var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
@@ -269,7 +269,6 @@ internal static class OtherFeats
                             .Create()
                             .SetReviveForm(12, ReviveHitPoints.One)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                     .Build())
             .AddToDB();
@@ -297,6 +296,36 @@ internal static class OtherFeats
                 powerFeatHealerStabilize,
                 proficiencyFeatHealerMedicine)
             .AddToDB();
+    }
+
+    private sealed class ModifyEffectDescriptionMedKit : IModifyEffectDescription
+    {
+        private readonly BaseDefinition _baseDefinition;
+
+        public ModifyEffectDescriptionMedKit(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var medicineBonus = character
+                .ComputeBaseAbilityCheckBonus(AttributeDefinitions.Wisdom, rulesetEffect.MagicAttackTrends, "Medicine");
+
+            effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
+
+            return effectDescription;
+        }
     }
 
     #endregion
