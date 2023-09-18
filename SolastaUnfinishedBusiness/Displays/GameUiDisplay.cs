@@ -333,6 +333,8 @@ internal static class GameUiDisplay
             InventoryManagementContext.RefreshControlsVisibility();
         }
 
+        UI.Label();
+        
         toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
         {
@@ -345,6 +347,8 @@ internal static class GameUiDisplay
             Main.Settings.EnableInventoryTintKnownRecipesRed = toggle;
         }
 
+        UI.Label();
+        
         toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
         {
@@ -359,6 +363,15 @@ internal static class GameUiDisplay
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
         }
 
+        UI.Label();
+        
+        toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
+        }
+
+        
         toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
         {

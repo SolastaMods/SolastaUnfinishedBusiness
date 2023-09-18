@@ -121,29 +121,6 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
-        if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowAnyClassToUseArcaneShieldstaff = toggle;
-            ItemCraftingMerchantContext.SwitchAttuneArcaneShieldstaff();
-        }
-
-        toggle = Main.Settings.RemoveAttunementRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveAttunementRequirements = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
-        }
-
-        UI.Label();
-
         var intValue = Main.Settings.RecipeCost;
         if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
         {

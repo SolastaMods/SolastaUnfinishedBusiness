@@ -176,6 +176,13 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
+        toggle = Main.Settings.AllowAnyClassToUseArcaneShieldstaff;
+        if (UI.Toggle(Gui.Localize("ModUi/&ArcaneShieldstaffOptions"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowAnyClassToUseArcaneShieldstaff = toggle;
+            ItemCraftingMerchantContext.SwitchAttuneArcaneShieldstaff();
+        }
+        
         toggle = Main.Settings.IdentifyAfterRest;
         if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
         {
@@ -188,6 +195,12 @@ internal static class RulesDisplay
             Main.Settings.IncreaseMaxAttunedItems = toggle;
         }
 
+        toggle = Main.Settings.RemoveAttunementRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveAttunementRequirements = toggle;
+        }
+        
         UI.Label();
 
         toggle = Main.Settings.AllowHasteCasting;
