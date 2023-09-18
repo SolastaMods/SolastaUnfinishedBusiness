@@ -22,7 +22,7 @@ ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, Metall
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit maximalem Level 20
 ModUi/&AllowFlightSuspend=Ermöglicht die vorübergehende Aussetzung des Fluges von Gegenständen und Zaubersprüchen <i><color=#F0DAA0>[betrifft nicht Wildformen oder fliegende Rassen]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>, um jegliche Prüfung beim Platzieren von Gadgets oder Requisiten zu umgehen
-ModUi/&AllowHasteCasting=Erlaube das Wirken von Zaubersprüchen mit zusätzlicher Aktion, bevor du beschleunigt <color=#F0DAA0>wirdst (du bist immer noch auf 1 Hauptaktionszauber pro Runde beschränkt)</color>
+ModUi/&AllowHasteCasting=Erlaube das Wirken von Zaubersprüchen mit zusätzlicher Aktion, bevor du beschleunigt <color=#F0DAA0>[wirdst du bist immer noch auf 1 Hauptaktionszauber pro Runde beschränkt]</color>
 ModUi/&AllowHornsOnAllRaces=Erlaube Hörner bei allen Rennen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Hupe schrecklich aussehen]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Rest-Panel <i><color=#F0DAA0>[Nach-Ruhe-Aktionen im Vor-Panel ausblenden und Wiederherstellungsfunktionen im Nach-Panel]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente <i><color=#F0DAA0> zulassen[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>

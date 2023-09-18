@@ -22,7 +22,7 @@ ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à 
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowFlightSuspend=Autoriser la suspension temporaire du vol des objets et des sorts <i><color=#F0DAA0>[n'affecte pas les formes sauvages ou les courses volantes]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez <color=#1E81B0>CTRL</color>+click pour ignorer toute vérification lors du placement de gadgets ou d'accessoires
-ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec l'action supplémentaire conféré par l'effet de Hâte <color=#F0DAA0>(vous êtes toujours limité à 1 sort d'action principale par tour)</color>
+ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec l'action supplémentaire conféré par l'effet de Hâte <color=#F0DAA0>[vous êtes toujours limité à 1 sort d'action principale par tour]</color>
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les Ascendances <i><color=#F0DAA0>[les résultats peuvent être décevant selon la race, la tête et le type de cornes]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser l'affichage de plus d'informations sur l'état réel du groupe dans la fenêtre de repos <i><color=#F0DAA0>[Est masqué sur la fenêtre d'invite après les repos, et sur la fenêtre de validation après les compétences de récupération]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser l'empilement des composantes matérielles dans l'inventaire <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>

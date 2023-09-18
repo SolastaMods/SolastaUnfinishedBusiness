@@ -22,7 +22,7 @@ ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
 ModUi/&AllowFlightSuspend=Permitir suspender temporariamente o voo de itens e feitiços <i><color=#F0DAA0>[não afeta forma selvagem ou raças voadoras]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite o clique <color=#1E81B0>CTRL</color> para ignorar qualquer verificação ao colocar gadgets ou adereços
-ModUi/&AllowHasteCasting=Permitir lançar feitiços com ação extra de ser Acelerado <color=#F0DAA0>(você ainda está limitado a 1 feitiço de ação principal por rodada)</color>
+ModUi/&AllowHasteCasting=Permitir lançar feitiços com ação extra de ser Acelerado <color=#F0DAA0>[você ainda está limitado a 1 feitiço de ação principal por rodada]</color>
 ModUi/&AllowHornsOnAllRaces=Permitir buzinas em todas as corridas <i><color=#F0DAA0>[os resultados podem parecer terríveis dependendo da raça, cabeça e buzina]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permite mais estado real no painel de repouso <i><color=#F0DAA0>[ocultar ações após repouso no painel anterior e recursos de recuperação no painel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[ex. 2x500gp de diamante é equivalente a 1000gp de diamante]</color></i>

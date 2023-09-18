@@ -22,7 +22,7 @@ ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>의 금속 
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20의 던전을 허용
 ModUi/&AllowFlightSuspend=아이템과 주문의 비행을 일시 중단 허용 <i><color=#F0DAA0>[변신 또는 비행 종족에는 영향을 주지 않습니다]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> 클릭으로, 도구나 물체를 배치할 때 모든 확인을 건너뛰게 하기
-ModUi/&AllowHasteCasting=가속화 주문의 효과로 얻은 행동으로 주문 시전 가능 <color=#F0DAA0>(라운드당 주 행동으로 시전 가능한 주문은 1개로 제한)</color>
+ModUi/&AllowHasteCasting=가속화 주문의 효과로 얻은 행동으로 주문 시전 가능 <color=#F0DAA0>[라운드당 주 행동으로 시전 가능한 주문은 1개로 제한]</color>
 ModUi/&AllowHornsOnAllRaces=모든 종족이 뿔을 만들 수 있게 허용 <i><color=#F0DAA0>[경우에 따라 끔찍한 몰골이 만들어질 수도 있음]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=휴식 패널에서 더 많은 행동 허용 <i><color=#F0DAA0>[이전 패널에서는 휴식 행동 후 패널이 숨겨졌지만 회복 특성을 더 사용할 수 있게 합니다]</color></i>
 ModUi/&AllowStackedMaterialComponent=재료 요소 중첩 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 동일]</color></i>
