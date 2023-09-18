@@ -1,8 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
 using static EquipmentDefinitions;
@@ -78,17 +84,171 @@ internal static class ArmorFeats
             .SetArmorProficiencyPrerequisite(HeavyArmorCategory)
             .AddToDB();
 
-        feats.AddRange(featMediumArmorDex, featMediumArmorStr, FeatMediumArmorMaster, featHeavyArmorMaster);
+        var featShieldTechniques = BuildFeatShieldTechniques();
+
+        feats.AddRange(
+            featMediumArmorDex, featMediumArmorStr, FeatMediumArmorMaster, featHeavyArmorMaster, featShieldTechniques);
+
+        var featGroupMediumArmor = GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
+            featMediumArmorDex,
+            featMediumArmorStr);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(featShieldTechniques);
 
         GroupFeats.MakeGroup("FeatGroupArmor", null,
-            GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
-                featMediumArmorDex,
-                featMediumArmorStr),
+            featGroupMediumArmor,
             FeatMediumArmorMaster,
             featHeavyArmorMaster,
             ArmorMaster,
             DiscretionOfTheCoedymwarth,
             MightOfTheIronLegion,
             SturdinessOfTheTundra);
+    }
+
+    private static FeatDefinition BuildFeatShieldTechniques()
+    {
+        const string Name = "FeatShieldTechniques";
+
+        var actionAffinityShieldTechniques = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
+            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
+            .AddToDB();
+
+        var powerShieldTechniques = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerShieldTechniques.SetCustomSubFeatures(
+            new CustomBehaviorShieldTechniques(powerShieldTechniques));
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityShieldTechniques, powerShieldTechniques)
+            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, ITryAlterOutcomeFailedSavingThrow
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public CustomBehaviorShieldTechniques(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        {
+            return attributeScore == AttributeDefinitions.Dexterity
+                   && rulesetActor is RulesetCharacterHero
+                       hero && hero.IsWearingShield();
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor, ActionModifier actionModifier, string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(2, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+
+            return attribute;
+        }
+
+        public IEnumerator OnFailedSavingTryAlterOutcome(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            if (!ShouldTrigger(defender, helper))
+            {
+                yield break;
+            }
+
+            if (!battleManager.IsWithin1Cell(helper, defender))
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = FormatReactionDescription(action, attacker, defender, helper)
+                };
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(helper, manager, previousReactionCount);
+
+            if (reactionParams.ReactionValidated)
+            {
+                action.RolledSaveThrow =
+                    TryModifyRoll(action, attacker, defender, saveModifier, reactionParams, hasHitVisual);
+            }
+        }
+
+        private static bool ShouldTrigger(
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            return helper.CanReact()
+                   && helper.RulesetCharacter.IsWearingShield()
+                   && !defender.IsOppositeSide(helper.Side);
+        }
+
+        private static bool TryModifyRoll(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier saveModifier,
+            CharacterActionParams reactionParams,
+            bool hasHitVisual)
+        {
+            // ReSharper disable once MergeConditionalExpression
+            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                ? action.ActionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter, defender.RulesetActor,
+                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
+                    out var saveOutcomeDelta)
+                : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
+                    defender.RulesetActor, saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
+                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
+
+            action.SaveOutcome = saveOutcome;
+            action.SaveOutcomeDelta = saveOutcomeDelta;
+
+            return true;
+        }
+
+        private static string FormatReactionDescription(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var text = defender == helper
+                ? "Reaction/&CustomReactionShieldTechniquesDescriptionSelf"
+                : "Reaction/&CustomReactionShieldTechniquesDescriptionAlly";
+
+            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+        }
     }
 }

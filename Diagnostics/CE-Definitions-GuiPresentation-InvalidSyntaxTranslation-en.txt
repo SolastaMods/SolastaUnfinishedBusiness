@@ -649,7 +649,7 @@ FeatGroupCreed	Description='Creed of Arun, Creed of Einar, Creed of Maraike, Cre
 FeatGroupCriticalVirtuoso	Description='Improved Critical, Superior Critical'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
-FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade, Unarmored Expert'.
+FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Shield Techniques, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
