@@ -74,7 +74,7 @@ internal static class CharacterActionExtensions
         {
             return true;
         }
-        
+
         var isProtectedSpendPower = action is CharacterActionSpendPower characterActionSpendPower
                                     && characterActionSpendPower.activePower.PowerDefinition
                                         .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();

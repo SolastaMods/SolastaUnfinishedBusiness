@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -122,10 +120,8 @@ internal static class ArmorFeats
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetCustomSubFeatures(new CustomBehaviorShieldTechniques())
             .AddToDB();
-
-        powerShieldTechniques.SetCustomSubFeatures(
-            new CustomBehaviorShieldTechniques(powerShieldTechniques));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -137,29 +133,23 @@ internal static class ArmorFeats
 
     private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, ITryAlterOutcomeFailedSavingThrow
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public CustomBehaviorShieldTechniques(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
+        // validate savings bonus to only be DEX wielding shield
         public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Dexterity
-                   && rulesetActor is RulesetCharacterHero
-                       hero && hero.IsWearingShield();
+                   && rulesetActor is RulesetCharacterHero hero && hero.IsWearingShield();
         }
 
+        // add +2 on DEX savings
         public string AttributeAndActionModifier(
             RulesetActor rulesetActor, ActionModifier actionModifier, string attribute)
         {
-            actionModifier.SavingThrowAdvantageTrends.Add(
-                new TrendInfo(2, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+            actionModifier.SavingThrowModifier += 2;
 
             return attribute;
         }
 
+        // offer to reroll DEX saving on self or ally
         public IEnumerator OnFailedSavingTryAlterOutcome(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -170,12 +160,7 @@ internal static class ArmorFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(defender, helper))
-            {
-                yield break;
-            }
-
-            if (!battleManager.IsWithin1Cell(helper, defender))
+            if (!ShouldTrigger(battleManager, defender, helper))
             {
                 yield break;
             }
@@ -201,18 +186,19 @@ internal static class ArmorFeats
 
             if (reactionParams.ReactionValidated)
             {
-                action.RolledSaveThrow =
-                    TryModifyRoll(action, attacker, defender, saveModifier, reactionParams, hasHitVisual);
+                action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
             }
         }
 
         private static bool ShouldTrigger(
+            IGameLocationBattleService gameLocationBattleService,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
             return helper.CanReact()
                    && helper.RulesetCharacter.IsWearingShield()
-                   && !defender.IsOppositeSide(helper.Side);
+                   && !defender.IsOppositeSide(helper.Side)
+                   && gameLocationBattleService.IsWithin1Cell(helper, defender);
         }
 
         private static bool TryModifyRoll(
@@ -220,16 +206,16 @@ internal static class ArmorFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier saveModifier,
-            CharacterActionParams reactionParams,
             bool hasHitVisual)
         {
-            // ReSharper disable once MergeConditionalExpression
-            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                ? action.ActionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter, defender.RulesetActor,
-                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
-                    out var saveOutcomeDelta)
-                : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
+            var actionParams = action.ActionParams;
+            
+            action.RolledSaveThrow = actionParams.RulesetEffect == null
+                ? actionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter,
+                    defender.RulesetActor, saveModifier, actionParams.AttackMode.EffectDescription.EffectForms,
+                    out var saveOutcome, out var saveOutcomeDelta)
+                : actionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
+                    defender.RulesetActor, saveModifier, actionParams.RulesetEffect.EffectDescription.EffectForms,
                     hasHitVisual, out saveOutcome, out saveOutcomeDelta);
 
             action.SaveOutcome = saveOutcome;

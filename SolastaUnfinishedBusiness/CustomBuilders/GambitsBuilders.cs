@@ -1317,7 +1317,7 @@ internal static class GambitsBuilders
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "CustomReactionGambitParryDescription"
-                        .Formatted(Category.Reaction,guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
+                        .Formatted(Category.Reaction, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
                 };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;

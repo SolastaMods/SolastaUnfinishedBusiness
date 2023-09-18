@@ -338,7 +338,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                     saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
                     out var saveOutcomeDelta)
                 : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
+                    defender.RulesetActor, saveModifier,
+                    action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
                     hasHitVisual, out saveOutcome, out saveOutcomeDelta);
 
             action.SaveOutcome = saveOutcome;

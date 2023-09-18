@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using HarmonyLib;
 using JetBrains.Annotations;
 using static RuleDefinitions;
 
@@ -20,10 +19,10 @@ public class CharacterActionWildShapePatcher
             if (!Main.Settings.EnableActionSwitching)
             {
                 yield return values;
-                
+
                 yield break;
             }
-            
+
             //PATCH: changes Wildshape action to use power as NoCost so it doesn't consume main action twice and break action switching
             var service = ServiceRepository.GetService<IGameLocationActionService>();
             var newParams = __instance.ActionParams.Clone();
@@ -38,8 +37,6 @@ public class CharacterActionWildShapePatcher
             }
 
             service.ExecuteAction(newParams, null, true);
-
-            yield break;
         }
     }
 }
