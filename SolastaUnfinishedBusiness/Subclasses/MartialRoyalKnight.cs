@@ -309,8 +309,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             {
                 rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
                 rulesetOriginalHelper.UsePower(usablePower);
-                action.RolledSaveThrow =
-                    TryModifyRoll(action, attacker, defender, saveModifier, reactionParams, hasHitVisual);
+                action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
             }
 
             reactionParams.RulesetEffect.Terminate(true);
@@ -329,7 +328,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier saveModifier,
-            CharacterActionParams reactionParams,
             bool hasHitVisual)
         {
             // ReSharper disable once MergeConditionalExpression

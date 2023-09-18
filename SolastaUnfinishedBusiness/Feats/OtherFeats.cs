@@ -218,118 +218,6 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Healer
-
-    private static FeatDefinition BuildHealer()
-    {
-        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 256, 128);
-        var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatHealerMedKit")
-            .SetGuiPresentation(Category.Feature, spriteMedKit)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(
-                                HealingComputation.Dice,
-                                4,
-                                DieType.D6,
-                                1,
-                                false,
-                                HealingCap.MaximumHitPoints)
-                            .Build())
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                    .Build())
-            .AddToDB();
-
-        powerFeatHealerMedKit.SetCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
-
-        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
-        var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatHealerResuscitate")
-            .SetGuiPresentation(Category.Feature, spriteResuscitate)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(
-                        TargetFilteringMethod.CharacterOnly,
-                        TargetFilteringTag.No,
-                        5,
-                        DieType.D8)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetRequiredCondition(ConditionDefinitions.ConditionDead)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetReviveForm(12, ReviveHitPoints.One)
-                            .Build())
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                    .Build())
-            .AddToDB();
-
-        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 256, 128);
-        var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatHealerStabilize")
-            .SetGuiPresentation(Category.Feature, spriteStabilize)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
-            .AddToDB();
-
-        var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatHealerMedicine")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create("FeatHealer")
-            .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
-            .SetFeatures(
-                powerFeatHealerMedKit,
-                powerFeatHealerResuscitate,
-                powerFeatHealerStabilize,
-                proficiencyFeatHealerMedicine)
-            .AddToDB();
-    }
-
-    private sealed class ModifyEffectDescriptionMedKit : IModifyEffectDescription
-    {
-        private readonly BaseDefinition _baseDefinition;
-
-        public ModifyEffectDescriptionMedKit(BaseDefinition baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == _baseDefinition;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var medicineBonus = character
-                .ComputeBaseAbilityCheckBonus(AttributeDefinitions.Wisdom, rulesetEffect.MagicAttackTrends, "Medicine");
-
-            effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
-
-            return effectDescription;
-        }
-    }
-
-    #endregion
-
     #region Inspiring Leader
 
     private static FeatDefinition BuildInspiringLeader()
@@ -568,6 +456,118 @@ internal static class OtherFeats
         }
 
         internal string Name { get; }
+    }
+
+    #endregion
+
+    #region Healer
+
+    private static FeatDefinition BuildHealer()
+    {
+        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 256, 128);
+        var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerMedKit")
+            .SetGuiPresentation(Category.Feature, spriteMedKit)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                4,
+                                DieType.D6,
+                                1,
+                                false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .Build())
+            .AddToDB();
+
+        powerFeatHealerMedKit.SetCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
+
+        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
+        var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerResuscitate")
+            .SetGuiPresentation(Category.Feature, spriteResuscitate)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(
+                        TargetFilteringMethod.CharacterOnly,
+                        TargetFilteringTag.No,
+                        5,
+                        DieType.D8)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRequiredCondition(ConditionDefinitions.ConditionDead)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetReviveForm(12, ReviveHitPoints.One)
+                            .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .Build())
+            .AddToDB();
+
+        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 256, 128);
+        var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerStabilize")
+            .SetGuiPresentation(Category.Feature, spriteStabilize)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
+            .AddToDB();
+
+        var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatHealerMedicine")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create("FeatHealer")
+            .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
+            .SetFeatures(
+                powerFeatHealerMedKit,
+                powerFeatHealerResuscitate,
+                powerFeatHealerStabilize,
+                proficiencyFeatHealerMedicine)
+            .AddToDB();
+    }
+
+    private sealed class ModifyEffectDescriptionMedKit : IModifyEffectDescription
+    {
+        private readonly BaseDefinition _baseDefinition;
+
+        public ModifyEffectDescriptionMedKit(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var medicineBonus = character
+                .ComputeBaseAbilityCheckBonus(AttributeDefinitions.Wisdom, rulesetEffect.MagicAttackTrends, "Medicine");
+
+            effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
+
+            return effectDescription;
+        }
     }
 
     #endregion

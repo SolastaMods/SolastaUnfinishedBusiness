@@ -698,7 +698,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
+            var reactionParams =
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ElementalConduitWildfire", reactionParams);
 

@@ -209,7 +209,7 @@ internal static class ArmorFeats
             bool hasHitVisual)
         {
             var actionParams = action.ActionParams;
-            
+
             action.RolledSaveThrow = actionParams.RulesetEffect == null
                 ? actionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter,
                     defender.RulesetActor, saveModifier, actionParams.AttackMode.EffectDescription.EffectForms,

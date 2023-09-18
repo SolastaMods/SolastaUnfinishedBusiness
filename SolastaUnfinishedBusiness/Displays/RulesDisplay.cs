@@ -76,6 +76,14 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.DontEndTurnAfterReady;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontEndTurnAfterReady = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
         if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
                 UI.AutoWidth()))
@@ -208,12 +216,6 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowStackedMaterialComponent = toggle;
-        }
-
-        toggle = Main.Settings.DontEndTurnAfterReady;
-        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
         toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
