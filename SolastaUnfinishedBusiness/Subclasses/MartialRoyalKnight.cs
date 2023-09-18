@@ -308,8 +308,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             if (reactionParams.ReactionValidated)
             {
                 rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-                // Originally here is defender use power
-                // helperCharacter.UsePower(usablePower);
+                rulesetOriginalHelper.UsePower(usablePower);
                 action.RolledSaveThrow =
                     TryModifyRoll(action, attacker, defender, saveModifier, reactionParams, hasHitVisual);
             }
@@ -339,7 +338,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                     saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
                     out var saveOutcomeDelta)
                 : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, reactionParams.RulesetEffect.EffectDescription.EffectForms,
+                    defender.RulesetActor, saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
                     hasHitVisual, out saveOutcome, out saveOutcomeDelta);
 
             action.SaveOutcome = saveOutcome;

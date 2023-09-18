@@ -1005,17 +1005,19 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            // var contenders =
-            //     __instance.Battle?.AllContenders ??
-            //     ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+            var contenders =
+                __instance.Battle?.AllContenders ??
+                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
+#if false
             if (__instance.Battle == null)
             {
                 yield break;
             }
+#endif
 
             //PATCH: support for `ITryAlterOutcomeFailedSavingThrow`
-            foreach (var unit in __instance.Battle.AllContenders
+            foreach (var unit in contenders
                          .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .ToList()) // avoid changing enumerator
             {
