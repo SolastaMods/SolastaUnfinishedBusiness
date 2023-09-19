@@ -176,7 +176,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}AngelicForm")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation($"Condition{Name}AngelicForm", Category.Condition, Gui.NoLocalization)
                     .SetMagicalWeapon()
                     .AddToDB())
             .AddToDB();

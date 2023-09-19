@@ -164,7 +164,7 @@ internal static class RangedCombatFeats
                 powerTurnOffDeadeye,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}")
-                    .SetGuiPresentation(Name, Category.Feat)
+                    .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
@@ -210,7 +210,7 @@ internal static class RangedCombatFeats
 
         var combatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 

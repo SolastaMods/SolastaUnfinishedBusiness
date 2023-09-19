@@ -5,10 +5,12 @@ ATTENTION:
 - RESPEC is required on Way of Discordance before updating to this version
 - REINSTALL mod from ZIP to leverage new portraits as update only does DLL
 
-- added Interceptor fighting style and Shield Techniques feat
-- added pre-gen heroes and monsters portraits to ZIP payload [by Artyoan]
+- added SFX browser in mod UI to accelerate new mod content development
+- added Interception fighting style and Shield Techniques feat [by HiddenHax]
+- added pre-gen heroes and monsters portraits to mod payload [by Artyoan]
 - fixed Disabling and Improved Disabling Strike incorrectly targeting caster
 - fixed Feral Tiefling not offering the Burning Hands spell on action panel
+- improved conditions extended tooltip descriptions to behave like vanilla
 - improved mod backend code smells, performance, and inconsistent patterns
 - improved Way of Discordance descriptions, progression, and missing SFX
 

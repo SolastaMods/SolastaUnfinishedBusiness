@@ -81,7 +81,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
 
         var attackBonus = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierDeadMasterUndeadChains")
-            .SetGuiPresentation(ChainsName, Category.Feature)
+            .SetGuiPresentation(ChainsName, Category.Feature, Gui.NoLocalization)
             .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
             .AddToDB();
 

@@ -485,7 +485,7 @@ internal static class GambitsBuilders
                                     .SetFeatures(
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create($"CombatAffinity{name}")
-                                            .SetGuiPresentation(name, Category.Feature)
+                                            .SetGuiPresentation(name, Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                                             .AddToDB())
@@ -568,7 +568,7 @@ internal static class GambitsBuilders
                                         GambitDieDamage,
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create($"CombatAffinity{name}")
-                                            .SetGuiPresentation(name, Category.Feature)
+                                            .SetGuiPresentation(name, Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Advantage)
                                             .AddToDB())
                                     .SetCustomSubFeatures(

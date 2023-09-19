@@ -329,7 +329,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feature/&PowerInnovationArtilleristSummonForceBallistaTinyTitle",
-    "description": "Feature/&Emptystring",
+    "description": "Feature/&PowerInnovationArtilleristForceBallistaDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

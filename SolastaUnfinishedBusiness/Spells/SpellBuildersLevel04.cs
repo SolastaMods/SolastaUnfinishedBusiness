@@ -29,12 +29,12 @@ internal static partial class SpellBuilders
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -125,7 +125,7 @@ internal static partial class SpellBuilders
                 ConditionAffinityDemonicInfluenceImmunity,
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("ConditionAffinityInsaneImmunity")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                     .SetConditionAffinityType(ConditionAffinityType.Immunity)
                     .SetConditionType(ConditionInsane)
                     .AddToDB())

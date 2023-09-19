@@ -468,7 +468,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var combatAffinityFortifiedPosition = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{FortifiedPosition}")
-            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature)
+            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature, Gui.NoLocalization)
             .SetPermanentCover(CoverType.Half)
             .AddToDB();
 
@@ -878,7 +878,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(name + level)
-            .SetGuiPresentation(name, Category.Feature, hidden: true)
+            .SetGuiPresentation(name, Category.Feature,
+                $"Feature/&PowerInnovationArtillerist{powerName}Description", hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
             .SetEffectDescription(
                 EffectDescriptionBuilder

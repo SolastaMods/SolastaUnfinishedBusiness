@@ -103,7 +103,7 @@ public sealed class OathOfThunder : AbstractSubclass
 
         var movementAffinityDivineBolt = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}DivineBolt")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Condition{Name}DivineBolt", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 

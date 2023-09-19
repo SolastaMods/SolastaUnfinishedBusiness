@@ -64,13 +64,13 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         var movementAffinityGiftOfTheWind = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}GiftOfTheWind")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 
         var combatAffinityGiftOfTheWind = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}GiftOfTheWind")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Gui.NoLocalization)
             .SetAttackOfOpportunityImmunity(true)
             .SetSituationalContext(SituationalContext.SourceHasCondition, conditionGiftOfTheWindAttacked)
             .AddToDB();

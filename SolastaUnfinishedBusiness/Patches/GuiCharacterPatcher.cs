@@ -481,8 +481,7 @@ public static class GuiCharacterPatcher
 
         texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, false)
         {
-            wrapMode = TextureWrapMode.Clamp,
-            filterMode = FilterMode.Bilinear
+            wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear
         };
         texture.LoadImage(fileData);
         dict.Add(name, texture);

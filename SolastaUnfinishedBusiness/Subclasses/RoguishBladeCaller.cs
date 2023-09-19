@@ -120,7 +120,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         var movementAffinityBladeSurge = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}BladeSurge")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Condition{Name}BladeSurge", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 

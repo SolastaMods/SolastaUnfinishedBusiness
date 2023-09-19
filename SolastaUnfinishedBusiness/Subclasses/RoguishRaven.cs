@@ -157,15 +157,14 @@ public sealed class RoguishRaven : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetModifier(AttributeModifierOperation.Additive,
-                        AttributeDefinitions.CriticalThreshold, -2)
+                    .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -2)
                     .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetSituationalContext(SituationalContext.AttackingWithRangedWeapon)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
                     .SetAttackRollModifier(-4)
                     .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)

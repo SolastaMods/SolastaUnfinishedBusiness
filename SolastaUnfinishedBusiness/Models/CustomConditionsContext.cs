@@ -60,7 +60,7 @@ internal static class CustomConditionsContext
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDistractedByAlly")
-                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition)
+                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition, Gui.NoLocalization)
                     .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();

@@ -116,12 +116,13 @@ internal static class ClassFeats
                                             .SetFeatures(
                                                 FeatureDefinitionMovementAffinityBuilder
                                                     .Create($"MovementAffinity{NAME}")
-                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition)
+                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                                     .SetBaseSpeedAdditiveModifier(3)
                                                     .AddToDB(),
                                                 FeatureDefinitionCombatAffinityBuilder
                                                     .Create($"CombatAffinity{NAME}")
-                                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition)
+                                                    .SetGuiPresentation(
+                                                        $"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                                                     .AddToDB())
                                             .AddToDB(),

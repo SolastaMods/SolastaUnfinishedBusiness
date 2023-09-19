@@ -305,12 +305,12 @@ internal static partial class SpellBuilders
                             .SetFeatures(
                                 FeatureDefinitionMovementAffinityBuilder
                                     .Create($"MovementAffinity{NAME}")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                     .SetImmunities(true, true)
                                     .AddToDB(),
                                 FeatureDefinitionEquipmentAffinityBuilder
                                     .Create($"EquipmentAffinity{NAME}")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                     .SetAdditionalCarryingCapacity(20)
                                     .AddToDB())
                             .AddToDB(),
@@ -511,7 +511,7 @@ internal static partial class SpellBuilders
 
         var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation("ConditionGravity", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 

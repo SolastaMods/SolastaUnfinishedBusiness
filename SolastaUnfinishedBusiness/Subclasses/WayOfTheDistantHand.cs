@@ -140,7 +140,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create("CombatAffinityWayOfTheDistantHandDistract")
                                             .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
-                                                Category.Feature)
+                                                Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .AddToDB())
                                     .AddToDB(),
@@ -251,7 +251,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                     .SetFeatures(
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
-                                            .SetGuiPresentationNoContent(true)
+                                            .SetGuiPresentation("ConditionWayOfTheDistantHandZenArrowUpgradedSlow",
+                                                Category.Condition, Gui.NoLocalization)
                                             .SetBaseSpeedMultiplicativeModifier(0)
                                             .AddToDB())
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -314,7 +315,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
                                             .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract",
-                                                Category.Feature)
+                                                Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .AddToDB())
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)

@@ -1003,15 +1003,14 @@ internal static class OtherFeats
                 .FinalizeSpells()
                 .AddToDB();
 
+            var title = Gui.Format($"Feat/&{NAME}Title", classTitle);
             var featSpellSniper = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
-                .SetGuiPresentation(
-                    Gui.Format($"Feat/&{NAME}Title", classTitle),
-                    Gui.Format($"Feat/&{NAME}Description", classTitle))
+                .SetGuiPresentation(title, Gui.Format($"Feat/&{NAME}Description", classTitle))
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create($"CombatAffinity{NAME}{className}")
-                        .SetGuiPresentationNoContent(true)
+                        .SetGuiPresentation(title, Gui.NoLocalization)
                         .SetCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
                                 mode.sourceDefinition is SpellDefinition &&

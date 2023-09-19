@@ -1,6 +1,6 @@
 # 1. - Acidic Hand Crossbow
 
- 
+
 
 # 2. - Arcane Staff
 
@@ -204,7 +204,7 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 # 52. - Forceful Gauntlets
 
- 
+
 
 # 53. - Frostburn Dart
 
@@ -244,7 +244,7 @@ This enchanted weapon was created using the ancient knowledge of Manacalon's mas
 
 # 62. - Gauntlets Of Pulling
 
- 
+
 
 # 63. - Greataxe of Acuteness
 
@@ -256,19 +256,19 @@ This enchanted weapon was forged using the ancient knowledge of Manacalon's mast
 
 # 65. - Halberd
 
- 
+
 
 # 66. - Halberd +1
 
- 
+
 
 # 67. - Halberd +2
 
- 
+
 
 # 68. - Halberd +3
 
- 
+
 
 # 69. - Halberd of Acuteness
 
@@ -308,19 +308,19 @@ This enchanted weapon was forged using the ancient knowledge of Colthannin's mas
 
 # 78. - Hand Crossbow
 
- 
+
 
 # 79. - Hand Crossbow +1
 
- 
+
 
 # 80. - Hand Crossbow +2
 
- 
+
 
 # 81. - Hand Crossbow +3
 
- 
+
 
 # 82. - Handaxe of Acuteness
 
@@ -368,7 +368,7 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 # 93. - Hurl Flame
 
- 
+
 
 # 94. - Javelin of Acuteness
 
@@ -476,11 +476,11 @@ This enchanted weapon was forged using the ancient knowledge of Colthannin's mas
 
 # 120. - Lightning Halberd
 
- 
+
 
 # 121. - Lightning Launcher
 
- 
+
 
 # 122. - Livewood Club
 
@@ -492,19 +492,19 @@ This staff is composed of living wood complete with sprouting leaves and perhaps
 
 # 124. - Long Mace
 
- 
+
 
 # 125. - Long Mace +1
 
- 
+
 
 # 126. - Long Mace +2
 
- 
+
 
 # 127. - Long Mace +3
 
- 
+
 
 # 128. - LongMace of Acuteness
 
@@ -580,19 +580,19 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 # 146. - Pike
 
- 
+
 
 # 147. - Pike +1
 
- 
+
 
 # 148. - Pike +2
 
- 
+
 
 # 149. - Pike +3
 
- 
+
 
 # 150. - Pike of Acuteness
 
@@ -624,23 +624,23 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 # 157. - Primed Halberd
 
- 
+
 
 # 158. - Primed Hand Crossbow
 
- 
+
 
 # 159. - Primed Long Mace
 
- 
+
 
 # 160. - Primed Pike
 
- 
+
 
 # 161. - Psychic Pike
 
- 
+
 
 # 162. - Punisher Battleaxe
 
@@ -872,11 +872,11 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 # 219. - Thunder Gauntlet
 
- 
+
 
 # 220. - Thundering Long Mace
 
- 
+
 
 # 221. - Warden Halberd
 

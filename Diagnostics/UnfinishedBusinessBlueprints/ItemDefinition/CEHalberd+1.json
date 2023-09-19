@@ -507,7 +507,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&CEHalberd+1Title",
-    "description": "Feature/&Emptystring",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d3b337b3-2bd9-5055-9a5c-856b8782c7cb",
