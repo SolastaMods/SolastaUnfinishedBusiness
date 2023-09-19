@@ -495,7 +495,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(SpellDefinitions.Blindness)
                     .SetSavingThrowData(
-                        false, AttributeDefinitions.Strength, false,
+                        false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence,
                         8)
                     .SetEffectForms(
