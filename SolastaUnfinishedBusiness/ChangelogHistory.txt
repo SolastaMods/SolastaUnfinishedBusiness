@@ -1,19 +1,25 @@
 ﻿1.5.94.15:
 
-ATTENTION:
+# ATTENTION:
 
 - RESPEC is required on Way of Discordance before updating to this version
 - REINSTALL mod from ZIP to leverage new portraits as update only does DLL
 
-- added SFX browser in mod UI to accelerate new mod content development
+# UNFINISHED BUSINESS:
+
+- added SFX browser in mod UI to accelerate new homebrew content development
 - added Interception fighting style and Shield Techniques feat [by HiddenHax]
 - added pre-gen heroes and monsters portraits to mod payload [by Artyoan]
 - fixed "Blinded condition doesn't allow attacks of opportunity" feature
 - fixed Disabling and Improved Disabling Strike incorrectly targeting caster
 - fixed Feral Tiefling not offering the Burning Hands spell on action panel
 - improved conditions extended tooltip descriptions to behave like vanilla
-- improved mod backend code smells, performance, and inconsistent patterns
+- improved mod code smells, performance, resilience, and inconsistent patterns
 - improved Way of Discordance descriptions, progression, and missing SFX
+
+# VANILLA:
+
+- fixed interaction between spells that emit or prevent light and Druid wildshape
 
 1.5.94.14:
 

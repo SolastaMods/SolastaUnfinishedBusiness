@@ -169,10 +169,25 @@ public static class RulesetImplementationManagerLocationPatcher
     [UsedImplicitly]
     public static class ApplyShapeChangeForm_Patch
     {
+        //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
+        [UsedImplicitly]
+        public static void Prefix(RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            if (formsParams.targetCharacter is not RulesetCharacter targetCharacter)
+            {
+                return;
+            }
+
+            targetCharacter.SpellsCastByMe.AddRange(targetCharacter.SpellsCastByMe);
+            targetCharacter.SpellsCastByMe.Clear();
+
+            targetCharacter.PowersUsedByMe.AddRange(targetCharacter.PowersUsedByMe);
+            targetCharacter.PowersUsedByMe.Clear();
+        }
+
         [UsedImplicitly]
         public static void Postfix(
             RulesetImplementationManagerLocation __instance,
-            EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             var source = formsParams.sourceCharacter;
