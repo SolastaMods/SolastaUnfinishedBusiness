@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -134,7 +135,7 @@ internal static class OtherFeats
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
                 MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
-                MartialArcaneArcher.PowerArcaneShotAdditionalUse1,
+                MartialArcaneArcher.ModifyPowerArcaneShotAdditionalUse1,
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
@@ -212,89 +213,6 @@ internal static class OtherFeats
                 InventorClass.BuildLearn(2, "FeatInfusionsAdept"),
                 InventorClass.BuildInfusionPoolIncrease())
             .SetValidators(ValidatorsFeat.IsLevel2)
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Healer
-
-    private static FeatDefinition BuildHealer()
-    {
-        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 256, 128);
-        var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatHealerMedKit")
-            .SetGuiPresentation(Category.Feature, spriteMedKit)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(
-                                HealingComputation.Dice,
-                                4,
-                                DieType.D6,
-                                1,
-                                false,
-                                HealingCap.MaximumHitPoints)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                            .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                    .Build())
-            .AddToDB();
-
-        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
-        var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatHealerResuscitate")
-            .SetGuiPresentation(Category.Feature, spriteResuscitate)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(
-                        TargetFilteringMethod.CharacterOnly,
-                        TargetFilteringTag.No,
-                        5,
-                        DieType.D8)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetRequiredCondition(ConditionDefinitions.ConditionDead)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetReviveForm(12, ReviveHitPoints.One)
-                            .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
-                    .Build())
-            .AddToDB();
-
-        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 256, 128);
-        var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatHealerStabilize")
-            .SetGuiPresentation(Category.Feature, spriteStabilize)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
-            .AddToDB();
-
-        var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatHealerMedicine")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create("FeatHealer")
-            .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
-            .SetFeatures(
-                powerFeatHealerMedKit,
-                powerFeatHealerResuscitate,
-                powerFeatHealerStabilize,
-                proficiencyFeatHealerMedicine)
             .AddToDB();
     }
 
@@ -542,6 +460,118 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Healer
+
+    private static FeatDefinition BuildHealer()
+    {
+        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 256, 128);
+        var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerMedKit")
+            .SetGuiPresentation(Category.Feature, spriteMedKit)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                4,
+                                DieType.D6,
+                                1,
+                                false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .Build())
+            .AddToDB();
+
+        powerFeatHealerMedKit.SetCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
+
+        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
+        var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerResuscitate")
+            .SetGuiPresentation(Category.Feature, spriteResuscitate)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(
+                        TargetFilteringMethod.CharacterOnly,
+                        TargetFilteringTag.No,
+                        5,
+                        DieType.D8)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRequiredCondition(ConditionDefinitions.ConditionDead)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetReviveForm(12, ReviveHitPoints.One)
+                            .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .Build())
+            .AddToDB();
+
+        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 256, 128);
+        var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatHealerStabilize")
+            .SetGuiPresentation(Category.Feature, spriteStabilize)
+            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
+            .AddToDB();
+
+        var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatHealerMedicine")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create("FeatHealer")
+            .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
+            .SetFeatures(
+                powerFeatHealerMedKit,
+                powerFeatHealerResuscitate,
+                powerFeatHealerStabilize,
+                proficiencyFeatHealerMedicine)
+            .AddToDB();
+    }
+
+    private sealed class ModifyEffectDescriptionMedKit : IModifyEffectDescription
+    {
+        private readonly BaseDefinition _baseDefinition;
+
+        public ModifyEffectDescriptionMedKit(BaseDefinition baseDefinition)
+        {
+            _baseDefinition = baseDefinition;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _baseDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var medicineBonus = character
+                .ComputeBaseAbilityCheckBonus(AttributeDefinitions.Wisdom, rulesetEffect.MagicAttackTrends, "Medicine");
+
+            effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
+
+            return effectDescription;
+        }
+    }
+
+    #endregion
+
     #region War Caster
 
     private static FeatDefinition BuildWarcaster()
@@ -723,9 +753,10 @@ internal static class OtherFeats
             .Create("FeatMobile")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAfterActionFeatMobileDash")
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityFeatMobile")
                     .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedAdditiveModifier(2)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
                         new ActionFinishedByMeFeatMobileDash(
@@ -737,16 +768,10 @@ internal static class OtherFeats
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
                                 .AddToDB()))
-                    .AddToDB(),
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityFeatMobile")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
-
 
     private sealed class ActionFinishedByMeFeatMobileDash : IActionFinishedByMe
     {
@@ -830,22 +855,22 @@ internal static class OtherFeats
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
         //Poison character that shoves me
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
         {
-            if (characterAction.ActionId != ActionDefinitions.Id.Shove &&
-                characterAction.ActionId != ActionDefinitions.Id.ShoveBonus &&
-                characterAction.ActionId != ActionDefinitions.Id.ShoveFree)
+            if (action.ActionId != ActionDefinitions.Id.Shove &&
+                action.ActionId != ActionDefinitions.Id.ShoveBonus &&
+                action.ActionId != ActionDefinitions.Id.ShoveFree)
             {
                 yield break;
             }
 
-            if (characterAction.ActionParams.TargetCharacters == null ||
-                !characterAction.ActionParams.TargetCharacters.Contains(target))
+            if (action.ActionParams.TargetCharacters == null ||
+                !action.ActionParams.TargetCharacters.Contains(target))
             {
                 yield break;
             }
 
-            PoisonTarget(target.RulesetCharacter, characterAction.ActingCharacter);
+            PoisonTarget(action, target.RulesetCharacter, action.ActingCharacter);
         }
 
         //Poison characters that I shove
@@ -860,7 +885,7 @@ internal static class OtherFeats
 
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                PoisonTarget(rulesetAttacker, target);
+                PoisonTarget(action, rulesetAttacker, target);
             }
         }
 
@@ -886,7 +911,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(me.RulesetCharacter, target);
+            PoisonTarget(action, me.RulesetCharacter, target);
         }
 
         //Poison melee attacker
@@ -911,10 +936,10 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(me.RulesetCharacter, attacker);
+            PoisonTarget(action, me.RulesetCharacter, attacker);
         }
 
-        private static void PoisonTarget(RulesetCharacter me, GameLocationCharacter target)
+        private static void PoisonTarget(CharacterAction action, RulesetCharacter me, GameLocationCharacter target)
         {
             var rulesetTarget = target.RulesetCharacter;
 
@@ -923,12 +948,16 @@ internal static class OtherFeats
                 return;
             }
 
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, me);
 
-            ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(me, usablePower, false)
-                .AddAsActivePowerToSource()
-                .ApplyEffectOnCharacter(rulesetTarget, true, target.LocationPosition);
+                .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(target);
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 
@@ -974,16 +1003,15 @@ internal static class OtherFeats
                 .FinalizeSpells()
                 .AddToDB();
 
+            var title = Gui.Format($"Feat/&{NAME}Title", classTitle);
             var featSpellSniper = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
-                .SetGuiPresentation(
-                    Gui.Format($"Feat/&{NAME}Title", classTitle),
-                    Gui.Format($"Feat/&{NAME}Description", classTitle))
+                .SetGuiPresentation(title, Gui.Format($"Feat/&{NAME}Description", classTitle))
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create($"CombatAffinity{NAME}{className}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                        .SetGuiPresentation(title, Gui.NoLocalization)
+                        .SetCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
                                 mode.sourceDefinition is SpellDefinition &&
                                 mode.EffectDescription.RangeType == RangeType.RangeHit)))

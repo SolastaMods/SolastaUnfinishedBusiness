@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageMalakhAngelicForm:e7f6ba68-8bdb-524d-b7af-33f4b608b1ea",
-    "Definition:FeatureMalakhRadiantAura:7d5141d3-495f-5a04-87ad-4cf0b26dd7a2"
+    "Definition:AdditionalDamageMalakhAngelicForm:e7f6ba68-8bdb-524d-b7af-33f4b608b1ea"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

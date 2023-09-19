@@ -37,7 +37,7 @@ public class PatronEldritchSurge : AbstractSubclass
     public static readonly FeatureDefinition FeatureBlastPursuit = FeatureDefinitionBuilder
         .Create($"Feature{Name}BlastPursuit")
         .SetGuiPresentation(Category.Feature)
-        .SetCustomSubFeatures(new OnTargetReducedToZeroHpBlastPursuit())
+        .SetCustomSubFeatures(new OnReducedToZeroHpByMeBlastPursuit())
         .AddToDB();
 
     // LEVEL 10 Blast Reload;
@@ -139,9 +139,9 @@ public class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private sealed class OnTargetReducedToZeroHpBlastPursuit : IOnTargetReducedToZeroHp
+    private sealed class OnReducedToZeroHpByMeBlastPursuit : IOnReducedToZeroHpByMe
     {
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)

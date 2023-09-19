@@ -134,7 +134,7 @@ internal static class Level20Context
         var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
             .Create("CustomCodeBarbarianPrimalChampion")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomCodeBarbarianPrimalChampion())
+            .SetCustomSubFeatures(new CustomLevelUpLogicBarbarianPrimalChampion())
             .AddToDB();
 
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -801,7 +801,7 @@ internal static class Level20Context
         return invocationPoolWizardSignatureSpells;
     }
 
-    private sealed class ActionFinishedByMeArchDruid : IUsePowerFinishedByMe
+    private sealed class ActionFinishedByMeArchDruid : IActionFinishedByMe
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -810,9 +810,12 @@ internal static class Level20Context
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (power != PowerDruidWildShape && power != CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat)
+            if (action is not CharacterActionUsePower characterActionUsePower
+                || (characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind
+                    && characterActionUsePower.activePower.PowerDefinition !=
+                    CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat))
             {
                 yield break;
             }
@@ -852,7 +855,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class CustomCodeBarbarianPrimalChampion : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicBarbarianPrimalChampion : ICustomLevelUpLogic
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {

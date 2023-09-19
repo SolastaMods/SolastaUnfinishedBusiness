@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,7 +49,7 @@ public static class InventorySlotBoxPatcher
                 var img = child.GetComponent<Image>();
                 var flag = definition.ItemPresentation.ItemFlags[index];
                 child.TryGetComponent<GuiTooltip>(out var tooltip);
-                var custom = flag.GetFirstSubFeatureOfType<TooltipModifier<ItemDefinition>>();
+                var custom = flag.GetFirstSubFeatureOfType<RecipeHelper.TooltipModifier<ItemDefinition>>();
                 custom?.Invoke(tooltip, img, child, definition, null);
             }
         }

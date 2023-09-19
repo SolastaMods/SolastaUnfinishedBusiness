@@ -129,26 +129,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class OnConditionAdded_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
-        {
-            var definition = activeCondition.ConditionDefinition;
-
-            //PATCH: notifies custom condition features that condition is applied
-            definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.OnApplyCondition(__instance, activeCondition));
-
-            definition.Features
-                .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .Do(c => c.OnApplyCondition(__instance, activeCondition));
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionRemoved))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -157,15 +137,18 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
+            //PATCH: support 'EnableCharactersOnFireToEmitLight'
+            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
+
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;
 
-            definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.OnRemoveCondition(__instance, activeCondition));
+            definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
+                .Do(c => c.OnConditionRemoved(__instance, activeCondition));
 
             definition.Features
-                .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .Do(c => c.OnRemoveCondition(__instance, activeCondition));
+                .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
+                .Do(c => c.OnConditionRemoved(__instance, activeCondition));
         }
     }
 
@@ -1318,7 +1301,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1329,13 +1312,11 @@ public static class RulesetCharacterPatcher
         {
             var currentAction = Global.CurrentAction;
 
-            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
-                null;
+            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 
-    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminatePower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1346,9 +1327,7 @@ public static class RulesetCharacterPatcher
         {
             var currentAction = Global.CurrentAction;
 
-            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
-                null;
+            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 

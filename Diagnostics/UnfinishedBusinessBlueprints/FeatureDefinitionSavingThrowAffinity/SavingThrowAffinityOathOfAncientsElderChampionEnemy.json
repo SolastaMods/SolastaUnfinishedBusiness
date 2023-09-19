@@ -90,8 +90,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOathOfAncientsElderChampionTitle",
-    "description": "Feature/&PowerOathOfAncientsElderChampionDescription",
+    "title": "Condition/&ConditionOathOfAncientsElderChampionTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

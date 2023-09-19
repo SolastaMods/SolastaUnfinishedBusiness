@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,7 +14,6 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.Helpers.EffectHelpers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -63,7 +63,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(
-                new ValidatorsDefinitionApplication(
+                new ValidateDefinitionApplication(
                     ValidatorsCharacter.HasLongbow,
                     ValidatorsCharacter.DoesNotHaveHeavyArmor,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
@@ -95,14 +95,6 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetBaseSpeedMultiplicativeModifier(0)
             .AddToDB();
 
-        var featureBulwark = FeatureDefinitionBuilder
-            .Create($"Feature{Name}Bulwark")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
-                new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
-            .AddToDB();
-
         var combatAffinityBulwark = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}Bulwark")
             .SetGuiPresentation(Category.Feature)
@@ -116,9 +108,11 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .SetPossessive()
             .AddFeatures(
                 movementAffinityBulwark,
-                featureBulwark,
                 combatAffinityBulwark)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .SetCustomSubFeatures(
+                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
+                new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
 
         var powerBulwark = FeatureDefinitionPowerBuilder
@@ -173,12 +167,12 @@ public sealed class PathOfTheYeoman : AbstractSubclass
 
         var powerMightyShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MightyShot")
-            .SetGuiPresentation($"Feature{Name}MightyShot", Category.Feature, hidden: true)
+            .SetGuiPresentation($"Feature{Name}MightyShot", Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 7)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength, 8)
                     .SetEffectForms(
@@ -187,16 +181,17 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetDamageForm(DamageTypeThunder)
                             .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.CallLightning)
                     .Build())
             .AddToDB();
 
-        var featureMightyShot = FeatureDefinitionBuilder
-            .Create($"Feature{Name}MightyShot")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
-                new PhysicalAttackFinishedByMeMightyShot(powerMightyShot))
-            .AddToDB();
+        powerMightyShot.EffectDescription.EffectParticleParameters.impactParticleReference =
+            powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
+
+        powerMightyShot.SetCustomSubFeatures(
+            PowerVisibilityModifier.Hidden,
+            new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
+            new PhysicalAttackFinishedByMeMightyShot(powerMightyShot));
 
         // MAIN
 
@@ -206,7 +201,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .AddFeaturesAtLevel(3, proficiencyFletcher, featureStrongBow)
             .AddFeaturesAtLevel(6, actionAffinityStaggeringBlow, featureKeenEye)
             .AddFeaturesAtLevel(10, powerBulwark)
-            .AddFeaturesAtLevel(14, featureMightyShot, powerMightyShot)
+            .AddFeaturesAtLevel(14, powerMightyShot)
             .AddToDB();
     }
 
@@ -291,13 +286,47 @@ public sealed class PathOfTheYeoman : AbstractSubclass
     // Mighty Shot
     //
 
-    private sealed class PhysicalAttackFinishedByMeMightyShot : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeMightyShot : IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
         private readonly FeatureDefinitionPower _powerMightyShot;
 
         public PhysicalAttackFinishedByMeMightyShot(FeatureDefinitionPower powerMightyShot)
         {
             _powerMightyShot = powerMightyShot;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerMightyShot;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            var levels = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            var rageBonus = levels switch
+            {
+                >= 16 => 4,
+                >= 9 => 3,
+                _ => 2
+            };
+
+            damageForm.BonusDamage = AttributeDefinitions
+                                         .ComputeAbilityScoreModifier(
+                                             character.TryGetAttributeValue(AttributeDefinitions.Strength))
+                                     + rageBonus;
+
+            return effectDescription;
         }
 
         public IEnumerator OnAttackFinishedByMe(
@@ -324,40 +353,21 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 yield break;
             }
 
-            if (!battleManager.IsBattleInProgress)
-            {
-                yield break;
-            }
-
-            var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
-            var rageBonus = levels switch
-            {
-                >= 16 => 4,
-                >= 9 => 3,
-                _ => 2
-            };
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerMightyShot, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
-            var damageForm = effectPower.EffectDescription.FindFirstDamageForm();
+            actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
+                .Where(x =>
+                    x.Side != attacker.Side
+                    && x != defender
+                    && battleManager.IsWithinXCells(defender, x, 3))
+                .ToList());
 
-            damageForm.bonusDamage = rageBonus +
-                                     AttributeDefinitions.ComputeAbilityScoreModifier(
-                                         rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength));
-
-            rulesetAttacker.LogCharacterUsedPower(_powerMightyShot);
-
-            foreach (var target in battleManager.Battle.AllContenders
-                         .Where(x =>
-                             x.Side != attacker.Side &&
-                             x != defender &&
-                             battleManager.IsWithinXCells(defender, x, 3))
-                         .ToList())
-            {
-                StartVisualEffect(attacker, defender, SpellDefinitions.CallLightning, EffectType.Effect);
-                effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
-            }
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 }

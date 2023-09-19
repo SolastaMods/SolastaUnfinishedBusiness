@@ -211,21 +211,6 @@ internal static class GameUiDisplay
             Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
 
-        toggle = Main.Settings.AllowFlightSuspend;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowFlightSuspend"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowFlightSuspend = toggle;
-        }
-
-        if (Main.Settings.AllowFlightSuspend)
-        {
-            toggle = Main.Settings.FlightSuspendWingedBoots;
-            if (UI.Toggle(Gui.Localize("ModUi/&FlightSuspendWingedBoots"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.FlightSuspendWingedBoots = toggle;
-            }
-        }
-
         UI.Label();
 
         toggle = Main.Settings.EnableActionSwitching;
@@ -348,6 +333,8 @@ internal static class GameUiDisplay
             InventoryManagementContext.RefreshControlsVisibility();
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
         {
@@ -359,6 +346,8 @@ internal static class GameUiDisplay
         {
             Main.Settings.EnableInventoryTintKnownRecipesRed = toggle;
         }
+
+        UI.Label();
 
         toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
@@ -373,6 +362,15 @@ internal static class GameUiDisplay
             Main.Settings.DontDisplayHelmets = toggle;
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
         }
+
+        UI.Label();
+
+        toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
+        }
+
 
         toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))

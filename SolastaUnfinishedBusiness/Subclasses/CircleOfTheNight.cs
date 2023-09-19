@@ -23,7 +23,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
 {
     internal const string Name = "CircleOfTheNight";
 
-    private static readonly ValidatorsPowerUse CanUseCombatHealing = new(
+    private static readonly ValidatorsValidatePowerUse CanUseCombatHealing = new(
         ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
 
     public CircleOfTheNight()
@@ -60,7 +60,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetMagicalWeapon()
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, _, _) =>
+                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) =>
                     (OperationType.Set,
                         ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)(character))))
             .AddToDB();
@@ -300,8 +300,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             EffectFormBuilder
                 .Create()
                 .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                .SetConditionForm(ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
-                    ConditionForm.ConditionOperation.Add)
+                .SetConditionForm(ConditionDefinitions.ConditionParalyzed, ConditionForm.ConditionOperation.Add)
                 .Build());
 
         var shape = MonsterDefinitionBuilder
@@ -384,7 +383,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
-    private sealed class ActionFinishedByMeWildShape : IUsePowerFinishedByMe, IPreventRemoveConcentrationWithPowerUse
+    private sealed class ActionFinishedByMeWildShape : IMagicEffectFinishedByMe, IPreventRemoveConcentrationOnPowerUse
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
@@ -393,10 +392,9 @@ public sealed class CircleOfTheNight : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _featureDefinitionPower ||
-                !action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
+            if (!action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
             {
                 yield break;
             }

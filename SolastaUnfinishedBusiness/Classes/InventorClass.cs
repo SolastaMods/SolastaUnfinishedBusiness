@@ -841,7 +841,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private class HasActiveInfusions : IPowerUseValidity
+    private class HasActiveInfusions : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {

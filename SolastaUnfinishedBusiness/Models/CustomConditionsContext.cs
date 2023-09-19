@@ -60,7 +60,7 @@ internal static class CustomConditionsContext
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDistractedByAlly")
-                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition)
+                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition, Gui.NoLocalization)
                     .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
@@ -92,12 +92,7 @@ internal static class CustomConditionsContext
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("FeatureInvisibilityEveryRound")
-                    .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(new InvisibilityEveryRoundBehavior())
-                    .AddToDB())
+            .SetCustomSubFeatures(new InvisibilityEveryRoundBehavior())
             .AddToDB();
 
         return conditionInvisibilityEveryRound;
@@ -150,12 +145,7 @@ internal static class CustomConditionsContext
                 Sprites.GetSprite("ConditionFlightSuspended", Resources.ConditionFlightSuspended, 32))
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("FeatureFlightSuspended")
-                    .SetGuiPresentationNoContent()
-                    .SetCustomSubFeatures(new FlightSuspendBehavior())
-                    .AddToDB())
+            .SetCustomSubFeatures(new OnConditionAddedOrRemovedFlightSuspendBehavior())
             .AddToDB();
 
         // I ran into sync issues if I didn't generate the actions here
@@ -186,7 +176,7 @@ internal static class CustomConditionsContext
                             ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasNoneOfConditions(conditionFlightSuspend.Name)))
             .AddToDB();
 
@@ -219,7 +209,7 @@ internal static class CustomConditionsContext
                             ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(conditionFlightSuspend.Name)))
             .AddToDB();
 
@@ -308,7 +298,7 @@ internal static class CustomConditionsContext
         return false;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
@@ -331,7 +321,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster &&
                 !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
@@ -340,7 +330,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster)
             {
@@ -426,9 +416,9 @@ internal static class CustomConditionsContext
         }
     }
 
-    private sealed class FlightSuspendBehavior : ICustomConditionFeature, INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedFlightSuspendBehavior : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster monster)
             {
@@ -486,7 +476,8 @@ internal static class CustomConditionsContext
                     catch (Exception ex)
                     {
                         // ReSharper disable once InvocationIsSkipped
-                        Main.Log($"FlightSuspendBehavior ApplyFeature EXCEPTION Tracker {ex} {ex.StackTrace}");
+                        Main.Log(
+                            $"OnConditionAddedOrRemovedFlightSuspendBehavior ApplyFeature EXCEPTION Tracker {ex} {ex.StackTrace}");
                         return;
                     }
 
@@ -509,7 +500,7 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is RulesetCharacterMonster)
             {
@@ -570,19 +561,10 @@ internal static class CustomConditionsContext
                 catch (Exception ex)
                 {
                     // ReSharper disable once InvocationIsSkipped
-                    Main.Log($"FlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
+                    Main.Log(
+                        $"OnConditionAddedOrRemovedFlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
                 }
             }
-        }
-
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            removedFrom.RemoveCondition(rulesetCondition);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            rulesetActor.RemoveCondition(rulesetCondition);
         }
     }
 }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -101,7 +103,7 @@ public sealed class OathOfThunder : AbstractSubclass
 
         var movementAffinityDivineBolt = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}DivineBolt")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Condition{Name}DivineBolt", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 
@@ -171,6 +173,25 @@ public sealed class OathOfThunder : AbstractSubclass
 
         // Bifrost
 
+        var powerBifrostDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BifrostDamage")
+            .SetGuiPresentation($"Power{Name}Bifrost", Category.Feature, hidden: true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .SetParticleEffectParameters(Thunderwave)
+                    .Build())
+            .AddToDB();
+
         var powerBifrost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bifrost")
             .SetGuiPresentation(Category.Feature, PowerSorcererManaPainterTap)
@@ -182,36 +203,16 @@ public sealed class OathOfThunder : AbstractSubclass
                     .InviteOptionalAlly()
                     .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(DimensionDoor)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 12)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(DimensionDoor)
                     .Build())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeBifrost(powerBifrostDamage))
             .AddToDB();
-
-        var powerBifrostDamage = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}BifrostDamage")
-            .SetGuiPresentation($"Power{Name}Bifrost", Category.Feature, hidden: true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(Thunderwave)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        powerBifrost.SetCustomSubFeatures(new ActionFinishedByMeBifrost(powerBifrost, powerBifrostDamage));
 
         // LEVEL 20
 
@@ -374,26 +375,17 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedByMeBifrost : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeBifrost : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerBifrost;
         private readonly FeatureDefinitionPower _powerBifrostDamage;
 
-        public ActionFinishedByMeBifrost(
-            FeatureDefinitionPower powerBifrost,
-            FeatureDefinitionPower powerBifrostDamage)
+        public MagicEffectFinishedByMeBifrost(FeatureDefinitionPower powerBifrostDamage)
         {
-            _powerBifrost = powerBifrost;
             _powerBifrostDamage = powerBifrostDamage;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerBifrost)
-            {
-                yield break;
-            }
-
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
@@ -401,21 +393,22 @@ public sealed class OathOfThunder : AbstractSubclass
                 yield break;
             }
 
+            var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                            gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+                .ToList());
 
-            foreach (var defender in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     x.Side != attacker.Side &&
-                                     gameLocationBattleService.IsWithinXCells(attacker, x, 2))
-                         .ToList()) // avoid enumerator changes
-            {
-                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
-            }
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 }

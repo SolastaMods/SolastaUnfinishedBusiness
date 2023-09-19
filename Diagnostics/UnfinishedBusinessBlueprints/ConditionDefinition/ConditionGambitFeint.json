@@ -5,8 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481",
-    "Definition:CombatAffinityGambitFeint:d78996e8-218b-5535-b250-f24b50e07f01",
-    "Definition:FeatureSpendGambitDieOnConditionRemoval:60839328-281b-536b-b870-83194ab12e58"
+    "Definition:CombatAffinityGambitFeint:d78996e8-218b-5535-b250-f24b50e07f01"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

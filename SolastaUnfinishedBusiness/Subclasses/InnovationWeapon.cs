@@ -114,7 +114,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 HasModifiedUses.Marker,
-                new ValidatorsPowerUse(HasInjuredDefender),
+                new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
                 new TargetDefendingBlade())
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
@@ -131,7 +131,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new PowerUseModifier
+        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
         {
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });
@@ -194,7 +194,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsPowerUse.NotInCombat)
+                ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -226,7 +226,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsPowerUse.NotInCombat)
+                ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -320,7 +320,7 @@ public sealed class InnovationWeapon : AbstractSubclass
     {
         var monsterAttackSteelDefender = MonsterAttackDefinitionBuilder
             .Create("MonsterAttackSteelDefender")
-            .SetGuiPresentation(Category.Item, Gui.NoLocalization)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetToHitBonus(0)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -482,7 +482,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
-                ValidatorsPowerUse.UsedLessTimesThan(1),
+                ValidatorsValidatePowerUse.UsedLessTimesThan(1),
                 PowerVisibilityModifier.Default)
             .SetShowCasting(false)
             .AddToDB();
@@ -499,7 +499,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
+    private class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -581,12 +581,12 @@ public sealed class InnovationWeapon : AbstractSubclass
         }
     }
 
-    private class ShowInCombatWhenHasBlade : IPowerUseValidity
+    private class ShowInCombatWhenHasBlade : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                   character.powersUsedByMe.Any(p =>
+            return Gui.Battle != null
+                   && character.powersUsedByMe.Any(p =>
                        p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
         }
     }

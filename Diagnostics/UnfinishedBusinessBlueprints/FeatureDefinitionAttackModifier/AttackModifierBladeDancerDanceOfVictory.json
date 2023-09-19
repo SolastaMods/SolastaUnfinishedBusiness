@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierBladeDancerDanceOfVictoryTitle",
-    "description": "Feature/&AttackModifierBladeDancerDanceOfVictoryDescription",
+    "title": "Condition/&ConditionBladeDancerDanceOfVictoryTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

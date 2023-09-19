@@ -111,12 +111,12 @@ public sealed class InnovationArmor : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityInnovationArmorInfiltratorMode")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(1)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckAffinityInnovationArmorInfiltratorMode")
-                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition)
+                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth))
                     .AddToDB())
@@ -126,8 +126,8 @@ public sealed class InnovationArmor : AbstractSubclass
             .Create("PowerInnovationArmorSwitchModeGuardian")
             .SetGuiPresentation(Category.Feature, Sprites.PowerGuardianMode)
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(NotGuardianMode),
-                ValidatorsPowerUse.NotInCombat,
+                new ValidatorsValidatePowerUse(NotGuardianMode),
+                ValidatorsValidatePowerUse.NotInCombat,
                 new AddGauntletAttack(),
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
@@ -147,8 +147,8 @@ public sealed class InnovationArmor : AbstractSubclass
             .Create("PowerInnovationArmorSwitchModeInfiltrator")
             .SetGuiPresentation(Category.Feature, Sprites.PowerInfiltratorMode)
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(NotInfiltratorMode),
-                ValidatorsPowerUse.NotInCombat,
+                new ValidatorsValidatePowerUse(NotInfiltratorMode),
+                ValidatorsValidatePowerUse.NotInCombat,
                 new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
@@ -167,7 +167,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var defensiveField = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorDefensiveField")
             .SetGuiPresentation(Category.Feature, Sprites.PowerDefensiveField)
-            .SetCustomSubFeatures(new ValidatorsPowerUse(InGuardianMode), InventorClassHolder.Marker,
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(InGuardianMode), InventorClassHolder.Marker,
                 RecurrenceOnlyOnSelfTurn.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -271,7 +271,7 @@ public sealed class InnovationArmor : AbstractSubclass
                                     FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
                                         .SetGuiPresentation("ConditionInventorArmorerInfiltratorGlimmer",
-                                            Category.Condition)
+                                            Category.Condition, Gui.NoLocalization)
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .SetSituationalContext(SituationalContext.TargetIsEffectSource)
                                         .AddToDB())
@@ -290,7 +290,7 @@ public sealed class InnovationArmor : AbstractSubclass
                                     FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityInventorArmorerInfiltratorDamage")
                                         .SetGuiPresentation("ConditionInventorArmorerInfiltratorDamage",
-                                            Category.Condition)
+                                            Category.Condition, Gui.NoLocalization)
                                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                                         .AddToDB())
                                 .AddToDB()))

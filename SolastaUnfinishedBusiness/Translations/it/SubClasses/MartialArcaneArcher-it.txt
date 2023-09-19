@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=La creatura infligge la metà dei danni con gli attacchi basati sulla Forza e ha svantaggio sui tiri salvezza e sulle prove di abilità su Forza, Destrezza e Costituzione.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Indebolito
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=Le creature non possono beneficiare dell'invisibilità, gli attaccanti ne hanno vantaggio. Illuminano anche 10 celle di luce intensa + 10 celle di luce fioca.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Evidenziato
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=Scegli di imparare un trucchetto da Mago.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=Magia Arcana
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=Il tuo tiro con l'arco magico è disponibile ogni volta che inizia la battaglia. Se tiri l'iniziativa e ti manca almeno un uso di Arcane Shot, ne riguadagni un uso.

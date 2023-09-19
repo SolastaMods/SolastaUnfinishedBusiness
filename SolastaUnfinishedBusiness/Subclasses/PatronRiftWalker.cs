@@ -162,7 +162,7 @@ public class PatronRiftWalker : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class PreventRemoveConcentrationRiftWalker : IPreventRemoveConcentrationWithPowerUse
+    private sealed class PreventRemoveConcentrationRiftWalker : IPreventRemoveConcentrationOnPowerUse
     {
     }
 }

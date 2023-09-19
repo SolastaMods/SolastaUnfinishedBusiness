@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
@@ -27,14 +25,7 @@ public static class RulesetCharacterMonsterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
         {
-            //PATCH: add a toggle to allow monsters to swap attacks
-            // GameUiContext.AddMonsterSwapAttackToggle(__instance);
-
-            //PATCH: Fixes AC calculation for MC shape-shifters
-            //Instead of setting monster's AC as base it adds it as a Natural Armor value
-            //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed
-            //PATCH: support for rage/ki/other stuff while shape-shifted
-            //Transfers some of the ability modifiers to shape shifted form 
+            //PATCH: Fixes AC calculation for MC shape-shifters and support for rage/ki/other stuff while shape-shifted
             MulticlassWildshapeContext.FinalizeMonster(__instance, keepMentalAbilityScores);
 
             //PATCH: supports Awaken the Beast Within feat
@@ -54,7 +45,8 @@ public static class RulesetCharacterMonsterPatcher
             //PATCH: support for rage/ki/other stuff while shape-shifted
 
             // refresh values of attribute modifiers before refreshing attributes
-            var refreshAttributes = typeof(RulesetEntity).GetMethod("RefreshAttributes");
+            var refreshAttributes =
+                typeof(RulesetEntity).GetMethod("RefreshAttributes");
             var refreshAttributeModifiers =
                 typeof(RulesetCharacter).GetMethod("RefreshAttributeModifierFromAbilityScore");
 
@@ -100,15 +92,10 @@ public static class RulesetCharacterMonsterPatcher
             bool dryRun,
             FeatureDefinition dryRunFeature)
         {
-            if (__instance is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
             foreach (var feature in __instance.GetSubFeaturesByType<IModifyAC>())
             {
-                feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier,
-                    out var trendInfo);
+                feature.GetAC(
+                    __instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier, out var trendInfo);
                 __result.AddModifier(attributeModifier);
                 __result.valueTrends.Add(trendInfo);
             }
@@ -117,9 +104,10 @@ public static class RulesetCharacterMonsterPatcher
             __result.Refresh(true);
             __instance.SortArmorClassModifierTrends(__result);
             __result.Refresh();
-            if (callRefresh && !dryRun && __instance.CharacterRefreshed != null)
+
+            if (callRefresh && !dryRun)
             {
-                __instance.CharacterRefreshed(__instance);
+                __instance.CharacterRefreshed?.Invoke(__instance);
             }
         }
     }
@@ -135,8 +123,8 @@ public static class RulesetCharacterMonsterPatcher
             List<TrendInfo> savingThrowModifierTrends)
         {
             //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the saving throws
-            AddPBToSummonCheck.ModifyCheckBonus<ISavingThrowPerformanceProvider>(__instance, ref __result,
-                abilityScoreName, savingThrowModifierTrends);
+            AddPBToSummonCheck.ModifyCheckBonus<ISavingThrowPerformanceProvider>(
+                __instance, ref __result, abilityScoreName, savingThrowModifierTrends);
         }
     }
 
@@ -152,8 +140,8 @@ public static class RulesetCharacterMonsterPatcher
             string proficiencyName)
         {
             //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the skill checks
-            AddPBToSummonCheck.ModifyCheckBonus<IAbilityCheckPerformanceProvider>(__instance, ref __result,
-                proficiencyName, abilityCheckModifierTrends);
+            AddPBToSummonCheck.ModifyCheckBonus<IAbilityCheckPerformanceProvider>(
+                __instance, ref __result, proficiencyName, abilityCheckModifierTrends);
         }
     }
 
@@ -185,36 +173,16 @@ public static class RulesetCharacterMonsterPatcher
                 .ForEach(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
-            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
-
-            foreach (var attackMode in __instance.AttackModes)
-            {
-                foreach (var modifier in modifiers)
-                {
-                    modifier.ModifyAttackMode(__instance, attackMode);
-                }
-            }
+            __instance.AttackModes
+                .ForEach(attackMode =>
+                    __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>()
+                        .ForEach(provider => provider.ModifyAttackMode(__instance, attackMode)));
 
             //refresh character if needed after postfix
-            if (_callRefresh && __instance.CharacterRefreshed != null)
+            if (_callRefresh)
             {
-                __instance.CharacterRefreshed(__instance);
+                __instance.CharacterRefreshed?.Invoke(__instance);
             }
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.HandleDeathForEffectConditions))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleDeathForEffectConditions_Patch
-    {
-        internal static readonly List<RulesetCondition> ConditionsBeforeDeath = new();
-
-        [UsedImplicitly]
-        public static void Prefix(RulesetCharacterMonster __instance)
-        {
-            //PATCH: INotifyConditionRemoval, keep a tab on all monster conditions before death
-            ConditionsBeforeDeath.SetRange(__instance.AllConditions.ToList());
         }
     }
 
@@ -233,6 +201,7 @@ public static class RulesetCharacterMonsterPatcher
             }
 
             var attackModeRank = __instance.GetAttackModeRank(mode);
+
             if (attackModeRank == -1 && mode.ActionType == ActionDefinitions.ActionType.Bonus)
             {
                 __result = -1;

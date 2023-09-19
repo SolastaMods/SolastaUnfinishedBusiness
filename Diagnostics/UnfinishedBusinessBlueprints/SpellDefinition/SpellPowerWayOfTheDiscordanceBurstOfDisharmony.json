@@ -2,12 +2,15 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
+    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony10:d68ecd41-5682-5217-b0f4-860577613bd9",
+    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony9:74f36496-6418-53fb-8934-f11b570cd3af",
+    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony8:e2909a9e-90a7-5bd4-9a20-cd38a3ef8bb0",
+    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony7:8932b433-f835-5821-8ebd-e3617eb0ccbb",
     "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony6:13fcd322-5ad9-51b8-95ab-202c6cb6db04",
     "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony5:ac205aab-c7b4-5430-92be-528722d1a7d0",
     "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony4:a3417c75-c7b2-5618-b301-5707fa06c1c8",
     "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony3:d74267a9-e774-5cdc-bc48-b8972115d875",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony2:d31d3aca-9add-5bd2-9bfd-9c29a97ea762",
-    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony1:7a4a4ea4-0c4a-5faf-b75c-5d18c1770bcb"
+    "Definition:SpellPowerWayOfTheDiscordanceBurstOfDisharmony2:d31d3aca-9add-5bd2-9bfd-9c29a97ea762"
   ],
   "compactSubspellsTooltip": false,
   "implemented": true,
@@ -173,8 +176,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle",
-    "description": "Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription",
+    "title": "Feature/&FeatureSetWayOfTheDiscordanceBurstOfDisharmonyTitle",
+    "description": "Feature/&FeatureSetWayOfTheDiscordanceBurstOfDisharmonyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a2425783-4d39-5318-8d2f-3b8899bcb18b",

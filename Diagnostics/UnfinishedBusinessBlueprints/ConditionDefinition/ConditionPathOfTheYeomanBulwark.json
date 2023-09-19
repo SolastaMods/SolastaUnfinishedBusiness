@@ -5,7 +5,6 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:CombatAffinityPathOfTheYeomanBulwark:c0655645-a5b8-5af1-9fe9-43a1a46990c2",
-    "Definition:FeaturePathOfTheYeomanBulwark:ec993712-a942-556b-959f-1b5cef38462d",
     "Definition:MovementAffinityPathOfTheYeomanBulwark:1abd8d9f-8be4-5121-a426-70125bc3d6d4"
   ],
   "allowMultipleInstances": false,

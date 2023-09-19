@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -202,9 +201,6 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetEffectDescription(effectTouchOfDarkness)
             .AddToDB();
 
-        powerTouchOfDarknessFixed.SetCustomSubFeatures(
-            new PowerUseValidityTouchOfDarknessFixed(powerTouchOfDarknessFixed));
-
         var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Points")
             .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
@@ -213,8 +209,13 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetEffectDescription(effectTouchOfDarkness)
             .AddToDB();
 
+        powerTouchOfDarknessFixed.SetCustomSubFeatures(
+            new ValidatorsValidatePowerUse(
+                character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
+
         powerTouchOfDarknessPoints.SetCustomSubFeatures(
-            new PowerUseValidityTouchOfDarknessPoints(powerTouchOfDarknessFixed));
+            new ValidatorsValidatePowerUse(
+                character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
 
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
             .Create(TOUCH_OF_DARKNESS_NAME)
@@ -249,46 +250,4 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Touch of Darkness Fixed
-    //
-
-    private class PowerUseValidityTouchOfDarknessFixed : IPowerUseValidity
-    {
-        private readonly FeatureDefinitionPower _powerTouchFixed;
-
-        public PowerUseValidityTouchOfDarknessFixed(FeatureDefinitionPower powerTouchFixed)
-        {
-            _powerTouchFixed = powerTouchFixed;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var usablePower = UsablePowersProvider.Get(_powerTouchFixed, character);
-
-            return usablePower.RemainingUses > 0;
-        }
-    }
-
-    //
-    // Touch of Darkness Points
-    //
-
-    private class PowerUseValidityTouchOfDarknessPoints : IPowerUseValidity
-    {
-        private readonly FeatureDefinitionPower _powerTouchFixed;
-
-        public PowerUseValidityTouchOfDarknessPoints(FeatureDefinitionPower powerTouchFixed)
-        {
-            _powerTouchFixed = powerTouchFixed;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var usablePower = UsablePowersProvider.Get(_powerTouchFixed, character);
-
-            return usablePower.RemainingUses == 0;
-        }
-    }
 }

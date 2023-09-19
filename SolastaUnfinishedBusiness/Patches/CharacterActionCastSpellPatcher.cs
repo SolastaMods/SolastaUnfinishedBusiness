@@ -92,7 +92,7 @@ public static class CharacterActionCastSpellPatcher
         }
     }
 
-    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    //PATCH: implement IPreventRemoveConcentrationOnPowerUse
     [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.RemoveConcentrationAsNeeded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -118,9 +118,7 @@ public static class CharacterActionCastSpellPatcher
         {
             var currentAction = Global.CurrentAction;
 
-            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
-                null;
+            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 

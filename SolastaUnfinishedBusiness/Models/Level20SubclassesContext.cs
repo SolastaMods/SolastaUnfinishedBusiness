@@ -108,7 +108,8 @@ internal static class Level20SubclassesContext
             .AddFeatures(
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("SavingThrowAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition)
+                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition,
+                        Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -128,7 +129,7 @@ internal static class Level20SubclassesContext
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderMovement", Category.Condition)
+                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderMovement", Category.Condition, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .AddToDB();
@@ -184,7 +185,7 @@ internal static class Level20SubclassesContext
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(
                 ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget)
-            .SetCustomSubFeatures(new CustomCodePositionOfStrength())
+            .SetCustomSubFeatures(new CustomLevelUpLogicPositionOfStrength())
             .AddToDB();
 
         var attributeModifierMartialMountaineerPositionOfStrengthAura = FeatureDefinitionAttributeModifierBuilder
@@ -341,13 +342,10 @@ internal static class Level20SubclassesContext
                     .SetParticleEffectParameters(Bane)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTraditionOpenHandQuiveringPalm))
                     .Build())
+            .SetCustomSubFeatures(
+                ForcePowerUseInSpendPowerAction.Marker,
+                new MagicEffectFinishedByMeQuiveringPalm(conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
-
-        powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
-            new UsePowerFinishedByMeQuiveringPalm(
-                powerTraditionOpenHandQuiveringPalm,
-                conditionTraditionOpenHandQuiveringPalm));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
@@ -419,7 +417,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
-            new OnSourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
+            new OnReducedToZeroHpByEnemyPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
@@ -652,7 +650,7 @@ internal static class Level20SubclassesContext
 
         var savingThrowAffinityOathOfTirmarInquisitorZeal = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityOathOfTirmarInquisitorZeal")
-            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition)
+            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition, Gui.NoLocalization)
             .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Wisdom)
             .AddToDB();
 
@@ -718,7 +716,7 @@ internal static class Level20SubclassesContext
 
         var movementAffinityRoguishDarkweaverDarkAssault = FeatureDefinitionMovementAffinityBuilder
             .Create("MovementAffinityRoguishDarkweaverDarkAssault")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation("ConditionRoguishDarkweaverDarkAssault", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedAdditiveModifier(3)
             .AddToDB();
 
@@ -940,7 +938,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         conditionMindDominatedByHauntedSoul.SetCustomSubFeatures(
-            new NotifyConditionRemovalPossession(conditionMindDominatedByHauntedSoul));
+            new OnConditionAddedOrRemovedPossession(conditionMindDominatedByHauntedSoul));
 
         var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererHauntedSoulPossession")
@@ -1078,16 +1076,21 @@ internal static class Level20SubclassesContext
     // Possession
     //
 
-    private sealed class NotifyConditionRemovalPossession : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedPossession : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _conditionPossession;
 
-        public NotifyConditionRemovalPossession(ConditionDefinition conditionPossession)
+        public OnConditionAddedOrRemovedPossession(ConditionDefinition conditionPossession)
         {
             _conditionPossession = conditionPossession;
         }
 
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // Empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (rulesetCondition.ConditionDefinition != _conditionPossession)
             {
@@ -1103,7 +1106,7 @@ internal static class Level20SubclassesContext
 
             var conditionExhausted = ConditionDefinitions.ConditionExhausted;
 
-            removedFrom.InflictCondition(
+            target.InflictCondition(
                 conditionExhausted.Name,
                 conditionExhausted.DurationType,
                 conditionExhausted.DurationParameter,
@@ -1116,11 +1119,6 @@ internal static class Level20SubclassesContext
                 0,
                 0,
                 0);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            // Empty
         }
     }
 
@@ -1137,7 +1135,7 @@ internal static class Level20SubclassesContext
             _featureManaOverflow = featureManaOverflow;
         }
 
-        public void OnFailedSavingTryAlterOutcome(
+        public void OnSavingTryAlterOutcome(
             RulesetCharacter caster,
             Side sourceSide,
             RulesetActor target,
@@ -1198,7 +1196,7 @@ internal static class Level20SubclassesContext
     // Position of Strength
     //
 
-    private sealed class CustomCodePositionOfStrength : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicPositionOfStrength : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -1248,16 +1246,16 @@ internal static class Level20SubclassesContext
 
     #region Monk
 
-    private sealed class OnSourceReducedToZeroHpPhysicalPerfection : IOnSourceReducedToZeroHp
+    private sealed class OnReducedToZeroHpByEnemyPhysicalPerfection : IOnReducedToZeroHpByEnemy
     {
         private readonly FeatureDefinitionPower _powerPhysicalPerfection;
 
-        public OnSourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        public OnReducedToZeroHpByEnemyPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
         {
             _powerPhysicalPerfection = powerPhysicalPerfection;
         }
 
-        public IEnumerator HandleSourceReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
             RulesetAttackMode attackMode,
@@ -1291,11 +1289,6 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
-
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(10);
             rulesetCharacter.InflictCondition(
@@ -1311,8 +1304,19 @@ internal static class Level20SubclassesContext
                 0,
                 0,
                 0);
-            effectPower.ApplyEffectOnCharacter(rulesetCharacter, true, source.LocationPosition);
 
+            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = { source }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
         }
@@ -1322,7 +1326,7 @@ internal static class Level20SubclassesContext
     // Purity of Light
     //
 
-    private sealed class CustomBehaviorPurityOfLight : IDefinitionCustomCode, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorPurityOfLight : ICustomLevelUpLogic, IPhysicalAttackFinishedByMe
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -1388,7 +1392,7 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -1424,7 +1428,7 @@ internal static class Level20SubclassesContext
             return isValid;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (action.ActionParams.TargetCharacters.Count == 0)
             {
@@ -1493,33 +1497,23 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class UsePowerFinishedByMeQuiveringPalm : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeQuiveringPalm : IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public UsePowerFinishedByMeQuiveringPalm(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
+        public MagicEffectFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
         {
-            _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var battle = Gui.Battle;
-
-            if (battle == null || power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var rulesetDefender in battle.EnemyContenders
+            foreach (var rulesetDefender in Gui.Battle.AllContenders
                          .Where(x =>
+                             x.Side == gameLocationDefender.Side &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              x != gameLocationDefender)
                          .ToList()
@@ -1533,6 +1527,8 @@ internal static class Level20SubclassesContext
                     rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
+
+            yield break;
         }
     }
 

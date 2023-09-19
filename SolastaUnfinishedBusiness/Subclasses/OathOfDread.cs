@@ -34,7 +34,7 @@ public sealed class OathOfDread : AbstractSubclass
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
-                .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
+                .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition, Gui.NoLocalization)
                 .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,

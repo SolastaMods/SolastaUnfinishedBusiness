@@ -422,16 +422,21 @@ public static class GuiCharacterPatcher
 
         if (__instance.RulesetCharacterMonster != null)
         {
-            if (TryGetMonsterPortrait(
-                    __instance.RulesetCharacterMonster.MonsterDefinition.Name, rawImage, out var texture))
+            if (TryGetMonsterPortrait(__instance.Name, rawImage, out var texture))
+            {
+                rawImage.texture = texture;
+            }
+        }
+        else if (__instance.BuiltIn)
+        {
+            if (TryGetPreGenHeroPortrait(__instance.Name, rawImage, out var texture))
             {
                 rawImage.texture = texture;
             }
         }
         else
         {
-            if (TryGetHeroPortrait(
-                    __instance.RulesetCharacterHero?.Name ?? __instance.Snapshot.Name, rawImage, out var texture))
+            if (TryGetHeroPortrait(__instance.Name, rawImage, out var texture))
             {
                 rawImage.texture = texture;
             }
@@ -445,9 +450,16 @@ public static class GuiCharacterPatcher
         return TryGetPortrait(CustomHeroPortraits, name, filename, original, out texture);
     }
 
+    private static bool TryGetPreGenHeroPortrait(string name, RawImage original, out Texture2D texture)
+    {
+        var filename = $"{Main.ModFolder}/Portraits/PreGen/{name}.png";
+
+        return TryGetPortrait(CustomHeroPortraits, name, filename, original, out texture);
+    }
+
     private static bool TryGetMonsterPortrait(string name, RawImage original, out Texture2D texture)
     {
-        var filename = $"{Main.ModFolder}/MonsterPortraits/{name}.png";
+        var filename = $"{Main.ModFolder}/Portraits/Monsters/{name}.png";
 
         return TryGetPortrait(CustomMonsterPortraits, name, filename, original, out texture);
     }
@@ -467,7 +479,10 @@ public static class GuiCharacterPatcher
 
         var fileData = File.ReadAllBytes(filename);
 
-        texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, true);
+        texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, false)
+        {
+            wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear
+        };
         texture.LoadImage(fileData);
         dict.Add(name, texture);
 

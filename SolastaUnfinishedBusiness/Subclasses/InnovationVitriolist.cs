@@ -250,10 +250,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
+            .SetCustomSubFeatures(new CustomBehaviorRefundMixture(powerMixture))
             .AddToDB();
-
-        // determine power visibility based on mixture and spell slots remaining usages
-        powerRefundMixture.SetCustomSubFeatures(new CustomBehaviorRefundMixture(powerMixture, powerRefundMixture));
 
         // Vitriolic Arsenal - Prevent Reactions
 
@@ -389,41 +387,17 @@ public sealed class InnovationVitriolist : AbstractSubclass
     // Refund Mixture
     //
 
-    private sealed class CustomBehaviorRefundMixture : IPowerUseValidity, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorRefundMixture : IValidatePowerUse, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerMixture;
-        private readonly FeatureDefinitionPower _powerRefundMixture;
 
-        public CustomBehaviorRefundMixture(
-            FeatureDefinitionPower powerMixture,
-            FeatureDefinitionPower powerRefundMixture)
+        public CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
         {
             _powerMixture = powerMixture;
-            _powerRefundMixture = powerRefundMixture;
         }
 
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
-            var canUsePowerMixture = character.CanUsePower(_powerMixture);
-            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
-
-            return !canUsePowerMixture && hasSpellSlotsAvailable;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != _powerRefundMixture)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerMixture, rulesetCharacter);
 
@@ -439,6 +413,21 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
 
             spellRepertoire.SpendSpellSlot(slotLevel);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            var canUsePowerMixture = character.CanUsePower(_powerMixture);
+            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+
+            return !canUsePowerMixture && hasSpellSlotsAvailable;
         }
     }
 

@@ -150,7 +150,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
         var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
             .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
@@ -162,13 +162,13 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
         var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
         var abilityCheckAffinitySpiritedSurge = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, Gui.NoLocalization)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
@@ -308,10 +308,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             if (reactionParams.ReactionValidated)
             {
                 rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-                // Originally here is defender use power
-                // helperCharacter.UsePower(usablePower);
-                action.RolledSaveThrow =
-                    TryModifyRoll(action, attacker, defender, saveModifier, reactionParams, hasHitVisual);
+                rulesetOriginalHelper.UsePower(usablePower);
+                action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
             }
 
             reactionParams.RulesetEffect.Terminate(true);
@@ -330,7 +328,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier saveModifier,
-            CharacterActionParams reactionParams,
             bool hasHitVisual)
         {
             // ReSharper disable once MergeConditionalExpression
@@ -339,7 +336,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                     saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
                     out var saveOutcomeDelta)
                 : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, reactionParams.RulesetEffect.EffectDescription.EffectForms,
+                    defender.RulesetActor, saveModifier,
+                    action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
                     hasHitVisual, out saveOutcome, out saveOutcomeDelta);
 
             action.SaveOutcome = saveOutcome;

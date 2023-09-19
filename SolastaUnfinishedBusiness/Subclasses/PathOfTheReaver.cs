@@ -69,7 +69,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         featureVoraciousFury.SetCustomSubFeatures(
             new PhysicalAttackFinishedByMeVoraciousFury(featureVoraciousFury, powerBloodbath));
         powerBloodbath.SetCustomSubFeatures(
-            new OnTargetReducedToZeroHpBloodbath(powerBloodbath));
+            new OnReducedToZeroHpByMeBloodbath(powerBloodbath));
         featureCorruptedBlood.SetCustomSubFeatures(
             new PhysicalAttackFinishedOnMeCorruptedBlood(featureCorruptedBlood, powerBloodbath));
 
@@ -291,16 +291,16 @@ public sealed class PathOfTheReaver : AbstractSubclass
     // Bloodbath
     //
 
-    private class OnTargetReducedToZeroHpBloodbath : IOnTargetReducedToZeroHp
+    private class OnReducedToZeroHpByMeBloodbath : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinitionPower _powerBloodBath;
 
-        public OnTargetReducedToZeroHpBloodbath(FeatureDefinitionPower powerBloodBath)
+        public OnReducedToZeroHpByMeBloodbath(FeatureDefinitionPower powerBloodBath)
         {
             _powerBloodBath = powerBloodBath;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

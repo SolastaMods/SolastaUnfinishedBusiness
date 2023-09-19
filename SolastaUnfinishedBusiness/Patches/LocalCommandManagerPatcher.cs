@@ -57,7 +57,7 @@ public static class LocalCommandManagerPatcher
             invocation.Toggle();
             // PATCH BEGIN
             foreach (var toggledBehaviour in invocation.invocationDefinition.GrantedFeature
-                         .GetAllSubFeaturesOfType<IInvocationToggled>())
+                         .GetAllSubFeaturesOfType<IOnInvocationToggled>())
             {
                 toggledBehaviour.OnInvocationToggled(character, invocation);
             }

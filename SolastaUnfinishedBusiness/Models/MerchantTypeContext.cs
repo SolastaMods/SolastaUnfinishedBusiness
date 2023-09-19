@@ -2,8 +2,8 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
+using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemFlagDefinitions;
 
@@ -396,6 +396,10 @@ internal static class RecipeHelper
 
         return service != null && service.KnownRecipes.Contains(item.DocumentDescription.RecipeDefinition);
     }
+
+    internal delegate void TooltipModifier<in T>(GuiTooltip tooltip, Image img, Transform obj, T definition,
+        object context)
+        where T : BaseDefinition;
 }
 
 internal sealed class MerchantFilter

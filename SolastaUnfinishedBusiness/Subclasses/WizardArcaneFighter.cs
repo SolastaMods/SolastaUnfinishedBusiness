@@ -39,7 +39,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             .Create($"AdditionalAction{Name}") //left old name for compatibility
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new SpellFighting(
+                new OnReducedToZeroHpByMeSpellFighting(
                     ConditionDefinitionBuilder
                         .Create($"Condition{Name}SpellFighting")
                         .SetGuiPresentationNoContent(true)
@@ -91,16 +91,16 @@ public sealed class WizardArcaneFighter : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class SpellFighting : IOnTargetReducedToZeroHp
+    private sealed class OnReducedToZeroHpByMeSpellFighting : IOnReducedToZeroHpByMe
     {
         private readonly ConditionDefinition _condition;
 
-        public SpellFighting(ConditionDefinition condition)
+        public OnReducedToZeroHpByMeSpellFighting(ConditionDefinition condition)
         {
             _condition = condition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

@@ -1,11 +1,9 @@
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Baluarte
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Inimigos adjacentes a você não impõem desvantagem aos ataques que você faz com um arco longo e você pode usar sua reação para realizar um ataque de oportunidade com um arco longo contra um inimigo que se mova a até 1,5 metro de você.
 Condition/&ConditionPathOfTheYeomanBulwarkTitle=Baluarte
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=Enquanto estiver em fúria, sem armadura pesada e empunhando um arco longo, você pode empurrar como uma ação bônus.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Golpe Espantante
 Feature/&CombatAffinityPathOfTheYeomanBulwarkDescription=Ataques à distância inimigos com armas contra você têm desvantagem.
 Feature/&CombatAffinityPathOfTheYeomanBulwarkTitle=Baluarte
-Feature/&FeaturePathOfTheYeomanBulwarkDescription=Inimigos adjacentes a você não impõem desvantagem aos ataques que você faz com um arco longo e você pode usar sua reação para realizar um ataque de oportunidade com um arco longo contra um inimigo que se mova a até 1,5 metro de você.
-Feature/&FeaturePathOfTheYeomanBulwarkTitle=Baluarte
 Feature/&FeaturePathOfTheYeomanKeenEyeDescription=Reckless Attack dá vantagem aos seus ataques usando um ataque de força com um arco longo. Quando você desbloqueia o Brutal Critical, ele também se aplica aos seus ataques de força feitos com arcos longos.
 Feature/&FeaturePathOfTheYeomanKeenEyeTitle=Olho Aguçado
 Feature/&FeaturePathOfTheYeomanMightyShotDescription=Aumente os dados de dano dos arcos longos de d8 para d12. Enquanto estiver em fúria e não estiver usando armadura pesada, quando você atingir um inimigo com um ataque de um arco longo, os inimigos a até 4,5 metros do alvo devem fazer um teste de resistência de Destreza ou sofrerão dano trovejante igual ao seu bônus de dano de raiva mais seu modificador de Força.

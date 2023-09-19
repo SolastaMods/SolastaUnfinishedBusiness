@@ -138,9 +138,19 @@
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
       "hasSavingThrow": false,
-      "operation": "Add",
+      "operation": "Remove",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionPathOfTheLightIlluminated:d7cf64bc-7d7a-56b2-8e06-c2b0abd66212",
+      "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    },
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Remove",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionInvisible_Green_Hag:4095f3b0e1935f348ae2510402cd953f",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -160,7 +170,7 @@
       "hasSavingThrow": false,
       "operation": "Remove",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
+      "conditionDefinition": "Definition:ConditionInvisibleGreater:59190d77c6803cf4f8c35b057aab3737",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -170,7 +180,27 @@
       "hasSavingThrow": false,
       "operation": "Remove",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisibleGreater:59190d77c6803cf4f8c35b057aab3737",
+      "conditionDefinition": "Definition:ConditionInvisibleOneWithShadows:405ef1e99e1c0264b8b2816a537e3d36",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    },
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Remove",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionInvisibilityEveryRoundHidden:f7094006-33e0-5e31-a5c8-b6f3d825eba7",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    },
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionPathOfTheLightIlluminated:d7cf64bc-7d7a-56b2-8e06-c2b0abd66212",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"

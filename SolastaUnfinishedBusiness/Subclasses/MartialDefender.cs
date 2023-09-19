@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -58,7 +59,7 @@ public sealed class MartialDefender : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield))
+            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
             .AddToDB();
 
         // Shout of Provocation
@@ -71,7 +72,7 @@ public sealed class MartialDefender : AbstractSubclass
 
         var combatAffinityShoutOfProvocationAlly = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}ShoutOfProvocationAlly")
-            .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .SetSituationalContext(
                 (SituationalContext)ExtraSituationalContext.TargetDoesNotHaveCondition,
@@ -80,7 +81,7 @@ public sealed class MartialDefender : AbstractSubclass
 
         var combatAffinityShoutOfProvocationSelf = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}ShoutOfProvocationSelf")
-            .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(SituationalContext.TargetHasCondition, conditionShoutOfProvocationSelf)
             .AddToDB();
@@ -129,7 +130,7 @@ public sealed class MartialDefender : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.MotionForm(MotionForm.MotionType.FallProne))
                     .Build())
             .AddToDB();
@@ -294,12 +295,15 @@ public sealed class MartialDefender : AbstractSubclass
                 yield break;
             }
 
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerAegisAssault, rulesetAttacker);
 
-            ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource()
-                .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
+                .AddAsActivePowerToSource();
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 }

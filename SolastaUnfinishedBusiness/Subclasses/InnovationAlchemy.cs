@@ -159,7 +159,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
         const string SAVE = AttributeDefinitions.Dexterity;
         const DieType DIE_TYPE = DieType.D8;
         var validator =
-            new ValidatorsPowerUse(character => !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
+            new ValidatorsValidatePowerUse(character =>
+                !character.HasConditionWithSubFeatureOfType<ModifiedBombElement>());
 
         var sprite = Sprites.GetSprite("AlchemyBombFireSplash", Resources.AlchemyBombFireSplash, 128);
         var particle = ProduceFlameHurl.EffectDescription.effectParticleParameters;
@@ -451,7 +452,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .SetFeatures(
                         FeatureDefinitionSavingThrowAffinityBuilder
                             .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
-                            .SetGuiPresentationNoContent()
+                            .SetGuiPresentation($"ConditionInnovationAlchemy{DAMAGE}", Category.Condition,
+                                Gui.NoLocalization)
                             .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
                                 false,
                                 AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom,
@@ -499,7 +501,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .SetFeatures(
                         FeatureDefinitionSavingThrowAffinityBuilder
                             .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
-                            .SetGuiPresentationNoContent()
+                            .SetGuiPresentation($"ConditionInnovationAlchemy{DAMAGE}", Category.Condition,
+                                Gui.NoLocalization)
                             .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
                                 false,
                                 AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
@@ -533,7 +536,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         return toggle;
     }
 
-    private static (FeatureDefinitionPower, IPowerUseValidity) MakeElementToggleMarker(string damage)
+    private static (FeatureDefinitionPower, IValidatePowerUse) MakeElementToggleMarker(string damage)
     {
         var marker = ConditionDefinitionBuilder
             .Create($"ConditionInnovationAlchemyMarker{damage}")
@@ -562,7 +565,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
 
-        return (power, new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker.name)));
+        return (power, new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(marker.name)));
     }
 
     private static FeatureDefinitionPower MakeBombFireDamageToggle()
@@ -618,7 +621,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         DieType dieType,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
-        IPowerUseValidity validator,
+        IValidatePowerUse validator,
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombPrecise";
@@ -661,7 +664,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
-        IPowerUseValidity validator,
+        IValidatePowerUse validator,
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
@@ -708,7 +711,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         string savingThrowAbility,
         AssetReferenceSprite sprite,
         EffectParticleParameters particleParameters,
-        IPowerUseValidity validator,
+        IValidatePowerUse validator,
         params EffectForm[] effects)
     {
         const string NAME = "PowerInnovationAlchemyBombSplash";
@@ -759,7 +762,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
 
-        power.AddCustomSubFeatures(new PowerUseModifier
+        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
         {
             PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
         });
@@ -784,10 +787,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 .Create($"PowerInnovationAlchemyRefundFromSlot{i}")
                 .SetGuiPresentation(title, description)
                 .SetSharedPool(ActivationTime.BonusAction, powerRefundPool)
+                .SetCustomSubFeatures(new CustomBehaviorRefundAlchemyPool(powerPool, i))
                 .AddToDB();
-
-            powerRefundFromSlot.SetCustomSubFeatures(
-                new CustomBehaviorRefundAlchemyPool(powerRefundFromSlot, powerPool, i));
 
             powerRefundFromSlotList.Add(powerRefundFromSlot);
         }
@@ -824,20 +825,27 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorRefundAlchemyPool : IPowerUseValidity, IUsePowerFinishedByMe
+    private sealed class CustomBehaviorRefundAlchemyPool : IValidatePowerUse, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerAlchemyPool;
-        private readonly FeatureDefinitionPower _powerRefundFromSlot;
         private readonly int _slotLevel;
 
-        public CustomBehaviorRefundAlchemyPool(
-            FeatureDefinitionPower powerRefundFromSlot,
-            FeatureDefinitionPower powerAlchemyPool,
-            int slotLevel)
+        public CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
         {
-            _powerRefundFromSlot = powerRefundFromSlot;
             _powerAlchemyPool = powerAlchemyPool;
             _slotLevel = slotLevel;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
+
+            rulesetRepertoire!.SpendSpellSlot(_slotLevel);
+            rulesetUsablePower.remainingUses += _slotLevel;
+
+            yield break;
         }
 
         public bool CanUsePower(RulesetCharacter rulesetCharacter, FeatureDefinitionPower power)
@@ -850,21 +858,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
             rulesetRepertoire!.GetSlotsNumber(_slotLevel, out var remaining, out _);
 
             return remaining > 0 && _slotLevel <= used;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != _powerRefundFromSlot)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-            var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
-
-            rulesetRepertoire!.SpendSpellSlot(_slotLevel);
-            rulesetUsablePower.remainingUses += _slotLevel;
         }
     }
 

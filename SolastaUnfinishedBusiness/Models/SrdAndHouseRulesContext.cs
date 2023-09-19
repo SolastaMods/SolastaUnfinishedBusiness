@@ -8,10 +8,10 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using TA;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -68,6 +68,13 @@ internal static class SrdAndHouseRulesContext
         Fire_Osprey,
         Fire_Spider
     };
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityConditionBlind =
+        FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityConditionBlind")
+            .SetGuiPresentationNoContent(true)
+            .SetForbiddenActions(Id.AttackOpportunity)
+            .AddToDB();
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
@@ -250,19 +257,18 @@ internal static class SrdAndHouseRulesContext
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
     {
-        // Use the shocked condition affinity which has the desired effect
         if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
         {
-            if (!ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
+            if (!ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionBlind))
             {
-                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionShocked);
+                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionBlind);
             }
         }
         else
         {
-            if (ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionShocked))
+            if (ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionBlind))
             {
-                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionShocked);
+                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
             }
         }
     }
@@ -450,11 +456,11 @@ internal static class SrdAndHouseRulesContext
         var restrictedActions = FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions;
         if (Main.Settings.AllowHasteCasting)
         {
-            restrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
+            restrictedActions.TryAdd(Id.CastMain);
         }
         else
         {
-            restrictedActions.RemoveAll(id => id == ActionDefinitions.Id.CastMain);
+            restrictedActions.RemoveAll(id => id == Id.CastMain);
         }
     }
 
@@ -596,7 +602,7 @@ internal static class SrdAndHouseRulesContext
         var afterRestIdentifyCondition = ConditionDefinitionBuilder
             .Create("AfterRestIdentify")
             .SetGuiPresentation(Category.Condition)
-            .SetCustomSubFeatures(IdentifyItems.Mark)
+            .SetCustomSubFeatures(OnConditionAddedOrRemovedIdentifyItems.Mark)
             .AddToDB();
 
         FeatureDefinitionPowerBuilder
@@ -673,7 +679,7 @@ internal static class SrdAndHouseRulesContext
                && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name;
     }
 
-    private sealed class CanIdentifyOnRest : IPowerUseValidity
+    private sealed class CanIdentifyOnRest : IValidatePowerUse
     {
         private CanIdentifyOnRest()
         {
@@ -696,21 +702,18 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private sealed class IdentifyItems : ICustomConditionFeature
+    private sealed class OnConditionAddedOrRemovedIdentifyItems : IOnConditionAddedOrRemoved
     {
-        private IdentifyItems()
-        {
-        }
+        public static OnConditionAddedOrRemovedIdentifyItems Mark { get; } = new();
 
-        public static IdentifyItems Mark { get; } = new();
-
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             (target as RulesetCharacterHero)?.AutoIdentifyInventoryItems();
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 }

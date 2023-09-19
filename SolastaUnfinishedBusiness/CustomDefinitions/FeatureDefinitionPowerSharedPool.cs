@@ -1,6 +1,9 @@
-﻿using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomDefinitions;
+public interface IPowerSharedPool
+{
+    public FeatureDefinitionPower GetUsagePoolPower();
+}
 
 // Features using a shared pool should have UsesDetermination == Fixed.
 internal sealed class FeatureDefinitionPowerSharedPool : FeatureDefinitionPower, IPowerSharedPool

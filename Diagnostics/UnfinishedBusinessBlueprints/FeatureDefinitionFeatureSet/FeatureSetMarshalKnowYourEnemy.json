@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:OnComputeAttackModifierMarshalKnowYourEnemy:8568df89-5da5-55f6-8c7c-0c2df2427cb3",
     "Definition:AdditionalDamageMarshalKnowYourEnemy:60eba812-39b8-56eb-a0b1-a62643176cf3"
   ],
   "mode": "Union",

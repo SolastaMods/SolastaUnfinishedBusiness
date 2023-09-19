@@ -87,23 +87,17 @@ public sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalKnowYourEnemyFeatureSet()
     {
-        var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
-            .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
-            .AddToDB();
-
         return FeatureDefinitionFeatureSetBuilder
             .Create(FeatureSetMarshalKnowYourEnemyName)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                onComputeAttackModifierMarshalKnowYourEnemy,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageMarshalKnowYourEnemy")
                     .SetGuiPresentationNoContent()
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetNotificationTag("KnowYourEnemy")
+                    .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
                     .AddToDB())
             .AddToDB();
     }
@@ -128,7 +122,7 @@ public sealed class MartialMarshal : AbstractSubclass
                                 ConditionDefinitionBuilder
                                     .Create("ConditionMarshalStudyYourEnemy")
                                     .SetGuiPresentationNoContent(true)
-                                    .SetCustomSubFeatures(new StudyYourEnemy())
+                                    .SetCustomSubFeatures(new OnConditionAddedOrRemovedStudyYourEnemy())
                                     .SetSilent(Silent.WhenAddedOrRemoved)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -530,9 +524,9 @@ public sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private sealed class StudyYourEnemy : ICustomConditionFeature
+    private sealed class OnConditionAddedOrRemovedStudyYourEnemy : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(target);
@@ -599,8 +593,9 @@ public sealed class MartialMarshal : AbstractSubclass
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, newLevel);
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 

@@ -10,19 +10,19 @@ using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
 using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
 using static SolastaUnfinishedBusiness.Displays.CreditsDisplay;
 using static SolastaUnfinishedBusiness.Displays.DungeonMakerDisplay;
+using static SolastaUnfinishedBusiness.Displays.EffectsDisplay;
 using static SolastaUnfinishedBusiness.Displays.EncountersDisplay;
-using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
-using static SolastaUnfinishedBusiness.Displays.SubclassesDisplay;
+using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
+using static SolastaUnfinishedBusiness.Displays.SubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
 
 #if DEBUG
-using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 #endif
 
 namespace SolastaUnfinishedBusiness.Displays
@@ -264,9 +264,7 @@ namespace SolastaUnfinishedBusiness.Displays
         {
             ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
                 new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
-#if DEBUG
-                new NamedAction("Diagnostics", DisplayDiagnostics),
-#endif
+                new NamedAction("Effects", DisplayEffects),
                 new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
                 new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
         }

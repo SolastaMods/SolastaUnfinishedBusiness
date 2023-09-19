@@ -145,45 +145,45 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
-    public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    public bool FixEldritchBlastRange { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
+    public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
-    public bool AllowFlightSuspend { get; set; }
-    public bool FlightSuspendWingedBoots { get; set; }
-    public bool IdentifyAfterRest { get; set; }
-    public bool AddBleedingToLesserRestoration { get; set; }
-    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
+    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
+    public bool AddBleedingToLesserRestoration { get; set; }
     public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
-    public bool FixEldritchBlastRange { get; set; }
+    public bool RemoveRecurringEffectOnEntangle { get; set; }
     public bool EnableUpcastConjureElementalAndFey { get; set; }
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool ChangeSleetStormToCube { get; set; }
-    public bool RemoveRecurringEffectOnEntangle { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
 
     // House
-    public bool EnableHigherGroundRules { get; set; }
-    public bool AccountForAllDiceOnSavageAttack { get; set; }
-    public bool AllowStackedMaterialComponent { get; set; }
+    public bool IdentifyAfterRest { get; set; }
+    public bool IncreaseMaxAttunedItems { get; set; }
     public bool AllowHasteCasting { get; set; }
-    public bool AllowClubsToBeThrown { get; set; }
+    public bool AllowStackedMaterialComponent { get; set; }
+    public bool EnableCantripsTriggeringOnWarMagic { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
+    public bool AllowClubsToBeThrown { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool EnableCantripsTriggeringOnWarMagic { get; set; }
-    public bool FullyControlConjurations { get; set; }
-    public bool IncreaseMaxAttunedItems { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public bool AccountForAllDiceOnSavageAttack { get; set; }
+    public bool AllowFlightSuspend { get; set; }
+    public bool FlightSuspendWingedBoots { get; set; }
     public bool EnableCharactersOnFireToEmitLight { get; set; }
+    public bool EnableHigherGroundRules { get; set; }
+    public bool FullyControlConjurations { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }

@@ -242,7 +242,6 @@ internal static class RaceOligathBuilder
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
-                StringParameter = Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription"),
                 UsablePower = usablePower
             };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
@@ -257,7 +256,6 @@ internal static class RaceOligathBuilder
             {
                 yield break;
             }
-
 
             rulesetMe.UsePower(usablePower);
             rulesetMe.InflictCondition(

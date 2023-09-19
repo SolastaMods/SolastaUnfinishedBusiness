@@ -31,7 +31,7 @@ public sealed class OathOfAncients : AbstractSubclass
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}ElderChampionEnemy")
-                .SetGuiPresentation($"Power{Name}ElderChampion", Category.Feature)
+                .SetGuiPresentation($"Condition{Name}ElderChampion", Category.Condition, Gui.NoLocalization)
                 .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,
@@ -216,17 +216,11 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetFeatures(additionalActionElderChampion)
             .AddToDB();
 
-        var featureElderChampion = FeatureDefinitionBuilder
-            .Create($"Feature{Name}ElderChampion")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
-            .AddToDB();
-
         var conditionElderChampion = ConditionDefinitionBuilder
             .Create($"Condition{Name}ElderChampion")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
             .SetPossessive()
-            .SetFeatures(featureElderChampion)
+            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
             .AddToDB();
 
         var powerElderChampion = FeatureDefinitionPowerBuilder

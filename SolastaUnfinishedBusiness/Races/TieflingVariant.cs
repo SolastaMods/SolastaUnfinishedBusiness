@@ -98,8 +98,9 @@ internal static class RaceTieflingBuilder
                     .Create("SpellListTieflingFeral")
                     .SetGuiPresentationNoContent(true)
                     .ClearSpells()
+                    .SetSpellsAtLevel(0, SpellDefinitions.ProduceFlame)
                     .SetSpellsAtLevel(1, SpellDefinitions.BurningHands)
-                    .FinalizeSpells(false, 1)
+                    .FinalizeSpells(true, 1)
                     .AddToDB())
             .AddToDB();
 
@@ -124,7 +125,7 @@ internal static class RaceTieflingBuilder
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTieflingFeralWings))
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(IsFlightValid,
                 ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionTieflingFeralWings.Name)))
             .AddToDB();
 
@@ -144,7 +145,7 @@ internal static class RaceTieflingBuilder
                             ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive,
                     conditionTieflingFeralWings.Name)))
             .AddToDB();
 

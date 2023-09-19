@@ -307,9 +307,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
+            .SetCustomSubFeatures(new CustomBehaviorRefundCannon())
             .AddToDB();
-
-        powerEldritchCannonRefund.SetCustomSubFeatures(new CustomBehaviorRefundCannon(powerEldritchCannonRefund));
 
         // Eldritch Cannon
 
@@ -406,7 +405,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
                     ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
 
@@ -429,7 +428,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new ShowWhenHasCannon(),
-                new ChainActionAfterMagicEffectEldritchDetonation(powerDetonateSelf))
+                new MagicEffectFinishedByMeEldritchDetonation(powerDetonateSelf))
             .AddToDB();
 
         // Explosive Cannon
@@ -469,7 +468,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var combatAffinityFortifiedPosition = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{FortifiedPosition}")
-            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature)
+            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature, Gui.NoLocalization)
             .SetPermanentCover(CoverType.Half)
             .AddToDB();
 
@@ -495,7 +494,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(powerFortifiedPosition, $"Power{Name}{FortifiedPosition}AuraTiny")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
                     ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
 
@@ -569,41 +568,10 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     #region REFUND CANNON
 
-    private class CustomBehaviorRefundCannon : IPowerUseValidity, IUsePowerFinishedByMe
+    private class CustomBehaviorRefundCannon : IValidatePowerUse, IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public CustomBehaviorRefundCannon(FeatureDefinitionPower featureDefinitionPower)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            _featureDefinitionPower = featureDefinitionPower;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
-            var hasUsedPowerActivate = character.UsablePowers
-                .Any(x => x.RemainingUses == 0 &&
-                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
-                          x.PowerDefinition.Name.EndsWith("Activate"));
-
-            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
-
-            return hasUsedPowerActivate && hasSpellSlotsAvailable;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             foreach (var rulesetPower in rulesetCharacter.UsablePowers
@@ -624,6 +592,25 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
 
             spellRepertoire.SpendSpellSlot(slotLevel);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            var hasUsedPowerActivate = character.UsablePowers
+                .Any(x => x.RemainingUses == 0 &&
+                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
+                          x.PowerDefinition.Name.EndsWith("Activate"));
+
+            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+
+            return hasUsedPowerActivate && hasSpellSlotsAvailable;
         }
     }
 
@@ -891,7 +878,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(name + level)
-            .SetGuiPresentation(name, Category.Feature, GuiPresentationBuilder.EmptyString, hidden: true)
+            .SetGuiPresentation(name, Category.Feature,
+                $"Feature/&PowerInnovationArtillerist{powerName}Description", hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -930,16 +918,15 @@ public sealed class InnovationArtillerist : AbstractSubclass
                    .Any(x => x.sourceGuid == character.guid);
     }
 
-    private class ShowInCombatWhenHasCannon : IPowerUseValidity
+    private class ShowInCombatWhenHasCannon : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                   HasCannon(character);
+            return Gui.Battle != null && HasCannon(character);
         }
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
+    private class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -1029,7 +1016,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     #region DISMISS / DETONATE CANNON
 
-    private class ShowWhenHasCannon : IPowerUseValidity
+    private class ShowWhenHasCannon : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
@@ -1037,45 +1024,41 @@ public sealed class InnovationArtillerist : AbstractSubclass
         }
     }
 
-    private sealed class ChainActionAfterMagicEffectEldritchDetonation : IChainActionAfterMagicEffect
+    private sealed class MagicEffectFinishedByMeEldritchDetonation : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerEldritchDetonation;
 
-        internal ChainActionAfterMagicEffectEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
+        internal MagicEffectFinishedByMeEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
         {
             _powerEldritchDetonation = powerEldritchDetonation;
         }
 
-        [CanBeNull]
-        public CharacterAction GetNextAction(CharacterActionMagicEffect baseEffect)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
 
             if (gameLocationTargetingService == null)
             {
-                return null;
+                yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var actionParams = baseEffect.ActionParams;
+            var actionParams = action.ActionParams.Clone();
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
             var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
-            var effectPower = rulesetImplementationService
+            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)
                 .AddAsActivePowerToSource();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, new List<ActionModifier>());
 
-            var newActionParams = baseEffect.ActionParams.Clone();
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
+            actionParams.RulesetEffect = effectPower;
+            actionParams.TargetCharacters.SetRange(targets);
 
-            newActionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
-            newActionParams.RulesetEffect = effectPower;
-            newActionParams.TargetCharacters.SetRange(targets);
-
-            return new CharacterActionSpendPower(actionParams);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

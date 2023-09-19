@@ -160,8 +160,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionParalyzed_CrimsonSpiderVenom",
-          "conditionDefinition": "Definition:ConditionParalyzed_CrimsonSpiderVenom:ac4c1efb47060f448a7be16ee46b04b8",
+          "conditionDefinitionName": "ConditionParalyzed",
+          "conditionDefinition": "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

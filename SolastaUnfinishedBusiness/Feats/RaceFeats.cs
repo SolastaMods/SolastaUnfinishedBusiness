@@ -38,7 +38,7 @@ internal static class RaceFeats
                     .SetGuiPresentation("FeatDragonWings", Category.Feat,
                         Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                     .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-                    .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
+                    .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -146,11 +146,6 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasGreatswordInHands)
-            .AddToDB();
-
-        var modifyAttackModeFeatRevenantGreatSword = FeatureDefinitionBuilder
-            .Create("ModifyAttackModeFeatRevenantGreatSword")
-            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
             .AddToDB();
@@ -159,10 +154,7 @@ internal static class RaceFeats
         var featRevenantGreatSwordDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRevenantGreatSwordDex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Misaye,
-                attributeModifierFeatRevenantGreatSwordArmorClass,
-                modifyAttackModeFeatRevenantGreatSword)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, attributeModifierFeatRevenantGreatSwordArmorClass)
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(RevenantGreatSword)
             .AddToDB();
@@ -171,10 +163,7 @@ internal static class RaceFeats
         var featRevenantGreatSwordStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRevenantGreatSwordStr")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Einar,
-                attributeModifierFeatRevenantGreatSwordArmorClass,
-                modifyAttackModeFeatRevenantGreatSword)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, attributeModifierFeatRevenantGreatSwordArmorClass)
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(RevenantGreatSword)
             .AddToDB();

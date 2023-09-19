@@ -1,11 +1,9 @@
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Rempart
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Les ennemis adjacents à vous n'imposent pas de désavantage aux attaques que vous effectuez avec un arc long, et vous pouvez utiliser votre réaction pour effectuer une attaque d'opportunité avec un arc long contre un ennemi qui se déplace à moins de 1,50 mètre de vous.
 Condition/&ConditionPathOfTheYeomanBulwarkTitle=Rempart
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=Tant que vous êtes en rage, que vous ne portez pas d'armure lourde et que vous brandissez un arc long, vous pouvez bousculer en tant qu'action bonus.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Coup stupéfiant
 Feature/&CombatAffinityPathOfTheYeomanBulwarkDescription=Les attaques à distance des ennemis avec des armes contre vous ont un désavantage.
 Feature/&CombatAffinityPathOfTheYeomanBulwarkTitle=Rempart
-Feature/&FeaturePathOfTheYeomanBulwarkDescription=Les ennemis adjacents à vous n'imposent pas de désavantage aux attaques que vous effectuez avec un arc long, et vous pouvez utiliser votre réaction pour effectuer une attaque d'opportunité avec un arc long contre un ennemi qui se déplace à moins de 1,50 mètre de vous.
-Feature/&FeaturePathOfTheYeomanBulwarkTitle=Rempart
 Feature/&FeaturePathOfTheYeomanKeenEyeDescription=Reckless Attack donne un avantage à vos attaques en utilisant une attaque de force avec un arc long. Lorsque vous débloquez Brutal Critical, cela s'applique également à vos attaques de force effectuées avec des arcs longs.
 Feature/&FeaturePathOfTheYeomanKeenEyeTitle=Œil vif
 Feature/&FeaturePathOfTheYeomanMightyShotDescription=Augmentez les dés de dégâts des arcs longs de d8 à d12. Lorsque vous êtes en rage et que vous ne portez pas d'armure lourde, lorsque vous touchez un ennemi avec une attaque d'arc long, les ennemis à moins de 4,50 mètres de la cible doivent effectuer un jet de sauvegarde de Dextérité ou subir des dégâts de tonnerre égaux à votre bonus de dégâts de rage plus votre modificateur de Force.

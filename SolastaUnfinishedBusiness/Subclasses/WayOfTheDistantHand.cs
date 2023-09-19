@@ -33,9 +33,9 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 .Create("FeatureWayOfTheDistantHandCombat")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
-                    new CustomCodeWayOfTheDistantHandCombat(),
+                    new CustomLevelUpLogicWayOfTheDistantHandCombat(),
                     new RangedAttackInMeleeDisadvantageRemover(
-                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                        ValidatorsWeapon.IsZenArrowAttack,
                         ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
                     new AddTagToWeaponWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
                 .AddToDB();
@@ -140,7 +140,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create("CombatAffinityWayOfTheDistantHandDistract")
                                             .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
-                                                Category.Feature)
+                                                Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .AddToDB())
                                     .AddToDB(),
@@ -176,12 +176,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetSpecialInterruptions(
                             ConditionInterruption.BattleEnd,
                             ConditionInterruption.AnyBattleTurnEnd)
-                        .SetFeatures(
-                            FeatureDefinitionBuilder
-                                .Create("FeatureWayOfTheDistantHandFlurry")
-                                .SetGuiPresentationNoContent(true)
-                                .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
-                                .AddToDB())
+                        .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
                         .AddToDB()))
             .SetShowCasting(false)
             .AddToDB();
@@ -189,7 +184,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
             .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsZenArrowAttack))
+            .SetCustomSubFeatures(
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.IsZenArrowAttack))
             .AddToDB();
 
         //
@@ -255,7 +251,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                     .SetFeatures(
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
-                                            .SetGuiPresentationNoContent(true)
+                                            .SetGuiPresentation("ConditionWayOfTheDistantHandZenArrowUpgradedSlow",
+                                                Category.Condition, Gui.NoLocalization)
                                             .SetBaseSpeedMultiplicativeModifier(0)
                                             .AddToDB())
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -318,7 +315,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
                                             .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract",
-                                                Category.Feature)
+                                                Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .AddToDB())
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -343,9 +340,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, IsZenArrowAttack(mode, null, character))),
-                new CustomCodeUnseenEyes())
+                ValidatorsRestrictedContext.IsZenArrowAttack,
+                new CustomLevelUpLogicUnseenEyes())
             .AddToDB();
 
         //
@@ -387,13 +383,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    // ReSharper disable once UnusedParameter.Local
-    private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return mode is { Ranged: true } && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition);
-    }
-
-    private sealed class CustomCodeWayOfTheDistantHandCombat : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicWayOfTheDistantHandCombat : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
@@ -422,7 +412,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodeUnseenEyes : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicUnseenEyes : ICustomLevelUpLogic
     {
         public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
         {

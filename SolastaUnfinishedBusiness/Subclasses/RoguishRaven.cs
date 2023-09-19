@@ -48,7 +48,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var additionalActionRavenKillingSpree = FeatureDefinitionBuilder
             .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new RefreshSneakAttackOnKill(),
+            .SetCustomSubFeatures(new OnReducedToZeroHpByMeRefreshSneakAttack(),
                 new KillingSpree(
                     ConditionDefinitionBuilder
                         .Create("ConditionRavenKillingSpree")
@@ -142,16 +142,12 @@ public sealed class RoguishRaven : AbstractSubclass
             .Create("ConditionRavenHeartSeekingShotTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("TriggerFeatureRavenHeartSeekingShot")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(concentrationProvider)
-                    .AddToDB())
+            .SetCustomSubFeatures(concentrationProvider)
             .AddToDB();
 
         var validateHasTwoHandedRangedWeapon =
-            new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon);
+            new ValidateContextInsteadOfRestrictedProperty(OperationType.Set,
+                ValidatorsCharacter.HasTwoHandedRangedWeapon);
 
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder
@@ -161,15 +157,14 @@ public sealed class RoguishRaven : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetModifier(AttributeModifierOperation.Additive,
-                        AttributeDefinitions.CriticalThreshold, -2)
+                    .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -2)
                     .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetSituationalContext(SituationalContext.AttackingWithRangedWeapon)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
                     .SetAttackRollModifier(-4)
                     .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
@@ -209,7 +204,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
@@ -252,9 +247,9 @@ public sealed class RoguishRaven : AbstractSubclass
     {
     }
 
-    private sealed class RefreshSneakAttackOnKill : IOnTargetReducedToZeroHp
+    private sealed class OnReducedToZeroHpByMeRefreshSneakAttack : IOnReducedToZeroHpByMe
     {
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
@@ -280,7 +275,7 @@ public sealed class RoguishRaven : AbstractSubclass
         public CharacterClassDefinition Class { get; }
     }
 
-    private sealed class KillingSpree : IOnTargetReducedToZeroHp
+    private sealed class KillingSpree : IOnReducedToZeroHpByMe
     {
         private readonly ConditionDefinition _condition;
 
@@ -289,7 +284,7 @@ public sealed class RoguishRaven : AbstractSubclass
             _condition = condition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

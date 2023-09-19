@@ -214,7 +214,7 @@ Dexterity +1
 
 * Feral's Magic
 
-At 3rd level you learn Burning Hands. It can be used once per long rest.
+You know the Produce Flame cantrip. At 3rd level you learn Burning Hands. It can be used once per long rest.
 
 
 

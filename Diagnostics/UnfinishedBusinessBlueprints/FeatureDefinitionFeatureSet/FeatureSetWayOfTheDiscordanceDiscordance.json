@@ -1,7 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerWayOfTheDiscordanceDiscordanceBase:9f30f5a3-a2fd-54d1-86d1-9b4935511f22"
+    "Definition:AdditionalDamageWayOfTheDiscordanceDiscordance:0ed2611e-97c1-5a15-b6bc-0f469cdb214d",
+    "Definition:PowerWayOfTheDiscordanceDiscordance:2dbb6868-d4dc-584c-b2b8-105c93f8d8cb"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

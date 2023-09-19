@@ -234,7 +234,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorWhirl :
-        ISpendPowerFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefensiveWhirl;
         private readonly ConditionDefinition _conditionExtraMovement;
@@ -258,74 +258,19 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             _powerMobileWhirl = powerMobileWhirl;
         }
 
-        // collect damage type
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (rulesetEffect != null)
-            {
-                _damageType = null;
-
-                yield break;
-            }
-
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            _damageType = damageForm?.damageType;
-            _criticalHit = criticalHit;
-        }
-
-        // add extra movement on any attack
-        public IEnumerator OnAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionExtraMovement.Name))
-            {
-                rulesetCharacter.InflictCondition(
-                    _conditionExtraMovement.Name,
-                    _conditionExtraMovement.DurationType,
-                    _conditionExtraMovement.DurationParameter,
-                    _conditionExtraMovement.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    attacker.RulesetCharacter.guid,
-                    attacker.RulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
-        }
-
-        public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (_damageType == null)
             {
                 yield break;
             }
+
+            if (characterAction is not CharacterActionSpendPower action)
+            {
+                yield break;
+            }
+
+            var power = action.activePower.PowerDefinition;
 
             if (power != _powerDefensiveWhirl && power != _powerSlashingWhirl && power != _powerMobileWhirl)
             {
@@ -408,8 +353,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
                 if (gameLocationBattleService is { Battle: not null })
                 {
-                    targetCharacters.AddRange(gameLocationBattleService.Battle.EnemyContenders
-                        .Where(x => gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
+                    targetCharacters.AddRange(gameLocationBattleService.Battle.AllContenders
+                        .Where(x => x.Side != actingCharacter.Side
+                                    && gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
                         .ToList());
                 }
             }
@@ -456,6 +402,68 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             rulesetCharacter.UsedBardicInspiration++;
             rulesetCharacter.BardicInspirationAltered?.Invoke(
                 rulesetCharacter, rulesetCharacter.RemainingBardicInspirations);
+        }
+
+        // collect damage type
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect != null)
+            {
+                _damageType = null;
+
+                yield break;
+            }
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            _damageType = damageForm?.damageType;
+            _criticalHit = criticalHit;
+        }
+
+        // add extra movement on any attack
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionExtraMovement.Name))
+            {
+                rulesetCharacter.InflictCondition(
+                    _conditionExtraMovement.Name,
+                    _conditionExtraMovement.DurationType,
+                    _conditionExtraMovement.DurationParameter,
+                    _conditionExtraMovement.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    attacker.RulesetCharacter.guid,
+                    attacker.RulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 }

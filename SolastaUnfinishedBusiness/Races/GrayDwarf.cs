@@ -45,8 +45,7 @@ internal static class SubraceGrayDwarfBuilder
             .AddToDB();
 
         var conditionAffinityGrayDwarfCharm = FeatureDefinitionConditionAffinityBuilder
-            .Create(ConditionAffinityElfFeyAncestryCharm,
-                "ConditionAffinityGrayDwarfCharm")
+            .Create(ConditionAffinityElfFeyAncestryCharm, "ConditionAffinityGrayDwarfCharm")
             .AddToDB();
 
         var conditionAffinityGrayDwarfCharmedByHypnoticPattern = FeatureDefinitionConditionAffinityBuilder
@@ -55,14 +54,12 @@ internal static class SubraceGrayDwarfBuilder
             .AddToDB();
 
         var conditionAffinityGrayDwarfParalyzedAdvantage = FeatureDefinitionConditionAffinityBuilder
-            .Create(ConditionAffinityHalflingBrave,
-                "ConditionAffinityGrayDwarfParalyzedAdvantage")
+            .Create(ConditionAffinityHalflingBrave, "ConditionAffinityGrayDwarfParalyzedAdvantage")
             .SetConditionType(ConditionDefinitions.ConditionParalyzed)
             .AddToDB();
 
         var savingThrowAffinityGrayDwarfIllusion = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create(SavingThrowAffinityGemIllusion,
-                "SavingThrowAffinityGrayDwarfIllusion")
+            .Create(SavingThrowAffinityGemIllusion, "SavingThrowAffinityGrayDwarfIllusion")
             .AddToDB();
 
         for (var i = 0; i < 6; i++)
@@ -89,19 +86,13 @@ internal static class SubraceGrayDwarfBuilder
             .Create(SavingThrowAffinityConditionRaging, "SavingThrowAffinityGrayDwarfStoneStrength")
             .AddToDB();
 
-        var additionalDamageGrayDwarfStoneStrength = FeatureDefinitionBuilder
-            .Create("AdditionalDamageGrayDwarfStoneStrength")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
-            .AddToDB();
-
         var conditionGrayDwarfStoneStrength = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBullsStrength, "ConditionGrayDwarfStoneStrength")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStoneResilience)
             .SetFeatures(
                 abilityCheckAffinityGrayDwarfStoneStrength,
-                savingThrowAffinityGrayDwarfStoneStrength,
-                additionalDamageGrayDwarfStoneStrength)
+                savingThrowAffinityGrayDwarfStoneStrength)
+            .SetCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
             .AddToDB();
 
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder
@@ -168,9 +159,8 @@ internal static class SubraceGrayDwarfBuilder
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode?.abilityScore != AttributeDefinitions.Strength || (!ValidatorsWeapon.IsMelee(attackMode) &&
-                                                                              !ValidatorsWeapon.IsUnarmed(
-                                                                                  character, attackMode)))
+            if (attackMode?.abilityScore != AttributeDefinitions.Strength
+                || (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(character, attackMode)))
             {
                 return;
             }

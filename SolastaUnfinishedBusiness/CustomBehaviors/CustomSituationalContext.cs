@@ -98,21 +98,14 @@ internal static class CustomSituationalContext
     private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(
         RulesetImplementationDefinitions.SituationalContextParams contextParams)
     {
-        var source = GameLocationCharacter.GetFromActor(contextParams.source);
-        var target = GameLocationCharacter.GetFromActor(contextParams.target);
-
-        if (source == null || target == null)
-        {
-            return false;
-        }
-
+        var source = contextParams.source;
         var mainWeaponIsMeleeOrUnarmed =
-            ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
-            ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source);
-        var levels = source.RulesetCharacter.GetSubclassLevel(
+            ValidatorsCharacter.HasMeleeWeaponInMainHand(source) ||
+            ValidatorsCharacter.IsUnarmedInMainHand(source);
+        var levels = source.GetSubclassLevel(
             DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
 
-        return mainWeaponIsMeleeOrUnarmed || (levels >= 6 && ValidatorsCharacter.HasLongbow(source.RulesetCharacter));
+        return mainWeaponIsMeleeOrUnarmed || (levels >= 6 && ValidatorsCharacter.HasLongbow(source));
     }
 
     private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(
@@ -196,10 +189,7 @@ internal static class CustomSituationalContext
                 continue;
             }
 
-            if (locationCharacters.Any(locationCharacter =>
-                    locationCharacter == summoner &&
-                    locationCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionIncapacitated)))
+            if (locationCharacters.Any(x => x == summoner && x.CanAct()))
             {
                 return true;
             }

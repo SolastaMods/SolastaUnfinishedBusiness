@@ -237,19 +237,14 @@ internal static class RaceMalakhBuilder
 
     private static FeatureDefinition BuildAngelicRadiance(FeatureDefinition additionalDamageMalakhAngelicForm)
     {
-        var featureMalakhRadiantAura = FeatureDefinitionBuilder
-            .Create($"Feature{Name}RadiantAura")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
-            .AddToDB();
-
         var conditionAngelicRadiance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicRadiance")
             .SetGuiPresentation(Category.Condition,
                 ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
-            .AddFeatures(additionalDamageMalakhAngelicForm, featureMalakhRadiantAura)
+            .AddFeatures(additionalDamageMalakhAngelicForm)
+            .SetCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
             .AddToDB();
 
         var faerieFireLightSource =
@@ -286,7 +281,7 @@ internal static class RaceMalakhBuilder
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationBattleService == null || !gameLocationBattleService.IsBattleInProgress)
+            if (gameLocationBattleService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 return;
             }
@@ -320,7 +315,8 @@ internal static class RaceMalakhBuilder
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(enemy => enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .Where(enemy => enemy.Side != locationCharacter.Side
+                                         && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Where(enemy => gameLocationBattleService.IsWithinXCells(locationCharacter, enemy, 3))
                          .ToList()) // avoid changing enumerator
             {

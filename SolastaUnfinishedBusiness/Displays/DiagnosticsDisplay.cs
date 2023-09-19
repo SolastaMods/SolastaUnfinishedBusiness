@@ -10,7 +10,6 @@ namespace SolastaUnfinishedBusiness.Displays
     {
         internal static void DisplayDiagnostics()
         {
-            UI.Label();
             UI.Label(". You can set the environment variable " +
                      DiagnosticsContext.ProjectEnvironmentVariable.Italic().Khaki() +
                      " to customize the output folder");

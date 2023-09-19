@@ -53,7 +53,7 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
                         new CanUseAttribute(
                             AttributeDefinitions.Strength,
@@ -82,7 +82,7 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isCrossbow(mode, null, character))),
                         new CanUseAttribute(
                             AttributeDefinitions.Strength,
@@ -108,17 +108,11 @@ internal static class RangedCombatFeats
             "Tooltip/&DeadeyeConcentration",
             Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64));
 
-        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
-            .Create($"ModifyAttackModeForWeapon{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Name, Category.Feat,
                 DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
@@ -138,7 +132,7 @@ internal static class RangedCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);
@@ -170,17 +164,15 @@ internal static class RangedCombatFeats
                 powerTurnOffDeadeye,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}")
-                    .SetGuiPresentation(Name, Category.Feat)
+                    .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffDeadeye;
-        modifyAttackModeForWeapon
-            .SetCustomSubFeatures(
-                concentrationProvider,
-                new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
+        conditionDeadeye.SetCustomSubFeatures(
+            concentrationProvider, new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
 
         return featDeadeye;
     }
@@ -199,12 +191,7 @@ internal static class RangedCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasOffhandWeaponType(
-                            CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType))
-                    .AddToDB(),
-                FeatureDefinitionBuilder
-                    .Create($"Feature{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                            CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
                         new RangedAttackInMeleeDisadvantageRemover(),
                         new InnovationArmor.AddLauncherAttack(ActionDefinitions.ActionType.Bonus,
                             InnovationArmor.InInfiltratorMode,
@@ -223,7 +210,7 @@ internal static class RangedCombatFeats
 
         var combatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
@@ -270,7 +257,7 @@ internal static class RangedCombatFeats
                                     .Build())
                             .Build())
                     .SetCustomSubFeatures(
-                        new ValidatorsPowerUse(character =>
+                        new ValidatorsValidatePowerUse(character =>
                         {
                             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 

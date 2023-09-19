@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 // it also enforce the condition to any other aura participant as soon as the barb enters rage
 // finally it forces the condition to stop on barb turn start for any hero who had it but not in range anymore
 public class CustomRagingAura :
-    INotifyConditionRemoval, ISpendPowerFinishedByMe, ICharacterTurnStartListener
+    IOnConditionAddedOrRemoved, IActionFinishedByMe, ICharacterTurnStartListener
 {
     private readonly ConditionDefinition _conditionDefinition;
     private readonly bool _friendlyAura;
@@ -23,6 +23,26 @@ public class CustomRagingAura :
         _powerDefinition = powerDefinition;
         _conditionDefinition = conditionDefinition;
         _friendlyAura = friendlyAura;
+    }
+
+    public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+    {
+        if (characterAction is not CharacterActionSpendPower action
+            || action.activePower.PowerDefinition != _powerDefinition)
+        {
+            yield break;
+        }
+
+        if (_friendlyAura)
+        {
+            AddCondition(action.ActingCharacter);
+        }
+        else
+        {
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                _conditionDefinition.Name);
+        }
     }
 
     public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
@@ -83,33 +103,14 @@ public class CustomRagingAura :
         }
     }
 
-    public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+    public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        RemoveCondition(removedFrom);
+        // empty
     }
 
-    public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        RemoveCondition(rulesetActor);
-    }
-
-    public IEnumerator OnSpendPowerFinishedByMe(CharacterActionSpendPower action, FeatureDefinitionPower power)
-    {
-        if (power != _powerDefinition)
-        {
-            yield break;
-        }
-
-        if (_friendlyAura)
-        {
-            AddCondition(action.ActingCharacter);
-        }
-        else
-        {
-            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                AttributeDefinitions.TagEffect,
-                _conditionDefinition.Name);
-        }
+        RemoveCondition(target);
     }
 
     private void RemoveCondition(ISerializable rulesetActor)

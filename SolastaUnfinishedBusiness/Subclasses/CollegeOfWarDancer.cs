@@ -96,7 +96,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration))
                     .Build())
             .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
-                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
+                ValidatorsValidatePowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder
@@ -133,13 +133,13 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityConditionWarDanceExtraMovement3")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(3)
                     .SetImmunities(false, false, true)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierWarDance")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
                     .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .SetCustomSubFeatures(
                         FreeWeaponSwitching.Mark,
@@ -375,13 +375,14 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class StopMomentumAndAttacksWhenRemoved : ICustomConditionFeature
+    private sealed class StopMomentumAndAttacksWhenRemoved : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             target.RemoveAllConditionsOfType(WarDanceMomentum.Name, WarDanceExtraAttack.Name);
         }

@@ -55,19 +55,19 @@ public sealed class WizardBladeDancer : AbstractSubclass
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}BladeDance")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
                     .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
                     .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create(AbilityCheckAffinityIslandHalflingAcrobatics,
                         $"AbilityCheckAffinity{Name}BladeDanceAcrobatics")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
                     .AddToDB(),
                 // keep name for compatibility reasons
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}BladeDanceConstitution")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Constitution)
                     .AddToDB())
             .SetCustomSubFeatures(new CheckDanceValidity())
@@ -89,7 +89,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
                             .Build())
                     .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsBladeDanceValid))
+            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(IsBladeDanceValid))
             .AddToDB();
 
         // LEVEL 10
@@ -130,10 +130,11 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
             .Create(ConditionBladeDancerDanceOfDefense, $"Condition{Name}DanceOfVictory")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}DanceOfVictory")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation($"Condition{Name}DanceOfVictory", Category.Condition, Gui.NoLocalization)
                     .SetDamageRollModifier(5)
                     .AddToDB())
             .SetCustomSubFeatures(new CheckDanceValidity())
@@ -173,7 +174,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         var featureSetBladeDancerDanceOfVictory = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}DanceOfVictory")
-            .SetGuiPresentation($"AttackModifier{Name}DanceOfVictory", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerBladeDancerDanceOfVictory)
             .AddToDB();
 

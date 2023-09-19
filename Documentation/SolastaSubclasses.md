@@ -2591,7 +2591,7 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
-• When you are reduced to 0 hit points, you can pay 1 ki to restore 10 hit points.
+• When you are reduced to 0 hit points, you can pay 1 Ki to restore 10 hit points.
 
 
 
@@ -2628,7 +2628,7 @@ At level 11, when you are about to be hit by an attack or single target spell, y
 
 * Quivering Palm
 
-Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for 24 hours. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
+Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 Ki points to start these imperceptible vibrations, which last for 24 hours. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
 
 
 

@@ -48,7 +48,7 @@ internal static class Global
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; set; }
 
-    // BUGFIX: saving throw not passing correct saving delta on attack actions
+    // BUGFIX: saving throw not passing correct saving delta on attack actions / Way of Discordance validator logic
     internal static CharacterAction CurrentAttackAction { get; set; }
 
     // special case for our powers that add a turn off stop provider

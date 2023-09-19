@@ -134,7 +134,7 @@ internal static class FixesContext
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinDivineSmite.AddCustomSubFeatures(
-            RestrictedContextValidator.Or(
+            ValidateContextInsteadOfRestrictedProperty.Or(
                 OperationType.Set,
                 ValidatorsRestrictedContext.IsMeleeWeaponAttack,
                 ValidatorsRestrictedContext.IsOathOfDemonHunter,
@@ -144,7 +144,7 @@ internal static class FixesContext
         AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinImprovedDivineSmite.AddCustomSubFeatures(
-            RestrictedContextValidator.Or(
+            ValidateContextInsteadOfRestrictedProperty.Or(
                 OperationType.Set,
                 ValidatorsRestrictedContext.IsMeleeWeaponAttack,
                 ValidatorsRestrictedContext.IsOathOfDemonHunter,
@@ -184,7 +184,7 @@ internal static class FixesContext
 
         WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.LongswordType, ConjuredWeaponTypeName)
-            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.NoContentTitle)
+            .SetGuiPresentation(Category.Item, GuiPresentationBuilder.EmptyString)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
 
@@ -203,7 +203,7 @@ internal static class FixesContext
     {
         //BEHAVIOR: allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
         FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
+            new ValidateContextInsteadOfRestrictedProperty((_, _, _, item, _, _, _) => (OperationType.Set,
                 ValidatorsWeapon.IsWeaponType(item,
                     CustomWeaponsContext.HandXbowWeaponType,
                     CustomWeaponsContext.LightningLauncherType,
@@ -289,7 +289,7 @@ internal static class FixesContext
         //BEHAVIOR: Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped
         //This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`
         ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield));
+            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield));
     }
 
     private static void FixRecklessAttackForReachWeaponsAndPathOfTheYeoman()
@@ -343,7 +343,7 @@ internal static class FixesContext
     private static void FixUncannyDodgeForRoguishDuelist()
     {
         //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
-        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
+        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidateDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }

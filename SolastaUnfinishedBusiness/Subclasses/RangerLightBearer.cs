@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -18,7 +19,6 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -157,10 +157,8 @@ public sealed class RangerLightBearer : AbstractSubclass
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
             .SetOverriddenPower(powerLight)
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
             .AddToDB();
-
-        powerLightEnhanced.SetCustomSubFeatures(
-            new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow, powerLightEnhanced));
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BlessedGlow")
@@ -178,7 +176,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}AngelicForm")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation($"Condition{Name}AngelicForm", Category.Condition, Gui.NoLocalization)
                     .SetMagicalWeapon()
                     .AddToDB())
             .AddToDB();
@@ -207,9 +205,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeAngelicForm())
             .AddToDB();
-
-        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedByMeAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -235,7 +232,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
             .AddToDB();
 
         var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder
@@ -358,26 +355,17 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class MagicEffectFinishedByMeBlessedGlow : IUsePowerFinishedByMe
+    private class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBlessedGlow;
-        private readonly FeatureDefinitionPower _powerLightEnhanced;
 
-        public MagicEffectFinishedByMeBlessedGlow(
-            FeatureDefinitionPower featureDefinitionPower,
-            FeatureDefinitionPower powerLightEnhanced)
+        public MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
         {
             _powerBlessedGlow = featureDefinitionPower;
-            _powerLightEnhanced = powerLightEnhanced;
         }
 
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerLightEnhanced)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -416,21 +404,21 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
 
-            rulesetAttacker.LogCharacterUsedPower(_powerBlessedGlow);
-
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerBlessedGlow, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
+                .ToList());
 
-            // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
-            foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
-                         .ToList()) // avoid changing enumerator
-            {
-                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-            }
+            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
 
@@ -438,27 +426,17 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class ActionFinishedByMeAngelicForm : IUsePowerFinishedByMe
+    private sealed class MagicEffectFinishedByMeAngelicForm : IMagicEffectFinishedByMe
     {
-        private static FeatureDefinitionPower _featureDefinitionPower;
-
-        public ActionFinishedByMeAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            _featureDefinitionPower = featureDefinitionPower;
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            if (power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
 
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 classLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+
+            yield break;
         }
     }
 
@@ -482,9 +460,9 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            yield return __instance.battle
-                .GetOpposingContenders(attacker.Side)
+            yield return __instance.Battle.AllContenders
                 .Where(opposingContender =>
+                    opposingContender.Side != attacker.Side &&
                     opposingContender != defender &&
                     opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&

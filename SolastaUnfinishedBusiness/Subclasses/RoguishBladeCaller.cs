@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,7 +15,6 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
-using static SolastaUnfinishedBusiness.Api.Helpers.EffectHelpers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -59,7 +60,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetCustomSubFeatures(
                 new RogueClassHolder(),
-                new RestrictedContextValidator(
+                new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
                         (OperationType.Set, IsBladeCallerWeapon(mode, null, character))))
             .AddToDB();
@@ -86,10 +87,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 3, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
-                    .SetParticleEffectParameters(SpellDefinitions.ShadowDagger)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -98,6 +98,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 2)
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionBladeMark))
+                    .SetParticleEffectParameters(SpellDefinitions.ShadowDagger)
                     .Build())
             .AddToDB();
 
@@ -106,7 +107,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
             .SetCustomSubFeatures(
-                new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerHailOfBlades)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerHailOfBlades)))
             .AddToDB();
 
         var featureSetHailOfBlades = FeatureDefinitionFeatureSetBuilder
@@ -119,7 +120,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         var movementAffinityBladeSurge = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}BladeSurge")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Condition{Name}BladeSurge", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 
@@ -153,7 +154,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureBladeStorm.SetCustomSubFeatures(new OnTargetReducedToZeroHpBladeStorm(powerHailOfBlades));
+        featureBladeStorm.SetCustomSubFeatures(new OnReducedToZeroHpByMeBladeStorm(powerHailOfBlades));
 
         // MAIN
 
@@ -276,14 +277,13 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 // offer Hail of Blades
                 if (rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle))
                 {
-                    yield return HandleHailOfBlades(battleManager, attacker, defender);
+                    yield return HandleHailOfBlades(action, battleManager, attacker, defender);
                 }
             }
 
             // inflict Blade Mark condition
-            if (_bladeMarkStatus != BladeMarkStatus.Without ||
-                rulesetDefender is not { isDeadOrDyingOrUnconscious: false } ||
-                !attacker.OnceInMyTurnIsValid(BladeMark))
+            if (_bladeMarkStatus != BladeMarkStatus.Without
+                || !attacker.OnceInMyTurnIsValid(BladeMark))
             {
                 yield break;
             }
@@ -338,6 +338,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         }
 
         private IEnumerator HandleHailOfBlades(
+            CharacterAction action,
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
@@ -373,22 +374,23 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
+            rulesetAttacker.UpdateUsageForPower(_powerHailOfBlades, _powerHailOfBlades.CostPerUse);
+
+            var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerHailOfBlades, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                            && battleManager.IsWithinXCells(x, defender, 3))
+                .ToList());
 
-            rulesetAttacker.UsePower(usablePower);
-
-            foreach (var target in Gui.Battle.GetOpposingContenders(rulesetAttacker.Side)
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     battleManager.IsWithinXCells(x, defender, 3))
-                         .ToList())
-            {
-                StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger);
-                StartVisualEffect(attacker, defender, SpellDefinitions.ShadowDagger, EffectType.Effect);
-                effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
-            }
+            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
 
         private enum BladeMarkStatus
@@ -403,16 +405,16 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Storm
     //
 
-    private sealed class OnTargetReducedToZeroHpBladeStorm : IOnTargetReducedToZeroHp
+    private sealed class OnReducedToZeroHpByMeBladeStorm : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinitionPower _powerHailOfBlades;
 
-        public OnTargetReducedToZeroHpBladeStorm(FeatureDefinitionPower powerHailOfBlades)
+        public OnReducedToZeroHpByMeBladeStorm(FeatureDefinitionPower powerHailOfBlades)
         {
             _powerHailOfBlades = powerHailOfBlades;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

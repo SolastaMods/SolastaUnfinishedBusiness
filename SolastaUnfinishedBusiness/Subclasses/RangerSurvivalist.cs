@@ -68,7 +68,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
                         mode != null
                         && GameLocationCharacter.GetFromActor(character)?.OncePerTurnIsValid("DisablingStrike") ==
@@ -76,6 +76,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -127,10 +128,12 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, _, _, _, mode, _) => (OperationType.Set, mode != null)))
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set, mode != null)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(

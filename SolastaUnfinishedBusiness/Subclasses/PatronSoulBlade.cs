@@ -83,7 +83,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetFeatures(additionalDamageHex)
             .AddToDB();
 
-        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender));
+        conditionHexDefender.SetCustomSubFeatures(new OnConditionAddedOrRemovedHex(conditionHexDefender));
 
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
@@ -281,34 +281,41 @@ public sealed class PatronSoulBlade : AbstractSubclass
         }
     }
 
-    private sealed class NotifyConditionRemovalHex : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedHex : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _conditionHexDefender;
 
-        public NotifyConditionRemovalHex(ConditionDefinition conditionHexDefender)
+        public OnConditionAddedOrRemovedHex(ConditionDefinition conditionHexDefender)
         {
             _conditionHexDefender = conditionHexDefender;
         }
 
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // SHOULD ONLY TRIGGER ON DEATH
+            if (target is not { IsDeadOrDyingOrUnconscious: true })
+            {
+                return;
+            }
+
             if (rulesetCondition.ConditionDefinition != _conditionHexDefender)
             {
                 return;
             }
 
-            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-            if (caster == null)
+            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
-            ReceiveHealing(caster);
+            ReceiveHealing(rulesetCaster);
         }
 
         private static void ReceiveHealing(RulesetCharacter rulesetCharacter)

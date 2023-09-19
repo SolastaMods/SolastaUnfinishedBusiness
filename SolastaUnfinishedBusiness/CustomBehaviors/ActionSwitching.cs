@@ -27,7 +27,7 @@ public static class ActionSwitching
         //Make Horde Breaker add condition instead of using trigger
         var hordeBreaker = FeatureDefinitionAdditionalActions.AdditionalActionHunterHordeBreaker;
         hordeBreaker.AddCustomSubFeatures(
-            new HordeBreaker(
+            new OnReducedToZeroHpByMeHordeBreaker(
                 ConditionDefinitionBuilder
                     .Create("ConditionHunterHordeBreaker")
                     .SetGuiPresentationNoContent()
@@ -361,7 +361,7 @@ public static class ActionSwitching
 
         features.RemoveAll(x =>
         {
-            var validator = x.feature.GetFirstSubFeatureOfType<IDefinitionApplicationValidator>();
+            var validator = x.feature.GetFirstSubFeatureOfType<IValidateDefinitionApplication>();
 
             return validator != null && !validator.IsValid(x.feature, character.RulesetCharacter);
         });
@@ -617,16 +617,16 @@ public static class ActionSwitching
         data.LoadSpellcasting(character, type);
     }
 
-    private sealed class HordeBreaker : IOnTargetReducedToZeroHp
+    private sealed class OnReducedToZeroHpByMeHordeBreaker : IOnReducedToZeroHpByMe
     {
         private readonly ConditionDefinition _condition;
 
-        public HordeBreaker(ConditionDefinition condition)
+        public OnReducedToZeroHpByMeHordeBreaker(ConditionDefinition condition)
         {
             _condition = condition;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -164,7 +165,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                     (OperationType.Set,
                         ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
                             TagsDefinitions.WeaponTagFinesse))))
@@ -231,13 +232,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create($"Feature{NAME}Reach")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new IncreaseWeaponReach(1, validWeapon,
-                        ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
-                    .AddToDB())
+            .SetCustomSubFeatures(
+                new IncreaseWeaponReach(1, validWeapon, ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
             .AddToDB();
 
         var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
@@ -276,8 +272,9 @@ internal static class MeleeCombatFeats
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     //Adding any property so that custom restricted context would trigger
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-                    .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                        (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                    .SetCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
+                        (_, _, character, _, ranged, mode, _) =>
+                            (OperationType.Set, !ranged && validWeapon(mode, null, character))))
                     .SetIgnoreCriticalDoubleDice(true)
                     .AddToDB())
             .AddToDB();
@@ -321,19 +318,14 @@ internal static class MeleeCombatFeats
             .Create($"Condition{NAME}Charge")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create($"Feature{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
-                    {
-                        AllowRange = false,
-                        AccountAoOImmunity = true,
-                        WeaponValidator = validWeapon,
-                        BeforeReaction = AddCondition,
-                        AfterReaction = RemoveCondition
-                    })
-                    .AddToDB())
+            .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
+            {
+                AllowRange = false,
+                AccountAoOImmunity = true,
+                WeaponValidator = validWeapon,
+                BeforeReaction = AddCondition,
+                AfterReaction = RemoveCondition
+            })
             .AddToDB();
 
         var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
@@ -367,7 +359,7 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, ranged, mode, _) =>
                             (OperationType.Set, !ranged && validWeapon(mode, null, character))),
                         new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
@@ -390,11 +382,6 @@ internal static class MeleeCombatFeats
             .SetModifier(AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
-            .AddToDB();
-
-        var modifyAttackModeFinesse = FeatureDefinitionBuilder
-            .Create($"ModifyAttackMode{Name}Finesse")
-            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
             .AddToDB();
@@ -404,8 +391,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Misaye,
-                attributeModifierArmorClass,
-                modifyAttackModeFinesse)
+                attributeModifierArmorClass)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -634,8 +620,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation("FeatAlwaysReady", Category.Feat)
             .AddToDB();
 
-        featureAlwaysReady.SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady,
-            featureAlwaysReady));
+        featureAlwaysReady.SetCustomSubFeatures(
+            new CustomBehaviorAlwaysReady(conditionAlwaysReady, featureAlwaysReady));
 
         return FeatDefinitionBuilder
             .Create("FeatAlwaysReady")
@@ -777,11 +763,6 @@ internal static class MeleeCombatFeats
             Sprites.GetSprite(nameof(Resources.PowerAttackConcentrationIcon), Resources.PowerAttackConcentrationIcon,
                 64, 64));
 
-        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
-            .Create("ModifyAttackModeForWeaponFeatCleavingAttack")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
             .SetGuiPresentation(Category.Condition)
@@ -791,7 +772,8 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Finish")
-                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition,
+                        Gui.NoLocalization)
                     .SetCustomSubFeatures(AdditionalActionAttackValidator.MeleeOnly)
                     .SetActionType(ActionDefinitions.ActionType.Main)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
@@ -803,7 +785,6 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}")
             .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerCleavingAttack = FeatureDefinitionPowerBuilder
@@ -823,7 +804,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(
+                new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
 
@@ -857,13 +838,12 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new AddExtraPhysicalAttackFeatCleavingPhysicalAttack(conditionCleavingAttackFinish))
+                    .SetCustomSubFeatures(new CustomBehaviorCleaving(conditionCleavingAttackFinish))
                     .AddToDB())
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffCleavingAttack;
-        modifyAttackModeForWeapon
+        conditionCleavingAttack
             .SetCustomSubFeatures(
                 concentrationProvider,
                 new ModifyWeaponAttackModeFeatCleavingAttack(featCleavingAttack));
@@ -871,17 +851,16 @@ internal static class MeleeCombatFeats
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraPhysicalAttackFeatCleavingPhysicalAttack : IPhysicalAttackAfterDamage,
-        IOnTargetReducedToZeroHp
+    private sealed class CustomBehaviorCleaving : IPhysicalAttackAfterDamage, IOnReducedToZeroHpByMe
     {
         private readonly ConditionDefinition _conditionCleavingAttackFinish;
 
-        public AddExtraPhysicalAttackFeatCleavingPhysicalAttack(ConditionDefinition conditionCleavingAttackFinish)
+        public CustomBehaviorCleaving(ConditionDefinition conditionCleavingAttackFinish)
         {
             _conditionCleavingAttackFinish = conditionCleavingAttackFinish;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
@@ -1148,19 +1127,13 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
 
-        var featureDevastatingStrikes = FeatureDefinitionBuilder
-            .Create("FeatureDevastatingStrikes")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
-            .AddToDB();
-
         var conditionDevastatingStrikes = ConditionDefinitionBuilder
             .Create("ConditionDevastatingStrikes")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(featureDevastatingStrikes)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
             .AddToDB();
 
         var feat = FeatDefinitionBuilder
@@ -1391,7 +1364,7 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class PhysicalAttackAfterDamageFeatFellHanded : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackAfterDamageFeatFellHanded : IPhysicalAttackFinishedByMe
     {
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
@@ -1412,18 +1385,19 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -1432,9 +1406,10 @@ internal static class MeleeCombatFeats
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
+            var attackModifier = action.ActionParams.ActionModifiers[0];
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
@@ -1459,13 +1434,16 @@ internal static class MeleeCombatFeats
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
+                        var actionParams = action.ActionParams.Clone();
                         var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
-                        ServiceRepository.GetService<IRulesetImplementationService>()
-                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                            .AddAsActivePowerToSource()
-                            .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
-                        rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
+                        actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+                        actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                            .AddAsActivePowerToSource();
+                        actionParams.TargetCharacters.SetRange(defender);
+
+                        action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
                     }
 
                     break;
@@ -1604,16 +1582,10 @@ internal static class MeleeCombatFeats
             "Tooltip/&PowerAttackConcentration",
             Sprites.GetSprite("PowerAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
 
-        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
-            .Create($"ModifyAttackModeForWeapon{Name}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var conditionPowerAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerAttack = FeatureDefinitionPowerBuilder
@@ -1633,7 +1605,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);
@@ -1666,10 +1638,9 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffPowerAttack;
-        modifyAttackModeForWeapon
-            .SetCustomSubFeatures(
-                concentrationProvider,
-                new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
+        conditionPowerAttack.SetCustomSubFeatures(
+            concentrationProvider,
+            new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
 
         return featPowerAttack;
     }
@@ -1729,7 +1700,7 @@ internal static class MeleeCombatFeats
                     .SetFeatures(
                         FeatureDefinitionMovementAffinityBuilder
                             .Create("MovementAffinityFeatSlasher")
-                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition)
+                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition, Gui.NoLocalization)
                             .SetBaseSpeedAdditiveModifier(-2)
                             .AddToDB())
                     .AddToDB(),
@@ -1742,7 +1713,8 @@ internal static class MeleeCombatFeats
                     .SetFeatures(
                         FeatureDefinitionCombatAffinityBuilder
                             .Create("CombatAffinityFeatSlasher")
-                            .SetGuiPresentation("ConditionFeatSlasherCriticalHit", Category.Condition)
+                            .SetGuiPresentation("ConditionFeatSlasherCriticalHit", Category.Condition,
+                                Gui.NoLocalization)
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .AddToDB())
                     .AddToDB(),

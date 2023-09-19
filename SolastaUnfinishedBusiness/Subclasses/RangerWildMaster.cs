@@ -447,7 +447,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsPowerUse.NotInCombat)
+                ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -501,7 +501,8 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetAddedConditions(
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastAcBonus")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
+                        Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
@@ -509,7 +510,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
+                        Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
@@ -517,7 +519,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
+                        Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
@@ -616,7 +619,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         return powerWildMasterSpiritBeastCommand;
     }
 
-    private class SummonerHasConditionOrKOd : IDefinitionApplicationValidator, ICharacterTurnStartListener
+    private class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -704,11 +707,11 @@ public sealed class RangerWildMaster : AbstractSubclass
         }
     }
 
-    private class ShowInCombatWhenHasSpiritBeast : IPowerUseValidity
+    private class ShowInCombatWhenHasSpiritBeast : IValidatePowerUse
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
+            return Gui.Battle != null &&
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
         }
     }

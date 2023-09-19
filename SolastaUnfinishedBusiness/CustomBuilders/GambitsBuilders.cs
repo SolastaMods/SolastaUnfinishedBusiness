@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -96,16 +97,6 @@ internal static class GambitsBuilders
             .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .AddToDB();
 
-        //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new SpendPowerPhysicalAttackAfterPhysicalAttack(spendDiePower);
-
-        //feature that has `spendDieOnAttack` sub-feature
-        var featureSpendDieOnAttack = FeatureDefinitionBuilder
-            .Create("FeatureSpendGambitDieOnConditionRemoval")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(spendDieOnAttack)
-            .AddToDB();
-
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
             .SetGuiPresentationNoContent(true)
@@ -113,7 +104,8 @@ internal static class GambitsBuilders
             .SetFeatures(BuildGambitDieDamage("Reaction"))
             .AddToDB();
 
-        var hasGambitDice = new ValidatorsPowerUse(character => character.GetRemainingPowerCharges(GambitPool) > 0);
+        var hasGambitDice =
+            new ValidatorsValidatePowerUse(character => character.GetRemainingPowerCharges(GambitPool) > 0);
 
         #endregion
 
@@ -149,7 +141,7 @@ internal static class GambitsBuilders
             ForcePowerUseInSpendPowerAction.Marker,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        ICustomConditionFeature reaction = new AddUsablePowerFromCondition(reactionPower);
+        IOnConditionAddedOrRemoved reaction = new AddUsablePowerFromCondition(reactionPower);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -493,7 +485,7 @@ internal static class GambitsBuilders
                                     .SetFeatures(
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create($"CombatAffinity{name}")
-                                            .SetGuiPresentation(name, Category.Feature)
+                                            .SetGuiPresentation(name, Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                                             .AddToDB())
@@ -574,12 +566,13 @@ internal static class GambitsBuilders
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                     .SetFeatures(
                                         GambitDieDamage,
-                                        featureSpendDieOnAttack,
                                         FeatureDefinitionCombatAffinityBuilder
                                             .Create($"CombatAffinity{name}")
-                                            .SetGuiPresentation(name, Category.Feature)
+                                            .SetGuiPresentation(name, Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Advantage)
                                             .AddToDB())
+                                    .SetCustomSubFeatures(
+                                        new SpendPowerPhysicalAttackAfterPhysicalAttack(spendDiePower))
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -615,14 +608,10 @@ internal static class GambitsBuilders
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
-                                    .SetFeatures(
-                                        GambitDieDamageOnce, FeatureDefinitionBuilder
-                                            .Create($"Feature{name}")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetCustomSubFeatures(
-                                                new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
-                                                new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                                            .AddToDB())
+                                    .SetFeatures(GambitDieDamageOnce)
+                                    .SetCustomSubFeatures(
+                                        new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
+                                        new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -897,13 +886,13 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class InitialPool : IPowerUseModifier
+    private sealed class InitialPool : IModifyPowerPoolAmount
     {
         private InitialPool()
         {
         }
 
-        public static IPowerUseModifier Instance { get; } = new InitialPool();
+        public static IModifyPowerPoolAmount Instance { get; } = new InitialPool();
         public FeatureDefinitionPower PowerPool => GambitPool;
 
         public int PoolChangeAmount(RulesetCharacter character)
@@ -1061,7 +1050,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ApplyConditionDependingOnSide : ICustomConditionFeature
+    private sealed class ApplyConditionDependingOnSide : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _good, _bad;
 
@@ -1071,7 +1060,7 @@ internal static class GambitsBuilders
             _bad = bad;
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
 
@@ -1096,8 +1085,9 @@ internal static class GambitsBuilders
                 0);
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 
@@ -1268,7 +1258,6 @@ internal static class GambitsBuilders
 
     private sealed class Parry : IAttackBeforeHitConfirmedOnMe
     {
-        private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
         private readonly FeatureDefinition _feature;
         private readonly FeatureDefinitionPower _pool;
@@ -1324,11 +1313,11 @@ internal static class GambitsBuilders
             var guiMe = new GuiCharacter(me);
             var guiTarget = new GuiCharacter(attacker);
 
-            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = description
+                    StringParameter = "CustomReactionGambitParryDescription"
+                        .Formatted(Category.Reaction, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
                 };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;

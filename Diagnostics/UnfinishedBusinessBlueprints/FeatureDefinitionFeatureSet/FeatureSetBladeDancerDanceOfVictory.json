@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierBladeDancerDanceOfVictoryTitle",
-    "description": "Feature/&AttackModifierBladeDancerDanceOfVictoryDescription",
+    "title": "Feature/&FeatureSetBladeDancerDanceOfVictoryTitle",
+    "description": "Feature/&FeatureSetBladeDancerDanceOfVictoryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

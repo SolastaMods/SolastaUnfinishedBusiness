@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=The creature deals half damage on Strength based attacks and has disadvantage on Strength, Dexterity and Constitution saving throws and ability checks.
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Enfeebled
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=Creature cannot benefit from invisibility, attackers have advantage. They also illuminate 10 cells of bright light + 10 cells of dim light.
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Highlighted
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=You choose to learn one Wizard cantrip.
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=Arcane Magic
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=Your magical archery is available whenever battle starts. If you roll initiative and are missing at least one use of Arcane Shot, you regain one use of it.

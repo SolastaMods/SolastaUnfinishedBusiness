@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -108,7 +110,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new CustomCodeAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
+            .SetCustomSubFeatures(
+                new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
             .AddToDB();
 
         var additionalDamageStrikeTheVitalsD10 = FeatureDefinitionAdditionalDamageBuilder
@@ -119,7 +122,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new CustomCodeAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
+            .SetCustomSubFeatures(
+                new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
             .AddToDB();
 
         // LEVEL 11
@@ -203,11 +207,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomCodeAdditionalDamageStrikeTheVitals : IDefinitionCustomCode
+    private sealed class CustomLevelUpLogicAdditionalDamageStrikeTheVitals : ICustomLevelUpLogic
     {
         private readonly FeatureDefinitionAdditionalDamage _additionalDamageToRemove;
 
-        public CustomCodeAdditionalDamageStrikeTheVitals(FeatureDefinitionAdditionalDamage additionalDamageToRemove)
+        public CustomLevelUpLogicAdditionalDamageStrikeTheVitals(
+            FeatureDefinitionAdditionalDamage additionalDamageToRemove)
         {
             _additionalDamageToRemove = additionalDamageToRemove;
         }
@@ -235,7 +240,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             ActionModifier attackModifier,
@@ -299,15 +305,23 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            // remove any negative effect
+            actualEffectForms.Clear();
+
             rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
 
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetMe, usablePower, false)
-                .AddAsActivePowerToSource();
+            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetMe, usablePower, false)
+                    .AddAsActivePowerToSource()
+            };
 
-            effectPower.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
-            actualEffectForms.Clear();
-            attackMode.EffectDescription.EffectForms.Clear();
+            actionParams.TargetCharacters.SetRange(me);
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }

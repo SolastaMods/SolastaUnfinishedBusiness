@@ -13,8 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:AttributeModifierFeatLongswordFinesseArmorClass:0ea3490c-1121-5dc3-beff-a748625f85f9",
-    "Definition:ModifyAttackModeFeatLongswordFinesseFinesse:6023093a-2ac2-5a1c-a044-0b18e6b5f96d"
+    "Definition:AttributeModifierFeatLongswordFinesseArmorClass:0ea3490c-1121-5dc3-beff-a748625f85f9"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -9,7 +9,7 @@
     "targetType": "Cube",
     "itemSelectionType": "None",
     "targetParameter": 3,
-    "targetParameter2": 3,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -79,7 +79,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 8,
+          "diceNumber": 7,
           "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -150,7 +150,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2987ab28a75b4b9488822c04bf2c7833",
+        "m_AssetGUID": "95303bc3bdfb35f4a9ab143c5a54eee7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -168,7 +168,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "2fcc8708ca69b4745833a47bfc3c441f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +186,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ee0bbc9c177ea3b4e9440e87dbb3f77e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +198,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f93c33eb8373a334abc48b2bdbe12ed4",
+        "m_AssetGUID": "9c2a6faa6a19ff547bb26f05835afccb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -343,8 +343,8 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "rechargeRate": "KiPoints",
+  "costPerUse": 6,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -364,7 +364,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Burst of Disharmony [6 Ki]",
-    "description": "Spend 6 Ki Point to deal 8d6 damage.",
+    "description": "Spend 6 Ki Point to deal 7d6 necrotic damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -25,10 +26,8 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
     public CollegeOfHarlequin()
     {
         var conditionTerrified = ConditionDefinitionBuilder
-            .Create("ConditionTerrifiedByHarlequinPerformance")
+            .Create(ConditionDefinitions.ConditionFrightened, "ConditionTerrifiedByHarlequinPerformance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
-            .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(ConditionDefinitions.ConditionFrightened.Features.ToArray())
             .AddFeatures(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones.Features.ToArray())
             .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .AddToDB();
@@ -42,7 +41,6 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     //actual targeting is happening in sub-feature, this is for proper tooltip
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
-                    .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -51,6 +49,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.Fear)
                     .Build())
             .AddToDB();
 
@@ -64,7 +63,6 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1)
                     //actual targeting is happening in sub-feature, this is for proper tooltip
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -75,12 +73,13 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.Fear)
                     .Build())
             .AddToDB();
 
         powerTerrificPerformance.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new TerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
+            new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
 
         const string PowerCombatInspirationName = $"Power{Name}CombatInspiration";
@@ -88,7 +87,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create(PowerCombatInspirationName)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(CombatInspirationCondition))
+            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(CombatInspirationCondition))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -183,7 +182,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ConditionCombatInspired : ICustomConditionFeature
+    private sealed class ConditionCombatInspired : IOnConditionAddedOrRemoved
     {
         private const string Line = "Feedback/&BardicInspirationUsedToBoostCombatAbility";
         private readonly string _feature;
@@ -193,7 +192,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             _feature = feature;
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
             {
@@ -219,14 +218,15 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             rulesetCondition.amount = dieRoll;
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 
-    private sealed class ConditionRegainBardicInspirationDieOnKill : ICustomConditionFeature
+    private sealed class ConditionRegainBardicInspirationDieOnKill : IOnConditionAddedOrRemoved
     {
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero)
             {
@@ -239,23 +239,24 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
     }
 
-    private sealed class TerrificPerformance : IOnTargetReducedToZeroHp
+    private sealed class OnReducedToZeroHpByMeTerrificPerformance : IOnReducedToZeroHpByMe
     {
         private readonly FeatureDefinitionPower _power14;
         private readonly FeatureDefinitionPower _power6;
 
-        public TerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
+        public OnReducedToZeroHpByMeTerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
         {
             _power6 = power6;
             _power14 = power14;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
@@ -286,19 +287,21 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var power = level >= 14 ? _power14 : _power6;
 
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
-
-            rulesetAttacker.LogCharacterUsedPower(power);
-
-            foreach (var enemy in battle.AllContenders
-                         .Where(unit => attacker.IsOppositeSide(unit.Side))
-                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3))
-                         .ToList())
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-            }
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = battle.AllContenders
+                    .Where(enemy => enemy.Side != attacker.Side
+                                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                    && battleService.IsWithinXCells(attacker, enemy, 3))
+                    .ToList()
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }

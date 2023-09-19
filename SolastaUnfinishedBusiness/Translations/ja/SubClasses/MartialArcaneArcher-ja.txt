@@ -1,5 +1,7 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=このクリーチャーは筋力ベースの攻撃では半分のダメージを与え、筋力、器用さ、体質のセービングスローと能力チェックでは不利になります。
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=弱体化
+Condition/&ConditionMartialArcaneArcherInsightArrowDescription=クリーチャーは透明化の恩恵を受けることができず、攻撃側が有利になります。また、10 セルの明るい光 + 10 セルの薄暗い光も照射します。
+Condition/&ConditionMartialArcaneArcherInsightArrowTitle=ハイライト表示
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=あなたはウィザードのキャントリップを 1 つ習得することを選択します。
 Feature/&CastSpellMartialArcaneArcherArcaneMagicTitle=秘術魔法
 Feature/&FeatureMartialArcaneArcherEverReadyShotDescription=魔法のアーチェリーは、戦闘が始まるたびに使用できます。イニシアチブをロールし、Arcane Shot を少なくとも 1 回使用できなかった場合、その使用を 1 回取り戻すことができます。

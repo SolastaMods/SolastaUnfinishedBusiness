@@ -72,6 +72,21 @@ public static class RulesetActorPatcher
         public static void Postfix(RulesetActor __instance, RulesetCondition newCondition)
         {
             SrdAndHouseRulesContext.AddLightSourceIfNeeded(__instance, newCondition);
+
+            var definition = newCondition.ConditionDefinition;
+
+            //PATCH: notifies custom condition features that condition is applied
+            if (__instance is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
+                .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
+
+            definition.Features
+                .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
+                .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
         }
     }
 
@@ -178,31 +193,6 @@ public static class RulesetActorPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveCondition))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RemoveCondition_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
-        {
-            //PATCH: 
-            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, rulesetCondition);
-
-            //PATCH: INotifyConditionRemoval
-            if (rulesetCondition == null || rulesetCondition.ConditionDefinition == null)
-            {
-                return;
-            }
-
-            foreach (var notifyConditionRemoval in rulesetCondition.ConditionDefinition
-                         .GetAllSubFeaturesOfType<INotifyConditionRemoval>())
-            {
-                notifyConditionRemoval.AfterConditionRemoved(__instance, rulesetCondition);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingOccurenceType))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -215,24 +205,6 @@ public static class RulesetActorPatcher
             ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
         }
     }
-
-#if false
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingInterruption))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly] public static class ProcessConditionsMatchingInterruption_Patch
-    {
-        [UsedImplicitly] public static void Prefix(RulesetActor __instance,
-            RuleDefinitions.ConditionInterruption interruption,
-            int amount)
-        {
-            //PATCH: support for 'ProcessConditionInterruptionHandler'
-            foreach (var handler in __instance.GetSubFeaturesByType<ProcessConditionInterruptionHandler>())
-            {
-                handler(__instance, interruption, amount);
-            }
-        }
-    }
-#endif
 
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

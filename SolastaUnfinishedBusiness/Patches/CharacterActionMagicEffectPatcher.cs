@@ -117,68 +117,56 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
-            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+            var baseDefinition = __instance.GetBaseDefinition();
 
-            //PATCH: supports `IUsePowerInitiatedByMe`
-            if (__instance is CharacterActionUsePower characterActionUsePower1)
+            //PATCH: supports `IMagicEffectInitiatedByMe`
+            if (Gui.Battle != null)
             {
-                var power = characterActionUsePower1.activePower.PowerDefinition;
-                var modifiers = rulesetCharacter.GetSubFeaturesByType<IUsePowerInitiatedByMe>();
-                var powerModifier = power.GetFirstSubFeatureOfType<IUsePowerInitiatedByMe>();
+                var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectInitiatedByMe>();
 
-                if (powerModifier != null)
+                if (magicEffectInitiatedByMe != null)
                 {
-                    modifiers.TryAdd(powerModifier);
-                }
-
-                foreach (var usePowerFinished in modifiers)
-                {
-                    yield return usePowerFinished.OnUsePowerInitiatedByMe(characterActionUsePower1, power);
+                    yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(__instance, baseDefinition);
                 }
             }
 
+            // VANILLA EVENTS
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            //PATCH: supports `IUsePowerFinishedByMe`
-            if (__instance is CharacterActionUsePower characterActionUsePower2)
+            //PATCH: supports `IMagicEffectFinishedByMe`
+            if (Gui.Battle != null)
             {
-                var power = characterActionUsePower2.activePower.PowerDefinition;
-                var modifiers = rulesetCharacter.GetSubFeaturesByType<IUsePowerFinishedByMe>();
-                var powerModifier = power.GetFirstSubFeatureOfType<IUsePowerFinishedByMe>();
+                var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
 
-                if (powerModifier != null)
+                if (magicEffectFinishedByMe != null)
                 {
-                    modifiers.TryAdd(powerModifier);
-                }
-
-                foreach (var usePowerFinished in modifiers)
-                {
-                    yield return usePowerFinished.OnUsePowerFinishedByMe(characterActionUsePower2, power);
+                    yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
                 }
             }
 
             //PATCH: supports `IPerformAttackAfterMagicEffectUse`
-            var baseDefinition = __instance.GetBaseDefinition();
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
-            var performAttackAfterUse = attackAfterMagicEffect?.PerformAttackAfterUse;
+
+            if (attackAfterMagicEffect == null)
+            {
+                yield break;
+            }
+
+            var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
             var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
 
             if (characterActionAttacks != null)
             {
                 __instance.ResultingActions.AddRange(
                     characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
-            }
-
-            //PATCH: supports `IChainActionAfterMagicEffect`
-            var chainAction = baseDefinition.GetFirstSubFeatureOfType<IChainActionAfterMagicEffect>()
-                ?.GetNextAction(__instance);
-
-            if (chainAction != null)
-            {
-                __instance.ResultingActions.Add(chainAction);
             }
         }
     }
@@ -273,11 +261,9 @@ public static class CharacterActionMagicEffectPatcher
             var attacker = __instance.ActingCharacter;
 
             //PATCH: support for `IMagicalAttackFinishedByMe`
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (Gui.Battle != null)
             {
-                foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
+                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
                 {
                     yield return feature.OnMagicalAttackFinishedByMe(__instance, attacker, target);
                 }
@@ -285,12 +271,11 @@ public static class CharacterActionMagicEffectPatcher
 
             //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
             // ReSharper disable once InvertIf
-            if (Gui.Battle != null &&
-                attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (Gui.Battle != null)
             {
-                foreach (var ally in Gui.Battle.GetMyContenders(attacker.Side)
-                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                foreach (var ally in Gui.Battle.AllContenders
+                             .Where(x => x.Side == attacker.Side
+                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
                     foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter

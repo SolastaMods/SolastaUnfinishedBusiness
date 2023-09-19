@@ -283,7 +283,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                     Log(
                         $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
 
-                    Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
+                    Definition.GuiPresentation.Title = GuiPresentationBuilder.EmptyString;
                 }
 
                 if (!string.IsNullOrEmpty(Definition.GuiPresentation.Description))
@@ -295,7 +295,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 Log(
                     $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
 
-                Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
+                Definition.GuiPresentation.Description = GuiPresentationBuilder.EmptyString;
             }
         }
     }

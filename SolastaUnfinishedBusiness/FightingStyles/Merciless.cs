@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -34,7 +35,7 @@ internal sealed class Merciless : AbstractFightingStyle
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                        .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                             ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
@@ -48,7 +49,7 @@ internal sealed class Merciless : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnTargetReducedToZeroHpFightingStyleMerciless())
+                .SetCustomSubFeatures(new OnReducedToZeroHpByMeMerciless())
                 .AddToDB())
         .AddToDB();
 
@@ -57,39 +58,19 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnTargetReducedToZeroHpFightingStyleMerciless :
-        IOnTargetReducedToZeroHp, IAttackBeforeHitConfirmedOnEnemy
+    private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe
     {
-        private bool _isCritical;
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            _isCritical = criticalHit;
-
-            yield break;
-        }
-
-        public IEnumerator HandleCharacterReducedToZeroHp(
+        public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             // activeEffect != null means a magical attack
             if (activeEffect != null || (!ValidatorsWeapon.IsMelee(attackMode) &&
-                                         !ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)))
+                                         !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode)))
             {
                 yield break;
             }
@@ -101,30 +82,28 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetCharacter);
+            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
 
-            //TODO: not sure we need this, since `UsablePowersProvider.Get` already computes DC
-            usablePower.saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus);
+            // need to find a better way to determine critical
+            var distance = Global.CurrentAction.AttackRollOutcome == RollOutcome.CriticalSuccess
+                ? proficiencyBonus
+                : (proficiencyBonus + 1) / 2;
 
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
-
-            var distance = _isCritical ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-
-            effectPower.EffectDescription.targetParameter = (distance * 2) + 1;
-
-            foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance))
-                         .ToList()) // avoid changing enumerator
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
-            }
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .AddAsActivePowerToSource(),
+                targetCharacters = gameLocationBattleService.Battle.EnemyContenders
+                    .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance))
+                    .ToList()
+            };
 
-            _isCritical = false;
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }

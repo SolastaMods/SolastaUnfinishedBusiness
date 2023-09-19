@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -676,17 +675,11 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        var featureSheathed = FeatureDefinitionBuilder
-            .Create("FeatureBoomingBladeSheathed")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
-            .AddToDB();
-
         var conditionBoomingBladeSheathed = ConditionDefinitionBuilder
             .Create(ConditionShine, "ConditionBoomingBladeSheathed")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetFeatures(featureSheathed)
+            .SetCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
             .AddToDB();
 
         var conditionBoomingBlade = ConditionDefinitionBuilder
@@ -875,7 +868,7 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
                 AttackAfterMagicEffect.ResonatingStrikeAttack,
-                new ChainActionAfterMagicEffectResonatingStrike(powerResonatingStrike))
+                new MagicEffectFinishedByMeResonatingStrike(powerResonatingStrike))
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -937,27 +930,26 @@ internal static partial class SpellBuilders
     }
 
     // chain resonating strike leap damage power
-    private sealed class ChainActionAfterMagicEffectResonatingStrike : IChainActionAfterMagicEffect
+    private sealed class MagicEffectFinishedByMeResonatingStrike : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerResonatingStrike;
 
-        internal ChainActionAfterMagicEffectResonatingStrike(FeatureDefinitionPower powerResonatingStrike)
+        internal MagicEffectFinishedByMeResonatingStrike(FeatureDefinitionPower powerResonatingStrike)
         {
             _powerResonatingStrike = powerResonatingStrike;
         }
 
-        [CanBeNull]
-        public CharacterAction GetNextAction(CharacterActionMagicEffect baseEffect)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
-            var targets = baseEffect.ActionParams.TargetCharacters;
+            var targets = action.ActionParams.TargetCharacters;
 
             if (targets.Count != 2)
             {
-                return null;
+                yield break;
             }
 
             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var actionParams = baseEffect.ActionParams.Clone();
+            var actionParams = action.ActionParams.Clone();
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
 
@@ -967,7 +959,7 @@ internal static partial class SpellBuilders
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(targets[1]);
 
-            return new CharacterActionSpendPower(actionParams);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

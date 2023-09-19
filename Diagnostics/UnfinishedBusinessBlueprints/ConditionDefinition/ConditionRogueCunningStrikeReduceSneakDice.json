@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:FeatureRogueCunningStrikeReduceSneakDice:240c62ea-7ab7-5acd-988c-deebbc9818f2"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,

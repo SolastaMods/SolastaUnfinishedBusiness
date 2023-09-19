@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDieOnce:a5dec680-ddbf-56b8-8040-a19f196dddff",
-    "Definition:FeatureGambitLunging:2ffdc03f-7b58-50a5-9a1a-5320fa1cbdd1"
+    "Definition:AdditionalDamageGambitDieOnce:a5dec680-ddbf-56b8-8040-a19f196dddff"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

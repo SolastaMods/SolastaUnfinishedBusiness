@@ -153,7 +153,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             .AddToDB();
 
         conditionDammingStrike.SetCustomSubFeatures(
-            new NotifyConditionRemovalDammingStrike(conditionMarkOfTheDammed));
+            new OnConditionAddedOrRemovedDammingStrike(conditionMarkOfTheDammed));
 
         powerMarkOfTheDammed.SetCustomSubFeatures(
             new CustomBehaviorMarkOfTheDammed(powerMarkOfTheDammed, conditionMarkOfTheDammed));
@@ -289,29 +289,29 @@ public sealed class RangerHellWalker : AbstractSubclass
     // DammingStrike
     //
 
-    private sealed class NotifyConditionRemovalDammingStrike : INotifyConditionRemoval
+    private sealed class OnConditionAddedOrRemovedDammingStrike : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public NotifyConditionRemovalDammingStrike(ConditionDefinition conditionDefinition)
+        public OnConditionAddedOrRemovedDammingStrike(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var otherRulesetCondition =
-                removedFrom.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+                target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
 
             if (otherRulesetCondition != null)
             {
-                removedFrom.RemoveCondition(otherRulesetCondition);
+                target.RemoveCondition(otherRulesetCondition);
             }
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            // Empty
         }
     }
 
@@ -320,7 +320,7 @@ public sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IModifyDamageAffinity, IUsePowerFinishedByMe, IFilterTargetingMagicEffect
+        IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -356,34 +356,14 @@ public sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
-            {
-                return;
-            }
-
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider
-                {
-                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
-                });
-        }
-
-        public IEnumerator OnUsePowerFinishedByMe(CharacterActionUsePower action, FeatureDefinitionPower power)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null || power != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            foreach (var gameLocationCharacter in Gui.Battle.AllContenders
+                         .Where(x => x.Side == gameLocationDefender.Side
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Where(x => x != gameLocationDefender)
                          .ToList()) // avoid changing enumerator
             {
@@ -396,6 +376,22 @@ public sealed class RangerHellWalker : AbstractSubclass
                     rulesetDefender.RemoveCondition(rulesetCondition);
                 }
             }
+
+            yield break;
+        }
+
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
+            {
+                return;
+            }
+
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
+                });
         }
     }
 }

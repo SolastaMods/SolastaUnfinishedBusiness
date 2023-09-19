@@ -629,7 +629,7 @@ public static class RulesetImplementationManagerPatcher
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            //PATCH: support for `IRestrictedContextValidator` feature
+            //PATCH: support for `IValidateContextInsteadOfRestrictedProperty` feature
             __result = RestrictedContextValidatorPatch.ModifyResult(__result, provider, character, itemDefinition,
                 rangedAttack, attackMode, rulesetEffect);
         }
@@ -744,7 +744,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: supports ITryAlterOutcomeSavingThrow interface
             foreach (var tryAlterOutcomeSavingThrow in target.GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
             {
-                tryAlterOutcomeSavingThrow.OnFailedSavingTryAlterOutcome(
+                tryAlterOutcomeSavingThrow.OnSavingTryAlterOutcome(
                     caster,
                     sourceSide,
                     target,

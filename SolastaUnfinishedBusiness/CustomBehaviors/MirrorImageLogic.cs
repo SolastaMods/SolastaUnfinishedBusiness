@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -40,12 +39,7 @@ public class MirrorImageLogic
             .SetSilent(Silent.WhenAdded)
             .AllowMultipleInstances()
             .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("FeatureMirrorImageCounter")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(DuplicateCounter.Mark)
-                    .AddToDB())
+            .SetCustomSubFeatures(DuplicateCounter.Mark)
             .AddToDB();
     }
 
@@ -251,19 +245,20 @@ public class MirrorImageLogic
         console.AddEntry(entry);
     }
 
-    private class DuplicateCounter : ICustomConditionFeature
+    private class DuplicateCounter : IOnConditionAddedOrRemoved
     {
         private DuplicateCounter()
         {
         }
 
-        public static ICustomConditionFeature Mark { get; } = new DuplicateCounter();
+        public static IOnConditionAddedOrRemoved Mark { get; } = new DuplicateCounter();
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            // empty
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (!GetConditions(target).Empty())
             {
@@ -274,15 +269,15 @@ public class MirrorImageLogic
         }
     }
 
-    internal class DuplicateProvider : ICustomConditionFeature
+    internal class DuplicateProvider : IOnConditionAddedOrRemoved
     {
         private DuplicateProvider()
         {
         }
 
-        public static ICustomConditionFeature Mark { get; } = new DuplicateProvider();
+        public static IOnConditionAddedOrRemoved Mark { get; } = new DuplicateProvider();
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             for (var i = 0; i < 3; i++)
             {
@@ -302,7 +297,7 @@ public class MirrorImageLogic
             }
         }
 
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var conditions = GetConditions(target);
 

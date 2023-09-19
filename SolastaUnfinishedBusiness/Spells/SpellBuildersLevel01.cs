@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -303,12 +305,12 @@ internal static partial class SpellBuilders
                             .SetFeatures(
                                 FeatureDefinitionMovementAffinityBuilder
                                     .Create($"MovementAffinity{NAME}")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                     .SetImmunities(true, true)
                                     .AddToDB(),
                                 FeatureDefinitionEquipmentAffinityBuilder
                                     .Create($"EquipmentAffinity{NAME}")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                     .SetAdditionalCarryingCapacity(20)
                                     .AddToDB())
                             .AddToDB(),
@@ -509,7 +511,7 @@ internal static partial class SpellBuilders
 
         var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation("ConditionGravity", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 
@@ -777,17 +779,11 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
-        var featureSanctuary = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new AttackBeforeHitConfirmedOnMeSanctuary(
-                    conditionSanctuary,
-                    conditionSanctuaryReduceDamage,
-                    conditionSanctuaryDamageResistance))
-            .AddToDB();
-
-        conditionSanctuary.Features.Add(featureSanctuary);
+        conditionSanctuary.SetCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeSanctuary(
+                conditionSanctuary,
+                conditionSanctuaryReduceDamage,
+                conditionSanctuaryDamageResistance));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -992,59 +988,38 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ThunderousSmite";
 
-        var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Push")
+        var powerThunderousSmite = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}ThunderousSmite")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(Shatter)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder.Create()
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                             .Build(),
                         EffectFormBuilder.Create()
                             .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                             .Build())
+                    .SetParticleEffectParameters(Shatter)
                     .Build())
-            .AddToDB();
-
-        var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell)
-            .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
-            .SetDamageDice(DieType.D6, 2)
-            .SetSpecificDamageType(DamageTypeThunder)
-            .SetSavingThrowData(
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
-                AttributeDefinitions.Strength)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create($"Condition{NAME}Enemy")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(new ConditionUsesPowerOnTarget(power))
-                        .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
-                })
-            .SetImpactParticleReference(Shatter)
             .AddToDB();
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
+                ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageThunderousSmite)
+            .SetFeatures(powerThunderousSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetCustomSubFeatures(
+                new PhysicalAttackFinishedByMeThunderousSmite(powerThunderousSmite))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -1068,42 +1043,47 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ConditionUsesPowerOnTarget : ICustomConditionFeature
+    private sealed class PhysicalAttackFinishedByMeThunderousSmite : IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _power;
-        private readonly bool _removeCondition;
+        private readonly FeatureDefinitionPower _powerThunderousSmite;
 
-        public ConditionUsesPowerOnTarget(FeatureDefinitionPower power, bool removeCondition = true)
+        public PhysicalAttackFinishedByMeThunderousSmite(FeatureDefinitionPower powerThunderousSmite)
         {
-            _power = power;
-            _removeCondition = removeCondition;
+            _powerThunderousSmite = powerThunderousSmite;
         }
 
-        public void OnApplyCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            var defender = GameLocationCharacter.GetFromActor(target);
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } || defender == null)
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                return;
+                yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
+                || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var actionParams = action.ActionParams.Clone();
+            var usablePower = UsablePowersProvider.Get(_powerThunderousSmite, rulesetAttacker);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
 
-            effectPower.ApplyEffectOnCharacter(target, true, defender.LocationPosition);
-
-            if (_removeCondition)
-            {
-                target.RemoveCondition(rulesetCondition);
-            }
-        }
-
-        public void OnRemoveCondition(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 
@@ -1115,19 +1095,14 @@ internal static partial class SpellBuilders
     {
         const string NAME = "GiftOfAlacrity";
 
-        var featureGiftOfAlacrity = FeatureDefinitionBuilder
-            .Create("FeatureGiftOfAlacrity")
-            .SetGuiPresentation("ConditionGiftOfAlacrity", Category.Condition)
-            .AddToDB();
-
-        featureGiftOfAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(featureGiftOfAlacrity));
-
         var conditionAlacrity = ConditionDefinitionBuilder
             .Create(ConditionBlessed, "ConditionGiftOfAlacrity")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetFeatures(featureGiftOfAlacrity)
+            .SetFeatures()
             .AddToDB();
+
+        conditionAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(conditionAlacrity));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1156,9 +1131,9 @@ internal static partial class SpellBuilders
 
     private sealed class InitiativeEndListenerGiftOfAlacrity : IInitiativeEndListener
     {
-        private readonly FeatureDefinition _featureDefinition;
+        private readonly BaseDefinition _featureDefinition;
 
-        public InitiativeEndListenerGiftOfAlacrity(FeatureDefinition featureDefinition)
+        public InitiativeEndListenerGiftOfAlacrity(BaseDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }

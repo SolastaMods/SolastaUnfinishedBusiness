@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feature/&PowerInnovationArtilleristSummonFlamethrowerTinyTitle",
-    "description": "Feature/&Emptystring",
+    "description": "Feature/&PowerInnovationArtilleristFlamethrowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

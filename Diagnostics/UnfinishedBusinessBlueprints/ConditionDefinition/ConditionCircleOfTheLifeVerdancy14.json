@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:FeatureCircleOfTheLifeVerdancyTarget:9b65f61b-a23a-5a45-a067-d8ffe78c0905"
-  ],
+  "features": [],
   "allowMultipleInstances": true,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

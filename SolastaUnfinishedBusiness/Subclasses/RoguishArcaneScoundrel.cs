@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -74,7 +74,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}{DistractingAmbush}")
-                    .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition)
+                    .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -85,7 +85,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
-                    .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition)
+                    .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -130,6 +130,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Counterspell.EffectDescription)
+                    .AddEffectForms(EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
                     .Build())
             .AddToDB();
 
@@ -149,15 +150,13 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 2, 2)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
-                powerArcaneBackslashCounterSpell,
-                conditionDistractingAmbush));
+                powerArcaneBackslashCounterSpell));
 
         //
         // LEVEL 17
@@ -218,7 +217,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddToDB();
 
         powerEssenceTheft.SetCustomSubFeatures(
-            new ValidatorsPowerUse(CanUseEssenceTheft),
+            new ValidatorsValidatePowerUse(CanUseEssenceTheft),
             new CustomBehaviorEssenceTheft(powerEssenceTheft, conditionPossessed));
 
         var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
@@ -300,18 +299,15 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     private sealed class ActionFinishedByMeArcaneBackslash : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _powerArcaneBackslash;
         private readonly FeatureDefinitionPower _powerCounterSpell;
 
         public ActionFinishedByMeArcaneBackslash(
             FeatureDefinitionPower powerArcaneBackslash,
-            FeatureDefinitionPower powerCounterSpell,
-            ConditionDefinition conditionDistractingAmbush)
+            FeatureDefinitionPower powerCounterSpell)
         {
             _powerArcaneBackslash = powerArcaneBackslash;
             _powerCounterSpell = powerCounterSpell;
-            _conditionDistractingAmbush = conditionDistractingAmbush;
         }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
@@ -327,38 +323,24 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             }
 
             var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
 
             actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
-            foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
-            {
-                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
+            var actionParams = action.ActionParams.Clone();
+            var rulesetAttacker = actingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetAttacker);
 
-                rulesetCharacter.LogCharacterUsedPower(_powerArcaneBackslash);
-                effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
-                rulesetDefender.InflictCondition(
-                    _conditionDistractingAmbush.Name,
-                    _conditionDistractingAmbush.DurationType,
-                    _conditionDistractingAmbush.DurationParameter,
-                    _conditionDistractingAmbush.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
+
+            // different follow up pattern [not adding to ResultingActions]
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IUsePowerInitiatedByMe, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IMagicEffectInitiatedByMe, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;
@@ -394,18 +376,13 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnUsePowerInitiatedByMe(CharacterAction characterAction, FeatureDefinitionPower power)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (power != _powerEssenceTheft)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterAction.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
 
             actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
 
-            var damage = characterAction.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+            var damage = action.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
 
             // this currently works as there is only one feature in game using DamageDieProviderFromCharacter
             // we might need to change this to a proper interface if others start using it

@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 /// typical example:
 /// class MyRulesetConditionCustom: RulesetConditionCustom-MyRulesetConditionCustom, IBindToRulesetConditionCustom
 ///     Initialize Marker, BindingDefinition, Category in static constructor
-/// set BindingDefinition with custom sub features: Marker, ICustomConditionFeature
+/// set BindingDefinition with custom sub features: Marker, OnConditionAddedOrRemoved
 ///     The type conversion is handled in IBindToRulesetConditionCustom when the condition definition marked by Marker is added to character
-///     then you can handle condition added or removed in ICustomConditionFeature
+///     then you can handle condition added or removed in OnConditionAddedOrRemoved
 /// </summary>
 /// <typeparam name="T"></typeparam>
 internal abstract class RulesetConditionCustom<T> : RulesetCondition, IForceConditionCategory

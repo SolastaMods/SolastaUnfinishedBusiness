@@ -28,11 +28,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeaturePathOfTheYeomanMightyShot:65c6f5a9-cf9a-5132-a035-8c666e8f1553",
-      "level": 14
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPathOfTheYeomanMightyShot:d0ac6190-172a-51d3-853a-51f6b1cd2ae0",
       "level": 14
     }

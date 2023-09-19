@@ -1212,7 +1212,7 @@ internal static class CharacterContext
         internal WeaponTypeDefinition WeaponType { get; set; }
     }
 
-    private sealed class MonkWeaponSpecializationDiceUpgrade : IRestrictedContextValidator
+    private sealed class MonkWeaponSpecializationDiceUpgrade : IValidateContextInsteadOfRestrictedProperty
     {
         private readonly WeaponTypeDefinition _weaponTypeDefinition;
 
@@ -1411,12 +1411,6 @@ internal static class CharacterContext
             .AddFeatures(actionAffinityDazedOnlyMovement)
             .AddToDB();
 
-        var featureDazed = FeatureDefinitionBuilder
-            .Create($"Feature{Devious}Dazed")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedOnlyMovement))
-            .AddToDB();
-
         var actionAffinityDazed = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Devious}Dazed")
             .SetGuiPresentationNoContent(true)
@@ -1427,7 +1421,8 @@ internal static class CharacterContext
             .Create(ConditionDefinitions.ConditionDazzled, $"Condition{Devious}Dazed")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(featureDazed, actionAffinityDazed)
+            .SetFeatures(actionAffinityDazed)
+            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedOnlyMovement))
             .AddToDB();
 
         var powerDaze = FeatureDefinitionPowerSharedPoolBuilder
@@ -1455,7 +1450,8 @@ internal static class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionAsleep)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+                ConditionDefinitions.ConditionAsleep)
             .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 
@@ -1515,12 +1511,6 @@ internal static class CharacterContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle)
             .AddToDB();
 
-        var featureReduceSneakDice = FeatureDefinitionBuilder
-            .Create($"Feature{Cunning}ReduceSneakDice")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
-            .AddToDB();
-
         _conditionReduceSneakDice = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}ReduceSneakDice")
             .SetGuiPresentationNoContent(true)
@@ -1528,7 +1518,7 @@ internal static class CharacterContext
             .SetSpecialDuration(DurationType.Round, 1)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(featureReduceSneakDice)
+            .SetCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .AddToDB();
 
@@ -1746,20 +1736,16 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (rulesetImplementationService == null)
-            {
-                yield break;
-            }
-
+            var actionParams = action.ActionParams.Clone();
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
-            var effectPower = rulesetImplementationService
-                .InstantiateEffectPower(rulesetAttacker, usablePower, true)
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
 
-            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

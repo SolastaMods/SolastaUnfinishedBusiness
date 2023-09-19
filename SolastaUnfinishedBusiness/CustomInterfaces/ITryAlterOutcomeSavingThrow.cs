@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface ITryAlterOutcomeSavingThrow
 {
     [UsedImplicitly]
-    public void OnFailedSavingTryAlterOutcome(
+    public void OnSavingTryAlterOutcome(
         RulesetCharacter caster,
         Side sourceSide,
         RulesetActor target,
