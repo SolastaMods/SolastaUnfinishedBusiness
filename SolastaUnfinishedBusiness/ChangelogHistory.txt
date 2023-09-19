@@ -8,6 +8,7 @@ ATTENTION:
 - added SFX browser in mod UI to accelerate new mod content development
 - added Interception fighting style and Shield Techniques feat [by HiddenHax]
 - added pre-gen heroes and monsters portraits to mod payload [by Artyoan]
+- fixed "Blinded condition doesn't allow attacks of opportunity" feature
 - fixed Disabling and Improved Disabling Strike incorrectly targeting caster
 - fixed Feral Tiefling not offering the Burning Hands spell on action panel
 - improved conditions extended tooltip descriptions to behave like vanilla
