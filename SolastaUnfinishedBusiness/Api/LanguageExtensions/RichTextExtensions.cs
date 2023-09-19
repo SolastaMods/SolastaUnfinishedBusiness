@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
 
@@ -51,6 +52,7 @@ public static class RichText
         return _ = $"<i>{s}</i>";
     }
 
+    [UsedImplicitly]
     public static string Color(this string s, string color)
     {
         return _ = $"<color={color}>{s}</color>";
