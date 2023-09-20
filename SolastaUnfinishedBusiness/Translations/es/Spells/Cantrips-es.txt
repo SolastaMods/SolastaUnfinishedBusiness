@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=Enfundado
 Condition/&ConditionBoomingBladeTitle=La vaina de Booming Blade
 Condition/&ConditionMindSpikeDescription=Resta 1d4 de la siguiente tirada de salvación.
 Condition/&ConditionMindSpikeTitle=Pico mental
-Condition/&ConditionResonatingStrikeDescription=A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño de trueno adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
 Condition/&ConditionResonatingStrikeTitle=Resonancia
 Condition/&ConditionSunlightBladeDescription=A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño radiante adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
 Condition/&ConditionSunlightBladeTitle=Quemadura de Sunlit Blade

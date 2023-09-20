@@ -885,7 +885,7 @@ internal static partial class SpellBuilders
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create("ConditionResonatingStrike")
-                                    .SetGuiPresentation(Category.Condition)
+                                    .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks,
                                         ConditionInterruption.AnyBattleTurnEnd)
                                     .SetSilent(Silent.WhenAddedOrRemoved)
