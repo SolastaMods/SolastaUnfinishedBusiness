@@ -55,8 +55,8 @@ public static class CharacterActionMagicEffectPatcher
 
             formsParams.FillSourceAndTarget(character, character);
             formsParams.FillFromActiveEffect(actionParams.RulesetEffect);
-            formsParams.FillSpecialParameters(false, 0, 0, 0, effectLevel, null,
-                RollOutcome.Success, 0, false, 0, 1, null);
+            formsParams.FillSpecialParameters(
+                false, 0, 0, 0, effectLevel, null, RollOutcome.Success, 0, false, 0, 1, null);
             formsParams.effectSourceType = effectSourceType;
 
             if (effectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
@@ -136,7 +136,28 @@ public static class CharacterActionMagicEffectPatcher
                 yield return values.Current;
             }
 
+            //PATCH: supports `IPerformAttackAfterMagicEffectUse`
+            if (Gui.Battle != null)
+            {
+                var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
+
+                if (attackAfterMagicEffect == null)
+                {
+                    yield break;
+                }
+
+                var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
+                var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
+
+                if (characterActionAttacks != null)
+                {
+                    __instance.ResultingActions.AddRange(
+                        characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
+                }
+            }
+
             //PATCH: supports `IMagicEffectFinishedByMe`
+            // ReSharper disable once InvertIf
             if (Gui.Battle != null)
             {
                 var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
@@ -145,28 +166,6 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
                 }
-            }
-
-            //PATCH: supports `IPerformAttackAfterMagicEffectUse`
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
-
-            if (attackAfterMagicEffect == null)
-            {
-                yield break;
-            }
-
-            var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
-            var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
-
-            if (characterActionAttacks != null)
-            {
-                __instance.ResultingActions.AddRange(
-                    characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
             }
         }
     }
