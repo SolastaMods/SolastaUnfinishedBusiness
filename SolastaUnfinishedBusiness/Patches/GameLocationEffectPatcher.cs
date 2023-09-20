@@ -34,9 +34,17 @@ public static class GameLocationEffectPatcher
 
             ulong num = 0;
 
-            if (serializer.Mode == Serializer.SerializationMode.Write)
+            //PATCH: original code doesn't check for null rulesetEffect
+            if (__instance.rulesetEffect != null)
             {
-                num = __instance.rulesetEffect.Guid;
+                if (serializer.Mode == Serializer.SerializationMode.Write)
+                {
+                    num = __instance.rulesetEffect.Guid;
+                }
+            }
+            else
+            {
+                Main.Info($"SERIALIZATION: null rulesetEffect '{__instance.effectSourceName}'");
             }
 
             Main.Info($"SERIALIZATION: step {step++}");
@@ -47,14 +55,17 @@ public static class GameLocationEffectPatcher
             {
                 __instance.rulesetEffect.EntityImplementation = __instance;
             }
-            //BEGIN PATCH: avoid trace messages
-            // else
-            // {
-            //     Trace.LogError("Cannot reconcile RulesetEffect {0} of id {1}", __instance.effectSourceName,
-            //         guid.ToString());
-            //     Trace.LogException(new Exception("[Tactical - Invisible for players] Cannot reconcile RulesetEffect " +
-            //                                      __instance.effectSourceName + "."));
-            // }
+            //PATCH: don't show trace messages
+#if false
+            else
+            {
+                Trace.LogError("Cannot reconcile RulesetEffect {0} of id {1}", __instance.effectSourceName,
+                    guid.ToString());
+                Trace.LogException(new Exception(
+                    "[Tactical - Invisible for players] Cannot reconcile RulesetEffect " + __instance.effectSourceName +
+                    "."));
+            }
+#endif
 
             Main.Info($"SERIALIZATION: step {step++}");
 
@@ -84,9 +95,7 @@ public static class GameLocationEffectPatcher
                 __instance.sourceOriginalPosition = __instance.position;
 
                 if (__instance.rulesetEffect != null
-                    && __instance.rulesetEffect.SourceGuid != 0 //PATCH: check if source guid is zero
-                    && RulesetEntity.TryGetEntity(__instance.rulesetEffect.SourceGuid, out RulesetCharacter entity)
-                    && entity != null) //PATCH: check if entity is null
+                    && RulesetEntity.TryGetEntity(__instance.rulesetEffect.SourceGuid, out RulesetCharacter entity))
                 {
                     var fromActor = GameLocationCharacter.GetFromActor(entity);
 
