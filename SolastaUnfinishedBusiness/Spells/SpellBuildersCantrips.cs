@@ -837,7 +837,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeFire, 0, DieType.D8)
                             .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 20, (5, 1), (11, 2), (17, 3))
                             .Build())
-                    .SetParticleEffectParameters(FireBolt)
+                    .SetParticleEffectParameters(BurningHands_B)
                     .Build())
             .AddToDB();
 
@@ -854,11 +854,11 @@ internal static partial class SpellBuilders
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
                 DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
-            .SetImpactParticleReference(FireBolt)
+            .SetImpactParticleReference(BurningHands_B)
             .SetAttackModeOnly()
             .AddToDB();
 
-        return SpellDefinitionBuilder
+        var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell, FlameBlade)
             .SetSpellLevel(0)
@@ -894,9 +894,14 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add,
                                 true)
                             .Build())
-                    .SetParticleEffectParameters(FireBolt)
+                    .SetParticleEffectParameters(BurningHands_B)
                     .Build())
             .AddToDB();
+
+        // we don't need impact effects on spell cast but only on additional attack damage and leap damage
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+
+        return spell;
     }
 
     // remove effect forms from resonating strike leap damage if not a hit
