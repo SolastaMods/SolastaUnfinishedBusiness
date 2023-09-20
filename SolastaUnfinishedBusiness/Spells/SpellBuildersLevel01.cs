@@ -19,6 +19,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -557,6 +558,131 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Gone With The Wind
+
+    internal static SpellDefinition BuildGoneWithTheWind()
+    {
+        const string NAME = "StrikeWithTheWind";
+
+        var movementAffinityStrikeWithTheWind = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{NAME}")
+            .SetGuiPresentation($"Condition{NAME}Movement", Category.Condition, Gui.NoLocalization)
+            .SetBaseSpeedAdditiveModifier(5)
+            .AddToDB();
+
+        var conditionStrikeWithTheWindAttackMovement = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Movement")
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
+            .SetPossessive()
+            .SetSpecialDuration()
+            .SetFeatures(movementAffinityStrikeWithTheWind)
+            .SetConditionParticleReference(ConditionSpellbladeArcaneEscape.conditionParticleReference)
+            .AddToDB();
+
+        var additionalDamageStrikeWithTheWind = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag(NAME)
+            .SetDamageDice(DieType.D8, 1)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetImpactParticleReference(PowerSorcererChildRiftRiftwalkLandingDamage
+                .EffectDescription.EffectParticleParameters.impactParticleReference)
+            .AddToDB();
+
+        var combatAffinityStrikeWithTheWind = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}")
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+        var conditionStrikeWithTheWindAttack = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Attack")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDisengaging)
+            .SetPossessive()
+            .SetFeatures(additionalDamageStrikeWithTheWind, combatAffinityStrikeWithTheWind)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetCustomSubFeatures(
+                new OnConditionAddedOrRemovedStrikeWithTheWindAttack(conditionStrikeWithTheWindAttackMovement))
+            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
+            .AddToDB();
+
+        var powerStrikeWithTheWind = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionStrikeWithTheWindAttack))
+                    .Build())
+            .AddToDB();
+
+        var conditionStrikeWithTheWind = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionDisengaging, $"Condition{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .AddFeatures(powerStrikeWithTheWind)
+            .SetCustomSubFeatures(new AddUsablePowerFromCondition(powerStrikeWithTheWind))
+            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.StrikeWithTheWind, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(1)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionStrikeWithTheWind))
+                    .SetParticleEffectParameters(AnnoyingBee)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class OnConditionAddedOrRemovedStrikeWithTheWindAttack : IOnConditionAddedOrRemoved
+    {
+        private readonly ConditionDefinition _conditionStrikeWithTheWindMovement;
+
+        public OnConditionAddedOrRemovedStrikeWithTheWindAttack(ConditionDefinition conditionStrikeWithTheWindMovement)
+        {
+            _conditionStrikeWithTheWindMovement = conditionStrikeWithTheWindMovement;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.InflictCondition(
+                _conditionStrikeWithTheWindMovement.Name,
+                _conditionStrikeWithTheWindMovement.DurationType,
+                _conditionStrikeWithTheWindMovement.DurationParameter,
+                _conditionStrikeWithTheWindMovement.TurnOccurence,
+                AttributeDefinitions.TagEffect,
+                target.guid,
+                target.CurrentFaction.Name,
+                0,
+                null,
+                0,
+                0,
+                0);
+        }
     }
 
     #endregion

@@ -235,6 +235,7 @@ internal static class SpellsContext
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
         RegisterSpell(ThunderousSmite, 0, SpellListPaladin);
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
+        RegisterSpell(BuildGoneWithTheWind(), 0, SpellListRanger);
 
         // 2nd level
         RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
