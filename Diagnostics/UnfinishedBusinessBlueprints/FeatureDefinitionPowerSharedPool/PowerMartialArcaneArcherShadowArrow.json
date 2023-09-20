@@ -36,7 +36,7 @@
     "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Strength",
+    "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
