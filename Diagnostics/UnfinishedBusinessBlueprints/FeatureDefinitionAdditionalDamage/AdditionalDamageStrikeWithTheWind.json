@@ -36,12 +36,7 @@
   "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "c91a1a10a9ff08b40807427b37e88e90",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,

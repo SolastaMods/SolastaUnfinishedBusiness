@@ -551,7 +551,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -610,7 +610,6 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D8, 1)
             .SetSpecificDamageType(DamageTypeForce)
-            .SetImpactParticleReference(WindWall.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var combatAffinityStrikeWithTheWind = FeatureDefinitionCombatAffinityBuilder
@@ -662,6 +661,7 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetVerboseComponent(true)
             .SetRequiresConcentration(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -780,8 +780,9 @@ internal static partial class SpellBuilders
                     Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
                 .SetSpellLevel(1)
+                .SetCastingTime(ActivationTime.Action)
                 .SetMaterialComponent(MaterialComponentType.Mundane)
-                .SetVerboseComponent(false)
+                .SetVerboseComponent(true)
                 .SetSomaticComponent(true)
                 .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetUniqueInstance()
@@ -814,9 +815,12 @@ internal static partial class SpellBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetVerboseComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSubSpells(subSpells.ToArray())
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -1102,13 +1106,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Hours1)
+            .SetRitualCasting(ActivationTime.Hours1)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
-            .SetSpellLevel(1)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetUniqueInstance()
-            .SetCastingTime(ActivationTime.Hours1)
-            .SetRitualCasting(ActivationTime.Hours1)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1347,7 +1352,7 @@ internal static partial class SpellBuilders
                         .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                         .SetDamageForm(DamageTypePiercing, 1, DieType.D10)
                         .Build())
-                    .SetParticleEffectParameters(RayOfEnfeeblement)
+                    .SetParticleEffectParameters(ShadowDagger)
                     .Build())
             .AddToDB();
 
@@ -1381,6 +1386,8 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.casterParticleReference;
         spell.EffectDescription.EffectParticleParameters.zoneParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.zoneParticleReference;
 

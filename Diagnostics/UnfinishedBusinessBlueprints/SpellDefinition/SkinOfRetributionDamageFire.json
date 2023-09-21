@@ -332,7 +332,7 @@
     "preparePriority": "Low"
   },
   "concentrationAction": "None",
-  "verboseComponent": false,
+  "verboseComponent": true,
   "somaticComponent": true,
   "materialComponentType": "Mundane",
   "specificMaterialComponentTag": "Diamond",

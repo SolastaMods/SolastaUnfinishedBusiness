@@ -60,12 +60,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetMaterialComponent(MaterialComponentType.None)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -108,11 +110,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -156,12 +161,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -209,11 +216,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -286,11 +296,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -308,9 +321,12 @@ internal static partial class SpellBuilders
             .Create("MinorLifesteal")
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetVerboseComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -360,11 +376,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -381,10 +400,13 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create("ThornyVines")
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -436,11 +458,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -499,11 +524,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Wrack", Resources.Wrack, 128))
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -570,12 +598,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create("SunlightBlade")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
-            .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetVerboseComponent(false)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -649,12 +679,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVerboseComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -712,12 +744,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create("BoomingBlade")
             .SetGuiPresentation(Category.Spell, DivineBlade)
-            .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetVerboseComponent(false)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -861,15 +895,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell, FlameBlade)
-            .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetVerboseComponent(false)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetCustomSubFeatures(
-                AttackAfterMagicEffect.ResonatingStrikeAttack,
-                new MagicEffectFinishedByMeResonatingStrike(powerResonatingStrike))
-            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -896,6 +929,9 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(BurningHands_B)
                     .Build())
+            .SetCustomSubFeatures(
+                AttackAfterMagicEffect.ResonatingStrikeAttack,
+                new MagicEffectFinishedByMeResonatingStrike(powerResonatingStrike))
             .AddToDB();
 
         // we don't need impact effects on spell cast but only on additional attack damage and leap damage
@@ -979,6 +1015,13 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -997,11 +1040,6 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(0)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .AddToDB();
 
         spell.SetCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(spell));

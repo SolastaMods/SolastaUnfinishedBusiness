@@ -88,7 +88,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetRequiresConcentration(true)
             .SetEffectDescription(effectDescription)
             .AddToDB();
