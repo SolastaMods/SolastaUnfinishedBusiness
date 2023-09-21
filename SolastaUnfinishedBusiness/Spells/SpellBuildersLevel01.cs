@@ -550,7 +550,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVerboseComponent(true)
-            .SetSomaticComponent(false)
+            .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -940,12 +940,14 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("Sanctuary", Resources.Sanctuary, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Sanctuary", Resources.Sanctuary, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

@@ -154,7 +154,7 @@ internal static partial class SpellBuilders
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(true)
+            .SetSomaticComponent(false)
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)

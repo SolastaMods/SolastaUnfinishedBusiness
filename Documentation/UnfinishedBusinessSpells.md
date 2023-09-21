@@ -10,7 +10,7 @@ Fire a blast of focused air at your target.
 
 Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 
-# 4. - Blade Ward (V) level 0 Abjuration
+# 4. - Blade Ward (V,S) level 0 Abjuration
 
 You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
 
@@ -57,7 +57,7 @@ You hurl a 4-inch-diameter sphere of energy at a creature that you can see withi
 
 Burst a luminous cube that briefly blinds anyone within 10 ft. 8d10 is how many hit points of creatures this spell can affect.
 
-# 15. - Crusader's Mantle (V,S) level 3 Evocation
+# 15. - Crusader's Mantle (V) level 3 Evocation
 
 Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
 
@@ -105,7 +105,7 @@ Draw enemies together and crush them with gravitational energy.
 
 Causes light sources such as torches and mana lamps in the area of effect to light up.
 
-# 27. - Magnify Gravity (V) level 1 Transmutation
+# 27. - Magnify Gravity (V,S) level 1 Transmutation
 
 Sharply increase gravity in a 10-foot-radius sphere to crush and slow targets.
 
@@ -125,7 +125,7 @@ Blazing orbs of fire plummet to the ground at a single point you can see within 
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 32. - Mind Spike (V,S) level 0 Enchantment
+# 32. - Mind Spike (S) level 0 Enchantment
 
 You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 

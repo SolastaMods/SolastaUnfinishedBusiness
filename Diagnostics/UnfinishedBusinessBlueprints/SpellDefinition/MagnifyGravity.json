@@ -343,7 +343,7 @@
   },
   "concentrationAction": "None",
   "verboseComponent": true,
-  "somaticComponent": false,
+  "somaticComponent": true,
   "materialComponentType": "None",
   "specificMaterialComponentTag": "Diamond",
   "specificMaterialComponentCostGp": 100,

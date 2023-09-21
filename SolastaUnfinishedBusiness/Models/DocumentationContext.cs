@@ -220,9 +220,34 @@ internal static class DocumentationContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
+            var title = featureDefinition.FormatTitle();
             var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-            outString.AppendLine($"# {counter++}. - {featureDefinition.FormatTitle()}");
+            if (featureDefinition is SpellDefinition spellDefinition)
+            {
+                var components = " (";
+
+                components += spellDefinition.MaterialComponentType == RuleDefinitions.MaterialComponentType.Specific
+                    ? "M,"
+                    : string.Empty;
+
+                components += spellDefinition.VerboseComponent
+                    ? "V,"
+                    : string.Empty;
+
+                components += spellDefinition.SomaticComponent
+                    ? "S,"
+                    : string.Empty;
+
+                components = components.Substring(0, components.Length - 1) + ")";
+
+                var school = DatabaseRepository.GetDatabase<SchoolOfMagicDefinition>()
+                    .GetElement(spellDefinition.SchoolOfMagic).FormatTitle();
+
+                title += $"{components} level {spellDefinition.SpellLevel} {school}";
+            }
+
+            outString.AppendLine($"# {counter++}. - {title}");
             outString.AppendLine();
             outString.AppendLine(description);
             outString.AppendLine();

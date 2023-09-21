@@ -98,6 +98,7 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity Prone Immunity
+* Feature/&ConditionAffinityCircleLandLandsStrideTitle
 * Condition Affinity Veil Immunity
 * Damage Affinity Bludgeoning Resistance
 * Damage Affinity Necrotic Resistance

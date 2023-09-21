@@ -342,7 +342,7 @@
     "preparePriority": "Low"
   },
   "concentrationAction": "None",
-  "verboseComponent": true,
+  "verboseComponent": false,
   "somaticComponent": true,
   "materialComponentType": "None",
   "specificMaterialComponentTag": "Diamond",
