@@ -315,7 +315,7 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "None",
+  "vocalSpellSemeType": "Buff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -323,9 +323,9 @@
     "description": "Spell/&SpikeBarrageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3567ccebbdb2bc043a8e651701b16bbc",
-      "m_SubObjectName": "Entangle",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "f2460c5d-aa29-59a8-9577-0ecfbc878844",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

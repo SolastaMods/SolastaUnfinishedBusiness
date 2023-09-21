@@ -1155,6 +1155,7 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeThunder, 2, DieType.D6),
                         EffectFormBuilder.Create()
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
@@ -1370,7 +1371,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Entangle)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SpikeBarrage, 128))
             .SetCastingTime(ActivationTime.BonusAction)
             .SetSpellLevel(1)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
@@ -1378,6 +1379,7 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetVerboseComponent(true)
             .SetRequiresConcentration(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
