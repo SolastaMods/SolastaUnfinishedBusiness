@@ -58,9 +58,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CausticZap, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
             .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
@@ -97,10 +99,12 @@ internal static partial class SpellBuilders
                 .SetGuiPresentation(title, description, sprite)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(1)
+                .SetCastingTime(ActivationTime.Action)
                 .SetMaterialComponent(MaterialComponentType.Specific)
                 .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 50, false)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
                 .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-                .SetCastingTime(ActivationTime.Action)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -188,11 +192,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(1)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -262,9 +269,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("EnsnaringStrike", Resources.EnsnaringStrike, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(1)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -324,12 +333,14 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("Mule", Resources.Mule, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Mule", Resources.Mule, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
-            .SetConcentrationAction(ActionDefinitions.ActionParameter.None)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
@@ -349,9 +360,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RadiantMotes, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -421,7 +434,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
             .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -487,7 +503,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
             .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -526,6 +545,13 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MagnifyGravity, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -550,11 +576,6 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(1)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
         return spell;
@@ -589,8 +610,7 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D8, 1)
             .SetSpecificDamageType(DamageTypeForce)
-            .SetImpactParticleReference(PowerSorcererChildRiftRiftwalkLandingDamage
-                .EffectDescription.EffectParticleParameters.impactParticleReference)
+            .SetImpactParticleReference(WindWall.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var combatAffinityStrikeWithTheWind = FeatureDefinitionCombatAffinityBuilder
@@ -635,18 +655,19 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.StrikeWithTheWind, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetSpellLevel(1)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(false)
-            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionStrikeWithTheWind))
-                    .SetParticleEffectParameters(AnnoyingBee)
                     .Build())
             .AddToDB();
 
@@ -758,9 +779,11 @@ internal static partial class SpellBuilders
                 .SetGuiPresentation(title, Gui.Format(SUB_SPELL_DESCRIPTION, title),
                     Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-                .SetVerboseComponent(false)
-                .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetSpellLevel(1)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
+                .SetVerboseComponent(false)
+                .SetSomaticComponent(true)
+                .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetUniqueInstance()
                 .SetEffectDescription(
                     EffectDescriptionBuilder
@@ -1079,7 +1102,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetSpellLevel(1)
@@ -1154,7 +1177,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
             .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1233,6 +1259,13 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, CalmEmotions)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Minute1)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1245,11 +1278,6 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(MageArmor)
                     .Build())
-            .SetCastingTime(ActivationTime.Minute1)
-            .SetSpellLevel(1)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
             .AddToDB();
 
         return spell;
@@ -1292,6 +1320,156 @@ internal static partial class SpellBuilders
                 TEXT,
                 false,
                 (ConsoleStyleDuplet.ParameterType.Initiative, roll.ToString()));
+        }
+    }
+
+    #endregion
+
+    #region Spike Barrage
+
+    internal static SpellDefinition BuildSpikeBarrage()
+    {
+        const string NAME = "SpikeBarrage";
+
+        var powerSpikeBarrage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .SetDamageForm(DamageTypePiercing, 1, DieType.D10)
+                        .Build())
+                    .SetParticleEffectParameters(Entangle)
+                    .Build())
+            .AddToDB();
+
+        var conditionSpikeBarrage = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionBranded)
+            .SetPossessive()
+            .AddToDB();
+
+        conditionSpikeBarrage.SetCustomSubFeatures(
+            new PhysicalAttackFinishedByMeSpikeBarrage(powerSpikeBarrage, conditionSpikeBarrage));
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Entangle)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetSpellLevel(1)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSpikeBarrage))
+                    .SetParticleEffectParameters(FireBolt)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class PhysicalAttackFinishedByMeSpikeBarrage : IPhysicalAttackFinishedByMe, IModifyEffectDescription
+    {
+        private readonly ConditionDefinition _conditionSpikeBarrage;
+        private readonly FeatureDefinitionPower _powerSpikeBarrage;
+
+        public PhysicalAttackFinishedByMeSpikeBarrage(
+            FeatureDefinitionPower powerSpikeBarrage,
+            ConditionDefinition conditionSpikeBarrage)
+        {
+            _powerSpikeBarrage = powerSpikeBarrage;
+            _conditionSpikeBarrage = conditionSpikeBarrage;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerSpikeBarrage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionSpikeBarrage.Name, out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm != null)
+            {
+                damageForm.diceNumber = activeCondition.EffectLevel;
+            }
+
+            character.RemoveCondition(activeCondition);
+
+            return effectDescription;
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome outcome,
+            int damageAmount)
+        {
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            if (!attackMode.Ranged)
+            {
+                yield break;
+            }
+
+            var targets = new List<GameLocationCharacter>();
+
+            targets.SetRange(Gui.Battle.AllContenders
+                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                            && x.Side != attacker.Side
+                            && battleManager.IsWithin1Cell(x, defender)));
+
+            if (targets.Empty())
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            var actionParams = action.ActionParams.Clone();
+            var usablePower = UsablePowersProvider.Get(_powerSpikeBarrage, rulesetCharacter);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = rulesetImplementationService
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(targets);
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 

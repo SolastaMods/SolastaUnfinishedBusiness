@@ -224,18 +224,19 @@ internal static class SpellsContext
         RegisterSpell(CausticZap, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(EarthTremor, 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
-        RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
+        RegisterSpell(BuildGoneWithTheWind(), 0, SpellListRanger);
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildSanctuary(), 0, SpellListCleric, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
+        RegisterSpell(BuildSpikeBarrage(), 0, SpellListRanger);
         RegisterSpell(ThunderousSmite, 0, SpellListPaladin);
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
-        RegisterSpell(BuildGoneWithTheWind(), 0, SpellListRanger);
 
         // 2nd level
         RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);

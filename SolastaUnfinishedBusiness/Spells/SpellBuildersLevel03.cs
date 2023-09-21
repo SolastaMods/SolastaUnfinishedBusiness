@@ -61,7 +61,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
             .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -115,11 +118,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(3)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
 
         return spell;
@@ -144,6 +150,14 @@ internal static partial class SpellBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Spell,
                 Sprites.GetSprite("CrusadersMantle", Resources.CrusadersMantle, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -160,11 +174,6 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetRequiresConcentration(true)
-            .SetSpellLevel(3)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
 
         return spell;
@@ -181,6 +190,13 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -208,11 +224,6 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(3)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
 
         return spell;
@@ -229,18 +240,21 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("ElementalWeapon", Resources.ElementalWeapon, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetUniqueInstance()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetRequiresConcentration(true)
-            .SetSpellLevel(3)
-            .SetUniqueInstance()
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSubSpells(DamagesAndEffects
                 .Where(x => x.Item1 != DamageTypePoison)
                 .Select(x => BuildElementalWeaponSubspell(x.Item1, x.Item2)).ToArray())
@@ -346,7 +360,15 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create($"ElementalWeapon{damageType}")
             .SetGuiPresentation(Category.Spell, MagicWeapon)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetUniqueInstance()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(MagicWeapon)
@@ -383,12 +405,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(effectParticleParameters)
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetRequiresConcentration(true)
-            .SetUniqueInstance()
-            .SetSpellLevel(3)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
             .AddToDB();
 
         return spell;
@@ -423,9 +440,13 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create(SpiritShroudName)
             .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(3)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
