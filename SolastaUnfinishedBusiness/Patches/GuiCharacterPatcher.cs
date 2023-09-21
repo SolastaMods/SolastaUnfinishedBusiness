@@ -415,7 +415,7 @@ public static class GuiCharacterPatcher
 
     private static void ChangePortrait(GuiCharacter __instance, RawImage rawImage)
     {
-        if (!Main.Settings.EnableCustomPortraits)
+        if (!Main.Settings.EnableCustomPortraits || ToolsContext.FunctorRespec.IsRespecing)
         {
             return;
         }
