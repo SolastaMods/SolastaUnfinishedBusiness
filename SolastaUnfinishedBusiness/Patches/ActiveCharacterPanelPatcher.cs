@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomUI;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -35,6 +36,18 @@ public static class ActiveCharacterPanelPatcher
         [UsedImplicitly]
         public static void Postfix(ActiveCharacterPanel __instance)
         {
+            //PATCH: support a better ratio with custom portraits
+            if (Main.Settings.EnableCustomPortraits)
+            {
+                __instance.characterPortrait.rectTransform.sizeDelta = new Vector2(164, 247);
+                __instance.characterPortrait.rectTransform.anchoredPosition = new Vector2(-48, 0);
+            }
+            else
+            {
+                __instance.characterPortrait.rectTransform.sizeDelta = new Vector2(212, 247);
+                __instance.characterPortrait.rectTransform.anchoredPosition = new Vector2(0, 0);
+            }
+            
             //PATCH: support for button that shows info about non-Hero characters
             if (!Main.Settings.ShowButtonWithControlledMonsterInfo
                 || __instance.GuiCharacter.RulesetCharacter is not RulesetCharacterMonster)
