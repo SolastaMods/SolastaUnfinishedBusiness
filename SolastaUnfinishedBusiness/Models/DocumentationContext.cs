@@ -218,7 +218,10 @@ internal static class DocumentationContext
 
         foreach (var featureDefinition in db
                      .Where(x => filter(x))
-                     .OrderBy(x => x.FormatTitle()))
+                     .OrderBy(x =>
+                         x is SpellDefinition spellDefinition
+                             ? spellDefinition.SpellLevel + x.FormatTitle()
+                             : x.FormatTitle()))
         {
             var title = featureDefinition.FormatTitle();
             var description = LazyManStripXml(featureDefinition.FormatDescription());
