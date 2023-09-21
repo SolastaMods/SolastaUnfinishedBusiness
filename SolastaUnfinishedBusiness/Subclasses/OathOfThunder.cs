@@ -87,7 +87,7 @@ public sealed class OathOfThunder : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (15, 2), (20, 3))
-                            .SetDamageForm(DamageTypeLightning, 2, DieType.D6)
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -130,8 +130,8 @@ public sealed class OathOfThunder : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeLightning, 1, DieType.D3)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.ClassLevel)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (15, 2), (20, 3))
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -409,10 +409,5 @@ public sealed class OathOfThunder : AbstractSubclass
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
-    }
-
-    private sealed class PaladinClassHolder : IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Paladin;
     }
 }
