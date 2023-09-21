@@ -106,12 +106,6 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
         return this;
     }
 
-    internal SpellDefinitionBuilder SetConcentrationAction(ActionDefinitions.ActionParameter concentrationAction)
-    {
-        Definition.concentrationAction = concentrationAction;
-        return this;
-    }
-
     #region Constructors
 
     protected SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)

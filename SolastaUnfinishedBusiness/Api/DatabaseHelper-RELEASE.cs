@@ -565,9 +565,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } =
             GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection");
 
-        
         internal static ConditionDefinition ConditionSpellbladeArcaneEscape { get; } =
-            GetDefinition<ConditionDefinition>("ConditionSpellbladeArcaneEscape"); 
+            GetDefinition<ConditionDefinition>("ConditionSpellbladeArcaneEscape");
+
         internal static ConditionDefinition ConditionSpiritGuardians { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
 
@@ -1728,10 +1728,7 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
-        
-        internal static FeatureDefinitionPower PowerSorcererChildRiftRiftwalkLandingDamage { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftRiftwalkLandingDamage");
-        
+
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");
 
@@ -3183,7 +3180,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
         internal static SpellDefinition AnimalFriendship { get; } = GetDefinition<SpellDefinition>("AnimalFriendship");
-        internal static SpellDefinition AnnoyingBee { get; } = GetDefinition<SpellDefinition>("AnnoyingBee");
         internal static SpellDefinition ArcaneSword { get; } = GetDefinition<SpellDefinition>("ArcaneSword");
         internal static SpellDefinition Bane { get; } = GetDefinition<SpellDefinition>("Bane");
         internal static SpellDefinition Banishment { get; } = GetDefinition<SpellDefinition>("Banishment");

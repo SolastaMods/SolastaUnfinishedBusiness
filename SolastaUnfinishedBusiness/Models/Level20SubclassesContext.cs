@@ -129,7 +129,8 @@ internal static class Level20SubclassesContext
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderMovement", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderMovement", Category.Condition,
+                        Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .AddToDB();
