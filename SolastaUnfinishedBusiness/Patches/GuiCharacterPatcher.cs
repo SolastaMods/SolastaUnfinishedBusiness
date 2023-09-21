@@ -413,6 +413,14 @@ public static class GuiCharacterPatcher
     private static readonly Dictionary<string, Texture2D> CustomHeroPortraits = new();
     private static readonly Dictionary<string, Texture2D> CustomMonsterPortraits = new();
 
+    internal static bool HasCustomPortrait(RulesetCharacter rulesetCharacter)
+    {
+        var name = rulesetCharacter.Name;
+
+        return rulesetCharacter is RulesetCharacterHero && CustomHeroPortraits.ContainsKey(name)
+               || rulesetCharacter is RulesetCharacterMonster && CustomMonsterPortraits.ContainsKey(name);
+    }
+
     private static void ChangePortrait(GuiCharacter __instance, RawImage rawImage)
     {
         if (!Main.Settings.EnableCustomPortraits || ToolsContext.FunctorRespec.IsRespecing)
