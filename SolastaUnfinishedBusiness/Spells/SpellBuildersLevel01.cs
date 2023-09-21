@@ -1333,7 +1333,7 @@ internal static partial class SpellBuilders
 
         var powerSpikeBarrage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Spell)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -1347,14 +1347,15 @@ internal static partial class SpellBuilders
                         .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                         .SetDamageForm(DamageTypePiercing, 1, DieType.D10)
                         .Build())
-                    .SetParticleEffectParameters(Entangle)
+                    .SetParticleEffectParameters(RayOfEnfeeblement)
                     .Build())
             .AddToDB();
 
         var conditionSpikeBarrage = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionBranded)
+            .SetGuiPresentation(Category.Condition, ConditionTrueStrike)
             .SetPossessive()
+            .SetConditionType(ConditionType.Beneficial)
             .AddToDB();
 
         conditionSpikeBarrage.SetCustomSubFeatures(
@@ -1377,9 +1378,11 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSpikeBarrage))
-                    .SetParticleEffectParameters(FireBolt)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.zoneParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.zoneParticleReference;
 
         return spell;
     }
@@ -1435,8 +1438,13 @@ internal static partial class SpellBuilders
             RollOutcome outcome,
             int damageAmount)
         {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
+                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionSpikeBarrage.Name);
+
                 yield break;
             }
 
@@ -1457,7 +1465,6 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var actionParams = action.ActionParams.Clone();
