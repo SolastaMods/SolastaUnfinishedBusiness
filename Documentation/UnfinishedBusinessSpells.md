@@ -93,207 +93,215 @@ You gain the service of a familiar. The familiar can use the help action and you
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 24. - Gravity Sinkhole
+# 24. - Gone with The Wind
+
+You move like the wind. For the duration, your movement doesn't provoke opportunity attacks. Once before the spell ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra 1d8 force damage on a hit. Whether you hit or miss, your walking speed increases by 30 feet until the end of that turn.
+
+# 25. - Gravity Sinkhole
 
 Draw enemies together and crush them with gravitational energy.
 
-# 25. - Illuminating Sphere
+# 26. - Illuminating Sphere
 
 Causes light sources such as torches and mana lamps in the area of effect to light up.
 
-# 26. - Magnify Gravity
+# 27. - Magnify Gravity
 
 Sharply increase gravity in a 10-foot-radius sphere to crush and slow targets.
 
-# 27. - Mantle of Thorns
+# 28. - Mantle of Thorns
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 28. - Mass Heal
+# 29. - Mass Heal
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 29. - Meteor Swarm [Single Target]
+# 30. - Meteor Swarm [Single Target]
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 30. - Mind Blank
+# 31. - Mind Blank
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 31. - Mind Spike
+# 32. - Mind Spike
 
 You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 
-# 32. - Minor Lifesteal
+# 33. - Minor Lifesteal
 
 You drain life energy from a hostile creature that you can see within 30 feet. Deal 1d8 necrotic damage to target on hit and heal for half the damage dealt. This spell has no effect on undead and constructs. The damage gains an additional die at levels 5th, 11th and 17th.
 
-# 33. - Mirror Image
+# 34. - Mirror Image
 
 Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's armor class is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground).
 
-# 34. - Mule
+# 35. - Mule
 
 The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 
-# 35. - Petal Storm
+# 36. - Petal Storm
 
 Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 ft in any direction.
 
-# 36. - Power Word Heal
+# 37. - Power Word Heal
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 37. - Power Word Kill
+# 38. - Power Word Kill
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 38. - Protect Threshold
+# 39. - Protect Threshold
 
 Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
 
-# 39. - Pulse Wave
+# 40. - Pulse Wave
 
 Hurl enemies away with intense gravitational pressure.
 
-# 40. - Radiant Motes
+# 41. - Radiant Motes
 
 Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 
-# 41. - Raise Ghoul
+# 42. - Raise Ghoul
 
 Summons Ghoul:
 A ravenous undead creature, constantly searching for flesh to eat.
 
-# 42. - Raise Skeletal Enforcer
+# 43. - Raise Skeletal Enforcer
 
 Summons Skeletal Enforcer:
 A powerful undead creature armed with an axe and a shield.
 
-# 43. - Raise Skeletal Knight
+# 44. - Raise Skeletal Knight
 
 Summons Skeletal Knight:
 A powerful undead creature, created by raising a dead knight.
 
-# 44. - Raise Skeletal Marksman
+# 45. - Raise Skeletal Marksman
 
 Summons Skeletal Marksman:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
 
-# 45. - Raise Skeleton
+# 46. - Raise Skeleton
 
 Summons Skeleton:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 
-# 46. - Raise Skeleton Archer
+# 47. - Raise Skeleton Archer
 
 Summons Skeleton Archer:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 
-# 47. - Raise Spectral Avenger
+# 48. - Raise Spectral Avenger
 
 Summons Spectral Avenger:
 A powerful, ethereal undead creature.
 
-# 48. - Raise Wight
+# 49. - Raise Wight
 
 Summons Wight:
 A Wight
 
-# 49. - Raise Wight Lord
+# 50. - Raise Wight Lord
 
 Summons Wight Lord:
 A powerful wight, trained to withstand the light of day.
 
-# 50. - Reverse Gravity
+# 51. - Reverse Gravity
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 51. - Sanctuary
+# 52. - Sanctuary
 
 Ward an ally within 30 ft. The ward ends if the warded creature makes an attack or casts a spell that affects an enemy.
 
-# 52. - Searing Smite
+# 53. - Searing Smite
 
 On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.
 At the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.
 Higher Levels: for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
 
-# 53. - Shadow Blade
+# 54. - Shadow Blade
 
 You weave together threads of shadow to create a sword of solidified gloom in your hand.
 
-# 54. - Shapechange
+# 55. - Shapechange
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 55. - Skin of Retribution
+# 56. - Skin of Retribution
 
 Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
 
-# 56. - Sonic Boom
+# 57. - Sonic Boom
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
-# 57. - Sound Burst
+# 58. - Sound Burst
 
 Create a burst of thundering sound, forcing creatures adjacent to you to make a Constitution saving throw or take 1d6 thunder damage.
 This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 
-# 58. - Spirit Shroud
+# 59. - Spike Barrage
+
+The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one.
+
+# 60. - Spirit Shroud
 
 You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 ft of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
 In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
 
-# 59. - Staggering Smite
+# 61. - Staggering Smite
 
 The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
 
-# 60. - Sunlit Blade
+# 62. - Sunlit Blade
 
 Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 
-# 61. - Sword Storm
+# 63. - Sword Storm
 
 You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 ft of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
 
-# 62. - Thorny Vines
+# 64. - Thorny Vines
 
 You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 ft closer to you.
 
-# 63. - Thunderous Smite
+# 65. - Thunderous Smite
 
 On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 ft away from you and knocked prone.
 
-# 64. - Time Stop
+# 66. - Time Stop
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 65. - Web
+# 67. - Web
 
 You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. Each creature that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its actions to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained.
 
-# 66. - Weird
+# 68. - Weird
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
-# 67. - Winter's Breath
+# 69. - Winter's Breath
 
 Create a blast of cold wind to chill your enemies and knock them prone.
 
-# 68. - Wrack
+# 70. - Wrack
 
 Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d8 necrotic damage, and preventing them from dashing or disengaging.
 
-# 69. - Wrathful Smite
+# 71. - Wrathful Smite
 
 Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened.
 

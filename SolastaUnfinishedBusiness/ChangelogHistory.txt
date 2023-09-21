@@ -1,4 +1,15 @@
-﻿1.5.94.15:
+﻿1.5.94.16:
+
+- added Gone with The Wind, and Spike Barrage spells to the Ranger
+- changed Oath of Thunder 3rd level smites damage progression
+- fixed all spells incorrect M,V,S components and vocal spell type
+- fixed Burning Blade ignoring fire damage and also changed SFX
+- fixed RESPEC interaction with custom portraits feature
+- fixed Shadow Arrow using Strength instead of Wisdom on save
+- fixed Shield Techniques reacting to any save type instead of DEX
+- fixed vanilla missing translation terms on some activation types
+
+1.5.94.15:
 
 # ATTENTION:
 
