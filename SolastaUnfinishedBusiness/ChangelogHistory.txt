@@ -1,4 +1,16 @@
-﻿1.5.94.15:
+﻿1.5.94.16:
+
+- added Spike Barrage, Steel Whirlwind and Swift Strike spells
+- changed Oath of Thunder 3rd level smites damage progression
+- fixed all spells incorrect M,V,S components and vocal spell type
+- fixed Burning Blade ignoring fire damage, and changed damage SFX
+- fixed custom portraits incorrect aspect ratio on hero action bar
+- fixed RESPEC crashing with custom portraits feature turned on
+- fixed Shadow Arrow using Strength instead of Wisdom on save
+- fixed Shield Techniques reacting to anything instead of only DEX
+- fixed vanilla missing translation terms on auto activation types
+
+1.5.94.15:
 
 # ATTENTION:
 

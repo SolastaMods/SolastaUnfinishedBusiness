@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=Ummantelt
 Condition/&ConditionBoomingBladeTitle=Die Hülle der Booming Blade
 Condition/&ConditionMindSpikeDescription=Zieht 1W4 vom nächsten Rettungswurf ab.
 Condition/&ConditionMindSpikeTitle=Gedankenspitze
-Condition/&ConditionResonatingStrikeDescription=Auf der 5. Stufe verursachen durch diesen Cantrip ausgelöste Angriffe zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich auf der 11. und 17. Stufe weiter um 1W8.
 Condition/&ConditionResonatingStrikeTitle=Resonanz
 Condition/&ConditionSunlightBladeDescription=Auf der 5. Stufe verursachen durch diesen Cantrip ausgelöste Angriffe zusätzlich 1W8 Strahlungsschaden. Der Schaden erhöht sich auf der 11. und 17. Stufe weiter um 1W8.
 Condition/&ConditionSunlightBladeTitle=Der Brand der sonnenbeschienenen Klinge

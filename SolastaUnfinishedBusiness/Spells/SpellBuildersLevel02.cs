@@ -43,6 +43,13 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -69,12 +76,6 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(2)
-            .SetVerboseComponent(false)
-            .SetSomaticComponent(true)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
 
         spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
@@ -104,6 +105,11 @@ internal static partial class SpellBuilders
             .Create(ColorSpray, NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ColorBurst, 128))
             .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
@@ -189,9 +195,11 @@ internal static partial class SpellBuilders
             .Create(InsectPlague, NAME)
             .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(2)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(InsectPlague.EffectDescription)
@@ -242,8 +250,11 @@ internal static partial class SpellBuilders
             .Create(GuardianOfFaith, "ProtectThreshold")
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpikeGrowth.EffectDescription)
@@ -285,8 +296,6 @@ internal static partial class SpellBuilders
             .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionRestrainedByWeb)
-            //.SetSpecialDuration(DurationType.Round, 1)
-            //.SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
 
         conditionRestrainedBySpellWeb.specialDuration = false;
@@ -309,8 +318,11 @@ internal static partial class SpellBuilders
             .Create("SpellWeb")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetSpellLevel(2)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -384,8 +396,13 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(FlameBlade, NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ShadeBlade, 128))
-            .SetMaterialComponent(MaterialComponentType.None)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(FlameBlade)
@@ -397,6 +414,7 @@ internal static partial class SpellBuilders
         summonForm.itemDefinition = itemShadowBlade;
 
         var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;
+
         itemPropertyForm.featureBySlotLevel.Clear();
         itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(2, 0));
         itemPropertyForm.featureBySlotLevel.Add(BuildShadowBladeFeatureBySlotLevel(3, 1));

@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=폭음에 감싸임
 Condition/&ConditionBoomingBladeTitle=폭음검의 감싸임
 Condition/&ConditionMindSpikeDescription=다음 내성굴림에서 1d4 차감.
 Condition/&ConditionMindSpikeTitle=정신 쐐기
-Condition/&ConditionResonatingStrikeDescription=5레벨부터, 이 캔트립으로 유발된 공격은 추가로 1d8 천둥 피해를 가합니다. 11, 17레벨에 추가 피해가 1d8씩 증가합니다.
 Condition/&ConditionResonatingStrikeTitle=공명
 Condition/&ConditionSunlightBladeDescription=5레벨부터, 이 캔트립으로 유발된 공격은 추가로 1d8 광휘 피해를 가합니다. 11, 17레벨에 추가 피해가 1d8씩 증가합니다.
 Condition/&ConditionSunlightBladeTitle=햇빛 칼날 화상

@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=鞘付き
 Condition/&ConditionBoomingBladeTitle=ブーミングブレードの鞘
 Condition/&ConditionMindSpikeDescription=次のセーヴィング スローから 1d4 を減算します。
 Condition/&ConditionMindSpikeTitle=マインドスパイク
-Condition/&ConditionResonatingStrikeDescription=5 レベルでは、このキャントリップによって引き起こされる攻撃は追加の 1d8 雷ダメージを与えます。 11 レベルと 17 レベルでは、ダメージはさらに 1d8 増加します。
 Condition/&ConditionResonatingStrikeTitle=共振
 Condition/&ConditionSunlightBladeDescription=5 レベルでは、このキャントリップによって引き起こされる攻撃は追加の 1d8 放射ダメージを与えます。 11 レベルと 17 レベルでは、ダメージはさらに 1d8 増加します。
 Condition/&ConditionSunlightBladeTitle=陽光の刃の火傷

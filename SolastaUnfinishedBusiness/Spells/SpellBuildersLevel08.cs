@@ -24,7 +24,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder

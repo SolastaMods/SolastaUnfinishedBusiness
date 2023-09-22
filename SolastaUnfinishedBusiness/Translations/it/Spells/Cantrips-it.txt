@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=Inguainato
 Condition/&ConditionBoomingBladeTitle=Il fodero della Lama Booming
 Condition/&ConditionMindSpikeDescription=Sottrae 1d4 dal prossimo tiro salvezza.
 Condition/&ConditionMindSpikeTitle=Mente Spike
-Condition/&ConditionResonatingStrikeDescription=Al 5° livello, gli attacchi innescati da questo trucchetto infliggono 1d8 danni da tuono addizionali. Il danno aumenta ulteriormente di 1d8 all'11° e al 17° livello.
 Condition/&ConditionResonatingStrikeTitle=Risonanza
 Condition/&ConditionSunlightBladeDescription=Al 5° livello, gli attacchi innescati da questo trucchetto infliggono 1d8 danni radianti addizionali. Il danno aumenta ulteriormente di 1d8 all'11° e al 17° livello.
 Condition/&ConditionSunlightBladeTitle=L'ustione della lama illuminata dal sole

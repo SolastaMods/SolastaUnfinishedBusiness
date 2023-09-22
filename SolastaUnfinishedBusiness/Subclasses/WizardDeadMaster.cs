@@ -224,12 +224,14 @@ public sealed class WizardDeadMaster : AbstractSubclass
                 var createDeadSpell = SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
                     .SetGuiPresentation(title, description, icon)
-                    .SetRequiresConcentration(true)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                     .SetSpellLevel(spell)
-                    .SetMaterialComponent(MaterialComponentType.Mundane)
-                    .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
                     .SetCastingTime(ActivationTime.Action)
+                    .SetMaterialComponent(MaterialComponentType.Mundane)
+                    .SetVerboseComponent(true)
+                    .SetSomaticComponent(true)
+                    .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+                    .SetRequiresConcentration(true)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()

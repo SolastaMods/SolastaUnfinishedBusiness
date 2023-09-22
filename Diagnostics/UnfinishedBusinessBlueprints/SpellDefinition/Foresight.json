@@ -308,7 +308,7 @@
   },
   "concentrationAction": "None",
   "verboseComponent": true,
-  "somaticComponent": false,
+  "somaticComponent": true,
   "materialComponentType": "Mundane",
   "specificMaterialComponentTag": "Diamond",
   "specificMaterialComponentCostGp": 100,

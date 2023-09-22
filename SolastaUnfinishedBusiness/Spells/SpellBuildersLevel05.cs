@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -6,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -34,8 +37,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(5)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetCastingTime(ActivationTime.BonusAction)
-            .SetSomaticComponent(false)
             .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -83,7 +88,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
             .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetRequiresConcentration(true)
             .SetEffectDescription(effectDescription)
             .AddToDB();
@@ -125,15 +133,129 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SonicBoom, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(5)
+            .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
             .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Steel Whirlwind
+
+    internal static SpellDefinition BuildSteelWhirlwind()
+    {
+        const string Name = "SteelWhirlwind";
+
+        var powerTeleport = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Teleport")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMelekTeleport)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
+                    .Build())
+            .AddToDB();
+
+        var conditionTeleport = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Teleport")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
+            .SetCustomSubFeatures(
+                new AddUsablePowerFromCondition(powerTeleport),
+                new OnConditionAddedOrRemovedSteelWhirlwind())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SteelWhirlwind, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique, 5)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeForce, 6, DieType.D10),
+                        EffectFormBuilder.ConditionForm(
+                            conditionTeleport, ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(GravitySlam)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
+
+        return spell;
+    }
+
+    // keep a tab of all allowed conditions for filtering
+    // ContextualFormation is only used by the game when spawning new locations
+    // as far as no other feature uses this collection should be safe
+    private sealed class OnConditionAddedOrRemovedSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
+    {
+        public void Filter(CursorLocationSelectPosition __instance)
+        {
+            var source = __instance.ActionParams.ActingCharacter;
+            var positions = __instance.validPositionsCache;
+
+            positions.RemoveAll(x => source.ContextualFormation != null && !source.ContextualFormation.Contains(x));
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc == null || Global.CurrentAction == null)
+            {
+                return;
+            }
+
+            glc.contextualFormation = new List<int3>();
+
+            foreach (var boxInt in Global.CurrentAction.actionParams.TargetCharacters
+                         .Select(targetCharacter => new BoxInt(
+                             targetCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1))))
+            {
+                foreach (var position in boxInt.EnumerateAllPositionsWithin())
+                {
+                    glc.ContextualFormation.Add(position);
+                }
+            }
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc == null)
+            {
+                return;
+            }
+
+            glc.contextualFormation = null;
+        }
     }
 
     #endregion
@@ -175,7 +297,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
             .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

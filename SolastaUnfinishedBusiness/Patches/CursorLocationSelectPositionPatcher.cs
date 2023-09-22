@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using TA;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -56,6 +61,29 @@ public static class CursorLocationSelectPositionPatcher
             }
 
             return result;
+        }
+    }
+
+    [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.ComputeValidPositions))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeValidPositions_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(IEnumerator values, CursorLocationSelectPosition __instance)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: supports `IFilterTargetingPosition`
+            foreach (var iFilter in __instance.ActionParams.ActingCharacter.RulesetCharacter.AllConditions
+                         .Select(condition =>
+                             condition.ConditionDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>()))
+            {
+                iFilter?.Filter(__instance);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -162,27 +163,26 @@ public static class RulesetImplementationManagerLocationPatcher
         }
     }
 
-    //PATCH: allows shape changers to get bonuses effects defined in features / feats / etc.
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
         nameof(RulesetImplementationManagerLocation.ApplyShapeChangeForm))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ApplyShapeChangeForm_Patch
     {
-        //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
+        private static readonly List<RulesetEffectPower> PowersUsedByMe = new();
+        private static readonly List<RulesetEffectSpell> SpellsCastByMe = new();
+
         [UsedImplicitly]
         public static void Prefix(RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            if (formsParams.targetCharacter is not RulesetCharacter targetCharacter)
-            {
-                return;
-            }
+            var source = formsParams.sourceCharacter;
 
-            targetCharacter.SpellsCastByMe.AddRange(targetCharacter.SpellsCastByMe);
-            targetCharacter.SpellsCastByMe.Clear();
+            //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
+            SpellsCastByMe.SetRange(source.SpellsCastByMe);
+            source.SpellsCastByMe.Clear();
 
-            targetCharacter.PowersUsedByMe.AddRange(targetCharacter.PowersUsedByMe);
-            targetCharacter.PowersUsedByMe.Clear();
+            PowersUsedByMe.SetRange(source.PowersUsedByMe);
+            source.PowersUsedByMe.Clear();
         }
 
         [UsedImplicitly]
@@ -191,6 +191,12 @@ public static class RulesetImplementationManagerLocationPatcher
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             var source = formsParams.sourceCharacter;
+
+            //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
+            source.SpellsCastByMe.SetRange(SpellsCastByMe);
+            source.PowersUsedByMe.SetRange(PowersUsedByMe);
+
+            //PATCH: allows shape changers to get bonuses effects defined in features / feats / etc.
             var sourceAbilityBonus = formsParams.activeEffect.ComputeSourceAbilityBonus(source);
             var proficiencyBonus = formsParams.activeEffect.ComputeSourceProficiencyBonus(source);
             var creatureTags = formsParams.targetSubstitute.CreatureTags;

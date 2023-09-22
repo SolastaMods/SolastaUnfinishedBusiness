@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=Embainhado
 Condition/&ConditionBoomingBladeTitle=Bainha da Lâmina Crescente
 Condition/&ConditionMindSpikeDescription=Subtrai 1d4 do próximo teste de resistência.
 Condition/&ConditionMindSpikeTitle=Pico Mental
-Condition/&ConditionResonatingStrikeDescription=No 5º nível, os ataques desencadeados por este truque causam 1d8 de dano trovejante adicional. O dano aumenta ainda mais em 1d8 no 11º e 17º níveis.
 Condition/&ConditionResonatingStrikeTitle=Ressonância
 Condition/&ConditionSunlightBladeDescription=No 5º nível, os ataques desencadeados por este truque causam 1d8 de dano radiante adicional. O dano aumenta ainda mais em 1d8 no 11º e 17º níveis.
 Condition/&ConditionSunlightBladeTitle=Queimadura da Lâmina iluminada pelo sol

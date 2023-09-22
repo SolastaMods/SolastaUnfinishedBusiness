@@ -27,7 +27,9 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Minute1)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Divination)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -63,10 +65,12 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create("MassHeal")
             .SetGuiPresentation(Category.Spell, Heal)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetSpellLevel(9)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -102,7 +106,9 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -144,7 +150,9 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -190,7 +198,9 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -218,7 +228,10 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent("Diamond", 1500, false)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -285,7 +298,9 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Divination)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -312,7 +327,9 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetSomaticComponent(false)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder

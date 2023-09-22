@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=Gainé
 Condition/&ConditionBoomingBladeTitle=Gaine de la Lame Boomante
 Condition/&ConditionMindSpikeDescription=Soustrait 1d4 au prochain jet de sauvegarde.
 Condition/&ConditionMindSpikeTitle=Pic d'esprit
-Condition/&ConditionResonatingStrikeDescription=Au niveau 5, les attaques déclenchées par ce sort mineur infligent 1d8 dégâts de tonnerre supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
 Condition/&ConditionResonatingStrikeTitle=Résonance
 Condition/&ConditionSunlightBladeDescription=Au niveau 5, les attaques déclenchées par ce sort mineur infligent 1d8 dégâts radiants supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
 Condition/&ConditionSunlightBladeTitle=Brûlure de la Lame ensoleillée

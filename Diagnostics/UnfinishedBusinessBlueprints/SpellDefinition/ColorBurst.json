@@ -315,7 +315,7 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "Debuff",
+  "vocalSpellSemeType": "Attack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

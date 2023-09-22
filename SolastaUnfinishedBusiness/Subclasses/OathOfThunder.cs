@@ -87,7 +87,7 @@ public sealed class OathOfThunder : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (15, 2), (20, 3))
-                            .SetDamageForm(DamageTypeLightning, 2, DieType.D6)
+                            .SetDamageForm(DamageTypeThunder, 2, DieType.D6)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -130,9 +130,8 @@ public sealed class OathOfThunder : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (15, 2), (20, 3))
                             .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice,
-                                LevelSourceType.ClassLevelHalfUp)
                             .Build(),
                         EffectFormBuilder
                             .Create()

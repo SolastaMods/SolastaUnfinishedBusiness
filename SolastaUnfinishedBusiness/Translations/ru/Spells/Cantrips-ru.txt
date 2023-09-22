@@ -6,7 +6,6 @@ Condition/&ConditionBoomingBladeSheathedTitle=Окутан громом
 Condition/&ConditionBoomingBladeTitle=Покров Громового клинка
 Condition/&ConditionMindSpikeDescription=Вычитает 1d4 из следующего спасброска.
 Condition/&ConditionMindSpikeTitle=Расщепление разума
-Condition/&ConditionResonatingStrikeDescription=На 5-м уровне атаки, вызванные этим заговором, наносят дополнительные 1d8 урона звуком. Урон также дополнительно увеличивается на 1d8 на 11-м и 17-м уровнях.
 Condition/&ConditionResonatingStrikeTitle=Резонанс
 Condition/&ConditionSunlightBladeDescription=На 5-м уровне атаки, вызванные этим заговором, наносят дополнительные 1d8 урона излучением. Урон также дополнительно увеличивается на 1d8 на 11-м и 17-м уровнях.
 Condition/&ConditionSunlightBladeTitle=Солнечный ожог

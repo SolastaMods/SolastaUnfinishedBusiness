@@ -173,6 +173,14 @@ internal static class ArmorFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            var savingThrowAbility = action.ActionParams.RulesetEffect?.EffectDescription.SavingThrowAbility
+                                     ?? action.ActionParams.AttackMode?.EffectDescription.SavingThrowAbility;
+
+            if (savingThrowAbility != AttributeDefinitions.Dexterity)
+            {
+                yield break;
+            }
+
             if (!ShouldTrigger(battleManager, defender, helper))
             {
                 yield break;
