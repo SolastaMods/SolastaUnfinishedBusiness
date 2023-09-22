@@ -417,8 +417,8 @@ public static class GuiCharacterPatcher
     {
         var name = rulesetCharacter.Name;
 
-        return rulesetCharacter is RulesetCharacterHero && CustomHeroPortraits.ContainsKey(name)
-               || rulesetCharacter is RulesetCharacterMonster && CustomMonsterPortraits.ContainsKey(name);
+        return (rulesetCharacter is RulesetCharacterHero && CustomHeroPortraits.ContainsKey(name))
+               || (rulesetCharacter is RulesetCharacterMonster && CustomMonsterPortraits.ContainsKey(name));
     }
 
     private static void ChangePortrait(GuiCharacter __instance, RawImage rawImage)
