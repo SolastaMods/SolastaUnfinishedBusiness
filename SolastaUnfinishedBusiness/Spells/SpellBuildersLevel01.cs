@@ -1448,13 +1448,8 @@ internal static partial class SpellBuilders
             RollOutcome outcome,
             int damageAmount)
         {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, _conditionSpikeBarrage.Name);
-
                 yield break;
             }
 
@@ -1476,6 +1471,7 @@ internal static partial class SpellBuilders
             }
 
             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             var actionParams = action.ActionParams.Clone();
             var usablePower = UsablePowersProvider.Get(_powerSpikeBarrage, rulesetCharacter);
