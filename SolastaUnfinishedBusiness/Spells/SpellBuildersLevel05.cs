@@ -1,4 +1,9 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -6,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -140,6 +146,111 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Steel Whirlwind
+
+    internal static SpellDefinition BuildSteelWhirlwind()
+    {
+        const string Name = "SteelWhirlwind";
+
+        var powerTeleport = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Teleport")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMelekTeleport)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
+                    .Build())
+            .AddToDB();
+
+        var conditionTeleport = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Teleport")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction)
+            .SetCustomSubFeatures(
+                new AddUsablePowerFromCondition(powerTeleport),
+                new OnConditionAddedOrRemovedSteelWhirlwind())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SunlightBlade, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique, 5)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeForce, 6, DieType.D10),
+                        EffectFormBuilder.ConditionForm(
+                            conditionTeleport, ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    // keep a tab of all allowed conditions for filtering
+    private sealed class OnConditionAddedOrRemovedSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc == null || Global.CurrentAction == null)
+            {
+                return;
+            }
+
+            glc.contextualFormation = new List<int3>();
+
+            foreach (var boxInt in Global.CurrentAction.actionParams.TargetCharacters
+                         .Select(targetCharacter => new BoxInt(
+                             targetCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1))))
+            {
+                foreach (var position in boxInt.EnumerateAllPositionsWithin())
+                {
+                    glc.ContextualFormation.Add(position);
+                }
+            }
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc == null)
+            {
+                return;
+            }
+
+            glc.contextualFormation = null;
+        }
+
+        public void Filter(CursorLocationSelectPosition __instance, GameLocationCharacter source, List<int3> positions)
+        {
+            positions.RemoveAll(x => source.ContextualFormation != null && !source.ContextualFormation.Contains(x));
+        }
     }
 
     #endregion

@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Mit einer Bonusaktion können Sie sich bis zu 60 Fuß weit zu einem freien, sichtbaren Feld teleportieren.
 Condition/&ConditionFarStepTitle=Weiter Schritt
+Feature/&PowerSteelWhirlwindTeleportDescription=Sie können sich zu einem unbesetzten Feld teleportieren, das Sie im Umkreis von 5 Fuß um eines der Ziele sehen können, die Sie bei Ihrem „Stählerner Wirbelwind“-Angriff getroffen oder verfehlt haben.
+Feature/&PowerSteelWhirlwindTeleportTitle=Teleportieren
 Feedback/&AdditionalDamageBanishingSmiteFormat=Smite verbannen!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} fügt {1} mehr Schaden durch einen verbannenden Schlag zu (+{2})
 Spell/&BanishingSmiteDescription=Ihr nächster Treffer verursacht mit Ihrer Waffe zusätzlichen Kraftschaden von 5W10. Wenn dieser Angriff das Ziel außerdem auf 50 Trefferpunkte oder weniger reduziert, verbannen Sie es für 1 Minute.
@@ -10,3 +12,5 @@ Spell/&MantleOfThornsDescription=Umgeben Sie sich mit einer Aura aus Dornen. Die
 Spell/&MantleOfThornsTitle=Mantel aus Dornen
 Spell/&SonicBoomDescription=Eine kleine Kugel in der gleichen Farbe wie der verwendete Ballon erscheint an einem von Ihnen gewählten Punkt in Reichweite und dehnt sich dann mit einem lauten Knall zu einer Kraftexplosion aus. Jede Kreatur in einem Umkreis von 30 Fuß muss einen kraftsparenden Wurf durchführen. Ein Ziel wird bis zu 30 Fuß von der Mitte entfernt und verursacht bei einem fehlgeschlagenen Rettungswurf 6W8 Donnerschaden, bei einem erfolgreichen Rettungswurf halb so viel Schaden und keine Bewegung.
 Spell/&SonicBoomTitle=Überschallknall
+Spell/&SteelWhirlwindDescription=Sie schwingen die beim Casting verwendete Waffe und verschwinden dann, um wie der Wind zuzuschlagen. Wählen Sie bis zu fünf Kreaturen aus, die Sie in Reichweite sehen können. Führen Sie einen Nahkampfangriff gegen jedes Ziel durch. Bei einem Treffer erleidet ein Ziel 6W10 Kraftschaden. Sie können sich dann zu einem unbesetzten Feld teleportieren, das Sie im Umkreis von 5 Fuß um eines der Ziele, die Sie getroffen oder verfehlt haben, sehen können.
+Spell/&SteelWhirlwindTitle=Stahlwirbelwind
