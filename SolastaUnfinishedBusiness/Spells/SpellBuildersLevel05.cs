@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -177,7 +174,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{Name}Teleport")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction)
+            .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
             .SetCustomSubFeatures(
                 new AddUsablePowerFromCondition(powerTeleport),
                 new OnConditionAddedOrRemovedSteelWhirlwind())
@@ -185,7 +182,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SunlightBlade, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SteelWhirlwind, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
@@ -203,16 +200,29 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.DamageForm(DamageTypeForce, 6, DieType.D10),
                         EffectFormBuilder.ConditionForm(
                             conditionTeleport, ConditionForm.ConditionOperation.Add, true))
-                    .SetParticleEffectParameters(ShadowDagger)
+                    .SetParticleEffectParameters(GravitySlam)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
 
     // keep a tab of all allowed conditions for filtering
+    // ContextualFormation is only used by the game when spawning new locations
+    // as far as no other feature uses this collection should be safe
     private sealed class OnConditionAddedOrRemovedSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
     {
+        public void Filter(CursorLocationSelectPosition __instance)
+        {
+            var source = __instance.ActionParams.ActingCharacter;
+            var positions = __instance.validPositionsCache;
+
+            positions.RemoveAll(x => source.ContextualFormation != null && !source.ContextualFormation.Contains(x));
+        }
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var glc = GameLocationCharacter.GetFromActor(target);
@@ -245,11 +255,6 @@ internal static partial class SpellBuilders
             }
 
             glc.contextualFormation = null;
-        }
-
-        public void Filter(CursorLocationSelectPosition __instance, GameLocationCharacter source, List<int3> positions)
-        {
-            positions.RemoveAll(x => source.ContextualFormation != null && !source.ContextualFormation.Contains(x));
         }
     }
 

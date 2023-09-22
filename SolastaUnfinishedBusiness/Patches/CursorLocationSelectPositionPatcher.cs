@@ -64,7 +64,6 @@ public static class CursorLocationSelectPositionPatcher
         }
     }
 
-    //PATCH: supports `IFilterTargetingPosition`
     [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.ComputeValidPositions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -73,49 +72,17 @@ public static class CursorLocationSelectPositionPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CursorLocationSelectPosition __instance)
         {
-            var boxInt = new BoxInt(
-                __instance.ActionParams.ActingCharacter.LocationPosition, new int3(0), new int3(0));
-
-            boxInt.Inflate((int)__instance.maxDistance);
-
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
-            var locationService = ServiceRepository.GetService<IGameLocationService>();
-            var onlyFeedbackGroundCells = __instance.isTeleportingSpell;
-            var locationCharacter = __instance.ActionParams?.ActingCharacter;
-
-            if (locationCharacter == null)
+            while (values.MoveNext())
             {
-                yield break;
+                yield return values.Current;
             }
 
-            foreach (var int3 in boxInt.EnumerateAllPositionsWithin())
-            {
-                if (int3.Distance(__instance.centerPosition, int3) <= (double)__instance.maxDistance
-                    && positioningService.CanPlaceCharacter(locationCharacter, int3, CellHelpers.PlacementMode.Station)
-                    && positioningService.CanCharacterStayAtPosition_Floor(
-                        locationCharacter, int3, onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))
-                {
-                    if (!__instance.requiresVisibilityForPosition
-                            ? new GridAccessor(locationService).Visited(int3)
-                            : visibilityService.IsCellPerceivedByCharacter(int3, locationCharacter))
-                    {
-                        __instance.validPositionsCache.Add(int3);
-                    }
-                }
-
-                if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
-            }
-
-            //PATCH: filter valid positions
-            foreach (var iFilter in locationCharacter.RulesetCharacter.AllConditions
+            //PATCH: supports `IFilterTargetingPosition`
+            foreach (var iFilter in __instance.ActionParams.ActingCharacter.RulesetCharacter.AllConditions
                          .Select(condition =>
                              condition.ConditionDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>()))
             {
-                iFilter?.Filter(__instance, locationCharacter, __instance.validPositionsCache);
+                iFilter?.Filter(__instance);
             }
         }
     }

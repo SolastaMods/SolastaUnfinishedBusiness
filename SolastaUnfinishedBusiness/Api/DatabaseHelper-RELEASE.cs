@@ -3294,6 +3294,7 @@ internal static partial class DatabaseHelper
             GetDefinition<SpellDefinition>("GlobeOfInvulnerability");
 
         internal static SpellDefinition Goodberry { get; } = GetDefinition<SpellDefinition>("Goodberry");
+        internal static SpellDefinition GravitySlam { get; } = GetDefinition<SpellDefinition>("GravitySlam");
         internal static SpellDefinition Grease { get; } = GetDefinition<SpellDefinition>("Grease");
 
         internal static SpellDefinition GreaterInvisibility { get; } =
