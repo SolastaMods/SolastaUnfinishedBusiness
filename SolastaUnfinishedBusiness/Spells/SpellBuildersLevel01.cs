@@ -1453,7 +1453,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            if (!attackMode.Ranged)
+            if (!attackMode.Ranged && !attackMode.Thrown)
             {
                 yield break;
             }
