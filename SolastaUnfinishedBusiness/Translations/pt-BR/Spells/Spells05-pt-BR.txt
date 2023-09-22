@@ -1,7 +1,7 @@
 Condition/&ConditionFarStepDescription=Você pode usar uma ação bônus para se teletransportar até 60 pés para um espaço desocupado que você possa ver.
 Condition/&ConditionFarStepTitle=Passo distante
 Feature/&PowerSteelWhirlwindTeleportDescription=Você pode se teletransportar para um espaço desocupado que você possa ver a até 1,5 metro de um dos alvos que você acertou ou errou em seu ataque Redemoinho de Aço.
-Feature/&PowerSteelWhirlwindTeleportTitle=teleporte
+Feature/&PowerSteelWhirlwindTeleportTitle=Teleporte
 Feedback/&AdditionalDamageBanishingSmiteFormat=Banindo Smite!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} causa mais dano a {1} por meio de uma punição de banimento (+{2})
 Spell/&BanishingSmiteDescription=Seu próximo golpe causa 5d10 de dano de força adicional com sua arma. Além disso, se este ataque reduzir o alvo a 50 pontos de vida ou menos, você o bane por 1 min.
