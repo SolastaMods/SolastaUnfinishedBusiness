@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,8 +31,8 @@ internal static class DocumentationContext
 
         DumpClasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
         DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
-        DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
+        DumpSubclasses("UnfinishedBusiness", GetModdedSubclasses());
+        DumpSubclasses("Solasta", GetVanillaSubclasses());
         DumpRaces("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
         DumpRaces("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
         DumpOthers<FeatDefinition>("UnfinishedBusinessFeats", x => FeatsContext.Feats.Contains(x));
@@ -120,16 +121,50 @@ internal static class DocumentationContext
         sw.WriteLine(outString.ToString());
     }
 
-    private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)
+    private static IEnumerable<(CharacterClassDefinition, CharacterSubclassDefinition)> GetModdedSubclasses()
+    {
+        return from kvp in SubclassesContext.KlassListContextTab
+                .OrderBy(x => x.Key.FormatTitle())
+            let klass = kvp.Key
+            from subClass in kvp.Value.AllSubClasses
+                .OrderBy(x => x.FormatTitle())
+            select (klass, subClass);
+    }
+
+    private static IEnumerable<(CharacterClassDefinition, CharacterSubclassDefinition)> GetVanillaSubclasses()
+    {
+        return from klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                .OrderBy(x => x.FormatTitle())
+            from subclassName in klass.FeatureUnlocks
+                .Select(x => x.FeatureDefinition)
+                .OfType<FeatureDefinitionSubclassChoice>()
+                .SelectMany(x => x.Subclasses)
+            let subClass = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                .GetElement(subclassName)
+            select (klass, subClass);
+    }
+
+    private static void DumpSubclasses(
+        string groupName,
+        IEnumerable<(CharacterClassDefinition, CharacterSubclassDefinition)> collection)
     {
         var outString = new StringBuilder();
-        var counter = 1;
+        var counter = 0;
 
-        foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                     .Where(x => filter(x))
-                     .OrderBy(x => x.FormatTitle()))
+        CharacterClassDefinition klass = null;
+
+        foreach (var (characterClassDefinition, subclass) in collection)
         {
-            outString.AppendLine($"# {counter++}. - {subclass.FormatTitle()}");
+            if (klass != characterClassDefinition)
+            {
+                counter = 1;
+                klass = characterClassDefinition;
+
+                outString.AppendLine($"# {klass.FormatTitle()}");
+                outString.AppendLine();
+            }
+
+            outString.AppendLine($"## {counter++}. {subclass.FormatTitle()}");
             outString.AppendLine();
             outString.AppendLine(LazyManStripXml(subclass.FormatDescription()));
             outString.AppendLine();
@@ -143,7 +178,7 @@ internal static class DocumentationContext
                 if (level != featureUnlockByLevel.level)
                 {
                     outString.AppendLine();
-                    outString.AppendLine($"## Level {featureUnlockByLevel.level}");
+                    outString.AppendLine($"### Level {featureUnlockByLevel.level}");
                     outString.AppendLine();
                     level = featureUnlockByLevel.level;
                 }

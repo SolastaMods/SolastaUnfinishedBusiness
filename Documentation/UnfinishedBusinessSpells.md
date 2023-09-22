@@ -90,40 +90,40 @@ The next time you hit a creature with a weapon attack before this spell ends, a 
 
 You gain the service of a familiar. The familiar can use the help action and you can cast any touch or melee hit spell through the familiar.
 
-# 23. - Gone with The Wind (V) level 1 Transmutation
-
-You move like the wind. For the duration, your movement doesn't provoke opportunity attacks. Once before the spell ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra 1d8 force damage on a hit. Whether you hit or miss, your walking speed increases by 30 feet until the end of that turn.
-
-# 24. - Magnify Gravity (V,S) level 1 Transmutation
+# 23. - Magnify Gravity (V,S) level 1 Transmutation
 
 Sharply increase gravity in a 10-foot-radius sphere to crush and slow targets.
 
-# 25. - Mule (V,S) level 1 Transmutation
+# 24. - Mule (V,S) level 1 Transmutation
 
 The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 
-# 26. - Radiant Motes (V,S) level 1 Evocation
+# 25. - Radiant Motes (V,S) level 1 Evocation
 
 Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 
-# 27. - Sanctuary (V,S) level 1 Abjuration
+# 26. - Sanctuary (V,S) level 1 Abjuration
 
 Ward an ally within 30 ft. The ward ends if the warded creature makes an attack or casts a spell that affects an enemy.
 
-# 28. - Searing Smite (V) level 1 Evocation
+# 27. - Searing Smite (V) level 1 Evocation
 
 On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.
 At the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.
 Higher Levels: for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
 
-# 29. - Skin of Retribution (V,S) level 1 Abjuration
+# 28. - Skin of Retribution (V,S) level 1 Abjuration
 
 Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
 
-# 30. - Spike Barrage (V) level 1 Conjuration
+# 29. - Spike Barrage (V) level 1 Conjuration
 
 The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one.
+
+# 30. - Swift Strike (V) level 1 Transmutation
+
+You move like the wind. For the duration, your movement doesn't provoke opportunity attacks. Once before the spell ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra 1d8 force damage on a hit. Whether you hit or miss, your walking speed increases by 30 feet until the end of that turn.
 
 # 31. - Thunderous Smite (V) level 1 Evocation
 
@@ -250,58 +250,62 @@ A powerful skeleton archer that shoots magical arrows imbued with necrotic magic
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
-# 59. - Raise Spectral Avenger (V,S) level 6 Necromancy
+# 59. - Steel Whirlwind (M,S) level 5 Conjuration
+
+You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed.
+
+# 60. - Raise Spectral Avenger (V,S) level 6 Necromancy
 
 Summons Spectral Avenger:
 A powerful, ethereal undead creature.
 
-# 60. - Raise Wight (V,S) level 7 Necromancy
+# 61. - Raise Wight (V,S) level 7 Necromancy
 
 Summons Wight:
 A Wight
 
-# 61. - Reverse Gravity (V,S) level 7 Transmutation
+# 62. - Reverse Gravity (V,S) level 7 Transmutation
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 62. - Mind Blank (V,S) level 8 Transmutation
+# 63. - Mind Blank (V,S) level 8 Transmutation
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 63. - Raise Wight Lord (V,S) level 8 Necromancy
+# 64. - Raise Wight Lord (V,S) level 8 Necromancy
 
 Summons Wight Lord:
 A powerful wight, trained to withstand the light of day.
 
-# 64. - Foresight (V,S) level 9 Transmutation
+# 65. - Foresight (V,S) level 9 Transmutation
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 65. - Mass Heal (V,S) level 9 Transmutation
+# 66. - Mass Heal (V,S) level 9 Transmutation
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 66. - Meteor Swarm [Single Target] (V,S) level 9 Transmutation
+# 67. - Meteor Swarm [Single Target] (V,S) level 9 Transmutation
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 67. - Power Word Heal (V,S) level 9 Enchantment
+# 68. - Power Word Heal (V,S) level 9 Enchantment
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 68. - Power Word Kill (V,S) level 9 Transmutation
+# 69. - Power Word Kill (V,S) level 9 Transmutation
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 69. - Shapechange (M,V,S) level 9 Transmutation
+# 70. - Shapechange (M,V,S) level 9 Transmutation
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 70. - Time Stop (V) level 9 Transmutation
+# 71. - Time Stop (V) level 9 Transmutation
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 71. - Weird (V,S) level 9 Illusion
+# 72. - Weird (V,S) level 9 Illusion
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
