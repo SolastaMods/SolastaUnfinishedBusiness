@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=ボーナス アクションを使用すると、目に見える空いているスペースまで最大 60 フィートまでテレポートできます。
 Condition/&ConditionFarStepTitle=ファーステップ
+Feature/&PowerSteelWhirlwindTeleportDescription=Steel Whirlwind 攻撃で命中または逃したターゲットの 1 つから 5 フィート以内に見える空いているスペースにテレポートできます。
+Feature/&PowerSteelWhirlwindTeleportTitle=テレポート
 Feedback/&AdditionalDamageBanishingSmiteFormat=バニシング・スマイト!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} は追放スマイトにより {1} により多くのダメージを与えます (+{2})
 Spell/&BanishingSmiteDescription=次のヒットは、武器による追加の 5d10 フォース ダメージを与えます。さらに、この攻撃でターゲットのヒットポイントが 50 以下になった場合、1 分間追放します。
@@ -10,3 +12,5 @@ Spell/&MantleOfThornsDescription=茨のオーラで身を包みましょう。�
 Spell/&MantleOfThornsTitle=いばらのマントル
 Spell/&SonicBoomDescription=使用した風船と同じ色の小さな球体が範囲内で選択した点に表示され、大きな音を立てて広がり、力が爆発します。半径30フィート内の各クリーチャーはストレングスセーヴィングスローを行わなければなりません。ターゲットは中心から最大 30 フィート離れたところに押し出され、セーブに失敗した場合は 6d8 の雷撃ダメージを与え、成功した場合は半分のダメージで移動はなくなりました。
 Spell/&SonicBoomTitle=ソニックブーム
+Spell/&SteelWhirlwindDescription=あなたは詠唱に使用された武器を輝かせ、そして風のように攻撃するために消えます。範囲内で見えるクリーチャーを最大 5 つ選択します。各ターゲットに対して近接呪文攻撃を行います。命中すると、ターゲットは 6d10 のフォースダメージを受けます。その後、ヒットまたはミスしたターゲットの 1 つから 5 フィート以内に見える空いているスペースにテレポートできます。
+Spell/&SteelWhirlwindTitle=鋼鉄の旋風

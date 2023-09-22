@@ -1,6 +1,6 @@
 ﻿1.5.94.16:
 
-- added Gone with The Wind, and Spike Barrage spells to the Ranger
+- added Spike Barrage, Steel Whirlwind and Swift Strike spells
 - changed Oath of Thunder 3rd level smites damage progression
 - fixed all spells incorrect M,V,S components and vocal spell type
 - fixed Burning Blade ignoring fire damage, and changed damage SFX

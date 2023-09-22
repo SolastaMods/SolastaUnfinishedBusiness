@@ -1924,11 +1924,11 @@ Paladins of the Thunder were born to end the everlasting war across the planes. 
 
 * Channel Divinity: Divine Bolt
 
-As a bonus action, you can call down a bolt of lightning to smite an enemy creature you can see within 60 feet of you. You deal 1d6 lightning damage. This damage increases by another 1d6 at 7th, 15th and 20th level.
+As a bonus action, you can call down a bolt of lightning to smite an enemy creature you can see within 60 feet of you. You deal 2d6 lightning damage. This damage increases by another 1d6 at 7th, 15th and 20th level.
 
 * Channel Divinity: Thunderous Rebuke
 
-When an enemy creature hits you with a melee attack while being up to 5 feet away from you, you can react to strike it with roaring thunder. You deal 1d6 lightning damage. This damage increases by another 1d6 at 7th, 15th and 20th level.
+When an enemy creature hits you with a melee attack while being up to 5 feet away from you, you can react to strike it with roaring thunder. You deal 2d6 thunder damage. This damage increases by another 1d6 at 7th, 15th and 20th level.
 
 * Mjolnir
 

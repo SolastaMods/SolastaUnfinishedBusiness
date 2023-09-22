@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Vous pouvez utiliser une action bonus pour vous téléporter jusqu'à 18 mètres dans un espace inoccupé que vous pouvez voir.
 Condition/&ConditionFarStepTitle=Pas loin
+Feature/&PowerSteelWhirlwindTeleportDescription=Vous pouvez vous téléporter dans un espace inoccupé que vous pouvez voir à moins de 1,50 mètre de l'une des cibles que vous avez touchées ou manquées lors de votre attaque Steel Whirlwind.
+Feature/&PowerSteelWhirlwindTeleportTitle=Téléportation
 Feedback/&AdditionalDamageBanishingSmiteFormat=Châtiment de bannissement !
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige plus de dégâts à {1} via un châtiment de bannissement (+{2})
 Spell/&BanishingSmiteDescription=Votre prochain coup inflige 5d10 dégâts de force supplémentaires avec votre arme. De plus, si cette attaque réduit la cible à 50 points de vie ou moins, vous la bannissez pendant 1 min.
@@ -10,3 +12,5 @@ Spell/&MantleOfThornsDescription=Entourez-vous d'une aura d'épines. Ceux qui co
 Spell/&MantleOfThornsTitle=Mantelet d'épines
 Spell/&SonicBoomDescription=Un petit orbe de la même couleur que le ballon utilisé apparaît à un point que vous choisissez à portée, puis se dilate avec un craquement fort dans une explosion de force. Chaque créature dans un rayon de 9 mètres doit effectuer un jet de sauvegarde de Force. Une cible est poussée jusqu'à 9 mètres du centre et subit 6d8 dégâts de tonnerre en cas d'échec, ou la moitié de ces dégâts et aucun mouvement en cas de réussite.
 Spell/&SonicBoomTitle=Détonation supersonique
+Spell/&SteelWhirlwindDescription=Vous faites fleurir l'arme utilisée lors du casting, puis vous disparaissez pour frapper comme le vent. Choisissez jusqu'à cinq créatures que vous pouvez voir à portée. Lancez une attaque de sort au corps à corps contre chaque cible. En cas de coup, une cible subit 6d10 dégâts de force. Vous pouvez ensuite vous téléporter dans un espace inoccupé que vous pouvez voir à moins de 1,50 mètre de l'une des cibles que vous avez touchées ou manquées.
+Spell/&SteelWhirlwindTitle=Tourbillon d'acier

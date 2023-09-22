@@ -22,6 +22,5 @@ Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeDescription=Когда в�
 Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactDescription=Используйте реакцию, чтобы отомстить цели.
 Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeReactTitle=Громоподобное возмездие
 Reaction/&SpendPowerPowerOathOfThunderThunderousRebukeTitle=Громоподобное возмездие
-StrikeWithTheWindFeature/&PowerOathOfThunderDivineBoltTitle=Божественный канал: Божественная молния
 Subclass/&OathOfThunderDescription=Паладины Грома были рождены, чтобы положить конец вечной войне на всех планах. Даже те, кто путешествует вдали от дома, всё равно стремятся исполнить свой долг, поражая врагов яростью грома и силой древних богов.
 Subclass/&OathOfThunderTitle=Клятва грома

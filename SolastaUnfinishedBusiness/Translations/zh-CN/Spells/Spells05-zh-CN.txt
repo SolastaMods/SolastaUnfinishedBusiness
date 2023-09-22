@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=你可以使用一个附赠动作将最远 60 尺传送到一个你能看到的未被占据的空间。
 Condition/&ConditionFarStepTitle=渺远步
+Feature/&PowerSteelWhirlwindTeleportDescription=你可以传送到一个未占据的空间，你可以看到你在钢旋风攻击中击中或错过的目标之一的 5 英尺范围内。
+Feature/&PowerSteelWhirlwindTeleportTitle=传送
 Feedback/&AdditionalDamageBanishingSmiteFormat=放逐斩！
 Feedback/&AdditionalDamageBanishingSmiteLine={0} 通过放逐斩对 {1} 造成更多伤害 (+{2})
 Spell/&BanishingSmiteDescription=你的下一次攻击用你的武器造成额外的 5d10 力场伤害。此外，如果这次攻击将目标的生命值降低到 50 以下，你将其放逐 1 分钟。
@@ -10,3 +12,5 @@ Spell/&MantleOfThornsDescription=用荆棘的光环包围自己。那些开始�
 Spell/&MantleOfThornsTitle=荆棘披风
 Spell/&SonicBoomDescription=一个与气球颜色相近的小球体出现在你选择的范围内，随着一声砰然巨响，小球爆炸并释放出巨大的能量。半径30尺内的每个生物都必须进行一次力量豁免检定。豁免检定失败的目标被推到离中心30尺远的地方，并受到6d8的雷鸣伤害
 Spell/&SonicBoomTitle=鸣音爆
+Spell/&SteelWhirlwindDescription=你挥动施法时使用的武器，然后消失，像风一样攻击。选择范围内最多五个您可以看到的生物。对每个目标进行近战法术攻击。命中后，目标会受到 6d10 点力量伤害。然后，您可以传送到一个未占据的空间，您可以看到距离您击中或错过的目标之一 5 英尺以内。
+Spell/&SteelWhirlwindTitle=钢铁旋风
