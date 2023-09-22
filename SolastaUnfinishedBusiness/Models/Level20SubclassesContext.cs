@@ -1509,6 +1509,13 @@ internal static class Level20SubclassesContext
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies

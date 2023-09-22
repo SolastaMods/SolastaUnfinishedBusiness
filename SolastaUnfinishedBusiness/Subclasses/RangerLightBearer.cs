@@ -355,7 +355,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBlessedGlow;
 
@@ -366,6 +366,14 @@ public sealed class RangerLightBearer : AbstractSubclass
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>()
+                as GameLocationBattleManager;
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -376,10 +384,8 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (gameLocationActionService == null)
             {
                 yield break;
             }
