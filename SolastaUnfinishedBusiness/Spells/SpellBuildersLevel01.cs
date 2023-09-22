@@ -1461,9 +1461,9 @@ internal static partial class SpellBuilders
             var targets = new List<GameLocationCharacter>();
 
             targets.SetRange(Gui.Battle.AllContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                            && x.Side != attacker.Side
-                            && battleManager.IsWithin1Cell(x, defender)));
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                    && battleManager.IsWithin1Cell(x, defender)));
 
             if (targets.Empty())
             {
