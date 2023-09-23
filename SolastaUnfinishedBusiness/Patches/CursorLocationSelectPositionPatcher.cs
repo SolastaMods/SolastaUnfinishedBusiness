@@ -9,7 +9,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using TA;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
