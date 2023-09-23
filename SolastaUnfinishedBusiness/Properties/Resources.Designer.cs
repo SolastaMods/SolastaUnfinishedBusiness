@@ -492,6 +492,26 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] AuraOfPerseverance {
+            get {
+                object obj = ResourceManager.GetObject("AuraOfPerseverance", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] AuraOfVitality {
+            get {
+                object obj = ResourceManager.GetObject("AuraOfVitality", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] BackgroundDevoted {
             get {
                 object obj = ResourceManager.GetObject("BackgroundDevoted", resourceCulture);
@@ -2858,6 +2878,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PsychicLance {
             get {
                 object obj = ResourceManager.GetObject("PsychicLance", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PsychicWhip {
+            get {
+                object obj = ResourceManager.GetObject("PsychicWhip", resourceCulture);
                 return ((byte[])(obj));
             }
         }

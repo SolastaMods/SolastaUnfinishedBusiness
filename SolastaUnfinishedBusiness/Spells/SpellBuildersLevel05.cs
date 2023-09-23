@@ -159,6 +159,7 @@ internal static partial class SpellBuilders
         var conditionIncineration = ConditionDefinitionBuilder
             .Create(ConditionOnFire, $"Condition{NAME}")
             .SetSpecialInterruptions(ConditionInterruption.Revive)
+            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 4, DieType.D6))
             .AddToDB();
 
         conditionIncineration.specialDuration = false;
@@ -177,7 +178,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)

@@ -1,0 +1,6 @@
+ConditionPsychicWhipNoBonus	Title='Condition/&ConditionPsychicWhipNoBonusTitle'.
+ConditionPsychicWhipNoBonus	Description='Condition/&ConditionPsychicWhipNoBonusDescription'.
+ConditionPsychicWhipNoMain	Title='Condition/&ConditionPsychicWhipNoMainTitle'.
+ConditionPsychicWhipNoMain	Description='Condition/&ConditionPsychicWhipNoMainDescription'.
+ConditionPsychicWhipNoMove	Title='Condition/&ConditionPsychicWhipNoMoveTitle'.
+ConditionPsychicWhipNoMove	Description='Condition/&ConditionPsychicWhipNoMoveDescription'.

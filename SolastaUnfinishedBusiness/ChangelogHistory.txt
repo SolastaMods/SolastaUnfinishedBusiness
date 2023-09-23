@@ -1,4 +1,10 @@
-﻿1.5.94.16:
+﻿1.5.94.17:
+
+- added Booming Step, Incineration, Heroic Infusion, Psychic Lance, and Psychic Whip spells
+- added Domain Battle and Insight level 17th features
+- fixed Burning Blade using INT modifier instead of spell casting ability
+
+1.5.94.16:
 
 - added Spike Barrage, Steel Whirlwind and Swift Strike spells
 - changed Oath of Thunder 3rd level smites damage progression

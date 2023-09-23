@@ -550,7 +550,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -589,7 +589,8 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionExplode, ConditionForm.ConditionOperation.Add, true))
                     .InviteOptionalAlly()
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
+                    .ExcludeCaster()
+                    .SetParticleEffectParameters(Thunderwave)
                     .Build())
             .SetCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
             .AddToDB();
@@ -628,8 +629,7 @@ internal static partial class SpellBuilders
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.Side != attacker.Side
-                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 
