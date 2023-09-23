@@ -867,7 +867,6 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetDamageForm(DamageTypeFire, 0, DieType.D8)
                             .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 20, (5, 1), (11, 2), (17, 3))
                             .Build())
@@ -965,6 +964,16 @@ internal static partial class SpellBuilders
             {
                 effectDescription.EffectForms.Clear();
             }
+            else
+            {
+                var damageForm = effectDescription.FindFirstDamageForm();
+
+                if (damageForm != null)
+                {
+                    // apply the spell casting ability modifier as bonus damage
+                    damageForm.bonusDamage = rulesetEffect.SaveDC;
+                }
+            }
 
             return effectDescription;
         }
@@ -982,6 +991,11 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
             var targets = action.ActionParams.TargetCharacters;
 
             if (targets.Count != 2)
@@ -993,6 +1007,12 @@ internal static partial class SpellBuilders
             var actionParams = action.ActionParams.Clone();
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            var spellCastingAbility = actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingAbility;
+            var spellCastingModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetCharacter.TryGetAttributeValue(spellCastingAbility));
+
+            // use the saveDC property to pass the spellCastingModifier to modify the EffectDescription later on
+            usablePower.SaveDC = spellCastingModifier;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             actionParams.RulesetEffect = rulesetImplementationService
