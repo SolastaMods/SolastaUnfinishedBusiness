@@ -106,8 +106,10 @@ internal static class RaceFairyBuilder
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFairyWings))
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(IsFlightValid,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionFairyWings.Name)))
+            .SetCustomSubFeatures(
+                new ValidatorsValidatePowerUse(
+                IsFlightValid,
+                ValidatorsCharacter.HasNoneOfConditions(conditionFairyWings.Name)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -120,14 +122,10 @@ internal static class RaceFairyBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionFairyWings, ConditionForm.ConditionOperation.Remove),
-                        //Leaving this for compatibility
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
-                            ConditionForm.ConditionOperation.Remove))
+                        EffectFormBuilder.ConditionForm(conditionFairyWings, ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, conditionFairyWings.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionFairyWings.Name)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder

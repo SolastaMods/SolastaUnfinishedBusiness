@@ -211,8 +211,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionDivineFavor)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
@@ -239,8 +238,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicRadiance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicRadiance")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionDivineFavor)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
             .AddFeatures(additionalDamageMalakhAngelicForm)

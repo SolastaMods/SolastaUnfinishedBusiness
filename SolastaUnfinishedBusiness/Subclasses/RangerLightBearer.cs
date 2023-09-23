@@ -205,7 +205,9 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeAngelicForm())
+            .SetCustomSubFeatures(
+                new MagicEffectFinishedByMeAngelicForm(),
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -232,7 +234,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
         var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder
