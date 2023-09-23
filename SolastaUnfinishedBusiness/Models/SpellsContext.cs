@@ -249,6 +249,7 @@ internal static class SpellsContext
 
         // 3rd level
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
+        RegisterSpell(BuildBoomingStep(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildPulseWave(), 0, SpellListWizard);
@@ -259,11 +260,13 @@ internal static class SpellsContext
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);
+        RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
 
         //5th level
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
         RegisterSpell(BuildSteelWhirlwind(), 0, SpellListRanger, SpellListWizard);
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);

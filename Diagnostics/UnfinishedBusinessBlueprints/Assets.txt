@@ -544,6 +544,7 @@ ConditionBlindingSmiteEnemy	ConditionDefinition	ConditionDefinition	f4dd3787-cbd
 ConditionBoomingBlade	ConditionDefinition	ConditionDefinition	b28052a9-3d74-50f4-8363-8b1a2e848289
 ConditionBoomingBladeMarked	ConditionDefinition	ConditionDefinition	69813f6c-ceca-5c5a-a7ef-7975ff227b50
 ConditionBoomingBladeSheathed	ConditionDefinition	ConditionDefinition	faf795f2-d67c-5e4d-a072-bfd6cc4be447
+ConditionBoomingStepExplode	ConditionDefinition	ConditionDefinition	7ca1af35-0aa4-50e1-b647-7404766a5439
 ConditionBrainBulwark	ConditionDefinition	ConditionDefinition	99bec5f8-34c8-5de6-b05b-d9892740e21e
 ConditionCasterFightingWarMagic	ConditionDefinition	ConditionDefinition	7673ca94-a0c8-5086-9d9e-cf632937cff6
 ConditionCaveWyrmkinChargingStrike	ConditionDefinition	ConditionDefinition	7ef1eef7-7292-539f-8150-ad0dc1bb2e86
@@ -648,6 +649,7 @@ ConditionGravity	ConditionDefinition	ConditionDefinition	769144d3-9ceb-5f25-8e2a
 ConditionGrayDwarfStoneStrength	ConditionDefinition	ConditionDefinition	589ea78b-5040-5d01-9537-dbe11d38c032
 ConditionHatredArdentHate	ConditionDefinition	ConditionDefinition	c9abe651-5aed-5a08-96aa-e6720101c276
 ConditionHunterHordeBreaker	ConditionDefinition	ConditionDefinition	a1a37dbb-4d25-5196-81e9-8a0306e988d5
+ConditionIncineration	ConditionDefinition	ConditionDefinition	ef951211-636d-536d-849c-1eeb1df973d3
 ConditionInnovationAlchemyDamageLightning	ConditionDefinition	ConditionDefinition	335c1058-8477-5fe5-8b96-17e10a4a03e3
 ConditionInnovationAlchemyDamageNecrotic	ConditionDefinition	ConditionDefinition	a414f3b0-c616-5d8f-8e38-4fd598d43881
 ConditionInnovationAlchemyDamagePoison	ConditionDefinition	ConditionDefinition	a2060437-057f-5de4-8b87-ab203595869a
@@ -2304,6 +2306,7 @@ PowerBladeDancerBladeDance	FeatureDefinitionPower	FeatureDefinition	1a71a9ed-64c
 PowerBladeDancerDanceOfDefense	FeatureDefinitionPower	FeatureDefinition	af4722ff-c78e-5fe8-b253-b0684ccbb5e8
 PowerBladeDancerDanceOfVictory	FeatureDefinitionPower	FeatureDefinition	8f613859-6c67-5813-91cd-d356ebe8a5cc
 PowerBolgrifInvisibility	FeatureDefinitionPower	FeatureDefinition	cadfc430-3168-575e-b23c-fb02703cbac3
+PowerBoomingStepExplode	FeatureDefinitionPower	FeatureDefinition	0a0e3296-f897-5418-8c3e-84e3ab59ac98
 PowerCasterCommandUndead	FeatureDefinitionPower	FeatureDefinition	b73f8a69-89ca-5b00-b016-582ac4cb73ba
 PowerCasterFightingWarMagic	FeatureDefinitionPower	FeatureDefinition	368681bf-0523-5709-a17a-62416add2f96
 PowerCasterFightingWarMagicAttack	FeatureDefinitionAttackModifier	FeatureDefinition	1a82f058-af32-5204-9dae-6995448e0b07
@@ -4405,6 +4408,7 @@ PowerBladeDancerBladeDance	FeatureDefinitionPower	FeatureDefinitionPower	1a71a9e
 PowerBladeDancerDanceOfDefense	FeatureDefinitionPower	FeatureDefinitionPower	af4722ff-c78e-5fe8-b253-b0684ccbb5e8
 PowerBladeDancerDanceOfVictory	FeatureDefinitionPower	FeatureDefinitionPower	8f613859-6c67-5813-91cd-d356ebe8a5cc
 PowerBolgrifInvisibility	FeatureDefinitionPower	FeatureDefinitionPower	cadfc430-3168-575e-b23c-fb02703cbac3
+PowerBoomingStepExplode	FeatureDefinitionPower	FeatureDefinitionPower	0a0e3296-f897-5418-8c3e-84e3ab59ac98
 PowerCasterCommandUndead	FeatureDefinitionPower	FeatureDefinitionPower	b73f8a69-89ca-5b00-b016-582ac4cb73ba
 PowerCasterFightingWarMagic	FeatureDefinitionPower	FeatureDefinitionPower	368681bf-0523-5709-a17a-62416add2f96
 PowerCharismaticPrecision	FeatureDefinitionPower	FeatureDefinitionPower	3da14336-48a9-512e-8602-210aa3569201
@@ -10096,6 +10100,7 @@ BindingIce	SpellDefinition	SpellDefinition	3da5bb90-e40c-5a0e-bead-a7441de13d55
 BladeWard	SpellDefinition	SpellDefinition	5d04caa2-64a0-587e-a0d2-6c9ab52a56ca
 BlindingSmite	SpellDefinition	SpellDefinition	4840cef2-e39f-58f6-8a1d-0968f87008e7
 BoomingBlade	SpellDefinition	SpellDefinition	8a6f90f1-6d31-5701-8498-2c3527f7d33b
+BoomingStep	SpellDefinition	SpellDefinition	274208ba-a59a-58a6-aecb-ed2d94cc0fb3
 BrainBulwark	SpellDefinition	SpellDefinition	e40588cd-4b6d-5be0-b31e-5a7c7b148869
 BreakerAndBanisher	SpellDefinition	SpellDefinition	471a96f8-d46e-5317-9be7-cc6f520ee0c9
 BurstOfRadiance	SpellDefinition	SpellDefinition	1e699378-f73c-564a-a7d8-b5b90931ae27
@@ -10136,6 +10141,7 @@ GiftOfAlacrity	SpellDefinition	SpellDefinition	cfc1affd-8762-5031-b552-4a48251d7
 GiftOfTheHunter	SpellDefinition	SpellDefinition	27583e9b-9f86-5822-93eb-ad03499c60e3
 GravitySinkhole	SpellDefinition	SpellDefinition	42bea70d-ddc5-5295-8c18-c6b6b9c3abf6
 IlluminatingSphere	SpellDefinition	SpellDefinition	e7fc59b8-93d9-53aa-86f7-659ac0d16fcf
+Incineration	SpellDefinition	SpellDefinition	9736f77e-4d1b-5fa9-ba08-e0937463546c
 Kinesis	SpellDefinition	SpellDefinition	d6b949e6-4587-5b35-b961-5dc55a88ce06
 MagnifyGravity	SpellDefinition	SpellDefinition	79f50c24-d249-5283-b784-10d3ffa9b444
 MantleOfThorns	SpellDefinition	SpellDefinition	e104287c-c35e-5355-b4ab-527a4a46860e
@@ -10149,6 +10155,7 @@ PetalStorm	SpellDefinition	SpellDefinition	4cc7aea6-dee9-5631-8b2a-f0e497b71bde
 PowerWordHeal	SpellDefinition	SpellDefinition	f9e2477f-fbee-5778-8ffc-c0380c0dea7d
 PowerWordKill	SpellDefinition	SpellDefinition	7d618d6a-004a-539e-a996-e180936abe9c
 ProtectThreshold	SpellDefinition	SpellDefinition	edc0ec8d-88e4-5c7d-b60e-be3e6b2e9cf0
+PsychicLance	SpellDefinition	SpellDefinition	fff99143-9ef0-55fa-acd9-b0f52c733ff6
 PulseWave	SpellDefinition	SpellDefinition	71a547b1-f108-54be-95ee-56263814b30b
 RadiantMotes	SpellDefinition	SpellDefinition	ff59b2b4-3fd1-55c2-a7ab-7c6c5b004633
 ResonatingStrike	SpellDefinition	SpellDefinition	c8ecadb8-8b2a-57dd-93dd-41f6557ef52d

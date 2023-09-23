@@ -1,8 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -521,6 +525,158 @@ internal static partial class SpellBuilders
                             .Build())
                     .Build())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Booming Step
+
+    internal static SpellDefinition BuildBoomingStep()
+    {
+        const string Name = "BoomingStep";
+
+        var conditionExplode = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Explode")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var powerExplode = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Explode")
+            .SetGuiPresentation(Name, Category.Spell)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.EffectLevel, 1, 1, 1, 4)
+                            .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .SetParticleEffectParameters(Thunderwave)
+                    .Build())
+            .AddToDB();
+
+        powerExplode.SetCustomSubFeatures(
+            new ModifyEffectDescriptionBoomingStepExplode(powerExplode, conditionExplode));
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.ThunderStep, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 18, TargetType.Position)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionExplode, ConditionForm.ConditionOperation.Add, true))
+                    .InviteOptionalAlly()
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
+                    .Build())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
+
+        return spell;
+    }
+
+    private sealed class MagicEffectFinishedByMeBoomingStep : IMagicEffectInitiatedByMe
+    {
+        private readonly FeatureDefinitionPower _powerExplode;
+
+        public MagicEffectFinishedByMeBoomingStep(FeatureDefinitionPower powerExplode)
+        {
+            _powerExplode = powerExplode;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var actionParams = action.ActionParams.Clone();
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerExplode, rulesetAttacker);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
+                .Where(x => x.Side != attacker.Side
+                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                            gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+                .ToList());
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionBoomingStepExplode : IModifyEffectDescription
+    {
+        private readonly ConditionDefinition _conditionExplode;
+        private readonly FeatureDefinitionPower _powerExplode;
+
+        public ModifyEffectDescriptionBoomingStepExplode(
+            FeatureDefinitionPower powerExplode,
+            ConditionDefinition conditionExplode)
+        {
+            _powerExplode = powerExplode;
+            _conditionExplode = conditionExplode;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerExplode;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionExplode.Name, out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm != null)
+            {
+                damageForm.diceNumber = activeCondition.EffectLevel;
+            }
+
+            return effectDescription;
+        }
     }
 
     #endregion

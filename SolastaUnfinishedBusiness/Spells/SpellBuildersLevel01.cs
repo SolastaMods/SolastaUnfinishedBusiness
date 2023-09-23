@@ -1363,6 +1363,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionTrueStrike)
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
         conditionSpikeBarrage.SetCustomSubFeatures(
@@ -1433,8 +1434,6 @@ internal static partial class SpellBuilders
             {
                 damageForm.diceNumber = activeCondition.EffectLevel;
             }
-
-            character.RemoveCondition(activeCondition);
 
             return effectDescription;
         }

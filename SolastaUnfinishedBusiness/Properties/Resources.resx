@@ -155,6 +155,24 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="ThunderStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/ThunderStep.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PsychicLance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/PsychicLance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="Immolation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/Immolation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="BrainBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/BrainBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,

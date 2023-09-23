@@ -8,5 +8,7 @@ Spell/&BrainBulwarkDescription=Per tutta la durata, tu o una creatura consenzien
 Spell/&BrainBulwarkTitle=Baluardo del cervello
 Spell/&GravitySinkholeDescription=Avvicina i nemici e schiacciali con l'energia gravitazionale.
 Spell/&GravitySinkholeTitle=Dolina gravitazionale
+Spell/&PsychicLanceDescription=Scagli una scintillante lancia di potere psichico dalla tua fronte contro una creatura che puoi vedere e che si trova a gittata. Deve riuscire un tiro salvezza su Intelligenza o subire 7d6 danni psichici ed essere incapace fino alla fine del tuo turno successivo. Se il Tiro Salvezza riesce, la creatura subisce la metà dei danni e non diventa Incapace. A livelli più alti. Quando esegui questo incantesimo utilizzando uno slot incantesimo di 4° livello o superiore, il danno aumenta di 1d10 per ogni livello dello slot superiore al 4°.
+Spell/&PsychicLanceTitle=Lancia psichica
 Spell/&StaggeringSmiteDescription=La prossima volta che colpisci una creatura con un attacco con un'arma durante la durata di questo incantesimo, la tua arma perfora sia il corpo che la mente e l'attacco infligge 4d6 danni psichici extra al bersaglio. Il bersaglio deve effettuare un tiro salvezza su Saggezza. Se fallisce il Tiro Salvezza, ha svantaggio ai tiri per colpire e alle prove di caratteristica, e non può effettuare reazioni fino alla fine del suo prossimo turno.
 Spell/&StaggeringSmiteTitle=Punizione Sconcertante

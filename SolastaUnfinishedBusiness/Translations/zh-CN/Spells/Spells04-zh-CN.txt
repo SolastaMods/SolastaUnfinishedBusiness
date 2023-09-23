@@ -8,5 +8,7 @@ Spell/&BrainBulwarkDescription=在此期间，你或范围内你能看到的一�
 Spell/&BrainBulwarkTitle=心智屏障
 Spell/&GravitySinkholeDescription=使用引力聚集并粉碎敌人。
 Spell/&GravitySinkholeTitle=引力裂沟
+Spell/&PsychicLanceDescription=你从前额向范围内你能看到的生物释放出一道闪烁着灵能之力的长矛。它必须在智力豁免检定中成功，否则会受到 7d6 精神伤害并丧失行动能力，直到你的下一回合结束。豁免成功后，该生物会受到一半伤害并且不会丧失行动能力。在更高的层次上。当你使用 4 级或更高等级的法术位施放此法术时，每高于 4 级的法术位等级，伤害就会增加 1d10。
+Spell/&PsychicLanceTitle=心灵之枪
 Spell/&StaggeringSmiteDescription=在此法术的持续时间内，下次你用武器攻击命中一个生物时，你的武器会刺穿身体和心灵，并且攻击会对目标造成额外的 4d6 心灵伤害。目标必须进行一次感知豁免。豁免失败时，它在攻击检定和能力检定上具有劣势，并且不能做出反应，直到它的下一轮结束。
 Spell/&StaggeringSmiteTitle=惊震斩

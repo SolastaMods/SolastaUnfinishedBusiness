@@ -147,6 +147,67 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Incineration
+
+    internal static SpellDefinition BuildIncineration()
+    {
+        const string NAME = "Incineration";
+
+        var lightSourceForm = FaerieFire.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
+
+        var conditionIncineration = ConditionDefinitionBuilder
+            .Create(ConditionOnFire, $"Condition{NAME}")
+            .SetSpecialInterruptions(ConditionInterruption.Revive)
+            .AddToDB();
+
+        conditionIncineration.specialDuration = false;
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Immolation, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeFire, 8, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionIncineration, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6, lightSourceForm.Color,
+                                lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .SetParticleEffectParameters(Fireball)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Steel Whirlwind
 
     internal static SpellDefinition BuildSteelWhirlwind()

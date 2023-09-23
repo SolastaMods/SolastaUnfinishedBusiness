@@ -147,16 +147,16 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
-                    .SetParticleEffectParameters(DispelMagic)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionBrainBulwark, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
 
@@ -191,21 +191,65 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Constitution,
                         true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.DragToOrigin, 4)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .AddEffectForms(
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 5, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
+                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
                     .Build())
             .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Psychic Lance
+
+    internal static SpellDefinition BuildPsychicLance()
+    {
+        const string NAME = "PsychicLance";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsychicLance, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePsychic, 7, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionIncapacitated,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(Slow)
+                    .Build())
             .AddToDB();
 
         return spell;
