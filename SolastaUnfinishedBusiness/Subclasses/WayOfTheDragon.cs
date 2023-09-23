@@ -812,7 +812,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         false,
                         rulesetAttacker.Guid,
                         false,
-                        new List<string>(),
+                        attackerAttackMode.AttackTags,
                         new RollInfo(DieType.D1, new List<int>(), damageInt),
                         true,
                         out _);
@@ -842,7 +842,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         false,
                         rulesetAttacker.Guid,
                         false,
-                        new List<string>(),
+                        attackerAttackMode?.AttackTags,
                         new RollInfo(DieType.D1, new List<int>(), damageInt),
                         true,
                         out _);
@@ -869,7 +869,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         false,
                         rulesetAttacker.Guid,
                         false,
-                        new List<string>(),
+                        attackerAttackMode.AttackTags,
                         new RollInfo(DieType.D1, new List<int>(), damageInt),
                         true,
                         out _);
@@ -896,7 +896,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         false,
                         rulesetAttacker.Guid,
                         false,
-                        new List<string>(),
+                        attackerAttackMode.AttackTags,
                         new RollInfo(DieType.D1, new List<int>(), damageInt),
                         true,
                         out _);
@@ -923,7 +923,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         false,
                         rulesetAttacker.Guid,
                         false,
-                        new List<string>(),
+                        attackerAttackMode.AttackTags,
                         new RollInfo(DieType.D1, new List<int>(), damageInt),
                         true,
                         out _);

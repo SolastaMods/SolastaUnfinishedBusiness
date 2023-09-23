@@ -750,7 +750,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 false,
                 rulesetDefender.Guid,
                 false,
-                new List<string>(),
+                attackerAttackMode.AttackTags,
                 new RollInfo(DieType.D1, new List<int>(), classLevel),
                 true,
                 out _);
