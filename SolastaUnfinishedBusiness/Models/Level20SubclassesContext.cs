@@ -77,19 +77,15 @@ internal static class Level20SubclassesContext
         // Avatar of Knowledge
 
         var proficiencyDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyDomainInsightAvatarOfKnowledge")
+            .Create("ProficiencyDomainInsightAvatarOfKnowledgeSavingThrow")
             .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
             .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Intelligence)
             .AddToDB();
 
-        var abilityCheckAffinityDomainInsightAvatarOfKnowledge = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityDomainInsightAvatarOfKnowledge")
+        var abilityCheckAffinityDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyDomainInsightAvatarOfKnowledgeSkillOrExpertise")
             .SetGuiPresentation("FeatureSetDomainInsightAvatarOfKnowledge", Category.Feature)
-            .BuildAndSetAffinityGroups(
-                CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Intelligence, SkillDefinitions.Arcana),
-                (AttributeDefinitions.Intelligence, SkillDefinitions.History),
-                (AttributeDefinitions.Intelligence, SkillDefinitions.Nature))
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana, SkillDefinitions.History, SkillDefinitions.Nature)
             .AddToDB();
 
         var pointPoolDomainInsightAvatarOfKnowledgeCantrips = FeatureDefinitionPointPoolBuilder
