@@ -111,7 +111,6 @@ internal static class ArmorFeats
         var actionAffinityShieldTechniques = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))

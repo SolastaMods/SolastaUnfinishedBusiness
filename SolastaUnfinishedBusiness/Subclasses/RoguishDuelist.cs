@@ -56,7 +56,6 @@ public sealed class RoguishDuelist : AbstractSubclass
         var actionAffinitySwirlingDance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}SwirlingDance")
             .SetGuiPresentation(Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.SwirlingDance)
             .AddToDB();
 

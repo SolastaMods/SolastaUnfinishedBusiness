@@ -102,7 +102,6 @@ public sealed class CollegeOfValiance : AbstractSubclass
         var actionAffinityHeroicInspiration = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}HeroicInspiration")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.UseHeroicInspiration)
             .AddToDB();
 

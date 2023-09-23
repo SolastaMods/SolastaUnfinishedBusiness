@@ -60,7 +60,6 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         var actionAffinityStaggeringBlow = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}StaggeringBlow")
             .SetGuiPresentation(Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(
                 new ValidateDefinitionApplication(

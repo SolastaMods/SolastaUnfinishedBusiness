@@ -105,7 +105,6 @@ public sealed class WayOfTheTempest : AbstractSubclass
         var actionAffinityTempestFury = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}TempestFury")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
             .SetCustomSubFeatures(new ValidateDefinitionApplication(
                 ValidatorsCharacter.HasAttacked,

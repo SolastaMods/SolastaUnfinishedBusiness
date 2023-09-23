@@ -248,7 +248,6 @@ public sealed class RangerLightBearer : AbstractSubclass
         var actionAffinityWardingLight = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}WardingLight")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(Id.BlockAttack)
             .AddToDB();
 
