@@ -64,7 +64,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
-        "addBonusMode": "AbilityBonus",
+        "addBonusMode": "None",
         "applyLevel": "DiceNumberByLevelTable",
         "levelType": "CharacterLevel",
         "levelMultiplier": 1,
