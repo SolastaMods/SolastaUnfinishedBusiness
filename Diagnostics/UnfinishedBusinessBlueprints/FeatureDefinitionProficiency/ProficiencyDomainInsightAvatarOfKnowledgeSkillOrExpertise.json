@@ -1,15 +1,17 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "SavingThrow",
+  "proficiencyType": "SkillOrExpertise",
   "proficiencies": [
-    "Intelligence"
+    "Arcana",
+    "History",
+    "Nature"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&SavingThrowProficiencyTitle",
-    "description": "Feature/&SavingThrowProficiencyDescription",
+    "title": "Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle",
+    "description": "Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a2ae204a-e322-5d8b-bb2e-a6c640eada09",
+  "guid": "3ddefb20-c608-5b13-a88f-9b0b5f876ce9",
   "contentPack": 9999,
-  "name": "ProficiencyDomainInsightAvatarOfKnowledge"
+  "name": "ProficiencyDomainInsightAvatarOfKnowledgeSkillOrExpertise"
 }
