@@ -1852,6 +1852,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyFighterSavingThrow { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterSavingThrow");
 
+        internal static FeatureDefinitionProficiency ProficiencyFighterWeapon { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterWeapon");
+
         internal static FeatureDefinitionProficiency ProficiencyLawkeeperSkills { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyLawkeeperSkills");
 

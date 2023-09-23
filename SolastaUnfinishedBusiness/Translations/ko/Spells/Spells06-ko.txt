@@ -1,0 +1,6 @@
+Condition/&ConditionHeroicInfusionDescription=당신은 마법에 힘입어 지구력과 무술의 기량을 자신에게 부여합니다.
+Condition/&ConditionHeroicInfusionTitle=영웅 주입
+Feedback/&AdditionalDamageHeroicInfusionFormat=영웅 주입!
+Feedback/&AdditionalDamageHeroicInfusionLine={0}이(가) 영웅적으로 {1}을(를) 쳤습니다! (+{2})
+Spell/&HeroicInfusionDescription=당신은 마법에 힘입어 지구력과 무술의 기량을 자신에게 부여합니다. 주문이 끝날 때까지 주문을 시전할 수 없으며 다음과 같은 이점을 얻습니다.\n • 임시 체력 50점을 얻습니다. 주문이 끝날 때 이들 중 하나라도 남아 있으면 잃게 됩니다.\n• 단순 무기와 군용 무기로 하는 공격 굴림에 이점이 있습니다.\n• 무기 공격으로 대상을 명중하면 해당 대상은 다음과 같은 공격을 받습니다. 추가 2d12 강제 피해.\n• 파이터 클래스 방어구, 무기 및 내성 굴림 능력이 있습니다.\n• 자신의 차례에 공격 행동을 취할 때 한 번이 아닌 두 번 공격할 수 있습니다.\n 주문이 끝난 직후, 당신은 DC 15 헌법 내성굴림에 성공해야 하며, 그렇지 않으면 한 단계의 탈진을 겪어야 합니다.
+Spell/&HeroicInfusionTitle=영웅 주입

@@ -272,7 +272,7 @@ internal static class SpellsContext
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level
-        // RegisterSpell(BuildGravityFissure(), 0, SpellListWizard);
+        RegisterSpell(BuildHeroicInfusion(), 0, SpellListWizard);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
