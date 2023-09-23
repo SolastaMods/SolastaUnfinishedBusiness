@@ -2,5 +2,5 @@ Condition/&ConditionHeroicInfusionDescription=你在魔法的推动下赋予自�
 Condition/&ConditionHeroicInfusionTitle=英雄输液
 Feedback/&AdditionalDamageHeroicInfusionFormat=英雄注入！
 Feedback/&AdditionalDamageHeroicInfusionLine={0}英勇地击中了{1}！ (+{2})
-Spell/&HeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。在法术结束之前，你无法施展法术，并且你会获得以下好处：\n • 你获得 50 点临时生命值。如果法术结束时其中任何剩余，它们就会丢失。\n• 您在使用简单武器和军用武器进行的攻击检定中具有优势。\n• 当您使用武器攻击击中目标时，该目标将获得额外的 2d12 力量伤害。\n• 您拥有战士级护甲、武器和豁免能力。\n• 当您在自己的回合中采取攻击动作时，您可以攻击两次，而不是一次。\n法术结束后，你必须立即通过 DC 15 的体质豁免检定，否则会遭受一级疲惫。
+Spell/&HeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。在法术结束之前，你无法施展法术，并且你会获得以下好处：\n• 你获得 50 点临时生命值。如果法术结束时其中任何剩余，它们就会丢失。\n• 您在使用简单武器和军用武器进行的攻击检定中具有优势。\n• 当您使用武器攻击击中目标时，该目标将获得额外的 2d12 力量伤害。\n• 您拥有战士级护甲、武器和豁免能力。\n• 当您在自己的回合中采取攻击动作时，您可以攻击两次，而不是一次。\n法术结束后，你必须立即通过 DC 15 的体质豁免检定，否则会遭受一级疲惫。
 Spell/&HeroicInfusionTitle=英雄输液
