@@ -451,6 +451,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionKindredSpiritBondSavingThrows { get; } =
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritBondSavingThrows");
 
+        internal static ConditionDefinition ConditionLethargic { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLethargic");
+
         internal static ConditionDefinition ConditionLevitate { get; } =
             GetDefinition<ConditionDefinition>("ConditionLevitate");
 

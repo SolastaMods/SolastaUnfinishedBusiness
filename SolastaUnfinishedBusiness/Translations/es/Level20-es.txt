@@ -1,3 +1,4 @@
+ Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar del conocimiento
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Habilitar / deshabilitar la palma temblorosa.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palma temblorosa
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Obtenga 10 pies adicionales de movimiento.
@@ -50,7 +51,7 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=A partir del nivel 17, te h
 Feature/&FeatureRoguishThiefThiefReflexesTitle=Reflejos de ladrón
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=Obtienes resistencia al daño contundente, perforante y cortante. Además, el alcance del Herald of Battle aumenta a 15 pies.
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=Modelo de batalla
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Obtienes competencia con las tiradas de salvación basadas en Inteligencia.\n• Tienes ventaja en las pruebas de habilidades de arcanos, historia y naturaleza.\n• Aprendes 4 hechizos de cualquier clase, así como 2 trucos de cualquier clase.
+Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Obtienes competencia con tiradas de salvación basadas en Inteligencia.\n• Obtienes habilidad o experiencia en pruebas de habilidades de arcanos, historia y naturaleza.\n• Aprendes 4 hechizos de cualquier clase, así como 2 trucos de cualquier clase.
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar del conocimiento
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=A partir del nivel 18, cualquier aliado afectado por Rousing Grito también gana ventaja en su próxima tirada de salvación y 10 pies adicionales de movimiento hasta el comienzo de tu próximo turno.
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=Comandante sin igual

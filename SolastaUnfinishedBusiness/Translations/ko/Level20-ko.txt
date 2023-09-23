@@ -1,3 +1,4 @@
+ Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=지식의 아바타
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=진동장 활성화/비활성화.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=진동장
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=이동력 +10ft.
@@ -50,7 +51,7 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=17레벨부터, 매복을 �
 Feature/&FeatureRoguishThiefThiefReflexesTitle=도둑의 반사신경
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=타격, 관통, 베기 피해에 대한 저항력을 얻습니다. 또한, 전투의 전령의 범위가 15피트로 증가합니다.
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=전투의 용장
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• 지능 기반 내성굴림에 능숙해집니다.\n• 아르카나, 역사, 자연 능력 검사에서 이점을 얻습니다.\n• 모든 클래스에서 4개의 주문과 2개의 캔트립을 배웁니다.
+Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• 지능 기반 내성굴림에 능숙해집니다.\n• 아르카나, 역사 및 자연 능력 검사에 대한 기술이나 전문 지식을 얻습니다.\n• 모든 클래스에서 4개의 주문을 배우고 모든 클래스에서 2개의 캔트립을 배웁니다. 수업.
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=지식의 아바타
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=18레벨부터, 격려의 함성 영향을 받는 아군은 다음 내성 굴림에서 이점을 받고 당신의 다음 턴이 시작 될 때 까지 10 피트의 이동력을 추가합니다.
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=비교불가한 지휘관

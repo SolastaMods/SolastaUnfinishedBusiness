@@ -46,6 +46,11 @@ internal static partial class SpellBuilders
                 ActionDefinitions.Id.CastReadied, ActionDefinitions.Id.CastRitual, ActionDefinitions.Id.CastNoCost)
             .AddToDB();
 
+        var conditionExhausted = ConditionDefinitionBuilder
+            .Create(ConditionExhausted, $"Condition{NAME}Exhausted")
+            .SetOrUpdateGuiPresentation("ConditionExhausted", Category.Rules, ConditionLethargic)
+            .AddToDB();
+
         var conditionHeroicInfusion = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionHeroism)
@@ -58,7 +63,7 @@ internal static partial class SpellBuilders
                 FeatureDefinitionProficiencys.ProficiencyFighterArmor,
                 FeatureDefinitionProficiencys.ProficiencyFighterSavingThrow,
                 FeatureDefinitionProficiencys.ProficiencyFighterWeapon)
-            .SetCustomSubFeatures(new OnConditionAddedOrRemovedHeroicInfusion())
+            .SetCustomSubFeatures(new OnConditionAddedOrRemovedHeroicInfusion(conditionExhausted))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -92,6 +97,13 @@ internal static partial class SpellBuilders
 
     private sealed class OnConditionAddedOrRemovedHeroicInfusion : IOnConditionAddedOrRemoved
     {
+        private readonly ConditionDefinition _conditionExhausted;
+
+        public OnConditionAddedOrRemovedHeroicInfusion(ConditionDefinition conditionExhausted)
+        {
+            _conditionExhausted = conditionExhausted;
+        }
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -116,10 +128,10 @@ internal static partial class SpellBuilders
             }
 
             target.InflictCondition(
-                ConditionExhausted.Name,
-                ConditionExhausted.DurationType,
-                ConditionExhausted.DurationParameter,
-                ConditionExhausted.TurnOccurence,
+                _conditionExhausted.Name,
+                _conditionExhausted.DurationType,
+                _conditionExhausted.DurationParameter,
+                _conditionExhausted.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,

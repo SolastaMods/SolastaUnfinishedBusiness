@@ -629,8 +629,9 @@ internal static partial class SpellBuilders
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                            && !actionParams.TargetCharacters.Contains(x)
+                            && !gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));

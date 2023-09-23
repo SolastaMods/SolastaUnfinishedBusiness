@@ -1,3 +1,4 @@
+ Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar de la connaissance
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Activer/désactiver la Paume frémissante.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Paume frémissante
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Gagnez 10 pieds supplémentaires de mouvement.
@@ -50,7 +51,7 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=À partir du niveau 17, vou
 Feature/&FeatureRoguishThiefThiefReflexesTitle=Réflexes de voleur
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=Vous gagnez en résistance aux dégâts contondants, perçants et tranchants. De plus, la portée du Herald of Battle est augmentée à 15 pieds.
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=Parangon de bataille
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Vous maîtrisez les jets de sauvegarde basés sur l'Intelligence.\n• Vous avez un avantage sur les tests de capacité arcanes, historiques et naturels.\n• Vous apprenez 4 sorts de n'importe quelle classe, ainsi que 2 sorts mineurs de n'importe quelle classe.
+Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Vous maîtrisez les jets de sauvegarde basés sur l'Intelligence.\n• Vous gagnez des compétences ou une expertise lors des tests de capacités arcanes, historiques et naturelles.\n• Vous apprenez 4 sorts de n'importe quelle classe, ainsi que 2 sorts mineurs de n'importe quelle classe. classe.
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar de la connaissance
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=À partir du niveau 18, tout allié affecté par Cri exaltant gagne également un avantage lors de son prochain jet de sauvegarde et 3 mètres de déplacement supplémentaires jusqu'au début de votre prochain tour.
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=Commandant hors pair

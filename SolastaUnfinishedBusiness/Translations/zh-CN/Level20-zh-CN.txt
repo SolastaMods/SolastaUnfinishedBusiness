@@ -1,3 +1,4 @@
+ Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知识的化身
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=启动/禁用 渗透劲。
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=渗透劲
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=增加10尺移动距离。
@@ -50,7 +51,7 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=从第17级开始，你变�
 Feature/&FeatureRoguishThiefThiefReflexesTitle=窃盗本能
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=你获得对钝击、穿刺和砍击伤害的抵抗力。此外，战斗先驱的射程增加至 15 英尺。
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=战斗典范
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• 您获得基于智力的豁免检定的熟练程度。\n• 您在奥术、历史和自然能力检定上具有优势。\n• 您从任何职业学习 4 个咒语，以及从任何职业学习 2 个戏法。
+Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• 您获得基于智力的豁免检定的熟练程度。\n• 您获得奥术、历史和自然能力检定的技能或专业知识。\n• 您从任何职业学习 4 个咒语，以及从任何职业学习 2 个戏法班级。
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知识的化身
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=从第18级开始，任何受唤醒呐喊影响的盟友在下一次豁免检定中也获得优势，并在你的下一个回合开始前获得额外的10尺移动距离。
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=无双指挥官

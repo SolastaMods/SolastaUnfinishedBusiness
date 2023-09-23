@@ -112,7 +112,7 @@ internal static partial class SpellBuilders
             .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 6)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-            .SetParticleEffectParameters(Disintegrate)
+            .SetParticleEffectParameters(Thunderwave)
             .SetSavingThrowData(
                 false, AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.SpellCastingFeature)
             .SetEffectForms(
@@ -127,6 +127,9 @@ internal static partial class SpellBuilders
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
             .Build();
+
+        effectDescription.EffectParticleParameters.zoneParticleReference =
+            Shatter.EffectDescription.EffectParticleParameters.zoneParticleReference;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

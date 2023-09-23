@@ -500,7 +500,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Psychic Lance
+    #region Psychic Whip
 
     internal static SpellDefinition BuildPsychicWhip()
     {
@@ -514,10 +514,11 @@ internal static partial class SpellBuilders
 
         var conditionPsychicWhipNoBonus = ConditionDefinitionBuilder
             .Create($"Condition{NAME}NoBonus")
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
             .SetFeatures(actionAffinityPsychicWhipNoBonus)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityPsychicWhipNoMove = FeatureDefinitionActionAffinityBuilder
@@ -528,10 +529,11 @@ internal static partial class SpellBuilders
 
         var conditionPsychicWhipNoMove = ConditionDefinitionBuilder
             .Create($"Condition{NAME}NoMove")
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
             .SetFeatures(actionAffinityPsychicWhipNoMove)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityPsychicWhipNoMain = FeatureDefinitionActionAffinityBuilder
@@ -542,10 +544,11 @@ internal static partial class SpellBuilders
 
         var conditionPsychicWhipNoMain = ConditionDefinitionBuilder
             .Create($"Condition{NAME}NoMain")
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
             .SetFeatures(actionAffinityPsychicWhipNoMain)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityPsychicWhipNoReaction = FeatureDefinitionActionAffinityBuilder
@@ -556,8 +559,9 @@ internal static partial class SpellBuilders
 
         var conditionPsychicWhipNoReaction = ConditionDefinitionBuilder
             .Create($"Condition{NAME}NoReaction")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionConfused)
             .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(actionAffinityPsychicWhipNoReaction)
             .AddToDB();
 
@@ -571,7 +575,7 @@ internal static partial class SpellBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsychicWhip, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
-            .SetSpellLevel(4)
+            .SetSpellLevel(2)
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(false)
@@ -582,7 +586,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -596,7 +601,7 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionPsychicWhipNoReaction, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
-                    .SetParticleEffectParameters(Slow)
+                    .SetParticleEffectParameters(GravitySlam)
                     .Build())
             .AddToDB();
 
@@ -656,7 +661,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
                     _conditionNoReaction.Name,
                     out var activeCondition))
