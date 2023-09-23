@@ -2,9 +2,10 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityPsychicWhipNoReaction:ce74cb21-e747-5e10-aa1d-9e9554300f35"
+    "Definition:ConditionAffinityAuraOfVitalityLifeDrained:20f17b04-f32b-5e47-add5-acce265a1d09",
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -130,12 +131,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionPsychicWhipNoReactionTitle",
-    "description": "Condition/&ConditionPsychicWhipNoReactionDescription",
+    "title": "Condition/&ConditionAuraOfVitalityTitle",
+    "description": "Condition/&ConditionAuraOfVitalityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
+      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
+      "m_SubObjectName": "ConditionDivineFavor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -151,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f996f582-50f5-5a7d-8ca2-ff88a8b164ca",
+  "guid": "1cfadb0d-80f0-52d6-9962-466d268cf50e",
   "contentPack": 9999,
-  "name": "ConditionPsychicWhipNoReaction"
+  "name": "ConditionAuraOfVitality"
 }

@@ -1,9 +1,18 @@
+
+Condition/&ConditionAuraOfPerseveranceDescription=You can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
+Condition/&ConditionAuraOfPerseveranceTitle=Aura of Perseverance
+Condition/&ConditionAuraOfVitalityDescription=You have resistance to necrotic damage, and your hit point maximum can't be reduced.
+Condition/&ConditionAuraOfVitalityTitle=Aura of Vitality
 Condition/&ConditionBrainBulwarkDescription=You have resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 Condition/&ConditionBrainBulwarkTitle=Brain Bulwark
 Condition/&ConditionStaggeringSmiteEnemyDescription=You're hit by psychic damage.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Staggering Smite
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Staggering Smite!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} deals more damage to {1} through a staggering smite (+{2})
+Spell/&AuraOfPerseveranceDescription=Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
+Spell/&AuraOfPerseveranceTitle=Aura of Perseverance
+Spell/&AuraOfVitalityDescription=Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura including you has resistance to necrotic damage, and its hit point maximum can't be reduced.
+Spell/&AuraOfVitalityTitle=Aura of Vitality
 Spell/&BrainBulwarkDescription=For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 Spell/&BrainBulwarkTitle=Brain Bulwark
 Spell/&GravitySinkholeDescription=Draw enemies together and crush them with gravitational energy.

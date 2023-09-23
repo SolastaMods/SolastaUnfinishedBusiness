@@ -1,9 +1,19 @@
+
+=VUOTO
+Condition/&ConditionAuraOfPerseveranceDescription=Non puoi ammalarti, hai resistenza ai danni da veleno e hai vantaggio ai tiri salvezza contro effetti che causano una delle seguenti condizioni: accecato, affascinato, assordato, spaventato, paralizzato, avvelenato e stordito.
+Condition/&ConditionAuraOfPerseveranceTitle=Aura di perseveranza
+Condition/&ConditionAuraOfVitalityDescription=Hai resistenza ai danni necrotici e i tuoi punti ferita massimi non possono essere ridotti.
+Condition/&ConditionAuraOfVitalityTitle=Aura di vitalità
 Condition/&ConditionBrainBulwarkDescription=Hai resistenza ai danni psichici, così come immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla mente e Controllato dalla mente.
 Condition/&ConditionBrainBulwarkTitle=Baluardo del cervello
 Condition/&ConditionStaggeringSmiteEnemyDescription=Sei colpito da un danno psichico.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Punizione Sconcertante
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Punizione sbalorditiva!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} infligge più danni a {1} tramite una punizione sbalorditiva (+{2})
+Spell/&AuraOfPerseveranceDescription=L'energia purificatrice si irradia da te in un'aura con un raggio di 9 metri. Fino al termine dell'incantesimo, l'aura si muove con te, centrata su di te. Ogni creatura non ostile nell'aura (incluso te) non può ammalarsi, ha resistenza ai danni da veleno e ha vantaggio ai tiri salvezza contro effetti che causano una delle seguenti condizioni: accecato, affascinato, assordato, spaventato, paralizzato, avvelenato e stordito.
+Spell/&AuraOfPerseveranceTitle=Aura di perseveranza
+Spell/&AuraOfVitalityDescription=L'energia preservatrice della vita si irradia da te in un'aura con un raggio di 9 metri. Fino al termine dell'incantesimo, l'aura si muove con te, centrata su di te. Ogni creatura non ostile nell'aura, incluso te, ha resistenza ai danni necrotici e i suoi punti ferita massimi non possono essere ridotti.
+Spell/&AuraOfVitalityTitle=Aura di vitalità
 Spell/&BrainBulwarkDescription=Per tutta la durata, tu o una creatura consenziente che puoi vedere entro il raggio d'azione hai resistenza ai danni psichici, così come Immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla Mente e Controllato dalla Mente.
 Spell/&BrainBulwarkTitle=Baluardo del cervello
 Spell/&GravitySinkholeDescription=Avvicina i nemici e schiacciali con l'energia gravitazionale.

@@ -1,9 +1,19 @@
+
+=VACÍO
+Condition/&ConditionAuraOfPerseveranceDescription=No puedes enfermarte, tienes resistencia al daño por veneno y tienes ventaja en las tiradas de salvación contra efectos que causan cualquiera de las siguientes condiciones: cegado, hechizado, ensordecido, asustado, paralizado, envenenado y aturdido.
+Condition/&ConditionAuraOfPerseveranceTitle=Aura de perseverancia
+Condition/&ConditionAuraOfVitalityDescription=Tienes resistencia al daño necrótico y tu máximo de puntos de vida no se puede reducir.
+Condition/&ConditionAuraOfVitalityTitle=Aura de vitalidad
 Condition/&ConditionBrainBulwarkDescription=Tienes resistencia al daño psíquico, así como inmunidad a las condiciones Hechizado, Asustado, Miedo, Dominado por la mente y Controlado por la mente.
 Condition/&ConditionBrainBulwarkTitle=Baluarte del cerebro
 Condition/&ConditionStaggeringSmiteEnemyDescription=Eres golpeado por daño psíquico.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Golpe asombroso
 Feedback/&AdditionalDamageStaggeringSmiteFormat=¡Aplastamiento asombroso!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige más daño a {1} a través de un golpe asombroso (+{2})
+Spell/&AuraOfPerseveranceDescription=La energía purificadora irradia desde usted en un aura con un radio de 30 pies. Hasta que finaliza el hechizo, el aura se mueve contigo, centrada en ti. Cada criatura no hostil en el aura (incluido usted) no puede enfermarse, tiene resistencia al daño por veneno y tiene ventaja en las tiradas de salvación contra efectos que causan cualquiera de las siguientes condiciones: cegado, hechizado, ensordecido, asustado, paralizado, envenenado y aturdido.
+Spell/&AuraOfPerseveranceTitle=Aura de perseverancia
+Spell/&AuraOfVitalityDescription=La energía que preserva la vida irradia desde usted en un aura con un radio de 30 pies. Hasta que finaliza el hechizo, el aura se mueve contigo, centrada en ti. Cada criatura no hostil en el aura, incluido tú, tiene resistencia al daño necrótico y su máximo de puntos de vida no se puede reducir.
+Spell/&AuraOfVitalityTitle=Aura de vitalidad
 Spell/&BrainBulwarkDescription=Mientras dure, usted o una criatura voluntaria que pueda ver dentro del alcance tiene resistencia al daño psíquico, así como inmunidad a las condiciones Hechizado, Asustado, Miedo, Dominado por la mente y Controlado por la mente.
 Spell/&BrainBulwarkTitle=Baluarte del cerebro
 Spell/&GravitySinkholeDescription=Atrae a los enemigos y aplástalos con energía gravitatoria.

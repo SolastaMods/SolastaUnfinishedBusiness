@@ -1,6 +1,10 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -253,6 +257,153 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Aura of Vitality
+
+    internal static SpellDefinition BuildAuraOfVitality()
+    {
+        const string NAME = "AuraOfVitality";
+
+        var conditionAffinityLifeDrained = FeatureDefinitionConditionAffinityBuilder
+            .Create($"ConditionAffinity{NAME}LifeDrained")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetConditionType(ConditionLifeDrained)
+            .AddToDB();
+
+        var conditionAuraOfVitality = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .SetPossessive()
+            .SetFeatures(
+                conditionAffinityLifeDrained,
+                DamageAffinityNecroticResistance)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AuraOfPerseverance, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionAuraOfVitality),
+                        EffectFormBuilder.ConditionForm(ConditionLifeDrained, ConditionForm.ConditionOperation.Remove))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPaladinAuraOfProtection)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Aura of Perseverance
+
+    internal static SpellDefinition BuildAuraOfPerseverance()
+    {
+        const string NAME = "AuraOfPerseverance";
+
+        var conditionAffinityDiseased = FeatureDefinitionConditionAffinityBuilder
+            .Create($"ConditionAffinity{NAME}Diseased")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetConditionType(ConditionDefinitions.ConditionDiseased)
+            .AddToDB();
+
+        var conditionAuraOfPerseverance = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .SetPossessive()
+            .SetFeatures(conditionAffinityDiseased, DamageAffinityPoisonResistance)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AuraOfPerseverance, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAuraOfPerseverance))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPaladinAuraOfProtection)
+                    .Build())
+            .AddToDB();
+
+        conditionAuraOfPerseverance.SetCustomSubFeatures(new ModifySavingThrowAuraOfPerseverance(spell));
+
+        return spell;
+    }
+
+    private sealed class ModifySavingThrowAuraOfPerseverance : IModifySavingThrow
+    {
+        private readonly SpellDefinition _spellDefinition;
+
+        public ModifySavingThrowAuraOfPerseverance(SpellDefinition spellDefinition)
+        {
+            _spellDefinition = spellDefinition;
+        }
+
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
+        {
+            return effectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Condition
+                && (x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionBlinded
+                    || x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionCharmed
+                    || x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionDeafened
+                    || x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionFrightened
+                    || x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionParalyzed
+                    || x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionPoisoned
+                    || x.ConditionForm.ConditionDefinition ==
+                    ConditionDefinitions.ConditionStunned));
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+
+            return attribute;
+        }
     }
 
     #endregion

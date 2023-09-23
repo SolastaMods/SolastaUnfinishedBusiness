@@ -1,9 +1,19 @@
+
+=空の
+Condition/&ConditionAuraOfPerseveranceDescription=あなたは病気になることはなく、毒ダメージに耐性があり、次の状態のいずれかを引き起こす効果に対するセーヴィング スローで有利になります: 盲目、魅惑、聴覚障害、恐怖、麻痺、毒、気絶。
+Condition/&ConditionAuraOfPerseveranceTitle=忍耐のオーラ
+Condition/&ConditionAuraOfVitalityDescription=あなたは壊死ダメージに対する耐性を持ち、最大ヒットポイントを減らすことはできません。
+Condition/&ConditionAuraOfVitalityTitle=生命力のオーラ
 Condition/&ConditionBrainBulwarkDescription=あなたは精神的ダメージに対する抵抗力を持ち、魅了されたり、怯えたり、恐怖したり、精神に支配されたり、精神に支配されたりする状況に対する免疫を持っています。
 Condition/&ConditionBrainBulwarkTitle=ブレインブルワーク
 Condition/&ConditionStaggeringSmiteEnemyDescription=精神的なダメージを受けてしまいます。
 Condition/&ConditionStaggeringSmiteEnemyTitle=よろめきのスマイト
 Feedback/&AdditionalDamageStaggeringSmiteFormat=驚異のスマイト！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} は驚異的な打撃により {1} にさらに多くのダメージを与えます (+{2})
+Spell/&AuraOfPerseveranceDescription=浄化のエネルギーがあなたから半径 30 フィートのオーラとして放射されます。呪文が終わるまで、オーラはあなたを中心としてあなたと一緒に移動します。オーラ内の非敵対的なクリーチャー（あなたを含む）は病気になることがなく、毒ダメージに対する耐性があり、次の状態のいずれかを引き起こす効果に対してセーヴィング スローで有利になります: 盲目、魅惑、聴覚障害、恐怖、麻痺、毒を盛られて気絶した。
+Spell/&AuraOfPerseveranceTitle=忍耐のオーラ
+Spell/&AuraOfVitalityDescription=生命を維持するエネルギーがあなたから半径 30 フィートのオーラとして放射されます。呪文が終わるまで、オーラはあなたを中心としてあなたと一緒に移動します。あなたを含むオーラ内の非敵対的クリーチャーはそれぞれ壊死ダメージに対する耐性を持ち、そのヒット ポイントの最大値を減らすことはできません。
+Spell/&AuraOfVitalityTitle=生命力のオーラ
 Spell/&BrainBulwarkDescription=期間中、あなたまたは範囲内で見える自発的なクリーチャー 1 体は精神的ダメージに対する耐性を持ち、また魅了、恐怖、恐怖、精神支配、精神支配状態に対する免疫を持ちます。
 Spell/&BrainBulwarkTitle=ブレインブルワーク
 Spell/&GravitySinkholeDescription=敵を引き寄せ、重力エネルギーで粉砕します。

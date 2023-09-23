@@ -1,9 +1,19 @@
+
+=비어 있는
+Condition/&ConditionAuraOfPerseveranceDescription=당신은 질병에 걸리지 않으며, 독 피해에 대한 저항력을 갖고 있으며, 다음과 같은 상태를 유발하는 효과에 대해 내성굴림에 유리합니다: 실명, 매혹, 귀머거리, 겁에 질림, 마비, 중독, 기절.
+Condition/&ConditionAuraOfPerseveranceTitle=인내의 오라
+Condition/&ConditionAuraOfVitalityDescription=괴사 피해에 대한 저항력이 있으며 최대 체력은 줄어들 수 없습니다.
+Condition/&ConditionAuraOfVitalityTitle=활력의 오라
 Condition/&ConditionBrainBulwarkDescription=정신 피해 저항을 얻고 매혹, 공포, 정신 지배 및 조종 상태 면역을 얻습니다.
 Condition/&ConditionBrainBulwarkTitle=정신 방벽
 Condition/&ConditionStaggeringSmiteEnemyDescription=정신 피해를 입습니다.
 Condition/&ConditionStaggeringSmiteEnemyTitle=비틀대는 강타
 Feedback/&AdditionalDamageStaggeringSmiteFormat=비틀대는 강타!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0}이(가) 비틀대는 강타로 {1}에게 추가 피해를 가합니다 (+{2})
+Spell/&AuraOfPerseveranceDescription=정화 에너지는 반경 30피트의 오라로 당신에게서 방출됩니다. 주문이 끝날 때까지 오라는 당신을 중심으로 당신과 함께 움직입니다. 오라에 있는 적대적이지 않은 각 생물(당신 포함)은 질병에 걸릴 수 없고 독 피해에 대한 저항력을 가지며 다음 조건 중 하나를 유발하는 효과에 대한 내성 굴림에 이점이 있습니다. 중독되어 기절했습니다.
+Spell/&AuraOfPerseveranceTitle=인내의 오라
+Spell/&AuraOfVitalityDescription=생명을 보존하는 에너지가 반경 30피트의 오라로 당신에게서 방출됩니다. 주문이 끝날 때까지 오라는 당신을 중심으로 당신과 함께 움직입니다. 당신을 포함하여 오라에 있는 적대적이지 않은 각 생물은 괴사 피해에 대한 저항력을 가지며 최대 체력은 줄어들 수 없습니다.
+Spell/&AuraOfVitalityTitle=활력의 오라
 Spell/&BrainBulwarkDescription=지속시간 동안, 자신이나 사거리 내의 시야로 확인 가능한 희망하는 크리쳐 하나에게 정신 피해 저항을 부여합니다. 또한 매혹, 공포, 정신 지배 또는 조종 상태에 대한 면역을 부여합니다.
 Spell/&BrainBulwarkTitle=정신 방벽
 Spell/&GravitySinkholeDescription=적들을 끌어내 중력으로 깨부숩니다.

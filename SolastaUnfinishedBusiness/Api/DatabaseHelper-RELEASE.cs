@@ -340,12 +340,18 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDead { get; } =
             GetDefinition<ConditionDefinition>("ConditionDead");
 
+        internal static ConditionDefinition ConditionDeafened { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDeafened");
+        
         internal static ConditionDefinition ConditionDisengaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionDisengaging");
 
         internal static ConditionDefinition ConditionDispellingEvilAndGood { get; } =
             GetDefinition<ConditionDefinition>("ConditionDispellingEvilAndGood");
 
+        internal static ConditionDefinition ConditionDiseased { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDiseased");
+        
         internal static ConditionDefinition ConditionDistracted { get; } =
             GetDefinition<ConditionDefinition>("ConditionDistracted");
 
@@ -456,6 +462,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionLevitate { get; } =
             GetDefinition<ConditionDefinition>("ConditionLevitate");
+
+        internal static ConditionDefinition ConditionLifeDrained { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLifeDrained");
 
         internal static ConditionDefinition ConditionLightSensitive { get; } =
             GetDefinition<ConditionDefinition>("ConditionLightSensitive");
@@ -586,6 +595,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionStrikeOfChaosAttackAdvantage { get; } =
             GetDefinition<ConditionDefinition>("ConditionStrikeOfChaosAttackAdvantage");
 
+        internal static ConditionDefinition ConditionStunned { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStunned");
+        
         internal static ConditionDefinition ConditionStunned_MonkStunningStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned_MonkStunningStrike");
 

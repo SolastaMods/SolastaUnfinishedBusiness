@@ -5,7 +5,7 @@
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEnchantment",
-  "spellLevel": 4,
+  "spellLevel": 2,
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
@@ -141,9 +141,9 @@
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2f58b35dbdc5ca5498d8e4f83f81b9c6",
+        "m_AssetGUID": "7b70493edfd42734b975cf604767e952",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +198,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "27a46eed70a684e42bf43db0fba210b9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -210,7 +210,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b5d2070b1c1d7ae42b33da971cf777ee",
+        "m_AssetGUID": "0996ba17c791cfb439433d11b2d35885",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -1,6 +1,9 @@
 ﻿1.5.94.17:
 
-- added Booming Step, Incineration, Heroic Infusion, Psychic Lance, and Psychic Whip spells
+- added Psychic Whip 2nd level spell
+- added Booming Step 3rd level spell
+- added Aura of Perseverance, Aura of Vitality, Psychic Lance, and Incineration 4th level spells
+- added Heroic Infusion 6th level spell
 - added Domain Battle and Insight level 17th features
 - fixed Burning Blade using INT modifier instead of spell casting ability
 
