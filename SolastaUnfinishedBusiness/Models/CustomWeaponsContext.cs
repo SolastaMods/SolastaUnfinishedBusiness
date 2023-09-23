@@ -938,13 +938,7 @@ internal sealed class ModifyWeaponProducedFlameDice : ModifyWeaponAttackModeBase
         RulesetCharacter character,
         RulesetAttackMode attackMode)
     {
-        DamageForm damage = null;
-
-        foreach (var effectForm in attackMode.EffectDescription.effectForms
-                     .Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Damage))
-        {
-            damage = effectForm.DamageForm;
-        }
+        var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
         if (damage == null)
         {
@@ -974,6 +968,7 @@ internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
         AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
         return result;
     }
 
