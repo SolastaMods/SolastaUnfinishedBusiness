@@ -443,7 +443,6 @@ internal static class Level20SubclassesContext
         var actionAffinityTraditionOpenHandQuiveringPalm = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
             .AddToDB();
 
