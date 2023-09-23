@@ -231,7 +231,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, true,

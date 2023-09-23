@@ -556,7 +556,6 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDiceAdvancement(LevelSourceType.EffectLevel, 1, 1, 1, 4)
                             .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())

@@ -164,11 +164,11 @@ internal static partial class SpellBuilders
         conditionIncineration.specialDuration = false;
 
         var spell = SpellDefinitionBuilder
-            .Create(BrandingSmite, NAME)
+            .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Immolation, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(5)
-            .SetCastingTime(ActivationTime.BonusAction)
+            .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)

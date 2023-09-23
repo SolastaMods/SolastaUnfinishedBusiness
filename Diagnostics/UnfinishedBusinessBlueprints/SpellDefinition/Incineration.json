@@ -8,7 +8,7 @@
   "spellLevel": 5,
   "ritual": false,
   "uniqueInstance": false,
-  "castingTime": "BonusAction",
+  "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": true,
@@ -377,8 +377,8 @@
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",
-    "learnPriority": "High",
-    "preparePriority": "High"
+    "learnPriority": "Low",
+    "preparePriority": "Low"
   },
   "concentrationAction": "None",
   "verboseComponent": true,
