@@ -41,7 +41,85 @@ internal static class Level20SubclassesContext
 
     private static void ClericLoad()
     {
-        // Divine Intervention
+        //
+        // Battle
+        //
+
+        // Paragon of Battle
+
+        var powerDomainBattleImprovedHeraldOfBattle = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainBattleHeraldOfBattle, "PowerDomainBattleImprovedHeraldOfBattle")
+            .SetOverriddenPower(PowerDomainBattleHeraldOfBattle)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDomainBattleHeraldOfBattle)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 4)
+                    .Build())
+            .AddToDB();
+
+        var featureSetDomainBattleParagonOfBattle = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainBattleParagonOfBattle")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinitySlashingResistance,
+                powerDomainBattleImprovedHeraldOfBattle)
+            .AddToDB();
+
+        DomainBattle.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainBattleParagonOfBattle, 17));
+
+        //
+        // Insight
+        //
+
+        // Avatar of Knowledge
+
+        var proficiencyDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyDomainInsightAvatarOfKnowledge")
+            .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
+            .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Intelligence)
+            .AddToDB();
+
+        var abilityCheckAffinityDomainInsightAvatarOfKnowledge = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create("AbilityCheckAffinityDomainInsightAvatarOfKnowledge")
+            .SetGuiPresentation("FeatureSetDomainInsightAvatarOfKnowledge", Category.Feature)
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                (AttributeDefinitions.Intelligence, SkillDefinitions.Arcana),
+                (AttributeDefinitions.Intelligence, SkillDefinitions.History),
+                (AttributeDefinitions.Intelligence, SkillDefinitions.Nature))
+            .AddToDB();
+
+        var pointPoolDomainInsightAvatarOfKnowledgeCantrips = FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolDomainInsightAvatarOfKnowledgeCantrips")
+            .SetGuiPresentationNoContent(true)
+            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, SpellListDefinitions.SpellListAllCantrips)
+            .AddToDB();
+
+        var pointPoolDomainInsightAvatarOfKnowledgeSpells = FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolDomainInsightAvatarOfKnowledgeSpells")
+            .SetGuiPresentationNoContent(true)
+            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 4, SpellListDefinitions.SpellListAllSpells)
+            .AddToDB();
+
+        var featureSetDomainInsightAvatarOfKnowledge = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainInsightAvatarOfKnowledge")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                abilityCheckAffinityDomainInsightAvatarOfKnowledge,
+                pointPoolDomainInsightAvatarOfKnowledgeCantrips,
+                pointPoolDomainInsightAvatarOfKnowledgeSpells,
+                proficiencyDomainInsightAvatarOfKnowledge)
+            .AddToDB();
+
+        DomainInsight.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainInsightAvatarOfKnowledge, 17));
+
+        // Divine Intervention [ALL CLERICS]
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
@@ -1535,8 +1613,6 @@ internal static class Level20SubclassesContext
                     rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
-
-            yield break;
         }
     }
 

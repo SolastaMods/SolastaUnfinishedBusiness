@@ -1522,6 +1522,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
 
+        internal static FeatureDefinitionPower PowerDomainBattleHeraldOfBattle { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainBattleHeraldOfBattle");
+
         internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
 

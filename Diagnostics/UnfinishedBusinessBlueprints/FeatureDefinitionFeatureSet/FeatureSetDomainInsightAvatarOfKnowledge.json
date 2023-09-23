@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AbilityCheckAffinityDomainInsightAvatarOfKnowledge:4c0b379b-b8d9-5271-94f7-5aad168cbce2",
+    "Definition:PointPoolDomainInsightAvatarOfKnowledgeCantrips:4a223aae-bcd9-5ebb-891a-42c7c9ddafab",
+    "Definition:PointPoolDomainInsightAvatarOfKnowledgeSpells:248cb4c2-297f-5786-9cf7-e8019077e415",
+    "Definition:ProficiencyDomainInsightAvatarOfKnowledge:a2ae204a-e322-5d8b-bb2e-a6c640eada09"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle",
+    "description": "Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4c37e003-9e0c-52f9-974e-d1cff2dfa3e2",
+  "contentPack": 9999,
+  "name": "FeatureSetDomainInsightAvatarOfKnowledge"
+}
