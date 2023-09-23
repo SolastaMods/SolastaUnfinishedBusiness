@@ -650,7 +650,10 @@ public static class RulesetImplementationManagerPatcher
         }
 
         private static void GetBestSavingThrowAbilityScore(
-            RulesetActor rulesetActor, RulesetActor rulesetCaster, ActionModifier actionModifier,
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            ActionModifier actionModifier,
+            List<EffectForm> effectForms,
             ref string attributeScore)
         {
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
@@ -667,7 +670,7 @@ public static class RulesetImplementationManagerPatcher
 
             foreach (var attribute in rulesetCharacter
                          .GetSubFeaturesByType<IModifySavingThrow>()
-                         .Where(x => x.IsValid(rulesetCharacter, rulesetCaster, attr))
+                         .Where(x => x.IsValid(rulesetCharacter, rulesetCaster, effectForms, attr))
                          .Select(x => x.AttributeAndActionModifier(rulesetCharacter, actionModifier, attr)))
             {
                 var newSavingThrowBonus =
@@ -708,7 +711,7 @@ public static class RulesetImplementationManagerPatcher
             }
 
             //PATCH: supports IModifySavingThrow interface
-            GetBestSavingThrowAbilityScore(target, caster, actionModifier, ref savingThrowAbility);
+            GetBestSavingThrowAbilityScore(target, caster, actionModifier, effectForms, ref savingThrowAbility);
         }
 
         [UsedImplicitly]

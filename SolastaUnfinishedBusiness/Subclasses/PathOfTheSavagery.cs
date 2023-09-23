@@ -211,7 +211,11 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Dexterity &&
                    rulesetActor.HasAnyConditionOfType(ConditionRaging);

@@ -85,7 +85,10 @@ internal static class Level20SubclassesContext
         var abilityCheckAffinityDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyDomainInsightAvatarOfKnowledgeSkillOrExpertise")
             .SetGuiPresentation("FeatureSetDomainInsightAvatarOfKnowledge", Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana, SkillDefinitions.History, SkillDefinitions.Nature)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise,
+                SkillDefinitions.Arcana,
+                SkillDefinitions.History,
+                SkillDefinitions.Nature)
             .AddToDB();
 
         var pointPoolDomainInsightAvatarOfKnowledgeCantrips = FeatureDefinitionPointPoolBuilder
@@ -1087,7 +1090,11 @@ internal static class Level20SubclassesContext
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Wisdom
                    && rulesetCaster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" };
