@@ -262,6 +262,7 @@ internal static class SpellsContext
         RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildForestGuardian(), 0, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);
         RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);

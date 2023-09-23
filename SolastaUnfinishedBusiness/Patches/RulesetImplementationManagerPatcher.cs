@@ -653,7 +653,7 @@ public static class RulesetImplementationManagerPatcher
             RulesetActor rulesetActor,
             RulesetActor rulesetCaster,
             ActionModifier actionModifier,
-            List<EffectForm> effectForms,
+            IReadOnlyCollection<EffectForm> effectForms,
             ref string attributeScore)
         {
             if (rulesetActor is not RulesetCharacter rulesetCharacter)

@@ -407,4 +407,164 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Forest Guardian
+
+    internal static SpellDefinition BuildForestGuardian()
+    {
+        const string NAME = "ForestGuardian";
+
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamageBeast{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag($"Beast{NAME}")
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetDamageDice(DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypeForce)
+            .AddToDB();
+
+        var conditionBeast = ConditionDefinitionBuilder
+            .Create($"ConditionBeast{NAME}")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetFeatures(
+                additionalDamage,
+                FeatureDefinitionMovementAffinitys.MovementAffinityCarriedByWind,
+                FeatureDefinitionSenses.SenseDarkvision24)
+            .AddToDB();
+
+        conditionBeast.SetCustomSubFeatures(new ModifyAttackActionModifierBeast(conditionBeast));
+
+        var spellBeast = SpellDefinitionBuilder
+            .Create($"Beast{NAME}")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBeast))
+                    .Build())
+            .AddToDB();
+
+        var savingThrowAffinityTree = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinityTree{NAME}")
+            .SetGuiPresentation($"ConditionTree{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                AttributeDefinitions.Constitution)
+            .AddToDB();
+
+        var conditionTree = ConditionDefinitionBuilder
+            .Create($"ConditionTree{NAME}")
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetFeatures(savingThrowAffinityTree)
+            .AddToDB();
+
+        conditionTree.SetCustomSubFeatures(new ModifyAttackActionModifierTree(conditionTree));
+        
+        var spellTree = SpellDefinitionBuilder
+            .Create($"Tree{NAME}")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionTree),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(10, DieType.D1, 0, true)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ForestGuardian, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetRequiresConcentration(true)
+            .SetSubSpells(spellBeast, spellTree)
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifyAttackActionModifierBeast : IModifyAttackActionModifier
+    {
+        private readonly ConditionDefinition _conditionBeast;
+
+        public ModifyAttackActionModifierBeast(ConditionDefinition conditionBeast)
+        {
+            _conditionBeast = conditionBeast;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (attackMode.AbilityScore != AttributeDefinitions.Strength)
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Condition, _conditionBeast.Name, _conditionBeast));
+        }
+    }
+
+    private sealed class ModifyAttackActionModifierTree : IModifyAttackActionModifier
+    {
+        private readonly ConditionDefinition _conditionTree;
+
+        public ModifyAttackActionModifierTree(ConditionDefinition conditionTree)
+        {
+            _conditionTree = conditionTree;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (attackMode.AbilityScore != AttributeDefinitions.Dexterity
+                && attackMode.AbilityScore != AttributeDefinitions.Wisdom)
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
+        }
+    }
+
+    #endregion
 }
