@@ -71,6 +71,74 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetDomainBattleParagonOfBattle, 17));
 
         //
+        // Elemental Lightning
+        //
+
+        // Living Tempest
+
+        var powerADomainLightningLivingTempestSprout = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainLightningLivingTempestSprout")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var powerDomainLightningLivingTempestDismiss = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainLightningLivingTempestDismiss")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("FlightDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                            ConditionForm.ConditionOperation.Remove))
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var featureSetDomainLightningLivingTempest = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSetDomainLightningLivingTempest")
+            .SetGuiPresentation("PowerDomainLightningLivingTempestSprout", Category.Feature)
+            .AddFeatureSet(powerADomainLightningLivingTempestSprout, powerDomainLightningLivingTempestDismiss)
+            .AddToDB();
+
+        DomainElementalLighting.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainLightningLivingTempest, 17));
+
+        //
+        // Life
+        //
+
+        // Supreme Healing
+
+        var featureDomainLifeSupremeHealing = FeatureDefinitionBuilder
+            .Create("DomainLifeSupremeHealing")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new ModifyDiceRollSupremeHealing())
+            .AddToDB();
+
+        DomainLife.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureDomainLifeSupremeHealing, 17));
+
+        //
         // Insight
         //
 
@@ -158,6 +226,28 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+    }
+
+    private sealed class ModifyDiceRollSupremeHealing : IModifyDiceRoll
+    {
+        private static DieType _dieType;
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            _dieType = dieType;
+        }
+
+        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
+        {
+            if (rollContext == RollContext.HealValueRoll)
+            {
+                result = DiceMaxValue[(int)_dieType];
+            }
+        }
     }
 
     private static void FighterLoad()

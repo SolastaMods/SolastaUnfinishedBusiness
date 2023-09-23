@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar della Conoscenza
+=VUOTO
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Abilita / Disabilita palmo tremante.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palmo tremante
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Ottieni 10 piedi aggiuntivi di movimento.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=Se il tuo totale
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Potere indomabile
 Feature/&CustomCodeBarbarianPrimalChampionDescription=Al 20° livello, incarni il potere delle terre selvagge. I tuoi punteggi di Forza e Costituzione aumentano di 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Campione primordiale
+Feature/&DomainLifeSupremeHealingDescription=Quando normalmente lanceresti uno o più dadi per ripristinare i punti ferita con un incantesimo, usi invece il numero più alto possibile per ciascun dado.
+Feature/&DomainLifeSupremeHealingTitle=Guarigione Suprema
 Feature/&FeatureBardSuperiorInspirationDescription=Quando tiri l'iniziativa e non hai più usi di Bardic Inspiration, recuperi un uso.
 Feature/&FeatureBardSuperiorInspirationTitle=Ispirazione superiore
 Feature/&FeatureDruidBeastSpellsDescription=Puoi lanciare molti dei tuoi incantesimi da druido in qualsiasi forma tu assuma usando Wild Shape. Puoi eseguire le componenti somatiche e verbali di un incantesimo da druido mentre sei in forma bestiale, ma non sei in grado di fornire componenti materiali.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=A partire dal 18�
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Padronanza della magia del Rift
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Gli alleati entro 4,5 metri ottengono +1 ai tiri per colpire, ai danni, alla CA e ai tiri salvezza.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Araldo di battaglia migliorato
+Feature/&PowerDomainLightningLivingTempestDismissDescription=Come azione bonus, puoi annullare il tuo volo.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Ignora volo
+Feature/&PowerDomainLightningLivingTempestSproutDescription=Come azione bonus, puoi concederti una velocità di volo pari alla tua velocità di camminata.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Tempesta vivente
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=Puoi usare un'azione bonus per dare a tutti gli alleati entro 3 caselle da te (incluso te stesso) vantaggio al loro prossimo attacco fino all'inizio del tuo prossimo turno, vantaggio al loro prossimo tiro salvezza e 10 piedi aggiuntivi di movimento fino all'inizio del tuo prossimo turno giro.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Grido travolgente
 Feature/&PowerMonkEmptyBodyDescription=Puoi usare la tua azione per spendere 4 punti Ki per diventare invisibile per 1 minuto. Durante quel periodo, hai anche resistenza a tutti i danni tranne i danni da forza.

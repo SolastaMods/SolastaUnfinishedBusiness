@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar de la connaissance
+=VIDE
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Activer/désactiver la Paume frémissante.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Paume frémissante
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Gagnez 10 pieds supplémentaires de mouvement.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=Si votre total p
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Puissance indomptable
 Feature/&CustomCodeBarbarianPrimalChampionDescription=Au niveau 20, vous incarnez la puissance du monde sauvage. Vos valeurs de Force et de Constitution augmentent de 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Champion primitif
+Feature/&DomainLifeSupremeHealingDescription=Alors que vous lanceriez normalement un ou plusieurs dés pour restaurer des points de vie avec un sort, vous utilisez plutôt le nombre le plus élevé possible pour chaque dé.
+Feature/&DomainLifeSupremeHealingTitle=Guérison Suprême
 Feature/&FeatureBardSuperiorInspirationDescription=Lorsque vous lancez un jet d'initiative et qu'il ne vous reste plus d'utilisations d'Inspiration bardique, vous regagnez une utilisation.
 Feature/&FeatureBardSuperiorInspirationTitle=Inspiration supérieure
 Feature/&FeatureDruidBeastSpellsDescription=Vous pouvez lancer vos sorts de druide sous n'importe quelle forme que vous assumez en utilisant Forme Sauvage. Vous pouvez réaliser les composantes somatiques et verbales d'un sort de druide sous forme de bête, mais vous ne pouvez pas utiliser de composante matérielle.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=À partir du nive
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Maîtrise de la magie des failles
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Les alliés à moins de 15 pieds gagnent +1 aux jets d’attaque, de dégâts, de CA et de sauvegarde.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Héraut de bataille amélioré
+Feature/&PowerDomainLightningLivingTempestDismissDescription=En guise d'action bonus, vous pouvez annuler votre vol.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Annuler le vol
+Feature/&PowerDomainLightningLivingTempestSproutDescription=En action bonus, vous pouvez vous donner une vitesse de vol égale à votre vitesse de marche.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Tempête vivante
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=Vous pouvez utiliser une action bonus pour donner à tous les alliés à moins de 3 cases de vous (y compris vous-même) un avantage lors de leur prochaine attaque jusqu'au début de votre prochain tour, un avantage lors de leur prochain jet de sauvegarde et 3 mètres de mouvement supplémentaires jusqu'au début de votre prochain tour.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Cri exaltant
 Feature/&PowerMonkEmptyBodyDescription=Vous pouvez utiliser votre action pour dépenser 4 points Ki afin de devenir invisible pendant 1 minute. Pendant ce temps, vous avez également une résistance à tous les dégâts, sauf les dégâts de force.

@@ -1,3 +1,4 @@
+
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Enable / Disable Quivering Palm.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Quivering Palm
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Gain 10 additional feet of movement.
@@ -32,6 +33,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=If your total fo
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Indomitable Might
 Feature/&CustomCodeBarbarianPrimalChampionDescription=Starting at 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Primal Champion
+Feature/&DomainLifeSupremeHealingDescription=When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.
+Feature/&DomainLifeSupremeHealingTitle=Supreme Healing
 Feature/&FeatureBardSuperiorInspirationDescription=When you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
 Feature/&FeatureBardSuperiorInspirationTitle=Superior Inspiration
 Feature/&FeatureDruidBeastSpellsDescription=You can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while in a beast shape, but you aren't able to provide material components.
@@ -76,6 +79,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=Starting at 18th 
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Rift Magic Mastery
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Allies within 15 ft gain +1 on attack rolls, damage, AC, and saving throws.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Improved Herald of Battle
+Feature/&PowerDomainLightningLivingTempestDismissDescription=As a bonus action, you can dismiss your flight.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Dismiss Flight
+Feature/&PowerDomainLightningLivingTempestSproutDescription=As an bonus action, you can give yourself a flying speed equal to your walking speed.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Living Tempest
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=You can use a bonus action to give all allies within 3 cells of you (including yourself) advantage on their next attack until the start of your next turn, advantage on their next saving throw and 10 additional feet of movement until the start of your next turn.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Rousing Shout
 Feature/&PowerMonkEmptyBodyDescription=You can use your action to spend 4 Ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.

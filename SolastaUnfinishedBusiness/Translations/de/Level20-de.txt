@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar des Wissens
+=LEER
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Aktivieren/Deaktivieren Sie „Quivering Palm“.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Zitternde Palme
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Erhalten Sie 10 zusätzliche Fuß Bewegungsfreiheit.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=Wenn Ihr Gesamtw
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Unbezwingbare Macht
 Feature/&CustomCodeBarbarianPrimalChampionDescription=Auf der 20. Stufe verkörpern Sie die Macht der Wildnis. Ihre Stärke- und Konstitutionswerte erhöhen sich um 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Ur-Champion
+Feature/&DomainLifeSupremeHealingDescription=Wenn Sie normalerweise einen oder mehrere Würfel werfen würden, um Trefferpunkte mit einem Zauber wiederherzustellen, verwenden Sie stattdessen für jeden Würfel die höchstmögliche Zahl.
+Feature/&DomainLifeSupremeHealingTitle=Höchste Heilung
 Feature/&FeatureBardSuperiorInspirationDescription=Wenn du die Initiative würfelst und keine Verwendungsmöglichkeiten für Bardische Inspiration mehr hast, erhältst du eine Verwendung zurück.
 Feature/&FeatureBardSuperiorInspirationTitle=Überlegene Inspiration
 Feature/&FeatureDruidBeastSpellsDescription=Mit Wild Shape können Sie viele Ihrer Druidenzauber in jeder beliebigen Form wirken. Du kannst die somatischen und verbalen Komponenten eines Druidenzaubers ausführen, während du in einer Bestiengestalt bist, aber du bist nicht in der Lage, materielle Komponenten bereitzustellen.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=Ab der 18. Stufe 
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Beherrschung der Rissmagie
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Verbündete innerhalb von 15 Fuß erhalten +1 auf Angriffswürfe, Schaden, AC und Rettungswürfe.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Verbesserter Herold der Schlacht
+Feature/&PowerDomainLightningLivingTempestDismissDescription=Als Bonusaktion können Sie Ihren Flug ablehnen.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Flug abweisen
+Feature/&PowerDomainLightningLivingTempestSproutDescription=Als Bonusaktion können Sie sich eine Fluggeschwindigkeit geben, die Ihrer Gehgeschwindigkeit entspricht.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Lebendiger Sturm
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=Sie können eine Bonusaktion verwenden, um allen Verbündeten innerhalb von 3 Feldern um Sie (einschließlich Ihnen selbst) einen Vorteil bei ihrem nächsten Angriff bis zum Beginn Ihres nächsten Zuges, einen Vorteil bei ihrem nächsten Rettungswurf und 10 zusätzliche Fuß Bewegung bis zum Beginn Ihres nächsten Zuges zu verschaffen drehen.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Mitreißender Ruf
 Feature/&PowerMonkEmptyBodyDescription=Mit Ihrer Aktion können Sie 4 Ki-Punkte ausgeben, um 1 Minute lang unsichtbar zu werden. Während dieser Zeit haben Sie auch Widerstand gegen jeglichen Schaden außer Kraftschaden.

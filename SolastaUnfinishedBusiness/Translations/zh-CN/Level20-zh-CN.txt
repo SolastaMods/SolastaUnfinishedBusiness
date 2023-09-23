@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知识的化身
+=空的
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=启动/禁用 渗透劲。
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=渗透劲
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=增加10尺移动距离。
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=如果你的力�
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=不屈神武
 Feature/&CustomCodeBarbarianPrimalChampionDescription=在第 20 级，你体现了荒野的力量。你的力量和体质值增加 4。
 Feature/&CustomCodeBarbarianPrimalChampionTitle=原始勇士
+Feature/&DomainLifeSupremeHealingDescription=当你通常会掷一个或多个骰子来用法术恢复生命值时，你会为每个骰子使用尽可能高的数字。
+Feature/&DomainLifeSupremeHealingTitle=至高疗愈
 Feature/&FeatureBardSuperiorInspirationDescription=当你掷出先攻骰且没有剩余吟游诗人激励时，你恢复一次激励使用次数。
 Feature/&FeatureBardSuperiorInspirationTitle=先发激励
 Feature/&FeatureDruidBeastSpellsDescription=你可以使用荒野形态以你假设的任何形状施放许多德鲁伊法术。你可以在野兽形态下执行德鲁伊法术的肢体和语言成分，但你无法提供材料成分。
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=从 18 级开始�
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=裂谷魔法精通
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=15 英尺内的盟友在攻击检定、伤害、AC 和豁免检定上获得 +1。
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=改进的战斗先驱
+Feature/&PowerDomainLightningLivingTempestDismissDescription=作为一项奖励措施，您可以取消航班。
+Feature/&PowerDomainLightningLivingTempestDismissTitle=取消航班
+Feature/&PowerDomainLightningLivingTempestSproutDescription=作为奖励动作，你可以让自己的飞行速度等于你的步行速度。
+Feature/&PowerDomainLightningLivingTempestSproutTitle=生活风暴
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=你可以使用一个附赠动作，使你周围3个单元内的所有盟友(包括你自己)在下一次攻击中获得优势，直到你的下一回合开始，他们的下一次豁免检定中获得优势，并在你的下一回合开始前可以额外移动10尺。
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=鼓舞呐喊
 Feature/&PowerMonkEmptyBodyDescription=您可以使用您的动作花费 4 点气来隐形 1 分钟。在那段时间里，你还可以抵抗除力场伤害以外的所有伤害。

@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知識の化身
+=空の
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=手のひらの震えを有効/無効にします。
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=震える手のひら
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=さらに 10 フィートの移動が可能になります。
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=強度チェッ�
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=不屈の力
 Feature/&CustomCodeBarbarianPrimalChampionDescription=20 レベルでは、あなたは荒野の力を体現します。筋力と体質のスコアが 4 増加します。
 Feature/&CustomCodeBarbarianPrimalChampionTitle=プライマルチャンピオン
+Feature/&DomainLifeSupremeHealingDescription=通常、呪文でヒット ポイントを回復するために 1 つ以上のサイコロを振るとき、代わりに各サイコロに可能な最大の数字を使用します。
+Feature/&DomainLifeSupremeHealingTitle=至高の癒し
 Feature/&FeatureBardSuperiorInspirationDescription=あなたがイニシアチブをロールし、バルディック・インスピレーションの使用が残っていない場合、あなたは 1 回の使用を取り戻します。
 Feature/&FeatureBardSuperiorInspirationTitle=優れたインスピレーション
 Feature/&FeatureDruidBeastSpellsDescription=ワイルドシェイプを使用すると、ドルイド呪文の多くを任意の形で唱えることができます。獣の姿になっている間は、ドルイド呪文の身体的要素と言語的要素を実行できますが、物質的要素を提供することはできません。
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=18 レベル以�
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=リフトマジックマスタリー
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=15フィート以内の味方は攻撃ロール、ダメージ、AC、セーヴィングスローに+1を得る。
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=改良された戦いの伝令
+Feature/&PowerDomainLightningLivingTempestDismissDescription=ボーナス アクションとして、フライトをキャンセルすることもできます。
+Feature/&PowerDomainLightningLivingTempestDismissTitle=フライトをキャンセル
+Feature/&PowerDomainLightningLivingTempestSproutDescription=ボーナスアクションとして、歩行速度と同じ飛行速度を自分に与えることができます。
+Feature/&PowerDomainLightningLivingTempestSproutTitle=リビング・テンペスト
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=ボーナスアクションを使用すると、自分から 3 マス以内にいるすべての味方 (自分自身を含む) に、次のターンの開始まで次の攻撃でアドバンテージを与え、次のセーヴィング スローでアドバンテージを与え、次のターンの開始までにさらに 10 フィートの移動を与えることができます。振り向く。
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=喚起するシャウト
 Feature/&PowerMonkEmptyBodyDescription=アクションを使用して 4 Ki ポイントを消費すると、1 分間透明になります。その間、強制ダメージを除くすべてのダメージに対する耐性も得られます。

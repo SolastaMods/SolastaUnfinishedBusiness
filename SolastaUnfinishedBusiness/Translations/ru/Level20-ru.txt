@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Аватар Знаний
+=ПУСТОЙ
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Включить / Отключить Дрожащую ладонь.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Дрожащая ладонь
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Получите 10 дополнительных футов передвижения.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=Если рез�
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Неукротимая мощь
 Feature/&CustomCodeBarbarianPrimalChampionDescription=На 20-м уровне вы становитесь воплощением силы дикой природы. Значение ваших Силы и Телосложения увеличивается на 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Дикий чемпион
+Feature/&DomainLifeSupremeHealingDescription=Когда вы обычно бросаете один или несколько кубиков, чтобы восстановить очки жизни с помощью заклинания, вы вместо этого используете максимально возможное число для каждого кубика.
+Feature/&DomainLifeSupremeHealingTitle=Высшее исцеление
 Feature/&FeatureBardSuperiorInspirationDescription=Если на момент броска инициативы у вас не осталось неиспользованных вдохновений, вы получаете одно.
 Feature/&FeatureBardSuperiorInspirationTitle=Превосходное вдохновение
 Feature/&FeatureDruidBeastSpellsDescription=Вы можете накладывать многие из своих заклинаний в любой форме дикого облика. Будучи Зверем, вы можете использовать соматический и вербальный компоненты заклинаний друида, но не способны использовать материальные компоненты.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=Начиная с
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Мастерство магии Разлома
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Союзники в радиусе 15 футов получают +1 к броскам атаки, урону, КД и спасброскам.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Улучшенный Вестник битвы
+Feature/&PowerDomainLightningLivingTempestDismissDescription=В качестве бонусного действия вы можете отменить свой рейс.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Отменить рейс
+Feature/&PowerDomainLightningLivingTempestSproutDescription=Бонусным действием вы можете придать себе скорость полета, равную скорости ходьбы.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Живая буря
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=Вы можете использовать бонусное действие, чтобы дать всем союзникам в радиусе 3 клеток (включая вас) преимущество на свой следующий спасбросок и дополнительные 10 футов передвижения до начала вашего следующего хода.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Воодушевляющий клич
 Feature/&PowerMonkEmptyBodyDescription=Вы можете действием потратить 4 очка ци, чтобы стать невидимым на 1 минуту. В течение этого времени вы также получаете сопротивление всем видам урона, кроме урона силовым полем.

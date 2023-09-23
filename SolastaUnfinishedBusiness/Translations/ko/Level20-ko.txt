@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=지식의 아바타
+=비어 있는
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=진동장 활성화/비활성화.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=진동장
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=이동력 +10ft.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=힘 판정 값�
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=불굴의 힘
 Feature/&CustomCodeBarbarianPrimalChampionDescription=20레벨부터, 당신은 야생의 힘을 체현하는 존재가 됩니다. 힘과 건강 능력치가 각각 4씩 증가합니다.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=원시의 용사
+Feature/&DomainLifeSupremeHealingDescription=일반적으로 주문으로 체력을 회복하기 위해 하나 이상의 주사위를 굴릴 때 대신 각 주사위에 가능한 가장 높은 숫자를 사용합니다.
+Feature/&DomainLifeSupremeHealingTitle=최고의 치유
 Feature/&FeatureBardSuperiorInspirationDescription=우선권을 굴릴 때 남은 바드의 고양감 주사위가 없다면, 1개를 얻습니다.
 Feature/&FeatureBardSuperiorInspirationTitle=우월한 고양감
 Feature/&FeatureDruidBeastSpellsDescription=야생 변신으로 어떤 형태를 취하고 있든 드루이드 주문을 시전할 수 있게 됩니다. 야수 형태에서도 음성과 동작 구성요소를 요하는 주문을 시전할 수 있습니다. 그러나 여전히 물질 요소를 요하는 주문은 시전할 수 없습니다.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=18레벨부터, �
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=균열 마법 통달
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=15피트 내의 아군은 공격 굴림, 피해, AC 및 내성 굴림에 +1을 얻습니다.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=향상된 전투의 전령
+Feature/&PowerDomainLightningLivingTempestDismissDescription=보너스 조치로 항공편을 기각할 수 있습니다.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=항공편 취소
+Feature/&PowerDomainLightningLivingTempestSproutDescription=보너스 액션으로 걷는 속도와 동일한 비행 속도를 얻을 수 있습니다.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=살아있는 폭풍우
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=추가 행동을 사용하여 당신의 다음 차례가 시작될 때까지 3칸 내의 모든 아군(당신 포함)의 다음 공격, 내성 굴림에 이점을 부여하고 이동력에 10 피트를 추가합니다.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=격려의 함성
 Feature/&PowerMonkEmptyBodyDescription=행동을 사용하여 기 포인트 4를 사용하여 1분 동안 투명해 질 수 있습니다. 그 동안 역장 피해를 제외한 모든 피해에 저항을 가집니다.

@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar del conocimiento
+=VACÍO
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Habilitar / deshabilitar la palma temblorosa.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palma temblorosa
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Obtenga 10 pies adicionales de movimiento.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=Si su total para
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Poder indomable
 Feature/&CustomCodeBarbarianPrimalChampionDescription=En el nivel 20, encarnas el poder de la naturaleza. Tus puntuaciones de Fuerza y Constitución aumentan en 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Campeón primigenio
+Feature/&DomainLifeSupremeHealingDescription=Cuando normalmente tirarías uno o más dados para restaurar los puntos de vida con un hechizo, en su lugar usas el número más alto posible para cada dado.
+Feature/&DomainLifeSupremeHealingTitle=Sanación Suprema
 Feature/&FeatureBardSuperiorInspirationDescription=Cuando tiras iniciativa y no te quedan usos de Inspiración de bardo, recuperas un uso.
 Feature/&FeatureBardSuperiorInspirationTitle=Inspiración superior
 Feature/&FeatureDruidBeastSpellsDescription=Puedes lanzar muchos de tus hechizos de druida en cualquier forma que asumas usando Wild Shape. Puedes realizar los componentes somáticos y verbales de un conjuro de druida mientras estás en forma de bestia, pero no puedes proporcionar componentes materiales.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=A partir del nive
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Dominio de la magia de la grieta
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Los aliados en un radio de 15 pies obtienen +1 en tiradas de ataque, daño, CA y tiros de salvación.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Heraldo de batalla mejorado
+Feature/&PowerDomainLightningLivingTempestDismissDescription=Como acción adicional, puedes cancelar tu vuelo.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Descartar vuelo
+Feature/&PowerDomainLightningLivingTempestSproutDescription=Como acción adicional, puedes darte una velocidad de vuelo igual a tu velocidad al caminar.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Tempestad viviente
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=Puedes usar una acción adicional para dar a todos los aliados dentro de 3 celdas de ti (incluido tú mismo) ventaja en su próximo ataque hasta el comienzo de tu próximo turno, ventaja en su próximo tiro de salvación y 10 pies adicionales de movimiento hasta el comienzo de tu próximo doblar.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Grito entusiasta
 Feature/&PowerMonkEmptyBodyDescription=Puedes usar tu acción para gastar 4 puntos de Ki para volverte invisible durante 1 minuto. Durante ese tiempo, también tienes resistencia a todo daño excepto al daño forzado.

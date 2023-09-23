@@ -1,4 +1,6 @@
+
  Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar do Conhecimento
+=VAZIO
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Ativar/desativar palma trêmula.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palma trêmula
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Ganhe 3 metros adicionais de movimento.
@@ -33,6 +35,8 @@ Feature/&ChangeAbilityCheckBarbarianIndomitableMightDescription=Se o total de um
 Feature/&ChangeAbilityCheckBarbarianIndomitableMightTitle=Poder indomável
 Feature/&CustomCodeBarbarianPrimalChampionDescription=No 20º nível, você incorpora o poder da selva. Seus valores de Força e Constituição aumentam em 4.
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Campeão Primal
+Feature/&DomainLifeSupremeHealingDescription=Quando você normalmente lançaria um ou mais dados para restaurar pontos de vida com uma magia, você usa o maior número possível para cada dado.
+Feature/&DomainLifeSupremeHealingTitle=Cura Suprema
 Feature/&FeatureBardSuperiorInspirationDescription=Quando você rola a iniciativa e não tem usos restantes de Inspiração de Bardo, você recupera um uso.
 Feature/&FeatureBardSuperiorInspirationTitle=Inspiração Superior
 Feature/&FeatureDruidBeastSpellsDescription=Você pode lançar muitos de seus feitiços de druida em qualquer forma que assumir usando Wild Shape. Você pode realizar os componentes somáticos e verbais de uma magia de druida enquanto estiver na forma de uma besta, mas não é capaz de fornecer componentes materiais.
@@ -77,6 +81,10 @@ Feature/&MagicAffinitySorcererChildRiftMagicMasteryDescription=A partir do 18º 
 Feature/&MagicAffinitySorcererChildRiftMagicMasteryTitle=Maestria Mágica do Rift
 Feature/&PowerDomainBattleImprovedHeraldOfBattleDescription=Aliados em um raio de 4,5 metros ganham +1 em jogadas de ataque, dano, CA e testes de resistência.
 Feature/&PowerDomainBattleImprovedHeraldOfBattleTitle=Arauto da Batalha Melhorado
+Feature/&PowerDomainLightningLivingTempestDismissDescription=Como uma ação bônus, você pode dispensar seu voo.
+Feature/&PowerDomainLightningLivingTempestDismissTitle=Dispensar voo
+Feature/&PowerDomainLightningLivingTempestSproutDescription=Como uma ação bônus, você pode obter um deslocamento de vôo igual ao seu deslocamento de caminhada.
+Feature/&PowerDomainLightningLivingTempestSproutTitle=Tempestade Viva
 Feature/&PowerMartialCommanderPeerlessCommanderDescription=Você pode usar uma ação bônus para dar a todos os aliados dentro de 3 células de você (incluindo você) vantagem em seu próximo ataque até o início de seu próximo turno, vantagem em seu próximo teste de resistência e 3 metros adicionais de movimento até o início de seu próximo turno. vez.
 Feature/&PowerMartialCommanderPeerlessCommanderTitle=Grito Despertador
 Feature/&PowerMonkEmptyBodyDescription=Você pode usar sua ação para gastar 4 pontos Ki para ficar invisível por 1 minuto. Durante esse tempo, você também tem resistência a todos os danos, exceto danos de força.

@@ -2,12 +2,13 @@
 
 - added Psychic Whip 2nd level, Booming Step 3rd level, and Heroic Infusion 6th level spells
 - added Aura of Perseverance, Aura of Vitality, Forest Guardian, Psychic Lance, and Incineration 4th level spells
-- added Domain Battle, and Insight level 17th features
+- added Domain Battle, Elemental Lightning, Life, and Insight level 17th features
 - fixed Arcane Archer bursting area damage not considering attack mode tags
 - fixed Booming Blade move damage not considering attack mode tags
 - fixed Burning Blade using intelligence modifier instead of spell casting ability
 - fixed College of Audacity whirl damage not considering attack mode tags
 - fixed Path of The Elements elemental conduit wildfire damage not considering attack mode tags
+- fixed Spike Barrage not up-scaling damage with "invert ALT key on tooltips" feature enabled
 - fixed Way of The Dragon reactive hide damage not considering attack mode tags
 
 1.5.94.16:
