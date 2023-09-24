@@ -169,6 +169,31 @@ internal static class Level20SubclassesContext
         DomainInsight.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetDomainInsightAvatarOfKnowledge, 17));
 
+        //
+        // Sun
+        //
+
+        // Rising Dawn
+
+        var featureDomainSunRisingDawn = FeatureDefinitionBuilder
+            .Create("FeatureDomainSunRisingDawn")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new ModifyDamageResistanceRisingDawn())
+            .AddToDB();
+
+        var featureSetDomainSunRisingDawn = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainSunRisingDawn")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                featureDomainSunRisingDawn,
+                DamageAffinityFireResistance,
+                DamageAffinityRadiantResistance)
+            .AddToDB();
+
+        DomainSun.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainSunRisingDawn, 17));
+
+
         // Divine Intervention [ALL CLERICS]
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
@@ -209,6 +234,19 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+    }
+
+    private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
+    {
+        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Resistance,
+                    DamageType: DamageTypeFire or DamageTypeRadiant
+                });
+        }
     }
 
     private static void FighterLoad()
