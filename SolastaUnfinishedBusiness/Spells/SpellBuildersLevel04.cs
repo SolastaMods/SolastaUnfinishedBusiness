@@ -15,6 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -276,8 +277,8 @@ internal static partial class SpellBuilders
 
         var conditionAuraOfVitality = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
-            .SetPossessive()
+            .SetGuiPresentation(Category.Condition, ConditionHeroism)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 conditionAffinityLifeDrained,
                 DamageAffinityNecroticResistance)
@@ -285,7 +286,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AuraOfPerseverance, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AuraOfVitality, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.Action)
@@ -298,13 +299,13 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 10)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionAuraOfVitality),
                         EffectFormBuilder.ConditionForm(ConditionLifeDrained, ConditionForm.ConditionOperation.Remove))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPaladinAuraOfProtection)
+                    .SetParticleEffectParameters(DivineWord)
                     .Build())
             .AddToDB();
 
@@ -328,8 +329,8 @@ internal static partial class SpellBuilders
 
         var conditionAuraOfPerseverance = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
-            .SetPossessive()
+            .SetGuiPresentation(Category.Condition, ConditionHeroism)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(conditionAffinityDiseased, DamageAffinityPoisonResistance)
             .AddToDB();
 
@@ -348,11 +349,11 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 10)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAuraOfPerseverance))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPaladinAuraOfProtection)
+                    .SetParticleEffectParameters(DivineWord)
                     .Build())
             .AddToDB();
 
@@ -378,20 +379,13 @@ internal static partial class SpellBuilders
         {
             return effectForms.Any(x =>
                 x.FormType == EffectForm.EffectFormType.Condition
-                && (x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionBlinded
-                    || x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionCharmed
-                    || x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionDeafened
-                    || x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionFrightened
-                    || x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionParalyzed
-                    || x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionPoisoned
-                    || x.ConditionForm.ConditionDefinition ==
-                    ConditionDefinitions.ConditionStunned));
+                && (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionBlinded.Name)
+                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name)
+                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionDeafened.Name)
+                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionFrightened.Name)
+                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionParalyzed.Name)
+                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionPoisoned.Name)
+                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionStunned.Name)));
         }
 
         public string AttributeAndActionModifier(
@@ -425,7 +419,7 @@ internal static partial class SpellBuilders
 
         var conditionBeast = ConditionDefinitionBuilder
             .Create($"ConditionBeast{NAME}")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionRangerHideInPlainSight)
             .SetPossessive()
             .SetFeatures(
                 additionalDamage,
@@ -434,6 +428,12 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionBeast.SetCustomSubFeatures(new ModifyAttackActionModifierBeast(conditionBeast));
+        conditionBeast.conditionStartParticleReference =
+            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionBeast.conditionParticleReference =
+            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionBeast.conditionEndParticleReference =
+            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var spellBeast = SpellDefinitionBuilder
             .Create($"Beast{NAME}")
@@ -452,6 +452,7 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBeast))
+                    .SetParticleEffectParameters(AnimalShapes)
                     .Build())
             .AddToDB();
 
@@ -464,13 +465,19 @@ internal static partial class SpellBuilders
 
         var conditionTree = ConditionDefinitionBuilder
             .Create($"ConditionTree{NAME}")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionRangerHideInPlainSight)
             .SetPossessive()
             .SetFeatures(savingThrowAffinityTree)
             .AddToDB();
 
         conditionTree.SetCustomSubFeatures(new ModifyAttackActionModifierTree(conditionTree));
-        
+        conditionTree.conditionStartParticleReference =
+            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionTree.conditionParticleReference =
+            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionTree.conditionEndParticleReference =
+            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
         var spellTree = SpellDefinitionBuilder
             .Create($"Tree{NAME}")
             .SetGuiPresentation(Category.Spell)
@@ -493,6 +500,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetTempHpForm(10, DieType.D1, 0, true)
                             .Build())
+                    .SetParticleEffectParameters(AnimalShapes)
                     .Build())
             .AddToDB();
 
@@ -529,7 +537,7 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode.AbilityScore != AttributeDefinitions.Strength)
+            if (attackMode?.AbilityScore != AttributeDefinitions.Strength)
             {
                 return;
             }
@@ -555,8 +563,8 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode.AbilityScore != AttributeDefinitions.Dexterity
-                && attackMode.AbilityScore != AttributeDefinitions.Wisdom)
+            if (attackMode?.AbilityScore != AttributeDefinitions.Dexterity
+                && attackMode?.AbilityScore != AttributeDefinitions.Wisdom)
             {
                 return;
             }

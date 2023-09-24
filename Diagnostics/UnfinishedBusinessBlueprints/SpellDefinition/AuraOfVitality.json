@@ -20,7 +20,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 7,
+    "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -154,7 +154,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "d9205f8f1e02e0b4d9da830c3f90dd69",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -178,7 +178,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7230127d1e8fdd24a9b959d470b6fdba",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -202,7 +202,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "0fc35269a6de48c4997c66cfcce8512a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

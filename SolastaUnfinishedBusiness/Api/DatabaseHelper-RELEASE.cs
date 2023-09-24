@@ -342,7 +342,7 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionDeafened { get; } =
             GetDefinition<ConditionDefinition>("ConditionDeafened");
-        
+
         internal static ConditionDefinition ConditionDisengaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionDisengaging");
 
@@ -351,7 +351,7 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionDiseased { get; } =
             GetDefinition<ConditionDefinition>("ConditionDiseased");
-        
+
         internal static ConditionDefinition ConditionDistracted { get; } =
             GetDefinition<ConditionDefinition>("ConditionDistracted");
 
@@ -538,6 +538,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionRaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionRaging");
 
+        internal static ConditionDefinition ConditionRangerHideInPlainSight { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRangerHideInPlainSight");
+
         internal static ConditionDefinition ConditionRestrained { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrained");
 
@@ -597,7 +600,7 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionStunned { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned");
-        
+
         internal static ConditionDefinition ConditionStunned_MonkStunningStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned_MonkStunningStrike");
 
@@ -3201,6 +3204,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
         internal static SpellDefinition AnimalFriendship { get; } = GetDefinition<SpellDefinition>("AnimalFriendship");
+        internal static SpellDefinition AnimalShapes { get; } = GetDefinition<SpellDefinition>("AnimalShapes");
         internal static SpellDefinition ArcaneSword { get; } = GetDefinition<SpellDefinition>("ArcaneSword");
         internal static SpellDefinition Bane { get; } = GetDefinition<SpellDefinition>("Bane");
         internal static SpellDefinition Banishment { get; } = GetDefinition<SpellDefinition>("Banishment");
@@ -3276,6 +3280,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DispelMagic { get; } = GetDefinition<SpellDefinition>("DispelMagic");
         internal static SpellDefinition DivineBlade { get; } = GetDefinition<SpellDefinition>("DivineBlade");
         internal static SpellDefinition DivineFavor { get; } = GetDefinition<SpellDefinition>("DivineFavor");
+        internal static SpellDefinition DivineWord { get; } = GetDefinition<SpellDefinition>("DivineWord");
         internal static SpellDefinition DominateBeast { get; } = GetDefinition<SpellDefinition>("DominateBeast");
         internal static SpellDefinition DominatePerson { get; } = GetDefinition<SpellDefinition>("DominatePerson");
         internal static SpellDefinition DreadfulOmen { get; } = GetDefinition<SpellDefinition>("DreadfulOmen");

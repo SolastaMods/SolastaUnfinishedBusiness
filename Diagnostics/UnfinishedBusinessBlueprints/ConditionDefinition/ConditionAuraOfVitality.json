@@ -8,8 +8,8 @@
     "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -88,7 +88,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -135,8 +135,8 @@
     "description": "Condition/&ConditionAuraOfVitalityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
+      "m_AssetGUID": "1a46ee54048826c49a3a039097db1745",
+      "m_SubObjectName": "ConditionHeroism",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

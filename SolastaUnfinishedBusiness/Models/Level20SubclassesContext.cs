@@ -53,7 +53,7 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDomainBattleHeraldOfBattle)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 4)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
                     .Build())
             .AddToDB();
 
