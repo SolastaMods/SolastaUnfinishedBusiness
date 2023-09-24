@@ -123,25 +123,47 @@ internal static class DocumentationContext
 
     private static IEnumerable<(CharacterClassDefinition, CharacterSubclassDefinition)> GetModdedSubclasses()
     {
-        return from kvp in SubclassesContext.KlassListContextTab
-                .OrderBy(x => x.Key.FormatTitle())
-            let klass = kvp.Key
-            from subClass in kvp.Value.AllSubClasses
-                .OrderBy(x => x.FormatTitle())
-            select (klass, subClass);
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var kvp in SubclassesContext.KlassListContextTab
+                     .OrderBy(x => x.Key.FormatTitle()))
+        {
+            var klass = kvp.Key;
+
+            foreach (var subClass in kvp.Value.AllSubClasses
+                         .OrderBy(x => x.FormatTitle()))
+            {
+                yield return (klass, subClass);
+            }
+        }
     }
 
     private static IEnumerable<(CharacterClassDefinition, CharacterSubclassDefinition)> GetVanillaSubclasses()
     {
-        return from klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                .OrderBy(x => x.FormatTitle())
-            from subclassName in klass.FeatureUnlocks
-                .Select(x => x.FeatureDefinition)
-                .OfType<FeatureDefinitionSubclassChoice>()
-                .SelectMany(x => x.Subclasses)
-            let subClass = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                .GetElement(subclassName)
-            select (klass, subClass);
+        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            foreach (var featureDefinitionSubclassChoice in klass.FeatureUnlocks.Select(x => x.FeatureDefinition)
+                         .OfType<FeatureDefinitionSubclassChoice>())
+            {
+                if (featureDefinitionSubclassChoice.FilterByDeity)
+                {
+                    foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                                 .Where(x => x.Name.StartsWith(featureDefinitionSubclassChoice.SubclassSuffix)))
+                    {
+                        yield return (klass, subclass);
+                    }
+                }
+                else
+                {
+                    foreach (var subclass in featureDefinitionSubclassChoice.Subclasses
+                                 .Select(x => DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                                     .GetElement(x)))
+                    {
+                        yield return (klass, subclass);
+                    }
+                }
+            }
+        }
     }
 
     private static void DumpSubclasses(
@@ -283,6 +305,11 @@ internal static class DocumentationContext
                     .GetElement(spellDefinition.SchoolOfMagic).FormatTitle();
 
                 title += $"{components} level {spellDefinition.SpellLevel} {school}";
+
+                if (spellDefinition.RequiresConcentration)
+                {
+                    title += " [" + Gui.Format("Tooltip/&TagConcentrationTitle") + "]";
+                }
             }
 
             outString.AppendLine($"# {counter++}. - {title}");
