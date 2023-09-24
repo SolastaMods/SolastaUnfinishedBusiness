@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "ChannelDivinity",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -322,15 +322,20 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "",
+  "shortTitleOverride": "Feature/&DomainInsightForeknowledgeShortTitle",
   "overriddenPower": "Definition:PowerDomainInsightForeknowledge:689d50046c267e44390e4012dbac6e1b",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&Emptystring",
-    "description": "Feature/&Emptystring",
-    "spriteReference": null,
+    "title": "Feature/&DomainInsightForeknowledgeTitle",
+    "description": "Feature/&DomainInsightForeknowledgeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2243d06e69e758d4c9191ef1c49c3ebf",
+      "m_SubObjectName": "Foreknowledge",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
