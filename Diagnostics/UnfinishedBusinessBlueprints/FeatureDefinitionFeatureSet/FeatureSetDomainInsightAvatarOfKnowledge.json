@@ -1,9 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ProficiencyDomainInsightAvatarOfKnowledgeSkillOrExpertise:3ddefb20-c608-5b13-a88f-9b0b5f876ce9",
-    "Definition:PointPoolDomainInsightAvatarOfKnowledgeCantrips:4a223aae-bcd9-5ebb-891a-42c7c9ddafab",
-    "Definition:PointPoolDomainInsightAvatarOfKnowledgeSpells:248cb4c2-297f-5786-9cf7-e8019077e415",
+    "Definition:PowerDomainInsightAvatarOfKnowledge:7e389a76-8f21-5e62-97ae-0789f702812d",
     "Definition:ProficiencyDomainInsightAvatarOfKnowledgeSavingThrow:44108874-f6f8-5e17-87ac-a9af6da53f4b"
   ],
   "mode": "Union",

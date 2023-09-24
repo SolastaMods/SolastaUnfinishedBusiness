@@ -623,8 +623,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 • You gain proficiency with Intelligence based saving throws.
-• You gain skill or expertise on arcana, history and nature ability checks.
-• You learn 4 spells from any class, as well as 2 cantrips from any class.
+• You can now channel your Foreknowledge divinity to you and all allies within 15 ft.
 
 
 ### Level 20

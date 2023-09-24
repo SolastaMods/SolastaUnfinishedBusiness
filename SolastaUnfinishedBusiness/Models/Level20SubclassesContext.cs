@@ -115,7 +115,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         var featureSetDomainLightningLivingTempest = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSetDomainLightningLivingTempest")
+            .Create("FeatureSetDomainLightningLivingTempest")
             .SetGuiPresentation("PowerDomainLightningLivingTempestSprout", Category.Feature)
             .AddFeatureSet(powerADomainLightningLivingTempestSprout, powerDomainLightningLivingTempestDismiss)
             .AddToDB();
@@ -150,37 +150,20 @@ internal static class Level20SubclassesContext
             .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Intelligence)
             .AddToDB();
 
-        var abilityCheckAffinityDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyDomainInsightAvatarOfKnowledgeSkillOrExpertise")
-            .SetGuiPresentation("FeatureSetDomainInsightAvatarOfKnowledge", Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise,
-                SkillDefinitions.Arcana,
-                SkillDefinitions.History,
-                SkillDefinitions.Nature)
-            .AddToDB();
-
-        var pointPoolDomainInsightAvatarOfKnowledgeCantrips = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolDomainInsightAvatarOfKnowledgeCantrips")
-            .SetGuiPresentationNoContent(true)
-            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
-            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, SpellListDefinitions.SpellListAllCantrips)
-            .AddToDB();
-
-        var pointPoolDomainInsightAvatarOfKnowledgeSpells = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolDomainInsightAvatarOfKnowledgeSpells")
-            .SetGuiPresentationNoContent(true)
-            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 2)
-            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 4, SpellListDefinitions.SpellListAllSpells)
+        var powerDomainInsightAvatarOfKnowledge = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainInsightAvatarOfKnowledge")
+            .SetOverriddenPower(PowerDomainInsightForeknowledge)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDomainInsightForeknowledge)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .Build())
             .AddToDB();
 
         var featureSetDomainInsightAvatarOfKnowledge = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetDomainInsightAvatarOfKnowledge")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                abilityCheckAffinityDomainInsightAvatarOfKnowledge,
-                pointPoolDomainInsightAvatarOfKnowledgeCantrips,
-                pointPoolDomainInsightAvatarOfKnowledgeSpells,
-                proficiencyDomainInsightAvatarOfKnowledge)
+            .AddFeatureSet(proficiencyDomainInsightAvatarOfKnowledge, powerDomainInsightAvatarOfKnowledge)
             .AddToDB();
 
         DomainInsight.FeatureUnlocks.Add(
@@ -226,28 +209,6 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-    }
-
-    private sealed class ModifyDiceRollSupremeHealing : IModifyDiceRoll
-    {
-        private static DieType _dieType;
-
-        public void BeforeRoll(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref DieType dieType,
-            ref AdvantageType advantageType)
-        {
-            _dieType = dieType;
-        }
-
-        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
-        {
-            if (rollContext == RollContext.HealValueRoll)
-            {
-                result = DiceMaxValue[(int)_dieType];
-            }
-        }
     }
 
     private static void FighterLoad()
@@ -1163,6 +1124,28 @@ internal static class Level20SubclassesContext
 
         SorcerousManaPainter.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
+    }
+
+    private sealed class ModifyDiceRollSupremeHealing : IModifyDiceRoll
+    {
+        private static DieType _dieType;
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            _dieType = dieType;
+        }
+
+        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
+        {
+            if (rollContext == RollContext.HealValueRoll)
+            {
+                result = DiceMaxValue[(int)_dieType];
+            }
+        }
     }
 
     #region Paladin

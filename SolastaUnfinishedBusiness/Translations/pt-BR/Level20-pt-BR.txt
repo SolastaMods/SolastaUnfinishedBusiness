@@ -52,7 +52,6 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=A partir do 17º nível, vo
 Feature/&FeatureRoguishThiefThiefReflexesTitle=Reflexos de Ladrão
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=Você ganha resistência a danos de concussão, perfurantes e cortantes. Além disso, o alcance do Herald of Battle foi aumentado para 15 pés.
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=Modelo de Batalha
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Você ganha proficiência em testes de resistência baseados em Inteligência.\n• Você ganha habilidade ou conhecimento em testes de habilidades arcanas, de história e de natureza.\n• Você aprende 4 feitiços de qualquer classe, bem como 2 truques de qualquer classe. aula.
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar do Conhecimento
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=Começando no 18º nível, qualquer aliado afetado por Rousing Shout também ganha vantagem em seu próximo teste de resistência e 3 metros adicionais de movimento até o início de seu próximo turno.
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=Comandante Incomparável

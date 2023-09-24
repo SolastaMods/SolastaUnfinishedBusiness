@@ -52,7 +52,6 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=A partire dal 17° livello,
 Feature/&FeatureRoguishThiefThiefReflexesTitle=Riflessi da ladro
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=Ottieni resistenza ai danni contundenti, perforanti e taglienti. Inoltre, la portata dell'Herald of Battle è aumentata a 15 piedi.
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=Esempio di battaglia
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Acquisisci competenza nei tiri salvezza basati sull'Intelligenza.\n• Acquisisci abilità o esperienza nelle prove di arcani, storia e abilità naturali.\n• Apprendi 4 incantesimi da qualsiasi classe, nonché 2 trucchetti da qualsiasi classe.
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar della Conoscenza
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=A partire dal 18° livello, qualsiasi alleato influenzato da Urlo Travolgente ottiene anche vantaggio al successivo Tiro Salvezza e 3 metri di movimento aggiuntivi fino all'inizio del tuo prossimo turno.
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=Comandante impareggiabile

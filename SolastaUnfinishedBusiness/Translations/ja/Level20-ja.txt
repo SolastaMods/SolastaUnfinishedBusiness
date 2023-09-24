@@ -52,7 +52,6 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=17 レベルからは、待
 Feature/&FeatureRoguishThiefThiefReflexesTitle=盗賊の反射神経
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=殴打、突き刺し、斬撃によるダメージに対する耐性が得られます。さらに、Herald of Battle の射程は 15 フィートに増加します。
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=戦いのパラゴン
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n・インテリジェンスベースのセーヴィング・スローに習熟します。\n・アルカナ、歴史、自然の能力チェックに関するスキルや専門知識を獲得します。\n・どのクラスからも 4 つの呪文を学び、どのクラスからも 2 つのキャントリップを学びます。クラス。
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知識の化身
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=18 レベルから、ラウジング シャウトの影響を受けた味方は次のセーヴィング スローでアドバンテージを獲得し、次のターンの開始までにさらに 10 フィートの移動が可能になります。
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=比類のない司令官

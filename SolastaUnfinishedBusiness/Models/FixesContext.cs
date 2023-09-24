@@ -54,6 +54,9 @@ internal static class FixesContext
         ExtendCharmImmunityToDemonicInfluence();
         FixSavingThrowAffinityManaPainterAbsorption();
 
+        // fix condition UI
+        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
+
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
 

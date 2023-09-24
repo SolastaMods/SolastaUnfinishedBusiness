@@ -52,7 +52,6 @@ Feature/&FeatureRoguishThiefThiefReflexesDescription=Ab der 17. Stufe sind Sie i
 Feature/&FeatureRoguishThiefThiefReflexesTitle=Reflexe des Diebes
 Feature/&FeatureSetDomainBattleParagonOfBattleDescription=Du erhältst Widerstand gegen Wucht-, Stich- und Hiebschaden. Darüber hinaus wird die Reichweite von Herald of Battle auf 15 Fuß erhöht.
 Feature/&FeatureSetDomainBattleParagonOfBattleTitle=Vorbild der Schlacht
-Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription=\n• Du erlangst Kenntnisse in auf Intelligenz basierenden Rettungswürfen.\n• Du erlangst Fertigkeiten oder Fachkenntnisse in Arcana, Geschichte und Naturfähigkeitsprüfungen.\n• Du lernst 4 Zaubersprüche von jeder Klasse sowie 2 Cantrips von jeder Klasse.
 Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar des Wissens
 Feature/&FeatureSetMartialCommanderPeerlessCommanderDescription=Ab der 18. Stufe erhält jeder von „Mitreißender Schrei“ betroffene Verbündete außerdem einen Vorteil bei seinem nächsten Rettungswurf und 10 zusätzliche Fuß Bewegungsfreiheit bis zum Beginn Ihres nächsten Zuges.
 Feature/&FeatureSetMartialCommanderPeerlessCommanderTitle=Unvergleichlicher Kommandant
