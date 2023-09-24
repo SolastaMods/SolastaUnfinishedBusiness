@@ -559,7 +559,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
-                    .SetParticleEffectParameters(Thunderwave)
+                    .SetParticleEffectParameters(Shatter)
                     .Build())
             .AddToDB();
 
@@ -590,12 +590,12 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionExplode, ConditionForm.ConditionOperation.Add, true))
                     .InviteOptionalAlly()
                     .ExcludeCaster()
-                    .SetParticleEffectParameters(Thunderwave)
+                    .SetParticleEffectParameters(DimensionDoor)
                     .Build())
             .SetCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+        spell.EffectDescription.EffectParticleParameters.targetParticleReference =
             ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
@@ -630,8 +630,9 @@ internal static partial class SpellBuilders
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                            && x != attacker
                             && !actionParams.TargetCharacters.Contains(x)
-                            && !gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+                            && gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
