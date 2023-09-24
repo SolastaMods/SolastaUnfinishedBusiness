@@ -1,6 +1,3 @@
-
-=EMPTY
-=비어 있는
 Condition/&ConditionAuraOfPerseveranceDescription=당신은 질병에 걸리지 않으며, 독 피해에 대한 저항력을 갖고 있으며, 다음과 같은 상태를 유발하는 효과에 대해 내성굴림에 유리합니다: 실명, 매혹, 귀머거리, 겁에 질림, 마비, 중독, 기절.
 Condition/&ConditionAuraOfPerseveranceTitle=인내의 오라
 Condition/&ConditionAuraOfVitalityDescription=괴사 피해에 대한 저항력이 있으며 최대 체력은 줄어들 수 없습니다.
