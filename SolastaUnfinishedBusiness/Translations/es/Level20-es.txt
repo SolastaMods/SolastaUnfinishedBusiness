@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar del conocimiento
-=VACÍO
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Habilitar / deshabilitar la palma temblorosa.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palma temblorosa
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Obtenga 10 pies adicionales de movimiento.

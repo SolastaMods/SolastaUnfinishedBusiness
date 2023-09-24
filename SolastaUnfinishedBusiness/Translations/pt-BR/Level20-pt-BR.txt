@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar do Conhecimento
-=VAZIO
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Ativar/desativar palma trêmula.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palma trêmula
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Ganhe 3 metros adicionais de movimento.

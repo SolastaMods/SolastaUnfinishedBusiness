@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar della Conoscenza
-=VUOTO
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Abilita / Disabilita palmo tremante.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Palmo tremante
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Ottieni 10 piedi aggiuntivi di movimento.

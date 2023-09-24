@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar des Wissens
-=LEER
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Aktivieren/Deaktivieren Sie „Quivering Palm“.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Zitternde Palme
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Erhalten Sie 10 zusätzliche Fuß Bewegungsfreiheit.

@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知识的化身
-=空的
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=启动/禁用 渗透劲。
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=渗透劲
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=增加10尺移动距离。

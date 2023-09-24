@@ -1,4 +1,3 @@
-
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Enable / Disable Quivering Palm.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Quivering Palm
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Gain 10 additional feet of movement.

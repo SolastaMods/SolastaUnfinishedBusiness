@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=知識の化身
-=空の
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=手のひらの震えを有効/無効にします。
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=震える手のひら
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=さらに 10 フィートの移動が可能になります。

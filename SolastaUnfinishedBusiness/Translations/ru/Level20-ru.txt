@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Аватар Знаний
-=ПУСТОЙ
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Включить / Отключить Дрожащую ладонь.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Дрожащая ладонь
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Получите 10 дополнительных футов передвижения.

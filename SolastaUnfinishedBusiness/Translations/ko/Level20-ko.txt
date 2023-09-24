@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=지식의 아바타
-=비어 있는
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=진동장 활성화/비활성화.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=진동장
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=이동력 +10ft.

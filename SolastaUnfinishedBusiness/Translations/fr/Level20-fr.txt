@@ -1,6 +1,3 @@
-
- Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle=Avatar de la connaissance
-=VIDE
 Action/&TraditionOpenHandQuiveringPalmToggleDescription=Activer/désactiver la Paume frémissante.
 Action/&TraditionOpenHandQuiveringPalmToggleTitle=Paume frémissante
 Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription=Gagnez 10 pieds supplémentaires de mouvement.
