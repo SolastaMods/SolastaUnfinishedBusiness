@@ -282,6 +282,7 @@ internal static partial class SpellBuilders
             .SetFeatures(
                 conditionAffinityLifeDrained,
                 DamageAffinityNecroticResistance)
+            .SetCustomSubFeatures(new OnReducedToZeroHpByEnemyAuraOfVitality())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -310,6 +311,19 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    private sealed class OnReducedToZeroHpByEnemyAuraOfVitality : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: true })
+            {
+                rulesetCharacter.StabilizeAndGainHitPoints(1);
+            }
+        }
     }
 
     #endregion
@@ -456,18 +470,10 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var savingThrowAffinityTree = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinityTree{NAME}")
-            .SetGuiPresentation($"ConditionTree{NAME}", Category.Condition, Gui.NoLocalization)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                AttributeDefinitions.Constitution)
-            .AddToDB();
-
         var conditionTree = ConditionDefinitionBuilder
             .Create($"ConditionTree{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionRangerHideInPlainSight)
             .SetPossessive()
-            .SetFeatures(savingThrowAffinityTree)
             .AddToDB();
 
         conditionTree.SetCustomSubFeatures(new ModifyAttackActionModifierTree(conditionTree));
@@ -493,9 +499,11 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionTree),
+                        EffectFormBuilder.ConditionForm(ConditionHindered),
+                        EffectFormBuilder.ConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true),
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(10, DieType.D1, 0, true)
@@ -547,7 +555,7 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ModifyAttackActionModifierTree : IModifyAttackActionModifier
+    private sealed class ModifyAttackActionModifierTree : IModifyAttackActionModifier, IModifySavingThrow
     {
         private readonly ConditionDefinition _conditionTree;
 
@@ -571,6 +579,26 @@ internal static partial class SpellBuilders
 
             attackModifier.attackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
+        }
+
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
+        {
+            return attributeScore == AttributeDefinitions.Wisdom;
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
+
+            return attribute;
         }
     }
 
