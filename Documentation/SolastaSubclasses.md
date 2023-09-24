@@ -994,6 +994,13 @@ Once per turn, when you hit a creature with a weapon attack, you can deal an ext
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
 
 
+### Level 17
+
+* Rising Dawn
+
+You have resistance to fire and radiant damage. You also bypass any fire and radiant damage resistance on your attacks.
+
+
 ### Level 20
 
 * Divine Intervention

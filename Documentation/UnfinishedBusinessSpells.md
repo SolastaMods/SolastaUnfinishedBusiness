@@ -227,30 +227,30 @@ Create a blast of cold wind to chill your enemies and knock them prone.
 
 Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
 
-# 54. - Brain Bulwark (V) level 4 Abjuration
+# 54. - Aura of Vivacity (V) level 4 Abjuration [Concentration]
+
+Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura including you has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
+
+# 55. - Brain Bulwark (V) level 4 Abjuration
 
 For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 
-# 55. - Gravity Sinkhole (V,S) level 4 Evocation
+# 56. - Gravity Sinkhole (V,S) level 4 Evocation
 
 Draw enemies together and crush them with gravitational energy.
 
-# 56. - Protector of the Wild (V) level 4 Transmutation [Concentration]
+# 57. - Protector of the Wild (V) level 4 Transmutation [Concentration]
 
 A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose between a Beast or a Tree form.
 
-# 57. - Psychic Lance (V) level 4 Enchantment
+# 58. - Psychic Lance (V) level 4 Enchantment
 
 You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. It must succeed on a Intelligence saving throw or take 7d6 psychic damage and be incapacitated until the end of your next turn. On a successful save, the creature takes half damage and isn't incapacitated. At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 4th.
 
-# 58. - Raise Skeletal Enforcer (V,S) level 4 Necromancy [Concentration]
+# 59. - Raise Skeletal Enforcer (V,S) level 4 Necromancy [Concentration]
 
 Summons Skeletal Enforcer:
 A powerful undead creature armed with an axe and a shield.
-
-# 59. - Spell/&AuraOfVitalityTitle (V) level 4 Abjuration [Concentration]
-
-Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura including you has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
 
 # 60. - Staggering Smite (V) level 4 Evocation [Concentration]
 
