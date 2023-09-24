@@ -1,6 +1,6 @@
 Condition/&ConditionMalakhAngelicFlightDescription=턴당 1회, 공격을 적중시킨 적에게 자신의 숙련 보너스와 같은 양의 광휘 피해를 가할 수 있습니다. 또한 자신의 이동력과 동일한 비행속도를 얻습니다.
 Condition/&ConditionMalakhAngelicFlightTitle=천사의 비행
-Condition/&ConditionMalakhAngelicRadianceDescription=턴당 1회, 공격을 적중시킨 적에게 자신의 숙련 보너스와 같은 양의 광휘 피해를 가할 수 있습니다. 자신 차례 종료마다, 반경 10ft 내의 적에게 1d4 광휘 피해를 가합니다.
+Condition/&ConditionMalakhAngelicRadianceDescription=턴당 1회, 공격을 적중시킨 적에게 자신의 숙련 보너스와 같은 양의 광휘 피해를 가할 수 있습니다. 자신 차례 종료마다, 반경 10ft 내의 적에게 1d4 광휘 피해를 가합니다. 
 Condition/&ConditionMalakhAngelicRadianceTitle=천사의 광휘
 Condition/&ConditionMalakhAngelicVisageDescription=턴당 1회, 공격을 적중시킨 적에게 자신의 숙련 보너스와 같은 양의 광휘 피해를 가합니다.
 Condition/&ConditionMalakhAngelicVisageTitle=천사의 형상

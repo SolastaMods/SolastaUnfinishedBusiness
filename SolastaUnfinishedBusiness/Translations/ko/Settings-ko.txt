@@ -1,8 +1,8 @@
-ModUi/&AccountForAllDiceOnSavageAttack=무기 피해 주사위 하나만을 추가로 더하던 특성들이 모든 주사위를 추가로 더하도록 합니다. <i><color=#F0DAA0>[야만적인 공격, 양손무기 등등]</color></i>
+ModUi/&AccountForAllDiceOnSavageAttack=무기 피해 주사위 하나만을 추가로 더하던 특성들이 모든 무기 피해 주사위를 추가로 더하도록 합니다. <i><color=#F0DAA0>[야만적인 공격, 양손무기 등등]</color></i>
 ModUi/&AddAllToStore=전부 상점에 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급 치유</color>와 <color=#D89555>하급 치유</color> 주문으로 제거할 수 있는 상태이상에 <color=#D89555>출혈</color> 상태 추가
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 커스텀 아이콘 추가 <i><color=#F0DAA0>[탄환, 제조, 도구 등.]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
-ModUi/&AddHelpActionToAllRaces=모든 플레이어블 종족의 행동 선택지에 <color=#D89555>도움</color> 행동을 추가 <i><color=#F0DAA0>[우호적인 크리쳐 하나가 자신과 5ft 내에 있는 크리쳐 하나를 공격하는 것을 도울 수 있습니다]</color></i>
+ModUi/&AddHelpActionToAllRaces=모든 플레이어블 종족의 행동 선택지에 <color=#D89555>도움</color> 행동을 추가 <i><color=#F0DAA0>[우호적인 크리쳐 하나가 자신과 1칸 내에 있는 크리쳐 하나를 공격하는 것을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 주적에 인간종 유형 추가
 ModUi/&AddNewBrightEyeColors=밝은 계열의 눈 색상 추가
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 신규 무기 및 제조법 추가 <i><color=#F0DAA0>[핸드랩, 할버드, 파이크, 롱 메이스, 핸드 크로스보우]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>

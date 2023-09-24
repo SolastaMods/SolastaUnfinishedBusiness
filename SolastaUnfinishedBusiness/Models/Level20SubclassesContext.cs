@@ -151,7 +151,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         var powerDomainInsightAvatarOfKnowledge = FeatureDefinitionPowerBuilder
-            .Create("PowerDomainInsightAvatarOfKnowledge")
+            .Create(PowerDomainInsightForeknowledge, "PowerDomainInsightAvatarOfKnowledge")
             .SetOverriddenPower(PowerDomainInsightForeknowledge)
             .SetEffectDescription(
                 EffectDescriptionBuilder
