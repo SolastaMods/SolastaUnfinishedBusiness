@@ -1,10 +1,10 @@
-Tutorial/&TutorialActionSwitchingDescription=사용할 수 있는 행동 또는 추가행동이 하나보다 많을 경우, 행동 상태 표식을 클릭해 해당 행동을 현재 활성 행동으로 만들 수 있습니다. 이렇게 함으로써 가속화 주문이나 무리 파쇄자 특성 등으로 얻은 행동을 수행하고, 기본 행동으로 주문을 시전하는 등, 필요한 조합으로 행동을 취할 수 있게 됩니다.\n행동 상태 표식 위에 커서를 움직일 경우 해당 행동에 할당된 특성이나 상태의 이름이 툴팁으로 표시됩니다. 
+Tutorial/&TutorialActionSwitchingDescription=사용할 수 있는 행동 또는 추가행동이 하나보다 많을 경우, 행동 상태 표식을 클릭해 해당 행동을 현재 활성 행동으로 만들 수 있습니다. 이렇게 함으로써 가속화 주문이나 무리 파쇄자 특성 등으로 얻은 행동을 수행하고, 기본 행동으로 주문을 시전하는 등, 필요한 조합으로 행동을 취할 수 있게 됩니다.\n행동 상태 표식 위에 커서를 움직일 경우 해당 행동에 할당된 특성이나 상태의 이름이 툴팁으로 표시됩니다.
 Tutorial/&TutorialActionSwitchingTitle=다중 행동
 UI/&Add=추가
 UI/&AdditionalActionSource=다음 요소로 할당됨: {0}
 UI/&Current Party=현재 파티
 UI/&DistanceFormat=거리: {0}
-UI/&Experimental Preview:=시험용 미리보기 <i><color=Yellow>[사용하기 전에 백업을 저장하십시오]</color></i>: 
+UI/&Experimental Preview:=시험용 미리보기 <i><color=Yellow>[사용하기 전에 백업을 저장하십시오]</color></i>:
 UI/&Expert=전문가
 UI/&From=으로부터
 UI/&PartyEditor=파티 편집
