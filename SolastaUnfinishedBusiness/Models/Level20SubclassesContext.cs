@@ -1461,7 +1461,7 @@ internal static class Level20SubclassesContext
             }
 
             rulesetCharacter.ForceKiPointConsumption(1);
-            rulesetCharacter.StabilizeAndGainHitPoints(10);
+            rulesetCharacter.StabilizeAndGainHitPoints(1);
             rulesetCharacter.InflictCondition(
                 ConditionDodging,
                 DurationType.Round,
