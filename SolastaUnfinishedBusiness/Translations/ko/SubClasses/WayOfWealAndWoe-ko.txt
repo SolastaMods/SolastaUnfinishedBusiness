@@ -1,6 +1,6 @@
 Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=몽크 무기나 비무장 공격으로 치명타를 낸 경우, 무술 주사위 1개만큼 추가 피해를 가합니다.
 Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=무자비한 운
-Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=몽크 무기나 비무장 공격으로 명중 굴림을 하고 치명타를 맞힌 후 1키 포인트를 반환합니다.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=몽크 무기나 비무장 공격으로 치명타를 낸 경우, 기 1점을 얻습니다.
 Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=몰아낸 불운
 Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=몽크 무기나 비무장 공격에서 펌블이 난 경우, 자신 대신 대상에게 화를 가합니다.
 Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=타인의 불운
