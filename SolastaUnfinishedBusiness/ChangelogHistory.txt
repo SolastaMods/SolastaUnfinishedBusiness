@@ -1,7 +1,8 @@
 ﻿1.5.94.17:
 
-- added Psychic Whip 2nd, Booming Step 3rd, Incineration 5th, and Heroic Infusion 6th level spells
-- added Aura of Perseverance, Aura of Vitality, Forest Guardian, and Psychic Lance 4th level spells
+- added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
+- added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
+- added Aura of Perseverance, Aura of Vivacity, Protector of the Wild, and Psychic Lance 4th level spells
 - added Domain Battle, Lightning, Life, Insight, and Sun level 17th features
 - fixed Arcane Archer bursting area damage not considering attack mode tags
 - fixed Booming Blade move damage not considering attack mode tags

@@ -1,6 +1,3 @@
-
-=EMPTY
-=VIDE
 Condition/&ConditionAuraOfPerseveranceDescription=Vous ne pouvez pas tomber malade, avez une résistance aux dégâts de poison et avez un avantage aux jets de sauvegarde contre les effets qui provoquent l'une des conditions suivantes : aveuglé, charmé, assourdi, effrayé, paralysé, empoisonné et étourdi.
 Condition/&ConditionAuraOfPerseveranceTitle=Aura de persévérance
 Condition/&ConditionAuraOfVitalityDescription=Vous avez une résistance aux dégâts nécrotiques et votre maximum de points de vie ne peut pas être réduit.
@@ -17,10 +14,10 @@ Feedback/&AdditionalDamageBeastForestGuardianFormat=Gardien de la forêt !
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} inflige plus de dégâts à {1} à cause du gardien de la forêt (+{2})
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Châtiment stupéfiant !
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige plus de dégâts à {1} par un châtiment stupéfiant (+{2})
+Spell/&AuraOfVitalityTitle=Aura de vivacité
 Spell/&AuraOfPerseveranceDescription=Une énergie purificatrice rayonne de vous dans une aura d’un rayon de 9 mètres. Jusqu'à la fin du sort, l'aura se déplace avec vous, centrée sur vous. Chaque créature non hostile dans l'aura (y compris vous) ne peut pas tomber malade, a une résistance aux dégâts de poison et a un avantage aux jets de sauvegarde contre les effets qui provoquent l'une des conditions suivantes : aveuglé, charmé, assourdi, effrayé, paralysé, empoisonné et abasourdi.
 Spell/&AuraOfPerseveranceTitle=Aura de persévérance
 Spell/&AuraOfVitalityDescription=Une énergie vitale rayonne de vous dans une aura d’un rayon de 9 mètres. Jusqu'à la fin du sort, l'aura se déplace avec vous, centrée sur vous. Chaque créature non hostile dans l'aura, vous y compris, a une résistance aux dégâts nécrotiques et son maximum de points de vie ne peut pas être réduit. De plus, une créature vivante non hostile récupère 1 point de vie lorsqu'elle commence son tour dans l'aura avec 0 point de vie.
-Spell/&AuraOfVitalityTitle=Aura de vitalité
 Spell/&BeastForestGuardianDescription=Une fourrure bestiale recouvre votre corps, les traits de votre visage deviennent sauvages et vous bénéficiez des avantages suivants :\n• Votre vitesse de marche augmente de 10 pieds.\n• Vous bénéficiez d'une vision dans le noir avec une portée de 120 pieds.\n• Vous effectuez des jets d'attaque basés sur la Force avec avantage.\n• Vos attaques avec une arme de mêlée infligent 1d6 dégâts de force supplémentaires en cas de coup.
 Spell/&BeastForestGuardianTitle=Gardien de la forêt des bêtes
 Spell/&BrainBulwarkDescription=Pendant toute la durée, vous ou une créature consentante que vous pouvez voir à portée bénéficie d'une résistance aux dégâts psychiques, ainsi que d'une immunité aux conditions Charmé, Effrayé, Peur, Dominé par l'esprit et Contrôlé par l'esprit.
@@ -35,5 +32,3 @@ Spell/&StaggeringSmiteDescription=La prochaine fois que vous touchez une créatu
 Spell/&StaggeringSmiteTitle=Châtiment étourdissant
 Spell/&TreeForestGuardianDescription=Votre peau semble aboyer, des feuilles poussent sur vos cheveux et vous bénéficiez des avantages suivants :\n• Vous gagnez 10 points de vie temporaires.\n• Vous effectuez des jets de sauvegarde de Constitution avec avantage.\n• Vous gagnez de la Dextérité et de la Sagesse. -les jets d'attaque basés sur l'avantage sont avantageux.\n• Les créatures qui entrent dans la zone à moins de 15 pieds de vous ou qui commencent leur tour à moins de 15 pieds de vous sont gênées jusqu'à la fin de votre prochain tour.
 Spell/&TreeForestGuardianTitle=Arbre sauvage
-•Spell/&AuraOfVitalityTitle=Aura de vitalité
-•Spell/&TreeForestGuardianTitle=Gardien de la forêt d'arbres

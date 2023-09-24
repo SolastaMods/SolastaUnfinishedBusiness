@@ -472,7 +472,7 @@ internal static partial class SpellBuilders
 
         var conditionTree = ConditionDefinitionBuilder
             .Create($"ConditionTree{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionRangerHideInPlainSight)
+            .SetGuiPresentation(Category.Condition, ConditionRestrainedByMagicalArrow)
             .SetPossessive()
             .AddToDB();
 

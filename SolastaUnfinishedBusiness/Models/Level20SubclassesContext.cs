@@ -76,7 +76,7 @@ internal static class Level20SubclassesContext
 
         // Living Tempest
 
-        var powerADomainLightningLivingTempestSprout = FeatureDefinitionPowerBuilder
+        var powerDomainLightningLivingTempestSprout = FeatureDefinitionPowerBuilder
             .Create("PowerDomainLightningLivingTempestSprout")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
@@ -92,6 +92,7 @@ internal static class Level20SubclassesContext
                             .SetConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsThunder)
                     .Build())
             .SetCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
@@ -117,7 +118,7 @@ internal static class Level20SubclassesContext
         var featureSetDomainLightningLivingTempest = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetDomainLightningLivingTempest")
             .SetGuiPresentation("PowerDomainLightningLivingTempestSprout", Category.Feature)
-            .AddFeatureSet(powerADomainLightningLivingTempestSprout, powerDomainLightningLivingTempestDismiss)
+            .AddFeatureSet(powerDomainLightningLivingTempestSprout, powerDomainLightningLivingTempestDismiss)
             .AddToDB();
 
         DomainElementalLighting.FeatureUnlocks.Add(
@@ -234,19 +235,6 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-    }
-
-    private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
-    {
-        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
-        {
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider
-                {
-                    DamageAffinityType: DamageAffinityType.Resistance,
-                    DamageType: DamageTypeFire or DamageTypeRadiant
-                });
-        }
     }
 
     private static void FighterLoad()
@@ -1162,6 +1150,19 @@ internal static class Level20SubclassesContext
 
         SorcerousManaPainter.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
+    }
+
+    private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
+    {
+        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Resistance,
+                    DamageType: DamageTypeFire or DamageTypeRadiant
+                });
+        }
     }
 
     private sealed class ModifyDiceRollSupremeHealing : IModifyDiceRoll

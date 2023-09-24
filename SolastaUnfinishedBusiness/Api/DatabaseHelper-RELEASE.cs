@@ -373,6 +373,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionExhausted { get; } =
             GetDefinition<ConditionDefinition>("ConditionExhausted");
 
+        internal static ConditionDefinition ConditionFeatTakeAim { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFeatTakeAim");
+
         internal static ConditionDefinition ConditionFlying { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying");
 

@@ -1182,6 +1182,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] FlameArrows {
+            get {
+                object obj = ResourceManager.GetObject("FlameArrows", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] FlamingBolt {
             get {
                 object obj = ResourceManager.GetObject("FlamingBolt", resourceCulture);
@@ -1725,6 +1735,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] Kobold {
             get {
                 object obj = ResourceManager.GetObject("Kobold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] LightningArrow {
+            get {
+                object obj = ResourceManager.GetObject("LightningArrow", resourceCulture);
                 return ((byte[])(obj));
             }
         }

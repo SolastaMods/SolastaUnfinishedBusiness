@@ -559,7 +559,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeThunder, 3, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
-                    .SetParticleEffectParameters(Shatter)
+                    .SetParticleEffectParameters(Thunderwave)
                     .Build())
             .AddToDB();
 
@@ -677,6 +677,289 @@ internal static partial class SpellBuilders
             }
 
             return effectDescription;
+        }
+    }
+
+    #endregion
+
+    #region Flame Arrows
+
+    internal static SpellDefinition BuildFlameArrows()
+    {
+        const string Name = "FlameArrows";
+
+        var conditionFlameArrows = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionFeatTakeAim)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create($"AdditionalDamage{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag(Name)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
+                    .SetAttackModeOnly()
+                    .SetDamageDice(DieType.D6, 1)
+                    .SetSpecificDamageType(DamageTypeFire)
+                    .SetImpactParticleReference(
+                        FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
+                    .AddToDB())
+            .SetCustomSubFeatures(new CustomBehaviorFlameArrows())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.FlameArrows, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagRange, 0, false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalItemBonus: 2)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFlameArrows))
+                    .SetParticleEffectParameters(FireBolt)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorFlameArrows : IOnConditionAddedOrRemoved, IPhysicalAttackFinishedByMe
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            rulesetCondition.Amount = 12 + (2 * (rulesetCondition.EffectLevel - 3));
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackerAttackMode is not { Ranged: true } or { Thrown: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    "ConditionFlameArrows",
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            activeCondition.Amount--;
+
+            if (activeCondition.Amount <= 0)
+            {
+                rulesetAttacker.BreakConcentration();
+            }
+        }
+    }
+
+    #endregion
+
+    #region Lightning Arrow
+
+    internal static SpellDefinition BuildLightningArrow()
+    {
+        const string Name = "LightningArrow";
+
+        var powerLightningArrow = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Spell)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeLightning, 4, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(Shatter)
+                    .Build())
+            .AddToDB();
+
+        powerLightningArrow.SetCustomSubFeatures(new ModifyEffectDescriptionLightningArrow(powerLightningArrow, 4));
+
+        var powerLightningArrowLeap = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Leap")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeLightning, 2, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(Shatter)
+                    .Build())
+            .AddToDB();
+
+        powerLightningArrowLeap.SetCustomSubFeatures(
+            new ModifyEffectDescriptionLightningArrow(powerLightningArrowLeap, 2));
+
+        var conditionLightningArrow = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionFeatTakeAim)
+            .SetPossessive()
+            .SetFeatures()
+            .SetCustomSubFeatures(
+                new PhysicalAttackFinishedByMeLightningArrow(powerLightningArrow, powerLightningArrowLeap))
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.LightningArrow, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionLightningArrow))
+                    .SetParticleEffectParameters(Shatter)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifyEffectDescriptionLightningArrow : IModifyEffectDescription
+    {
+        private readonly int _baseDice;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public ModifyEffectDescriptionLightningArrow(FeatureDefinitionPower featureDefinitionPower, int baseDice)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+            _baseDice = baseDice;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _featureDefinitionPower;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm != null)
+            {
+                damageForm.diceNumber = _baseDice + rulesetEffect.EffectLevel - 3;
+            }
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class PhysicalAttackFinishedByMeLightningArrow : IPhysicalAttackFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerLightningArrow;
+        private readonly FeatureDefinitionPower _powerLightningArrowLeap;
+
+        public PhysicalAttackFinishedByMeLightningArrow(
+            FeatureDefinitionPower powerLightningArrow,
+            FeatureDefinitionPower powerLightningArrowLeap)
+        {
+            _powerLightningArrow = powerLightningArrow;
+            _powerLightningArrowLeap = powerLightningArrowLeap;
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackerAttackMode is not { Ranged: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            // damage on target
+            if (attackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                var actionParamsMain = action.ActionParams.Clone();
+                var usablePowerMain = UsablePowersProvider.Get(_powerLightningArrow, rulesetAttacker);
+
+                actionParamsMain.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+                actionParamsMain.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectPower(rulesetAttacker, usablePowerMain, false)
+                    .AddAsActivePowerToSource();
+
+                action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsMain));
+            }
+
+            // leap damage on enemies within 10 ft from target
+            var actionParamsLeap = action.ActionParams.Clone();
+            var usablePowerLeap = UsablePowersProvider.Get(_powerLightningArrowLeap, rulesetAttacker);
+
+            actionParamsLeap.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParamsLeap.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePowerLeap, false)
+                .AddAsActivePowerToSource();
+            actionParamsLeap.TargetCharacters.SetRange(battleManager.Battle.AllContenders
+                .Where(x =>
+                    x.Side != attacker.Side
+                    && x != defender
+                    && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                    && battleManager.IsWithinXCells(defender, x, 2))
+                .ToList());
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsLeap));
+
+            rulesetAttacker.BreakConcentration();
         }
     }
 
