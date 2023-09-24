@@ -78,7 +78,7 @@ internal sealed class Executioner : AbstractFightingStyle
 
             if (survivalistLevel >= 11)
             {
-                return rulesetDefender.HasAnyConditionOfType(
+                return rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     ConditionBlinded,
                     ConditionFrightened,
                     ConditionRestrained,
@@ -90,7 +90,7 @@ internal sealed class Executioner : AbstractFightingStyle
                     "ConditionHindered");
             }
 
-            return rulesetDefender.HasAnyConditionOfType(
+            return rulesetDefender.HasAnyConditionOfTypeOrSubType(
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,

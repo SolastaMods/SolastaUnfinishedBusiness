@@ -1517,7 +1517,7 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            if (!rulesetDefender.HasAnyConditionOfType(
+            if (!rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     ConditionDefinitions.ConditionLuminousKi.Name,
                     ConditionDefinitions.ConditionShine.Name))
             {
@@ -1756,7 +1756,7 @@ internal static class Level20SubclassesContext
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            x.RulesetCharacter.HasAnyConditionOfType("ConditionHitByDirtyFighting"))
+                            x.RulesetCharacter.HasAnyConditionOfTypeOrSubType("ConditionHitByDirtyFighting"))
                 .ToList(); // avoid changing enumerator
 
             if (caster == null || targets.Empty())
@@ -1837,7 +1837,7 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            return rulesetDefender.HasAnyConditionOfType(
+            return rulesetDefender.HasAnyConditionOfTypeOrSubType(
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,

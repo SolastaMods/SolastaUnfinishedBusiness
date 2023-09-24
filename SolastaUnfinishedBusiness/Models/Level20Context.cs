@@ -932,7 +932,7 @@ internal static class Level20Context
                 yield break;
             }
 
-            if (rulesetDefender.HasAnyConditionOfType(ConditionIncapacitated))
+            if (rulesetDefender.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated))
             {
                 yield break;
             }
