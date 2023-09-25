@@ -74,6 +74,34 @@ internal static class Level20SubclassesContext
         // Fire
         //
 
+        // Summon Blizzard
+
+        var powerDomainColdSummonBlizzard = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainColdSummonBlizzard")
+            .SetGuiPresentation(Category.Feature, ConjureElemental)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, "Air_Elemental")
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, "Ice_Elemental")
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        DomainElementalCold.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerDomainColdSummonBlizzard, 17));
+
+        //
+        // Fire
+        //
+
         // Summon Inferno
 
         var powerDomainFireSummonInferno = FeatureDefinitionPowerBuilder
@@ -82,7 +110,16 @@ internal static class Level20SubclassesContext
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(ConjureElementalFire)
+                    .Create()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, "Air_Earth")
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, "Ice_Fire")
+                            .Build())
                     .Build())
             .AddToDB();
 
