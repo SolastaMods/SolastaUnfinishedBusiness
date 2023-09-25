@@ -470,6 +470,11 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        var conditionHindered = ConditionDefinitionBuilder
+            .Create( ConditionHindered, $"ConditionHindered{NAME}")
+            .SetGuiPresentation("ConditionHindered", Category.Rules, ConditionRestrainedByMagicalArrow)
+            .AddToDB();
+
         var conditionTree = ConditionDefinitionBuilder
             .Create($"ConditionTree{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionRangerHideInPlainSight)
@@ -508,11 +513,15 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
-                            .SetConditionForm(ConditionHindered, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionHindered, ConditionForm.ConditionOperation.Add)
                             .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true, true)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(10, DieType.D1, 0, true)
                             .Build())
                     .SetParticleEffectParameters(AnimalShapes)
                     .Build())
@@ -600,7 +609,7 @@ internal static partial class SpellBuilders
             IEnumerable<EffectForm> effectForms,
             string attributeScore)
         {
-            return attributeScore == AttributeDefinitions.Wisdom;
+            return attributeScore == AttributeDefinitions.Constitution;
         }
 
         public string AttributeAndActionModifier(
