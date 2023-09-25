@@ -596,9 +596,6 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.targetParticleReference =
-            ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
-
         return spell;
     }
 
@@ -905,7 +902,7 @@ internal static partial class SpellBuilders
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (attackMode is not { Ranged: true })
+            if (attackMode is not { Ranged: true } && attackMode is not { Thrown: true })
             {
                 yield break;
             }
@@ -982,7 +979,7 @@ internal static partial class SpellBuilders
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if (attackMode is not { Ranged: true })
+            if (attackMode is not { Ranged: true } && attackMode is not { Thrown: true })
             {
                 yield break;
             }

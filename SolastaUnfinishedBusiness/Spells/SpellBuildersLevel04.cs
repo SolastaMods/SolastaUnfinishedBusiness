@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -477,7 +476,8 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .AddToDB();
 
-        conditionTree.SetCustomSubFeatures(new ModifyAttackActionModifierTree(conditionTree));
+        conditionTree.SetCustomSubFeatures(new CustomBehaviorTree(conditionTree));
+
         conditionTree.conditionStartParticleReference =
             PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
         conditionTree.conditionParticleReference =
@@ -499,14 +499,23 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .ExcludeCaster()
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionHindered))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .SetConditionForm(ConditionHindered, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true, true)
+                            .Build())
                     .SetParticleEffectParameters(AnimalShapes)
                     .Build())
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeTree(conditionTree))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -521,6 +530,13 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetRequiresConcentration(true)
             .SetSubSpells(spellBeast, spellTree)
+            .SetEffectDescription(
+                // UI Only
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
             .AddToDB();
 
         return spell;
@@ -552,11 +568,11 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ModifyAttackActionModifierTree : IModifyAttackActionModifier, IModifySavingThrow
+    private sealed class CustomBehaviorTree : IModifyAttackActionModifier, IModifySavingThrow
     {
         private readonly ConditionDefinition _conditionTree;
 
-        public ModifyAttackActionModifierTree(ConditionDefinition conditionTree)
+        public CustomBehaviorTree(ConditionDefinition conditionTree)
         {
             _conditionTree = conditionTree;
         }
@@ -596,43 +612,6 @@ internal static partial class SpellBuilders
                 new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
 
             return attribute;
-        }
-    }
-
-    private sealed class MagicEffectFinishedByMeTree : IMagicEffectFinishedByMe
-    {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public MagicEffectFinishedByMeTree(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action is not CharacterActionCastSpell actionCastSpell)
-            {
-                yield break;
-            }
-
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-
-            rulesetCaster.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetCaster.guid,
-                rulesetCaster.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-
-            rulesetCaster.ReceiveTemporaryHitPoints(
-                10, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, actionCastSpell.activeSpell.guid);
         }
     }
 

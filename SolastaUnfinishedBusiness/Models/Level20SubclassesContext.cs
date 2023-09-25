@@ -286,7 +286,7 @@ internal static class Level20SubclassesContext
         //
 
         const string TAG = "PowerClericImprovedDivineIntervention";
-        
+
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
             .SetOrUpdateGuiPresentation(TAG, Category.Feature)
