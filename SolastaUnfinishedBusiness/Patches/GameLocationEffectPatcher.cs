@@ -20,17 +20,11 @@ public static class GameLocationEffectPatcher
             IAttributesSerializer serializer,
             IVersionProvider versionProvider)
         {
-            var step = 0;
-
-            Main.Info($"SERIALIZATION: step {step++}");
-
             if (versionProvider.GetVersionNumber() >= 3U)
             {
                 __instance.effectSourceName =
                     serializer.SerializeAttribute("EffectSourceName", __instance.effectSourceName);
             }
-
-            Main.Info($"SERIALIZATION: step {step++}");
 
             ulong num = 0;
 
@@ -44,10 +38,8 @@ public static class GameLocationEffectPatcher
             }
             else
             {
-                Main.Info($"SERIALIZATION: null rulesetEffect '{__instance.effectSourceName}'");
+                Main.Info("SERIALIZATION: null rulesetEffect");
             }
-
-            Main.Info($"SERIALIZATION: step {step++}");
 
             var guid = serializer.SerializeAttribute("RulesetEffectGuid", num);
 
@@ -67,31 +59,21 @@ public static class GameLocationEffectPatcher
             }
 #endif
 
-            Main.Info($"SERIALIZATION: step {step++}");
-
             __instance.position = serializer.SerializeAttribute("Position", __instance.position);
             __instance.position2 = serializer.SerializeAttribute("Position2", __instance.position2);
-
-            Main.Info($"SERIALIZATION: step {step++}");
 
             if (versionProvider.GetVersionNumber() < 2U)
             {
                 serializer.SerializeAttribute("Direction", new Vector3());
             }
 
-            Main.Info($"SERIALIZATION: step {step++}");
-
             if (versionProvider.GetVersionNumber() >= 1U)
             {
-                Main.Info($"SERIALIZATION: step {step++}a");
-
                 __instance.sourceOriginalPosition =
                     serializer.SerializeAttribute("SourceOriginalPosition", __instance.sourceOriginalPosition);
             }
             else if (serializer.Mode == Serializer.SerializationMode.Read)
             {
-                Main.Info($"SERIALIZATION: step {step++}b");
-
                 __instance.sourceOriginalPosition = __instance.position;
 
                 if (__instance.rulesetEffect != null
@@ -106,15 +88,11 @@ public static class GameLocationEffectPatcher
                 }
             }
 
-            Main.Info($"SERIALIZATION: step {step++}");
-
             if (versionProvider.GetVersionNumber() >= 4U)
             {
                 __instance.hasMagneticTargeting =
                     serializer.SerializeAttribute("HasMagneticTargeting", __instance.hasMagneticTargeting);
             }
-
-            Main.Info($"SERIALIZATION: step {step}");
 
             if (versionProvider.GetVersionNumber() >= 5U)
             {
