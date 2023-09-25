@@ -1,13 +1,13 @@
-{
+﻿{
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeParameter": 18,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Position",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -17,7 +17,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -30,8 +30,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Minute",
+    "targetSide": "Ally",
+    "durationType": "Hour",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -67,26 +67,56 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "Creature",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "Divine_Avatar_Cleric",
+          "monsterDefinitionName": "Air_Elemental",
           "number": 1,
-          "conditionDefinition": "Definition:ConditionMindDominatedByCaster:913de2c4edaa29949a2981ffd5de2072",
+          "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
           "persistOnConcentrationLoss": false,
           "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
-          "effectProxyDefinitionName": ""
+          "effectProxyDefinitionName": null
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Summon",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "Creature",
+          "itemDefinition": null,
+          "trackItem": false,
+          "monsterDefinitionName": "Ice_Elemental",
+          "number": 1,
+          "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
+          "persistOnConcentrationLoss": false,
+          "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
+          "effectProxyDefinitionName": null
         },
         "hasFilterId": false,
         "filterId": 0
@@ -118,7 +148,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c5490cd9fdcd90645affc2d95fbfa489",
+        "m_AssetGUID": "3a2adaa2387014840a7a04a703e43d8b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -136,7 +166,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "26c07e68e0e726245bd204b85d216c40",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -264,7 +294,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1f552e7fef196454db3f99c581aeb0e4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -318,7 +348,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Wisdom",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -326,17 +356,17 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerClericDivineInterventionCleric:c774c974d5902a640a1e82a7608e8051",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerClericImprovedDivineInterventionTitle",
-    "description": "Feature/&PowerClericImprovedDivineInterventionDescription",
+    "title": "Feature/&PowerDomainColdSummonBlizzardTitle",
+    "description": "Feature/&PowerDomainColdSummonBlizzardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ea79df3f1484389419d393d46ac7862d",
-      "m_SubObjectName": "DivineIntervention",
+      "m_AssetGUID": "591513abd445b1649a1fd11ceefcd135",
+      "m_SubObjectName": "ConjureElemental",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -352,7 +382,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d463d058-27db-559b-bf57-65c39d3150bb",
+  "guid": "c3ce8340-4893-5424-81fb-61aac40d16ad",
   "contentPack": 9999,
-  "name": "PowerClericDivineInterventionImprovementCleric"
+  "name": "PowerDomainColdSummonBlizzard"
 }

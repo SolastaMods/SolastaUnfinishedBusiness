@@ -348,9 +348,9 @@ You gain resistance to bludgeoning, piercing, and slashing damage. In addition, 
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -412,11 +412,18 @@ The target suffers cold damage and must succeed with a STR save or become restra
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
 
 
+### Level 17
+
+* Summon Blizzard
+
+As an action, you can summon 1 air and 1 ice elemental. Once you use this ability, you can't use it again until you finish a long rest.
+
+
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -482,14 +489,14 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Summon Inferno
 
-As an action, you can summon 2 fire elementals. Once you use this ability, you can't use it again until you finish a long rest.
+As an action, you can summon 1 earth and 1 fire elemental. Once you use this ability, you can't use it again until you finish a long rest.
 
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -560,9 +567,9 @@ As an bonus action, you can give yourself a flying speed equal to your walking s
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -635,9 +642,9 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -715,9 +722,9 @@ On a failed WIS saving throw, restrains a creature and inflicts force damage eac
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -788,9 +795,9 @@ When you would normally roll one or more dice to restore hit points with a spell
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -856,9 +863,9 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -933,9 +940,9 @@ Mark a creature you see so it receives additional necrotic damage equal to your 
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
@@ -1010,9 +1017,9 @@ You have resistance to fire and radiant damage, and you bypass fire and radiant 
 
 ### Level 20
 
-* Divine Intervention
+* Improved Divine Intervention
 
-You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+You attempt to request the help of your deity, with a 100% chance of success.
 
 
 
