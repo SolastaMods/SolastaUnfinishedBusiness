@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=Du kannst nicht erkranken, bist resistent gegen Giftschaden und hast einen Vorteil bei Rettungswürfen gegen Effekte, die einen der folgenden Zustände verursachen: geblendet, bezaubert, taub, verängstigt, gelähmt, vergiftet und betäubt.
 Condition/&ConditionAuraOfPerseveranceTitle=Aura der Ausdauer
-Condition/&ConditionAuraOfVitalityDescription=Du bist resistent gegen nekrotischen Schaden und dein Trefferpunktmaximum kann nicht reduziert werden.
-Condition/&ConditionAuraOfVitalityTitle=Aura der Vitalität
+Condition/&ConditionAuraOfVitalityDescription=Du hast Widerstand gegen nekrotischen Schaden, dein Trefferpunktmaximum kann nicht reduziert werden. Darüber hinaus erhält eine nicht feindselige, lebende Kreatur 1 Trefferpunkt zurück, wenn sie ihren Zug in der Aura mit 0 Trefferpunkten beginnt.
+Condition/&ConditionAuraOfVitalityTitle=Aura der Lebhaftigkeit
 Condition/&ConditionBeastForestGuardianDescription=Ihre Gehgeschwindigkeit erhöht sich um 10 Fuß, Sie erhalten Dunkelsicht mit einer Reichweite von 120 Fuß, Sie führen auf Stärke basierende Angriffswürfe mit Vorteil durch und Ihre Nahkampfwaffenangriffe verursachen bei einem Treffer zusätzlich 1W6 Kraftschaden.
 Condition/&ConditionBeastForestGuardianTitle=Bestienwaldwächter
 Condition/&ConditionBrainBulwarkDescription=Sie verfügen über Resistenz gegen psychischen Schaden sowie über Immunität gegen die Zustände „Bezaubert“, „Verängstigt“, „Angst“, „Geist dominiert“ und „Geist kontrolliert“.

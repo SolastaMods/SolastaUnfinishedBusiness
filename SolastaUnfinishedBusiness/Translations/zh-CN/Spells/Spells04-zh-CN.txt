@@ -1,6 +1,6 @@
 Condition/&ConditionAuraOfPerseveranceDescription=你不会生病，对毒药伤害有抵抗力，并且在对抗导致以下任何情况的效果时具有优势：失明、被魅惑、耳聋、恐惧、麻痹、中毒和昏迷。
 Condition/&ConditionAuraOfPerseveranceTitle=毅力光环
-Condition/&ConditionAuraOfVitalityDescription=你对坏死伤害有抵抗力，并且你的最大生命值不会减少。
+Condition/&ConditionAuraOfVitalityDescription=你对坏死伤害有抵抗力，你的最大生命值不会减少。此外，当非敌对生物在生命值为 0 的光环中开始回合时，它会恢复 1 点生命值。
 Condition/&ConditionAuraOfVitalityTitle=活力光环
 Condition/&ConditionBeastForestGuardianDescription=你的行走速度增加 10 英尺，你获得范围为 120 英尺的黑暗视觉，你可以进行基于力量的攻击检定，并且你的近战武器攻击会在击中时造成额外的 1d6 力量伤害。
 Condition/&ConditionBeastForestGuardianTitle=兽林守护者

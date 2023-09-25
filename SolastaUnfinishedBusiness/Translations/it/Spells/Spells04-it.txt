@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=Non puoi ammalarti, hai resistenza ai danni da veleno e hai vantaggio ai tiri salvezza contro effetti che causano una delle seguenti condizioni: accecato, affascinato, assordato, spaventato, paralizzato, avvelenato e stordito.
 Condition/&ConditionAuraOfPerseveranceTitle=Aura di perseveranza
-Condition/&ConditionAuraOfVitalityDescription=Hai resistenza ai danni necrotici e i tuoi punti ferita massimi non possono essere ridotti.
-Condition/&ConditionAuraOfVitalityTitle=Aura di vitalità
+Condition/&ConditionAuraOfVitalityDescription=Hai resistenza al danno necrotico, i tuoi punti ferita massimi non possono essere ridotti. Inoltre, una creatura vivente non ostile recupera 1 punto ferita quando inizia il suo turno nell'aura con 0 punti ferita.
+Condition/&ConditionAuraOfVitalityTitle=Aura di vivacità
 Condition/&ConditionBeastForestGuardianDescription=La tua velocità di camminata aumenta di 3 metri, ottieni scurovisione con un raggio di 120 piedi, effettui tiri per colpire basati sulla Forza con vantaggio e i tuoi attacchi con arma da mischia infliggono 1d6 danni di forza aggiuntivi se colpiscono.
 Condition/&ConditionBeastForestGuardianTitle=Bestia Guardiana della Foresta
 Condition/&ConditionBrainBulwarkDescription=Hai resistenza ai danni psichici, così come immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla mente e Controllato dalla mente.

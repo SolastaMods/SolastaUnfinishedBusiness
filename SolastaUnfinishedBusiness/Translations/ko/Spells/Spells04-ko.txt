@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=당신은 질병에 걸리지 않으며, 독 피해에 대한 저항력을 갖고 있으며, 다음과 같은 상태를 유발하는 효과에 대해 내성굴림에 유리합니다: 실명, 매혹, 귀머거리, 겁에 질림, 마비, 중독, 기절.
 Condition/&ConditionAuraOfPerseveranceTitle=인내의 오라
-Condition/&ConditionAuraOfVitalityDescription=괴사 피해에 대한 저항력이 있으며 최대 체력은 줄어들 수 없습니다.
-Condition/&ConditionAuraOfVitalityTitle=활력의 오라
+Condition/&ConditionAuraOfVitalityDescription=당신은 괴사 피해에 대한 저항력을 갖고 있으며, 최대 체력은 줄어들 수 없습니다. 게다가, 적대적이지 않은 살아있는 생명체는 체력이 0인 오라 속에서 턴을 시작할 때 체력 1을 회복합니다.
+Condition/&ConditionAuraOfVitalityTitle=생기의 오라
 Condition/&ConditionBeastForestGuardianDescription=걷는 속도가 10피트 증가하고, 120피트 범위의 암흑 시야를 얻고, 힘 기반 공격 굴림을 유리하게 수행하고, 근접 무기 공격이 적중 시 추가로 1d6의 힘 피해를 입힙니다.
 Condition/&ConditionBeastForestGuardianTitle=짐승의 숲 수호자
 Condition/&ConditionBrainBulwarkDescription=정신 피해 저항을 얻고 매혹, 공포, 정신 지배 및 조종 상태 면역을 얻습니다.

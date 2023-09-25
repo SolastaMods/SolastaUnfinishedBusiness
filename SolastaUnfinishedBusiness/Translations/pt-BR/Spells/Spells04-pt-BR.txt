@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=Você não pode ficar doente, tem resistência a dano venenoso e tem vantagem em testes de resistência contra efeitos que causem qualquer uma das seguintes condições: cego, enfeitiçado, surdo, assustado, paralisado, envenenado e atordoado.
 Condition/&ConditionAuraOfPerseveranceTitle=Aura de Perseverança
-Condition/&ConditionAuraOfVitalityDescription=Você tem resistência a dano necrótico e seu máximo de pontos de vida não pode ser reduzido.
-Condition/&ConditionAuraOfVitalityTitle=Aura de Vitalidade
+Condition/&ConditionAuraOfVitalityDescription=Você tem resistência a dano necrótico, seu máximo de pontos de vida não pode ser reduzido. Além disso, uma criatura viva não hostil recupera 1 ponto de vida quando inicia seu turno na aura com 0 pontos de vida.
+Condition/&ConditionAuraOfVitalityTitle=Aura de Vivacidade
 Condition/&ConditionBeastForestGuardianDescription=Sua velocidade de caminhada aumenta em 3 metros, você ganha visão no escuro com um alcance de 36 metros, faz jogadas de ataque baseadas em Força com vantagem e seus ataques com armas corpo a corpo causam 1d6 de dano de força extra em um acerto.
 Condition/&ConditionBeastForestGuardianTitle=Besta Guardiã da Floresta
 Condition/&ConditionBrainBulwarkDescription=Você tem resistência a danos psíquicos, bem como imunidade às condições Encantado, Amedrontado, Medo, Mente dominada e Mente controlada.

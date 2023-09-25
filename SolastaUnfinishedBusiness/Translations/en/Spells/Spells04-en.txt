@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=You can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
 Condition/&ConditionAuraOfPerseveranceTitle=Aura of Perseverance
-Condition/&ConditionAuraOfVitalityDescription=You have resistance to necrotic damage, and your hit point maximum can't be reduced.
-Condition/&ConditionAuraOfVitalityTitle=Aura of Vitality
+Condition/&ConditionAuraOfVitalityDescription=You have resistance to necrotic damage, your hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
+Condition/&ConditionAuraOfVitalityTitle=Aura of Vivacity
 Condition/&ConditionBeastForestGuardianDescription=Your walking speed increases by 10 feet, you gain darkvision with a range of 120 feet, you make Strength-based attack rolls with advantage, and your melee weapon attacks deal an extra 1d6 force damage on a hit.
 Condition/&ConditionBeastForestGuardianTitle=Wild Beast
 Condition/&ConditionBrainBulwarkDescription=You have resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.

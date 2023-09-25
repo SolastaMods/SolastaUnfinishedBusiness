@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=Вы не можете заболеть, имеете сопротивление урону ядом и совершаете с преимуществом спасброски от эффектов, вызывающих следующие состояния: глухота, испуг, ослепление, отравление, очарование, ошеломление и паралич.
 Condition/&ConditionAuraOfPerseveranceTitle=Аура очищения
-Condition/&ConditionAuraOfVitalityDescription=Вы обладаете сопротивлением некротическому урону, и ваш максимум хитов не может уменьшиться.
-Condition/&ConditionAuraOfVitalityTitle=Аура жизни
+Condition/&ConditionAuraOfVitalityDescription=У вас есть сопротивление некротическому урону, максимум ваших очков жизни не может быть уменьшен. Кроме того, невраждебное живое существо восстанавливает 1 хит, когда оно начинает свой ход в ауре с 0 хитами.
+Condition/&ConditionAuraOfVitalityTitle=Аура бодрости
 Condition/&ConditionBeastForestGuardianDescription=Ваша скорость ходьбы увеличивается на 10 футов, вы получаете тёмное зрение в пределах 120 футов, вы совершаете броски атаки, основанные на Силе, с преимуществом, а ваши рукопашные атаки оружием наносят дополнительно 1d6 урона силовым полем.
 Condition/&ConditionBeastForestGuardianTitle=Первобытный зверь
 Condition/&ConditionBrainBulwarkDescription=Вы обладаете сопротивлением психическому урону, а также иммунитетом к состояниям Очарования, Испуга и контролю разума.

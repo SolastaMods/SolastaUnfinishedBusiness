@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=あなたは病気になることはなく、毒ダメージに耐性があり、次の状態のいずれかを引き起こす効果に対するセーヴィング スローで有利になります: 盲目、魅惑、聴覚障害、恐怖、麻痺、毒、気絶。
 Condition/&ConditionAuraOfPerseveranceTitle=忍耐のオーラ
-Condition/&ConditionAuraOfVitalityDescription=あなたは壊死ダメージに対する耐性を持ち、最大ヒットポイントを減らすことはできません。
-Condition/&ConditionAuraOfVitalityTitle=生命力のオーラ
+Condition/&ConditionAuraOfVitalityDescription=あなたは壊死ダメージに対する耐性を持ち、最大ヒットポイントを減らすことはできません。さらに、敵対的ではない生き物は、ヒット ポイントが 0 のオーラでターンを開始すると、1 ヒット ポイントを回復します。
+Condition/&ConditionAuraOfVitalityTitle=活気のオーラ
 Condition/&ConditionBeastForestGuardianDescription=歩行速度が 10 フィート増加し、120 フィートの範囲で暗視が可能になり、筋力ベースの攻撃ロールを有利に行い、近接武器攻撃はヒット時に追加の 1d6 フォース ダメージを与えます。
 Condition/&ConditionBeastForestGuardianTitle=獣の森の守護者
 Condition/&ConditionBrainBulwarkDescription=あなたは精神的ダメージに対する抵抗力を持ち、魅了されたり、怯えたり、恐怖したり、精神に支配されたり、精神に支配されたりする状況に対する免疫を持っています。

@@ -1,7 +1,7 @@
 Condition/&ConditionAuraOfPerseveranceDescription=Vous ne pouvez pas tomber malade, avez une résistance aux dégâts de poison et avez un avantage aux jets de sauvegarde contre les effets qui provoquent l'une des conditions suivantes : aveuglé, charmé, assourdi, effrayé, paralysé, empoisonné et étourdi.
 Condition/&ConditionAuraOfPerseveranceTitle=Aura de persévérance
-Condition/&ConditionAuraOfVitalityDescription=Vous avez une résistance aux dégâts nécrotiques et votre maximum de points de vie ne peut pas être réduit.
-Condition/&ConditionAuraOfVitalityTitle=Aura de vitalité
+Condition/&ConditionAuraOfVitalityDescription=Vous avez une résistance aux dégâts nécrotiques, votre maximum de points de vie ne peut pas être réduit. De plus, une créature vivante non hostile récupère 1 point de vie lorsqu'elle commence son tour dans l'aura avec 0 point de vie.
+Condition/&ConditionAuraOfVitalityTitle=Aura de vivacité
 Condition/&ConditionBeastForestGuardianDescription=Votre vitesse de marche augmente de 3 mètres, vous obtenez la vision dans le noir avec une portée de 120 mètres, vous effectuez des jets d'attaque basés sur la Force avec avantage et vos attaques avec des armes de mêlée infligent 1d6 dégâts de force supplémentaires en cas de coup.
 Condition/&ConditionBeastForestGuardianTitle=Gardien de la forêt des bêtes
 Condition/&ConditionBrainBulwarkDescription=Vous avez une résistance aux dégâts psychiques, ainsi qu'une immunité aux conditions charmé, effrayé, peur, dominé par l'esprit et contrôlé par l'esprit.
