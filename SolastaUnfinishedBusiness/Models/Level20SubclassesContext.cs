@@ -83,6 +83,8 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 18, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -92,6 +94,7 @@ internal static class Level20SubclassesContext
                             .Create()
                             .SetSummonCreatureForm(1, "Ice_Elemental")
                             .Build())
+                    .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
             .AddToDB();
 
@@ -111,15 +114,18 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 18, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetSummonCreatureForm(1, "Air_Earth")
+                            .SetSummonCreatureForm(1, "Earth_Elemental")
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetSummonCreatureForm(1, "Ice_Fire")
+                            .SetSummonCreatureForm(1, "Fire_Elemental")
                             .Build())
+                    .SetParticleEffectParameters(ConjureElementalFire)
                     .Build())
             .AddToDB();
 
@@ -279,20 +285,25 @@ internal static class Level20SubclassesContext
         // Divine Intervention [ALL CLERICS]
         //
 
+        const string TAG = "PowerClericImprovedDivineIntervention";
+        
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
+            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionCleric)
             .AddToDB();
 
         var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
+            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionPaladin)
             .AddToDB();
 
         var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
+            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionWizard)
             .AddToDB();
