@@ -29,7 +29,7 @@ namespace SolastaUnfinishedBusiness.Properties {
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
-        }
+        } 
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
@@ -56,6 +56,16 @@ namespace SolastaUnfinishedBusiness.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerLivingTempest {
+            get {
+                object obj = ResourceManager.GetObject("PowerLivingTempest", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
