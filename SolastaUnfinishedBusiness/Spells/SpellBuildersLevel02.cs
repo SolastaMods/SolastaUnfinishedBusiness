@@ -558,8 +558,8 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var conditionPsychicWhipNoReaction = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}NoReaction")
-            .SetGuiPresentation(Category.Condition, ConditionConfused)
+            .Create(ConditionConfused, $"Condition{NAME}NoReaction")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(actionAffinityPsychicWhipNoReaction)
