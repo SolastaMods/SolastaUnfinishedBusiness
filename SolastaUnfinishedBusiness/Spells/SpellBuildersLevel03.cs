@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -590,7 +591,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionExplode, ConditionForm.ConditionOperation.Add, true))
                     .InviteOptionalAlly()
                     .ExcludeCaster()
-                    .SetParticleEffectParameters(DimensionDoor)
+                    .SetParticleEffectParameters(Thunderwave)
                     .Build())
             .SetCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
             .AddToDB();
@@ -786,31 +787,15 @@ internal static partial class SpellBuilders
     {
         const string Name = "LightningArrow";
 
-        var powerLightningArrow = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Spell)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeLightning, 4, DieType.D8)
-                            .Build())
-                    .SetParticleEffectParameters(Shatter)
-                    .Build())
+        var conditionLightningArrow = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionFeatTakeAim)
+            .SetPossessive()
             .AddToDB();
-
-        powerLightningArrow.SetCustomSubFeatures(new ModifyEffectDescriptionLightningArrow(powerLightningArrow, 4));
 
         var powerLightningArrowLeap = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Leap")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Name, Category.Spell)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -824,28 +809,22 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeLightning, 2, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(Shatter)
+                    .SetParticleEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 
         powerLightningArrowLeap.SetCustomSubFeatures(
-            new ModifyEffectDescriptionLightningArrow(powerLightningArrowLeap, 2));
+            new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
 
-        var conditionLightningArrow = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentation(Category.Condition, ConditionFeatTakeAim)
-            .SetPossessive()
-            .SetFeatures()
-            .SetCustomSubFeatures(
-                new PhysicalAttackFinishedByMeLightningArrow(powerLightningArrow, powerLightningArrowLeap))
-            .AddToDB();
+        conditionLightningArrow.SetCustomSubFeatures(
+            new CustomBehaviorLightningArrow(powerLightningArrowLeap, conditionLightningArrow));
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.LightningArrow, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
-            .SetCastingTime(ActivationTime.Action)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
@@ -858,22 +837,24 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionLightningArrow))
-                    .SetParticleEffectParameters(Shatter)
+                    .SetParticleEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class ModifyEffectDescriptionLightningArrow : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionLightningArrowLeap : IModifyEffectDescription
     {
-        private readonly int _baseDice;
+        private readonly ConditionDefinition _conditionLightningArrow;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ModifyEffectDescriptionLightningArrow(FeatureDefinitionPower featureDefinitionPower, int baseDice)
+        public ModifyEffectDescriptionLightningArrowLeap(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
-            _baseDice = baseDice;
+            _conditionLightningArrow = conditionDefinition;
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -889,26 +870,30 @@ internal static partial class SpellBuilders
         {
             var damageForm = effectDescription.FindFirstDamageForm();
 
-            if (damageForm != null)
+            if (damageForm != null
+                && GameLocationCharacter.GetFromActor(character).UsedSpecialFeatures
+                    .TryGetValue(_conditionLightningArrow.Name, out var additionalDice))
             {
-                damageForm.diceNumber = _baseDice + rulesetEffect.EffectLevel - 3;
+                damageForm.diceNumber = 2 + additionalDice;
             }
 
             return effectDescription;
         }
     }
 
-    private sealed class PhysicalAttackFinishedByMeLightningArrow : IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorLightningArrow :
+        IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerLightningArrow;
+        private const int MainTargetDiceNumber = 3;
+        private readonly ConditionDefinition _conditionLightningArrow;
         private readonly FeatureDefinitionPower _powerLightningArrowLeap;
 
-        public PhysicalAttackFinishedByMeLightningArrow(
-            FeatureDefinitionPower powerLightningArrow,
-            FeatureDefinitionPower powerLightningArrowLeap)
+        public CustomBehaviorLightningArrow(
+            FeatureDefinitionPower powerLightningArrowLeap,
+            ConditionDefinition conditionLightningArrow)
         {
-            _powerLightningArrow = powerLightningArrow;
             _powerLightningArrowLeap = powerLightningArrowLeap;
+            _conditionLightningArrow = conditionLightningArrow;
         }
 
         public IEnumerator OnAttackFinishedByMe(
@@ -916,29 +901,58 @@ internal static partial class SpellBuilders
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
+            RulesetAttackMode attackMode,
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (attackerAttackMode is not { Ranged: true })
+            if (attackMode is not { Ranged: true })
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            // damage on target
-            if (attackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionLightningArrow.Name,
+                    out var activeCondition))
             {
-                var actionParamsMain = action.ActionParams.Clone();
-                var usablePowerMain = UsablePowersProvider.Get(_powerLightningArrow, rulesetAttacker);
+                yield break;
+            }
 
-                actionParamsMain.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-                actionParamsMain.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetAttacker, usablePowerMain, false)
-                    .AddAsActivePowerToSource();
+            // keep a tab on additionalDice for leap power later on
+            var additionalDice = activeCondition.EffectLevel - 3;
 
-                action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsMain));
+            attacker.UsedSpecialFeatures.TryAdd(_conditionLightningArrow.Name, additionalDice);
+
+            rulesetAttacker.RemoveCondition(activeCondition);
+
+            // half damage on target on a miss
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                var rolls = new List<int>();
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeLightning,
+                    DieType = DieType.D8,
+                    DiceNumber = (MainTargetDiceNumber + additionalDice) / 2
+                };
+                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                var rulesetDefender = defender.RulesetCharacter;
+
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    damageForm.DamageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    rulesetDefender,
+                    false,
+                    attacker.Guid,
+                    false,
+                    attackMode.AttackTags,
+                    new RollInfo(damageForm.DieType, rolls, 0),
+                    true,
+                    out _);
             }
 
             // leap damage on enemies within 10 ft from target
@@ -958,8 +972,47 @@ internal static partial class SpellBuilders
                 .ToList());
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsLeap));
+        }
 
-            rulesetAttacker.BreakConcentration();
+        public IEnumerator OnAttackInitiatedByMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            if (attackMode is not { Ranged: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionLightningArrow.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            var additionalDice = activeCondition.EffectLevel - 3;
+
+            attackMode.effectDescription = EffectDescriptionBuilder
+                .Create(attackMode.EffectDescription)
+                .Build();
+
+            var pos = attackMode.EffectDescription.EffectForms.FindIndex(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (pos >= 0)
+            {
+                attackMode.effectDescription.EffectForms.Insert(
+                    pos + 1,
+                    EffectFormBuilder.DamageForm(DamageTypeLightning, MainTargetDiceNumber + additionalDice,
+                        DieType.D8));
+            }
         }
     }
 
