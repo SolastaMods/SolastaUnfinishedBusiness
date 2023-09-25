@@ -108,8 +108,8 @@ internal static class RaceFairyBuilder
                     .Build())
             .SetCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
-                IsFlightValid,
-                ValidatorsCharacter.HasNoneOfConditions(conditionFairyWings.Name)))
+                    IsFlightValid,
+                    ValidatorsCharacter.HasNoneOfConditions(conditionFairyWings.Name)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder

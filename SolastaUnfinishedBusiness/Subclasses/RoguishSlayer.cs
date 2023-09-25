@@ -511,10 +511,9 @@ public sealed class RoguishSlayer : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            var battle = Gui.Battle;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (battle == null ||
+            if (__instance is not { IsBattleInProgress: true } ||
                 rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
