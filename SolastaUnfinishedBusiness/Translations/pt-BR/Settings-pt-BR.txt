@@ -87,7 +87,8 @@ ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela p
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider e família de condição on fire]</color></i>
 ModUi/&EnableCheatMenu=Ative o menu de truques
-ModUi/&EnableCustomPortraits=Ative retratos personalizados\n\n. Crie uma pasta <i><b><color=#F0DAA0>Retratos</color></b></i> em <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b </i> pasta mod\n. Coloque uma imagem PNG nessa pasta, com o nome do nome do seu herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n. Use imagens de 256 x 384 pixels com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>\n. Você também pode criar subpastas <i><b><color=#F0DAA0>Monsters</color></b></i> e <i><b><color=#F0DAA0>PreGen</color></ b></i> para substituir recursos básicos por retratos também
+ModUi/&EnableCustomPortraits=Habilite retratos personalizados
+ModUi/&EnableCustomPortraitsHelp=. Coloque seus retratos personalizados nas subpastas <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>< /b></i>, nomeado após o nome do herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n. Use imagens PNG, com tamanho de 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 10 e 18
@@ -188,6 +189,7 @@ ModUi/&OpenSubjectiveGuide=Abra The Subjective Guide to Solasta por <b><color=#D
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
 ModUi/&Patches=<color=#F0DAA0>Aplicativos:</color>
+ModUi/&PortraitsOpenFolder=Abra a pasta de retratos
 ModUi/&PrimedItems=Itens com Primer
 ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>

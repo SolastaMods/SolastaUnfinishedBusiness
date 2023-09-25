@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using System.Diagnostics;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -233,9 +234,22 @@ internal static class GameUiDisplay
             Main.Settings.EnableCustomPortraits = toggle;
         }
 
-        UI.Label();
-        UI.Label();
-        UI.Label();
+        if (Main.Settings.EnableCustomPortraits)
+        {
+            UI.Label();
+
+            UI.ActionButton(Gui.Localize("ModUi/&PortraitsOpenFolder"), () =>
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = PortraitsContext.PortraitsFolder, UseShellExecute = true, Verb = "open"
+                });
+            }, UI.Width((float)292));
+
+            UI.Label();
+
+            UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
+        }
 
         #endregion
 

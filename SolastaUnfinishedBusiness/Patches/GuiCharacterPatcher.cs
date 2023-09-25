@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -391,7 +390,7 @@ public static class GuiCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(GuiCharacter __instance, RawImage portraitImage)
         {
-            ChangePortrait(__instance, portraitImage);
+            PortraitsContext.ChangePortrait(__instance, portraitImage);
         }
     }
 
@@ -404,98 +403,7 @@ public static class GuiCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(GuiCharacter __instance, RawImage portraitRawImage)
         {
-            ChangePortrait(__instance, portraitRawImage);
+            PortraitsContext.ChangePortrait(__instance, portraitRawImage);
         }
     }
-
-    #region Custom Portraits Helpers
-
-    private static readonly Dictionary<string, Texture2D> CustomHeroPortraits = new();
-    private static readonly Dictionary<string, Texture2D> CustomMonsterPortraits = new();
-
-    internal static bool HasCustomPortrait(RulesetCharacter rulesetCharacter)
-    {
-        var name = rulesetCharacter.Name;
-
-        return (rulesetCharacter is RulesetCharacterHero && CustomHeroPortraits.ContainsKey(name))
-               || (rulesetCharacter is RulesetCharacterMonster && CustomMonsterPortraits.ContainsKey(name));
-    }
-
-    private static void ChangePortrait(GuiCharacter __instance, RawImage rawImage)
-    {
-        if (!Main.Settings.EnableCustomPortraits || ToolsContext.FunctorRespec.IsRespecing)
-        {
-            return;
-        }
-
-        if (__instance.RulesetCharacterMonster != null)
-        {
-            if (TryGetMonsterPortrait(__instance.Name, rawImage, out var texture))
-            {
-                rawImage.texture = texture;
-            }
-        }
-        else if (__instance.BuiltIn)
-        {
-            if (TryGetPreGenHeroPortrait(__instance.Name, rawImage, out var texture))
-            {
-                rawImage.texture = texture;
-            }
-        }
-        else
-        {
-            if (TryGetHeroPortrait(__instance.Name, rawImage, out var texture))
-            {
-                rawImage.texture = texture;
-            }
-        }
-    }
-
-    private static bool TryGetHeroPortrait(string name, RawImage original, out Texture2D texture)
-    {
-        var filename = $"{Main.ModFolder}/Portraits/{name}.png";
-
-        return TryGetPortrait(CustomHeroPortraits, name, filename, original, out texture);
-    }
-
-    private static bool TryGetPreGenHeroPortrait(string name, RawImage original, out Texture2D texture)
-    {
-        var filename = $"{Main.ModFolder}/Portraits/PreGen/{name}.png";
-
-        return TryGetPortrait(CustomHeroPortraits, name, filename, original, out texture);
-    }
-
-    private static bool TryGetMonsterPortrait(string name, RawImage original, out Texture2D texture)
-    {
-        var filename = $"{Main.ModFolder}/Portraits/Monsters/{name}.png";
-
-        return TryGetPortrait(CustomMonsterPortraits, name, filename, original, out texture);
-    }
-
-    private static bool TryGetPortrait(
-        IDictionary<string, Texture2D> dict, string name, string filename, RawImage original, out Texture2D texture)
-    {
-        if (dict.TryGetValue(name, out texture))
-        {
-            return true;
-        }
-
-        if (!File.Exists(filename))
-        {
-            return false;
-        }
-
-        var fileData = File.ReadAllBytes(filename);
-
-        texture = new Texture2D(original.texture.width, original.texture.height, TextureFormat.ARGB32, false)
-        {
-            wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear
-        };
-        texture.LoadImage(fileData);
-        dict.Add(name, texture);
-
-        return true;
-    }
-
-    #endregion
 }

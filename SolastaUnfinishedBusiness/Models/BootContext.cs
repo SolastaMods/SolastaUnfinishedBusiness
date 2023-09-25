@@ -22,7 +22,8 @@ internal static class BootContext
         // STEP 0: Cache TA definitions for diagnostics and export
         DiagnosticsContext.CacheTaDefinitions();
 
-        // Load Translations and Resources Locator after
+        // Load Portraits, Translations and Resources Locator after
+        PortraitsContext.Load();
         TranslatorContext.Load();
         ResourceLocatorContext.Load();
 

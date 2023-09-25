@@ -87,7 +87,8 @@ ModUi/&EnableCharacterChecker=メイン画面 > キャラクターでキャラ�
 ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color> を有効にして文字をエクスポートします
 ModUi/&EnableCharactersOnFireToEmitLight=炎上のキャラクターは光を発する必要があります<i><color=#F0DAA0>[キューブ オブ ライト、ファイア エレメンタル、ファイア ジェスター、ファイア オスプレイ、ファイア スパイダー、および炎の条件ファミリー]</color></i>
 ModUi/&EnableCheatMenu=チートメニューを有効にする
-ModUi/&EnableCustomPortraits=カスタム ポートレートを有効にします\n\n。 <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b の下に <i><b><color=#F0DAA0>Portraits</color></b></i> フォルダを作成します。 ></i>mod フォルダ\n。ヒーローの名前 <i><color=#F0DAA0>[例: Anton、Celia、Nialla など]</color></i>\n にちなんで名付けた PNG 画像をそのフォルダに配置します。透明レイヤー<i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>\n のあるサイズ 256 x 384 ピクセルの画像を使用してください。サブフォルダ <i><b><color=#F0DAA0>Monsters</color></b></i> と <i><b><color=#F0DAA0>PreGen</color></i> を作成することもできます。 b></i> バニラアセットもポートレートに置き換えます。
+ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
+ModUi/&EnableCustomPortraitsHelp=。カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color>< の下に配置します。 /b></i>、主人公の名前 <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n にちなんで名付けられました。サイズ 256 x 384 ピクセルの透明レイヤーを含む PNG 画像を使用します<i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=クラスレベル2、10、18で特技選択を有効にする
@@ -188,6 +189,7 @@ ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b> による
 ModUi/&OverrideMinMaxLevel=新しい冒険を開始するときに必要な最小レベルと最大レベルを上書きします
 ModUi/&OverridePartySize=<color=white>パーティのサイズを上書きする</color>
 ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
+ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
 ModUi/&Races=<color=#F0DAA0>レース</color>
