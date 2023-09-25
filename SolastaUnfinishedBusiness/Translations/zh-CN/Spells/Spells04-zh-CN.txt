@@ -30,5 +30,5 @@ Spell/&PsychicLanceDescription=你从前额向范围内你能看到的生物释�
 Spell/&PsychicLanceTitle=心灵之枪
 Spell/&StaggeringSmiteDescription=在此法术的持续时间内，下次你用武器攻击命中一个生物时，你的武器会刺穿身体和心灵，并且攻击会对目标造成额外的 4d6 心灵伤害。目标必须进行一次感知豁免。豁免失败时，它在攻击检定和能力检定上具有劣势，并且不能做出反应，直到它的下一轮结束。
 Spell/&StaggeringSmiteTitle=惊震斩
-Spell/&TreeForestGuardianDescription=您的皮肤看起来像树皮，头发上长出新芽，您将获得以下好处：\n• 您获得 10 点临时生命值。\n• 您在体质豁免检定中具有优势。\n• 您获得敏捷和智慧基于攻击检定具有优势。\n• 当您施展该法术时，您周围 30 英尺内的生物必须进行敏捷豁免检定，否则会受到阻碍 1 分钟。他们可以在回合结束时保存。
+Spell/&TreeForestGuardianDescription=您的皮肤看起来像树皮，头发上长出新芽，您将获得以下好处：\n• 您获得 10 点临时生命值。\n• 您在体质豁免检定中具有优势。\n• 您获得敏捷和智慧基于攻击检定的优势。\n• 进入距离您 15 英尺范围内的区域或在距离您 15 英尺范围内开始回合的生物会受到阻碍，直到您的下一个回合结束。
 Spell/&TreeForestGuardianTitle=野生树

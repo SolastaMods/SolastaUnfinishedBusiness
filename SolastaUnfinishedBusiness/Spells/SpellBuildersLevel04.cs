@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -500,21 +501,12 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(ConditionHindered, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true),
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm(10, DieType.D1, 0, true)
-                            .Build())
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .ExcludeCaster()
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionHindered))
                     .SetParticleEffectParameters(AnimalShapes)
                     .Build())
+            .SetCustomSubFeatures(new MagicEffectFinishedByMeTree(conditionTree))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -604,6 +596,43 @@ internal static partial class SpellBuilders
                 new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
 
             return attribute;
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeTree : IMagicEffectFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public MagicEffectFinishedByMeTree(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+
+            rulesetCaster.InflictCondition(
+                _conditionDefinition.Name,
+                _conditionDefinition.DurationType,
+                _conditionDefinition.DurationParameter,
+                _conditionDefinition.TurnOccurence,
+                AttributeDefinitions.TagEffect,
+                rulesetCaster.guid,
+                rulesetCaster.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            rulesetCaster.ReceiveTemporaryHitPoints(
+                10, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, actionCastSpell.activeSpell.guid);
         }
     }
 
