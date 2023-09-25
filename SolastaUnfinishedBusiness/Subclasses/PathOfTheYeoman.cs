@@ -361,7 +361,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
                 .Where(x =>
-                    x.Side != attacker.Side
+                    x.IsOppositeSide(attacker.Side)
                     && x != defender
                     && battleManager.IsWithinXCells(defender, x, 3))
                 .ToList());

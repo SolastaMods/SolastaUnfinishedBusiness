@@ -331,7 +331,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
                 .Where(x =>
-                    x.Side != attacker.Side &&
+                    x.IsOppositeSide(attacker.Side) &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2))
                 .ToList());

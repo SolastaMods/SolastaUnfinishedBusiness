@@ -80,7 +80,7 @@ public class CustomRagingAura :
         {
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
-                             x.Side != locationCharacter.Side &&
+                             x.IsOppositeSide(locationCharacter.Side) &&
                              (!gameLocationBattleService.IsWithinXCells(locationCharacter, x,
                                   _powerDefinition.EffectDescription.targetParameter) ||
                               !locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))))
@@ -216,7 +216,7 @@ public class CustomRagingAura :
             foreach (var defenderCharacter in battle.AllContenders
                          .Where(x =>
                              x != sourceLocationCharacter &&
-                             x.Side != sourceLocationCharacter.Side &&
+                             x.IsOppositeSide(sourceLocationCharacter.Side) &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2) &&
                              sourceLocationCharacter.RulesetCharacter.HasConditionOfCategory(ConditionRaging))

@@ -402,7 +402,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.Side != attacker.Side
+                .Where(x => x.IsOppositeSide(attacker.Side)
                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());

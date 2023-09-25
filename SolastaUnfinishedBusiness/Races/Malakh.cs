@@ -313,7 +313,7 @@ internal static class RaceMalakhBuilder
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(enemy => enemy.Side != locationCharacter.Side
+                         .Where(enemy => enemy.IsOppositeSide(locationCharacter.Side)
                                          && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Where(enemy => gameLocationBattleService.IsWithinXCells(locationCharacter, enemy, 3))
                          .ToList()) // avoid changing enumerator

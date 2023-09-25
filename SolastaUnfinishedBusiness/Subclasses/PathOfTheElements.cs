@@ -481,7 +481,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
-                             x.Side != locationCharacter.Side &&
+                             x.IsOppositeSide(locationCharacter.Side) &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
                          .ToList()) // avoid changing enumerator
@@ -598,7 +598,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
-                             x.Side != locationCharacter.Side &&
+                             x.IsOppositeSide(locationCharacter.Side) &&
                              gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
                          .ToList())
             {

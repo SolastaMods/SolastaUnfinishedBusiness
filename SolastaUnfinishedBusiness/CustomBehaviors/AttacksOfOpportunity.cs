@@ -37,8 +37,8 @@ internal static class AttacksOfOpportunity
                      .Where(unit => attacker != defender &&
                                     unit != attacker &&
                                     unit != defender &&
-                                    defender.RulesetCharacter.Side == unit.RulesetCharacter.Side &&
-                                    attacker.RulesetCharacter.Side != unit.RulesetCharacter.Side))
+                                    defender.Side == unit.Side &&
+                                    attacker.IsOppositeSide(unit.Side)))
         {
             foreach (var reaction in unit.RulesetCharacter.GetSubFeaturesByType<SentinelFeatMarker>()
                          .Where(feature => feature.IsValid(unit, attacker)))

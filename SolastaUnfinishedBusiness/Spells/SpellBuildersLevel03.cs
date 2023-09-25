@@ -965,7 +965,7 @@ internal static partial class SpellBuilders
                 .AddAsActivePowerToSource();
             actionParamsLeap.TargetCharacters.SetRange(battleManager.Battle.AllContenders
                 .Where(x =>
-                    x.Side != attacker.Side
+                    x.IsOppositeSide(attacker.Side)
                     && x != defender
                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                     && battleManager.IsWithinXCells(defender, x, 2))

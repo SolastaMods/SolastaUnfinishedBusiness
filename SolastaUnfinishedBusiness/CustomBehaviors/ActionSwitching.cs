@@ -331,7 +331,7 @@ public static class ActionSwitching
             return;
         }
 
-        if (character.Side != RuleDefinitions.Side.Ally)
+        if (character.IsOppositeSide(RuleDefinitions.Side.Ally))
         {
             return;
         }

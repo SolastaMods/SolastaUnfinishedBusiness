@@ -294,7 +294,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                     .AddAsActivePowerToSource(),
                 targetCharacters = battle.AllContenders
-                    .Where(enemy => enemy.Side != attacker.Side
+                    .Where(enemy => enemy.IsOppositeSide(attacker.Side)
                                     && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                                     && battleService.IsWithinXCells(attacker, enemy, 3))
                     .ToList()

@@ -1093,7 +1093,7 @@ internal static class FlankingAndHigherGroundRules
         {
             if (ally == attacker
                 || ally == defender
-                || ally.Side != attacker.Side
+                || ally.IsOppositeSide(attacker.Side)
                 || !ally.CanAct()
                 || !gameLocationBattleService.IsWithin1Cell(ally, defender))
             {

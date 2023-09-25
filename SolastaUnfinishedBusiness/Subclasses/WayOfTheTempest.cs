@@ -438,7 +438,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
                 .Where(x =>
-                    x.Side != attacker.Side &&
+                    x.IsOppositeSide(attacker.Side) &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.RulesetCharacter.AllConditions
                         .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&

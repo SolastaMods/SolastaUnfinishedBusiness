@@ -55,7 +55,7 @@ internal static class GuardianAuraHpSwap
         int damageAmount)
     {
         if (!attacker.IsOppositeSide(unit.Side) ||
-            defender.Side != unit.Side ||
+            defender.IsOppositeSide(unit.Side) ||
             unit == defender ||
             !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false) ||
             !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))

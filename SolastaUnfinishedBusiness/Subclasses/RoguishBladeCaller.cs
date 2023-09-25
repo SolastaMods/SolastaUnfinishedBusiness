@@ -384,7 +384,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
-                .Where(x => x.Side != attacker.Side
+                .Where(x => x.IsOppositeSide(attacker.Side)
                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                             && battleManager.IsWithinXCells(x, defender, 3))
                 .ToList());
