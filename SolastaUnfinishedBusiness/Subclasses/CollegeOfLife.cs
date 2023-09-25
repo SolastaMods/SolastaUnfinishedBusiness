@@ -38,7 +38,7 @@ public sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeHealingPool = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}HealingPool")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerPaladinLayOnHands)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
