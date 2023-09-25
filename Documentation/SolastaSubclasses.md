@@ -478,6 +478,13 @@ The target suffers fire damage and must succeed a STR save or be pushed. Can be 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
 
 
+### Level 17
+
+* Summon Inferno
+
+As an action, you can summon 2 fire elementals. Once you use this ability, you can't use it again until you finish a long rest.
+
+
 ### Level 20
 
 * Divine Intervention

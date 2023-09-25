@@ -490,6 +490,10 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionMarkedByHunter { get; } =
             GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
 
+
+        internal static ConditionDefinition ConditionMindControlledByCaster { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMindControlledByCaster");
+
         internal static ConditionDefinition ConditionMindDominatedByCaster { get; } =
             GetDefinition<ConditionDefinition>("ConditionMindDominatedByCaster");
 

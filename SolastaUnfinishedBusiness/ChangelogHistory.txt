@@ -2,7 +2,7 @@
 
 - added Aura of Perseverance, Aura of Vivacity, Protector of the Wild, and Psychic Lance 4th level spells
 - added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
-- added Domain Battle, Insight, Lightning, Life, and Sun level 17th features
+- added Domains Battle, Fire, Insight, Lightning, Life, and Sun level 17th feature
 - added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
 - fixed Burning Blade not using spell casting ability modifier but intelligence one
 - fixed College of Audacity whirl powers not considering attack mode tags

@@ -71,7 +71,84 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetDomainBattleParagonOfBattle, 17));
 
         //
-        // Elemental Lightning
+        // Fire
+        //
+
+        // Summon Inferno
+
+        var powerDomainFireSummonInferno = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainFireSummonInferno")
+            .SetGuiPresentation(Category.Feature, ConjureElemental)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ConjureElementalFire)
+                    .Build())
+            .AddToDB();
+
+        powerDomainFireSummonInferno.EffectDescription.EffectForms[0].SummonForm.number = 2;
+
+        DomainElementalFire.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerDomainFireSummonInferno, 17));
+
+        //
+        // Insight
+        //
+
+        // Avatar of Knowledge
+
+        var proficiencyDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyDomainInsightAvatarOfKnowledgeSavingThrow")
+            .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
+            .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Intelligence)
+            .AddToDB();
+
+        var powerDomainInsightAvatarOfKnowledge = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainInsightForeknowledge, "PowerDomainInsightAvatarOfKnowledge")
+            .SetOverriddenPower(PowerDomainInsightForeknowledge)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDomainInsightForeknowledge)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .Build())
+            .AddToDB();
+
+        var featureSetDomainInsightAvatarOfKnowledge = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainInsightAvatarOfKnowledge")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(proficiencyDomainInsightAvatarOfKnowledge, powerDomainInsightAvatarOfKnowledge)
+            .AddToDB();
+
+        DomainInsight.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainInsightAvatarOfKnowledge, 17));
+
+        //
+        // Law
+        //
+
+        /*
+        
+        Cleric of Law: Executioner - Whenever you break an enemies concentration, they must make a WIS saving throw, or take psychic damage equal to your cleric level.
+        
+        */
+
+        //
+        // Life
+        //
+
+        // Supreme Healing
+
+        var featureDomainLifeSupremeHealing = FeatureDefinitionBuilder
+            .Create("DomainLifeSupremeHealing")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new ModifyDiceRollSupremeHealing())
+            .AddToDB();
+
+        DomainLife.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureDomainLifeSupremeHealing, 17));
+
+        //
+        // Lightning
         //
 
         // Living Tempest
@@ -125,50 +202,17 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetDomainLightningLivingTempest, 17));
 
         //
-        // Life
+        // Oblivion
         //
 
-        // Supreme Healing
-
-        var featureDomainLifeSupremeHealing = FeatureDefinitionBuilder
-            .Create("DomainLifeSupremeHealing")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyDiceRollSupremeHealing())
-            .AddToDB();
-
-        DomainLife.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(featureDomainLifeSupremeHealing, 17));
-
-        //
-        // Insight
-        //
-
-        // Avatar of Knowledge
-
-        var proficiencyDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyDomainInsightAvatarOfKnowledgeSavingThrow")
-            .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
-            .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Intelligence)
-            .AddToDB();
-
-        var powerDomainInsightAvatarOfKnowledge = FeatureDefinitionPowerBuilder
-            .Create(PowerDomainInsightForeknowledge, "PowerDomainInsightAvatarOfKnowledge")
-            .SetOverriddenPower(PowerDomainInsightForeknowledge)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(PowerDomainInsightForeknowledge)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
-                    .Build())
-            .AddToDB();
-
-        var featureSetDomainInsightAvatarOfKnowledge = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetDomainInsightAvatarOfKnowledge")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(proficiencyDomainInsightAvatarOfKnowledge, powerDomainInsightAvatarOfKnowledge)
-            .AddToDB();
-
-        DomainInsight.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(featureSetDomainInsightAvatarOfKnowledge, 17));
+        /*
+        
+        Cleric of Oblivion: Keeper of Oblivion - You steal the life-force from your foes as they step to the gates of oblivion,
+        to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you,
+        you or one ally of your choice that is within 30 feet of you regains hit points equal to your Cleric level.
+        You can use this feature only if you aren't incapacitated. Once you use it, you can't do so again until the start of your next turn.
+        
+        */
 
         //
         // Sun
@@ -194,8 +238,9 @@ internal static class Level20SubclassesContext
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetDomainSunRisingDawn, 17));
 
-
+        //
         // Divine Intervention [ALL CLERICS]
+        //
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
