@@ -320,6 +320,11 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
+            // change all damage types to radiant
+            attackMode.effectDescription = EffectDescriptionBuilder
+                .Create(attackMode.EffectDescription)
+                .Build();
+
             var effectDescription = attackMode.EffectDescription;
 
             foreach (var damageForm in effectDescription.EffectForms
@@ -328,20 +333,17 @@ public sealed class RangerLightBearer : AbstractSubclass
                 damageForm.DamageForm.damageType = DamageTypeRadiant;
             }
 
-            var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
-
-            // add additional radiant dice
+            // add additional radiant damage form
             var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
-            var diceNumber = classLevel < 11 ? 1 : 2;
-            var additionalDice = EffectFormBuilder
-                .Create()
-                .SetDamageForm(DamageTypeRadiant, diceNumber, DieType.D8)
-                .Build();
+            var pos = attackMode.EffectDescription.EffectForms.FindIndex(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
 
-            effectDescription.EffectForms.Insert(k + 1, additionalDice);
+            if (pos >= 0)
+            {
+                effectDescription.EffectForms.Insert(pos,
+                    EffectFormBuilder.DamageForm(DamageTypeRadiant, classLevel < 11 ? 1 : 2, DieType.D8));
+            }
 
-            // remove condition on successful attack
             var rulesetCondition =
                 rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
 
