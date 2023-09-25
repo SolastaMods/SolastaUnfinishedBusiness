@@ -998,7 +998,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Rising Dawn
 
-You have resistance to fire and radiant damage. You also bypass any fire and radiant damage resistance on your attacks.
+You have resistance to fire and radiant damage, and you bypass fire and radiant damage resistances with your attacks and spells.
 
 
 ### Level 20

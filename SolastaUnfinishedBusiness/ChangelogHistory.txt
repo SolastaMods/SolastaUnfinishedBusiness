@@ -1,16 +1,12 @@
 ﻿1.5.94.17:
 
-- added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
-- added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
 - added Aura of Perseverance, Aura of Vivacity, Protector of the Wild, and Psychic Lance 4th level spells
-- added Domain Battle, Lightning, Life, Insight, and Sun level 17th features
-- fixed Arcane Archer bursting area damage not considering attack mode tags
-- fixed Booming Blade move damage not considering attack mode tags
-- fixed Burning Blade using intelligence modifier instead of spell casting ability
-- fixed College of Audacity whirl damage not considering attack mode tags
-- fixed Path of The Elements elemental conduit wildfire damage not considering attack mode tags
-- fixed Spike Barrage not up-scaling damage with "invert ALT key on tooltips" feature enabled
-- fixed Way of The Dragon reactive hide damage not considering attack mode tags
+- added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
+- added Domain Battle, Insight, Lightning, Life, and Sun level 17th features
+- added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
+- fixed Burning Blade not using spell casting ability modifier but intelligence one
+- fixed College of Audacity whirl powers not considering attack mode tags
+- fixed Spike Barrage not up-scaling damage after extended tooltip inspection
 
 1.5.94.16:
 

@@ -79,7 +79,7 @@ internal static class Level20SubclassesContext
         var powerDomainLightningLivingTempestSprout = FeatureDefinitionPowerBuilder
             .Create("PowerDomainLightningLivingTempestSprout")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
+                Sprites.GetSprite("PowerLivingTempest", Resources.PowerLivingTempest, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -101,7 +101,7 @@ internal static class Level20SubclassesContext
         var powerDomainLightningLivingTempestDismiss = FeatureDefinitionPowerBuilder
             .Create("PowerDomainLightningLivingTempestDismiss")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("FlightDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+                Sprites.GetSprite("PowerLivingTempest", Resources.PowerLivingTempest, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder

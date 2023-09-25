@@ -332,7 +332,7 @@
     "description": "Feature/&PowerDomainLightningLivingTempestSproutDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa6bed47-7b43-51d5-a765-5f5219cfce7b",
+      "m_AssetGUID": "b2fd5275-a78c-5382-bc83-c303a7c8b82f",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
