@@ -140,6 +140,7 @@ public sealed class CollegeOfLife : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(MassHealingWord.EffectDescription)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifeRevive = FeatureDefinitionPowerSharedPoolBuilder
