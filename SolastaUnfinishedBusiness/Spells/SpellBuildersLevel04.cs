@@ -471,8 +471,9 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var conditionHindered = ConditionDefinitionBuilder
-            .Create( ConditionHindered, $"ConditionHindered{NAME}")
-            .SetGuiPresentation("ConditionHindered", Category.Rules, ConditionRestrainedByMagicalArrow)
+            .Create(ConditionRestrainedByMagicalArrow, $"ConditionHindered{NAME}")
+            .SetOrUpdateGuiPresentation("ConditionHindered", Category.Rules)
+            .SetFeatures(ConditionHindered.Features)
             .AddToDB();
 
         var conditionTree = ConditionDefinitionBuilder
