@@ -4,13 +4,15 @@
 - added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
 - added Domains Battle, Cold, Fire, Insight, Lightning, Life, Oblivion, and Sun level 17th feature
 - added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
-- fixed battle not continuing when aiming at gadgets like windows, light sources, etc.
+- fixed battle not continuing when aiming at gadgets like light sources, traps, windows, etc.
 - fixed Burning Blade not using spell casting ability modifier but intelligence one
 - fixed College of Audacity whirl powers not considering attack mode tags
 - fixed College of Life not using charisma ability bonus but intelligence one
 - fixed custom magic effects not triggering their finish behavior correctly
 - fixed Spike Barrage not up-scaling damage after extended tooltip inspection
-- fixed game soft lock with wildshape forms trying to re-apply spell effects
+- fixed vanilla game soft lock with wildshape forms trying to re-apply spell effects
+- improved custom portraits with better files organization, and mod UI interface
+- improved French [Ermite_Crabe], Korean [akintos], and Russian [Dovel] translations
 
 1.5.94.16:
 
