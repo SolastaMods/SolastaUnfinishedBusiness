@@ -518,7 +518,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true, true)
+                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -568,13 +568,11 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode?.AbilityScore != AttributeDefinitions.Strength)
+            if (attackMode?.AbilityScore == AttributeDefinitions.Strength)
             {
-                return;
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Condition, _conditionBeast.Name, _conditionBeast));
             }
-
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, _conditionBeast.Name, _conditionBeast));
         }
     }
 
@@ -594,14 +592,13 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode?.AbilityScore != AttributeDefinitions.Dexterity
-                && attackMode?.AbilityScore != AttributeDefinitions.Wisdom)
+            if (attackMode?.AbilityScore == AttributeDefinitions.Dexterity
+                || attackProximity == BattleDefinitions.AttackProximity.MagicRange
+                || attackProximity == BattleDefinitions.AttackProximity.MagicReach)
             {
-                return;
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
             }
-
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
         }
 
         public bool IsValid(

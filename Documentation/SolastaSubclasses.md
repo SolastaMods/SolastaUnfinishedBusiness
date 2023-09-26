@@ -416,7 +416,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Summon Blizzard
 
-As an action, you can summon 1 air and 1 ice elemental. Once you use this ability, you can't use it again until you finish a long rest.
+As an action, you can summon 2 ice elemental. Once you use this ability, you can't use it again until you finish a long rest.
 
 
 ### Level 20
@@ -489,7 +489,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Summon Inferno
 
-As an action, you can summon 1 earth and 1 fire elemental. Once you use this ability, you can't use it again until you finish a long rest.
+As an action, you can summon 2 fire elemental. Once you use this ability, you can't use it again until you finish a long rest.
 
 
 ### Level 20
@@ -936,6 +936,13 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Mark of Fate
 
 Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power. Starting at level 14, you can use it twice before taking a rest.
+
+
+### Level 17
+
+* Keeper of Oblivion
+
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.                                                                
 
 
 ### Level 20
