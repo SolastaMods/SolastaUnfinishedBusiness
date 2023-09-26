@@ -514,12 +514,12 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(conditionHindered, ConditionForm.ConditionOperation.Add)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true)
+                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true, true)
                             .Build(),
                         EffectFormBuilder
                             .Create()

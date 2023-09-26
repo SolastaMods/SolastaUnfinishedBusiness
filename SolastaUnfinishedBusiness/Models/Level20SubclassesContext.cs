@@ -1328,22 +1328,25 @@ internal static class Level20SubclassesContext
                 rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
             }
 
-            foreach (var rulesetUnit in contenders
+            foreach (var unit in contenders
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                                      && x.Side == ally.Side
                                      && gameLocationBattleService.IsWithinXCells(x, ally, 6))
-                         .Select(unit => unit.RulesetCharacter)
-                         .OrderByDescending(x => x.MissingHitPoints)
+                         .OrderByDescending(x => x.RulesetCharacter.MissingHitPoints)
                          .ToList())
             {
+                var rulesetUnit = unit.RulesetCharacter;
+
                 if (rulesetUnit.MissingHitPoints >= healingPool)
                 {
+                    EffectHelpers.StartVisualEffect(ally, unit, CureWounds, EffectHelpers.EffectType.Caster);
                     rulesetUnit.ReceiveHealing(healingPool, true, ally.Guid);
                     healingPool = 0;
                 }
                 else if (rulesetUnit.MissingHitPoints > 0)
                 {
                     healingPool -= rulesetUnit.MissingHitPoints;
+                    EffectHelpers.StartVisualEffect(ally, unit, CureWounds, EffectHelpers.EffectType.Caster);
                     rulesetUnit.ReceiveHealing(rulesetUnit.MissingHitPoints, true, ally.Guid);
                 }
 

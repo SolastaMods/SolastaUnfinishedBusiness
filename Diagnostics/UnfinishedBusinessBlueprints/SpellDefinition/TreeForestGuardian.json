@@ -87,7 +87,7 @@
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": true,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionHinderedForestGuardian",
@@ -122,7 +122,7 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
-          "forceOnSelf": false
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0
