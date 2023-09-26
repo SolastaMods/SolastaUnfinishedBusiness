@@ -1314,7 +1314,7 @@ internal static class Level20SubclassesContext
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             // haven't died within 30 ft of Cleric
-            if (gameLocationBattleService.IsWithinXCells(downedCreature, ally, 6))
+            if (!gameLocationBattleService.IsWithinXCells(downedCreature, ally, 6))
             {
                 yield break;
             }
@@ -1323,20 +1323,25 @@ internal static class Level20SubclassesContext
                 gameLocationBattleService.Battle?.AllContenders ??
                 ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
+            if (contenders.Any())
+            {
+                rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
+            }
+
             foreach (var rulesetUnit in contenders
                          .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                                      && x.Side == ally.Side
                                      && gameLocationBattleService.IsWithinXCells(x, ally, 6))
                          .Select(unit => unit.RulesetCharacter)
-                         .OrderBy(x => x.MissingHitPoints)
+                         .OrderByDescending(x => x.MissingHitPoints)
                          .ToList())
             {
                 if (rulesetUnit.MissingHitPoints >= healingPool)
                 {
-                    healingPool = 0;
                     rulesetUnit.ReceiveHealing(healingPool, true, ally.Guid);
+                    healingPool = 0;
                 }
-                else
+                else if (rulesetUnit.MissingHitPoints > 0)
                 {
                     healingPool -= rulesetUnit.MissingHitPoints;
                     rulesetUnit.ReceiveHealing(rulesetUnit.MissingHitPoints, true, ally.Guid);
@@ -1346,11 +1351,6 @@ internal static class Level20SubclassesContext
                 {
                     break;
                 }
-            }
-
-            if (clericLevel != healingPool)
-            {
-                rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
             }
         }
     }
