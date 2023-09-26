@@ -2,7 +2,7 @@
 
 - added Aura of Perseverance, Aura of Vivacity, Protector of the Wild, and Psychic Lance 4th level spells
 - added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
-- added Domains Battle, Cold, Fire, Insight, Lightning, Life, and Sun level 17th feature
+- added Domains Battle, Cold, Fire, Insight, Lightning, Life, Oblivion, and Sun level 17th feature
 - added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
 - fixed battle not continuing when aiming at gadgets like windows, light sources, etc.
 - fixed Burning Blade not using spell casting ability modifier but intelligence one

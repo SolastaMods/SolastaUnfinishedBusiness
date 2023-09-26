@@ -71,7 +71,7 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetDomainBattleParagonOfBattle, 17));
 
         //
-        // Fire
+        // Cold
         //
 
         // Summon Blizzard
@@ -88,15 +88,14 @@ internal static class Level20SubclassesContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetSummonCreatureForm(1, "Air_Elemental")
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonCreatureForm(1, "Ice_Elemental")
+                            .SetSummonCreatureForm(2, "Ice_Elemental")
                             .Build())
-                    .SetParticleEffectParameters(ConjureElementalAir)
+                    .SetParticleEffectParameters(ConjureElementalFire)
                     .Build())
             .AddToDB();
+
+        powerDomainColdSummonBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
+            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         DomainElementalCold.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerDomainColdSummonBlizzard, 17));
@@ -119,17 +118,11 @@ internal static class Level20SubclassesContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetSummonCreatureForm(1, "Earth_Elemental")
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonCreatureForm(1, "Fire_Elemental")
+                            .SetSummonCreatureForm(2, "Fire_Elemental")
                             .Build())
                     .SetParticleEffectParameters(ConjureElementalFire)
                     .Build())
             .AddToDB();
-
-        powerDomainFireSummonInferno.EffectDescription.EffectForms[0].SummonForm.number = 2;
 
         DomainElementalFire.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerDomainFireSummonInferno, 17));
@@ -245,17 +238,26 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetDomainLightningLivingTempest, 17));
 
         //
+        // Mischief
+        //
+
+        /* ??? */
+
+        //
         // Oblivion
         //
 
-        /*
-        
-        Cleric of Oblivion: Keeper of Oblivion - You steal the life-force from your foes as they step to the gates of oblivion,
-        to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you,
-        you or one ally of your choice that is within 30 feet of you regains hit points equal to your Cleric level.
-        You can use this feature only if you aren't incapacitated. Once you use it, you can't do so again until the start of your next turn.
-        
-        */
+        // Keeper of Oblivion
+
+        var featureDomainOblivionKeeperOfOblivion = FeatureDefinitionBuilder
+            .Create("FeatureDomainOblivionKeeperOfOblivion")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureDomainOblivionKeeperOfOblivion.SetCustomSubFeatures(
+            new OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(featureDomainOblivionKeeperOfOblivion));
+
+        DomainOblivion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDomainOblivionKeeperOfOblivion, 17));
 
         //
         // Sun
@@ -1245,6 +1247,8 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
     }
 
+    #region Cleric
+
     private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
     {
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
@@ -1279,6 +1283,79 @@ internal static class Level20SubclassesContext
             }
         }
     }
+
+    private sealed class OnReducedToZeroHpByMeOrAllyKeeperOfOblivion : IOnReducedToZeroHpByMeOrAlly
+    {
+        private readonly FeatureDefinition _featureKeeperOfOblivion;
+
+        public OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(FeatureDefinition featureKeeperOfOblivion)
+        {
+            _featureKeeperOfOblivion = featureKeeperOfOblivion;
+        }
+
+        public IEnumerator HandleReducedToZeroHpByMeOrAlly(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            GameLocationCharacter ally,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!ally.OncePerTurnIsValid(_featureKeeperOfOblivion.Name))
+            {
+                yield break;
+            }
+
+            ally.UsedSpecialFeatures.TryAdd(_featureKeeperOfOblivion.Name, 1);
+
+            var rulesetAlly = ally.RulesetCharacter;
+            var clericLevel = rulesetAlly.GetClassLevel(CharacterClassDefinitions.Cleric);
+            var healingPool = clericLevel;
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            // haven't died within 30 ft of Cleric
+            if (gameLocationBattleService.IsWithinXCells(downedCreature, ally, 6))
+            {
+                yield break;
+            }
+
+            var contenders =
+                gameLocationBattleService.Battle?.AllContenders ??
+                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+
+            foreach (var rulesetUnit in contenders
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                     && x.Side == ally.Side
+                                     && gameLocationBattleService.IsWithinXCells(x, ally, 6))
+                         .Select(unit => unit.RulesetCharacter)
+                         .OrderBy(x => x.MissingHitPoints)
+                         .ToList())
+            {
+                if (rulesetUnit.MissingHitPoints >= healingPool)
+                {
+                    healingPool = 0;
+                    rulesetUnit.ReceiveHealing(healingPool, true, ally.Guid);
+                }
+                else
+                {
+                    healingPool -= rulesetUnit.MissingHitPoints;
+                    rulesetUnit.ReceiveHealing(rulesetUnit.MissingHitPoints, true, ally.Guid);
+                }
+
+                if (healingPool <= 0)
+                {
+                    break;
+                }
+            }
+
+            if (clericLevel != healingPool)
+            {
+                rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
+            }
+        }
+    }
+
+    #endregion
 
     #region Paladin
 

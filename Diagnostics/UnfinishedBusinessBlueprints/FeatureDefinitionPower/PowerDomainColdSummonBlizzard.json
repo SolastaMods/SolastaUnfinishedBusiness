@@ -81,38 +81,8 @@
           "summonType": "Creature",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "Air_Elemental",
-          "number": 1,
-          "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
-          "persistOnConcentrationLoss": false,
-          "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
-          "effectProxyDefinitionName": null
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "Creature",
-          "itemDefinition": null,
-          "trackItem": false,
           "monsterDefinitionName": "Ice_Elemental",
-          "number": 1,
+          "number": 2,
           "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
           "persistOnConcentrationLoss": false,
           "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
@@ -148,7 +118,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3a2adaa2387014840a7a04a703e43d8b",
+        "m_AssetGUID": "e22e4f85dac1bd046bd02889cd94f0af",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -166,7 +136,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "26c07e68e0e726245bd204b85d216c40",
+        "m_AssetGUID": "c7558c24a824b614eb88501ef597b44d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -294,7 +264,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1f552e7fef196454db3f99c581aeb0e4",
+        "m_AssetGUID": "c1b8f711d68842f47ac28bf43d513c41",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
