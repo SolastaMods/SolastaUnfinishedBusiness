@@ -131,7 +131,7 @@ public sealed class OathOfThunder : AbstractSubclass
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (15, 2), (20, 3))
-                            .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
+                            .SetDamageForm(DamageTypeLightning, 2, DieType.D6)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -402,7 +402,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.Side != attacker.Side
+                .Where(x => x.IsOppositeSide(attacker.Side)
                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());

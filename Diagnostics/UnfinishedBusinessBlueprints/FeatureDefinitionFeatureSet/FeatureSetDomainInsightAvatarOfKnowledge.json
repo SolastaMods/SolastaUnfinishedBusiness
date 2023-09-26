@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerDomainInsightAvatarOfKnowledge:7e389a76-8f21-5e62-97ae-0789f702812d",
+    "Definition:ProficiencyDomainInsightAvatarOfKnowledgeSavingThrow:44108874-f6f8-5e17-87ac-a9af6da53f4b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetDomainInsightAvatarOfKnowledgeTitle",
+    "description": "Feature/&FeatureSetDomainInsightAvatarOfKnowledgeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4c37e003-9e0c-52f9-974e-d1cff2dfa3e2",
+  "contentPack": 9999,
+  "name": "FeatureSetDomainInsightAvatarOfKnowledge"
+}

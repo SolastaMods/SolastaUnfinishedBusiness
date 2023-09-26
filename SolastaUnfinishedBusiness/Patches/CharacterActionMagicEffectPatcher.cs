@@ -120,14 +120,12 @@ public static class CharacterActionMagicEffectPatcher
             var baseDefinition = __instance.GetBaseDefinition();
 
             //PATCH: supports `IMagicEffectInitiatedByMe`
-            if (Gui.Battle != null)
-            {
-                var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectInitiatedByMe>();
+            // no need to check for gui.battle != null
+            var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectInitiatedByMe>();
 
-                if (magicEffectInitiatedByMe != null)
-                {
-                    yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(__instance, baseDefinition);
-                }
+            if (magicEffectInitiatedByMe != null)
+            {
+                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(__instance, baseDefinition);
             }
 
             // VANILLA EVENTS
@@ -137,15 +135,11 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             //PATCH: supports `IPerformAttackAfterMagicEffectUse`
-            if (Gui.Battle != null)
+            // no need to check for gui.battle != null
+            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
+
+            if (attackAfterMagicEffect != null)
             {
-                var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
-
-                if (attackAfterMagicEffect == null)
-                {
-                    yield break;
-                }
-
                 var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
                 var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
 
@@ -157,15 +151,12 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             //PATCH: supports `IMagicEffectFinishedByMe`
-            // ReSharper disable once InvertIf
-            if (Gui.Battle != null)
-            {
-                var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
+            // no need to check for gui.battle != null
+            var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
 
-                if (magicEffectFinishedByMe != null)
-                {
-                    yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
-                }
+            if (magicEffectFinishedByMe != null)
+            {
+                yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
             }
         }
     }

@@ -192,16 +192,21 @@ public static class RulesetImplementationManagerLocationPatcher
         {
             var source = formsParams.sourceCharacter;
 
+            __instance.TryFindSubstituteOfCharacter(source, out var characterMonster);
+
             //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
+            
+            //TODO: do I need to add them back to source?
             source.SpellsCastByMe.SetRange(SpellsCastByMe);
             source.PowersUsedByMe.SetRange(PowersUsedByMe);
+            
+            characterMonster.SpellsCastByMe.SetRange(SpellsCastByMe);
+            characterMonster.PowersUsedByMe.SetRange(PowersUsedByMe);
 
             //PATCH: allows shape changers to get bonuses effects defined in features / feats / etc.
             var sourceAbilityBonus = formsParams.activeEffect.ComputeSourceAbilityBonus(source);
             var proficiencyBonus = formsParams.activeEffect.ComputeSourceProficiencyBonus(source);
             var creatureTags = formsParams.targetSubstitute.CreatureTags;
-
-            __instance.TryFindSubstituteOfCharacter(source, out var characterMonster);
 
             foreach (var summoningAffinity in source
                          .GetFeaturesByType<FeatureDefinitionSummoningAffinity>()

@@ -386,7 +386,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.Side != attacker.Side
+                             .Where(x => x.IsOppositeSide(attacker.Side)
                                          && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
@@ -439,7 +439,7 @@ public static class GameLocationBattleManagerPatcher
                 //PATCH: Support for features before hit possible, e.g. spiritual shielding
 
                 foreach (var extraEvents in __instance.Battle.AllContenders
-                             .Where(u => u.Side != attacker.Side
+                             .Where(u => u.IsOppositeSide(attacker.Side)
                                          && u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList() // avoid changing enumerator
                              .SelectMany(featureOwner => featureOwner.RulesetCharacter
@@ -962,7 +962,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.Side != attacker.Side
+                             .Where(x => x.IsOppositeSide(attacker.Side)
                                          && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
@@ -1083,7 +1083,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.Side != attacker.Side
+                             .Where(x => x.IsOppositeSide(attacker.Side)
                                          && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList()) // avoid changing enumerator
                 {
@@ -1132,7 +1132,7 @@ public static class GameLocationBattleManagerPatcher
 
             foreach (var opposingContender in __instance.Battle.AllContenders
                          .Where(opposingContender =>
-                             opposingContender.Side != attacker.Side &&
+                             opposingContender.IsOppositeSide(attacker.Side) &&
                              opposingContender != defender &&
                              opposingContender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
@@ -1198,8 +1198,9 @@ public static class GameLocationBattleManagerPatcher
                 if (__instance.Battle != null)
                 {
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.GetMyContenders(attacker.Side)
-                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    foreach (var gameLocationAlly in __instance.Battle.AllContenders
+                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                             && x.Side == attacker.Side)
                                  .ToList()) // avoid changing enumerator
                     {
                         var allyFeatures =
@@ -1220,7 +1221,7 @@ public static class GameLocationBattleManagerPatcher
                 {
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                     foreach (var gameLocationAlly in __instance.Battle.AllContenders
-                                 .Where(x => x.Side != attacker.Side
+                                 .Where(x => x.IsOppositeSide(attacker.Side)
                                              && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                                  .ToList()) // avoid changing enumerator
                     {

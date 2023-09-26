@@ -380,10 +380,6 @@ When casting Transmutation or Necromancy spells they are cast at a spell slot 2 
 
 ### Level 6
 
-* Additional Magical Secrets
-
-Choose two spells from any class and include them in your spell list.
-
 * Necrotic Resistance
 
 Your Transmute Force grants you Necrotic Resistance.

@@ -275,6 +275,930 @@ When an ally you can see within 12 cells is reduced to 0 hit points, you can use
 
 
 
+# Cleric
+
+## 1. Battle
+
+The Battle domain grants powerful combat spells. Its clerics can deal damage as well as providing front-line healing.
+
+
+### Level 1
+
+* Battle Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Magic Missile, Shield of Faith
+
+	II	Acid Arrow, Flaming Sphere
+
+	III	Fireball, Haste
+
+	IV	Stoneskin, Phantasmal Killer
+
+	V	Hold Monster, Insect Plague
+
+* Battle Magic
+
+Can cast spells with a somatic component without a free hand, provided a weapon or shield is being wielded.
+
+* Bonus Proficiency
+
+Martial Weapons
+
+* Divine Fortitude
+
+As an action, gain 3 temporary HP per cleric level. Recovered after a long rest.
+
+
+### Level 2
+
+* Decisive Strike
+
+On a successful attack, Channel Divinity to add 1d6 to your damage and stun your target (save negates). Increases by 1d6 every 3 levels above level 2.
+
+
+### Level 6
+
+* Herald of Battle
+
+Allies in adjacent cells gain +1 on attack rolls, damage, AC, and saving throws.
+
+
+### Level 8
+
+* Scholar of Battle
+
+You can attack twice, rather than once, when you use the attack or shove actions.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Paragon of Battle
+
+You gain resistance to bludgeoning, piercing, and slashing damage. In addition, the range of Herald of Battle is increased to 15 feet.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 2. Elemental (Ice)
+
+The Elemental domain allows a cleric to become one with the elements. The ice sub-domain makes you less vulnerable to cold damage and grants you ice-based attacks.
+
+
+### Level 1
+
+* Bonus Cantrip (Cold)
+
+Ray of Frost
+
+* Elemental Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Fog Cloud
+
+	II	Levitate, Misty Step
+
+	III	Lightning Bolt, Fly
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Conjure Elemental
+
+* Primal Harmony (Cold)
+
+Resistance to Cold: damage is halved
+
+
+### Level 2
+
+* Channel Divinity: Ice Lance
+
+Use Channel Divinity on a target within 12 cells. The target must make a Dexterity saving throw or be pushed away by 2 cells and suffer 2d8 cold damage.
+
+
+### Level 6
+
+* Scholar of the Elements
+
+Use your reaction to become immune to your domain element so it heals you instead of wounding you.
+
+
+### Level 8
+
+* Call Upon Cold
+
+The target suffers cold damage and must succeed with a STR save or become restrained until the end of its next turn. Can be used a number of times equal to your WIS bonus until a long rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Summon Blizzard
+
+As an action, you can summon 2 ice elemental. Once you use this ability, you can't use it again until you finish a long rest.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 3. Elemental (Fire)
+
+The Elemental domain allows a cleric to become one with the elements. The fire sub-domain makes you less vulnerable to fire damage and grants you fire-based attacks.
+
+
+### Level 1
+
+* Bonus Cantrip (Fire)
+
+Fire Bolt
+
+* Elemental Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Fog Cloud
+
+	II	Levitate, Misty Step
+
+	III	Lightning Bolt, Fly
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Conjure Elemental
+
+* Primal Harmony (Fire)
+
+Resistance to Fire: damage is halved
+
+
+### Level 2
+
+* Channel Divinity: Fire Burst
+
+Channel Divinity to cause 3d8 fire damage to a target within 12 cells. A successful Dexterity save halves the damage.
+
+
+### Level 6
+
+* Scholar of the Elements
+
+Use your reaction to become immune to your domain element so it heals you instead of wounding you.
+
+
+### Level 8
+
+* Call Upon Fire
+
+The target suffers fire damage and must succeed a STR save or be pushed. Can be used a number of times equal to your WIS bonus until a long rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Summon Inferno
+
+As an action, you can summon 2 fire elemental. Once you use this ability, you can't use it again until you finish a long rest.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 4. Elemental (Lightning)
+
+The Elemental domain allows a cleric to become one with the elements. The lightning sub-domain makes you less vulnerable to lightning damage and grants you lightning-based attacks.
+
+
+### Level 1
+
+* Bonus Cantrip (Lightning)
+
+Shocking Grasp
+
+* Elemental Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Fog Cloud
+
+	II	Levitate, Misty Step
+
+	III	Lightning Bolt, Fly
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Conjure Elemental
+
+* Primal Harmony (Lightning)
+
+Resistance to Lightning: damage is halved
+
+
+### Level 2
+
+* Channel Divinity: Lightning Blade
+
+Channel Divinity to cause 1d8 lightning damage to a target within 12 cells. On a failed Dexterity save, the target is also stunned until the end of its next turn.
+
+
+### Level 6
+
+* Scholar of the Elements
+
+Use your reaction to become immune to your domain element so it heals you instead of wounding you.
+
+
+### Level 8
+
+* Call Upon Thunder
+
+Creatures in the area of effect must make a successful CON save or suffer thunder damage equal to 2D8 + your WIS bonus and become restrained until the end of their next turn. Can be used a number of times equal to your WIS bonus between long rests.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Living Tempest
+
+As an bonus action, you can give yourself a flying speed equal to your walking speed.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 5. Insight
+
+The Insight domain focuses on learning, memory, and deduction. Those who embrace this domain are renowned for their knowledge and wisdom.
+
+
+### Level 1
+
+* Divine Intuition
+
+Advantage on ability checks using Arcana, History, and Nature
+
+* Insight Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Detect Evil and Good, Identify
+
+	II	Find Traps, See Invisibility
+
+	III	Slow, Remove Curse
+
+	IV	Identify Creatures, Phantasmal Killer
+
+	V	Dispel Evil and Good, Dominate Person
+
+* Inspired Diplomat
+
+You always know the odds when choosing between dialog choices that include an Ability Check (Persuasion, Deception, or Intimidation).
+
+
+### Level 2
+
+* Channel Divinity: Foreknowledge
+
+Channel Divinity to see the immediate future and dodge your enemy's attacks better. For 1 minute, the first attack (except shove) made against you after your turn suffers disadvantage.
+
+
+### Level 6
+
+* Divine Eye
+
+Advantage to detect traps, hidden doors, and objects
+
+
+### Level 8
+
+* Divine Lore
+
+You know all languages, written and spoken. In addition, you can identify a magical item once per long rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Avatar of Knowledge
+
+
+• You gain proficiency with Intelligence based saving throws.
+• You can now channel your Foreknowledge divinity to you and all allies within 15 ft.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 6. Law
+
+The Law domain focuses on protecting the innocent and punishing the guilty, granting powers and spells to control and tame the unlawful.
+
+
+### Level 1
+
+* Commanding Presence
+
+Proficient with Intimidation.
+ Advantage on Intimidation checks
+
+* Law Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Heroism, Shield
+
+	II	Branding Smite, Hold Person
+
+	III	Counterspell, Lightning Bolt
+
+	IV	Banishment, Guardian of Faith
+
+	V	Hold Monster, Dispel Evil and Good
+
+* Unyielding Enforcer
+
+Advantage on rolls to resist being shoved or moved by magical means
+
+
+### Level 2
+
+* Channel Divinity: Force of Law
+
+Channel Divinity when casting an attack spell to impose disadvantage on your target's saving throw.
+
+* Channel Divinity: Holy Retribution
+
+When a melee attack damages you, you can use your reaction to Channel Divinity and strike back using a melee weapon, adding (2d6 + cleric level) psychic damage.
+
+
+### Level 6
+
+* Word of the Law
+
+Break the spellcasting concentration of an enemy
+
+
+### Level 8
+
+* Anathema
+
+On a failed WIS saving throw, restrains a creature and inflicts force damage each turn equal to your WIS modifier. The creature can make a WIS saving throw at the end of their turn. Can be used once per short rest. 
+  At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 14
+
+* Anathema
+
+On a failed WIS saving throw, restrains a creature and inflicts force damage each turn equal to your WIS modifier. The creature can make a WIS saving throw at the end of their turn. Can be used once per short rest. 
+  At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 7. Life
+
+The Life domain focuses on the vibrant positive energy - one of the fundamental forces of the universe - that sustains all life, and grants unrivaled healing abilities.
+
+
+### Level 1
+
+* Bonus Proficiency
+
+Proficient with Heavy Armor.
+
+* Disciple of Life
+
+When casting a healing spell, the target regains additional HP equal to (2 x spell level).
+
+* Life Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Bless, Cure Wounds
+
+	II	Lesser Restoration, Spiritual Weapon
+
+	III	Revivify, Mass Healing Word
+
+	IV	Death Ward, Guardian of Faith
+
+	V	Mass Cure Wounds, Raise Dead
+
+
+### Level 2
+
+* Channel Divinity: Preserve Life
+
+Restore hit points (5 x cleric level) to one or more allies within 6 cells, up to half their hit point maximum.
+
+
+### Level 6
+
+* Blessed Healer
+
+When you cast a spell of 1st level or higher that restores hit points to a creature other than yourself, you regain hit points equal to (2 + spell level).
+
+
+### Level 8
+
+* Divine Strike
+
+Once per turn, when you hit a creature with a weapon attack, you can deal an extra 1d8 radiant damage to the target. When you reach level 14, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Supreme Healing
+
+When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 8. Mischief
+
+The Mischief domain is followed by those who pursue joy, pleasure, and wealth through trickery, luck, and manipulation.
+
+
+### Level 1
+
+* Borrowed Luck
+
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+
+* Mischief Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Charm Person, Expeditious Retreat
+
+	II	Blur, Invisibility
+
+	III	Hypnotic Pattern, Slow
+
+	IV	Confusion, Greater Invisibility
+
+	V	Dominate Person, Hold Monster
+
+* Trickster
+
+Proficiency with Stealth and Deception
+
+
+### Level 2
+
+* Channel Divinity: Strike of Chaos
+
+When you hit a creature with a melee or ranged weapon attack, you can Channel Divinity to add 1d6 points of psychic damage, and impose a random condition if the target fails a wisdom saving throw. The condition can be: advantage on attack rolls, disadvantage on attack rolls, blinded, restrained, paralyzed, or none.
+ The additional damage is increased by 1d6 for every 3 levels above level 2 (level 5: 2d6, level 8: 3d6, etc.)
+ The target must make a wisdom saving throw against your spell save DC at the end of each of its turns. On a successful save, this effect ends; otherwise, it remains for a maximum duration of 1 minute.
+
+
+### Level 6
+
+* Elusive Target
+
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+
+
+### Level 8
+
+* Divine Strike
+
+Once, on each of your turns when you hit a creature with a weapon attack, you can deal an extra 1d8 psychic damage to the target. When you reach level 14, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 9. Oblivion
+
+The Oblivion domain shows the darker aspect of Maraike, that of the goddess of death. Clerics who choose this domain consider life and death as part of the same, greater cycle, and can use necromantic spells as well as any other.
+
+
+### Level 1
+
+* Bonus Cantrip
+
+Chill Touch
+
+* Gate Keeper
+
+As long as you are conscious, you and your fellow party members within 6 cells have advantage on death saving throws.
+
+* Oblivion Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Sleep, Inflict Wounds
+
+	II	Blindness, Ray of Enfeeblement
+
+	III	Vampiric Touch, Fear
+
+	IV	Black Tentacles, Confusion
+
+	V	Contagion, Cloudkill
+
+
+### Level 2
+
+* Channel Divinity: Herald of Pain
+
+Channel Divinity to cause pain to enemies within 6 cells. Enemies failing a Wisdom save receive 1d8 necrotic damage and are poisoned.
+
+* Peaceful Rest
+
+While camping, reduces the chances of being attacked and prevents from being surprised.
+
+
+### Level 6
+
+* Strike of Oblivion
+
++1d6 necrotic damage on your first attack of your turn.
+
+
+### Level 8
+
+* Mark of Fate
+
+Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power. Starting at level 14, you can use it twice before taking a rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 14
+
+* Mark of Fate
+
+Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power. Starting at level 14, you can use it twice before taking a rest.
+
+
+### Level 17
+
+* Keeper of Oblivion
+
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.                                                                
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 10. Sun
+
+The Sun domain encompasses the powers of cleansing light and warmth of the sun itself. Clerics who embrace this domain are beacons of light in a world of darkness.
+
+
+### Level 1
+
+* Bonus Cantrip
+
+Light
+
+* Holy Radiance
+
+When you cast Sacred Flame, your target has disadvantage on the saving throw.
+
+* Sun Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Burning Hands, Faerie Fire
+
+	II	Scorching Ray, Darkvision
+
+	III	Daylight, Hypnotic Pattern
+
+	IV	Fire Shield, Wall of Fire
+
+	V	Flame Strike, Greater Restoration
+
+
+### Level 2
+
+* Channel Divinity: Herald of the Sun
+
+Channel Divinity to engulf a visible enemy within 6 cells with radiant light, causing 1d8 radiant damage + 2 per cleric level (half damage on a successful Constitution saving throw) and cause the blinded condition for 1 minute (negated if saving throw was successful).
+
+
+### Level 6
+
+* Channel Divinity: Indomitable Light
+
+Channel divinity to summon a sphere of sunlight, which affects light sensitive creatures and negates areas of darkness.
+
+* Soothing Hand
+
+Heal an ally and remove one detrimental condition.
+
+
+### Level 8
+
+* Divine Strike
+
+Once per turn, when you hit a creature with a weapon attack, you can deal an extra 1d8 radiant damage to the target. When you reach level 14, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Rising Dawn
+
+You have resistance to fire and radiant damage, and you bypass fire and radiant damage resistances with your attacks and spells.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 11. Defiler
+
+Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
+
+
+### Level 1
+
+* Bonus Cantrip
+
+Gain the bonus cantrips Ray of Frost and Wrack.
+
+* Expanded Spells
+
+
+	I	False Life, Inflict Wounds
+
+	II	Blindness, Ray of Enfeeblement
+
+	III	Bestow Curse, Fear
+
+	IV	Blight, Phantasmal Killer
+
+	V	Cloudkill, Contagion
+
+
+
+* Insidious Death Magic
+
+Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of turns equal to half your cleric level (rounded up), or 1 minute if a Divine Strike.
+
+
+### Level 2
+
+* Channel Divinity: Defile Life
+
+Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take 2d6 + your class level necrotic damage on a failed saving throw, or half that amount on a successful one.
+
+
+### Level 6
+
+* Channel Divinity: Mark for Death
+
+Mark an enemy for death for one minute. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.
+
+
+### Level 8
+
+* Divine Resistance
+
+You have resistance to Necrotic damage.
+
+* Divine Strike
+
+Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage increases to 2d8 at 14th level.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 14
+
+* Divine Immunity
+
+You have immunity to Necrotic damage.
+
+
+### Level 17
+
+* Dying Light
+
+Learn Circle of Death and Finger of Death spells and add them to the list of spells known. You always have these spells prepared, they do not count towards your prepared spells limit and are treated as cleric spells for you. In addition, necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
+
+
+
+## 12. Smith
+
+Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Identify, Searing Smite
+
+	II	Heat Metal, Magic Weapon
+
+	III	Protection from Energy, Elemental Weapon
+
+	IV	Wall of Fire, Stoneskin
+
+	V	Flame Strike, Hold Monster
+
+
+
+* Heavy Armor Proficient
+
+Gain proficiency in heavy armor.
+
+* Reinforce Armor
+
+Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +1 AC.
+
+* Smithing Tools Proficient
+
+Gain proficiency in smith tools.
+
+
+### Level 2
+
+* Channel Divinity: Adamant Benediction
+
+Using an action, bolster the armor of allies in a 30ft radius. Their armor gains the Strength of adamantine armor, gaining immunity to critical for 1 minute.
+
+
+### Level 6
+
+* Forge Mastery
+
+Gain fire resistance and while wearing armor gain +1 AC.
+
+* Reinforce Armor
+
+Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +2 AC.
+
+
+### Level 8
+
+* Divine Strike
+
+Once per turn, deal +1d8 fire damage on weapon attacks. This damage increases to 2d8 at 14th level.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 11
+
+* Reinforce Armor
+
+Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +3 AC.
+
+
+### Level 16
+
+* Reinforce Armor
+
+Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +4 AC.
+
+
+### Level 17
+
+* Blessed Metal
+
+Your blessed affinity with fire and metal becomes more powerful. While wearing armor, you gain the following benefits:
+• You gain immunity to fire damage.
+• You have resistance to bludgeoning, piercing, and slashing damage from non magical attacks.
+
+
+
 # Druid
 
 ## 1. Circle of the Land
@@ -739,7 +1663,7 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
-• When you are reduced to 0 hit points, you can pay 1 Ki to restore 10 hit points.
+• When you are reduced to 0 hit points, you can pay 1 Ki to restore 1 hit point.
 
 
 

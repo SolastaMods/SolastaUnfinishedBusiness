@@ -12,6 +12,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class CustomSituationalContext
 {
+    private static readonly WeaponTypeDefinition[] SimpleOrMartialWeapons = DatabaseRepository
+        .GetDatabase<WeaponTypeDefinition>()
+        .Where(x => x.WeaponCategory is "MartialWeaponCategory" or "SimpleWeaponCategory")
+        .ToArray();
+
     internal static bool IsContextValid(
         RulesetImplementationDefinitions.SituationalContextParams contextParams,
         bool def)
@@ -45,6 +50,9 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands =>
                 ValidatorsCharacter.HasWeaponType(
                     ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType)(contextParams.source),
+
+            ExtraSituationalContext.HasSimpleOrMartialWeaponInHands =>
+                ValidatorsCharacter.HasWeaponType(SimpleOrMartialWeapons)(contextParams.source),
 
             ExtraSituationalContext.HasVersatileWeaponInHands =>
                 ValidatorsCharacter.HasTwoHandedVersatileWeapon(contextParams.source),

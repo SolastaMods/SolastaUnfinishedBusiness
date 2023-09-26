@@ -1,0 +1,147 @@
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+
+namespace SolastaUnfinishedBusiness.Spells;
+
+internal static partial class SpellBuilders
+{
+    #region Heroic Infusion
+
+    internal static SpellDefinition BuildHeroicInfusion()
+    {
+        const string NAME = "HeroicInfusion";
+
+        var attackModifierHeroicInfusion = FeatureDefinitionCombatAffinityBuilder
+            .Create($"AttackModifier{NAME}")
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .SetSituationalContext(ExtraSituationalContext.HasSimpleOrMartialWeaponInHands)
+            .SetCustomSubFeatures()
+            .AddToDB();
+
+        var additionalDamageHeroicInfusion = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetNotificationTag(NAME)
+            .SetDamageDice(DieType.D12, 2)
+            .SetSpecificDamageType(DamageTypeForce)
+            .AddToDB();
+
+        var actionAffinityHeroicInfusion = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}")
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetAuthorizedActions()
+            .SetForbiddenActions(
+                ActionDefinitions.Id.CastBonus, ActionDefinitions.Id.CastInvocation,
+                ActionDefinitions.Id.CastMain, ActionDefinitions.Id.CastReaction,
+                ActionDefinitions.Id.CastReadied, ActionDefinitions.Id.CastRitual, ActionDefinitions.Id.CastNoCost)
+            .AddToDB();
+
+        var conditionExhausted = ConditionDefinitionBuilder
+            .Create(ConditionExhausted, $"Condition{NAME}Exhausted")
+            .SetOrUpdateGuiPresentation("ConditionExhausted", Category.Rules, ConditionLethargic)
+            .AddToDB();
+
+        var conditionHeroicInfusion = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionHeroism)
+            .SetPossessive()
+            .SetFeatures(
+                attackModifierHeroicInfusion,
+                additionalDamageHeroicInfusion,
+                actionAffinityHeroicInfusion,
+                CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                FeatureDefinitionProficiencys.ProficiencyFighterArmor,
+                FeatureDefinitionProficiencys.ProficiencyFighterSavingThrow,
+                FeatureDefinitionProficiencys.ProficiencyFighterWeapon)
+            .SetCustomSubFeatures(new OnConditionAddedOrRemovedHeroicInfusion(conditionExhausted))
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.HeroicInfusion, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionHeroicInfusion),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(50, DieType.D1, 0, true)
+                            .Build())
+                    .SetParticleEffectParameters(DivineFavor)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class OnConditionAddedOrRemovedHeroicInfusion : IOnConditionAddedOrRemoved
+    {
+        private readonly ConditionDefinition _conditionExhausted;
+
+        public OnConditionAddedOrRemovedHeroicInfusion(ConditionDefinition conditionExhausted)
+        {
+            _conditionExhausted = conditionExhausted;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.TemporaryHitPoints = 0;
+
+
+            var modifierTrend = target.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = target.actionModifier.savingThrowAdvantageTrends;
+            var conModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                target.TryGetAttributeValue(AttributeDefinitions.Constitution));
+
+            target.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+                advantageTrends, conModifier, 15, false, out var savingOutcome, out _);
+
+            if (savingOutcome is RollOutcome.Success)
+            {
+                return;
+            }
+
+            target.InflictCondition(
+                _conditionExhausted.Name,
+                _conditionExhausted.DurationType,
+                _conditionExhausted.DurationParameter,
+                _conditionExhausted.TurnOccurence,
+                AttributeDefinitions.TagEffect,
+                target.guid,
+                target.CurrentFaction.Name,
+                0,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    #endregion
+}

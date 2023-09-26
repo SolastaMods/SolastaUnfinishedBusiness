@@ -1,0 +1,6 @@
+Condition/&ConditionHeroicInfusionDescription=Vous vous dotez d’une endurance et de prouesses martiales alimentées par la magie.
+Condition/&ConditionHeroicInfusionTitle=Infusion héroïque
+Feedback/&AdditionalDamageHeroicInfusionFormat=Infusion héroïque !
+Feedback/&AdditionalDamageHeroicInfusionLine={0} frappe héroïquement {1} ! (+{2})
+Spell/&HeroicInfusionDescription=Vous vous dotez d’une endurance et de prouesses martiales alimentées par la magie. Jusqu'à la fin du sort, vous ne pouvez pas lancer de sorts et vous bénéficiez des avantages suivants :\n• Vous gagnez 50 points de vie temporaires. Si l'un d'entre eux reste à la fin du sort, il est perdu.\n• Vous avez un avantage sur les jets d'attaque que vous effectuez avec des armes simples et martiales.\n• Lorsque vous touchez une cible avec une attaque avec une arme, cette cible prend 2d12 dégâts de force supplémentaires.\n• Vous disposez des compétences d'armure, d'armes et de jets de sauvegarde de classe Combattant.\n• Vous pouvez attaquer deux fois, au lieu d'une, lorsque vous effectuez l'action d'attaque à votre tour.\n Immédiatement après la fin du sort, vous devez réussir un jet de sauvegarde de Constitution DD 15 ou subir un niveau d'épuisement.
+Spell/&HeroicInfusionTitle=Infusion héroïque

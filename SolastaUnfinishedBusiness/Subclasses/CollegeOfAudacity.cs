@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -241,6 +242,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerDefensiveWhirl;
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
+        private readonly List<string> _tags = new();
         private bool _criticalHit;
         private string _damageType;
 
@@ -354,7 +356,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 if (gameLocationBattleService is { Battle: not null })
                 {
                     targetCharacters.AddRange(gameLocationBattleService.Battle.AllContenders
-                        .Where(x => x.Side != actingCharacter.Side
+                        .Where(x => x.IsOppositeSide(actingCharacter.Side)
                                     && gameLocationBattleService.IsWithin1Cell(actingCharacter, x))
                         .ToList());
                 }
@@ -387,7 +389,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     false,
                     rulesetCharacter.Guid,
                     false,
-                    new List<string>(),
+                    _tags,
                     new RollInfo(dieType, rolls, 0),
                     false,
                     out _);
@@ -429,6 +431,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
             _damageType = damageForm?.damageType;
             _criticalHit = criticalHit;
+            _tags.SetRange(attackMode.AttackTags);
         }
 
         // add extra movement on any attack

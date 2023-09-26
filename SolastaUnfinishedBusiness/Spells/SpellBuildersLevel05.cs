@@ -112,7 +112,7 @@ internal static partial class SpellBuilders
             .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 6)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-            .SetParticleEffectParameters(Disintegrate)
+            .SetParticleEffectParameters(Thunderwave)
             .SetSavingThrowData(
                 false, AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.SpellCastingFeature)
             .SetEffectForms(
@@ -128,6 +128,9 @@ internal static partial class SpellBuilders
                     .Build())
             .Build();
 
+        effectDescription.EffectParticleParameters.zoneParticleReference =
+            Shatter.EffectDescription.EffectParticleParameters.zoneParticleReference;
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SonicBoom, 128))
@@ -140,6 +143,68 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
             .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Incineration
+
+    internal static SpellDefinition BuildIncineration()
+    {
+        const string NAME = "Incineration";
+
+        var lightSourceForm = FaerieFire.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
+
+        var conditionIncineration = ConditionDefinitionBuilder
+            .Create(ConditionOnFire, $"Condition{NAME}")
+            .SetSpecialInterruptions(ConditionInterruption.Revive)
+            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 4, DieType.D6))
+            .AddToDB();
+
+        conditionIncineration.specialDuration = false;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Immolation, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeFire, 8, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionIncineration, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6, lightSourceForm.Color,
+                                lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .SetParticleEffectParameters(Fireball)
+                    .Build())
             .AddToDB();
 
         return spell;

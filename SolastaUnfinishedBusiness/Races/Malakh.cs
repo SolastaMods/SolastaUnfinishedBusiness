@@ -211,8 +211,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionDivineFavor)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
@@ -239,8 +238,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicRadiance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicRadiance")
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionDivineFavor)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
             .AddFeatures(additionalDamageMalakhAngelicForm)
@@ -315,7 +313,7 @@ internal static class RaceMalakhBuilder
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(enemy => enemy.Side != locationCharacter.Side
+                         .Where(enemy => enemy.IsOppositeSide(locationCharacter.Side)
                                          && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Where(enemy => gameLocationBattleService.IsWithinXCells(locationCharacter, enemy, 3))
                          .ToList()) // avoid changing enumerator

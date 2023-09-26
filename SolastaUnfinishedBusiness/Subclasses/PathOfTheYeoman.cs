@@ -60,7 +60,6 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         var actionAffinityStaggeringBlow = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}StaggeringBlow")
             .SetGuiPresentation(Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(
                 new ValidateDefinitionApplication(
@@ -362,7 +361,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
                 .Where(x =>
-                    x.Side != attacker.Side
+                    x.IsOppositeSide(attacker.Side)
                     && x != defender
                     && battleManager.IsWithinXCells(defender, x, 3))
                 .ToList());

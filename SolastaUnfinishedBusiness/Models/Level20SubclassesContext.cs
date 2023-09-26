@@ -41,22 +41,271 @@ internal static class Level20SubclassesContext
 
     private static void ClericLoad()
     {
-        // Divine Intervention
+        //
+        // Battle
+        //
+
+        // Paragon of Battle
+
+        var powerDomainBattleImprovedHeraldOfBattle = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainBattleHeraldOfBattle, "PowerDomainBattleImprovedHeraldOfBattle")
+            .SetOverriddenPower(PowerDomainBattleHeraldOfBattle)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDomainBattleHeraldOfBattle)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .Build())
+            .AddToDB();
+
+        var featureSetDomainBattleParagonOfBattle = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainBattleParagonOfBattle")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinitySlashingResistance,
+                powerDomainBattleImprovedHeraldOfBattle)
+            .AddToDB();
+
+        DomainBattle.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainBattleParagonOfBattle, 17));
+
+        //
+        // Cold
+        //
+
+        // Summon Blizzard
+
+        var powerDomainColdSummonBlizzard = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainColdSummonBlizzard")
+            .SetGuiPresentation(Category.Feature, ConjureElemental)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 18, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(2, "Ice_Elemental")
+                            .Build())
+                    .SetParticleEffectParameters(ConjureElementalFire)
+                    .Build())
+            .AddToDB();
+
+        powerDomainColdSummonBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
+            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        DomainElementalCold.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerDomainColdSummonBlizzard, 17));
+
+        //
+        // Fire
+        //
+
+        // Summon Inferno
+
+        var powerDomainFireSummonInferno = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainFireSummonInferno")
+            .SetGuiPresentation(Category.Feature, ConjureElemental)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 18, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(2, "Fire_Elemental")
+                            .Build())
+                    .SetParticleEffectParameters(ConjureElementalFire)
+                    .Build())
+            .AddToDB();
+
+        DomainElementalFire.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(powerDomainFireSummonInferno, 17));
+
+        //
+        // Insight
+        //
+
+        // Avatar of Knowledge
+
+        var proficiencyDomainInsightAvatarOfKnowledge = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyDomainInsightAvatarOfKnowledgeSavingThrow")
+            .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
+            .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Intelligence)
+            .AddToDB();
+
+        var powerDomainInsightAvatarOfKnowledge = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainInsightForeknowledge, "PowerDomainInsightAvatarOfKnowledge")
+            .SetOverriddenPower(PowerDomainInsightForeknowledge)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerDomainInsightForeknowledge)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .Build())
+            .AddToDB();
+
+        var featureSetDomainInsightAvatarOfKnowledge = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainInsightAvatarOfKnowledge")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(proficiencyDomainInsightAvatarOfKnowledge, powerDomainInsightAvatarOfKnowledge)
+            .AddToDB();
+
+        DomainInsight.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainInsightAvatarOfKnowledge, 17));
+
+        //
+        // Law
+        //
+
+        /*
+        
+        Cleric of Law: Executioner - Whenever you break an enemies concentration, they must make a WIS saving throw, or take psychic damage equal to your cleric level.
+        
+        */
+
+        //
+        // Life
+        //
+
+        // Supreme Healing
+
+        var featureDomainLifeSupremeHealing = FeatureDefinitionBuilder
+            .Create("DomainLifeSupremeHealing")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new ModifyDiceRollSupremeHealing())
+            .AddToDB();
+
+        DomainLife.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureDomainLifeSupremeHealing, 17));
+
+        //
+        // Lightning
+        //
+
+        // Living Tempest
+
+        var powerDomainLightningLivingTempestSprout = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainLightningLivingTempestSprout")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerLivingTempest", Resources.PowerLivingTempest, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsThunder)
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var powerDomainLightningLivingTempestDismiss = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainLightningLivingTempestDismiss")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerLivingTempest", Resources.PowerLivingTempest, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
+                            ConditionForm.ConditionOperation.Remove))
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var featureSetDomainLightningLivingTempest = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainLightningLivingTempest")
+            .SetGuiPresentation("PowerDomainLightningLivingTempestSprout", Category.Feature)
+            .AddFeatureSet(powerDomainLightningLivingTempestSprout, powerDomainLightningLivingTempestDismiss)
+            .AddToDB();
+
+        DomainElementalLighting.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainLightningLivingTempest, 17));
+
+        //
+        // Mischief
+        //
+
+        /* ??? */
+
+        //
+        // Oblivion
+        //
+
+        // Keeper of Oblivion
+
+        var featureDomainOblivionKeeperOfOblivion = FeatureDefinitionBuilder
+            .Create("FeatureDomainOblivionKeeperOfOblivion")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureDomainOblivionKeeperOfOblivion.SetCustomSubFeatures(
+            new OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(featureDomainOblivionKeeperOfOblivion));
+
+        DomainOblivion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDomainOblivionKeeperOfOblivion, 17));
+
+        //
+        // Sun
+        //
+
+        // Rising Dawn
+
+        var featureDomainSunRisingDawn = FeatureDefinitionBuilder
+            .Create("FeatureDomainSunRisingDawn")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new ModifyDamageResistanceRisingDawn())
+            .AddToDB();
+
+        var featureSetDomainSunRisingDawn = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDomainSunRisingDawn")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                featureDomainSunRisingDawn,
+                DamageAffinityFireResistance,
+                DamageAffinityRadiantResistance)
+            .AddToDB();
+
+        DomainSun.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetDomainSunRisingDawn, 17));
+
+        //
+        // Divine Intervention [ALL CLERICS]
+        //
+
+        const string TAG = "PowerClericImprovedDivineIntervention";
 
         var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
+            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionCleric)
             .AddToDB();
 
         var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
+            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionPaladin)
             .AddToDB();
 
         var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
             .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
+            .SetOrUpdateGuiPresentation(TAG, Category.Feature)
             .SetHasCastingFailure(false)
             .SetOverriddenPower(PowerClericDivineInterventionWizard)
             .AddToDB();
@@ -365,7 +614,6 @@ internal static class Level20SubclassesContext
         var actionAffinityTraditionOpenHandQuiveringPalm = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
             .AddToDB();
 
@@ -999,6 +1247,116 @@ internal static class Level20SubclassesContext
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
     }
 
+    #region Cleric
+
+    private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
+    {
+        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Resistance,
+                    DamageType: DamageTypeFire or DamageTypeRadiant
+                });
+        }
+    }
+
+    private sealed class ModifyDiceRollSupremeHealing : IModifyDiceRoll
+    {
+        private static DieType _dieType;
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            _dieType = dieType;
+        }
+
+        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
+        {
+            if (rollContext == RollContext.HealValueRoll)
+            {
+                result = DiceMaxValue[(int)_dieType];
+            }
+        }
+    }
+
+    private sealed class OnReducedToZeroHpByMeOrAllyKeeperOfOblivion : IOnReducedToZeroHpByMeOrAlly
+    {
+        private readonly FeatureDefinition _featureKeeperOfOblivion;
+
+        public OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(FeatureDefinition featureKeeperOfOblivion)
+        {
+            _featureKeeperOfOblivion = featureKeeperOfOblivion;
+        }
+
+        public IEnumerator HandleReducedToZeroHpByMeOrAlly(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            GameLocationCharacter ally,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!ally.OncePerTurnIsValid(_featureKeeperOfOblivion.Name))
+            {
+                yield break;
+            }
+
+            ally.UsedSpecialFeatures.TryAdd(_featureKeeperOfOblivion.Name, 1);
+
+            var rulesetAlly = ally.RulesetCharacter;
+            var clericLevel = rulesetAlly.GetClassLevel(CharacterClassDefinitions.Cleric);
+            var healingPool = clericLevel;
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            // haven't died within 30 ft of Cleric
+            if (!gameLocationBattleService.IsWithinXCells(downedCreature, ally, 6))
+            {
+                yield break;
+            }
+
+            var contenders =
+                gameLocationBattleService.Battle?.AllContenders ??
+                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+
+            if (contenders.Any())
+            {
+                rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
+            }
+
+            foreach (var rulesetUnit in contenders
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                     && x.Side == ally.Side
+                                     && gameLocationBattleService.IsWithinXCells(x, ally, 6))
+                         .Select(unit => unit.RulesetCharacter)
+                         .OrderByDescending(x => x.MissingHitPoints)
+                         .ToList())
+            {
+                if (rulesetUnit.MissingHitPoints >= healingPool)
+                {
+                    rulesetUnit.ReceiveHealing(healingPool, true, ally.Guid);
+                    healingPool = 0;
+                }
+                else if (rulesetUnit.MissingHitPoints > 0)
+                {
+                    healingPool -= rulesetUnit.MissingHitPoints;
+                    rulesetUnit.ReceiveHealing(rulesetUnit.MissingHitPoints, true, ally.Guid);
+                }
+
+                if (healingPool <= 0)
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    #endregion
+
     #region Paladin
 
     //
@@ -1014,7 +1372,11 @@ internal static class Level20SubclassesContext
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Wisdom
                    && rulesetCaster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" };
@@ -1291,7 +1653,7 @@ internal static class Level20SubclassesContext
             }
 
             rulesetCharacter.ForceKiPointConsumption(1);
-            rulesetCharacter.StabilizeAndGainHitPoints(10);
+            rulesetCharacter.StabilizeAndGainHitPoints(1);
             rulesetCharacter.InflictCondition(
                 ConditionDodging,
                 DurationType.Round,
@@ -1364,7 +1726,7 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            if (!rulesetDefender.HasAnyConditionOfType(
+            if (!rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     ConditionDefinitions.ConditionLuminousKi.Name,
                     ConditionDefinitions.ConditionShine.Name))
             {
@@ -1509,6 +1871,13 @@ internal static class Level20SubclassesContext
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
@@ -1528,8 +1897,6 @@ internal static class Level20SubclassesContext
                     rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
-
-            yield break;
         }
     }
 
@@ -1598,7 +1965,7 @@ internal static class Level20SubclassesContext
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            x.RulesetCharacter.HasAnyConditionOfType("ConditionHitByDirtyFighting"))
+                            x.RulesetCharacter.HasAnyConditionOfTypeOrSubType("ConditionHitByDirtyFighting"))
                 .ToList(); // avoid changing enumerator
 
             if (caster == null || targets.Empty())
@@ -1679,7 +2046,7 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            return rulesetDefender.HasAnyConditionOfType(
+            return rulesetDefender.HasAnyConditionOfTypeOrSubType(
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,

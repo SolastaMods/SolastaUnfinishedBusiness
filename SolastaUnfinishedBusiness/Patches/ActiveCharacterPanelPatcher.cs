@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -38,7 +39,7 @@ public static class ActiveCharacterPanelPatcher
         {
             //PATCH: support a better ratio with custom portraits
             if (Main.Settings.EnableCustomPortraits &&
-                GuiCharacterPatcher.HasCustomPortrait(__instance.GuiCharacter.RulesetCharacter))
+                PortraitsContext.HasCustomPortrait(__instance.GuiCharacter.RulesetCharacter))
             {
                 __instance.characterPortrait.rectTransform.sizeDelta = new Vector2(164, 247);
                 __instance.characterPortrait.rectTransform.anchoredPosition = new Vector2(-48, 0);

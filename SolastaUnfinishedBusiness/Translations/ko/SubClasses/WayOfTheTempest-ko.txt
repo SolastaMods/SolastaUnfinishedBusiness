@@ -1,14 +1,14 @@
-Action/&ActionTempestFuryDescription=Tempest's Fury를 보너스 액션으로 사용하기 위해 2키를 사용할 수 있습니다.
+Action/&ActionTempestFuryDescription=기 2점을 소모해 추가행동으로 폭풍의 진노 특성을 사용할 수 있습니다.
 Action/&ActionTempestFuryTitle=폭풍의 진노
 Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormDescription=모든 공격과 능력판정에 불리점을 받습니다.
 Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormTitle=비틀거림
 Condition/&ConditionWayOfTheTempestEyeOfTheStormDescription=폭풍의 길은 어느 때든 이 표식을 폭발시켜 3d10 천둥 피해를 가하고, 모든 명중굴림과 능력판정에 불리점을 가할 수 있습니다.
 Condition/&ConditionWayOfTheTempestEyeOfTheStormTitle=폭풍의 표식
-Feature/&FeatureSetWayOfTheTempestEyeOfTheStormDescription=17레벨부터 수도사 무기나 비무장 공격으로 생명체를 공격할 때마다 1분 동안 해당 생명체에 표식을 남깁니다. 당신은 당신의 행동을 사용하고 3키를 지불하여 각 생물의 표식을 소비하고 DC가 8 + 숙련도 + 지혜인 상태에서 그들에게 민첩성 내성 굴림을 강제할 수 있습니다. 내성 굴림에 실패하면 각 생물은 5d10의 번개 피해(저장된 경우 절반)를 받고 비틀거리며 다음 턴이 끝날 때까지 모든 공격과 능력 검사에 불이익을 받습니다.
+Feature/&FeatureSetWayOfTheTempestEyeOfTheStormDescription=17레벨부터, 몽크 무기나 비무장 공격으로 크리쳐를 공격해 적중시켰을 경우 대상에게 1분 간 표식을 남깁니다. 행동으로 기 3점을 소모해 표식이 있는 각 대상에게 민첩 내성굴림(DC 8 + 숙련 보너스 + 지혜 수정치)을 유발합니다. 실패한 크리쳐는 5d10 천둥 피해(성공 시 반감)를 받고, 비틀거림 상태가 되어 당신의 다음 차례 종료까지 모든 명중굴림과 능력판정에 불리점을 받게 됩니다.
 Feature/&FeatureSetWayOfTheTempestEyeOfTheStormTitle=폭풍의 눈
 Feature/&FeatureSetWayOfTheTempestGatheringStormDescription=6레벨부터, 번개 피해 저항을 얻습니다. 또한 연타 특성으로 가하는 추가 공격들마다 자신의 무술 주사위와 같은 값의 추가 번개 피해를 가합니다.
 Feature/&FeatureSetWayOfTheTempestGatheringStormTitle=몰려드는 폭풍
-Feature/&FeatureSetWayOfTheTempestTempestFuryDescription=11레벨부터 공격 액션을 사용한 후 3키를 소비하여 Tempest's Fury를 보너스 액션으로 사용할 수 있습니다. 이는 Flurry of Blows의 업그레이드된 버전으로, 해제 동작의 이점을 부여하고 추가 동작으로 두 번의 비무장 공격을 할 수 있는 것 외에도 즉시 5피트 내의 각 적 생물에 대해 추가 비무장 공격을 한 번 시작합니다. 활성화 시. 이 기능으로 제공되는 모든 공격은 무술 주사위와 동일한 추가 번개 피해를 입힙니다.
+Feature/&FeatureSetWayOfTheTempestTempestFuryDescription=11레벨부터, 공격 행동을 취한 직후 기 2점을 소모해 추가행동으로 폭풍의 진노를 사용할 수 있습니다. 이는 연타 특성의 강화된 버전으로, 추가행동으로 비무장 공격 2회를 가하며 이탈 행동의 효과를 얻을 수 있습니다. 또한 활성화 즉시 5ft 내의 모든 적대 크리쳐에게 추가로 비무장 공격 1회씩을 가할 수 있습니다. 이 특성으로 가하는 모든 공격은 자신의 무술 주사위 1개와 같은 값의 추가 번개 피해를 가합니다.
 Feature/&FeatureSetWayOfTheTempestTempestFuryTitle=폭풍의 진노
 Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessDescription=3레벨부터, 기본 이동력이 10ft 증가합니다. 연타 특성 사용 시, 이탈 행동 효과를 얻습니다.
 Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessTitle=재빠른 폭풍

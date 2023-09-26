@@ -83,9 +83,9 @@
           "trackItem": false,
           "monsterDefinitionName": "WildMasterSpiritBeastKindredSpiritBear11",
           "number": 1,
-          "conditionDefinition": null,
+          "conditionDefinition": "Definition:ConditionMindControlledByCaster:72691050707821744968bd0595150b86",
           "persistOnConcentrationLoss": false,
-          "decisionPackage": null,
+          "decisionPackage": "Definition:IdleGuard_Default:232428b431ff2414eb8254fb1e9e4cf1",
           "effectProxyDefinitionName": null
         },
         "hasFilterId": false,

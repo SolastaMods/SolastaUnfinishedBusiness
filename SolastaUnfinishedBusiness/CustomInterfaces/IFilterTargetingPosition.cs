@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using TA;
-
-namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IFilterTargetingPosition
 {

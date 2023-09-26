@@ -87,7 +87,8 @@ ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
 ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
 ModUi/&EnableCheatMenu=启用作弊菜单
-ModUi/&EnableCustomPortraits=启用自定义肖像\n\n。在 <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b 下创建一个 <i><b><color=#F0DAA0>Portraits</color></b></i> 文件夹></i> mod 文件夹\n。将 PNG 图像放入该文件夹中，以您英雄的名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用尺寸为 256 x 384 像素并带有透明层的图像<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>\n。您还可以创建子文件夹 <i><b><color=#F0DAA0>Monsters</color></b></i> 和 <i><b><color=#F0DAA0>PreGen</color></ b></i> 也用肖像替换普通资产
+ModUi/&EnableCustomPortraits=启用自定义肖像
+ModUi/&EnableCustomPortraitsHelp=。将您的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color>< /b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150和200x200的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
 ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级2、10和18启用专长选择
@@ -189,6 +190,7 @@ ModUi/&OpenSubjectiveGuide=打开 <b><color=#D89555>u/CounterYolo</color></b> �
 ModUi/&OverrideMinMaxLevel=开始新冒险时覆盖所需的最低和最高等级
 ModUi/&OverridePartySize=<color=white>覆盖队伍规模</color>
 ModUi/&Patches=<color=#F0DAA0>补丁：</color>
+ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
 ModUi/&Races=<color=#F0DAA0>种族</color>

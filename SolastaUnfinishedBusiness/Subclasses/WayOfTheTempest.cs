@@ -105,7 +105,6 @@ public sealed class WayOfTheTempest : AbstractSubclass
         var actionAffinityTempestFury = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}TempestFury")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
             .SetCustomSubFeatures(new ValidateDefinitionApplication(
                 ValidatorsCharacter.HasAttacked,
@@ -439,7 +438,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
                 .Where(x =>
-                    x.Side != attacker.Side &&
+                    x.IsOppositeSide(attacker.Side) &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.RulesetCharacter.AllConditions
                         .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&

@@ -1,12 +1,12 @@
-Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=다음 암습의 공격력이 당신의 다음 턴이 끝날 때까지 추가로 3d6 증가합니다. 이 피해는 13레벨에 4d6, 17레벨에 5d6으로 증가합니다.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=다음 암습의 피해량이 당신의 다음 턴이 끝날 때까지 추가로 3d6 증가합니다. 이 피해는 13레벨에 4d6, 17레벨에 5d6으로 증가합니다.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=처형의 굴레
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=슬레이어가 표식을 찍었습니다.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=슬레이어의 표식
-Feature/&FeatureRoguishSlayerChainOfExecutionDescription=9 레벨부터, 당신이 한 크리쳐의 체력을 0점까지 감소시킬 때마다, 또는 당신의 암습으로 피해를 입은 크리쳐가 당신의 다음 턴이 시작되기 전에 죽을 때마다, 당신의 다음 턴이 끝날 때까지 다음 암습의 공격력을 총 은신 주사위의 절반만큼(반올림) 증가시킵니다.
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=9 레벨부터, 당신이 한 크리쳐의 체력을 0점까지 감소시킬 때마다, 또는 당신의 암습으로 피해를 입은 크리쳐가 당신의 다음 턴이 시작되기 전에 죽을 때마다, 당신의 다음 턴이 끝날 때까지 다음 암습의 피해량을 총 은신 주사위의 절반만큼(반올림) 증가시킵니다.
 Feature/&FeatureRoguishSlayerChainOfExecutionTitle=처형의 굴레
 Feature/&FeatureRoguishSlayerEliminationDescription=3레벨부터 적보다 먼저 나설 때 가장 치명적인 상태가 됩니다. 당신은 전투에서 아직 턴을 시작하지 않은 크리쳐에 대한 명중 굴림에 이점을 받습니다. 또한, 기습당한 크리쳐에 대해 당신이 적중시킨 공격은 모두 치명타가 됩니다.
 Feature/&FeatureRoguishSlayerEliminationTitle=삭제
-Feature/&FeatureRoguishSlayerFatalStrikeDescription=17레벨부터 당신은 즉시 죽음의 달인이 됩니다. 당신이 놀란 생물을 공격하고 명중시킬 때, 그것은 건강 내성 굴림(DC 8 + 당신의 숙련 보너스 + 당신의 민첩 수정치)을 해야 합니다. 저장에 실패하면 생물에 대한 공격 피해가 두 배로 늘어납니다.
+Feature/&FeatureRoguishSlayerFatalStrikeDescription=17레벨부터 순살의 달인이 됩니다. 당신이 기습당한 크리쳐를 공격하여 적중시키면, 그 대상은 반드시 건강 내성 굴림을 시도해야 합니다(DC 8 + 숙련 보너스 + 민첩 수정치). 실패하면, 그 대상에 대한 피해량이 두 배가 됩니다.
 Feature/&FeatureRoguishSlayerFatalStrikeTitle=치명적인 일격
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=13레벨부터 추가 행동을 사용하여 1분 동안 투명 상태가 될 수 있습니다. 이 특성은 짧은 휴식을 취할 때마다 한 번씩 사용할 수 있습니다.
 Feature/&PowerRoguishSlayerCloakOfShadowsTitle=그림자 망토

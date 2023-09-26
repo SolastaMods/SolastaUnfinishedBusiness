@@ -172,7 +172,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasShield,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive, conditionCloudDance.Name)))
+                ValidatorsCharacter.HasNoneOfConditions(conditionCloudDance.Name)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -185,14 +185,11 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Remove),
-                        //Leaving this for compatibility
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
-                            ConditionForm.ConditionOperation.Remove))
+                        EffectFormBuilder.ConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Remove))
                     .Build())
             .SetCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive, conditionCloudDance.Name)))
+                    ValidatorsCharacter.HasAnyOfConditions(conditionCloudDance.Name)))
             .AddToDB();
 
         var featureSetFairyFlight = FeatureDefinitionFeatureSetBuilder
@@ -313,7 +310,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             rulesetAttacker.LogCharacterUsedFeature(_featureDefinition);
 
             foreach (var gameLocationDefender in battle.Battle.AllContenders
-                         .Where(x => x.Side != attacker.Side &&
+                         .Where(x => x.IsOppositeSide(attacker.Side) &&
                                      x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                                      battle.IsWithin1Cell(attacker, x)))
             {

@@ -87,7 +87,8 @@ ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Charakterprüf
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere in Flammen sollten Licht aussenden <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und die Familie der Feuerbedingungen]</color></i>
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
-ModUi/&EnableCustomPortraits=Benutzerdefinierte Porträts aktivieren\n\n. Erstellen Sie einen Ordner <i><b><color=#F0DAA0>Portraits</color></b></i> unter <i><b><color=#F0DAA0>SolastaUnfinishedBusiness</color></b ></i> Mod-Ordner\n. Platzieren Sie in diesem Ordner ein PNG-Bild, benannt nach dem Vornamen Ihres Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n. Verwenden Sie Bilder mit einer Größe von 256 x 384 Pixeln und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>\n. Sie können auch Unterordner <i><b><color=#F0DAA0>Monsters</color></b></i> und <i><b><color=#F0DAA0>PreGen</color></ erstellen. b></i>, um Vanilla-Assets ebenfalls durch Porträts zu ersetzen
+ModUi/&EnableCustomPortraits=Aktivieren Sie benutzerdefinierte Porträts
+ModUi/&EnableCustomPortraitsHelp=. Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color>< /b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n. Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixel und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und ohne Schnickschnack, bei dem Assets aus allen Umgebungen gemischt werden]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und reihen Sie <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 ein>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
@@ -188,6 +189,7 @@ ModUi/&OpenSubjectiveGuide=Öffnen Sie den subjektiven Leitfaden zu Solasta von 
 ModUi/&OverrideMinMaxLevel=Überschreiben Sie die erforderlichen Mindest- und Höchststufen, wenn Sie neue Abenteuer beginnen
 ModUi/&OverridePartySize=<color=white>Überschreiben Sie die Gruppengröße</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
+ModUi/&PortraitsOpenFolder=Öffnen Sie den Ordner „Porträts“.
 ModUi/&PrimedItems=Vorbereitete Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>

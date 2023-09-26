@@ -100,7 +100,8 @@ public static class CharacterActionPatcher
                 FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
             }
 
-            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+            var actingCharacter = __instance.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
@@ -114,7 +115,7 @@ public static class CharacterActionPatcher
                 if (Gui.Battle != null && rulesetCharacter.Side != Side.Ally)
                 {
                     foreach (var target in Gui.Battle.AllContenders
-                                 .Where(x => x.Side != rulesetCharacter.Side && x.CanAct())
+                                 .Where(x => x.IsOppositeSide(actingCharacter.Side) && x.CanAct())
                                  .ToList()) // avoid changing enumerator
                     {
                         var rulesetTarget = target.RulesetCharacter;

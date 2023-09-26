@@ -1,4 +1,20 @@
-﻿1.5.94.16:
+﻿1.5.94.17:
+
+- added Aura of Perseverance, Aura of Vivacity, Protector of the Wild, and Psychic Lance 4th level spells
+- added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells
+- added Domains Battle, Cold, Fire, Insight, Lightning, Life, Oblivion, and Sun level 17th feature
+- added Psychic Whip 2nd, Incineration 5th, and Heroic Infusion 6th level spells
+- fixed battle not continuing when aiming at gadgets like windows, light sources, etc.
+- fixed Burning Blade not using spell casting ability modifier but intelligence one
+- fixed College of Audacity whirl powers not considering attack mode tags
+- fixed College of Life not using charisma ability bonus but intelligence one
+- fixed custom magic effects not triggering their finish behavior correctly
+- fixed Spike Barrage not up-scaling damage after extended tooltip inspection
+- fixed game soft lock with wildshape forms trying to re-apply spell effects
+
+1.5.94.16:
+
+# UB:
 
 - added Spike Barrage, Steel Whirlwind and Swift Strike spells
 - changed Oath of Thunder 3rd level smites damage progression
@@ -8,7 +24,10 @@
 - fixed RESPEC crashing with custom portraits feature turned on
 - fixed Shadow Arrow using Strength instead of Wisdom on save
 - fixed Shield Techniques reacting to anything instead of only DEX
-- fixed vanilla missing translation terms on auto activation types
+
+# VANILLA:
+
+- fixed interaction between spells that allow effects re-application and Druid wildshape
 
 1.5.94.15:
 
@@ -17,7 +36,7 @@
 - RESPEC is required on Way of Discordance before updating to this version
 - REINSTALL mod from ZIP to leverage new portraits as update only does DLL
 
-# UNFINISHED BUSINESS:
+# UB:
 
 - added SFX browser in mod UI to accelerate new homebrew content development
 - added Interception fighting style and Shield Techniques feat [by HiddenHax]
@@ -35,11 +54,11 @@
 
 1.5.94.14:
 
-ATTENTION:
+# ATTENTION:
 
 - RESPEC required on Patron Riftwalker and Roguish Opportunist
 
-UNFINISHED BUSINESS:
+# UB:
 
 - added Booming Blade cantrip suggested to Bard, Inventor, Sorcerer, Warlock, and Wizard spell repertoires
 - added support for Custom Portraits with a new setting, and instructions under Mod UI > Interface
@@ -52,7 +71,7 @@ UNFINISHED BUSINESS:
 - fixed Way of Discordance stacking conditions logic to correctly trigger discordance damage whenever it's 3
 - fixed an exception on level up workflow, when going back and forth through the feature selection custom UI stage
 
-VANILLA:
+# VANILLA:
 
 - fixed vanilla Dragonborn breath weapon powers dice progression from level 16th onwards
 - fixed vanilla Sorcerous Mana Painter mana absorption incorrectly granting advantage on constitution savings

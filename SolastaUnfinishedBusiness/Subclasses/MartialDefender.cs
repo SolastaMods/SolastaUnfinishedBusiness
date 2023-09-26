@@ -57,7 +57,6 @@ public sealed class MartialDefender : AbstractSubclass
         var actionAffinityAegisFinesse = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}AegisFinesse")
             .SetGuiPresentation(Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
             .AddToDB();

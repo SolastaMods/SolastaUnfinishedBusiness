@@ -111,7 +111,6 @@ internal static class ArmorFeats
         var actionAffinityShieldTechniques = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .SetCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
@@ -144,7 +143,11 @@ internal static class ArmorFeats
         }
 
         // validate savings bonus to only be DEX wielding shield
-        public bool IsValid(RulesetActor rulesetActor, RulesetActor rulesetCaster, string attributeScore)
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
         {
             return attributeScore == AttributeDefinitions.Dexterity
                    && rulesetActor is RulesetCharacterHero hero && hero.IsWearingShield();
@@ -152,7 +155,9 @@ internal static class ArmorFeats
 
         // add +2 on DEX savings
         public string AttributeAndActionModifier(
-            RulesetActor rulesetActor, ActionModifier actionModifier, string attribute)
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
         {
             actionModifier.SavingThrowModifier += 2;
             // for some reason this isn't displaying on log

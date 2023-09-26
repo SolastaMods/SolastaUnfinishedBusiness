@@ -205,7 +205,9 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeAngelicForm())
+            .SetCustomSubFeatures(
+                new MagicEffectFinishedByMeAngelicForm(),
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
@@ -232,7 +234,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
         var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder
@@ -248,7 +250,6 @@ public sealed class RangerLightBearer : AbstractSubclass
         var actionAffinityWardingLight = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}WardingLight")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(Id.BlockAttack)
             .AddToDB();
 
@@ -319,6 +320,11 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
+            // change all damage types to radiant
+            attackMode.effectDescription = EffectDescriptionBuilder
+                .Create(attackMode.EffectDescription)
+                .Build();
+
             var effectDescription = attackMode.EffectDescription;
 
             foreach (var damageForm in effectDescription.EffectForms
@@ -327,20 +333,17 @@ public sealed class RangerLightBearer : AbstractSubclass
                 damageForm.DamageForm.damageType = DamageTypeRadiant;
             }
 
-            var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
-
-            // add additional radiant dice
+            // add additional radiant damage form
             var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
-            var diceNumber = classLevel < 11 ? 1 : 2;
-            var additionalDice = EffectFormBuilder
-                .Create()
-                .SetDamageForm(DamageTypeRadiant, diceNumber, DieType.D8)
-                .Build();
+            var pos = attackMode.EffectDescription.EffectForms.FindIndex(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
 
-            effectDescription.EffectForms.Insert(k + 1, additionalDice);
+            if (pos >= 0)
+            {
+                effectDescription.EffectForms.Insert(pos,
+                    EffectFormBuilder.DamageForm(DamageTypeRadiant, classLevel < 11 ? 1 : 2, DieType.D8));
+            }
 
-            // remove condition on successful attack
             var rulesetCondition =
                 rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
 
@@ -355,7 +358,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerBlessedGlow;
 
@@ -366,6 +369,14 @@ public sealed class RangerLightBearer : AbstractSubclass
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>()
+                as GameLocationBattleManager;
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -376,10 +387,8 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (gameLocationActionService == null)
             {
                 yield break;
             }
@@ -412,7 +421,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.Side != attacker.Side
+                .Where(x => x.IsOppositeSide(attacker.Side)
                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                 .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
                 .ToList());
@@ -462,7 +471,7 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             yield return __instance.Battle.AllContenders
                 .Where(opposingContender =>
-                    opposingContender.Side != attacker.Side &&
+                    opposingContender.IsOppositeSide(attacker.Side) &&
                     opposingContender != defender &&
                     opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&

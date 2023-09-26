@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -492,6 +495,205 @@ internal static partial class SpellBuilders
 
             attackModifier.attackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Condition, _featureAdvantage.Name, _featureAdvantage));
+        }
+    }
+
+    #endregion
+
+    #region Psychic Whip
+
+    internal static SpellDefinition BuildPsychicWhip()
+    {
+        const string NAME = "PsychicWhip";
+
+        var actionAffinityPsychicWhipNoBonus = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}NoBonus")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(bonus: false)
+            .AddToDB();
+
+        var conditionPsychicWhipNoBonus = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}NoBonus")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
+            .SetFeatures(actionAffinityPsychicWhipNoBonus)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var actionAffinityPsychicWhipNoMove = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}NoMove")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(move: false)
+            .AddToDB();
+
+        var conditionPsychicWhipNoMove = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}NoMove")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
+            .SetFeatures(actionAffinityPsychicWhipNoMove)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var actionAffinityPsychicWhipNoMain = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}NoMain")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(false)
+            .AddToDB();
+
+        var conditionPsychicWhipNoMain = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}NoMain")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration()
+            .SetFeatures(actionAffinityPsychicWhipNoMain)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var actionAffinityPsychicWhipNoReaction = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}NoReaction")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false)
+            .AddToDB();
+
+        var conditionPsychicWhipNoReaction = ConditionDefinitionBuilder
+            .Create(ConditionConfused, $"Condition{NAME}NoReaction")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(actionAffinityPsychicWhipNoReaction)
+            .AddToDB();
+
+        conditionPsychicWhipNoReaction.SetCustomSubFeatures(new ActionFinishedByMePsychicWhip(
+            conditionPsychicWhipNoBonus,
+            conditionPsychicWhipNoMain,
+            conditionPsychicWhipNoMove,
+            conditionPsychicWhipNoReaction));
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsychicWhip, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePsychic, 3, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionPsychicWhipNoReaction, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(GravitySlam)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ActionFinishedByMePsychicWhip : IActionFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionNoBonus;
+        private readonly ConditionDefinition _conditionNoMain;
+        private readonly ConditionDefinition _conditionNoMove;
+        private readonly ConditionDefinition _conditionNoReaction;
+
+        public ActionFinishedByMePsychicWhip(
+            ConditionDefinition conditionNoBonus,
+            ConditionDefinition conditionNoMain,
+            ConditionDefinition conditionNoMove,
+            ConditionDefinition conditionNoReaction)
+        {
+            _conditionNoBonus = conditionNoBonus;
+            _conditionNoMain = conditionNoMain;
+            _conditionNoMove = conditionNoMove;
+            _conditionNoReaction = conditionNoReaction;
+        }
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var actionType = characterAction.ActionType;
+            var conditions = new List<ConditionDefinition>();
+
+            switch (actionType)
+            {
+                case ActionDefinitions.ActionType.Main:
+                    conditions.Add(_conditionNoMove);
+                    conditions.Add(_conditionNoBonus);
+                    break;
+                case ActionDefinitions.ActionType.Bonus:
+                    conditions.Add(_conditionNoMain);
+                    conditions.Add(_conditionNoMove);
+                    break;
+                case ActionDefinitions.ActionType.Move:
+                    conditions.Add(_conditionNoBonus);
+                    conditions.Add(_conditionNoMain);
+                    break;
+                case ActionDefinitions.ActionType.FreeOnce:
+                case ActionDefinitions.ActionType.Reaction:
+                case ActionDefinitions.ActionType.NoCost:
+                case ActionDefinitions.ActionType.Max:
+                case ActionDefinitions.ActionType.None:
+                default:
+                    break;
+            }
+
+            if (characterAction.ActingCharacter.RulesetCharacter is not
+                { IsDeadOrDyingOrUnconscious: false } rulesetCharacter)
+            {
+                yield break;
+            }
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionNoReaction.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            var caster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (caster is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (characterAction.ActingCharacter.RulesetCharacter is
+                { IsDeadOrDyingOrUnconscious: false })
+            {
+                conditions.ForEach(condition =>
+                    rulesetCharacter.InflictCondition(
+                        condition.Name,
+                        condition.DurationType,
+                        condition.DurationParameter,
+                        condition.TurnOccurence,
+                        AttributeDefinitions.TagCombat,
+                        caster.guid,
+                        caster.CurrentFaction.Name,
+                        0,
+                        null,
+                        0,
+                        0,
+                        0));
+            }
         }
     }
 

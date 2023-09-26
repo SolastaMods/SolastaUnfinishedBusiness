@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using System.Diagnostics;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -143,26 +144,6 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableStatsOnHeroTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableStatsOnHeroTooltip = toggle;
-        }
-
-        toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalBackstoryDisplay"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
-        }
-
-        toggle = Main.Settings.EnableLogDialoguesToConsole;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableLogDialoguesToConsole = toggle;
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
         {
@@ -172,6 +153,12 @@ internal static class GameUiDisplay
             {
                 Main.Settings.MarkInvisibleTeleportersOnLevelMap = false;
             }
+        }
+
+        toggle = Main.Settings.EnableLogDialoguesToConsole;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
 
         if (Main.Settings.EnableAdditionalIconsOnLevelMap)
@@ -197,21 +184,11 @@ internal static class GameUiDisplay
             Main.Settings.AllowMoreRealStateOnRestPanel = toggle;
         }
 
-        UI.Label();
-
         toggle = Main.Settings.AddPaladinSmiteToggle;
         if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPaladinSmiteToggle = toggle;
         }
-
-        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
-        }
-
-        UI.Label();
 
         toggle = Main.Settings.EnableActionSwitching;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableActionSwitching"), ref toggle, UI.AutoWidth()))
@@ -219,10 +196,19 @@ internal static class GameUiDisplay
             Main.Settings.EnableActionSwitching = toggle;
         }
 
+        UI.Label();
+
+
         toggle = Main.Settings.EnableDistanceOnTooltip;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
         {
             Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
+        toggle = Main.Settings.EnableStatsOnHeroTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStatsOnHeroTooltip = toggle;
         }
 
         UI.Label();
@@ -233,9 +219,36 @@ internal static class GameUiDisplay
             Main.Settings.EnableCustomPortraits = toggle;
         }
 
-        UI.Label();
-        UI.Label();
-        UI.Label();
+        if (Main.Settings.EnableCustomPortraits)
+        {
+            UI.Label();
+
+            UI.ActionButton(Gui.Localize("ModUi/&PortraitsOpenFolder"), () =>
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = PortraitsContext.PortraitsFolder, UseShellExecute = true, Verb = "open"
+                });
+            }, UI.Width((float)292));
+
+            UI.Label();
+
+            UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
+
+            UI.Label();
+        }
+
+        toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalBackstoryDisplay"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
+        }
+
+        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
+        }
 
         #endregion
 

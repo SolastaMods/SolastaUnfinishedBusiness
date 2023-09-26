@@ -56,7 +56,6 @@ public sealed class RoguishDuelist : AbstractSubclass
         var actionAffinitySwirlingDance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}SwirlingDance")
             .SetGuiPresentation(Category.Feature)
-            .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.SwirlingDance)
             .AddToDB();
 
@@ -154,7 +153,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender.HasAnyConditionOfType(
+                rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     _conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,

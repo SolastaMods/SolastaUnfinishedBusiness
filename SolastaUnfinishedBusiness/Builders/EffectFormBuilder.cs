@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
@@ -442,9 +443,9 @@ internal class EffectFormBuilder
             itemDefinition = null,
             number = number,
             monsterDefinitionName = monsterDefinitionName,
-            conditionDefinition = null,
+            conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster,
             persistOnConcentrationLoss = false,
-            decisionPackage = null,
+            decisionPackage = DatabaseHelper.DecisionPackageDefinitions.IdleGuard_Default,
             effectProxyDefinitionName = null
         };
 

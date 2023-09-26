@@ -66,8 +66,8 @@ internal static class CharacterActionExtensions
 
     internal static bool ActionShouldKeepConcentration(this CharacterAction action)
     {
-        var isProtectedUsePower = action is CharacterActionUsePower characterActionUsePower
-                                  && characterActionUsePower.activePower.PowerDefinition
+        var isProtectedUsePower = action is CharacterActionUsePower { activePower: not null } actionUsePower
+                                  && actionUsePower.activePower.PowerDefinition
                                       .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
 
         if (isProtectedUsePower)
@@ -75,8 +75,8 @@ internal static class CharacterActionExtensions
             return true;
         }
 
-        var isProtectedSpendPower = action is CharacterActionSpendPower characterActionSpendPower
-                                    && characterActionSpendPower.activePower.PowerDefinition
+        var isProtectedSpendPower = action is CharacterActionSpendPower { activePower: not null } actionSpendPower
+                                    && actionSpendPower.activePower.PowerDefinition
                                         .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
 
         return isProtectedSpendPower;

@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerClericDivineInterventionTitle",
-    "description": "Feature/&PowerClericDivineInterventionDescription",
+    "title": "Feature/&PowerClericImprovedDivineInterventionTitle",
+    "description": "Feature/&PowerClericImprovedDivineInterventionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea79df3f1484389419d393d46ac7862d",
