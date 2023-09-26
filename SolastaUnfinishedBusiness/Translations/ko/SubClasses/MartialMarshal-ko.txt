@@ -1,4 +1,4 @@
-Feature/&FeatureMarshalKnowledgeableDefenseDescription=크리쳐에 대한 지식과 경험은 크리쳐와 싸울 때 더 잘 방어할 수 있게 해줍니다. 공격하는 크리쳐에 대한 지식 레벨에 따라 공격력이 최대 +3까지 증가합니다.
+Feature/&FeatureMarshalKnowledgeableDefenseDescription=크리쳐에 대한 지식과 경험은 크리쳐와 싸울 때 더 잘 방어할 수 있게 해줍니다. 공격하는 크리쳐에 대한 지식 레벨에 따라 AC가 최대 +3까지 증가합니다.
 Feature/&FeatureMarshalKnowledgeableDefenseTitle=아는 것이 방어다
 Feature/&FeatureSetMarshalEternalComradeDescription=마셜과 전우의 유대감은 삶과 죽음의 경계를 넘나듭니다. 마셜은 추가 행동으로 쓰러진 전우의 영혼 한 명을 소환하여 전투에 도움을 줄 수 있습니다.
 Feature/&FeatureSetMarshalEternalComradeTitle=영원한 전우
