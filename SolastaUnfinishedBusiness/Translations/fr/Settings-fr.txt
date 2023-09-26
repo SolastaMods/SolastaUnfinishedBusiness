@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés de dégâts d'arme de base des compétences qui ajoutent des dégâts d'arme de base au lieu d'un seul dé <i><color=#F0DAA0>[Agresseur sauvage, armes à 2 mains, etc.]</color></i>
+ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés de dégâts d'arme de base des compétences qui ajoutent des dégâts d'arme au lieu d'un seul dé <i><color=#F0DAA0>[Agresseur sauvage, armes à 2 mains, etc.]</color></i>
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Restauration suprême</color> et <color=#D89555>Restauration partielle</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, outils, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
@@ -20,14 +20,14 @@ ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>Gourdins</color> à être lancés comme des <color=#D89555>Dagues</color> ou des <color=#D89555>Hachettes</color>
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
-ModUi/&AllowFlightSuspend=Autoriser la suspension temporaire du vol des objets et des sorts <i><color=#F0DAA0>[n'affecte pas les formes sauvages ou les courses volantes]</color></i>
+ModUi/&AllowFlightSuspend=Autoriser la suspension temporaire du vol conféré par les objets et les sorts <i><color=#F0DAA0>[n'affecte pas les formes sauvages ou les créatures volantes]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez <color=#1E81B0>CTRL</color>+click pour ignorer toute vérification lors du placement de gadgets ou d'accessoires
-ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec l'action supplémentaire conféré par l'effet de Hâte <color=#F0DAA0>[vous êtes toujours limité à 1 sort d'action principale par tour]</color>
+ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec l'action supplémentaire conférée par l'effet de Hâte <color=#F0DAA0>[vous êtes toujours limité à 1 sort d'action principale par tour]</color>
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les Ascendances <i><color=#F0DAA0>[les résultats peuvent être décevant selon la race, la tête et le type de cornes]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser l'affichage de plus d'informations sur l'état réel du groupe dans la fenêtre de repos <i><color=#F0DAA0>[Est masqué sur la fenêtre d'invite après les repos, et sur la fenêtre de validation après les compétences de récupération]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser l'empilement des composantes matérielles dans l'inventaire <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection des cibles lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
-ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleurs</color> sans marques d'origine ni tatouages
+ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleurs</color> sans marques ni tatouages d'origine
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Autoriser <color=#D89555>Arcane Shieldstaff</color> à être harmonisé par n'importe quelle classe
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Les attaquants avec <color=#D89555>Vision dans le noir</color> ont l'avantage sur les défenseurs qui ne l'ont pas
@@ -41,7 +41,7 @@ ModUi/&Blueprints=Plans
 ModUi/&Campaigns=<color=#F0DAA0>Campagnes :</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagnes et Localités :</color>
 ModUi/&Category=Catégorie
-ModUi/&ChangeDragonbornElementalBreathUsages=Changer le nombre d'utilisations du souffle élémentaire des <color=#D89555>Drakéides</color> par repos court en fonction de leur modificateur de constitution
+ModUi/&ChangeDragonbornElementalBreathUsages=Changer le nombre d'utilisations du souffle élémentaire des <color=#D89555>Drakéides</color> en fonction de leur modificateur de constitution par repos court
 ModUi/&ChangeSleetStormToCube=Modifier <color=#D89555>Tempête de neige</color> pour utiliser un cube plutôt qu'un cylindre
 ModUi/&Changelog=<b><color=#D89555>Journal des modifications</color></b>
 ModUi/&Character=Personnage
@@ -74,7 +74,7 @@ ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est en dehors ou à 
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
 ModUi/&DungeonMakerMenu=Créateur de donjon
 ModUi/&EmpressGarbAppearance=Apparence de la <color=#D89555>Tenue d'impératrice</color>
-ModUi/&EnableActionSwitching=Activer la barre de changement d'action <i><color=#F0DAA0>[utile lorsqu'on est pressé d'utiliser une action de hâte avant l'action principale]</color></i>
+ModUi/&EnableActionSwitching=Activer la barre de changement d'Action <i><color=#F0DAA0>[utile quand, sous Hâte, on veut utiliser l'action de hâte avant l'action principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'éléments d'histoire supplémentaires lors de l'inspection de l'Historique
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte du niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>
@@ -106,14 +106,14 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du m
 ModUi/&EnableLevel20=Autoriser le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer l'affichage du journal des dialogues dans la console pendant les séquences narratives
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer l'inscription au journal des références invalides dans les campagnes personnalisées
-ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
-ModUi/&EnableMonkAbundantKi=Activez <color=#D89555>Moine</color> <b>Ki abondant</b> au niveau 2 <i><color=#F0DAA0>[gagnez du Ki supplémentaire égal à la moitié du bonus de compétence arrondi]</color> </i>
-ModUi/&EnableMonkFightingStyle=Activer le choix <color=#D89555>Moine</color> <b>Style de combat</b> au niveau 2
+ModUi/&EnableMinInOutAttributes=<i>+ Appliquer la règle des prérequis de caractéristiques minimum</i>
+ModUi/&EnableMonkAbundantKi=Activez le <b>Ki abondant</b> du <color=#D89555>Moine</color> au niveau 2 <i><color=#F0DAA0>[gagnez du Ki supplémentaire égal à la moitié du bonus de compétence arrondi]</color> </i>
+ModUi/&EnableMonkFightingStyle=Activer le choix de <b>Style de combat</b> du <color=#D89555>Moine</color> au niveau 2
 ModUi/&EnableMonkWeaponSpecialization=Activez la <b>Spécialisation d'arme</b> pour le <color=#D89555>Moine</color> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer la possibilité de multiclasser son personnage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme pour la génération de nombres aléatoires (RNG) <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour reformer le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
-ModUi/&EnableRelearnSpells=<i>+ Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes</i>
+ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection de sorts et sorts mineurs déjà appris d'autres classes</i>
 ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une action de repos
 ModUi/&EnableRogueCunningStrike=Activez la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
@@ -132,11 +132,11 @@ ModUi/&FactionHelp=<color=#C04040E0>Chargez une sauvegarde de campagne officiell
 ModUi/&FactionRelations=<color=#F0DAA0>Factions :</color>
 ModUi/&FasterTimeModifier=<color=white>Modificateur de temps de jeu en appuyant sur la barre d'espace</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Groupement de Dons</color>
-ModUi/&FeatGroupsHelp=. Chaque groupe est une consolidation de Dons similaires <i><color=#F0DAA0>[c'est-à-dire : Croyances, Styles de combat, Métamagie, etc.]</color></i>\n. Les Dons de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences\n. Le groupe, lorsqu'il est sélectionné, les propose sur une liste déroulante pour désencombrer l'écran de jeu
+ModUi/&FeatGroupsHelp=. Chaque groupe est une consolidation de Dons similaires <i><color=#F0DAA0>[c'est-à-dire : Croyances, Styles de combat, Métamagie, etc.]</color></i>\n. Les Dons de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences\n. Le groupe, lorsqu'il est sélectionné, les propose sur une liste déroulante pour ne pas encombrer l'écran de jeu
 ModUi/&Feats=<color=#F0DAA0>Dons</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixAsianLanguagesTextWrap=Correction de l'habillage de texte de l'interface utilisateur pour les langues asiatiques<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&FixEldritchBlastRange=Changer la portée de la<color=#D89555>Décharge occulte</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
+ModUi/&FixEldritchBlastRange=Changer la portée de la <color=#D89555>Décharge occulte</color> à 24 cases (portée officielle) <i><color=#F0DAA0>[au lieu de 16 cases]</color></i>
 ModUi/&FlightSuspendWingedBoots=<i>+ Utiliser les règles officielles des bottes ailées <color=#F0DAA0>[la durée restante n'est pas comptée lorsque le vol est suspendu]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
@@ -194,7 +194,7 @@ ModUi/&PrimedItems=Objets Préparés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
 ModUi/&Races=<color=#F0DAA0>Ascendances</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
-ModUi/&RecipesInDm=Recettes en DM
+ModUi/&RecipesInDm=Recettes dans le DM
 ModUi/&RelicForgeries=Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements=Supprimer les exigences de Lien des objets magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des visuels alternatifs dans le jeu <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
