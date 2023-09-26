@@ -5,11 +5,11 @@
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>true</DisplayRacesToggle>
   <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
-  <DisplayFeatsToggle>true</DisplayFeatsToggle>
-  <DisplayFeatGroupsToggle>true</DisplayFeatGroupsToggle>
-  <DisplayFightingStylesToggle>true</DisplayFightingStylesToggle>
-  <DisplayInvocationsToggle>true</DisplayInvocationsToggle>
-  <DisplayMetamagicToggle>true</DisplayMetamagicToggle>
+  <DisplayFeatsToggle>false</DisplayFeatsToggle>
+  <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
+  <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
+  <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
+  <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
   <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
   <DisplayItemsToggle>false</DisplayItemsToggle>
@@ -273,43 +273,43 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>true</UnlockSkinColors>
   <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
-  <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
+  <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
   <UseMathFlankingRules>true</UseMathFlankingRules>
   <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
   <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
   <UseOfficialFlankingRulesAlsoForReach>true</UseOfficialFlankingRulesAlsoForReach>
+  <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
   <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
-  <AllowFlightSuspend>true</AllowFlightSuspend>
-  <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
-  <IdentifyAfterRest>true</IdentifyAfterRest>
-  <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
-  <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
   <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
+  <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
   <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
   <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
+  <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
   <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
-  <FixEldritchBlastRange>true</FixEldritchBlastRange>
+  <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
   <EnableUpcastConjureElementalAndFey>true</EnableUpcastConjureElementalAndFey>
   <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
   <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
-  <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
-  <EnableHigherGroundRules>true</EnableHigherGroundRules>
-  <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
-  <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <IdentifyAfterRest>true</IdentifyAfterRest>
+  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <AllowHasteCasting>true</AllowHasteCasting>
-  <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
+  <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
   <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
+  <AllowClubsToBeThrown>true</AllowClubsToBeThrown>
   <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
-  <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
-  <FullyControlConjurations>true</FullyControlConjurations>
-  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
+  <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
+  <AllowFlightSuspend>true</AllowFlightSuspend>
+  <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
   <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
+  <EnableHigherGroundRules>true</EnableHigherGroundRules>
+  <FullyControlConjurations>true</FullyControlConjurations>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
   <CriticalHitModeAllies>0</CriticalHitModeAllies>
   <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
@@ -893,6 +893,8 @@
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
     <string>FeatZenArcher</string>
+    <string>FeatInterception</string>
+    <string>FeatShieldTechniques</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -942,6 +944,7 @@
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
     <string>ZenArcher</string>
+    <string>Interception</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -1087,6 +1090,7 @@
           <string>EarthTremor</string>
           <string>MirrorImage</string>
           <string>BrainBulwark</string>
+          <string>PsychicLance</string>
           <string>MindBlank</string>
           <string>Foresight</string>
           <string>PowerWordHeal</string>
@@ -1108,6 +1112,8 @@
           <string>ProtectThreshold</string>
           <string>ElementalWeapon</string>
           <string>SpiritShroud</string>
+          <string>AuraOfPerseverance</string>
+          <string>AuraOfVitality</string>
           <string>MassHeal</string>
           <string>PowerWordHeal</string>
         </ArrayOfString>
@@ -1126,7 +1132,9 @@
           <string>EarthTremor</string>
           <string>PetalStorm</string>
           <string>ProtectThreshold</string>
+          <string>FlameArrows</string>
           <string>WinterBreath</string>
+          <string>ForestGuardian</string>
           <string>MantleOfThorns</string>
           <string>ReverseGravity</string>
           <string>Shapechange</string>
@@ -1150,6 +1158,7 @@
           <string>Sanctuary</string>
           <string>ColorBurst</string>
           <string>SpellWeb</string>
+          <string>FlameArrows</string>
           <string>BrainBulwark</string>
         </ArrayOfString>
       </value>
@@ -1168,6 +1177,8 @@
           <string>CrusadersMantle</string>
           <string>ElementalWeapon</string>
           <string>SpiritShroud</string>
+          <string>AuraOfPerseverance</string>
+          <string>AuraOfVitality</string>
           <string>StaggeringSmite</string>
           <string>BanishingSmite</string>
         </ArrayOfString>
@@ -1180,7 +1191,13 @@
       <value>
         <ArrayOfString>
           <string>EnsnaringStrike</string>
+          <string>StrikeWithTheWind</string>
           <string>SearingSmite</string>
+          <string>SpikeBarrage</string>
+          <string>FlameArrows</string>
+          <string>LightningArrow</string>
+          <string>ForestGuardian</string>
+          <string>SteelWhirlwind</string>
         </ArrayOfString>
       </value>
     </item>
@@ -1205,12 +1222,17 @@
           <string>EarthTremor</string>
           <string>BindingIce</string>
           <string>ColorBurst</string>
+          <string>PsychicWhip</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
+          <string>BoomingStep</string>
+          <string>FlameArrows</string>
           <string>WinterBreath</string>
           <string>BrainBulwark</string>
+          <string>PsychicLance</string>
           <string>FarStep</string>
+          <string>Incineration</string>
           <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>Foresight</string>
@@ -1239,6 +1261,7 @@
           <string>ShadowBlade</string>
           <string>SpiritShroud</string>
           <string>BrainBulwark</string>
+          <string>PsychicLance</string>
           <string>FarStep</string>
           <string>PowerWordKill</string>
         </ArrayOfString>
@@ -1280,16 +1303,23 @@
           <string>RadiantMotes</string>
           <string>BindingIce</string>
           <string>ColorBurst</string>
+          <string>PsychicWhip</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
+          <string>BoomingStep</string>
           <string>PulseWave</string>
+          <string>FlameArrows</string>
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>BrainBulwark</string>
           <string>GravitySinkhole</string>
+          <string>PsychicLance</string>
           <string>FarStep</string>
+          <string>Incineration</string>
+          <string>SteelWhirlwind</string>
           <string>SonicBoom</string>
+          <string>HeroicInfusion</string>
           <string>ReverseGravity</string>
           <string>MindBlank</string>
           <string>Foresight</string>

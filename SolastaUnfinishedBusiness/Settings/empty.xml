@@ -273,43 +273,43 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>false</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>false</UnlockSkinColors>
   <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
-  <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
   <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
+  <FixEldritchBlastRange>false</FixEldritchBlastRange>
   <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
   <UseMathFlankingRules>false</UseMathFlankingRules>
   <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
   <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
   <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
+  <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
   <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
   <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
-  <AllowFlightSuspend>false</AllowFlightSuspend>
-  <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
-  <IdentifyAfterRest>false</IdentifyAfterRest>
-  <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
-  <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
   <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>false</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
+  <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
   <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
   <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
+  <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
   <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
-  <FixEldritchBlastRange>false</FixEldritchBlastRange>
+  <RemoveRecurringEffectOnEntangle>false</RemoveRecurringEffectOnEntangle>
   <EnableUpcastConjureElementalAndFey>false</EnableUpcastConjureElementalAndFey>
   <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
   <ChangeSleetStormToCube>false</ChangeSleetStormToCube>
-  <RemoveRecurringEffectOnEntangle>false</RemoveRecurringEffectOnEntangle>
   <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
-  <EnableHigherGroundRules>false</EnableHigherGroundRules>
-  <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
-  <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
+  <IdentifyAfterRest>false</IdentifyAfterRest>
+  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <AllowHasteCasting>false</AllowHasteCasting>
-  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
+  <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
+  <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
   <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
   <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-  <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
-  <FullyControlConjurations>false</FullyControlConjurations>
-  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
+  <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
+  <AllowFlightSuspend>false</AllowFlightSuspend>
+  <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
   <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
+  <EnableHigherGroundRules>false</EnableHigherGroundRules>
+  <FullyControlConjurations>false</FullyControlConjurations>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
   <CriticalHitModeAllies>0</CriticalHitModeAllies>
   <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
@@ -958,4 +958,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
