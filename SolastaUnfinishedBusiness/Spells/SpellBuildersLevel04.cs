@@ -473,6 +473,7 @@ internal static partial class SpellBuilders
         var conditionHindered = ConditionDefinitionBuilder
             .Create(ConditionRestrainedByMagicalArrow, $"ConditionHindered{NAME}")
             .SetOrUpdateGuiPresentation("ConditionHindered", Category.Rules)
+            .SetParentCondition(ConditionHindered)
             .SetFeatures(ConditionHindered.Features)
             .AddToDB();
 
@@ -592,7 +593,10 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode?.AbilityScore == AttributeDefinitions.Dexterity
+            var abilityScore = attackMode?.abilityScore;
+
+            if (abilityScore == AttributeDefinitions.Dexterity
+                || abilityScore == AttributeDefinitions.Wisdom
                 || attackProximity == BattleDefinitions.AttackProximity.MagicRange
                 || attackProximity == BattleDefinitions.AttackProximity.MagicReach)
             {
