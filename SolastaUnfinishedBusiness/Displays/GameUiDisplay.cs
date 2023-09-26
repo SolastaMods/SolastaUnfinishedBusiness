@@ -198,6 +198,21 @@ internal static class GameUiDisplay
 
         UI.Label();
 
+
+        toggle = Main.Settings.EnableDistanceOnTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
+        {
+            Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
+        toggle = Main.Settings.EnableStatsOnHeroTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableStatsOnHeroTooltip = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.EnableCustomPortraits;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCustomPortraits"), ref toggle))
         {
@@ -221,18 +236,6 @@ internal static class GameUiDisplay
             UI.Label(Gui.Localize("ModUi/&EnableCustomPortraitsHelp"));
 
             UI.Label();
-        }
-
-        toggle = Main.Settings.EnableDistanceOnTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
-        {
-            Main.Settings.EnableDistanceOnTooltip = toggle;
-        }
-
-        toggle = Main.Settings.EnableStatsOnHeroTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableStatsOnHeroTooltip = toggle;
         }
 
         toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
