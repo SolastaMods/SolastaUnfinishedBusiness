@@ -35,11 +35,10 @@ public class MirrorImageLogic
             .Create(ConditionName)
             .SetGuiPresentation(Category.Condition,
                 Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
-            .SetCustomSubFeatures(Marker)
             .SetSilent(Silent.WhenAdded)
             .AllowMultipleInstances()
             .SetPossessive()
-            .SetCustomSubFeatures(DuplicateCounter.Mark)
+            .SetCustomSubFeatures(Marker, DuplicateCounter.Mark)
             .AddToDB();
     }
 
