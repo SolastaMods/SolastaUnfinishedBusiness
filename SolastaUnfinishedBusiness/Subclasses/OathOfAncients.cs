@@ -152,7 +152,7 @@ public sealed class OathOfAncients : AbstractSubclass
 
         var featureAuraWarding = FeatureDefinitionBuilder
             .Create($"Feature{Name}AuraWarding")
-            .SetCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnMeAuraWarding(conditionAuraWardingResistance))
+            .AddCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnMeAuraWarding(conditionAuraWardingResistance))
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -220,7 +220,7 @@ public sealed class OathOfAncients : AbstractSubclass
             .Create($"Condition{Name}ElderChampion")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
             .SetPossessive()
-            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
+            .AddCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
             .AddToDB();
 
         var powerElderChampion = FeatureDefinitionPowerBuilder

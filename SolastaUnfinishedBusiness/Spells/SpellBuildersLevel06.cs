@@ -25,7 +25,6 @@ internal static partial class SpellBuilders
             .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(ExtraSituationalContext.HasSimpleOrMartialWeaponInHands)
-            .SetCustomSubFeatures()
             .AddToDB();
 
         var additionalDamageHeroicInfusion = FeatureDefinitionAdditionalDamageBuilder
@@ -63,7 +62,7 @@ internal static partial class SpellBuilders
                 FeatureDefinitionProficiencys.ProficiencyFighterArmor,
                 FeatureDefinitionProficiencys.ProficiencyFighterSavingThrow,
                 FeatureDefinitionProficiencys.ProficiencyFighterWeapon)
-            .SetCustomSubFeatures(new OnConditionAddedOrRemovedHeroicInfusion(conditionExhausted))
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedHeroicInfusion(conditionExhausted))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder

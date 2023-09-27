@@ -67,7 +67,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
                         mode != null
@@ -127,7 +127,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                     (OperationType.Set, mode != null)))
             .SetEffectDescription(

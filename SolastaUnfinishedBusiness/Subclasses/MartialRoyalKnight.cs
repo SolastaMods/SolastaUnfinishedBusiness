@@ -116,7 +116,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .Create("PowerRoyalKnightInspiringProtectionAura")
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -129,7 +129,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .Create("ConditionRoyalKnightInspiringProtectionAura")
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetCustomSubFeatures(
+                            .AddCustomSubFeatures(
                                 new TryAlterOutcomeFailedSavingThrowInspiringProtection(
                                     powerRoyalKnightInspiringProtection,
                                     "RoyalKnightInspiringProtection",

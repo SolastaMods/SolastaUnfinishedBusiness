@@ -85,7 +85,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(CastInvocation, "TacticianGambitMain")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
+            .AddCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
@@ -94,7 +94,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(CastInvocation, "TacticianGambitBonus")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
+            .AddCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
@@ -103,7 +103,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(CastInvocation, "TacticianGambitNoCost")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
+            .AddCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)

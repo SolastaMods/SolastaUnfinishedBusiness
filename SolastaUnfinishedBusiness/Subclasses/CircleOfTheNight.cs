@@ -48,7 +48,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing())
-            .SetCustomSubFeatures(CanUseCombatHealing)
+            .AddCustomSubFeatures(CanUseCombatHealing)
             .AddToDB();
 
         // 6th Level
@@ -59,7 +59,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .Create("PowerCircleOfTheNightPrimalStrike")
             .SetGuiPresentation(Category.Feature)
             .SetMagicalWeapon()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) =>
                     (OperationType.Set,
                         ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)(character))))
@@ -72,7 +72,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing(2))
-            .SetCustomSubFeatures(CanUseCombatHealing)
+            .AddCustomSubFeatures(CanUseCombatHealing)
             .SetOverriddenPower(powerCircleOfTheNightWildShapeHealing)
             .AddToDB();
 
@@ -85,7 +85,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing(3))
-            .SetCustomSubFeatures(CanUseCombatHealing)
+            .AddCustomSubFeatures(CanUseCombatHealing)
             .SetOverriddenPower(powerCircleOfTheNightWildShapeImprovedHealing)
             .AddToDB();
 
@@ -104,7 +104,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing(4))
-            .SetCustomSubFeatures(CanUseCombatHealing)
+            .AddCustomSubFeatures(CanUseCombatHealing)
             .SetOverriddenPower(powerCircleOfTheNightWildShapeSuperiorHealing)
             .AddToDB();
 
@@ -189,7 +189,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        power.SetCustomSubFeatures(new ActionFinishedByMeWildShape(power));
+        power.AddCustomSubFeatures(new ActionFinishedByMeWildShape(power));
 
         ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.WildShape, "CombatWildShape")

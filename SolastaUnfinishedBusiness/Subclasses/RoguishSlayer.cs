@@ -52,7 +52,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureElimination.SetCustomSubFeatures(
+        featureElimination.AddCustomSubFeatures(
             new CustomBehaviorElimination(featureElimination, conditionElimination));
 
         //
@@ -78,7 +78,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             conditionChainOfExecutionBeneficial,
             conditionChainOfExecutionDetrimental);
 
-        conditionChainOfExecutionDetrimental.SetCustomSubFeatures(customBehaviorChainOfExecution);
+        conditionChainOfExecutionDetrimental.AddCustomSubFeatures(customBehaviorChainOfExecution);
 
         var rogueHolder = new RogueHolder();
 
@@ -98,7 +98,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
             .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
-            .SetCustomSubFeatures(rogueHolder)
+            .AddCustomSubFeatures(rogueHolder)
             .AddToDB();
 
         // add the additional chain of execution dice based off sneak attack ones
@@ -133,7 +133,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
-            .SetCustomSubFeatures(rogueHolder)
+            .AddCustomSubFeatures(rogueHolder)
             .AddToDB();
 
         var featureChainOfExecution = FeatureDefinitionBuilder
@@ -141,7 +141,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureChainOfExecution.SetCustomSubFeatures(
+        featureChainOfExecution.AddCustomSubFeatures(
             customBehaviorChainOfExecution,
             new CustomAdditionalDamageSneakAttack(
                 additionalDamageChainOfExecutionSneakAttack),
@@ -173,7 +173,7 @@ public sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike())
+            .AddCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

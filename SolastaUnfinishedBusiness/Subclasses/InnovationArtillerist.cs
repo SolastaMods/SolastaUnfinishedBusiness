@@ -104,7 +104,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(InventorClassHolder.Marker)
+            .AddCustomSubFeatures(InventorClassHolder.Marker)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -268,7 +268,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetConditionForm(conditionEldritchCannonCommand, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ShowInCombatWhenHasCannon())
+            .AddCustomSubFeatures(new ShowInCombatWhenHasCannon())
             .AddToDB();
 
         powerEldritchCannonCommand.AddCustomSubFeatures(
@@ -293,7 +293,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ShowWhenHasCannon())
+            .AddCustomSubFeatures(new ShowWhenHasCannon())
             .AddToDB();
 
         // Refund Cannon
@@ -307,7 +307,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .SetCustomSubFeatures(new CustomBehaviorRefundCannon())
+            .AddCustomSubFeatures(new CustomBehaviorRefundCannon())
             .AddToDB();
 
         // Eldritch Cannon
@@ -404,7 +404,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetDamageForm(DamageTypeForce, 3, DieType.D8)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
                     ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
@@ -426,7 +426,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ShowWhenHasCannon(),
                 new MagicEffectFinishedByMeEldritchDetonation(powerDetonateSelf))
             .AddToDB();
@@ -493,7 +493,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         var powerFortifiedPositionTiny = FeatureDefinitionPowerBuilder
             .Create(powerFortifiedPosition, $"Power{Name}{FortifiedPosition}AuraTiny")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
                     ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
@@ -625,7 +625,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetForbiddenActions(
                 Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                 Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower, Id.Shove, Id.ShoveBonus, Id.ShoveFree)
-            .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
+            .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
             .AddToDB();
 
     private static readonly FeatureDefinitionConditionAffinity ConditionAffinityEldritchCannon =
@@ -634,7 +634,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetConditionAffinityType(ConditionAffinityType.Immunity)
             .SetConditionType(DatabaseHelper.ConditionDefinitions.ConditionSurprised)
-            .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
+            .AddCustomSubFeatures(ForceInitiativeToSummoner.Mark)
             .AddToDB();
 
     private static readonly FeatureDefinitionMoveMode MoveModeEldritchCannon =
@@ -793,7 +793,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
+            .AddCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
             .AddToDB();
 
         return power;
@@ -894,7 +894,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
+            .AddCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, CannonLimiter)
             .AddToDB();
 
         return power;

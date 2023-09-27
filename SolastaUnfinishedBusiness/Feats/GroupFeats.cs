@@ -171,7 +171,7 @@ internal static class GroupFeats
         var group = FeatDefinitionBuilder
             .Create(name)
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(feats))
+            .AddCustomSubFeatures(new GroupedFeat(feats))
             .SetFeatFamily(family)
             .SetFeatures()
             .AddToDB();
@@ -190,7 +190,7 @@ internal static class GroupFeats
         var group = FeatDefinitionWithPrerequisitesBuilder
             .Create(name)
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new GroupedFeat(feats))
+            .AddCustomSubFeatures(new GroupedFeat(feats))
             .SetFeatFamily(family)
             .SetFeatures()
             .SetValidators(validator)

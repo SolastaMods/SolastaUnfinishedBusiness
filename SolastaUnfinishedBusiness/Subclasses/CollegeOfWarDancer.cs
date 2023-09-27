@@ -50,7 +50,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                 .SetIgnoreCriticalDoubleDice(true)
                 .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                 .SetNotificationTag("Momentum")
-                .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
+                .AddCustomSubFeatures(UpgradeDice, UpgradeDieNum)
                 .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
@@ -64,7 +64,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             FeatureDefinitionAdditionalActionBuilder
                 .Create("AdditionalActionWarDanceMomentum")
                 .SetGuiPresentation(ImproveWarDance.GuiPresentation)
-                .SetCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
+                .AddCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
                 .SetActionType(ActionType.Main)
                 .SetMaxAttacksNumber(1)
                 .SetRestrictedActions(Id.AttackMain)
@@ -95,14 +95,14 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                         EffectFormBuilder.ConditionForm(ConditionWarDance),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration))
                     .Build())
-            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
+            .AddCustomSubFeatures(EffectWithConcentrationCheck.Mark,
                 ValidatorsValidatePowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder
             .Create("FeatureCollegeOfWarDancerFocusedWarDance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new FocusedWarDance())
+            .AddCustomSubFeatures(new FocusedWarDance())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -141,7 +141,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                     .Create("AttackModifierWarDance")
                     .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
                     .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         FreeWeaponSwitching.Mark,
                         new StopMomentumAndAttacksWhenRemoved(),
                         new WarDanceFlurryPhysicalAttack(),

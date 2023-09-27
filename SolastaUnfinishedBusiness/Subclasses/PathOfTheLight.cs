@@ -65,7 +65,7 @@ public sealed class PathOfTheLight : AbstractSubclass
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
-            .SetCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
+            .AddCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
             .AddToDB();
 
         var lightSourceForm = new LightSourceForm();
@@ -93,7 +93,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                 ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
-            .SetCustomSubFeatures(new BarbarianHolder())
+            .AddCustomSubFeatures(new BarbarianHolder())
             .AddToDB();
 
         additionalDamagePathOfTheLightIlluminatingStrike.DiceByRankTable[9].diceNumber = 2;
@@ -235,7 +235,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                             .SetConditionType(ConditionType.Detrimental)
                             .SetParentCondition(conditionPathOfTheLightIlluminated)
                             .SetSilent(Silent.WhenAdded)
-                            .SetCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
+                            .AddCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)

@@ -100,7 +100,7 @@ internal static class RaceWyrmkinBuilder
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureCaveWyrmkinPowerfulClaws.SetCustomSubFeatures(
+        featureCaveWyrmkinPowerfulClaws.AddCustomSubFeatures(
             new ModifyWeaponAttackModeCaveWyrmkinClaws(),
             new CaveWyrmkinShovingAttack(featureCaveWyrmkinPowerfulClaws, conditionCaveWyrmkinShovingAttack));
 
@@ -108,7 +108,7 @@ internal static class RaceWyrmkinBuilder
             .Create($"Condition{Name}ChargingStrike")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus))
+            .AddCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus))
             .AddToDB();
 
         var featureCaveWyrmkinChargingStrike = FeatureDefinitionBuilder
@@ -116,7 +116,7 @@ internal static class RaceWyrmkinBuilder
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureCaveWyrmkinChargingStrike.SetCustomSubFeatures(
+        featureCaveWyrmkinChargingStrike.AddCustomSubFeatures(
             new AfterActionFinishedByMeCaveWyrmkinChargingStrike(featureCaveWyrmkinChargingStrike,
                 conditionChargingStrike));
 
@@ -164,7 +164,7 @@ internal static class RaceWyrmkinBuilder
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerHighWyrmkinReactiveRetribution.SetCustomSubFeatures(
+        powerHighWyrmkinReactiveRetribution.AddCustomSubFeatures(
             new ReactToAttackOnMeReactiveRetribution(powerHighWyrmkinReactiveRetribution));
 
         var effectPsionicWave = EffectDescriptionBuilder

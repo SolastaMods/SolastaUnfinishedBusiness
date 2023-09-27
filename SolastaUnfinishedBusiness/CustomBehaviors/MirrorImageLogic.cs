@@ -38,7 +38,7 @@ public class MirrorImageLogic
             .SetSilent(Silent.WhenAdded)
             .AllowMultipleInstances()
             .SetPossessive()
-            .SetCustomSubFeatures(Marker, DuplicateCounter.Mark)
+            .AddCustomSubFeatures(Marker, DuplicateCounter.Mark)
             .AddToDB();
     }
 

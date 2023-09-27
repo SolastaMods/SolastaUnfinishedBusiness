@@ -49,7 +49,7 @@ internal sealed class Merciless : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnReducedToZeroHpByMeMerciless())
+                .AddCustomSubFeatures(new OnReducedToZeroHpByMeMerciless())
                 .AddToDB())
         .AddToDB();
 

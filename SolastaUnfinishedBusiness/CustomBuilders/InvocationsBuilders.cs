@@ -40,7 +40,7 @@ internal static class InvocationsBuilders
                     .SetSpecificDamageType(DamageTypeForce)
                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
                     .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         WarlockHolder.Instance,
                         new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
                     .AddToDB())
@@ -264,7 +264,7 @@ internal static class InvocationsBuilders
         var power = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -405,7 +405,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeCold,
                             SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters))
@@ -424,7 +424,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeAcid,
                             SpellDefinitions.AcidSplash.EffectDescription.EffectParticleParameters))
@@ -443,7 +443,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeFire,
                             SpellDefinitions.FireBolt.EffectDescription.EffectParticleParameters))
@@ -462,7 +462,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeLightning,
                             SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
@@ -481,7 +481,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeNecrotic,
                             SpellDefinitions.ChillTouch.EffectDescription.EffectParticleParameters))
@@ -507,7 +507,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePoison,
                             effectDescription.EffectParticleParameters))
@@ -526,7 +526,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePsychic,
                             SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
@@ -545,7 +545,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeRadiant,
                             SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
@@ -564,7 +564,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeThunder,
                             SpellDefinitions.Thunderwave.EffectDescription.EffectParticleParameters))
@@ -686,7 +686,7 @@ internal static class InvocationsBuilders
         var featureAbilitiesOfTheChainMaster = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AfterActionFinishedByMeAbilitiesChain(
+            .AddCustomSubFeatures(new AfterActionFinishedByMeAbilitiesChain(
                 conditionAbilitySprite, conditionAbilityImp, conditionAbilityQuasit, conditionAbilityPseudo))
             .AddToDB();
 

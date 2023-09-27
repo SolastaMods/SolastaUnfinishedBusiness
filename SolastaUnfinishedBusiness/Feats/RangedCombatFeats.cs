@@ -52,7 +52,7 @@ internal static class RangedCombatFeats
                     .Create($"Custom{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
                         new CanUseAttribute(
@@ -81,7 +81,7 @@ internal static class RangedCombatFeats
                     .Create($"Custom{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isCrossbow(mode, null, character))),
                         new CanUseAttribute(
@@ -131,7 +131,7 @@ internal static class RangedCombatFeats
                             .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
             .AddToDB();
 
@@ -166,12 +166,12 @@ internal static class RangedCombatFeats
                     .Create($"CombatAffinity{Name}")
                     .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
                     .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .AddCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffDeadeye;
-        conditionDeadeye.SetCustomSubFeatures(
+        conditionDeadeye.AddCustomSubFeatures(
             concentrationProvider, new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
 
         return featDeadeye;
@@ -189,7 +189,7 @@ internal static class RangedCombatFeats
                     .Create(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleTwoWeapon,
                         $"AttackModifier{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         ValidatorsCharacter.HasOffhandWeaponType(
                             CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
                         new RangedAttackInMeleeDisadvantageRemover(),
@@ -256,7 +256,7 @@ internal static class RangedCombatFeats
                                     .SetConditionForm(conditionRestrained, ConditionForm.ConditionOperation.Add)
                                     .Build())
                             .Build())
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new ValidatorsValidatePowerUse(character =>
                         {
                             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);

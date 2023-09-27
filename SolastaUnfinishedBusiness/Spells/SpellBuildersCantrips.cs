@@ -622,7 +622,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.SetCustomSubFeatures(
+        spell.AddCustomSubFeatures(
             AttackAfterMagicEffect.SunlitBladeAttack,
             new UpgradeRangeBasedOnWeaponReach(spell));
 
@@ -711,7 +711,7 @@ internal static partial class SpellBuilders
             .Create(ConditionShine, "ConditionBoomingBladeSheathed")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
+            .AddCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
             .AddToDB();
 
         var conditionBoomingBlade = ConditionDefinitionBuilder
@@ -768,7 +768,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.SetCustomSubFeatures(
+        spell.AddCustomSubFeatures(
             AttackAfterMagicEffect.BoomingBladeAttack,
             new UpgradeRangeBasedOnWeaponReach(spell));
 
@@ -874,7 +874,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerResonatingStrike.SetCustomSubFeatures(new ModifyEffectDescriptionResonatingStrike(powerResonatingStrike));
+        powerResonatingStrike.AddCustomSubFeatures(new ModifyEffectDescriptionResonatingStrike(powerResonatingStrike));
 
         // this is the main damage to first target
         var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
@@ -928,7 +928,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(BurningHands_B)
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 AttackAfterMagicEffect.ResonatingStrikeAttack,
                 new MagicEffectFinishedByMeResonatingStrike(powerResonatingStrike))
             .AddToDB();
@@ -1062,7 +1062,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.SetCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(spell));
+        spell.AddCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(spell));
 
         return spell;
     }

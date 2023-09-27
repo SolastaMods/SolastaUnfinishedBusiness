@@ -92,7 +92,7 @@ internal static class SubraceGrayDwarfBuilder
             .SetFeatures(
                 abilityCheckAffinityGrayDwarfStoneStrength,
                 savingThrowAffinityGrayDwarfStoneStrength)
-            .SetCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
+            .AddCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
             .AddToDB();
 
         var powerGrayDwarfStoneStrength = FeatureDefinitionPowerBuilder

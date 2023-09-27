@@ -75,7 +75,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerEmergencySurgery.SetCustomSubFeatures(new ModifyEffectDescriptionEmergencySurgery(powerEmergencySurgery));
+        powerEmergencySurgery.AddCustomSubFeatures(new ModifyEffectDescriptionEmergencySurgery(powerEmergencySurgery));
 
         // LEVEL 05
 
@@ -130,7 +130,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerOrganDonation.SetCustomSubFeatures(
+        powerOrganDonation.AddCustomSubFeatures(
             new OnReducedToZeroHpByMeOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
 
         // LEVEL 15
@@ -144,7 +144,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetOverriddenPower(powerEmergencySurgery)
             .AddToDB();
 
-        powerMasterEmergencySurgery.SetCustomSubFeatures(
+        powerMasterEmergencySurgery.AddCustomSubFeatures(
             new ModifyEffectDescriptionEmergencySurgery(powerMasterEmergencySurgery));
 
         // Master Emergency Cure

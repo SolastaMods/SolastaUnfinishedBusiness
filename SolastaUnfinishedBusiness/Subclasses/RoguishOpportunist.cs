@@ -75,7 +75,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureOpportunity.SetCustomSubFeatures(
+        featureOpportunity.AddCustomSubFeatures(
             new ModifyAttackActionModifierOpportunity(featureOpportunity));
 
         // LEVEL 09
@@ -85,7 +85,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var featureSeizeTheChance = FeatureDefinitionBuilder
             .Create($"Feature{Name}SeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
+            .AddCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
             .AddToDB();
 
         // LEVEL 13

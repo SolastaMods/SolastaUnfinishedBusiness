@@ -20,7 +20,7 @@ internal class ShieldExpert : AbstractFightingStyle
                 .Create("AddExtraAttackShieldExpert")
                 .SetGuiPresentationNoContent(true)
                 //.SetProficiencies(RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.ShieldCategory)
-                .SetCustomSubFeatures(new AddBonusShieldAttack())
+                .AddCustomSubFeatures(new AddBonusShieldAttack())
                 .AddToDB(),
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityShieldExpertShove")

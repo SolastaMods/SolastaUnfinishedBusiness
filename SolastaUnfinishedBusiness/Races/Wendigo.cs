@@ -59,7 +59,7 @@ internal static class RaceWendigoBuilder
         var additionalDamageWendigoSuckerPunch = FeatureDefinitionBuilder
             .Create($"AdditionalDamage{Name}SuckerPunch")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CustomAdditionalDamageSuckerPunch(
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create("AdditionalDamageSuckerPunch")
@@ -74,7 +74,7 @@ internal static class RaceWendigoBuilder
         var featureWendigoNaturalLunger = FeatureDefinitionBuilder
             .Create("FeatureWendigoNaturalLunger")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee, Lunger.Name))
+            .AddCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee, Lunger.Name))
             .AddToDB();
 
         var racePresentation = Tiefling.RacePresentation.DeepCopy();

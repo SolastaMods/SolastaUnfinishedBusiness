@@ -100,7 +100,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
         var lightEnergyCrossbowBolt = FeatureDefinitionBuilder
             .Create($"Feature{Name}LightEnergyCrossbowBolt")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new RangedAttackInMeleeDisadvantageRemover(IsOathOfDemonHunterWeapon),
                 new PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(conditionTrialMark, powerTrialMark))
             .AddToDB();
@@ -116,7 +116,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
         var attributeModifierDivineCrossbow = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DivineCrossbow")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyCrossbowAttackModeDivineCrossbow())
+            .AddCustomSubFeatures(new ModifyCrossbowAttackModeDivineCrossbow())
             .SetModifier(AttributeModifierOperation.Additive,
                 AttributeDefinitions.CriticalThreshold, -1)
             .AddToDB();

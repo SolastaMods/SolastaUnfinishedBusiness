@@ -75,7 +75,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(1), spriteReference)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
@@ -98,7 +98,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor1")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(1), spriteReference)
-                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
                                         .SetModifier(AttributeModifierOperation.Additive,
                                             AttributeDefinitions.ArmorClass, 1)
                                         .AddToDB(),
@@ -112,7 +112,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(2), spriteReference)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
@@ -136,7 +136,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor2")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(2), spriteReference)
-                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
                                         .SetModifier(
                                             AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
                                         .AddToDB(),
@@ -150,7 +150,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(3), spriteReference)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
@@ -174,7 +174,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor3")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(3), spriteReference)
-                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
                                         .SetModifier(
                                             AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
                                         .AddToDB(),
@@ -188,7 +188,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(4), spriteReference)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
@@ -212,7 +212,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor4")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(4), spriteReference)
-                                        .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
                                         .SetModifier(
                                             AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 4)
                                         .AddToDB(),
@@ -330,7 +330,7 @@ public sealed class DomainSmith : AbstractSubclass
         var featureBlessedMetal = FeatureDefinitionBuilder
             .Create(BLESSED_METAL)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeBlessedMetal(conditionBlessedMetal))
+            .AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeBlessedMetal(conditionBlessedMetal))
             .AddToDB();
 
         // MAIN

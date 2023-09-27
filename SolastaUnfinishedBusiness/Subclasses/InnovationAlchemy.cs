@@ -142,13 +142,13 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 ItemDefinitions.ScrollFly.itemPresentation))
             .SetUsableDeviceDescription(deviceDescription)
             // required for multiclass use cases
-            .SetCustomSubFeatures(InventorClassHolder.Marker)
+            .AddCustomSubFeatures(InventorClassHolder.Marker)
             .AddToDB();
 
         return FeatureDefinitionBuilder
             .Create(BombsFeatureName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool))
+            .AddCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool))
             .AddToDB();
     }
 
@@ -542,7 +542,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .Create($"ConditionInnovationAlchemyMarker{damage}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(ModifiedBombElement.Marker)
+            .AddCustomSubFeatures(ModifiedBombElement.Marker)
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
@@ -649,7 +649,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .SetUseSpellAttack()
             .AddToDB();
 
-        power.SetCustomSubFeatures(
+        power.AddCustomSubFeatures(
             PowerVisibilityModifier.Visible,
             new AddPBToDamage(power),
             new Overcharge(),
@@ -696,7 +696,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        power.SetCustomSubFeatures(
+        power.AddCustomSubFeatures(
             PowerVisibilityModifier.Visible,
             new AddPBToDamage(power),
             new Overcharge(),
@@ -743,7 +743,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        power.SetCustomSubFeatures(
+        power.AddCustomSubFeatures(
             PowerVisibilityModifier.Visible,
             new AddPBToDamage(power),
             new Overcharge(),
@@ -758,7 +758,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, HasModifiedUses.Marker)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden, HasModifiedUses.Marker)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
 
@@ -787,7 +787,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 .Create($"PowerInnovationAlchemyRefundFromSlot{i}")
                 .SetGuiPresentation(title, description)
                 .SetSharedPool(ActivationTime.BonusAction, powerRefundPool)
-                .SetCustomSubFeatures(new CustomBehaviorRefundAlchemyPool(powerPool, i))
+                .AddCustomSubFeatures(new CustomBehaviorRefundAlchemyPool(powerPool, i))
                 .AddToDB();
 
             powerRefundFromSlotList.Add(powerRefundFromSlot);
@@ -803,7 +803,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create("FeatureInnovationAlchemyOverchargeBombs")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddCustomSubFeatures(OverchargeFeature.Marker)
             .AddToDB();
     }
 
@@ -812,7 +812,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create("FeatureInnovationAlchemyExtraOverchargeBombs")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddCustomSubFeatures(OverchargeFeature.Marker)
             .AddToDB();
     }
 
@@ -821,7 +821,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create("FeatureInnovationAlchemyMasterOverchargeBombs")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddCustomSubFeatures(OverchargeFeature.Marker)
             .AddToDB();
     }
 

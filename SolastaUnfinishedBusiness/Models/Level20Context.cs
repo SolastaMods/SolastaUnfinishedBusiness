@@ -128,13 +128,13 @@ internal static class Level20Context
         var changeAbilityCheckBarbarianIndomitableMight = FeatureDefinitionBuilder
             .Create("ChangeAbilityCheckBarbarianIndomitableMight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyAbilityCheckBarbarianIndomitableMight())
+            .AddCustomSubFeatures(new ModifyAbilityCheckBarbarianIndomitableMight())
             .AddToDB();
 
         var customCodeBarbarianPrimalChampion = FeatureDefinitionBuilder
             .Create("CustomCodeBarbarianPrimalChampion")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomLevelUpLogicBarbarianPrimalChampion())
+            .AddCustomSubFeatures(new CustomLevelUpLogicBarbarianPrimalChampion())
             .AddToDB();
 
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -158,7 +158,7 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureBardSuperiorInspiration.SetCustomSubFeatures(
+        featureBardSuperiorInspiration.AddCustomSubFeatures(
             new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
 
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -223,7 +223,7 @@ internal static class Level20Context
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
-        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
+        magicAffinityArchDruid.AddCustomSubFeatures(new ActionFinishedByMeArchDruid(magicAffinityArchDruid));
 
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -321,7 +321,7 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        battleStartedListenerMonkPerfectSelf.SetCustomSubFeatures(
+        battleStartedListenerMonkPerfectSelf.AddCustomSubFeatures(
             new BattleStartedListenerMonkPerfectSelf(battleStartedListenerMonkPerfectSelf));
 
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -376,7 +376,7 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureFoeSlayer.SetCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
+        featureFoeSlayer.AddCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
 
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -403,7 +403,7 @@ internal static class Level20Context
         var featureRogueElusive = FeatureDefinitionBuilder
             .Create("FeatureRogueElusive")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeRogueElusive())
+            .AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeRogueElusive())
             .AddToDB();
 
         var powerRogueStrokeOfLuck = FeatureDefinitionPowerBuilder
@@ -413,7 +413,7 @@ internal static class Level20Context
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerRogueStrokeOfLuck.SetCustomSubFeatures(
+        powerRogueStrokeOfLuck.AddCustomSubFeatures(
             new TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -755,7 +755,7 @@ internal static class Level20Context
                     .SetPoolType(InvocationPoolTypeCustom.Pools.SpellMastery)
                     .SetGrantedSpell(spell)
                     .SetRequirements(3)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name),
                         IsValid())
                     .AddToDB());
@@ -787,7 +787,7 @@ internal static class Level20Context
                     .SetGuiPresentation(spell.GuiPresentation)
                     .SetPoolType(InvocationPoolTypeCustom.Pools.SignatureSpells)
                     .SetGrantedSpell(spell)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         InvocationShortRestRecharge.Marker,
                         ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name))
                     .AddToDB());

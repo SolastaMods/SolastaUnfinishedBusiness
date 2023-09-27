@@ -123,7 +123,7 @@ public sealed class OathOfHatred : AbstractSubclass
         var featureDauntlessPursuer = FeatureDefinitionBuilder
             .Create("FeatureHatredDauntlessPursuer")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new OnDamagesDauntlessPursuer(conditionDauntlessPursuer))
+            .AddCustomSubFeatures(new OnDamagesDauntlessPursuer(conditionDauntlessPursuer))
             .AddToDB();
 
         //
@@ -182,7 +182,7 @@ public sealed class OathOfHatred : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        conditionHatredArdentHate.SetCustomSubFeatures(new CustomBehaviorArdentHate(powerHatredArdentHate));
+        conditionHatredArdentHate.AddCustomSubFeatures(new CustomBehaviorArdentHate(powerHatredArdentHate));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("OathOfHatred")

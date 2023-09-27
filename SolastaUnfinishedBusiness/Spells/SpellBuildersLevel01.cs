@@ -238,7 +238,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 0)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -398,7 +398,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -464,7 +464,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -624,7 +624,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFeatures(additionalDamageStrikeWithTheWind, combatAffinityStrikeWithTheWind)
             .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new OnConditionAddedOrRemovedStrikeWithTheWindAttack(conditionStrikeWithTheWindAttackMovement))
             .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
             .AddToDB();
@@ -647,7 +647,7 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .AddFeatures(powerStrikeWithTheWind)
-            .SetCustomSubFeatures(new AddUsablePowerFromCondition(powerStrikeWithTheWind))
+            .AddCustomSubFeatures(new AddUsablePowerFromCondition(powerStrikeWithTheWind))
             .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
             .AddToDB();
 
@@ -771,7 +771,7 @@ internal static partial class SpellBuilders
 
             conditions.Add(conditionSkinOfRetribution);
 
-            powerSkinOfRetribution.SetCustomSubFeatures(
+            powerSkinOfRetribution.AddCustomSubFeatures(
                 new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
 
             var spell = SpellDefinitionBuilder
@@ -932,7 +932,7 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
-        conditionSanctuary.SetCustomSubFeatures(
+        conditionSanctuary.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeSanctuary(
                 conditionSanctuary,
                 conditionSanctuaryReduceDamage,
@@ -1128,7 +1128,7 @@ internal static partial class SpellBuilders
                             .SetSummonCreatureForm(1, familiarMonster.Name)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .AddCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
@@ -1175,7 +1175,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFeatures(powerThunderousSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new PhysicalAttackFinishedByMeThunderousSmite(powerThunderousSmite))
             .AddToDB();
 
@@ -1262,7 +1262,7 @@ internal static partial class SpellBuilders
             .SetFeatures()
             .AddToDB();
 
-        conditionAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(conditionAlacrity));
+        conditionAlacrity.AddCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(conditionAlacrity));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1366,7 +1366,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
-        conditionSpikeBarrage.SetCustomSubFeatures(
+        conditionSpikeBarrage.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeSpikeBarrage(powerSpikeBarrage, conditionSpikeBarrage));
 
         var spell = SpellDefinitionBuilder

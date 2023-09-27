@@ -60,7 +60,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new OnConditionAddedOrRemovedVerdancy(),
                 new CharacterTurnStartListenerVerdancy())
             .AddToDB();
@@ -69,13 +69,13 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .Create(conditionVerdancy, ConditionVerdancy14)
             // uses 4 but it will trigger 5 times as required because of the time we add it
             .SetSpecialDuration(DurationType.Round, 4, TurnOccurenceType.EndOfSourceTurn)
-            .SetCustomSubFeatures(new OnConditionAddedOrRemovedVerdancy())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedVerdancy())
             .AddToDB();
 
         var featureVerdancy = FeatureDefinitionBuilder
             .Create($"Feature{Name}Verdancy")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyEffectDescriptionVerdancy(conditionVerdancy, conditionVerdancy14))
+            .AddCustomSubFeatures(new ModifyEffectDescriptionVerdancy(conditionVerdancy, conditionVerdancy14))
             .AddToDB();
 
         // Seed of Life
@@ -85,7 +85,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBlessed)
             .SetPossessive()
             .CopyParticleReferences(ConditionGuided)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new OnConditionAddedOrRemovedSeedOfLife(),
                 new CharacterTurnStartListenerSeedOfLife())
             .AddToDB();
@@ -123,7 +123,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
         var featureRevitalizingBoom = FeatureDefinitionBuilder
             .Create($"Feature{Name}RevitalizingBoon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ModifyEffectDescriptionRevitalizingBoon(conditionRevitalizingBoom, powerSeedOfLife))
             .AddToDB();
 

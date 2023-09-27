@@ -264,7 +264,7 @@ internal static class ClassFeats
             return DieType.D8;
         }
 
-        featureCloseQuarters.SetCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
+        featureCloseQuarters.AddCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
 
         static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
         {
@@ -313,7 +313,7 @@ internal static class ClassFeats
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
+                    .AddCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
                         device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
                     .AddToDB(),
@@ -343,7 +343,7 @@ internal static class ClassFeats
         var featureExploiter = FeatureDefinitionBuilder
             .Create("FeatureExploiter")
             .SetGuiPresentation("FeatExploiter", Category.Feat)
-            .SetCustomSubFeatures(new CustomBehaviorFeatExploiter())
+            .AddCustomSubFeatures(new CustomBehaviorFeatExploiter())
             .AddToDB();
 
         return FeatDefinitionWithPrerequisitesBuilder
@@ -476,7 +476,7 @@ internal static class ClassFeats
                     .SetFeatures(t.attributeModifier)
                     .SetFeatFamily(NAME)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
-                    .SetCustomSubFeatures(new ActionFinishedByMeFeatAwakenTheBeastWithin())
+                    .AddCustomSubFeatures(new ActionFinishedByMeFeatAwakenTheBeastWithin())
                     .AddToDB())
             .Cast<FeatDefinition>()
             .ToArray();
@@ -537,7 +537,7 @@ internal static class ClassFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ActionFinishedByMeFeatCunningEscape())
+            .AddCustomSubFeatures(new ActionFinishedByMeFeatCunningEscape())
             .SetValidators(ValidatorsFeat.IsRogueLevel3)
             .AddToDB();
     }
@@ -580,7 +580,7 @@ internal static class ClassFeats
         var feature = FeatureDefinitionBuilder
             .Create($"Feature{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new UsePowerFinishedByMeFeatHardy())
+            .AddCustomSubFeatures(new UsePowerFinishedByMeFeatHardy())
             .AddToDB();
 
         var hardyStr = FeatDefinitionWithPrerequisitesBuilder
@@ -686,7 +686,7 @@ internal static class ClassFeats
                                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                                 .Build())
                         .Build())
-                .SetCustomSubFeatures(new SpendWildShapeUse())
+                .AddCustomSubFeatures(new SpendWildShapeUse())
                 .AddToDB();
 
             powerGainSlotPoolList.Add(powerGainSlot);
@@ -724,7 +724,7 @@ internal static class ClassFeats
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
                         wildShapeAmount.ToString(), i.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, power)
-                .SetCustomSubFeatures(new GainWildShapeCharges(i, wildShapeAmount))
+                .AddCustomSubFeatures(new GainWildShapeCharges(i, wildShapeAmount))
                 .AddToDB();
 
             powerGainWildShapeList.Add(powerGainWildShapeFromSlot);
@@ -842,7 +842,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster())
+                .AddCustomSubFeatures(new ModifyEffectDescriptionFeatPotentSpellcaster())
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -959,7 +959,7 @@ internal static class ClassFeats
                                     ConditionForm.ConditionOperation.Add)
                                 .Build())
                         .Build())
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new ActionFinishedByMeFeatSpiritualFluidityGainSlot(),
                     new ValidatorsValidatePowerUse(c =>
                         c.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > c.UsedChannelDivinity))
@@ -1029,7 +1029,7 @@ internal static class ClassFeats
                                     ConditionForm.ConditionOperation.Add)
                                 .Build())
                         .Build())
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new ActionFinishedByMeFeatSpiritualFluidityFromSlot(),
                     new ValidatorsValidatePowerUse(
                         c =>
@@ -1156,7 +1156,7 @@ internal static class ClassFeats
                                 .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
                                 .AddToDB()))
                         .Build())
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new ValidatorsValidatePowerUse(
                         c =>
                         {
@@ -1184,7 +1184,7 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerPool)
             .SetValidators(ValidatorsFeat.IsRangerLevel1)
-            .SetCustomSubFeatures(new ActionFinishedByMeFeatSlayTheEnemies())
+            .AddCustomSubFeatures(new ActionFinishedByMeFeatSlayTheEnemies())
             .AddToDB();
     }
 

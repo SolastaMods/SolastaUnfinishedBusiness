@@ -97,7 +97,7 @@ public class PatronMountain : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerBarrierOfStone.SetCustomSubFeatures(
+        powerBarrierOfStone.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, conditionBarrierOfStone));
 
         // Knowledge of Aeons
@@ -150,7 +150,7 @@ public class PatronMountain : AbstractSubclass
             .SetOverriddenPower(powerBarrierOfStone)
             .AddToDB();
 
-        powerEternalGuardian.SetCustomSubFeatures(
+        powerEternalGuardian.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerEternalGuardian, conditionBarrierOfStone));
 
         // LEVEL 10

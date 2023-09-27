@@ -25,7 +25,7 @@ internal static partial class SpellBuilders
         var condition = ConditionDefinitionBuilder
             .Create("ConditionFarStep")
             .SetGuiPresentation(Category.Condition, ConditionJump)
-            .SetCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSilent(Silent.None)
             .SetPossessive()
             .SetFeatures(CustomActionIdContext.FarStep)
@@ -142,7 +142,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
-            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;
@@ -240,7 +240,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AddUsablePowerFromCondition(powerTeleport),
                 new OnConditionAddedOrRemovedSteelWhirlwind())
             .AddToDB();
@@ -340,7 +340,8 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack,
+            .AddCustomSubFeatures(
+                ValidatorsRestrictedContext.IsWeaponAttack,
                 new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)

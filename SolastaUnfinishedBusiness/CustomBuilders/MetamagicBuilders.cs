@@ -25,21 +25,21 @@ internal static class MetamagicBuilders
             .Create($"{MetamagicAltruistic}Ally")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCost()
-            .SetCustomSubFeatures(new MetamagicAltruisticAlly(), validator)
+            .AddCustomSubFeatures(new MetamagicAltruisticAlly(), validator)
             .AddToDB();
 
         var altruisticSelf = MetamagicOptionDefinitionBuilder
             .Create($"{MetamagicAltruistic}Self")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCost(sorceryPointsCost: 3)
-            .SetCustomSubFeatures(new MetamagicAltruisticSelf(), validator)
+            .AddCustomSubFeatures(new MetamagicAltruisticSelf(), validator)
             .AddToDB();
 
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicAltruistic)
             .SetGuiPresentation(Category.Feature)
             .SetCost(MetamagicCostMethod.SpellLevel)
-            .SetCustomSubFeatures(new ReplaceMetamagicOption(altruisticAlly, altruisticSelf))
+            .AddCustomSubFeatures(new ReplaceMetamagicOption(altruisticAlly, altruisticSelf))
             .AddToDB();
     }
 
@@ -140,7 +140,7 @@ internal static class MetamagicBuilders
             .Create(MetamagicFocused)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .SetCustomSubFeatures(new ModifyEffectDescriptionMetamagicFocused(condition), validator)
+            .AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicFocused(condition), validator)
             .AddToDB();
     }
 
@@ -208,7 +208,7 @@ internal static class MetamagicBuilders
             .Create(MetamagicPowerful)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .SetCustomSubFeatures(new ModifyEffectDescriptionMetamagicPowerful(), validator)
+            .AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicPowerful(), validator)
             .AddToDB();
     }
 
@@ -266,7 +266,7 @@ internal static class MetamagicBuilders
             .Create(MetamagicWidened)
             .SetGuiPresentation(Category.Feature)
             .SetCost(MetamagicCostMethod.FixedValue, 2)
-            .SetCustomSubFeatures(new ModifyEffectDescriptionMetamagicWidened(), validator)
+            .AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicWidened(), validator)
             .AddToDB();
     }
 

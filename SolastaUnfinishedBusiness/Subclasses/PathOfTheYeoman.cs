@@ -48,7 +48,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         var featureStrongBow = FeatureDefinitionBuilder
             .Create($"Feature{Name}StrongBow")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Strength, IsLongBow),
                 new CustomAdditionalDamageStrongBow(additionalDamageStrongBow))
             .AddToDB();
@@ -61,7 +61,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             .Create($"ActionAffinity{Name}StaggeringBlow")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(
                     ValidatorsCharacter.HasLongbow,
                     ValidatorsCharacter.DoesNotHaveHeavyArmor,
@@ -81,7 +81,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         var featureKeenEye = FeatureDefinitionBuilder
             .Create($"Feature{Name}KeenEye")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomAdditionalDamageKeenEye(additionalDamageKeenEye))
+            .AddCustomSubFeatures(new CustomAdditionalDamageKeenEye(additionalDamageKeenEye))
             .AddToDB();
 
         // LEVEL 10
@@ -109,7 +109,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 movementAffinityBulwark,
                 combatAffinityBulwark)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
                 new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
@@ -149,7 +149,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        movementAffinityBulwark.SetCustomSubFeatures(new StopPowerConcentrationProvider(
+        movementAffinityBulwark.AddCustomSubFeatures(new StopPowerConcentrationProvider(
             "Bulwark",
             "Tooltip/&BulwarkConcentration",
             Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64))
@@ -187,7 +187,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         powerMightyShot.EffectDescription.EffectParticleParameters.impactParticleReference =
             powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
 
-        powerMightyShot.SetCustomSubFeatures(
+        powerMightyShot.AddCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
             new PhysicalAttackFinishedByMeMightyShot(powerMightyShot));

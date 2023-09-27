@@ -132,7 +132,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .Create($"AttackModifier{Name}{DarknessAffinity}")
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
             .SetAttackRollModifier(2)
-            .SetCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
+            .AddCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
             .AddToDB();
 
         var attributeModifierDarknessAffinity = FeatureDefinitionAttributeModifierBuilder
@@ -146,7 +146,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .Create($"MagicAffinity{Name}{DarknessAffinity}")
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
             .SetCastingModifiers(2)
-            .SetCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
+            .AddCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
             .AddToDB();
 
         var regenerationDarknessAffinity = FeatureDefinitionRegenerationBuilder
@@ -154,7 +154,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
             .SetDuration(DurationType.Round, 1)
             .SetRegenerationDice(DieType.D1, 0, 2)
-            .SetCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
+            .AddCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
             .AddToDB();
 
         var savingThrowAffinityDarknessAffinity = FeatureDefinitionSavingThrowAffinityBuilder
@@ -162,7 +162,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
             .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, DieType.D1, 2, false,
                 Charisma, Constitution, Dexterity, Intelligence, Strength, Wisdom)
-            .SetCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
+            .AddCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
             .AddToDB();
 
         var featureSetDarknessAffinity = FeatureDefinitionFeatureSetBuilder
@@ -209,11 +209,11 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetEffectDescription(effectTouchOfDarkness)
             .AddToDB();
 
-        powerTouchOfDarknessFixed.SetCustomSubFeatures(
+        powerTouchOfDarknessFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
                 character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
 
-        powerTouchOfDarknessPoints.SetCustomSubFeatures(
+        powerTouchOfDarknessPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
                 character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
 

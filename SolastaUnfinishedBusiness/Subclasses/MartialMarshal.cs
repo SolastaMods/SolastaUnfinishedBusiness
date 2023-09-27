@@ -97,7 +97,7 @@ public sealed class MartialMarshal : AbstractSubclass
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetNotificationTag("KnowYourEnemy")
-                    .SetCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
+                    .AddCustomSubFeatures(new ModifyAttackActionModifierMarshalKnowYourEnemy())
                     .AddToDB())
             .AddToDB();
     }
@@ -122,7 +122,7 @@ public sealed class MartialMarshal : AbstractSubclass
                                 ConditionDefinitionBuilder
                                     .Create("ConditionMarshalStudyYourEnemy")
                                     .SetGuiPresentationNoContent(true)
-                                    .SetCustomSubFeatures(new OnConditionAddedOrRemovedStudyYourEnemy())
+                                    .AddCustomSubFeatures(new OnConditionAddedOrRemovedStudyYourEnemy())
                                     .SetSilent(Silent.WhenAddedOrRemoved)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -136,7 +136,7 @@ public sealed class MartialMarshal : AbstractSubclass
         return FeatureDefinitionBuilder
             .Create(MarshalCoordinatedAttackName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ReactToAttackFinishedByMeMarshalCoordinatedAttack())
+            .AddCustomSubFeatures(new ReactToAttackFinishedByMeMarshalCoordinatedAttack())
             .AddToDB();
     }
 
@@ -379,7 +379,7 @@ public sealed class MartialMarshal : AbstractSubclass
         var featureMarshalKnowledgeableDefense = FeatureDefinitionBuilder
             .Create("FeatureMarshalKnowledgeableDefense")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeKnowledgeableDefense())
+            .AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeKnowledgeableDefense())
             .AddToDB();
 
         return featureMarshalKnowledgeableDefense;

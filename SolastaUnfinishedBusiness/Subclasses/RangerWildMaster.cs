@@ -48,7 +48,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetGuiPresentationNoContent()
                 .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                     Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
-                .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
+                .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
                 .AddToDB();
 
         var combatAffinityWildMasterSummonerIsNextToBeast = FeatureDefinitionCombatAffinityBuilder
@@ -63,7 +63,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetGuiPresentationNoContent()
                 .SetConditionAffinityType(ConditionAffinityType.Immunity)
                 .SetConditionType(ConditionDefinitions.ConditionSurprised)
-                .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
+                .AddCustomSubFeatures(ForceInitiativeToSummoner.Mark)
                 .AddToDB();
 
         var perceptionAffinitySpiritBeast =
@@ -445,7 +445,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
@@ -575,7 +575,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                         FeatureDefinitionSavingThrowAffinityBuilder
                             .Create("SavingThrowAffinityWildMasterSummonSpiritBeast")
                             .SetGuiPresentationNoContent()
-                            .SetCustomSubFeatures(new AddPBToSummonCheck(1,
+                            .AddCustomSubFeatures(new AddPBToSummonCheck(1,
                                 AttributeDefinitions.Strength,
                                 AttributeDefinitions.Dexterity,
                                 AttributeDefinitions.Constitution,
@@ -610,7 +610,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ShowInCombatWhenHasSpiritBeast())
+            .AddCustomSubFeatures(new ShowInCombatWhenHasSpiritBeast())
             .AddToDB();
 
         powerWildMasterSpiritBeastCommand.AddCustomSubFeatures(

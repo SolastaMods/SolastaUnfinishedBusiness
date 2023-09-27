@@ -63,7 +63,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new CustomBehaviorDisplacement(), PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -139,7 +139,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .SetEffectDescription(effectDescriptionForcefulStep)
             .AddToDB();
 
-        powerForcefulStepFixed.SetCustomSubFeatures(
+        powerForcefulStepFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
@@ -151,7 +151,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .SetEffectDescription(effectDescriptionForcefulStep)
             .AddToDB();
 
-        powerForcefulStepPoints.SetCustomSubFeatures(
+        powerForcefulStepPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));

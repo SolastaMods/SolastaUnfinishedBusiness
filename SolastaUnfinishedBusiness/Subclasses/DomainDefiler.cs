@@ -61,7 +61,7 @@ public sealed class DomainDefiler : AbstractSubclass
         var featureInsidiousDeathMagic = FeatureDefinitionBuilder
             .Create($"Feature{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomBehaviorInsidiousDeathMagic(conditionInsidiousDeathMagic))
+            .AddCustomSubFeatures(new CustomBehaviorInsidiousDeathMagic(conditionInsidiousDeathMagic))
             .AddToDB();
 
         //
@@ -93,7 +93,7 @@ public sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerDefileLife.SetCustomSubFeatures(new ModifyEffectDescriptionDefileLife(powerDefileLife));
+        powerDefileLife.AddCustomSubFeatures(new ModifyEffectDescriptionDefileLife(powerDefileLife));
 
         var featureSetDefileLife = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}DefileLife")
@@ -207,7 +207,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetPreparedSpellGroups(
                 BuildSpellGroup(17, CircleOfDeath, FingerOfDeath))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
-            .SetCustomSubFeatures(new ModifyDamageResistanceDyingLight())
+            .AddCustomSubFeatures(new ModifyDamageResistanceDyingLight())
             .AddToDB();
 
         // MAIN

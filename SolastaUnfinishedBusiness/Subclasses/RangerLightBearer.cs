@@ -85,7 +85,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
+            .AddCustomSubFeatures(new PhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -157,7 +157,7 @@ public sealed class RangerLightBearer : AbstractSubclass
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
             .SetOverriddenPower(powerLight)
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
             .AddToDB();
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
@@ -205,7 +205,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new MagicEffectFinishedByMeAngelicForm(),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
@@ -233,7 +233,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                                 ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -256,7 +256,7 @@ public sealed class RangerLightBearer : AbstractSubclass
         var featureWardingLight = FeatureDefinitionBuilder
             .Create($"Feature{Name}WardingLight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeOrAllyWardingLight())
+            .AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeOrAllyWardingLight())
             .AddToDB();
 
         // MAIN

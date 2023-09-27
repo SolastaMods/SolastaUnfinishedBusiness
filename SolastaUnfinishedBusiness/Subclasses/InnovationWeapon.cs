@@ -56,7 +56,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create("ProficiencyInnovationWeaponBattleReady")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsMagical))
             .AddToDB();
     }
@@ -111,7 +111,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 HasModifiedUses.Marker,
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
@@ -191,7 +191,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
@@ -223,7 +223,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .SetUniqueInstance()
             .SetOverriddenPower(overridenPower)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
@@ -253,7 +253,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         var savingThrows = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityInnovationWeaponSummonSteelDefender")
             .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AddPBToSummonCheck(1,
                     AttributeDefinitions.Dexterity,
                     AttributeDefinitions.Constitution))
@@ -262,7 +262,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         var skills = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityInnovationWeaponSummonSteelDefenderSkills")
             .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AddPBToSummonCheck(1, SkillDefinitions.Athletics),
                 new AddPBToSummonCheck(2, SkillDefinitions.Perception))
             .AddToDB();
@@ -376,7 +376,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .SetGuiPresentationNoContent()
                     .SetConditionAffinityType(ConditionAffinityType.Immunity)
                     .SetConditionType(ConditionDefinitions.ConditionSurprised)
-                    .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
+                    .AddCustomSubFeatures(ForceInitiativeToSummoner.Mark)
                     .AddToDB(),
                 FeatureDefinitionPerceptionAffinityBuilder
                     .Create("PerceptionAffinitySteelDefender")
@@ -388,7 +388,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .SetGuiPresentationNoContent()
                     .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                         Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
-                    .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
+                    .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
                     .AddToDB(),
                 FeatureDefinitionActionAffinitys.ActionAffinityFightingStyleProtection,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
@@ -452,7 +452,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ShowInCombatWhenHasBlade())
+            .AddCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
 
         power.AddCustomSubFeatures(new ApplyOnTurnEnd(condition, power));
@@ -480,7 +480,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 2, 6, 9)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
                 ValidatorsValidatePowerUse.UsedLessTimesThan(1),
                 PowerVisibilityModifier.Default)

@@ -92,7 +92,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
         var lifeSapFeature = FeatureDefinitionBuilder
             .Create(LifeSapName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new MagicalAttackFinishedByMeAncientForestLifeSap())
+            .AddCustomSubFeatures(new MagicalAttackFinishedByMeAncientForestLifeSap())
             .AddToDB();
 
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder

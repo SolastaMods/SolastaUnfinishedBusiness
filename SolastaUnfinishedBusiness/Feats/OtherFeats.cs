@@ -299,7 +299,7 @@ internal static class OtherFeats
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .SetCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
+                        .AddCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
@@ -438,7 +438,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
                 new IncreaseWeaponReach(1, ValidWeapon))
             .AddToDB();
@@ -488,7 +488,7 @@ internal static class OtherFeats
                     .Build())
             .AddToDB();
 
-        powerFeatHealerMedKit.SetCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
+        powerFeatHealerMedKit.AddCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
 
         var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
         var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
@@ -589,7 +589,7 @@ internal static class OtherFeats
                     .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
-            .SetCustomSubFeatures(WarCasterMarker.Mark)
+            .AddCustomSubFeatures(WarCasterMarker.Mark)
             .AddToDB();
     }
 
@@ -635,7 +635,7 @@ internal static class OtherFeats
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
                             "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
-                        .SetCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
+                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
                 .SetFeatFamily("ElementalAdept")
@@ -702,7 +702,7 @@ internal static class OtherFeats
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
                             "Feature/&DieRollModifierFeatElementalMasterReroll", damageType)
-                        .SetCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
+                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     FeatureDefinitionDamageAffinityBuilder
                         .Create($"DamageAffinity{NAME}{damageType}")
@@ -757,7 +757,7 @@ internal static class OtherFeats
                     .Create("MovementAffinityFeatMobile")
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(2)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new AooImmunityFeatMobile(),
                         new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
@@ -847,7 +847,7 @@ internal static class OtherFeats
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            .SetCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin())
+            .AddCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin())
             .AddToDB();
     }
 
@@ -1011,7 +1011,7 @@ internal static class OtherFeats
                     FeatureDefinitionCombatAffinityBuilder
                         .Create($"CombatAffinity{NAME}{className}")
                         .SetGuiPresentation(title, Gui.NoLocalization)
-                        .SetCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                        .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
                                 mode.sourceDefinition is SpellDefinition &&
                                 mode.EffectDescription.RangeType == RangeType.RangeHit)))
@@ -1031,7 +1031,7 @@ internal static class OtherFeats
                         .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .SetCustomSubFeatures(new SpellTag(FeatSpellSniperTag))
+                        .AddCustomSubFeatures(new SpellTag(FeatSpellSniperTag))
                         .SetSpellList(spellList)
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
@@ -1041,7 +1041,7 @@ internal static class OtherFeats
                             FeatSpellSniperTag)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetCustomSubFeatures(new ModifyEffectDescriptionFeatSpellSniper())
+                .AddCustomSubFeatures(new ModifyEffectDescriptionFeatSpellSniper())
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);

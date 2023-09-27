@@ -54,7 +54,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .Build())
-            .SetCustomSubFeatures(HasModifiedUses.Marker)
+            .AddCustomSubFeatures(HasModifiedUses.Marker)
             .AddToDB();
 
         var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder
@@ -105,7 +105,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionCorroded))
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Misery
@@ -144,7 +144,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionMiserable))
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Affliction
@@ -176,7 +176,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Viscosity
@@ -203,7 +203,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionConfused))
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Mixture
@@ -250,7 +250,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .SetCustomSubFeatures(new CustomBehaviorRefundMixture(powerMixture))
+            .AddCustomSubFeatures(new CustomBehaviorRefundMixture(powerMixture))
             .AddToDB();
 
         // Vitriolic Arsenal - Prevent Reactions
@@ -273,7 +273,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .SetGuiPresentation($"FeatureSet{Name}Arsenal", Category.Feature)
             .AddToDB();
 
-        featureArsenal.SetCustomSubFeatures(new ModifyDamageAffinityArsenal());
+        featureArsenal.AddCustomSubFeatures(new ModifyDamageAffinityArsenal());
 
         // Vitriolic Arsenal
 

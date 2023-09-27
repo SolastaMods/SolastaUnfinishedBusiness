@@ -31,7 +31,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
@@ -410,7 +410,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(effectParticleParameters)
                     .Build())
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+            .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
             .AddToDB();
 
         return spell;
@@ -564,7 +564,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerExplode.SetCustomSubFeatures(
+        powerExplode.AddCustomSubFeatures(
             new ModifyEffectDescriptionBoomingStepExplode(powerExplode, conditionExplode));
 
         var spell = SpellDefinitionBuilder
@@ -593,7 +593,7 @@ internal static partial class SpellBuilders
                     .ExcludeCaster()
                     .SetParticleEffectParameters(Thunderwave)
                     .Build())
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
             .AddToDB();
 
         return spell;
@@ -702,7 +702,7 @@ internal static partial class SpellBuilders
                     .SetImpactParticleReference(
                         FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
                     .AddToDB())
-            .SetCustomSubFeatures(new CustomBehaviorFlameArrows())
+            .AddCustomSubFeatures(new CustomBehaviorFlameArrows())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -810,10 +810,10 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerLightningArrowLeap.SetCustomSubFeatures(
+        powerLightningArrowLeap.AddCustomSubFeatures(
             new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
 
-        conditionLightningArrow.SetCustomSubFeatures(
+        conditionLightningArrow.AddCustomSubFeatures(
             new CustomBehaviorLightningArrow(powerLightningArrowLeap, conditionLightningArrow));
 
         var spell = SpellDefinitionBuilder

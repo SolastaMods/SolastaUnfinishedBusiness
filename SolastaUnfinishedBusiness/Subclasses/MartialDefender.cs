@@ -58,7 +58,7 @@ public sealed class MartialDefender : AbstractSubclass
             .Create($"ActionAffinity{Name}AegisFinesse")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
-            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield))
             .AddToDB();
 
         // Shout of Provocation
@@ -141,7 +141,7 @@ public sealed class MartialDefender : AbstractSubclass
         var featureBrutalAegis = FeatureDefinitionBuilder
             .Create($"Feature{Name}BrutalAegis")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new UpgradeWeaponDice(
+            .AddCustomSubFeatures(new UpgradeWeaponDice(
                 (_, damage) => (damage.diceNumber, DieType.D6, DieType.D6), ValidatorsWeapon.IsShield))
             .AddToDB();
 
@@ -155,7 +155,7 @@ public sealed class MartialDefender : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .SetMaxAttacksNumber(-1)
-            .SetCustomSubFeatures(AdditionalActionAttackValidator.Shield)
+            .AddCustomSubFeatures(AdditionalActionAttackValidator.Shield)
             .AddToDB();
 
         var conditionAegisParagon = ConditionDefinitionBuilder
@@ -169,12 +169,12 @@ public sealed class MartialDefender : AbstractSubclass
         var featureAegisParagon = FeatureDefinitionBuilder
             .Create($"Feature{Name}AegisParagon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures()
+            .AddCustomSubFeatures()
             .AddToDB();
 
         // BEHAVIORS
 
-        powerAegisAssault.SetCustomSubFeatures(
+        powerAegisAssault.AddCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new PhysicalAttackFinishedByMeAegisAssault(powerAegisAssault, conditionAegisParagon));
 

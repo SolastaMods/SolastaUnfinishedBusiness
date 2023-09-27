@@ -35,7 +35,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn) // yes Once Per Turn off sneak attack pattern
-            .SetCustomSubFeatures(new RogueHolder())
+            .AddCustomSubFeatures(new RogueHolder())
             .AddToDB();
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
@@ -72,7 +72,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        actionAffinityReflexiveParry.SetCustomSubFeatures(
+        actionAffinityReflexiveParry.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeReflexiveParty(actionAffinityReflexiveParry,
                 conditionReflexiveParry));
 
@@ -85,7 +85,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         var featureMasterDuelist = FeatureDefinitionBuilder
             .Create($"Feature{Name}{MasterDuelist}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackMasterDuelist(powerMasterDuelist))
+            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackMasterDuelist(powerMasterDuelist))
             .AddToDB();
 
         var featureSetMasterDuelist = FeatureDefinitionFeatureSetBuilder

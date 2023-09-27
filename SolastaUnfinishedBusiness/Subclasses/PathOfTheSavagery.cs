@@ -66,7 +66,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
 
-        featureFuriousDefense.SetCustomSubFeatures(new ModifySavingThrowFuriousDefense(featureFuriousDefense));
+        featureFuriousDefense.AddCustomSubFeatures(new ModifySavingThrowFuriousDefense(featureFuriousDefense));
 
         // LEVEL 10
 
@@ -91,7 +91,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         var featureUnbridledFerocity = FeatureDefinitionBuilder
             .Create($"Feature{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
+            .AddCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
         // LEVEL 14
@@ -101,7 +101,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         var featureWrathAndFury = FeatureDefinitionBuilder
             .Create($"Feature{Name}WrathAndFury")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
                 new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),

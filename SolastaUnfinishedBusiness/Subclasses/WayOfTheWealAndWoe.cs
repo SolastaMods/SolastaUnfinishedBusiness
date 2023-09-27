@@ -62,7 +62,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureWeal.SetCustomSubFeatures(new CustomBehaviorWealAndWoe(
+        featureWeal.AddCustomSubFeatures(new CustomBehaviorWealAndWoe(
             conditionWeal,
             featureWeal,
             featureWoe,

@@ -20,7 +20,7 @@ internal class ZenArcher : AbstractFightingStyle
             FeatureDefinitionAttackModifierBuilder
                 .Create($"Feature{ZenArcherName}")
                 .SetGuiPresentation(ZenArcherName, Category.FightingStyle)
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new CanUseAttribute(
                         AttributeDefinitions.Wisdom,
                         ValidatorsWeapon.IsOfWeaponType(

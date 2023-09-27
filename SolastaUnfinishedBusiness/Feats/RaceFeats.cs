@@ -38,7 +38,7 @@ internal static class RaceFeats
                     .SetGuiPresentation("FeatDragonWings", Category.Feat,
                         Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                     .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-                    .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
+                    .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -102,7 +102,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Intelligence)
@@ -112,7 +112,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Wisdom)
@@ -122,7 +122,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Charisma)
@@ -132,7 +132,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         //
@@ -146,7 +146,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasGreatswordInHands)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
             .AddToDB();
 
