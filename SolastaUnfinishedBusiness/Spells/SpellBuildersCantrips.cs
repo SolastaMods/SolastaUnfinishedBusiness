@@ -963,6 +963,7 @@ internal static partial class SpellBuilders
             if (!Global.LastAttackWasCantripWeaponAttackHit)
             {
                 effectDescription.EffectForms.Clear();
+                effectDescription.effectParticleParameters = new EffectParticleParameters();
             }
             else
             {
