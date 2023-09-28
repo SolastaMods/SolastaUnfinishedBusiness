@@ -967,12 +967,12 @@ internal static partial class SpellBuilders
             }
             else
             {
+                var glc = GameLocationCharacter.GetFromActor(character);
                 var damageForm = effectDescription.FindFirstDamageForm();
 
-                if (damageForm != null)
+                if (glc != null && damageForm != null)
                 {
-                    // apply the spell casting ability modifier as bonus damage
-                    damageForm.bonusDamage = rulesetEffect.SaveDC;
+                    damageForm.bonusDamage = glc.UsedSpecialFeatures[_baseDefinition.Name];
                 }
             }
 
@@ -1012,9 +1012,7 @@ internal static partial class SpellBuilders
             var spellCastingModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetCharacter.TryGetAttributeValue(spellCastingAbility));
 
-            // use the saveDC property to pass the spellCastingModifier to modify the EffectDescription later on
-            usablePower.SaveDC = spellCastingModifier;
-
+            actionParams.ActingCharacter.UsedSpecialFeatures.TryAdd(_powerResonatingStrike.Name, spellCastingModifier);
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             actionParams.RulesetEffect = rulesetImplementationService
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false)
