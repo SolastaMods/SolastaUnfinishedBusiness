@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -139,6 +140,106 @@ internal static partial class SpellBuilders
                 0,
                 0,
                 0);
+        }
+    }
+
+    #endregion
+
+    #region Ring of Blades
+
+    internal static SpellDefinition BuildRingOfBlades()
+    {
+        const string NAME = "RingOfBlades";
+
+        var powerRingOfBlades = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite($"Power{NAME}", Resources.PowerRingOfBlades, 128))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None, 1, 6)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .Build())
+            .AddToDB();
+
+        powerRingOfBlades.AddCustomSubFeatures(new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades));
+
+        var conditionRingOfBlades = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation($"Power{NAME}", Category.Feature, ConditionGuided)
+            .SetPossessive()
+            .SetFeatures(powerRingOfBlades)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RingOfBlades, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 500, false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionRingOfBlades))
+                    .SetParticleEffectParameters(ArcaneSword)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifyEffectDescriptionRingOfBlades : IModifyEffectDescription
+    {
+        private readonly FeatureDefinitionPower _powerRingOfBlades;
+
+        public ModifyEffectDescriptionRingOfBlades(FeatureDefinitionPower powerRingOfBlades)
+        {
+            _powerRingOfBlades = powerRingOfBlades;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerRingOfBlades;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    "ConditionRingOfBlades",
+                    out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            damageForm.diceNumber = 4 + activeCondition.EffectLevel - 6;
+
+            return effectDescription;
         }
     }
 

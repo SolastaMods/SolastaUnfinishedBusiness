@@ -305,6 +305,12 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerRingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Powers/PowerRingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerShoutOfProvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Powers/PowerShoutOfProvocation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -398,6 +404,12 @@
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/WinterBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="RingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/RingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
