@@ -10199,6 +10199,9 @@ CreateDeadRisenWight	SpellDefinition	SpellDefinition	59a6741c-52cc-5859-9f99-d96
 CreateDeadRisenWightLord	SpellDefinition	SpellDefinition	1e533ed6-cae9-5e1d-9cd9-4a70c62f9d69
 CrusadersMantle	SpellDefinition	SpellDefinition	d2077997-23c2-5d34-84b3-794a89ef953e
 DiscerningGaze	SpellDefinition	SpellDefinition	519634bc-4635-5a6f-954a-2919c5888d48
+DivineWrath	SpellDefinition	SpellDefinition	754381b9-32f7-575a-b831-aa815f9dd566
+DivineWrathNecrotic	SpellDefinition	SpellDefinition	6627d4c5-b7ad-517a-8f1f-60d2af400885
+DivineWrathRadiant	SpellDefinition	SpellDefinition	e6d29d57-ae9f-5d52-938b-4a5fb7d44cf7
 EarthTremor	SpellDefinition	SpellDefinition	f72bca83-705a-52f8-bd8d-c774e4c80671
 ElementalWeapon	SpellDefinition	SpellDefinition	f928808f-2083-5f5b-b72c-241c312bdac4
 ElementalWeaponDamageAcid	SpellDefinition	SpellDefinition	f939cbed-f517-5ada-8766-0c210dc2a74c

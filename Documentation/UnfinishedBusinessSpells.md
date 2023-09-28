@@ -260,37 +260,41 @@ The next time you hit a creature with a weapon attack during this spell's durati
 
 Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 
-# 62. - Far Step (V) level 5 Conjuration
+# 62. - Divine Wrath (V) level 5 Evocation
+
+You strike the ground, creating a burst of divine energy that ripples outward from you. Each creature you choose within 30 feet of you must succeed on a Constitution saving throw or take 5d6 thunder damage, as well as 5d6 radiant or necrotic damage, and be knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn’t knocked prone.
+
+# 63. - Far Step (V) level 5 Conjuration
 
 You teleport up to 60 ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 
-# 63. - Incineration (V) level 5 Evocation [Concentration]
+# 64. - Incineration (V) level 5 Evocation [Concentration]
 
 Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet and takes 4d6 fire damage at the start of each of its turns.
 
-# 64. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration]
+# 65. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration]
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 65. - Raise Skeletal Knight (V,S) level 5 Necromancy [Concentration]
+# 66. - Raise Skeletal Knight (V,S) level 5 Necromancy [Concentration]
 
 Summons Skeletal Knight:
 A powerful undead creature, created by raising a dead knight.
 
-# 66. - Raise Skeletal Marksman (V,S) level 5 Necromancy [Concentration]
+# 67. - Raise Skeletal Marksman (V,S) level 5 Necromancy [Concentration]
 
 Summons Skeletal Marksman:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
 
-# 67. - Sonic Boom (V,S) level 5 Evocation
+# 68. - Sonic Boom (V,S) level 5 Evocation
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
-# 68. - Steel Whirlwind (M,S) level 5 Conjuration
+# 69. - Steel Whirlwind (M,S) level 5 Conjuration
 
 You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed.
 
-# 69. - Heroic Infusion (V,S) level 6 Transmutation [Concentration]
+# 70. - Heroic Infusion (V,S) level 6 Transmutation [Concentration]
 
 You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:
 • You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost.
@@ -300,66 +304,66 @@ You endow yourself with endurance and martial prowess fueled by magic. Until the
 • You can attack twice, instead of once, when you take the Attack action on your turn.
 Immediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion.
 
-# 70. - Poison Wave (M,V,S) level 6 Evocation
+# 71. - Poison Wave (M,V,S) level 6 Evocation
 
 A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 10d6 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d6 for each slot level above 6th.
 
-# 71. - Raise Spectral Avenger (V,S) level 6 Necromancy [Concentration]
+# 72. - Raise Spectral Avenger (V,S) level 6 Necromancy [Concentration]
 
 Summons Spectral Avenger:
 A powerful, ethereal undead creature.
 
-# 72. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
+# 73. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
 You raise both hands as you evoke six magical swords around you. As a bonus action, you can throw one of these swords to a creature within 30 feet from you. Make a ranged spell attack for it. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, you create one additional sword for each slot level above 7th level.
 
-# 73. - Raise Wight (V,S) level 7 Necromancy [Concentration]
+# 74. - Raise Wight (V,S) level 7 Necromancy [Concentration]
 
 Summons Wight:
 A Wight
 
-# 74. - Reverse Gravity (V,S) level 7 Transmutation [Concentration]
+# 75. - Reverse Gravity (V,S) level 7 Transmutation [Concentration]
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 75. - Mind Blank (V,S) level 8 Transmutation
+# 76. - Mind Blank (V,S) level 8 Transmutation
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 76. - Raise Wight Lord (V,S) level 8 Necromancy [Concentration]
+# 77. - Raise Wight Lord (V,S) level 8 Necromancy [Concentration]
 
 Summons Wight Lord:
 A powerful wight, trained to withstand the light of day.
 
-# 77. - Foresight (V,S) level 9 Transmutation
+# 78. - Foresight (V,S) level 9 Transmutation
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 78. - Mass Heal (V,S) level 9 Transmutation
+# 79. - Mass Heal (V,S) level 9 Transmutation
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 79. - Meteor Swarm [Single Target] (V,S) level 9 Transmutation
+# 80. - Meteor Swarm [Single Target] (V,S) level 9 Transmutation
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 80. - Power Word Heal (V,S) level 9 Enchantment
+# 81. - Power Word Heal (V,S) level 9 Enchantment
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 81. - Power Word Kill (V,S) level 9 Transmutation
+# 82. - Power Word Kill (V,S) level 9 Transmutation
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 82. - Shapechange (M,V,S) level 9 Transmutation [Concentration]
+# 83. - Shapechange (M,V,S) level 9 Transmutation [Concentration]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 83. - Time Stop (V) level 9 Transmutation
+# 84. - Time Stop (V) level 9 Transmutation
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 84. - Weird (V,S) level 9 Illusion [Concentration]
+# 85. - Weird (V,S) level 9 Illusion [Concentration]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
