@@ -290,6 +290,11 @@ public static class ActionSwitching
 
         Main.Info($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
 
+        if (wasRank >= filters.Count)
+        {
+            return false;
+        }
+
         var wasData = PerformanceFilterExtraData.GetData(filters[wasRank]);
 
         //TODO: has potential to spend extra attack for sorcerers who initiate Flexible Casting (slot-sorcerer point conversion) and then cancel it.
