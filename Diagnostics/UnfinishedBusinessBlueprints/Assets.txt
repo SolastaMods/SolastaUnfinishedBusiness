@@ -10230,6 +10230,7 @@ MindSpike	SpellDefinition	SpellDefinition	bfa2d1c0-d3ad-5895-8bef-21c8f4830c7c
 MinorLifesteal	SpellDefinition	SpellDefinition	45d18b97-30c5-5a95-8618-c7297e7ee7d9
 Mule	SpellDefinition	SpellDefinition	f75f3d44-3b86-5879-931a-30a8a9407d57
 PetalStorm	SpellDefinition	SpellDefinition	4cc7aea6-dee9-5631-8b2a-f0e497b71bde
+PoisonWave	SpellDefinition	SpellDefinition	eb22297a-4da6-5f24-87e8-ddcd2b957bd0
 PowerWordHeal	SpellDefinition	SpellDefinition	f9e2477f-fbee-5778-8ffc-c0380c0dea7d
 PowerWordKill	SpellDefinition	SpellDefinition	7d618d6a-004a-539e-a996-e180936abe9c
 ProtectThreshold	SpellDefinition	SpellDefinition	edc0ec8d-88e4-5c7d-b60e-be3e6b2e9cf0

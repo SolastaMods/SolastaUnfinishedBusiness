@@ -1,10 +1,12 @@
 Condition/&ConditionHeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。
 Condition/&ConditionHeroicInfusionTitle=英雄输液
-Feedback/&AdditionalDamageHeroicInfusionFormat=英雄注入！
-Feedback/&AdditionalDamageHeroicInfusionLine={0}英勇地击中了{1}！ (+{2})
 Feature/&PowerRingOfBladesDescription=作为奖励动作，你可以使用你的一把刀锋环剑对距离你 30 英尺内的生物进行远程法术攻击。
 Feature/&PowerRingOfBladesTitle=刀锋之环
+Feedback/&AdditionalDamageHeroicInfusionFormat=英雄注入！
+Feedback/&AdditionalDamageHeroicInfusionLine={0}英勇地击中了{1}！ (+{2})
 Spell/&HeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。在法术结束之前，你无法施展法术，并且你会获得以下好处：\n• 你获得 50 点临时生命值。如果法术结束时其中任何剩余，它们就会丢失。\n• 您在使用简单武器和军用武器进行的攻击检定中具有优势。\n• 当您使用武器攻击击中目标时，该目标将获得额外的 2d12 力量伤害。\n• 您拥有战士级护甲、武器和豁免能力。\n• 当您在自己的回合中采取攻击动作时，您可以攻击两次，而不是一次。\n法术结束后，你必须立即通过 DC 15 的体质豁免检定，否则会遭受一级疲惫。
 Spell/&HeroicInfusionTitle=英雄输液
+Spell/&PoisonWaveDescription=一股有毒的波浪从你身上爆发出来，吞噬了附近的人。法术半径内的每个生物都必须进行一次体质豁免检定，失败时受到 10d6 的毒素伤害，成功时受到一半的伤害。豁免失败的生物也会中毒 1 分钟。当你使用 7 级或更高等级的插槽施放此法术时，每高于 6 级的插槽等级，伤害就会增加 1d6。
+Spell/&PoisonWaveTitle=毒波
 Spell/&RingOfBladesDescription=你举起双手，召唤出周围的六把魔法剑。作为奖励动作，你可以将其中一把剑扔给距离你 30 英尺内的生物。对其进行远程法术攻击。命中后，目标会受到 4d8 点力量伤害。当你使用7级或更高等级的法术位施放此法术时，你会为7级以上的每个法术位等级额外创造一把剑。
 Spell/&RingOfBladesTitle=刀锋之环

@@ -279,7 +279,8 @@ internal static class SpellsContext
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level
-        RegisterSpell(BuildHeroicInfusion(), 0, SpellListWizard);
+        RegisterSpell(BuildHeroicInfusion(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
         RegisterSpell(BuildRingOfBlades(), 0, SpellListWizard);
 
         // 7th level
