@@ -1689,9 +1689,11 @@ public static class RulesetCharacterPatcher
                 {
                     var caster = GameLocationCharacter.GetFromActor(__instance);
 
-                    EffectHelpers.StartVisualEffect(
-                        caster, caster, LesserRestoration,
-                        EffectHelpers.EffectType.Caster);
+                    if (caster != null)
+                    {
+                        EffectHelpers.StartVisualEffect(caster, caster, LesserRestoration,
+                            EffectHelpers.EffectType.Caster);
+                    }
 
                     __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
                 }

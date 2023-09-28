@@ -866,10 +866,11 @@ internal static partial class SpellBuilders
             RulesetEffect rulesetEffect)
         {
             var damageForm = effectDescription.FindFirstDamageForm();
+            var glc = GameLocationCharacter.GetFromActor(character);
 
             if (damageForm != null
-                && GameLocationCharacter.GetFromActor(character).UsedSpecialFeatures
-                    .TryGetValue(_conditionLightningArrow.Name, out var additionalDice))
+                && glc != null
+                && glc.UsedSpecialFeatures.TryGetValue(_conditionLightningArrow.Name, out var additionalDice))
             {
                 damageForm.diceNumber = 2 + additionalDice;
             }

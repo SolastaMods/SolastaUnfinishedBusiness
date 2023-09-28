@@ -381,8 +381,6 @@ public sealed class OathOfDread : AbstractSubclass
                 return;
             }
 
-            var locationCharacterAttacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-
             rulesetDefender.InflictCondition(
                 CustomConditionsContext.StopMovement.Name,
                 DurationType.Round,
@@ -404,7 +402,14 @@ public sealed class OathOfDread : AbstractSubclass
                 DamageType = DamageTypePsychic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
-            EffectHelpers.StartVisualEffect(locationCharacterAttacker, locationCharacter, DreadfulOmen);
+
+            var locationCharacterAttacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+
+            if (locationCharacterAttacker != null)
+            {
+                EffectHelpers.StartVisualEffect(locationCharacterAttacker, locationCharacter, DreadfulOmen);
+            }
+
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,

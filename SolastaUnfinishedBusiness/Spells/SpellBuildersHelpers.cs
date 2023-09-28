@@ -40,7 +40,7 @@ internal static partial class SpellBuilders
             var caster = GameLocationCharacter.GetFromActor(character);
             var attackMode = caster?.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-            if (attackMode is not { SourceObject: RulesetItem })
+            if (caster == null || attackMode is not { SourceObject: RulesetItem })
             {
                 return false;
             }
@@ -62,6 +62,12 @@ internal static partial class SpellBuilders
             RulesetEffect rulesetEffect)
         {
             var caster = GameLocationCharacter.GetFromActor(character);
+
+            if (caster == null)
+            {
+                return effectDescription;
+            }
+
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             var reach = attackMode.reachRange;
 
