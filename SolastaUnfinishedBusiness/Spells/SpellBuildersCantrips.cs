@@ -970,9 +970,11 @@ internal static partial class SpellBuilders
                 var glc = GameLocationCharacter.GetFromActor(character);
                 var damageForm = effectDescription.FindFirstDamageForm();
 
-                if (glc != null && damageForm != null)
+                if (glc != null
+                    && damageForm != null
+                    && glc.UsedSpecialFeatures.TryGetValue(_baseDefinition.Name, out var bonusDamage))
                 {
-                    damageForm.bonusDamage = glc.UsedSpecialFeatures[_baseDefinition.Name];
+                    damageForm.bonusDamage = bonusDamage;
                 }
             }
 
