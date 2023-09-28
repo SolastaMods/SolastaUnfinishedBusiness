@@ -154,7 +154,7 @@ internal static class RaceOligathBuilder
         conditionOligathStoneEndurance.Features.Add(reduceDamageOligathStoneEndurance);
 
         powerOligathStoneEndurance
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AttackBeforeHitConfirmedOnMeStoneEndurance(
                     powerOligathStoneEndurance,
                     conditionOligathStoneEndurance));

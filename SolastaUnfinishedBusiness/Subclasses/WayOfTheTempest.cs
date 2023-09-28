@@ -35,7 +35,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .Create($"MovementAffinity{Name}TempestSwiftness")
             .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedAdditiveModifier(2)
-            .SetCustomSubFeatures(new ActionFinishedByMeTempestSwiftness())
+            .AddCustomSubFeatures(new ActionFinishedByMeTempestSwiftness())
             .AddToDB();
 
         // LEVEL 06
@@ -92,7 +92,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTempestFury.SetCustomSubFeatures(new AttackAfterMagicEffectTempestFury());
+        powerTempestFury.AddCustomSubFeatures(new AttackAfterMagicEffectTempestFury());
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")
@@ -106,10 +106,11 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .Create($"ActionAffinity{Name}TempestFury")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
-            .SetCustomSubFeatures(new ValidateDefinitionApplication(
-                ValidatorsCharacter.HasAttacked,
-                ValidatorsCharacter.HasAvailableBonusAction,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasAttacked,
+                    ValidatorsCharacter.HasAvailableBonusAction,
+                    ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
             .AddToDB();
 
         var featureSetTempestFury = FeatureDefinitionFeatureSetBuilder
@@ -205,7 +206,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.InCombat)
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat)
             .AddToDB();
 
         powerEyeOfTheStormLeap.EffectDescription.EffectParticleParameters.impactParticleReference =
@@ -221,7 +222,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(ShockingGrasp)
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.InCombat,
                 new MagicEffectFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm))
             .AddToDB();

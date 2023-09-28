@@ -159,7 +159,7 @@ public sealed class OathOfDread : AbstractSubclass
             .SetConditionParticleReference(ConditionBaned.conditionParticleReference)
             .AddToDB();
 
-        featureAuraOfDomination.SetCustomSubFeatures(
+        featureAuraOfDomination.AddCustomSubFeatures(
             new CharacterTurnStartListenerAuraOfDomination(conditionAuraOfDomination));
 
         var powerAuraOfDomination = FeatureDefinitionPowerBuilder
@@ -185,7 +185,7 @@ public sealed class OathOfDread : AbstractSubclass
         var featureHarrowingCrusade = FeatureDefinitionBuilder
             .Create($"Feature{Name}{HARROWING_CRUSADE}")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ReactToAttackOnMeOrMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
             .AddToDB();
 

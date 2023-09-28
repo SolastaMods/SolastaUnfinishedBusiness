@@ -58,7 +58,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new RogueClassHolder(),
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
@@ -106,7 +106,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityHailOfBladesToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerHailOfBlades)))
             .AddToDB();
 
@@ -154,11 +154,11 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureBladeStorm.SetCustomSubFeatures(new OnReducedToZeroHpByMeBladeStorm(powerHailOfBlades));
+        featureBladeStorm.AddCustomSubFeatures(new OnReducedToZeroHpByMeBladeStorm(powerHailOfBlades));
 
         // MAIN
 
-        featureBladeBond.SetCustomSubFeatures(
+        featureBladeBond.AddCustomSubFeatures(
             new ReturningWeapon(IsBladeCallerWeapon),
             new ModifyWeaponAttackModeBladeBond(),
             new CustomBehaviorBladeMark(conditionBladeMark, conditionBladeSurge, powerHailOfBlades));

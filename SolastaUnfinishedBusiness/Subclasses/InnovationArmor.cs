@@ -85,7 +85,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var pool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorModeSelectorPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
+            .AddCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .AddToDB();
 
@@ -125,7 +125,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var guardianMode = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerInnovationArmorSwitchModeGuardian")
             .SetGuiPresentation(Category.Feature, Sprites.PowerGuardianMode)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(NotGuardianMode),
                 ValidatorsValidatePowerUse.NotInCombat,
                 new AddGauntletAttack(),
@@ -146,7 +146,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var infiltratorMode = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerInnovationArmorSwitchModeInfiltrator")
             .SetGuiPresentation(Category.Feature, Sprites.PowerInfiltratorMode)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(NotInfiltratorMode),
                 ValidatorsValidatePowerUse.NotInCombat,
                 new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
@@ -167,7 +167,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var defensiveField = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorDefensiveField")
             .SetGuiPresentation(Category.Feature, Sprites.PowerDefensiveField)
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(InGuardianMode), InventorClassHolder.Marker,
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(InGuardianMode), InventorClassHolder.Marker,
                 RecurrenceOnlyOnSelfTurn.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -198,7 +198,7 @@ public sealed class InnovationArmor : AbstractSubclass
         return FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerUseModifierInventorInfusionPoolArmorModification")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(ArmorerInfusions.Marker)
+            .AddCustomSubFeatures(ArmorerInfusions.Marker)
             .SetFixedValue(InventorClass.InfusionPool, 2)
             .AddToDB();
     }
@@ -208,7 +208,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var guardian = FeatureDefinitionPowerBuilder
             .Create("PowerInventorArmorerPerfectedArmorGuardian")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new RestrictReactionAttackMode(
+            .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
                 {
                     if (attackMode.sourceDefinition is not ItemDefinition weapon)
@@ -238,7 +238,7 @@ public sealed class InnovationArmor : AbstractSubclass
         var infiltrator = FeatureDefinitionPowerBuilder
             .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
             .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
-            .SetCustomSubFeatures(new RestrictReactionAttackMode(
+            .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
                 {
                     if (attackMode.sourceDefinition is not ItemDefinition weapon)

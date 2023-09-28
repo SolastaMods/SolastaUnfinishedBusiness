@@ -578,7 +578,7 @@ internal static class SrdAndHouseRulesContext
         RestActivityDefinitionBuilder
             .Create("RestActivityShortRestIdentify")
             .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)
-            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
@@ -590,7 +590,7 @@ internal static class SrdAndHouseRulesContext
         RestActivityDefinitionBuilder
             .Create("RestActivityLongRestIdentify")
             .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)
-            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
@@ -602,13 +602,13 @@ internal static class SrdAndHouseRulesContext
         var afterRestIdentifyCondition = ConditionDefinitionBuilder
             .Create("AfterRestIdentify")
             .SetGuiPresentation(Category.Condition)
-            .SetCustomSubFeatures(OnConditionAddedOrRemovedIdentifyItems.Mark)
+            .AddCustomSubFeatures(OnConditionAddedOrRemovedIdentifyItems.Mark)
             .AddToDB();
 
         FeatureDefinitionPowerBuilder
             .Create(AfterRestIdentifyName)
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetCustomSubFeatures(CanIdentifyOnRest.Mark)
+            .AddCustomSubFeatures(CanIdentifyOnRest.Mark)
             .SetUsesFixed(ActivationTime.Rest)
             .SetEffectDescription(
                 EffectDescriptionBuilder

@@ -177,7 +177,7 @@ internal static class Level20SubclassesContext
         var featureDomainLifeSupremeHealing = FeatureDefinitionBuilder
             .Create("DomainLifeSupremeHealing")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyDiceRollSupremeHealing())
+            .AddCustomSubFeatures(new ModifyDiceRollSupremeHealing())
             .AddToDB();
 
         DomainLife.FeatureUnlocks.Add(
@@ -207,7 +207,7 @@ internal static class Level20SubclassesContext
                             .Build())
                     .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsThunder)
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -224,7 +224,7 @@ internal static class Level20SubclassesContext
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlyingAdaptive,
                             ConditionForm.ConditionOperation.Remove))
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -254,7 +254,7 @@ internal static class Level20SubclassesContext
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureDomainOblivionKeeperOfOblivion.SetCustomSubFeatures(
+        featureDomainOblivionKeeperOfOblivion.AddCustomSubFeatures(
             new OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(featureDomainOblivionKeeperOfOblivion));
 
         DomainOblivion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDomainOblivionKeeperOfOblivion, 17));
@@ -268,7 +268,7 @@ internal static class Level20SubclassesContext
         var featureDomainSunRisingDawn = FeatureDefinitionBuilder
             .Create("FeatureDomainSunRisingDawn")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ModifyDamageResistanceRisingDawn())
+            .AddCustomSubFeatures(new ModifyDamageResistanceRisingDawn())
             .AddToDB();
 
         var featureSetDomainSunRisingDawn = FeatureDefinitionFeatureSetBuilder
@@ -341,7 +341,7 @@ internal static class Level20SubclassesContext
         var featureMartialChampionSurvivor = FeatureDefinitionBuilder
             .Create("FeatureMartialChampionSurvivor")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CharacterTurnStartListenerSurvivor())
+            .AddCustomSubFeatures(new CharacterTurnStartListenerSurvivor())
             .AddToDB();
 
         MartialChampion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureMartialChampionSurvivor, 18));
@@ -435,7 +435,7 @@ internal static class Level20SubclassesContext
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(
                 ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget)
-            .SetCustomSubFeatures(new CustomLevelUpLogicPositionOfStrength())
+            .AddCustomSubFeatures(new CustomLevelUpLogicPositionOfStrength())
             .AddToDB();
 
         var attributeModifierMartialMountaineerPositionOfStrengthAura = FeatureDefinitionAttributeModifierBuilder
@@ -530,7 +530,7 @@ internal static class Level20SubclassesContext
         var featureTraditionLightPurityOfLife = FeatureDefinitionBuilder
             .Create("FeatureTraditionLightPurityOfLife")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CustomBehaviorPurityOfLight())
+            .AddCustomSubFeatures(new CustomBehaviorPurityOfLight())
             .AddToDB();
 
         var featureSetPurityOfLife = FeatureDefinitionFeatureSetBuilder
@@ -574,7 +574,7 @@ internal static class Level20SubclassesContext
                     .Build())
             .AddToDB();
 
-        powerTraditionOpenHandQuiveringPalmTrigger.SetCustomSubFeatures(
+        powerTraditionOpenHandQuiveringPalmTrigger.AddCustomSubFeatures(
             new CustomBehaviorQuiveringPalmTrigger(
                 powerTraditionOpenHandQuiveringPalmTrigger,
                 conditionTraditionOpenHandQuiveringPalm));
@@ -592,7 +592,7 @@ internal static class Level20SubclassesContext
                     .SetParticleEffectParameters(Bane)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTraditionOpenHandQuiveringPalm))
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 ForcePowerUseInSpendPowerAction.Marker,
                 new MagicEffectFinishedByMeQuiveringPalm(conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
@@ -665,7 +665,7 @@ internal static class Level20SubclassesContext
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
             .AddToDB();
 
-        powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
+        powerTraditionSurvivalPhysicalPerfection.AddCustomSubFeatures(
             new OnReducedToZeroHpByEnemyPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
@@ -697,7 +697,7 @@ internal static class Level20SubclassesContext
             .SetGuiPresentation("ConditionOathOfDevotionHolyNimbus", Category.Condition)
             .AddToDB();
 
-        savingThrowAffinityOathOfDevotionHolyNimbus.SetCustomSubFeatures(
+        savingThrowAffinityOathOfDevotionHolyNimbus.AddCustomSubFeatures(
             new ModifySavingThrowHolyNimbus(savingThrowAffinityOathOfDevotionHolyNimbus));
 
         var conditionOathOfDevotionHolyNimbus = ConditionDefinitionBuilder
@@ -915,7 +915,7 @@ internal static class Level20SubclassesContext
             .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition)
             .AddToDB();
 
-        featureOathOfTirmarInquisitorZealAdvantage.SetCustomSubFeatures(
+        featureOathOfTirmarInquisitorZealAdvantage.AddCustomSubFeatures(
             new ModifyAttackActionModifierInquisitorZeal(featureOathOfTirmarInquisitorZealAdvantage));
 
         var conditionOathOfTirmarInquisitorSelfZeal = ConditionDefinitionBuilder
@@ -981,7 +981,7 @@ internal static class Level20SubclassesContext
         var featureRoguishDarkweaverDarkAssault = FeatureDefinitionBuilder
             .Create("FeatureRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomBehaviorDarkAssault(conditionRoguishDarkweaverDarkAssault))
+            .AddCustomSubFeatures(new CustomBehaviorDarkAssault(conditionRoguishDarkweaverDarkAssault))
             .AddToDB();
 
         RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishDarkweaverDarkAssault, 17));
@@ -990,12 +990,12 @@ internal static class Level20SubclassesContext
         // Hoodlum
         //
 
-        PowerRoguishHoodlumDirtyFighting.SetCustomSubFeatures(new AttackAfterMagicEffectBrutalAssault());
+        PowerRoguishHoodlumDirtyFighting.AddCustomSubFeatures(new AttackAfterMagicEffectBrutalAssault());
 
         var featureRoguishHoodlumBrutalAssault = FeatureDefinitionBuilder
             .Create("FeatureRoguishHoodlumBrutalAssault")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CustomAdditionalDamageBrutalAssault(
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
@@ -1075,7 +1075,7 @@ internal static class Level20SubclassesContext
         var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
             .Create("FeatureRoguishThiefThiefReflexes")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new InitiativeEndListenerThiefReflexes())
+            .AddCustomSubFeatures(new InitiativeEndListenerThiefReflexes())
             .AddToDB();
 
         RoguishThief.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishThiefThiefReflexes, 17));
@@ -1186,7 +1186,7 @@ internal static class Level20SubclassesContext
             .SetSpecialInterruptions(Array.Empty<ConditionInterruption>())
             .AddToDB();
 
-        conditionMindDominatedByHauntedSoul.SetCustomSubFeatures(
+        conditionMindDominatedByHauntedSoul.AddCustomSubFeatures(
             new OnConditionAddedOrRemovedPossession(conditionMindDominatedByHauntedSoul));
 
         var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
@@ -1240,7 +1240,7 @@ internal static class Level20SubclassesContext
             .AddFeatureSet(powerSorcererManaPainterMasterDrain)
             .AddToDB();
 
-        powerSorcererManaPainterMasterDrain.SetCustomSubFeatures(
+        powerSorcererManaPainterMasterDrain.AddCustomSubFeatures(
             new TryAlterOutcomeSavingThrowManaOverflow(featureSetSorcererManaPainterManaOverflow));
 
         SorcerousManaPainter.FeatureUnlocks.Add(

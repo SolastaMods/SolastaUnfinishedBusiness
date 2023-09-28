@@ -134,7 +134,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerArcaneBackslashCounterSpell.SetCustomSubFeatures(
+        powerArcaneBackslashCounterSpell.AddCustomSubFeatures(
             new ModifyEffectDescriptionArcaneBackslashCounterSpell(powerArcaneBackslashCounterSpell));
 
         var powerArcaneBacklash = FeatureDefinitionPowerBuilder
@@ -152,7 +152,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerArcaneBacklash.SetCustomSubFeatures(
+        powerArcaneBacklash.AddCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
@@ -216,7 +216,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerEssenceTheft.SetCustomSubFeatures(
+        powerEssenceTheft.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(CanUseEssenceTheft),
             new CustomBehaviorEssenceTheft(powerEssenceTheft, conditionPossessed));
 

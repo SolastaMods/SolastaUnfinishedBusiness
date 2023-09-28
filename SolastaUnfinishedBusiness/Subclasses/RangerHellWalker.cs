@@ -48,7 +48,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             .SetEffectDescription(SpellsContext.EnduringSting.EffectDescription)
             .AddToDB();
 
-        powerFirebolt.SetCustomSubFeatures(new ModifyEffectDescriptionFireBolt(powerFirebolt));
+        powerFirebolt.AddCustomSubFeatures(new ModifyEffectDescriptionFireBolt(powerFirebolt));
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Firebolt")
@@ -152,10 +152,10 @@ public sealed class RangerHellWalker : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        conditionDammingStrike.SetCustomSubFeatures(
+        conditionDammingStrike.AddCustomSubFeatures(
             new OnConditionAddedOrRemovedDammingStrike(conditionMarkOfTheDammed));
 
-        powerMarkOfTheDammed.SetCustomSubFeatures(
+        powerMarkOfTheDammed.AddCustomSubFeatures(
             new CustomBehaviorMarkOfTheDammed(powerMarkOfTheDammed, conditionMarkOfTheDammed));
 
         // LEVEL 15

@@ -59,7 +59,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
         var bypassSpellConcentrationDeadMaster = FeatureDefinitionBuilder
             .Create("BypassSpellConcentrationDeadMaster")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyConcentrationRequirementDeadMaster())
+            .AddCustomSubFeatures(new ModifyConcentrationRequirementDeadMaster())
             .AddToDB();
 
         var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
@@ -67,7 +67,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        targetReducedToZeroHpDeadMasterStarkHarvest.SetCustomSubFeatures(
+        targetReducedToZeroHpDeadMasterStarkHarvest.AddCustomSubFeatures(
             new OnReducedToZeroHpByMeStarkHarvest(targetReducedToZeroHpDeadMasterStarkHarvest));
 
         const string ChainsName = "SummoningAffinityDeadMasterUndeadChains";

@@ -30,14 +30,14 @@ public class PatronEldritchSurge : AbstractSubclass
             .Create($"BonusCantrips{Name}BlastExclusive")
             .SetGuiPresentation(Category.Feature)
             .SetBonusCantrips(EldritchBlast)
-            .SetCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
+            .AddCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
             .AddToDB();
 
     // LEVEL 06 Blast Pursuit
     public static readonly FeatureDefinition FeatureBlastPursuit = FeatureDefinitionBuilder
         .Create($"Feature{Name}BlastPursuit")
         .SetGuiPresentation(Category.Feature)
-        .SetCustomSubFeatures(new OnReducedToZeroHpByMeBlastPursuit())
+        .AddCustomSubFeatures(new OnReducedToZeroHpByMeBlastPursuit())
         .AddToDB();
 
     // LEVEL 10 Blast Reload;
@@ -58,7 +58,7 @@ public class PatronEldritchSurge : AbstractSubclass
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-        .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+        .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
     public PatronEldritchSurge()
@@ -250,7 +250,7 @@ public class PatronEldritchSurge : AbstractSubclass
                 .Create($"Condition{PatronEldritchSurge.Name}BlastReloadSupport")
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetCustomSubFeatures(Marker,
+                .AddCustomSubFeatures(Marker,
                     new BlastReloadCustom())
                 .AddToDB();
         }

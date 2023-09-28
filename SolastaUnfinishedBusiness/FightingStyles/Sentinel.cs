@@ -22,7 +22,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("OnAttackHitEffectFeatSentinel")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     AttacksOfOpportunity.IgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
                     new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))

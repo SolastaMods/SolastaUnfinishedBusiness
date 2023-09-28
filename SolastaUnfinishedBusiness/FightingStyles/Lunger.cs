@@ -21,7 +21,7 @@ internal sealed class Lunger : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("FeatureLunger")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseWeaponReach(1, (mode, rulesetItem, _) =>
+                .AddCustomSubFeatures(new IncreaseWeaponReach(1, (mode, rulesetItem, _) =>
                 {
                     var item = mode?.SourceObject as RulesetItem ?? rulesetItem;
                     return ValidatorsWeapon.IsMelee(item) &&

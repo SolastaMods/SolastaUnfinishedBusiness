@@ -65,7 +65,7 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureHammersBoon.SetCustomSubFeatures(
+        featureHammersBoon.AddCustomSubFeatures(
             new ReturningWeapon(IsOathOfThunderWeapon),
             new ModifyWeaponModifyAttackModeHammerAndAxeBoon(featureHammersBoon));
 
@@ -97,7 +97,7 @@ public sealed class OathOfThunder : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerThunderousRebuke.SetCustomSubFeatures(new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
+        powerThunderousRebuke.AddCustomSubFeatures(new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
 
         // Divine Bolt
 
@@ -165,7 +165,7 @@ public sealed class OathOfThunder : AbstractSubclass
         var featureGodOfThunder = FeatureDefinitionBuilder
             .Create($"Feature{Name}GodOfThunder")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomAdditionalDamageGodOfThunder(additionalDamageGodOfThunder))
+            .AddCustomSubFeatures(new CustomAdditionalDamageGodOfThunder(additionalDamageGodOfThunder))
             .AddToDB();
 
         // LEVEL 15
@@ -210,7 +210,7 @@ public sealed class OathOfThunder : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(DimensionDoor)
                     .Build())
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeBifrost(powerBifrostDamage))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeBifrost(powerBifrostDamage))
             .AddToDB();
 
         // LEVEL 20

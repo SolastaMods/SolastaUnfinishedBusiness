@@ -99,7 +99,7 @@ internal static class CommonBuilders
     internal static readonly FeatureDefinitionPower PowerCasterFightingWarMagic = FeatureDefinitionPowerBuilder
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)
-        .SetCustomSubFeatures(
+        .AddCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
                 ConditionDefinitionBuilder
@@ -114,7 +114,7 @@ internal static class CommonBuilders
                             .Create("PowerCasterFightingWarMagicAttack")
                             .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature, Gui.NoLocalization)
                             .SetDamageRollModifier(1)
-                            .SetCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
+                            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                             .AddToDB())
                     .AddToDB()))
         .AddToDB();

@@ -20,7 +20,7 @@ internal sealed class Executioner : AbstractFightingStyle
     private static readonly FeatureDefinition FeatureFightingStyleExecutioner = FeatureDefinitionBuilder
         .Create("FeatureFightingStyleExecutioner")
         .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(new CustomAdditionalDamageExecutioner(
+        .AddCustomSubFeatures(new CustomAdditionalDamageExecutioner(
             FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageFightingStyleExecutioner")
                 .SetGuiPresentationNoContent(true)

@@ -42,26 +42,26 @@ public sealed class OathOfAltruism : AbstractSubclass
         var featureSpiritualShielding = FeatureDefinitionBuilder
             .Create($"Feature{Name}SpiritualShielding")
             .SetGuiPresentation(Category.Feature, ShieldOfFaith)
-            .SetCustomSubFeatures(new SpiritualShieldingBlockAttack())
+            .AddCustomSubFeatures(new SpiritualShieldingBlockAttack())
             .AddToDB();
 
         var featureDefensiveStrike = FeatureDefinitionBuilder
             .Create(DefensiveStrike)
             .SetGuiPresentation(Category.Feature, PowerDomainBattleDecisiveStrike)
-            .SetCustomSubFeatures(DefensiveStrikeMarker.Mark)
+            .AddCustomSubFeatures(DefensiveStrikeMarker.Mark)
             .AddToDB();
 
         var conditionAuraOfTheGuardian = ConditionDefinitionBuilder
             .Create($"Condition{Name}AuraOfTheGuardian")
             .SetGuiPresentation(Category.Condition, ConditionShielded)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianConditionMarker)
+            .AddCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianConditionMarker)
             .AddToDB();
 
         var powerAuraOfTheGuardian = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, $"Power{Name}AuraOfTheGuardian")
             .SetGuiPresentation(Category.Feature, GuardianOfFaith)
-            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
+            .AddCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
             .AddToDB();
 
         powerAuraOfTheGuardian.EffectDescription.EffectForms[0] = EffectFormBuilder
@@ -79,14 +79,14 @@ public sealed class OathOfAltruism : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 5,
                         TargetType.IndividualsUnique)
                     .Build())
-            .SetCustomSubFeatures(new MagicEffectFinishedByMeTakeThePain())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeTakeThePain())
             .AddToDB();
 
         var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
             .Create(powerAuraOfTheGuardian, $"Power{Name}AuraOfTheGuardian18")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerAuraOfTheGuardian)
-            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
+            .AddCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
             .AddToDB();
 
         powerAuraOfTheGuardian18.EffectDescription.targetParameter = 13;

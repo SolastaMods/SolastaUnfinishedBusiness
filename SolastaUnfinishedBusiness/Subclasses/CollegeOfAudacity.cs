@@ -120,7 +120,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Slashing Whirl
@@ -135,7 +135,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Mobile Whirl
@@ -150,7 +150,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Audacious Whirl
@@ -167,7 +167,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerAudaciousWhirl.SetCustomSubFeatures(
+        powerAudaciousWhirl.AddCustomSubFeatures(
             new CustomBehaviorWhirl(
                 conditionAudaciousWhirlExtraMovement,
                 conditionDefensiveWhirl,

@@ -66,7 +66,7 @@ internal static class EldritchVersatility
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-        .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+        .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
         .AddToDB();
 
     public static readonly FeatureDefinitionCustomInvocationPool Learn1Versatility =
@@ -87,7 +87,7 @@ internal static class EldritchVersatility
         .Create($"Feat{Name}Adept")
         .SetGuiPresentation(Category.Feat)
         .AddFeatures(Learn1Versatility)
-        .SetCustomSubFeatures(new EldritchVersatilityAdeptCustom())
+        .AddCustomSubFeatures(new EldritchVersatilityAdeptCustom())
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionEldritchSurgeBlastOverload = ConditionDefinitionBuilder
@@ -100,7 +100,7 @@ internal static class EldritchVersatility
                 .SetGuiPresentationNoContent(true)
                 .SetActionType(ActionType.Main)
                 .AddToDB())
-        .SetCustomSubFeatures(new OnConditionAddedOrRemovedBlastOverload())
+        .AddCustomSubFeatures(new OnConditionAddedOrRemovedBlastOverload())
         .AddToDB();
 
     public static readonly FeatureDefinitionPower PowerBlastOverload = FeatureDefinitionPowerBuilder
@@ -129,7 +129,7 @@ internal static class EldritchVersatility
                 $"Feature{Name}{name}")
             .SetNotificationTag("BlastEmpower")
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AbilityScoreNameProvider(() => AttributeDefinitions.Strength),
                 new BlastEmpowerCustom($"Invocation{Name}{name}"))
             .AddToDB();
@@ -140,7 +140,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new BlastBreakthroughCustom($"Invocation{Name}{name}"))
+            .AddCustomSubFeatures(new BlastBreakthroughCustom($"Invocation{Name}{name}"))
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Strength, featureOrPower);
 
@@ -153,7 +153,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new BattlefieldShorthandCopyMagicalAttackCastedSpells())
+            .AddCustomSubFeatures(new BattlefieldShorthandCopyMagicalAttackCastedSpells())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
 
@@ -167,7 +167,7 @@ internal static class EldritchVersatility
                     .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 PowerFromInvocation.Marker,
                 new BattlefieldConversionRestoreSlot())
             .AddToDB();
@@ -183,7 +183,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new EldritchAegisTwistHit())
+            .AddCustomSubFeatures(new EldritchAegisTwistHit())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
 
@@ -192,7 +192,7 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new EldritchWardAidSave())
+            .AddCustomSubFeatures(new EldritchWardAidSave())
             .AddToDB();
         BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
 
@@ -332,7 +332,7 @@ internal static class EldritchVersatility
                 .Create("ConditionEldritchVersatility")
                 .SetGuiPresentationNoContent(true)
                 .SetSpecialInterruptions(ConditionInterruption.LevelUp, ConditionInterruption.LongRest)
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     Marker,
                     new OnConditionAddedOrRemovedVersatility())
                 .SetSilent(Silent.WhenAddedOrRemoved)
@@ -676,7 +676,7 @@ internal static class EldritchVersatility
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
+                .AddCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
                 .AddToDB();
 
         private static readonly FeatureDefinitionMagicAffinity FeatureBlastBreakthroughNoPenalty =
@@ -1064,7 +1064,7 @@ internal static class EldritchVersatility
             .Create("ConditionEldritchAegisAddAC")
             .SetGuiPresentation(Category.Condition, ConditionMagicallyArmored)
             .SetPossessive()
-            .SetCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
             .AddToDB();
 
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,

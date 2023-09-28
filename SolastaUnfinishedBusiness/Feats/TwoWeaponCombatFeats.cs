@@ -64,7 +64,7 @@ internal static class TwoWeaponCombatFeats
                 FeatureDefinitionBuilder
                     .Create("OnAttackDamageEffectFeatDualFlurry")
                     .SetGuiPresentation("FeatDualFlurry", Category.Feat)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         new OnPhysicalAttackHitFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
                     .AddToDB())
             .AddToDB();

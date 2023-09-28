@@ -92,7 +92,7 @@ public sealed class MartialTactician : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PowerTacticianSharedVigilance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -174,7 +174,7 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.AddCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -187,7 +187,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.AddCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -199,13 +199,13 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new OnReducedToZeroHpByMeRefundPowerUse(GambitsBuilders.GambitPool, feature));
+        feature.AddCustomSubFeatures(new OnReducedToZeroHpByMeRefundPowerUse(GambitsBuilders.GambitPool, feature));
 
         ConditionDefinitionBuilder
             .Create(MarkDamagedByGambit)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new RefundPowerUseWhenTargetWithConditionDies(GambitsBuilders.GambitPool, feature),
                 RemoveRemoveConditionOnSourceTurnStart.Mark,
                 //by default this condition is applied under Effects tag, which is removed right at death - too early for us to detect
@@ -251,7 +251,7 @@ public sealed class MartialTactician : AbstractSubclass
             .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
 
-        combatAffinityTacticalAwareness.SetCustomSubFeatures(
+        combatAffinityTacticalAwareness.AddCustomSubFeatures(
             new PhysicalAttackInitiatedByMeTacticalAwareness(combatAffinityTacticalAwareness));
 
         return FeatureDefinitionFeatureSetBuilder
@@ -271,7 +271,7 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(CONDITION_NAME, Category.Condition)
             .AddToDB();
 
-        tick.SetCustomSubFeatures(new TacticalSurgeTick(GambitsBuilders.GambitPool, tick));
+        tick.AddCustomSubFeatures(new TacticalSurgeTick(GambitsBuilders.GambitPool, tick));
 
         var feature = FeatureDefinitionBuilder
             .Create("FeatureTacticianTacticalSurge")
@@ -285,7 +285,7 @@ public sealed class MartialTactician : AbstractSubclass
             .SetFeatures(tick)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
+        feature.AddCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
     }
 #endif
 

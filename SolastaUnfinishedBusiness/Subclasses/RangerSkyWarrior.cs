@@ -97,7 +97,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFighterSecondWind)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(_conditionGiftOfTheWind))
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasShield))
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasShield))
             .AddToDB();
 
         // Aerial Agility
@@ -139,7 +139,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureDeathFromAbove.SetCustomSubFeatures(
+        featureDeathFromAbove.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnEnemyDeathFromAbove(featureDeathFromAbove, conditionGiftOfTheWindAttacked));
 
         //
@@ -170,7 +170,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                             .SetConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasShield,
                 ValidatorsCharacter.HasNoneOfConditions(conditionCloudDance.Name)))
             .AddToDB();
@@ -187,7 +187,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionCloudDance, ConditionForm.ConditionOperation.Remove))
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasAnyOfConditions(conditionCloudDance.Name)))
             .AddToDB();

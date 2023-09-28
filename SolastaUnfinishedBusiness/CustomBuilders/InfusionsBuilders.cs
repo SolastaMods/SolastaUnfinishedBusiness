@@ -114,7 +114,7 @@ internal static class InventorInfusions
             1, name, sprite, IsThrownWeapon, FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
-                .SetCustomSubFeatures(ReturningWeapon.AlwaysValid)
+                .AddCustomSubFeatures(ReturningWeapon.AlwaysValid)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
                 .SetMagicalWeapon()
@@ -130,7 +130,7 @@ internal static class InventorInfusions
             1, name, sprite, IsLoading, FeatureDefinitionAttackModifierBuilder
                 .Create($"AttackModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionJump)
-                .SetCustomSubFeatures(RepeatingShot.Instance)
+                .AddCustomSubFeatures(RepeatingShot.Instance)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
                 .SetMagicalWeapon()
@@ -157,7 +157,7 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
-                    .SetCustomSubFeatures(MagicalDamage)
+                    .AddCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(element)
@@ -177,7 +177,7 @@ internal static class InventorInfusions
                 .Create($"Power{name}")
                 .SetGuiPresentation(name, Category.Feature, sprite)
                 .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-                .SetCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddCustomSubFeatures(PowerFromInvocation.Marker)
                 .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
@@ -192,7 +192,7 @@ internal static class InventorInfusions
             FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{name}")
                 .SetGuiPresentation(name, Category.Feature)
-                .SetCustomSubFeatures(MagicalDamage)
+                .AddCustomSubFeatures(MagicalDamage)
                 .SetNotificationTag(name)
                 .SetDamageDice(DieType.D6, 2)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
@@ -223,7 +223,7 @@ internal static class InventorInfusions
                     .SetGuiPresentation($"Feature/&{name}Title",
                         Gui.Format("Feature/&DamageResistanceFormat", Gui.Localize($"Rules/&{element}Title")),
                         ConditionDefinitions.ConditionProtectedFromEnergyLightning)
-                    .SetCustomSubFeatures(ReturningWeapon.AlwaysValid)
+                    .AddCustomSubFeatures(ReturningWeapon.AlwaysValid)
                     .SetDamageAffinityType(DamageAffinityType.Resistance)
                     .SetDamageType(element)
                     .AddToDB());
@@ -239,7 +239,7 @@ internal static class InventorInfusions
                 .Create($"Power{name}")
                 .SetGuiPresentation(name, Category.Feature, sprite)
                 .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-                .SetCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddCustomSubFeatures(PowerFromInvocation.Marker)
                 .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
@@ -265,7 +265,7 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
-                    .SetCustomSubFeatures(MagicalDamage)
+                    .AddCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)
                     .SetSpecificDamageType(element)
@@ -283,7 +283,7 @@ internal static class InventorInfusions
                 .Create($"Power{name}")
                 .SetGuiPresentation(name, Category.Feature, sprite)
                 .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-                .SetCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddCustomSubFeatures(PowerFromInvocation.Marker)
                 .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
@@ -421,7 +421,7 @@ internal static class InventorInfusions
         return FeatureDefinitionPowerSharedPoolBuilder.Create(powerName)
             .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
@@ -474,7 +474,7 @@ internal static class InventorInfusions
         var power = FeatureDefinitionPowerSharedPoolBuilder.Create(powerName)
             .SetGuiPresentation(Category.Feature, item)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,

@@ -66,11 +66,11 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
         // CONNECT ALL THEM TOGETHER NOW
 
-        featureVoraciousFury.SetCustomSubFeatures(
+        featureVoraciousFury.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeVoraciousFury(featureVoraciousFury, powerBloodbath));
-        powerBloodbath.SetCustomSubFeatures(
+        powerBloodbath.AddCustomSubFeatures(
             new OnReducedToZeroHpByMeBloodbath(powerBloodbath));
-        featureCorruptedBlood.SetCustomSubFeatures(
+        featureCorruptedBlood.AddCustomSubFeatures(
             new PhysicalAttackFinishedOnMeCorruptedBlood(featureCorruptedBlood, powerBloodbath));
 
         // MAIN

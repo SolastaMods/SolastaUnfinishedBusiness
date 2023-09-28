@@ -50,7 +50,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
         var featureAcrobatWarrior = FeatureDefinitionBuilder
             .Create($"Feature{Name}Trooper")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AddPolearmFollowUpAttack(QuarterstaffType),
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
                 new IncreaseWeaponReach(1, validWeapon, Lunger.Name)) // should not stack with Lunger or Wendigo
@@ -65,25 +65,25 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetClimbing(true, true)
             .SetEnhancedJump(2)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
+            .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var savingThrowAffinitySwiftWind = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm, $"SavingThrowAffinity{Name}SwiftWind")
             .SetOrUpdateGuiPresentation(SWIFT_WIND, Category.Feature)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
+            .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var abilityCheckAffinitySwiftWind = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(AbilityCheckAffinityDomainLawUnyieldingEnforcerShove, $"AbilityCheckAffinity{Name}SwiftWind")
             .SetOrUpdateGuiPresentation(SWIFT_WIND, Category.Feature)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
+            .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var featureSwiftWind = FeatureDefinitionBuilder
             .Create($"Feature{Name}SwiftWind")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D6, DieType.D10), validWeapon))
             .AddToDB();
 
@@ -103,7 +103,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .Create($"CombatAffinity{Name}FluidMotions")
             .SetGuiPresentationNoContent(true)
             .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
+            .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var movementAffinityFluidMotions = FeatureDefinitionMovementAffinityBuilder
@@ -113,7 +113,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .SetClimbing(canMoveOnWalls: true)
             .SetEnhancedJump(3)
             .SetImmunities(difficultTerrainImmunity: true)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
+            .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var powerReflexes = FeatureDefinitionPowerBuilder
@@ -160,7 +160,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerHeroicUncannyDodge.SetCustomSubFeatures(
+        powerHeroicUncannyDodge.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge, conditionHeroicUncannyDodge));
 
         // MAIN

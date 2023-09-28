@@ -48,7 +48,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeLightning)
             .AddToDB();
 
-        ancestryStorm.SetCustomSubFeatures(
+        ancestryStorm.AddCustomSubFeatures(
             new CharacterTurnEndedElementalFury(ancestryStorm, SpellDefinitions.LightningBolt));
 
         var ancestryBlizzard = FeatureDefinitionAncestryBuilder
@@ -59,7 +59,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeCold)
             .AddToDB();
 
-        ancestryBlizzard.SetCustomSubFeatures(
+        ancestryBlizzard.AddCustomSubFeatures(
             new CharacterTurnEndedElementalFury(ancestryBlizzard, SpellDefinitions.RayOfFrost));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
@@ -70,7 +70,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
-        ancestryWildfire.SetCustomSubFeatures(
+        ancestryWildfire.AddCustomSubFeatures(
             new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
 
         // keep sorted
@@ -116,8 +116,8 @@ public sealed class PathOfTheElements : AbstractSubclass
         var customBehaviorStorm =
             new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm, true);
 
-        conditionElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
-        powerElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
+        conditionElementalBlessingStorm.AddCustomSubFeatures(customBehaviorStorm);
+        powerElementalBlessingStorm.AddCustomSubFeatures(customBehaviorStorm);
 
         // Blizzard
 
@@ -153,8 +153,8 @@ public sealed class PathOfTheElements : AbstractSubclass
         var customBehaviorBlizzard =
             new CustomRagingAura(powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard, true);
 
-        conditionElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
-        powerElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
+        conditionElementalBlessingBlizzard.AddCustomSubFeatures(customBehaviorBlizzard);
+        powerElementalBlessingBlizzard.AddCustomSubFeatures(customBehaviorBlizzard);
 
         // Wildfire
 
@@ -190,8 +190,8 @@ public sealed class PathOfTheElements : AbstractSubclass
         var customBehaviorWildfire =
             new CustomRagingAura(powerElementalBlessingWildfire, conditionElementalBlessingWildfire, true);
 
-        conditionElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
-        powerElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
+        conditionElementalBlessingWildfire.AddCustomSubFeatures(customBehaviorWildfire);
+        powerElementalBlessingWildfire.AddCustomSubFeatures(customBehaviorWildfire);
 
         // Elemental Blessing
 
@@ -245,7 +245,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
@@ -284,7 +284,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
@@ -329,7 +329,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
@@ -390,7 +390,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureElementalConduitBlizzard.SetCustomSubFeatures(
+        featureElementalConduitBlizzard.AddCustomSubFeatures(
             new CharacterTurnEndedElementalConduitBlizzard(featureElementalConduitBlizzard));
 
         // Wildfire
@@ -400,7 +400,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureElementalConduitWildfire.SetCustomSubFeatures(
+        featureElementalConduitWildfire.AddCustomSubFeatures(
             new ReactToAttackOnMeFinishedElementalConduitWildfire(featureElementalConduitWildfire));
 
         // Elemental Conduit

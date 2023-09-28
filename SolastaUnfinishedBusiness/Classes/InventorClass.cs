@@ -585,7 +585,7 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 IsPowerPool.Marker,
                 HasModifiedUses.Marker)
@@ -600,7 +600,7 @@ internal static class InventorClass
         RestActivityDefinitionBuilder
             .Create("RestActivityShortRestStopInfusions")
             .SetGuiPresentation(POWER_NAME, Category.Feature)
-            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
@@ -612,7 +612,7 @@ internal static class InventorClass
         RestActivityDefinitionBuilder
             .Create("RestActivityLongRestStopInfusions")
             .SetGuiPresentation(POWER_NAME, Category.Feature)
-            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
@@ -624,7 +624,7 @@ internal static class InventorClass
         FeatureDefinitionPowerBuilder
             .Create(POWER_NAME)
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new HasActiveInfusions(),
                 new LimitEffectInstances(LimiterName, _ => 1))
             .SetUsesFixed(ActivationTime.Rest)
@@ -642,7 +642,7 @@ internal static class InventorClass
             .Create("CraftingAffinityInventorMagicItemAdept")
             .SetGuiPresentation(Category.Feature)
             //increases attunement limit by 1
-            .SetCustomSubFeatures(new AttunementLimitModifier(1))
+            .AddCustomSubFeatures(new AttunementLimitModifier(1))
             .SetAffinityGroups(0.25f, false,
                 ToolTypeDefinitions.ThievesToolsType,
                 ToolTypeDefinitions.ScrollKitType,
@@ -659,7 +659,7 @@ internal static class InventorClass
             .Create("MagicAffinityInventorMagicItemSavant")
             .SetGuiPresentation(Category.Feature)
             //increases attunement limit by 1
-            .SetCustomSubFeatures(new AttunementLimitModifier(1))
+            .AddCustomSubFeatures(new AttunementLimitModifier(1))
             .IgnoreClassRestrictionsOnMagicalItems()
             .AddToDB();
     }
@@ -737,7 +737,7 @@ internal static class InventorClass
             .SetGuiPresentation(spell.FormatTitle(), description, spell)
             .SetSharedPool(ActivationTime.Action, pool)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
@@ -774,7 +774,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
-            .SetCustomSubFeatures(InventorClassHolder.Marker)
+            .AddCustomSubFeatures(InventorClassHolder.Marker)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
                 .SetChargesCapitalNumber(6) //TODO: try to make this based off Inventor's INT bonus x2
@@ -799,7 +799,7 @@ internal static class InventorClass
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Visible)
             .SetReactionContext(ReactionTriggerContext.None)
             .AddToDB();
 
@@ -811,7 +811,7 @@ internal static class InventorClass
             .Create("PowerInventorFlashOfGeniusAura")
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -827,7 +827,7 @@ internal static class InventorClass
                                     .Create("ConditionInventorFlashOfGeniusAura")
                                     .SetGuiPresentationNoContent(true)
                                     .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .SetCustomSubFeatures(flashOfGenius)
+                                    .AddCustomSubFeatures(flashOfGenius)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())

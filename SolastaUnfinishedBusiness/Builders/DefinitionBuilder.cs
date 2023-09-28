@@ -496,9 +496,9 @@ internal abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBui
         return CreateImpl(original, name, CeNamespaceGuid);
     }
 
-    internal TBuilder SetCustomSubFeatures(params object[] features)
+    internal TBuilder AddCustomSubFeatures(params object[] features)
     {
-        Definition.SetCustomSubFeatures(features);
+        Definition.AddCustomSubFeatures(features);
         return (TBuilder)this;
     }
 }

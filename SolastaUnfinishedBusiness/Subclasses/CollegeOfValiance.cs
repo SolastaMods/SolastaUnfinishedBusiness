@@ -28,7 +28,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
         var featureCaptivatingPresence = FeatureDefinitionBuilder
             .Create($"Feature{Name}CaptivatingPresence")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ModifyAbilityCheckCaptivatingPresence())
+            .AddCustomSubFeatures(new ModifyAbilityCheckCaptivatingPresence())
             .AddToDB();
 
         // Disheartening Performance
@@ -40,7 +40,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
-        conditionDishearteningPerformance.SetCustomSubFeatures(
+        conditionDishearteningPerformance.AddCustomSubFeatures(
             new OnFailedSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance));
 
         var powerSteadfastDishearteningPerformance = FeatureDefinitionPowerBuilder

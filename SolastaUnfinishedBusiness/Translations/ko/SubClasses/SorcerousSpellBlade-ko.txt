@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=공격이 적중하거나 주문으로 피해를 입힐 때, 해당 공격 또는 주문의 피해 굴림 한 번에 매력 수정치를 추가 역장 피해로 더합니다. 
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=공격이 적중하거나 주문으로 피해를 입힐 때, 해당 공격 또는 주문의 피해 굴림 한 번에 매력 수정치를 추가 역장 피해로 더합니다.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=전장의 소서러
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=방어 등급이 2 증가하고 민첩 내성 굴림에 숙련을 받습니다.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=전투 반사 신경

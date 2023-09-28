@@ -1,4 +1,10 @@
-﻿1.5.94.17:
+﻿1.5.94.18:
+
+- fixed Action Switching soft locking battles under certain scenarios
+- fixed Burning Blade not removing 2nd enemy impact effect on a miss
+- fixed Mirror Image not triggering damage redirection to mirrors
+
+1.5.94.17:
 
 - added Aura of Perseverance, Aura of Vivacity, Protector of the Wild, and Psychic Lance 4th level spells
 - added Booming Step, Flame Arrows, and Lightning Arrows 3rd level spells

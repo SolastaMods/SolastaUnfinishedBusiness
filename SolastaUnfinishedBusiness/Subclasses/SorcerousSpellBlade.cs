@@ -42,7 +42,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
         var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}EnchantWeapon")
             .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEnchanted),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
@@ -99,11 +99,11 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .SetEffectDescription(effectDescriptionManaShield)
             .AddToDB();
 
-        powerManaShield.SetCustomSubFeatures(
+        powerManaShield.AddCustomSubFeatures(
             new ModifyEffectDescriptionManaShield(powerManaShield, powerManaShieldPoints),
             new PowerVisibilityModifierManaShield());
 
-        powerManaShieldPoints.SetCustomSubFeatures(
+        powerManaShieldPoints.AddCustomSubFeatures(
             new ModifyEffectDescriptionManaShield(powerManaShieldPoints, powerManaShieldPoints),
             new PowerVisibilityModifierManaShieldPoints(powerManaShield));
 

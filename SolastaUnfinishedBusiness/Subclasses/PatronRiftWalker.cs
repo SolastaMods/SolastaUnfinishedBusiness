@@ -55,7 +55,7 @@ public class PatronRiftWalker : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetNoSavingThrow()
                     .Build())
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
+            .AddCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         // Rift Step
@@ -93,7 +93,7 @@ public class PatronRiftWalker : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetNoSavingThrow()
                     .Build())
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
+            .AddCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         // LEVEL 10
@@ -115,7 +115,7 @@ public class PatronRiftWalker : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(DimensionDoor)
                     .Build())
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
+            .AddCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         // LEVEL 14
@@ -139,7 +139,7 @@ public class PatronRiftWalker : AbstractSubclass
                     .Create(WardingBond)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWardedByRiftWalkWardingBond))
                     .Build())
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
+            .AddCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

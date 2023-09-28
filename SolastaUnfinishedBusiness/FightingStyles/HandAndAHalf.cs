@@ -29,7 +29,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
-                .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedVersatileWeapon)
+                .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedVersatileWeapon)
                 .AddToDB())
         .AddToDB();
 

@@ -27,7 +27,7 @@ internal sealed class Interception : AbstractFightingStyle
                 .SetGuiPresentation(InterceptionName, Category.FightingStyle)
                 .SetUsesFixed(ActivationTime.Reaction)
                 .SetReactionContext(ExtraReactionContext.Custom)
-                .SetCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyInterception(
+                .AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyInterception(
                     ConditionDefinitionBuilder
                         .Create("ConditionInterception")
                         .SetGuiPresentationNoContent(true)

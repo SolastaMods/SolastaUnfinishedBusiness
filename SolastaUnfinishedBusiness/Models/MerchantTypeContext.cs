@@ -305,7 +305,7 @@ internal static class RecipeHelper
         var flag = ItemFlagDefinitionBuilder
             .Create("ItemFlagRecipeIcon")
             .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(new TooltipModifier<ItemDefinition>((tooltip, img, obj, definition, context) =>
+            .AddCustomSubFeatures(new TooltipModifier<ItemDefinition>((tooltip, img, obj, definition, context) =>
             {
                 var item = Main.Settings.ShowCraftedItemOnRecipeIcon
                     ? GetCraftedItem(definition)

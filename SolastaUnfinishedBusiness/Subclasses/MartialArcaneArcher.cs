@@ -87,7 +87,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .Build())
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 IsPowerPool.Marker,
                 HasModifiedUses.Marker,
                 ReactionResourceArcaneShot.Instance,
@@ -101,7 +101,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
@@ -152,7 +152,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         var featureMagicArrow = FeatureDefinitionBuilder
             .Create($"Feature{Name}MagicArrow")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsBow))
+            .AddCustomSubFeatures(new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, IsBow))
             .AddToDB();
 
         // Guided Shot
@@ -162,7 +162,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureGuidedShot.SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackGuidedShot(featureGuidedShot));
+        featureGuidedShot.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackGuidedShot(featureGuidedShot));
 
         // LEVEL 10
 
@@ -185,7 +185,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureEverReadyShot.SetCustomSubFeatures(new BattleStartedListenerEverReadyShot(featureEverReadyShot));
+        featureEverReadyShot.AddCustomSubFeatures(new BattleStartedListenerEverReadyShot(featureEverReadyShot));
 
         // LEVEL 18
 
@@ -261,7 +261,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerBanishingArrow,
@@ -295,7 +295,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerBeguilingArrow,
@@ -323,7 +323,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(_powerBurstingArrow,
@@ -355,7 +355,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var abilityCheckAffinityEnfeeblingArrow = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -416,7 +416,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var conditionGraspingArrow = ConditionDefinitionBuilder
@@ -471,7 +471,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                                 lightSourceForm.graphicsPrefabReference)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerInsightArrow,
@@ -505,7 +505,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerShadowArrow,
@@ -539,7 +539,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerSlowingArrow,
@@ -563,7 +563,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 .SetGuiPresentation(guiPresentation)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.ArcaneShotChoice)
                 .SetGrantedFeature(power)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
     }

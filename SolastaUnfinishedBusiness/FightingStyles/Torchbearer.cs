@@ -40,7 +40,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
                     8)
                 .Build())
         .SetShowCasting(false)
-        .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasLightSourceOffHand))
+        .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasLightSourceOffHand))
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
@@ -50,7 +50,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("AddExtraAttackTorchbearer")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new AddBonusTorchAttack(PowerFightingStyleTorchbearer))
+                .AddCustomSubFeatures(new AddBonusTorchAttack(PowerFightingStyleTorchbearer))
                 .AddToDB())
         .AddToDB();
 

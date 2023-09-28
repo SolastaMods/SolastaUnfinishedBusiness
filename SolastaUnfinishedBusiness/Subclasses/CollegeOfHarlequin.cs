@@ -77,7 +77,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTerrificPerformance.SetCustomSubFeatures(
+        powerTerrificPerformance.AddCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
@@ -87,7 +87,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create(PowerCombatInspirationName)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(CombatInspirationCondition))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(CombatInspirationCondition))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -108,14 +108,14 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create($"MovementAffinity{Name}CombatInspirationMovementEnhancement")
                                             .SetGuiPresentation(Category.Feature)
-                                            .SetCustomSubFeatures(new AddConditionAmountToSpeedModifier())
+                                            .AddCustomSubFeatures(new AddConditionAmountToSpeedModifier())
                                             .AddToDB(),
                                         FeatureDefinitionAttackModifierBuilder
                                             .Create($"AttackModifier{Name}CombatInspirationAttackEnhancement")
                                             .SetGuiPresentation(Category.Feature)
                                             .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                             .AddToDB())
-                                    .SetCustomSubFeatures(new ConditionCombatInspired(PowerCombatInspirationName))
+                                    .AddCustomSubFeatures(new ConditionCombatInspired(PowerCombatInspirationName))
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -150,7 +150,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                                     .Create($"Condition{Name}RegainBardicInspirationOnKill")
                                     .SetGuiPresentationNoContent(true)
                                     .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .SetCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
+                                    .AddCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())

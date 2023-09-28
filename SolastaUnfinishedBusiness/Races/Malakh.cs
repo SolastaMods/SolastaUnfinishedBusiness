@@ -166,7 +166,7 @@ internal static class RaceMalakhBuilder
             .SetGuiPresentation(guiPresentation)
             .SetPoolType(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
             .SetGrantedFeature(power)
-            .SetCustomSubFeatures(HiddenInvocation.Marker)
+            .AddCustomSubFeatures(HiddenInvocation.Marker)
             .AddToDB();
     }
 
@@ -242,7 +242,7 @@ internal static class RaceMalakhBuilder
             .SetConditionType(ConditionType.Beneficial)
             .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
             .AddFeatures(additionalDamageMalakhAngelicForm)
-            .SetCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
+            .AddCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
             .AddToDB();
 
         var faerieFireLightSource =

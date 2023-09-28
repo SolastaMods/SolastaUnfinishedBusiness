@@ -30,7 +30,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
         var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}EnchantWeapon")
             .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Intelligence, CanWeaponBeEnchanted),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
@@ -38,7 +38,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
         var additionalActionArcaneFighter = FeatureDefinitionBuilder
             .Create($"AdditionalAction{Name}") //left old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new OnReducedToZeroHpByMeSpellFighting(
                     ConditionDefinitionBuilder
                         .Create($"Condition{Name}SpellFighting")

@@ -59,7 +59,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .SetCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
             .SetDamageDice(DieType.D6, 4)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(
@@ -209,7 +209,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
                     .Build())
-            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;
@@ -282,7 +282,7 @@ internal static partial class SpellBuilders
             .SetFeatures(
                 conditionAffinityLifeDrained,
                 DamageAffinityNecroticResistance)
-            .SetCustomSubFeatures(new OnReducedToZeroHpByEnemyAuraOfVitality())
+            .AddCustomSubFeatures(new OnReducedToZeroHpByEnemyAuraOfVitality())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -371,7 +371,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        conditionAuraOfPerseverance.SetCustomSubFeatures(new ModifySavingThrowAuraOfPerseverance(spell));
+        conditionAuraOfPerseverance.AddCustomSubFeatures(new ModifySavingThrowAuraOfPerseverance(spell));
 
         return spell;
     }
@@ -441,7 +441,8 @@ internal static partial class SpellBuilders
                 FeatureDefinitionSenses.SenseDarkvision24)
             .AddToDB();
 
-        conditionBeast.SetCustomSubFeatures(new ModifyAttackActionModifierBeast(conditionBeast));
+        conditionBeast.AddCustomSubFeatures(new ModifyAttackActionModifierBeast(conditionBeast));
+
         conditionBeast.conditionStartParticleReference =
             PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
         conditionBeast.conditionParticleReference =
@@ -483,7 +484,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .AddToDB();
 
-        conditionTree.SetCustomSubFeatures(new CustomBehaviorTree(conditionTree));
+        conditionTree.AddCustomSubFeatures(new CustomBehaviorTree(conditionTree));
 
         conditionTree.conditionStartParticleReference =
             PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;

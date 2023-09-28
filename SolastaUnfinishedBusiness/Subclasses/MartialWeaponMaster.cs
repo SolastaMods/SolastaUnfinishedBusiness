@@ -42,7 +42,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature, hidden: true)
             .AddToDB();
 
-        featureSpecializationDisadvantage.SetCustomSubFeatures(
+        featureSpecializationDisadvantage.AddCustomSubFeatures(
             new ModifyAttackActionModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
 
         var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
@@ -59,7 +59,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature)
                 .AddToDB();
 
-            featureSpecialization.SetCustomSubFeatures(
+            featureSpecialization.AddCustomSubFeatures(
                 new ModifyWeaponAttackModeSpecialization(weaponTypeDefinition, featureSpecialization));
 
             _ = CustomInvocationDefinitionBuilder
@@ -70,7 +70,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
                 .SetGrantedFeature(featureSpecialization)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -83,7 +83,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation($"Condition{Name}{FocusedStrikes}", Category.Condition)
             .AddToDB();
 
-        featureFocusedStrikes.SetCustomSubFeatures(new CustomBehaviorFocusedStrikes(featureFocusedStrikes));
+        featureFocusedStrikes.AddCustomSubFeatures(new CustomBehaviorFocusedStrikes(featureFocusedStrikes));
 
         var conditionFocusedStrikes = ConditionDefinitionBuilder
             .Create($"Condition{Name}{FocusedStrikes}")
@@ -136,7 +136,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureMomentum.SetCustomSubFeatures(new OnReducedToZeroHpByMeMomentum(featureMomentum, conditionMomentum));
+        featureMomentum.AddCustomSubFeatures(new OnReducedToZeroHpByMeMomentum(featureMomentum, conditionMomentum));
 
         // LEVEL 10
 
@@ -145,7 +145,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         var featureBattleStance = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattleStance")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new BattleStartedBattleStance())
+            .AddCustomSubFeatures(new BattleStartedBattleStance())
             .AddToDB();
 
         // LEVEL 15
@@ -163,7 +163,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         var featureDeadlyAccuracy = FeatureDefinitionBuilder
             .Create($"Feature{Name}DeadlyAccuracy")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CustomAdditionalDamageDeadlyAccuracy(additionalDamageDeadlyAccuracy))
+            .AddCustomSubFeatures(new CustomAdditionalDamageDeadlyAccuracy(additionalDamageDeadlyAccuracy))
             .AddToDB();
 
         // LEVEL 18
@@ -175,7 +175,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featurePerfectStrikes.SetCustomSubFeatures(new PerfectStrikes(conditionFocusedStrikes, featurePerfectStrikes));
+        featurePerfectStrikes.AddCustomSubFeatures(new PerfectStrikes(conditionFocusedStrikes, featurePerfectStrikes));
 
         // MAIN
 

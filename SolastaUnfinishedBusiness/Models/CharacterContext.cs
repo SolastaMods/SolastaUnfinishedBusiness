@@ -320,14 +320,14 @@ internal static class CharacterContext
                 .Create($"FeatureMonkWeaponSpecialization{weaponTypeName}")
                 .SetGuiPresentationNoContent(true)
                 .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important,
                         ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)),
                     new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
                 .AddToDB();
 
             // ensure we get dice upgrade on these
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.SetCustomSubFeatures(
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.AddCustomSubFeatures(
                 new MonkWeaponSpecializationDiceUpgrade(weaponTypeDefinition));
 
             _ = CustomInvocationDefinitionBuilder
@@ -338,7 +338,7 @@ internal static class CharacterContext
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
     }
@@ -579,7 +579,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.KindredSpiritChoice)
                 .SetGrantedFeature(featureDefinitionPower)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -809,7 +809,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, elementalFuriesSprites[name])
                 .SetPoolType(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
                 .SetGrantedFeature(featureDefinitionAncestry)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -887,7 +887,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
                 .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -930,7 +930,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
                 .SetGrantedFeature(featureDefinitionPreferredEnemy)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -1017,7 +1017,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(invocationPoolTypeCustom)
                 .SetGrantedFeature(featureDefinitionAncestry)
-                .SetCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -1264,7 +1264,7 @@ internal static class CharacterContext
                     .Build())
             .AddToDB();
 
-        powerPool.SetCustomSubFeatures(IsPowerPool.Marker, new PhysicalAttackInitiatedByMeCunningStrike(powerPool));
+        powerPool.AddCustomSubFeatures(IsPowerPool.Marker, new PhysicalAttackInitiatedByMeCunningStrike(powerPool));
 
         // Disarm
 
@@ -1299,7 +1299,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDisarmed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Poison
@@ -1323,7 +1323,7 @@ internal static class CharacterContext
                                 ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Trip
@@ -1345,7 +1345,7 @@ internal static class CharacterContext
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Withdraw
@@ -1387,7 +1387,7 @@ internal static class CharacterContext
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         //
@@ -1422,7 +1422,7 @@ internal static class CharacterContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(actionAffinityDazed)
-            .SetCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedOnlyMovement))
+            .AddCustomSubFeatures(new ActionFinishedByMeDazed(conditionDazedOnlyMovement))
             .AddToDB();
 
         var powerDaze = FeatureDefinitionPowerSharedPoolBuilder
@@ -1443,7 +1443,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDazed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Knock Out
@@ -1473,7 +1473,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // Obscure
@@ -1497,7 +1497,7 @@ internal static class CharacterContext
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // MAIN
@@ -1518,7 +1518,7 @@ internal static class CharacterContext
             .SetSpecialDuration(DurationType.Round, 1)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
+            .AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .AddToDB();
 

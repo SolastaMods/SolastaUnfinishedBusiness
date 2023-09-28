@@ -54,7 +54,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
         var attackModifierEmpowerWeapon = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}EmpowerWeapon")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEmpowered))
             .AddToDB();
@@ -73,7 +73,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetNotificationTag("Hex")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetTargetCondition(conditionHexDefender, AdditionalDamageTriggerCondition.TargetHasCondition)
-            .SetCustomSubFeatures(new ModifyCriticalThresholdAgainstHexedTargets(conditionHexDefender.Name))
+            .AddCustomSubFeatures(new ModifyCriticalThresholdAgainstHexedTargets(conditionHexDefender.Name))
             .AddToDB();
 
         var conditionHexAttacker = ConditionDefinitionBuilder
@@ -83,7 +83,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetFeatures(additionalDamageHex)
             .AddToDB();
 
-        conditionHexDefender.SetCustomSubFeatures(new OnConditionAddedOrRemovedHex(conditionHexDefender));
+        conditionHexDefender.AddCustomSubFeatures(new OnConditionAddedOrRemovedHex(conditionHexDefender));
 
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
@@ -103,7 +103,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
         var powerHex = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Hex")
             .SetGuiPresentation(Category.Feature, spriteSoulHex)
-            .SetCustomSubFeatures(ForceRetargetAvailability.Mark)
+            .AddCustomSubFeatures(ForceRetargetAvailability.Mark)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(effectDescriptionHex)
@@ -153,7 +153,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .Create($"Power{Name}SummonPactWeapon")
             .SetGuiPresentation(Category.Feature, ArcaneSword)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .AddCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
@@ -169,7 +169,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerSoulBladeSummonPactWeapon.SetCustomSubFeatures(
+        powerSoulBladeSummonPactWeapon.AddCustomSubFeatures(
             new ModifyEffectDescriptionSummonPactWeapon(powerSoulBladeSummonPactWeapon));
 
         //

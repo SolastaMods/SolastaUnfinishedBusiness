@@ -39,7 +39,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .Create("CombatAffinityRavenRangeAttack")
                     .SetGuiPresentation("FeatureSetRavenSharpShooter", Category.Feature)
                     .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .AddCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
             .AddToDB();
 
@@ -48,7 +48,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var additionalActionRavenKillingSpree = FeatureDefinitionBuilder
             .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new OnReducedToZeroHpByMeRefreshSneakAttack(),
+            .AddCustomSubFeatures(new OnReducedToZeroHpByMeRefreshSneakAttack(),
                 new KillingSpree(
                     ConditionDefinitionBuilder
                         .Create("ConditionRavenKillingSpree")
@@ -61,7 +61,7 @@ public sealed class RoguishRaven : AbstractSubclass
                                 .SetActionType(ActionDefinitions.ActionType.Main)
                                 .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                                 .SetMaxAttacksNumber(1)
-                                .SetCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                                .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
                                 .AddToDB())
                         .AddToDB()))
             .AddToDB();
@@ -73,7 +73,7 @@ public sealed class RoguishRaven : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
                 "Feature/&DieRollModifierRavenPainMakerReroll")
-            .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
+            .AddCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
         // deadly aim
@@ -86,7 +86,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
             .Create("FeatureRavenDeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerSteadyAim))
+            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerSteadyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
@@ -101,7 +101,7 @@ public sealed class RoguishRaven : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
                 "Feature/&DieRollModifierRavenPainMakerReroll")
-            .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
+            .AddCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -142,7 +142,7 @@ public sealed class RoguishRaven : AbstractSubclass
             .Create("ConditionRavenHeartSeekingShotTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(concentrationProvider)
+            .AddCustomSubFeatures(concentrationProvider)
             .AddToDB();
 
         var validateHasTwoHandedRangedWeapon =
@@ -159,14 +159,14 @@ public sealed class RoguishRaven : AbstractSubclass
                     .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
                     .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -2)
-                    .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
+                    .AddCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetSituationalContext(SituationalContext.AttackingWithRangedWeapon)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
                     .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
                     .SetAttackRollModifier(-4)
-                    .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
+                    .AddCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
@@ -176,7 +176,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .SetDamageDice(DieType.D6, 1)
                     .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
-                    .SetCustomSubFeatures(
+                    .AddCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
                     .AddToDB())
@@ -204,7 +204,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);

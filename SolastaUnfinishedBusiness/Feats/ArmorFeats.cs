@@ -78,7 +78,7 @@ internal static class ArmorFeats
                     .SetGuiPresentation("FeatHeavyArmorMaster", Category.Feat)
                     .SetAlwaysActiveReducedDamage((_, _) => 3,
                         DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing)
-                    .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
+                    .AddCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
                     .AddToDB())
             .SetArmorProficiencyPrerequisite(HeavyArmorCategory)
             .AddToDB();
@@ -112,7 +112,7 @@ internal static class ArmorFeats
             .Create($"ActionAffinity{Name}")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
@@ -123,7 +123,7 @@ internal static class ArmorFeats
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerShieldTechniques.SetCustomSubFeatures(new CustomBehaviorShieldTechniques(powerShieldTechniques));
+        powerShieldTechniques.AddCustomSubFeatures(new CustomBehaviorShieldTechniques(powerShieldTechniques));
 
         return FeatDefinitionBuilder
             .Create(Name)

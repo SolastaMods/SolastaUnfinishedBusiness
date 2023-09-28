@@ -75,7 +75,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerReactiveHide.SetCustomSubFeatures(
+        powerReactiveHide.AddCustomSubFeatures(
             new CustomBehaviorReactiveHide(powerReactiveHide, conditionReactiveHide));
 
         // LEVEL 17
@@ -116,7 +116,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasNoneOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -143,7 +143,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                                 ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(RuleDefinitions.ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -219,7 +219,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerBlackElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
-        powerBlackElementalBreath.SetCustomSubFeatures(
+        powerBlackElementalBreath.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathProficiency(powerBlackElementalBreath));
 
         var powerBlackElementalBreathPoints = FeatureDefinitionPowerBuilder
@@ -227,7 +227,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddToDB();
 
-        powerBlackElementalBreathPoints.SetCustomSubFeatures(
+        powerBlackElementalBreathPoints.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathPoints(powerBlackElementalBreath));
 
         var featureSetElementalBreathBlack = FeatureDefinitionFeatureSetBuilder
@@ -254,7 +254,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerBlueElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
-        powerBlueElementalBreath.SetCustomSubFeatures(
+        powerBlueElementalBreath.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathProficiency(powerBlueElementalBreath));
 
         var powerBlueElementalBreathPoints = FeatureDefinitionPowerBuilder
@@ -262,7 +262,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddToDB();
 
-        powerBlueElementalBreathPoints.SetCustomSubFeatures(
+        powerBlueElementalBreathPoints.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathPoints(powerBlueElementalBreath));
 
         var featureSetElementalBreathBlue = FeatureDefinitionFeatureSetBuilder
@@ -301,7 +301,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerGreenElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
-        powerGreenElementalBreath.SetCustomSubFeatures(
+        powerGreenElementalBreath.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathProficiency(powerGreenElementalBreath));
 
         var powerGreenElementalBreathPoints = FeatureDefinitionPowerBuilder
@@ -309,7 +309,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddToDB();
 
-        powerGreenElementalBreathPoints.SetCustomSubFeatures(
+        powerGreenElementalBreathPoints.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathPoints(powerGreenElementalBreath));
 
         var featureSetElementalBreathGreen = FeatureDefinitionFeatureSetBuilder
@@ -336,7 +336,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerGoldElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
-        powerGoldElementalBreath.SetCustomSubFeatures(
+        powerGoldElementalBreath.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathProficiency(powerGoldElementalBreath));
 
         var powerGoldElementalBreathPoints = FeatureDefinitionPowerBuilder
@@ -344,7 +344,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddToDB();
 
-        powerGoldElementalBreathPoints.SetCustomSubFeatures(
+        powerGoldElementalBreathPoints.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathPoints(powerGoldElementalBreath));
 
         var featureSetElementalBreathGold = FeatureDefinitionFeatureSetBuilder
@@ -371,7 +371,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerSilverElementalBreath.EffectDescription.EffectForms[0].diceByLevelTable = diceByLevelTable;
-        powerSilverElementalBreath.SetCustomSubFeatures(
+        powerSilverElementalBreath.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathProficiency(powerSilverElementalBreath));
 
         var powerSilverElementalBreathPoints = FeatureDefinitionPowerBuilder
@@ -379,7 +379,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddToDB();
 
-        powerSilverElementalBreathPoints.SetCustomSubFeatures(
+        powerSilverElementalBreathPoints.AddCustomSubFeatures(
             new ValidatePowerUseElementalBreathPoints(powerSilverElementalBreath));
 
         var featureSetElementalBreathSilver = FeatureDefinitionFeatureSetBuilder
@@ -431,7 +431,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryAcid = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature, AcidSplash)
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryAcid.Name))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryAcid.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -473,7 +473,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryLightning = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature, ShockingGrasp)
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryLightning.Name))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryLightning.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -514,7 +514,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryPoison = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Feature, PoisonSpray)
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryPoison.Name))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryPoison.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -556,7 +556,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryFire = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature, ProduceFlame)
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryFire.Name))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryFire.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -598,7 +598,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryCold = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature, RayOfFrost)
-            .SetCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryCold.Name))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasNoneOfConditions(conditionDragonFuryCold.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder

@@ -92,7 +92,7 @@ internal static class CustomConditionsContext
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetCustomSubFeatures(new InvisibilityEveryRoundBehavior())
+            .AddCustomSubFeatures(new InvisibilityEveryRoundBehavior())
             .AddToDB();
 
         return conditionInvisibilityEveryRound;
@@ -145,7 +145,7 @@ internal static class CustomConditionsContext
                 Sprites.GetSprite("ConditionFlightSuspended", Resources.ConditionFlightSuspended, 32))
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetCustomSubFeatures(new OnConditionAddedOrRemovedFlightSuspendBehavior())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedFlightSuspendBehavior())
             .AddToDB();
 
         // I ran into sync issues if I didn't generate the actions here
@@ -176,7 +176,7 @@ internal static class CustomConditionsContext
                             ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasNoneOfConditions(conditionFlightSuspend.Name)))
             .AddToDB();
 
@@ -209,7 +209,7 @@ internal static class CustomConditionsContext
                             ConditionForm.ConditionOperation.Remove))
                     .UseQuickAnimations()
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsValidatePowerUse(
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(
                 ValidatorsCharacter.HasAnyOfConditions(conditionFlightSuspend.Name)))
             .AddToDB();
 

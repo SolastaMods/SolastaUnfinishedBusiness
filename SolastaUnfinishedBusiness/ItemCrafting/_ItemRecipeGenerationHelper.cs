@@ -65,7 +65,7 @@ internal static class ItemRecipeGenerationHelper
 
                 if (itemCollection.CustomSubFeatures != null)
                 {
-                    newItem.SetCustomSubFeatures(itemCollection.CustomSubFeatures.ToArray());
+                    newItem.AddCustomSubFeatures(itemCollection.CustomSubFeatures.ToArray());
                 }
 
                 ingredients.AddRange(itemData.Recipe.Ingredients

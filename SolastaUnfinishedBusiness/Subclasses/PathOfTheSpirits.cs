@@ -265,8 +265,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var customBehaviorWolfLeadership = new CustomRagingAura(
             powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack, true);
 
-        conditionPathOfTheSpiritsWolfLeadershipPack.SetCustomSubFeatures(customBehaviorWolfLeadership);
-        powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(customBehaviorWolfLeadership);
+        conditionPathOfTheSpiritsWolfLeadershipPack.AddCustomSubFeatures(customBehaviorWolfLeadership);
+        powerPathOfTheSpiritsWolfLeadership.AddCustomSubFeatures(customBehaviorWolfLeadership);
 
         return powerPathOfTheSpiritsWolfLeadership;
     }
@@ -339,8 +339,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var customBehaviorHonedBear = new CustomRagingAura(
             powerHonedAnimalAspectsBear, conditionHonedAnimalAspectsBear, false);
 
-        conditionHonedAnimalAspectsBear.SetCustomSubFeatures(customBehaviorHonedBear);
-        powerHonedAnimalAspectsBear.SetCustomSubFeatures(customBehaviorHonedBear);
+        conditionHonedAnimalAspectsBear.AddCustomSubFeatures(customBehaviorHonedBear);
+        powerHonedAnimalAspectsBear.AddCustomSubFeatures(customBehaviorHonedBear);
 
         return powerHonedAnimalAspectsBear;
     }

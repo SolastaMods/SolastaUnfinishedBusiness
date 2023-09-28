@@ -64,7 +64,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionDiscordance
                 })
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
                         ValidatorsWeapon.IsUnarmed(character, mode)
@@ -91,7 +91,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
-        powerDiscordanceDamage.SetCustomSubFeatures(
+        powerDiscordanceDamage.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
                 character => ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
                              && Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
@@ -110,7 +110,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .Create($"Condition{Name}ChaosChanneling")
             .SetGuiPresentation(Category.Condition, ConditionSpiritGuardiansSelf)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetCustomSubFeatures(new ModifyWeaponAttackModeChaosChanneling())
+            .AddCustomSubFeatures(new ModifyWeaponAttackModeChaosChanneling())
             .AddToDB();
 
         var powerChaosChanneling = FeatureDefinitionPowerBuilder
@@ -141,11 +141,11 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerChaosChanneling.SetCustomSubFeatures(
+        powerChaosChanneling.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerChaosChanneling, character).RemainingUses > 0));
 
-        powerChaosChannelingPoints.SetCustomSubFeatures(
+        powerChaosChannelingPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
                 UsablePowersProvider.Get(powerChaosChanneling, character).RemainingUses == 0));
 
@@ -186,7 +186,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .CopyParticleReferences(ConditionStrikeOfChaosAttackAdvantage)
             .AddFeatures(combatAffinityTurmoil, savingThrowAffinityTurmoil)
             // required by Tides of Chaos to properly identify turmoil on death
-            .SetCustomSubFeatures(new ForceConditionCategory(TagCombat))
+            .AddCustomSubFeatures(new ForceConditionCategory(TagCombat))
             .AddToDB();
 
         var conditionHadTurmoil = ConditionDefinitionBuilder
@@ -220,7 +220,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
         // it also hasn't been removed so far by the Discordance damage power
-        powerTurmoil.SetCustomSubFeatures(
+        powerTurmoil.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
                 ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
                 && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
@@ -280,7 +280,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                         .Build())
                 .AddToDB();
 
-            powerBurstOfDisharmony.SetCustomSubFeatures(
+            powerBurstOfDisharmony.AddCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 new MagicEffectFinishedByMeBurstOfDisharmony(
                     conditionDiscordance, powerDiscordanceDamage, conditionHadTurmoil, powerTurmoil),
@@ -329,7 +329,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTidesOfChaos.SetCustomSubFeatures(
+        powerTidesOfChaos.AddCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
             new OnReducedToZeroHpByMeOrAllyTidesOfChaos(conditionTurmoil, powerTidesOfChaos));
 

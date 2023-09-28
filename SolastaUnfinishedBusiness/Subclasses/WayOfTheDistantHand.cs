@@ -32,7 +32,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             FeatureDefinitionBuilder
                 .Create("FeatureWayOfTheDistantHandCombat")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new CustomLevelUpLogicWayOfTheDistantHandCombat(),
                     new RangedAttackInMeleeDisadvantageRemover(
                         ValidatorsWeapon.IsZenArrowAttack,
@@ -46,7 +46,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandZenArrowTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 IsPowerPool.Marker,
                 new RestrictReactionAttackMode((_, attacker, _, attackMode, _) =>
                     attackMode != null &&
@@ -82,7 +82,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
@@ -107,7 +107,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
@@ -147,7 +147,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -165,7 +165,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 new UpgradeFlurry(
                     ConditionDefinitionBuilder
@@ -176,7 +176,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetSpecialInterruptions(
                             ConditionInterruption.BattleEnd,
                             ConditionInterruption.AnyBattleTurnEnd)
-                        .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
+                        .AddCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
                         .AddToDB()))
             .SetShowCasting(false)
             .AddToDB();
@@ -184,7 +184,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
             .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.IsZenArrowAttack))
             .AddToDB();
 
@@ -204,7 +204,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 IsPowerPool.Marker,
                 new RestrictReactionAttackMode((_, attacker, _, attackMode, _) =>
                     attackMode != null &&
@@ -258,7 +258,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
@@ -283,7 +283,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
@@ -321,7 +321,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -339,7 +339,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("AttackModifierWayOfTheDistantHandUnseenEyes")
             .SetGuiPresentation(Category.Feature)
             .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 ValidatorsRestrictedContext.IsZenArrowAttack,
                 new CustomLevelUpLogicUnseenEyes())
             .AddToDB();

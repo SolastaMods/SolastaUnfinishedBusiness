@@ -142,7 +142,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .CopyParticleReferences(ConditionBlurred)
-            .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .AddCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
             .AddToDB();
 
         var spell = MirrorImage;
@@ -430,7 +430,7 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        conditionShadowBlade.SetCustomSubFeatures(
+        conditionShadowBlade.AddCustomSubFeatures(
             new ModifyAttackActionModifierShadowBlade(itemShadowBlade, conditionShadowBlade));
 
         spell.EffectDescription.EffectForms.Add(
@@ -565,7 +565,7 @@ internal static partial class SpellBuilders
             .SetFeatures(actionAffinityPsychicWhipNoReaction)
             .AddToDB();
 
-        conditionPsychicWhipNoReaction.SetCustomSubFeatures(new ActionFinishedByMePsychicWhip(
+        conditionPsychicWhipNoReaction.AddCustomSubFeatures(new ActionFinishedByMePsychicWhip(
             conditionPsychicWhipNoBonus,
             conditionPsychicWhipNoMain,
             conditionPsychicWhipNoMove,

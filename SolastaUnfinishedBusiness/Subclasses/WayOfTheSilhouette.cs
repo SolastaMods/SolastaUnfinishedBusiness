@@ -110,7 +110,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
             .AddToDB();
 
@@ -122,7 +122,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(
+            .AddCustomSubFeatures(
                 new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
             .AddToDB();
 
@@ -173,7 +173,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        powerWayOfSilhouetteShadowySanctuary.SetCustomSubFeatures(
+        powerWayOfSilhouetteShadowySanctuary.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 
         Subclass = CharacterSubclassDefinitionBuilder

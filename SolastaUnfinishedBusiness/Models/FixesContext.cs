@@ -205,7 +205,7 @@ internal static class FixesContext
     private static void FixFightingStyleArchery()
     {
         //BEHAVIOR: allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
-        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
+        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.AddCustomSubFeatures(
             new ValidateContextInsteadOfRestrictedProperty((_, _, _, item, _, _, _) => (OperationType.Set,
                 ValidatorsWeapon.IsWeaponType(item,
                     CustomWeaponsContext.HandXbowWeaponType,
@@ -292,7 +292,7 @@ internal static class FixesContext
         //BEHAVIOR: Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped
         //This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`
         ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield));
+            .AddCustomSubFeatures(new ValidateDefinitionApplication(ValidatorsCharacter.HasShield));
     }
 
     private static void FixRecklessAttackForReachWeaponsAndPathOfTheYeoman()
@@ -346,7 +346,7 @@ internal static class FixesContext
     private static void FixUncannyDodgeForRoguishDuelist()
     {
         //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
-        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidateDefinitionApplication(
+        ActionAffinityUncannyDodge.AddCustomSubFeatures(new ValidateDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }

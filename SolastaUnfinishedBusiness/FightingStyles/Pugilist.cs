@@ -25,7 +25,7 @@ internal sealed class Pugilist : AbstractFightingStyle
                 .Create("ActionAffinityFightingStylePugilist")
                 .SetGuiPresentation(PugilistName, Category.FightingStyle)
                 .SetAuthorizedActions(Id.ShoveBonus)
-                .SetCustomSubFeatures(
+                .AddCustomSubFeatures(
                     new AddExtraUnarmedAttack(ActionType.Bonus),
                     new AdditionalUnarmedDice(),
                     new ValidateDefinitionApplication(ValidatorsCharacter.HasFreeHand))
