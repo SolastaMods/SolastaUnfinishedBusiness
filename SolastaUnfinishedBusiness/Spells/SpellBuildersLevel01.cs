@@ -895,7 +895,7 @@ internal static partial class SpellBuilders
         var conditionSanctuary = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
-            .AddSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.CastSpell)
             .AddToDB();
 
         var conditionSanctuaryReduceDamage = ConditionDefinitionBuilder
@@ -908,7 +908,7 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell)
                     .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
                     .AddToDB())
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.CastSpell)
             .AddToDB();
 
         var conditionSanctuaryDamageResistance = ConditionDefinitionBuilder
