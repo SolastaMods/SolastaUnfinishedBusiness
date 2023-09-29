@@ -69,5 +69,7 @@ Spell/&SubSpellChromaticOrbDescription=该生物受到 3d8 {0} 点伤害。
 Spell/&SubSpellSkinOfRetributionDescription=该生物每法术等级需要 5 {0}。
 Spell/&ThunderousSmiteDescription=在你的下一次击中时，你的武器会响起雷声，并且攻击会对目标造成额外的 2d6 雷鸣伤害。此外，如果目标是生物，则它必须通过一次力量豁免检定，否则就会被推离你 10 尺并被击倒。
 Spell/&ThunderousSmiteTitle=雷霆斩
+Spell/&VoidGraspDescription=你调用了邪恶势力的力量。黑暗能量的卷须从你身上爆发出来，攻击你周围 10 英尺内的所有生物。该区域中的每个生物都必须进行一次力量豁免。如果豁免失败，目标会受到 2d6 点坏死伤害，并且在你的下一回合开始之前无法做出反应。豁免成功后，该生物会受到一半伤害，但不会受到其他影响。当你使用2级或更高等级的法术位施展此法术时，每高于1级的法术位等级，伤害都会增加1d6。
+Spell/&VoidGraspTitle=虚空之握
 Spell/&WrathfulSmiteDescription=你的下一次攻击造成额外的 1d6 心灵伤害。如果目标在感知豁免中失败，它的思想会因痛苦而爆炸，并且会变得害怕。
 Spell/&WrathfulSmiteTitle=怒心斩

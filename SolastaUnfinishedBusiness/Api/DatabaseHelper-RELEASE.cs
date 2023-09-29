@@ -1544,6 +1544,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
 
+        internal static FeatureDefinitionPower PowerDispelEvilBreakEnchantment { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDispelEvilBreakEnchantment");
+
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
 
@@ -1654,6 +1657,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
+
+        internal static FeatureDefinitionPower PowerMagebaneSpellCrusher { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMagebaneSpellCrusher");
 
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
@@ -1795,6 +1801,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionSurvivalUnbreakableBody");
+
+        internal static FeatureDefinitionPower PowerVrockSpores { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerVrockSpores");
 
         internal static FeatureDefinitionPower PowerWightLord_CircleOfDeath { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerWightLord_CircleOfDeath");

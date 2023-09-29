@@ -583,6 +583,66 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Void’s Grasp
+
+    internal static SpellDefinition BuildVoidGrasp()
+    {
+        const string NAME = "VoidGrasp";
+
+        var actionAffinityVoidGrasp = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false)
+            .AddToDB();
+
+        var conditionVoidGrasp = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBaned)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(actionAffinityVoidGrasp)
+            .AddToDB();
+
+        conditionVoidGrasp.GuiPresentation.Description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VoidGrasp, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionVoidGrasp, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(FingerOfDeath)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Gone With The Wind
 
     internal static SpellDefinition BuildGoneWithTheWind()

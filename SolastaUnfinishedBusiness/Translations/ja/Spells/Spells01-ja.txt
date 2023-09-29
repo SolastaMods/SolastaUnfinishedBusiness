@@ -69,5 +69,7 @@ Spell/&SubSpellChromaticOrbDescription=そのクリーチャーは3d8の{0}ダ�
 Spell/&SubSpellSkinOfRetributionDescription=クリーチャーは呪文レベルごとに 5 {0} を受け取ります。
 Spell/&ThunderousSmiteDescription=次の攻撃で武器が雷鳴を上げ、攻撃はターゲットに追加の 2d6 雷ダメージを与えます。さらに、ターゲットがクリーチャーの場合は、ストレングスセーヴィングスローに成功するか、10フィート離れて押し倒されてうつ伏せになる必要があります。
 Spell/&ThunderousSmiteTitle=サンダース・スマイト
+Spell/&VoidGraspDescription=あなたは悪意のある力の力を呼び起こします。暗黒のエネルギーの触手があなたから噴出し、10フィート以内のすべての生き物を襲います。そのエリアにいる各クリーチャーはストレングス・セーヴィング・スローを行わなければなりません。セーブに失敗すると、ターゲットは 2d6 の壊死ダメージを受け、次のターンの開始時まで反応できなくなります。セーブに成功すると、クリーチャーは半分のダメージを受けますが、他の影響は受けません。あなたが第 2 レベル以上の呪文スロットを使用してこの呪文を唱えると、ダメージは第 1 レベル以上のスロット レベルごとに 1d6 増加します。
+Spell/&VoidGraspTitle=ヴォイドの掌握
 Spell/&WrathfulSmiteDescription=次のヒットは追加の 1d6 精神的ダメージを与えます。ターゲットが WIS セービングスローに失敗すると、その精神は痛みで爆発し、恐怖を感じます。
 Spell/&WrathfulSmiteTitle=怒りのスマイト
