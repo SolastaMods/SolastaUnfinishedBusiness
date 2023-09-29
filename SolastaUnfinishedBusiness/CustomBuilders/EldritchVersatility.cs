@@ -900,14 +900,18 @@ internal static class EldritchVersatility
                 }
 
                 var owner = GameLocationCharacter.GetFromActor(featureOwner);
-                var posOwner = owner.locationPosition;
-                var posCaster = caster.locationPosition;
-                var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                if (int3.Distance(posOwner, posCaster) > 12f ||
-                    !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
+                if (owner != null)
                 {
-                    yield break;
+                    var posOwner = owner.locationPosition;
+                    var posCaster = caster.locationPosition;
+                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                    if (int3.Distance(posOwner, posCaster) > 12f ||
+                        !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
+                    {
+                        yield break;
+                    }
                 }
             }
 
@@ -947,15 +951,23 @@ internal static class EldritchVersatility
             if (!supportCondition.IsOverload)
             {
                 var checkModifier = new ActionModifier();
+                var glc = GameLocationCharacter.GetFromActor(featureOwner);
 
-                GameLocationCharacter.GetFromActor(featureOwner).RollAbilityCheck(AttributeDefinitions.Intelligence,
-                    SkillDefinitions.Arcana,
-                    15 + spellLevel + Math.Max(0, spellLevel - supportCondition.CurrentPoints),
-                    AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
-                    out _, true);
+                if (glc != null)
+                {
+                    glc.RollAbilityCheck(AttributeDefinitions.Intelligence,
+                        SkillDefinitions.Arcana,
+                        15 + spellLevel + Math.Max(0, spellLevel - supportCondition.CurrentPoints),
+                        AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
+                        out _, true);
 
-                // Fails check
-                if (abilityCheckRollOutcome > RollOutcome.Success)
+                    // Fails check
+                    if (abilityCheckRollOutcome > RollOutcome.Success)
+                    {
+                        yield break;
+                    }
+                }
+                else
                 {
                     yield break;
                 }

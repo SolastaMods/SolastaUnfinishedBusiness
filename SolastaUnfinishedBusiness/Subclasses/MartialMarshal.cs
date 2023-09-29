@@ -531,7 +531,7 @@ public sealed class MartialMarshal : AbstractSubclass
             var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(target);
 
-            if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster creature)
+            if (gameLocationCharacter is not { RulesetCharacter: RulesetCharacterMonster creature })
             {
                 return;
             }
@@ -561,6 +561,11 @@ public sealed class MartialMarshal : AbstractSubclass
 
             var checkModifier = new ActionModifier();
             var roller = GameLocationCharacter.GetFromActor(sourceCharacter);
+
+            if (roller == null)
+            {
+                return;
+            }
 
             roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
                 10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,

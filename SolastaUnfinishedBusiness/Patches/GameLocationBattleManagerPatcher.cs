@@ -931,7 +931,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnEnemy`
             if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var feature in attacker.RulesetActor
+                foreach (var feature in attacker.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnEnemy>())
                 {
                     yield return feature.OnMagicalAttackBeforeHitConfirmedOnEnemy(
@@ -948,9 +948,10 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMe`
-            if (__instance.Battle != null && defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            // should also happen outside battles
+            if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var feature in defender.RulesetActor
+                foreach (var feature in defender.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMe>())
                 {
                     yield return feature.OnMagicalAttackBeforeHitConfirmedOnMe(
@@ -959,23 +960,26 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMeOrAlly`
-            if (__instance.Battle != null)
+            // should also happen outside battles
+            var contenders =
+                __instance.Battle?.AllContenders ??
+                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+
+            foreach (var ally in contenders
+                         .Where(x => x.IsOppositeSide(attacker.Side)
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList()) // avoid changing enumerator
             {
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.IsOppositeSide(attacker.Side)
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
+                foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
+                             .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
                 {
-                    foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
-                                 .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
-                    {
-                        yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
-                            .OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
-                                attacker, defender, ally, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
-                                criticalHit);
-                    }
+                    yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
+                        .OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
+                            attacker, defender, ally, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                            criticalHit);
                 }
             }
+
 
             while (values.MoveNext())
             {
@@ -1005,18 +1009,12 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            //PATCH: support for `ITryAlterOutcomeFailedSavingThrow`
+            // should also happen outside battles
             var contenders =
                 __instance.Battle?.AllContenders ??
                 ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
-#if false
-            if (__instance.Battle == null)
-            {
-                yield break;
-            }
-#endif
-
-            //PATCH: support for `ITryAlterOutcomeFailedSavingThrow`
             foreach (var unit in contenders
                          .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .ToList()) // avoid changing enumerator

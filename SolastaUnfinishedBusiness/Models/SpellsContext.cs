@@ -272,6 +272,8 @@ internal static class SpellsContext
 
         //5th level
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);
+        RegisterSpell(BuildCircleOfMagicalNegation(), 0, SpellListPaladin);
+        RegisterSpell(BuildDivineWrath(), 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
@@ -279,7 +281,9 @@ internal static class SpellsContext
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level
-        RegisterSpell(BuildHeroicInfusion(), 0, SpellListWizard);
+        RegisterSpell(BuildHeroicInfusion(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
+        RegisterSpell(BuildRingOfBlades(), 0, SpellListWizard);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

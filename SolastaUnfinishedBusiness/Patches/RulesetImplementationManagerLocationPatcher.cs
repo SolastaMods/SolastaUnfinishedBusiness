@@ -118,6 +118,7 @@ public static class RulesetImplementationManagerLocationPatcher
         {
             // Main.Log2($"CustomSwap", true);
             var motionForm = effectForm.MotionForm;
+
             if (motionForm.Type != (MotionForm.MotionType)ExtraMotionType.CustomSwap)
             {
                 return true;
@@ -126,6 +127,7 @@ public static class RulesetImplementationManagerLocationPatcher
             var action = ServiceRepository.GetService<IGameLocationActionService>();
             var attacker = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
             var defender = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+
             if (attacker == null || defender == null)
             {
                 return true;
@@ -195,11 +197,11 @@ public static class RulesetImplementationManagerLocationPatcher
             __instance.TryFindSubstituteOfCharacter(source, out var characterMonster);
 
             //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
-            
+
             //TODO: do I need to add them back to source?
             source.SpellsCastByMe.SetRange(SpellsCastByMe);
             source.PowersUsedByMe.SetRange(PowersUsedByMe);
-            
+
             characterMonster.SpellsCastByMe.SetRange(SpellsCastByMe);
             characterMonster.PowersUsedByMe.SetRange(PowersUsedByMe);
 

@@ -400,7 +400,11 @@ public static class RulesetImplementationManagerPatcher
 
                         var fromActor = GameLocationCharacter.GetFromActor(bearer);
 
-                        service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
+                        if (fromActor != null)
+                        {
+                            service?.RemoveCharacterLightSource(fromActor, rulesetItem.RulesetLightSource);
+                        }
+
                         rulesetItem.RulesetLightSource?.Unregister();
                         rulesetItem.RulesetLightSource = null;
                     }
@@ -409,7 +413,10 @@ public static class RulesetImplementationManagerPatcher
                     {
                         var fromActor = GameLocationCharacter.GetFromActor(bearer);
 
-                        service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
+                        if (fromActor != null)
+                        {
+                            service?.RemoveCharacterLightSource(fromActor, rulesetLightSource);
+                        }
 
                         if (rulesetLightSource.UseSpecificLocationPosition)
                         {

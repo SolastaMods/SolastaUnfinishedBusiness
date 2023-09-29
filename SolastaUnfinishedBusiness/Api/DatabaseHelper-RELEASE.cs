@@ -3348,6 +3348,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition HideousLaughter { get; } = GetDefinition<SpellDefinition>("HideousLaughter");
         internal static SpellDefinition HoldMonster { get; } = GetDefinition<SpellDefinition>("HoldMonster");
         internal static SpellDefinition HoldPerson { get; } = GetDefinition<SpellDefinition>("HoldPerson");
+        internal static SpellDefinition HolyAura { get; } = GetDefinition<SpellDefinition>("HolyAura");
         internal static SpellDefinition HuntersMark { get; } = GetDefinition<SpellDefinition>("HuntersMark");
         internal static SpellDefinition HypnoticPattern { get; } = GetDefinition<SpellDefinition>("HypnoticPattern");
         internal static SpellDefinition IceStorm { get; } = GetDefinition<SpellDefinition>("IceStorm");
@@ -3444,6 +3445,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition SpiritualWeapon { get; } = GetDefinition<SpellDefinition>("SpiritualWeapon");
         internal static SpellDefinition StinkingCloud { get; } = GetDefinition<SpellDefinition>("StinkingCloud");
         internal static SpellDefinition Stoneskin { get; } = GetDefinition<SpellDefinition>("Stoneskin");
+        internal static SpellDefinition Sunburst { get; } = GetDefinition<SpellDefinition>("Sunburst");
         internal static SpellDefinition Tongues { get; } = GetDefinition<SpellDefinition>("Tongues");
         internal static SpellDefinition Thunderwave { get; } = GetDefinition<SpellDefinition>("Thunderwave");
         internal static SpellDefinition TrueSeeing { get; } = GetDefinition<SpellDefinition>("TrueSeeing");

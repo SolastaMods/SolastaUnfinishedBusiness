@@ -29,8 +29,13 @@ internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvi
         var rules = ServiceRepository.GetService<IRulesetImplementationService>();
         var usable = UsablePowersProvider.Get(StopPower, character);
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
-        var actionParams = new CharacterActionParams(locationCharacter,
-            ActionDefinitions.Id.PowerNoCost)
+
+        if (locationCharacter == null)
+        {
+            return;
+        }
+
+        var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
         {
             SkipAnimationsAndVFX = true,
             TargetCharacters = { locationCharacter },

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageResonatingStrike:bc01f142-4efe-5133-bb7f-d1c4f2f0bbdf"
+    "Definition:SavingThrowAffinityCircleOfMagicalNegation:087ffc2f-219d-56db-b77a-9b6f9a63b282"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -87,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -130,13 +130,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionResonatingStrikeTitle",
-    "description": "-",
+    "title": "Spell/&CircleOfMagicalNegationTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "1a46ee54048826c49a3a039097db1745",
+      "m_SubObjectName": "ConditionHeroism",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fee957a4-e400-5b35-980f-a481680512f7",
+  "guid": "a339dcfe-624a-5e52-addc-e3ab28444ca2",
   "contentPack": 9999,
-  "name": "ConditionResonatingStrike"
+  "name": "ConditionCircleOfMagicalNegation"
 }

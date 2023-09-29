@@ -972,7 +972,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }

@@ -296,7 +296,7 @@ public class PatronMountain : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationBattleManager == null || gameLocationActionManager == null)
+            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }

@@ -305,6 +305,12 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerRingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Powers/PowerRingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerShoutOfProvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Powers/PowerShoutOfProvocation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -401,15 +407,39 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="RingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/RingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PoisonWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/PoisonWave.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="GravitySinkhole" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/GravitySinkhole.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="DivineWrath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/DivineWrath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PulseWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/PulseWave.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="CircleOfMagicalNegation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/CircleOfMagicalNegation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>

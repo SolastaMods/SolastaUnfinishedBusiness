@@ -252,7 +252,7 @@ You have studied the art of infusing magic into mundane objects to create tempor
 
 # 55. - Inspiring Leader
 
-You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+You can spend 10 minutes to inspire all friendly creatures friendly creatures, including you, within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 
 # 56. - Interception
 
