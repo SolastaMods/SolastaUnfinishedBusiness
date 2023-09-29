@@ -940,8 +940,8 @@ internal static partial class SpellBuilders
     private sealed class CustomBehaviorResonatingStrike :
         IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerResonatingStrike;
         private readonly ConditionDefinition _conditionResonatingStrike;
+        private readonly FeatureDefinitionPower _powerResonatingStrike;
         private GameLocationCharacter _secondTarget;
         private int _spellCastingModifier;
 
@@ -965,55 +965,17 @@ internal static partial class SpellBuilders
 
             if (targets.Count != 2)
             {
-                yield break;
+                _secondTarget = null;
             }
-
-            var rulesetCaster = actionCastSpell.ActionParams.ActingCharacter.RulesetCharacter;
-            var spellCastingAbility = actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingAbility;
-
-            _secondTarget = actionCastSpell.ActionParams.TargetCharacters[1];
-            _spellCastingModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCaster.TryGetAttributeValue(spellCastingAbility));
-        }
-
-        // STEP 2: remove the resonance condition and chain the second target damage if a hit
-        public IEnumerator OnAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    _conditionResonatingStrike.Name,
-                    out var activeCondition))
+            else
             {
-                rulesetCharacter.RemoveCondition(activeCondition);
+                var rulesetCaster = actionCastSpell.ActionParams.ActingCharacter.RulesetCharacter;
+                var spellCastingAbility = actionCastSpell.ActiveSpell.SpellRepertoire.SpellCastingAbility;
+
+                _secondTarget = actionCastSpell.ActionParams.TargetCharacters[1];
+                _spellCastingModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetCaster.TryGetAttributeValue(spellCastingAbility));
             }
-            
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var actionParams = action.ActionParams.Clone();
-
-            var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
-
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
-            actionParams.RulesetEffect = rulesetImplementationService
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
-            actionParams.TargetCharacters.SetRange(_secondTarget);
-
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
-
         }
 
         // STEP 3: add the spellCastingAbility as bonus damage
@@ -1036,6 +998,46 @@ internal static partial class SpellBuilders
             }
 
             return effectDescription;
+        }
+
+        // STEP 2: remove the resonance condition and chain the second target damage if a hit
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionResonatingStrike.Name,
+                    out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess)
+                || _secondTarget is null)
+            {
+                yield break;
+            }
+
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var actionParams = action.ActionParams.Clone();
+
+            var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
+            actionParams.RulesetEffect = rulesetImplementationService
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(_secondTarget);
+
+            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
 
