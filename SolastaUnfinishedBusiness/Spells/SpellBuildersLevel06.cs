@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -9,6 +10,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -36,7 +38,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 4)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 4)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .ExcludeCaster()
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
@@ -45,17 +47,20 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePoison, 10, DieType.D6)
+                            .SetDamageForm(DamageTypePoison, 6, DieType.D10)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(ArcaneSword)
+                    .SetParticleEffectParameters(PoisonSpray)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference = PowerDragonBreath_Poison
+            .EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -211,17 +216,19 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerRingOfBlades.AddCustomSubFeatures(new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades));
-
         var conditionRingOfBlades = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
+            .Create(ConditionStrikeOfChaosAttackAdvantage, $"Condition{NAME}")
             .SetGuiPresentation($"Power{NAME}", Category.Feature, ConditionGuided)
             .SetPossessive()
+            .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerRingOfBlades)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
         conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
+
+        powerRingOfBlades.AddCustomSubFeatures(
+            new CustomBehaviorRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -242,22 +249,43 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionRingOfBlades))
-                    .SetParticleEffectParameters(ArcaneSword)
+                    .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class ModifyEffectDescriptionRingOfBlades : IModifyEffectDescription
+    private sealed class CustomBehaviorRingOfBlades : IMagicEffectInitiatedByMe, IModifyEffectDescription
     {
+        private readonly ConditionDefinition _conditionRingOfBlades;
         private readonly FeatureDefinitionPower _powerRingOfBlades;
 
-        public ModifyEffectDescriptionRingOfBlades(FeatureDefinitionPower powerRingOfBlades)
+        public CustomBehaviorRingOfBlades(
+            FeatureDefinitionPower powerRingOfBlades,
+            ConditionDefinition conditionRingOfBlades)
         {
             _powerRingOfBlades = powerRingOfBlades;
+            _conditionRingOfBlades = conditionRingOfBlades;
         }
 
+        // STEP 1: change attackRollModifier to use spell casting feature
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.ActingCharacter.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionRingOfBlades.Name,
+                    out var activeCondition)
+                && action.ActionParams.actionModifiers.Count > 0)
+            {
+                action.ActionParams.actionModifiers[0].attackRollModifier =
+                    activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
+            }
+
+            yield break;
+        }
+
+        // STEP 2: add additional dice if required
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == _powerRingOfBlades;
@@ -278,7 +306,7 @@ internal static partial class SpellBuilders
 
             if (!character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    "ConditionRingOfBlades",
+                    _conditionRingOfBlades.Name,
                     out var activeCondition))
             {
                 return effectDescription;

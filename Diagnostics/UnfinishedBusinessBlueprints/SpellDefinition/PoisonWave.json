@@ -42,7 +42,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "All",
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -91,8 +91,8 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 10,
-          "dieType": "D6",
+          "diceNumber": 6,
+          "dieType": "D10",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -121,7 +121,7 @@
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "cebd71daeca4123429f7cd84800e7591",
+        "m_AssetGUID": "d3c7ffd9777c0dc419d41e264b52a5dc",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +186,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7bcbc5b8d1699674ea353034b65de9ee",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -210,7 +210,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7f06ef11e32162e45925324de6f9e1d5",
+        "m_AssetGUID": "34f67bfd0b273d74a8ce8e4ef929fd6c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
