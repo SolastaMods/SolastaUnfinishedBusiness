@@ -1,4 +1,10 @@
-﻿1.5.94.18:
+﻿1.5.94.19:
+
+- added Divine Wrath and Magical Negation 5th level spells
+- added Poison Wave and Ring of Blades 6th level spells
+- fixed Burning Blade and Sunlit Blade behaviors and crashes
+
+1.5.94.18:
 
 - fixed Action Switching soft locking battles under certain scenarios
 - fixed Burning Blade not removing 2nd enemy impact effect on a miss
