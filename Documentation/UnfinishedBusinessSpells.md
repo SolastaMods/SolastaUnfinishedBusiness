@@ -225,11 +225,11 @@ Create a blast of cold wind to chill your enemies and knock them prone.
 
 # 53. - Aura of Perseverance (V) level 4 Abjuration [Concentration]
 
-Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura (including you) can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
+Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura, including you, can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
 
 # 54. - Aura of Vivacity (V) level 4 Abjuration [Concentration]
 
-Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura including you has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
+Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura, including you, has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
 
 # 55. - Brain Bulwark (V) level 4 Abjuration
 
@@ -262,7 +262,7 @@ Your next hit deals additional 5d10 force damage with your weapon. Additionally,
 
 # 62. - Divine Wrath (V) level 5 Evocation
 
-You strike the ground, creating a burst of divine energy that ripples outward from you. Each creature you choose within 30 feet of you must succeed on a Constitution saving throw or take 5d6 thunder damage, as well as 5d6 radiant or necrotic damage, and be knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn’t knocked prone.
+You strike the ground, creating a burst of divine energy that ripples outward from you. Each creature you choose within 30 feet of you must succeed on a Constitution saving throw or take 5d6 thunder damage, as well as 5d6 radiant or necrotic damage, and be knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.
 
 # 63. - Far Step (V) level 5 Conjuration
 
@@ -272,29 +272,33 @@ You teleport up to 60 ft to an unoccupied space you can see. On each of your tur
 
 Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet and takes 4d6 fire damage at the start of each of its turns.
 
-# 65. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration]
+# 65. - Magical Negation (V) level 5 Abjuration [Concentration]
+
+Divine energy radiates from you, distorting and diffusing magical energy within 30 feet of you. Until the spell ends, the sphere moves with you, centered on you. For the duration, each friendly creature in the area, including you, has advantage on saving throws against spells and other magical effects. Additionally, when an affected creature succeeds on a saving throw made against a spell or magical effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throws.
+
+# 66. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration]
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 66. - Raise Skeletal Knight (V,S) level 5 Necromancy [Concentration]
+# 67. - Raise Skeletal Knight (V,S) level 5 Necromancy [Concentration]
 
 Summons Skeletal Knight:
 A powerful undead creature, created by raising a dead knight.
 
-# 67. - Raise Skeletal Marksman (V,S) level 5 Necromancy [Concentration]
+# 68. - Raise Skeletal Marksman (V,S) level 5 Necromancy [Concentration]
 
 Summons Skeletal Marksman:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
 
-# 68. - Sonic Boom (V,S) level 5 Evocation
+# 69. - Sonic Boom (V,S) level 5 Evocation
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
-# 69. - Steel Whirlwind (M,S) level 5 Conjuration
+# 70. - Steel Whirlwind (M,S) level 5 Conjuration
 
 You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed.
 
-# 70. - Heroic Infusion (V,S) level 6 Transmutation [Concentration]
+# 71. - Heroic Infusion (V,S) level 6 Transmutation [Concentration]
 
 You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:
 • You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost.
@@ -304,66 +308,66 @@ You endow yourself with endurance and martial prowess fueled by magic. Until the
 • You can attack twice, instead of once, when you take the Attack action on your turn.
 Immediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion.
 
-# 71. - Poison Wave (M,V,S) level 6 Evocation
+# 72. - Poison Wave (M,V,S) level 6 Evocation
 
-A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 10d6 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d6 for each slot level above 6th.
+A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 6d10 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute, and can repeat the saving throw at the end of each of its turn. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d10 for each slot level above 6th.
 
-# 72. - Raise Spectral Avenger (V,S) level 6 Necromancy [Concentration]
+# 73. - Raise Spectral Avenger (V,S) level 6 Necromancy [Concentration]
 
 Summons Spectral Avenger:
 A powerful, ethereal undead creature.
 
-# 73. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
+# 74. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
-You raise both hands as you evoke six magical swords around you. As a bonus action, you can throw one of these swords to a creature within 30 feet from you. Make a ranged spell attack for it. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, you create one additional sword for each slot level above 7th level.
+You raise both hands as you evoke six transparent blades around you. As a bonus action, you can throw one of these blades at a creature within 30 feet from you. Make a ranged spell attack for it. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
 
-# 74. - Raise Wight (V,S) level 7 Necromancy [Concentration]
+# 75. - Raise Wight (V,S) level 7 Necromancy [Concentration]
 
 Summons Wight:
 A Wight
 
-# 75. - Reverse Gravity (V,S) level 7 Transmutation [Concentration]
+# 76. - Reverse Gravity (V,S) level 7 Transmutation [Concentration]
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 76. - Mind Blank (V,S) level 8 Transmutation
+# 77. - Mind Blank (V,S) level 8 Transmutation
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 77. - Raise Wight Lord (V,S) level 8 Necromancy [Concentration]
+# 78. - Raise Wight Lord (V,S) level 8 Necromancy [Concentration]
 
 Summons Wight Lord:
 A powerful wight, trained to withstand the light of day.
 
-# 78. - Foresight (V,S) level 9 Transmutation
+# 79. - Foresight (V,S) level 9 Transmutation
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 79. - Mass Heal (V,S) level 9 Transmutation
+# 80. - Mass Heal (V,S) level 9 Transmutation
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 80. - Meteor Swarm [Single Target] (V,S) level 9 Transmutation
+# 81. - Meteor Swarm [Single Target] (V,S) level 9 Transmutation
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 81. - Power Word Heal (V,S) level 9 Enchantment
+# 82. - Power Word Heal (V,S) level 9 Enchantment
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 82. - Power Word Kill (V,S) level 9 Transmutation
+# 83. - Power Word Kill (V,S) level 9 Transmutation
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 83. - Shapechange (M,V,S) level 9 Transmutation [Concentration]
+# 84. - Shapechange (M,V,S) level 9 Transmutation [Concentration]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 84. - Time Stop (V) level 9 Transmutation
+# 85. - Time Stop (V) level 9 Transmutation
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 85. - Weird (V,S) level 9 Illusion [Concentration]
+# 86. - Weird (V,S) level 9 Illusion [Concentration]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 

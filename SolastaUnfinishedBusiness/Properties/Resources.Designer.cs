@@ -732,6 +732,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] CircleOfMagicalNegation {
+            get {
+                object obj = ResourceManager.GetObject("CircleOfMagicalNegation", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] CircleOfTheAncientForest {
             get {
                 object obj = ResourceManager.GetObject("CircleOfTheAncientForest", resourceCulture);

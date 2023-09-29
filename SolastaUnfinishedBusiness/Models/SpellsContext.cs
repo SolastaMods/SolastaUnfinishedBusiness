@@ -272,6 +272,7 @@ internal static class SpellsContext
 
         //5th level
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);
+        RegisterSpell(BuildCircleOfMagicalNegation(), 0, SpellListPaladin);
         RegisterSpell(BuildDivineWrath(), 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);

@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -543,6 +546,126 @@ internal static partial class SpellBuilders
                 0,
                 0,
                 0);
+        }
+    }
+
+    #endregion
+
+    #region Circle of Magical Negation
+
+    internal static SpellDefinition BuildCircleOfMagicalNegation()
+    {
+        const string NAME = "CircleOfMagicalNegation";
+
+        var savingThrowAffinityCircleOfMagicalNegation = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var conditionCircleOfMagicalNegation = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionHeroism)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(savingThrowAffinityCircleOfMagicalNegation)
+            .AddToDB();
+
+        conditionCircleOfMagicalNegation.GuiPresentation.Description = Gui.NoLocalization;
+
+        conditionCircleOfMagicalNegation.AddCustomSubFeatures(
+            new MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation(conditionCircleOfMagicalNegation));
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CircleOfMagicalNegation, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCircleOfMagicalNegation))
+                    .SetParticleEffectParameters(DivineWord)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation :
+        IMagicalAttackBeforeHitConfirmedOnMe, ITryAlterOutcomeSavingThrow
+    {
+        private readonly ConditionDefinition _conditionCircleOfMagicalNegation;
+        private RollOutcome _saveOutcome;
+
+        public MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation(
+            ConditionDefinition conditionCircleOfMagicalNegation)
+        {
+            _conditionCircleOfMagicalNegation = conditionCircleOfMagicalNegation;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (_saveOutcome != RollOutcome.Success)
+            {
+                yield break;
+            }
+
+            actualEffectForms.RemoveAll(x =>
+                x.HasSavingThrow
+                && x.FormType == EffectForm.EffectFormType.Damage
+                && x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
+
+            defender.RulesetCharacter.LogCharacterAffectedByCondition(_conditionCircleOfMagicalNegation);
+        }
+
+        public void OnSavingTryAlterOutcome(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            _saveOutcome = saveOutcome;
         }
     }
 
