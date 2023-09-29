@@ -42,7 +42,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "All",
     "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
@@ -186,7 +186,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f961e20cbc544fa48b40e1e1fdc602ae",
+        "m_AssetGUID": "75d39fa41f17ce0418a4c55216604953",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

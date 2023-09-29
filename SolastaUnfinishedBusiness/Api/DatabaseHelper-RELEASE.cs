@@ -1763,6 +1763,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
 
+        internal static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain");
+
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");
 

@@ -619,7 +619,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -638,6 +638,9 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            PowerSorcererHauntedSoulSoulDrain.EffectDescription.EffectParticleParameters.effectParticleReference;
+        
         return spell;
     }
 
