@@ -242,6 +242,7 @@ internal static class SpellsContext
         // 2nd level
         RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(BuildPsychicWhip(), 0, SpellListSorcerer, SpellListWizard);

@@ -100,6 +100,9 @@ internal static partial class DatabaseHelper
         internal static CharacterFamilyDefinition Construct { get; } =
             GetDefinition<CharacterFamilyDefinition>("Construct");
 
+        internal static CharacterFamilyDefinition Elemental { get; } =
+            GetDefinition<CharacterFamilyDefinition>("Elemental");
+
         internal static CharacterFamilyDefinition Humanoid { get; } =
             GetDefinition<CharacterFamilyDefinition>("Humanoid");
 

@@ -10,7 +10,7 @@
 namespace SolastaUnfinishedBusiness.Properties {
     using System;
     
-    
+     
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -56,6 +56,16 @@ namespace SolastaUnfinishedBusiness.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] NoxiousSpray {
+            get {
+                object obj = ResourceManager.GetObject("NoxiousSpray", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

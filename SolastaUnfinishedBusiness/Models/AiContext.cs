@@ -12,7 +12,9 @@ internal static class AiContext
 {
     internal static void Load()
     {
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound"); // order matters as same weight
+        // order matters as same weight
+        BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray");
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", true);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);
     }

@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -357,6 +358,62 @@ internal static partial class SpellBuilders
 
         spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Noxious Spray
+
+    internal static SpellDefinition BuildNoxiousSpray()
+    {
+        const string NAME = "NoxiousSpray";
+
+        var actionAffinityNoxiousSpray = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(false, false, false, false, false, false)
+            .AddToDB();
+
+        var conditionNoxiousSpray = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionDiseased)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(actionAffinityNoxiousSpray)
+            .AddToDB();
+
+        conditionNoxiousSpray.GuiPresentation.Description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.NoxiousSpray, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(2)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .AddImmuneCreatureFamilies(Construct, Elemental, Undead)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePoison, 4, DieType.D6),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionNoxiousSpray, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Contagion)
+                    .Build())
+            .AddToDB();
 
         return spell;
     }
