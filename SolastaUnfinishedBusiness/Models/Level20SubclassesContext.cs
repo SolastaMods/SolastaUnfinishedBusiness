@@ -1637,7 +1637,7 @@ internal static class Level20SubclassesContext
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (manager == null || battle == null)
+            if (manager == null || battle is not { IsBattleInProgress: true })
             {
                 yield break;
             }

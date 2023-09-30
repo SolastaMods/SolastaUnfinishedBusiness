@@ -90,10 +90,12 @@ internal class ReactionRequestWarcaster : ReactionRequest
         }
     }
 
-    internal static List<SpellDefinition> GetValidCantrips(GameLocationBattleManager battle,
-        GameLocationCharacter character, GameLocationCharacter target)
+    internal static List<SpellDefinition> GetValidCantrips(
+        GameLocationBattleManager battle,
+        GameLocationCharacter character,
+        GameLocationCharacter target)
     {
-        if (battle == null)
+        if (battle is not { IsBattleInProgress: true })
         {
             return null;
         }

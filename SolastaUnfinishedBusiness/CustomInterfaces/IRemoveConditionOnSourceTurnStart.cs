@@ -34,7 +34,7 @@ public static class ConditionRemovedOnSourceTurnStartPatch
 
         var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (battleService?.Battle == null)
+        if (battleService is not { IsBattleInProgress: true })
         {
             return;
         }
