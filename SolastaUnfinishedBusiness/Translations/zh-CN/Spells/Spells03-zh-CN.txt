@@ -62,5 +62,7 @@ Spell/&SpiritShroudDamageRadiantDescription=造成额外的光耀伤害。
 Spell/&SpiritShroudDamageRadiantTitle=灵魂法衣（光耀）
 Spell/&SpiritShroudDescription=你召唤死者的灵魂，在法术的持续时间内它们会在你周身环绕。灵魂无影无形，不受伤害。\n在法术结束之前，当你击中距离你 10 尺以内的生物时，你进行的任何攻击都会造成 1d8 的额外伤害。这种伤害是光辉、暗蚀或寒冷伤害（你在施法时选择）。任何受到此伤害的生物在你的下一个回合开始之前都无法恢复生命值。\n此外，施法时距离你 10 尺以内、进入范围或在范围内开始回合的任何敌方生物都会降低 10 尺移动速度，直到下一轮开始。\n当你使用 4 级或更高法术位施展此法术时，每高于 3 级每两个法术位等级，伤害增加 1d8。
 Spell/&SpiritShroudTitle=灵魂法衣
+Spell/&VitalityTransferDescription=你牺牲了一些生命值来治愈另一个生物的伤势。你受到 4d8 点坏死伤害，并且你选择的一个在范围内可以看到的生物会恢复等于你所受到的坏死伤害两倍的生命值。当你使用 4 级或更高等级的法术施展此法术时，每高于 3 级的法术位等级，伤害就会增加 1d8。
+Spell/&VitalityTransferTitle=活力传递
 Spell/&WinterBreathDescription=制造一阵冷风来冷却你的敌人并将他们击倒。
 Spell/&WinterBreathTitle=寒冬之息

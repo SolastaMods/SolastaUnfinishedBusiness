@@ -10,7 +10,7 @@
 namespace SolastaUnfinishedBusiness.Properties {
     using System;
     
-     
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -56,16 +56,6 @@ namespace SolastaUnfinishedBusiness.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] NoxiousSpray {
-            get {
-                object obj = ResourceManager.GetObject("NoxiousSpray", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         
@@ -2045,6 +2035,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] NoxiousSpray {
+            get {
+                object obj = ResourceManager.GetObject("NoxiousSpray", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] OathOfAltruism {
             get {
                 object obj = ResourceManager.GetObject("OathOfAltruism", resourceCulture);
@@ -3738,6 +3738,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] TutorialActionSwitching {
             get {
                 object obj = ResourceManager.GetObject("TutorialActionSwitching", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] VitalityTransfer {
+            get {
+                object obj = ResourceManager.GetObject("VitalityTransfer", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -10497,6 +10497,7 @@ TimeStop	SpellDefinition	SpellDefinition	718bca89-89fb-5398-9e08-b350d9d66ab4
 TollTheDead	SpellDefinition	SpellDefinition	7a5e1cf4-e437-506a-8f2d-1cd94a0fb9f5
 TreeForestGuardian	SpellDefinition	SpellDefinition	65488447-c038-5e17-aaa5-39ad2d94f3bd
 TrickstersEscape	SpellDefinition	SpellDefinition	dce51973-8d26-51a3-8bb9-c8fa8c216715
+VitalityTransfer	SpellDefinition	SpellDefinition	9a33ccc5-6d91-5fae-900d-70a2061801d9
 VoidGrasp	SpellDefinition	SpellDefinition	fd4c6edd-bf39-5602-bf5a-3f1c175f86df
 Weird	SpellDefinition	SpellDefinition	314a6d8b-bd4a-5200-b37b-2f250bd2f11e
 WinterBreath	SpellDefinition	SpellDefinition	1a825b62-9cb1-56fa-ba61-8b8e91fef8db

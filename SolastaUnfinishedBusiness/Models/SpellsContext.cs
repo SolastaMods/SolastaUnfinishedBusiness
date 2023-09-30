@@ -261,6 +261,7 @@ internal static class SpellsContext
             spellListInventorClass);
         RegisterSpell(BuildLightningArrow(), 0, SpellListRanger);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildVitalityTransfer(), 0, SpellListCleric, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 4th level

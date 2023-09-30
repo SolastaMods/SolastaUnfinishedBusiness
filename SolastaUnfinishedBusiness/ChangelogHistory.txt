@@ -1,7 +1,7 @@
 ﻿1.5.94.20:
 
 - added 1st level Void's Grasp spell
-- added 2nd level Noxious Spray spell
+- added 2nd level Noxious Spray and Vitality Transfer spells
 - added 3rd level Corrupting Bolt spell
 - fixed Ring of Blades not considering spell attack modifiers from wielded equipment
 - fixed Sanctuary incorrect save DC calculation and missing condition interruptions

@@ -62,5 +62,7 @@ Spell/&SpiritShroudDamageRadiantDescription=추가 광휘 피해를 가합니다
 Spell/&SpiritShroudDamageRadiantTitle=영혼의 수의 (광휘)
 Spell/&SpiritShroudDescription=망자의 영을 불러, 지속시간 동안 두를 수 있습니다. 영들은 형체가 없으며 피해를 입지 않습니다.\n주문 종료 시까지, 시전자의 공격은 10ft 내의 크리쳐에게 적중할 경우 지정한 유형의 1d8 추가 피해를 가합니다. 피해는 광휘, 사령, 냉기이며 주문 시전 시 지정합니다. 이렇게 추가 피해를 입은 크리쳐는 시전자의 다음 차례 시작까지 HP를 회복할 수 없습니다.\n추가로, 주문 시전 시 시전자 반경 10ft 내에 있던 모든 적대 크리쳐 또는 한 차례에 사거리 내에 처음 진입하거나 그 안에서 차례를 시작한 크리쳐는 대상의 다음 차례 시작까지 이동력이 10ft 감소합니다.\n주문 슬롯 레벨이 2 상승할 때마다 피해량이 1d8 증가합니다.
 Spell/&SpiritShroudTitle=영혼의 수의
+Spell/&VitalityTransferDescription=당신은 다른 생물의 부상을 치료하기 위해 건강의 일부를 희생합니다. 당신은 4d8의 괴사 피해를 입고, 범위 내에서 볼 수 있는 당신이 선택한 생물 하나가 받는 괴사 피해의 두 배에 해당하는 체력을 회복합니다. 4레벨 이상의 주문을 사용하여 이 주문을 시전하면 3레벨 이상의 각 슬롯 레벨마다 피해가 1d8씩 증가합니다.
+Spell/&VitalityTransferTitle=활력 전달
 Spell/&WinterBreathDescription=한바탕 찬바람을 만들어 적들을 떨게 만들고 쓰러트립니다.
 Spell/&WinterBreathTitle=겨울의 숨결

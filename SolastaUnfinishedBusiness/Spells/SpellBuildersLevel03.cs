@@ -1113,4 +1113,69 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Vitality Transfer
+
+    internal static SpellDefinition BuildVitalityTransfer()
+    {
+        const string Name = "VitalityTransfer";
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.VitalityTransfer, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetParticleEffectParameters(VampiricTouch)
+                    .Build())
+            .AddCustomSubFeatures(new ModifyDiceRollVitalityTransfer())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            CureWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
+
+        return spell;
+    }
+
+    private sealed class ModifyDiceRollVitalityTransfer : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+            var rolls = new List<int>();
+            var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeNecrotic, DiceNumber = diceNumber, DieType = DieType.D8
+            };
+            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var totalHealing = totalDamage * 2;
+            var currentHitPoints = rulesetCaster.CurrentHitPoints;
+
+            rulesetCaster.SustainDamage(totalDamage, damageForm.DamageType, false, rulesetCaster.Guid,
+                new RollInfo(damageForm.DieType, rolls, 0), out _);
+
+            rulesetCaster.DamageSustained?.Invoke(rulesetCaster, totalDamage, damageForm.DamageType, true,
+                currentHitPoints > totalDamage, false);
+
+            rulesetTarget.ReceiveHealing(totalHealing, true, rulesetCaster.Guid);
+        }
+    }
+
+    #endregion
 }
