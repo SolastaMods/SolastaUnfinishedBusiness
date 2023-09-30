@@ -251,6 +251,7 @@ internal static class SpellsContext
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
+        RegisterSpell(BuildAdderFangs(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWarlock);
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildBoomingStep(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildCorruptingBolt(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);

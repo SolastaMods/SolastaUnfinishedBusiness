@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 
@@ -215,7 +216,7 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFunctionWandFearCone)
+                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -228,6 +229,64 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Adder's Fangs
+
+    internal static SpellDefinition BuildAdderFangs()
+    {
+        const string Name = "AdderFangs";
+
+        var movementAffinityAdderFangs = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .AddToDB();
+
+        var conditionAdderFangs = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionPoisoned, $"Condition{Name}")
+            .SetOrUpdateGuiPresentation(Name, Category.Spell)
+            .SetPossessive()
+            .AddFeatures(movementAffinityAdderFangs)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePoison, 4, DieType.D10)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(conditionAdderFangs, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(PowerHezrouPoisonBolt)
                     .Build())
             .AddToDB();
 

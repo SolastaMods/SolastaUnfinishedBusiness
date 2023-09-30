@@ -1661,6 +1661,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFunctionWandFearCone { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCone");
 
+        internal static FeatureDefinitionPower PowerHezrouPoisonBolt { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerHezrouPoisonBolt");
+
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
 
