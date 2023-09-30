@@ -42,7 +42,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6dc6c2cd25cbc9242b28fde76faa5f94",
+        "m_AssetGUID": "c5fba388cb646cd45bd2740d060e09df",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +186,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e332d400a12336242a99bc79f8087156",
+        "m_AssetGUID": "8c183f2d138b26c4f9c8344ea653eb62",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -210,7 +210,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "476fd881673e13048a2391dc9b328396",
+        "m_AssetGUID": "96ef36b72606bab41ab21e1ac2f47800",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

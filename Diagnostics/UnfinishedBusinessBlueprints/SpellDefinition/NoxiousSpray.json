@@ -145,9 +145,9 @@
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -166,7 +166,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "d3c7ffd9777c0dc419d41e264b52a5dc",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -190,7 +190,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f2704c344c5c9234793653ed7ae44eb3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -216,7 +216,6 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -229,8 +228,15 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
+                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
+            Darkness.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            MindTwist.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -256,6 +262,8 @@ internal static partial class SpellBuilders
             .AddFeatures(movementAffinityAdderFangs)
             .AddToDB();
 
+        conditionAdderFangs.GuiPresentation.Description = Gui.NoLocalization;
+
         var spell = SpellDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128, 128))
@@ -270,7 +278,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
@@ -286,9 +294,12 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(conditionAdderFangs, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(PowerHezrouPoisonBolt)
+                    .SetParticleEffectParameters(VenomousSpike)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            InflictWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
@@ -1082,14 +1093,29 @@ internal static partial class SpellBuilders
         const string Name = "CorruptingBolt";
 
         var conditionCorruptingBolt = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
+            .Create(ConditionEyebiteSickened, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .SetFeatures()
             .AddToDB();
 
-        conditionCorruptingBolt.AddCustomSubFeatures(new CustomBehaviorCorruptingBolt(conditionCorruptingBolt));
+        foreach (var damageDefinition in DatabaseRepository.GetDatabase<DamageDefinition>())
+        {
+            var damageType = damageDefinition.Name;
+
+            var damageAffinity =
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create($"DamageAffinity{Name}{damageType}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                    .SetDamageType(damageType)
+                    .AddToDB();
+
+            conditionCorruptingBolt.Features.Add(damageAffinity);
+        }
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -1110,64 +1136,53 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionCorruptingBolt, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(VampiricTouch)
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8))
+                    .SetParticleEffectParameters(FingerOfDeath)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeCorruptingBolt(conditionCorruptingBolt))
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            Disintegrate.EffectDescription.EffectParticleParameters.impactParticleReference;
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
 
-    private sealed class CustomBehaviorCorruptingBolt :
-        IMagicalAttackBeforeHitConfirmedOnMe, IAttackBeforeHitConfirmedOnMe
+    private sealed class MagicEffectFinishedByMeCorruptingBolt : IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _conditionCorruptingBolt;
 
-        public CustomBehaviorCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
+        public MagicEffectFinishedByMeCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
         {
             _conditionCorruptingBolt = conditionCorruptingBolt;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (rulesetEffect != null)
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
+                || (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success))
             {
                 yield break;
             }
 
-            defender.RulesetCharacter.RemoveAllConditionsOfType(_conditionCorruptingBolt.Name);
-            attackModifier.attackerDamageMultiplier += 1;
-        }
-
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            defender.RulesetCharacter.RemoveAllConditionsOfType(_conditionCorruptingBolt.Name);
-            magicModifier.attackerDamageMultiplier += 1;
-
-            yield break;
+            rulesetDefender.InflictCondition(
+                _conditionCorruptingBolt.Name,
+                _conditionCorruptingBolt.DurationType,
+                _conditionCorruptingBolt.DurationParameter,
+                _conditionCorruptingBolt.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -1194,7 +1209,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetParticleEffectParameters(VampiricTouch)
+                    .ExcludeCaster()
+                    .SetParticleEffectParameters(FalseLife)
                     .Build())
             .AddCustomSubFeatures(new ModifyDiceRollVitalityTransfer())
             .AddToDB();

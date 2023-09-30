@@ -217,9 +217,12 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
-                    .SetParticleEffectParameters(PowerDispelEvilBreakEnchantment)
+                    .SetParticleEffectParameters(ShadowDagger)
                     .Build())
             .AddToDB();
+
+        powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDispelEvilBreakEnchantment.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var conditionRingOfBlades = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -416,6 +419,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
+                .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                 .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
@@ -431,9 +435,14 @@ internal static partial class SpellBuilders
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
                         .Build())
-                .SetParticleEffectParameters(IceStorm)
+                .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                 .Build())
             .AddToDB();
+
+        spell.AddCustomSubFeatures(new FilterTargetingMagicEffectFlashFreeze(spell));
+
+        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
+            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         return spell;
     }

@@ -377,7 +377,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var conditionNoxiousSpray = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
+            .Create(ConditionPheromoned, $"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionDiseased)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
@@ -402,7 +402,8 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
                     .AddImmuneCreatureFamilies(Construct, Elemental, Undead)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypePoison, 4, DieType.D6),
@@ -411,9 +412,12 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionNoxiousSpray, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(Contagion)
+                    .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PoisonSpray.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         return spell;
     }

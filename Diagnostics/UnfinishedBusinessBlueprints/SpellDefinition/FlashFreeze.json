@@ -5,7 +5,7 @@
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
-  "spellLevel": 1,
+  "spellLevel": 6,
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
@@ -43,7 +43,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "All",
-    "durationType": "Instantaneous",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3b7d45ea0f197854aa21c5d1ea581201",
+        "m_AssetGUID": "e22e4f85dac1bd046bd02889cd94f0af",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +186,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1927a44d66937804da6cdfe1558f20fe",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -246,7 +246,7 @@
       },
       "activeEffectSurfaceParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "bdac07aa80c2e654491e1e9ad2c678b9",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -296,19 +296,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "72457772ad415eb4cb12c64cd8c649c4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "336226270d32b514d976b3c213bd1baa",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ff72da1aae4219b4c89f7c06d6c7ebe0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

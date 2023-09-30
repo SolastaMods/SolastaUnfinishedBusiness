@@ -1574,7 +1574,7 @@ internal static partial class SpellBuilders
                     EffectFormBuilder
                         .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetDamageForm(DamageTypeAcid, 2, DieType.D4)
+                        .SetConditionForm(conditionVileBrew, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetParticleEffectParameters(AcidSplash)
                 .Build())
