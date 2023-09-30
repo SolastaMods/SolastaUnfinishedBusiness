@@ -16,6 +16,7 @@ internal static class AiContext
         BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray");
         BuildDecisionBreakFreeFromCondition("ConditionVileBrew");
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
+        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", true);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", true);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);
     }

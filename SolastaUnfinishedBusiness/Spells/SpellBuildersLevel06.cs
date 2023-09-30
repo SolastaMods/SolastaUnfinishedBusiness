@@ -379,4 +379,97 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Flash Freeze
+
+    internal static SpellDefinition BuildFlashFreeze()
+    {
+        const string NAME = "FlashFreeze";
+
+        var actionAffinityFlashFreeze = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}NoReaction")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false)
+            .AddToDB();
+
+        var conditionFlashFreeze = ConditionDefinitionBuilder
+            .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell, ConditionHindered_By_Frost)
+            .SetPossessive()
+            .SetParentCondition(ConditionRestrainedByWeb)
+            .AddFeatures(actionAffinityFlashFreeze)
+            .AddToDB();
+
+        conditionFlashFreeze.specialDuration = false;
+        conditionFlashFreeze.specialInterruptions.Clear();
+        conditionFlashFreeze.GuiPresentation.Description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FLashFreeze, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .SetDamageForm(DamageTypeCold, 12, DieType.D6)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetParticleEffectParameters(IceStorm)
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class FilterTargetingMagicEffectFlashFreeze : IFilterTargetingMagicEffect
+    {
+        private readonly SpellDefinition _spellFlashFreeze;
+
+        public FilterTargetingMagicEffectFlashFreeze(SpellDefinition spellFlashFreeze)
+        {
+            _spellFlashFreeze = spellFlashFreeze;
+        }
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+                || rulesetEffectSpell.SpellDefinition != _spellFlashFreeze)
+            {
+                return true;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            var isValid = rulesetTarget.SizeDefinition != CharacterSizeDefinitions.DragonSize
+                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Gargantuan
+                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Huge
+                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeLargeOrSmaller");
+            }
+
+            return isValid;
+        }
+    }
+
+    #endregion
 }

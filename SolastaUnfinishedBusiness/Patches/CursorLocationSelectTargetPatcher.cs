@@ -25,9 +25,11 @@ public static class CursorLocationSelectTargetPatcher
             GameLocationCharacter target,
             ref bool __result)
         {
+            var definition = __instance.ActionParams.activeEffect.SourceDefinition;
+
             //PATCH: supports IFilterTargetingMagicEffect
-            foreach (var filterTargetingMagicEffect in __instance.actionParams.actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IFilterTargetingMagicEffect>())
+            foreach (var filterTargetingMagicEffect in
+                     definition.GetAllSubFeaturesOfType<IFilterTargetingMagicEffect>())
             {
                 __result = filterTargetingMagicEffect.IsValid(__instance, target);
 

@@ -144,7 +144,18 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterSizeDefinitions
     {
+        internal static CharacterSizeDefinition DragonSize { get; } =
+            GetDefinition<CharacterSizeDefinition>("DragonSize");
+
+        internal static CharacterSizeDefinition Gargantuan { get; } =
+            GetDefinition<CharacterSizeDefinition>("Gargantuan");
+
+        internal static CharacterSizeDefinition Huge { get; } = GetDefinition<CharacterSizeDefinition>("Huge");
         internal static CharacterSizeDefinition Medium { get; } = GetDefinition<CharacterSizeDefinition>("Medium");
+
+        internal static CharacterSizeDefinition SpiderQueenSize { get; } =
+            GetDefinition<CharacterSizeDefinition>("SpiderQueenSize");
+
         internal static CharacterSizeDefinition Small { get; } = GetDefinition<CharacterSizeDefinition>("Small");
         internal static CharacterSizeDefinition Tiny { get; } = GetDefinition<CharacterSizeDefinition>("Tiny");
     }
