@@ -19,6 +19,7 @@
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "Attacked",
+    "Attacks",
     "CastSpell"
   ],
   "interruptionRequiresSavingThrow": false,

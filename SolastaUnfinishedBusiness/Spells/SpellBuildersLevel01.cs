@@ -623,6 +623,7 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -634,13 +635,10 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionVoidGrasp, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(FingerOfDeath)
+                    .SetParticleEffectParameters(ChillTouch)
                     .Build())
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
-            PowerSorcererHauntedSoulSoulDrain.EffectDescription.EffectParticleParameters.effectParticleReference;
-        
         return spell;
     }
 
@@ -969,37 +967,14 @@ internal static partial class SpellBuilders
                 FeatureDefinitionReduceDamageBuilder
                     .Create($"ReduceDamage{NAME}")
                     .SetGuiPresentation(NAME, Category.Spell)
-                    .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
+                    .SetAlwaysActiveReducedDamage((_, _) => 999)
                     .AddToDB())
-            .AddSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.CastSpell)
-            .AddToDB();
-
-        var conditionSanctuaryDamageResistance = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DamageResistance")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityColdResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityForceDamageResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityPoisonResistance,
-                DamageAffinityPsychicResistance,
-                DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddSpecialInterruptions(
+                ConditionInterruption.Attacked, ConditionInterruption.Attacks, ConditionInterruption.CastSpell)
             .AddToDB();
 
         conditionSanctuary.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeSanctuary(
-                conditionSanctuary,
-                conditionSanctuaryReduceDamage,
-                conditionSanctuaryDamageResistance));
+            new AttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuary, conditionSanctuaryReduceDamage));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1019,25 +994,58 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
                     .SetParticleEffectParameters(ProtectionFromEvilGood)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeSanctuary(conditionSanctuary))
             .AddToDB();
 
         return spell;
     }
 
+    // store the caster Save DC on condition amount
+    private sealed class MagicEffectFinishedByMeSanctuary : IMagicEffectFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionSanctuary;
+
+        public MagicEffectFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
+        {
+            _conditionSanctuary = conditionSanctuary;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionSanctuary.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
+            activeCondition.Amount = rulesetCaster.ComputeSaveDC(actionCastSpell.activeSpell.SpellRepertoire);
+        }
+    }
+
+    // force the attacker to roll a WIS saving throw or lose the attack
     private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionReduceDamage;
-        private readonly ConditionDefinition _conditionResistance;
         private readonly ConditionDefinition _conditionSanctuary;
 
         internal AttackBeforeHitConfirmedOnMeSanctuary(
             ConditionDefinition conditionSanctuary,
-            ConditionDefinition conditionReduceDamage,
-            ConditionDefinition conditionResistance)
+            ConditionDefinition conditionReduceDamage)
         {
             _conditionSanctuary = conditionSanctuary;
             _conditionReduceDamage = conditionReduceDamage;
-            _conditionResistance = conditionResistance;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -1053,11 +1061,6 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (!battle.IsBattleInProgress)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -1065,46 +1068,31 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var usableCondition =
-                rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionSanctuary);
-
-            if (usableCondition == null)
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionSanctuary.Name,
+                    out var activeCondition))
             {
                 yield break;
             }
 
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
-
-            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
+            var casterSaveDC = activeCondition.Amount;
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
+            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
-            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
-
-            var casterProfBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetCaster
-                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-            var casterWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCaster
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
-
-            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
-                advantageTrends, attackerWisModifier, 8 + casterProfBonus + casterWisModifier, false,
-                out var savingOutcome,
-                out _);
+            attacker.RulesetCharacter.RollSavingThrow(
+                0, AttributeDefinitions.Wisdom, null, modifierTrend, advantageTrends, attackerWisModifier, casterSaveDC,
+                false, out var savingOutcome, out _);
 
             if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
 
-            var condition = criticalHit ? _conditionResistance : _conditionReduceDamage;
-
             rulesetDefender.InflictCondition(
-                condition.Name,
+                _conditionReduceDamage.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
