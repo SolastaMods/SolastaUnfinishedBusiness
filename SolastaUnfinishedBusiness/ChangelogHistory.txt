@@ -1,4 +1,11 @@
-﻿1.5.94.19:
+﻿1.5.94.20:
+
+- added Void's Grasp 1st level spell
+- added Corrupting Bolt 3rd level spell
+- fixed Ring of Blades not considering spell attack modifiers from wielded equipment
+- fixed Sanctuary incorrect save DC calculation and missing condition interruptions
+
+1.5.94.19:
 
 - added Divine Wrath and Magical Negation 5th level spells
 - added Poison Wave and Ring of Blades 6th level spells

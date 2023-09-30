@@ -1015,4 +1015,102 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Corrupting Bolt
+
+    internal static SpellDefinition BuildCorruptingBolt()
+    {
+        const string Name = "CorruptingBolt";
+
+        var conditionCorruptingBolt = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionCorruptingBolt.AddCustomSubFeatures(new CustomBehaviorCorruptingBolt(conditionCorruptingBolt));
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionCorruptingBolt, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(VampiricTouch)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorCorruptingBolt :
+        IMagicalAttackBeforeHitConfirmedOnMe, IAttackBeforeHitConfirmedOnMe
+    {
+        private readonly ConditionDefinition _conditionCorruptingBolt;
+
+        public CustomBehaviorCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
+        {
+            _conditionCorruptingBolt = conditionCorruptingBolt;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect != null)
+            {
+                yield break;
+            }
+
+            defender.RulesetCharacter.RemoveAllConditionsOfType(_conditionCorruptingBolt.Name);
+            attackModifier.attackerDamageMultiplier += 1;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            defender.RulesetCharacter.RemoveAllConditionsOfType(_conditionCorruptingBolt.Name);
+            magicModifier.attackerDamageMultiplier += 1;
+
+            yield break;
+        }
+    }
+
+    #endregion
 }
