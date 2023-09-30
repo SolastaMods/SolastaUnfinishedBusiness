@@ -14,6 +14,7 @@ internal static class AiContext
     {
         // order matters as same weight
         BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray");
+        BuildDecisionBreakFreeFromCondition("ConditionVileBrew");
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", true);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);

@@ -1,6 +1,6 @@
 ﻿1.5.94.20:
 
-- added 1st level Void's Grasp spell
+- added 1st level Vile Brew and Void's Grasp spell
 - added 2nd level Noxious Spray spell
 - added 3rd level Adder's Fangs, Corrupting Bolt, and Vitality Transfer spells
 - fixed Ring of Blades not considering spell attack modifiers from wielded equipment
