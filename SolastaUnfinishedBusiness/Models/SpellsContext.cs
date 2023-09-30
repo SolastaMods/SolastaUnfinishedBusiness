@@ -274,6 +274,7 @@ internal static class SpellsContext
             spellListInventorClass);
         RegisterSpell(BuildForestGuardian(), 0, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);
+        RegisterSpell(BuildIrresistiblePerformance(), 0, SpellListBard);
         RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
 
