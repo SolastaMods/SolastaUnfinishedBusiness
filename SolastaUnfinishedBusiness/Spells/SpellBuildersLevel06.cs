@@ -217,7 +217,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
-                    .SetParticleEffectParameters(ShadowDagger)
+                    .SetParticleEffectParameters(PowerDispelEvilBreakEnchantment)
                     .Build())
             .AddToDB();
 
@@ -258,7 +258,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionRingOfBlades))
-                    .SetParticleEffectParameters(PowerDispelEvilBreakEnchantment)
+                    .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
             .AddToDB();
@@ -309,6 +309,8 @@ internal static partial class SpellBuilders
 
             var actionModifier = action.ActionParams.actionModifiers[0];
 
+            rulesetCaster.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
             rulesetCaster.ComputeSpellAttackBonus(rulesetCaster.SpellRepertoires[spellRepertoireIndex]);
             actionModifier.AttacktoHitTrends.SetRange(rulesetCaster.magicAttackTrends);
             actionModifier.AttackRollModifier = rulesetCaster.magicAttackTrends.Sum(x => x.value);

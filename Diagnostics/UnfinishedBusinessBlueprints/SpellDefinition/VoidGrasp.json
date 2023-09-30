@@ -26,7 +26,7 @@
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7a652c1ac2bfeef4eb00645e6ef50212",
+        "m_AssetGUID": "cc4f89cd4013fdd408dfae2bcbe03ac2",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +186,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "75d39fa41f17ce0418a4c55216604953",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -210,7 +210,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c561f5ceb3013594fbcd8b722b431a39",
+        "m_AssetGUID": "8bf042051751f9a48874e912997107ed",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -302,13 +302,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f0efb761d25800b43bd77b4f42899a5b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c2a1b6687a423ad4caffb9b108d771fe",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -215,7 +215,7 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFunctionWandFearCone)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
