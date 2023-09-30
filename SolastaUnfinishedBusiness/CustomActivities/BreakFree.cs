@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 // ReSharper disable once CheckNamespace
@@ -55,39 +56,69 @@ public class BreakFree : ActivityBase
         var success = true;
 
         // no ability check
-        if (!decisionDefinitionParam.Decision.boolParameter)
+        switch (decisionDefinitionParam.Decision.stringParameter)
         {
-            rulesetCharacter.RemoveCondition(restrainingCondition);
-        }
-        else
-        {
-            var checkDC = 10;
-            var sourceGuid = restrainingCondition.SourceGuid;
+            case AiContext.DoNothing:
+                rulesetCharacter.RemoveCondition(restrainingCondition);
+                break;
 
-            if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+            case AiContext.DoStrengthCheckCasterDC:
             {
-                checkDC = rulesetCharacterHero.SpellRepertoires
-                    .Select(x => x.SaveDC)
-                    .Max();
+                var checkDC = 10;
+                var sourceGuid = restrainingCondition.SourceGuid;
+
+                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
+                {
+                    checkDC = rulesetCharacterHero.SpellRepertoires
+                        .Select(x => x.SaveDC)
+                        .Max();
+                }
+
+                var actionMod = new ActionModifier();
+
+                rulesetCharacter.ComputeBaseAbilityCheckBonus(
+                    AttributeDefinitions.Strength, actionMod.AbilityCheckModifierTrends, string.Empty);
+
+                gameLocationCharacter.ComputeAbilityCheckActionModifier(
+                    AttributeDefinitions.Strength, string.Empty, actionMod);
+
+                gameLocationCharacter.RollAbilityCheck(
+                    AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, actionMod,
+                    false, -1, out var outcome, out _, true);
+
+                success = outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+
+                if (success)
+                {
+                    rulesetCharacter.RemoveCondition(restrainingCondition);
+                }
+
+                break;
             }
 
-            var actionMod = new ActionModifier();
-
-            rulesetCharacter.ComputeBaseAbilityCheckBonus(
-                AttributeDefinitions.Strength, actionMod.AbilityCheckModifierTrends, string.Empty);
-
-            gameLocationCharacter.ComputeAbilityCheckActionModifier(
-                AttributeDefinitions.Strength, string.Empty, actionMod);
-
-            gameLocationCharacter.RollAbilityCheck(
-                AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, actionMod,
-                false, -1, out var outcome, out _, true);
-
-            success = outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
-
-            if (success)
+            case AiContext.DoStrengthAthleticsCheckDC10:
             {
-                rulesetCharacter.RemoveCondition(restrainingCondition);
+                const int CHECK_DC = 10;
+                var actionMod = new ActionModifier();
+
+                rulesetCharacter.ComputeBaseAbilityCheckBonus(
+                    AttributeDefinitions.Strength, actionMod.AbilityCheckModifierTrends, string.Empty);
+
+                gameLocationCharacter.ComputeAbilityCheckActionModifier(
+                    AttributeDefinitions.Strength, string.Empty, actionMod);
+
+                gameLocationCharacter.RollAbilityCheck(
+                    AttributeDefinitions.Strength, SkillDefinitions.Athletics, CHECK_DC, AdvantageType.None, actionMod,
+                    false, -1, out var outcome, out _, true);
+
+                success = outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+
+                if (success)
+                {
+                    rulesetCharacter.RemoveCondition(restrainingCondition);
+                }
+
+                break;
             }
         }
 

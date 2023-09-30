@@ -10,19 +10,23 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class AiContext
 {
+    internal const string DoNothing = "1";
+    internal const string DoStrengthCheckCasterDC = "2";
+    internal const string DoStrengthAthleticsCheckDC10 = "3";
+    
     internal static void Load()
     {
         // order matters as same weight
-        BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray");
-        BuildDecisionBreakFreeFromCondition("ConditionVileBrew");
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
-        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", true);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", true);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);
+        BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray", DoNothing);
+        BuildDecisionBreakFreeFromCondition("ConditionVileBrew", DoNothing);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", DoNothing);
+        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", DoStrengthAthleticsCheckDC10);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", DoStrengthCheckCasterDC);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", DoStrengthCheckCasterDC);
     }
 
     // boolParameter false won't do any ability check
-    private static void BuildDecisionBreakFreeFromCondition(string conditionName, bool boolParameter = false)
+    private static void BuildDecisionBreakFreeFromCondition(string conditionName, string action)
     {
         //TODO: create proper builders
 
@@ -77,7 +81,7 @@ internal static class AiContext
                 "if restrained and can use main action, try to break free",
                 "BreakFree",
                 scorer,
-                boolParameter: boolParameter,
+                stringParameter: action,
                 enumParameter: 1,
                 floatParameter: 3f)
             .AddToDB();
