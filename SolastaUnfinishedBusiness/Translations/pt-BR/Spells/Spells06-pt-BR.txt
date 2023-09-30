@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Encapsulado
 Condition/&ConditionHeroicInfusionDescription=Você se dota de resistência e destreza marcial alimentadas pela magia.
 Condition/&ConditionHeroicInfusionTitle=Infusão Heroica
 Feature/&PowerRingOfBladesDescription=Como uma ação bônus, você pode realizar um ataque mágico à distância contra uma criatura a até 9 metros de você, usando uma de suas espadas do Anel de Lâminas.

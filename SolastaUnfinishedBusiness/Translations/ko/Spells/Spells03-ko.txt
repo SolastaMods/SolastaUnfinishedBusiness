@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=당신은 다음 공격에서 2배의 피해를 입습니다.
-Condition/&ConditionCorruptingBoltTitle=부패의 화살
+Condition/&ConditionCorruptingBoltTitle=타락함
 Condition/&ConditionCrusadersMantleDescription=공격에 1d4 추가 광휘 피해를 얻습니다.
 Condition/&ConditionCrusadersMantleTitle=성전사의 망토
 Condition/&ConditionFlameArrowsDescription=화살이나 볼트 공격으로 1d6의 추가 화염 피해를 줍니다.

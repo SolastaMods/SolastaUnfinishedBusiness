@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=Você sofre 2x de dano no próximo ataque contra você.
-Condition/&ConditionCorruptingBoltTitle=Parafuso Corrompido
+Condition/&ConditionCorruptingBoltTitle=Corrompido
 Condition/&ConditionCrusadersMantleDescription=Ganhe um bônus de 1d4 de dano radiante em seus ataques.
 Condition/&ConditionCrusadersMantleTitle=Manto do Cruzado
 Condition/&ConditionFlameArrowsDescription=Você causa 1d6 de dano de fogo extra com ataques de flechas ou virotes.

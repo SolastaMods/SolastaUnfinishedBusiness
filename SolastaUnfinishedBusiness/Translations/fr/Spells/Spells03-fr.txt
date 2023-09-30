@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=Vous subissez 2x dégâts à la prochaine attaque contre vous.
-Condition/&ConditionCorruptingBoltTitle=Trait corrupteur
+Condition/&ConditionCorruptingBoltTitle=Corrompu
 Condition/&ConditionCrusadersMantleDescription=Gagnez un bonus de 1d4 dégâts radiants sur vos attaques.
 Condition/&ConditionCrusadersMantleTitle=Mantelet de croisé
 Condition/&ConditionFlameArrowsDescription=Vous infligez 1d6 dégâts de feu supplémentaires avec des attaques de flèches ou de carreaux.

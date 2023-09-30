@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=포장됨
 Condition/&ConditionHeroicInfusionDescription=마법의 힘으로 인내력과 무용을 부여 받았습니다.
 Condition/&ConditionHeroicInfusionTitle=영웅 탄생
 Feature/&PowerRingOfBladesDescription=보너스 행동으로, 당신은 칼날검 중 하나를 사용하여 당신으로부터 30피트 내의 생물에게 원거리 주문 공격을 할 수 있습니다.

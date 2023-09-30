@@ -296,19 +296,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "72457772ad415eb4cb12c64cd8c649c4",
+        "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "336226270d32b514d976b3c213bd1baa",
+        "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ff72da1aae4219b4c89f7c06d6c7ebe0",
+        "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

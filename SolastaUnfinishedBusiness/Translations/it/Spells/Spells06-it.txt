@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Racchiuso
 Condition/&ConditionHeroicInfusionDescription=Ti doti di resistenza e abilità marziale alimentate dalla magia.
 Condition/&ConditionHeroicInfusionTitle=Infusione eroica
 Feature/&PowerRingOfBladesDescription=Come azione bonus, puoi effettuare un attacco con incantesimo a distanza su una creatura entro 9 metri da te, utilizzando una delle tue spade Ring of Blades.

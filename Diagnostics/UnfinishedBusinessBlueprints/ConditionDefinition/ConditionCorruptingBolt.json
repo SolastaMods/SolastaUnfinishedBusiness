@@ -31,7 +31,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [
-    "Attacked"
+    9000
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -284,8 +284,8 @@
     "description": "Condition/&ConditionCorruptingBoltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e77d03bdd8cf8934595d954d28f0b208",
-      "m_SubObjectName": "ConditionDiseased",
+      "m_AssetGUID": "53a1d33b98088644f8c549fcdb63404f",
+      "m_SubObjectName": "ConditionDoomed",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

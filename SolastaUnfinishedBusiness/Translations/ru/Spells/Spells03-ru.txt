@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=Вы получаете двукратный урон от следующей атаки против вас.
-Condition/&ConditionCorruptingBoltTitle=Развращающий болт
+Condition/&ConditionCorruptingBoltTitle=Испорченный
 Condition/&ConditionCrusadersMantleDescription=Ваши атаки дополнительно наносят 1d4 урона излучением.
 Condition/&ConditionCrusadersMantleTitle=Мантия крестоносца
 Condition/&ConditionFlameArrowsDescription=При атаке стрелами или болтами вы наносите дополнительно 1d6 урона огнём.

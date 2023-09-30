@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=You suffers 2x damage to the next attack against you.
-Condition/&ConditionCorruptingBoltTitle=Corrupting Bolt
+Condition/&ConditionCorruptingBoltTitle=Corrupted
 Condition/&ConditionCrusadersMantleDescription=Gain a bonus 1d4 radiant damage on your attacks.
 Condition/&ConditionCrusadersMantleTitle=Crusader's Mantle
 Condition/&ConditionFlameArrowsDescription=You deal an extra 1d6 fire damage with arrows or bolts attacks. 

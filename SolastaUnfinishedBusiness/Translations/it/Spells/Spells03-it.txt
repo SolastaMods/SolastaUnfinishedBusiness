@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=Subisci danni 2x al prossimo attacco contro di te.
-Condition/&ConditionCorruptingBoltTitle=Bullone Corruttore
+Condition/&ConditionCorruptingBoltTitle=Corrotti
 Condition/&ConditionCrusadersMantleDescription=Ottieni un bonus di 1d4 danni radianti ai tuoi attacchi.
 Condition/&ConditionCrusadersMantleTitle=Mantello del Crociato
 Condition/&ConditionFlameArrowsDescription=Infliggi 1d6 danni da fuoco aggiuntivi con attacchi con frecce o dardi.

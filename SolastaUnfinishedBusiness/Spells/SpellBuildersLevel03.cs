@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -257,7 +258,6 @@ internal static partial class SpellBuilders
 
         var conditionAdderFangs = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionPoisoned, $"Condition{Name}")
-            .SetOrUpdateGuiPresentation(Name, Category.Spell)
             .SetPossessive()
             .AddFeatures(movementAffinityAdderFangs)
             .AddToDB();
@@ -1094,11 +1094,11 @@ internal static partial class SpellBuilders
 
         var conditionCorruptingBolt = ConditionDefinitionBuilder
             .Create(ConditionEyebiteSickened, $"Condition{Name}")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
+            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .SetFeatures()
             .AddToDB();
 
@@ -1230,7 +1230,8 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+            var caster = action.ActingCharacter;
+            var rulesetCaster = caster.RulesetCharacter;
             var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
             var rolls = new List<int>();
             var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
@@ -1244,6 +1245,8 @@ internal static partial class SpellBuilders
 
             rulesetCaster.SustainDamage(totalDamage, damageForm.DamageType, false, rulesetCaster.Guid,
                 new RollInfo(damageForm.DieType, rolls, 0), out _);
+
+            EffectHelpers.StartVisualEffect(caster, caster, PowerSorcererChildRiftOffering);
 
             rulesetCaster.DamageSustained?.Invoke(rulesetCaster, totalDamage, damageForm.DamageType, true,
                 currentHitPoints > totalDamage, false);

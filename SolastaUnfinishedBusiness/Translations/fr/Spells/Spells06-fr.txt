@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Enfermé
 Condition/&ConditionHeroicInfusionDescription=Vous vous dotez d’une endurance et de prouesses martiales alimentées par la magie.
 Condition/&ConditionHeroicInfusionTitle=Infusion héroïque
 Feature/&PowerRingOfBladesDescription=Par une action bonus, vous pouvez lancer une attaque magique à distance sur une créature située à moins de 9 mètres de vous, en utilisant l'une de vos épées Ring of Blades.

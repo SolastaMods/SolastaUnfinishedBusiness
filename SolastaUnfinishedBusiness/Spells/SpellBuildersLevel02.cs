@@ -373,18 +373,18 @@ internal static partial class SpellBuilders
         var actionAffinityNoxiousSpray = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(false, false, false, false, false, false)
+            .SetAllowedActionTypes(false, move: false)
             .AddToDB();
 
         var conditionNoxiousSpray = ConditionDefinitionBuilder
             .Create(ConditionPheromoned, $"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionDiseased)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDiseased)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(actionAffinityNoxiousSpray)
             .AddToDB();
 
-        conditionNoxiousSpray.GuiPresentation.Description = Gui.NoLocalization;
+        conditionNoxiousSpray.specialDuration = false;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)

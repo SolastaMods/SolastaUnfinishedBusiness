@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -223,6 +224,7 @@ internal static partial class SpellBuilders
 
         powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference =
             PowerDispelEvilBreakEnchantment.EffectDescription.EffectParticleParameters.casterParticleReference;
+        powerRingOfBlades.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         var conditionRingOfBlades = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -397,7 +399,7 @@ internal static partial class SpellBuilders
 
         var conditionFlashFreeze = ConditionDefinitionBuilder
             .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
-            .SetOrUpdateGuiPresentation(NAME, Category.Spell, ConditionHindered_By_Frost)
+            .SetOrUpdateGuiPresentation(Category.Condition, ConditionHindered_By_Frost)
             .SetPossessive()
             .SetParentCondition(ConditionRestrainedByWeb)
             .AddFeatures(actionAffinityFlashFreeze)
@@ -443,6 +445,12 @@ internal static partial class SpellBuilders
 
         spell.EffectDescription.EffectParticleParameters.casterParticleReference =
             SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionEndParticleReference;
 
         return spell;
     }

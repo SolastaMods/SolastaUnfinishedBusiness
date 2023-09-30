@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
   "allowedActionTypes": [
     false,
+    true,
     false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,

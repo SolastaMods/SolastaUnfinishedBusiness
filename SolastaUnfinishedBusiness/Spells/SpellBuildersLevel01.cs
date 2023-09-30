@@ -17,6 +17,8 @@ using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -642,6 +644,57 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Vile Brew
+
+    internal static SpellDefinition BuildVileBrew()
+    {
+        const string NAME = "VileBrew";
+
+        var conditionVileBrew = ConditionDefinitionBuilder
+            .Create(ConditionOnAcidPilgrim, $"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
+            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 2, DieType.D4))
+            .AddToDB();
+
+        conditionVileBrew.specialDuration = false;
+        conditionVileBrew.turnOccurence = TurnOccurenceType.StartOfTurn;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VileBrew, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(conditionVileBrew, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetParticleEffectParameters(AcidSplash)
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Gone With The Wind
 
     internal static SpellDefinition BuildGoneWithTheWind()
@@ -1124,8 +1177,8 @@ internal static partial class SpellBuilders
                 FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
                 FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
                 FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
             .SetMonsterPresentation(
                 MonsterPresentationBuilder
@@ -1532,55 +1585,6 @@ internal static partial class SpellBuilders
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
-    }
-
-    #endregion
-
-    #region Vile Brew
-
-    internal static SpellDefinition BuildVileBrew()
-    {
-        const string NAME = "VileBrew";
-
-        var conditionVileBrew = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionDiseased)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 2, DieType.D4))
-            .AddToDB();
-
-        conditionVileBrew.GuiPresentation.Description = Gui.NoLocalization;
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VileBrew, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(1)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetRequiresConcentration(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(conditionVileBrew, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .SetParticleEffectParameters(AcidSplash)
-                .Build())
-            .AddToDB();
-
-        return spell;
     }
 
     #endregion

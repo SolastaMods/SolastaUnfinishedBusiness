@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=ケース入り
 Condition/&ConditionHeroicInfusionDescription=あなたは魔法によって支えられた持久力と武勇を自分に与えます。
 Condition/&ConditionHeroicInfusionTitle=英雄的な注入
 Feature/&PowerRingOfBladesDescription=ボーナス アクションとして、Ring of Blades の剣の 1 つを使用して、自分から 30 フィート以内のクリーチャーに遠隔呪文攻撃を行うことができます。

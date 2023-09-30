@@ -517,6 +517,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
 
+        internal static ConditionDefinition ConditionOnAcidPilgrim { get; } =
+            GetDefinition<ConditionDefinition>("ConditionOnAcidPilgrim");
+
         internal static ConditionDefinition ConditionOnFire { get; } =
             GetDefinition<ConditionDefinition>("ConditionOnFire");
 
@@ -1678,9 +1681,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFunctionWandFearCone { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCone");
 
-        internal static FeatureDefinitionPower PowerHezrouPoisonBolt { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerHezrouPoisonBolt");
-
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
 
@@ -1789,8 +1789,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
 
-        internal static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain");
+        internal static FeatureDefinitionPower PowerSorcererChildRiftOffering { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftOffering");
 
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");

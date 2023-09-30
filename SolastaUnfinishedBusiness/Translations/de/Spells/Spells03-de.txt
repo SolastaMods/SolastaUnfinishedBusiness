@@ -1,5 +1,5 @@
 Condition/&ConditionCorruptingBoltDescription=Beim nächsten Angriff gegen dich erleidest du den doppelten Schaden.
-Condition/&ConditionCorruptingBoltTitle=Verderblicher Bolzen
+Condition/&ConditionCorruptingBoltTitle=Beschädigt
 Condition/&ConditionCrusadersMantleDescription=Erhalte einen zusätzlichen Strahlungsschaden von 1W4 bei deinen Angriffen.
 Condition/&ConditionCrusadersMantleTitle=Mantel des Kreuzfahrers
 Condition/&ConditionFlameArrowsDescription=Mit Pfeil- oder Bolzenangriffen verursachst du zusätzlich 1W6 Feuerschaden.

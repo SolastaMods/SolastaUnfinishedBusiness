@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Eingehüllt
 Condition/&ConditionHeroicInfusionDescription=Du verleihst dir Ausdauer und Kampfkraft, angetrieben durch Magie.
 Condition/&ConditionHeroicInfusionTitle=Heroische Infusion
 Feature/&PowerRingOfBladesDescription=Als Bonusaktion können Sie mit einem Ihrer Ring of Blades-Schwerter einen Fernzauberangriff auf eine Kreatur in einem Umkreis von 30 Fuß um Sie ausführen.

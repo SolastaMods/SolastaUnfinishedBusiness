@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Encased
 Condition/&ConditionHeroicInfusionDescription=You endow yourself with endurance and martial prowess fueled by magic.
 Condition/&ConditionHeroicInfusionTitle=Heroic Infusion
 Feature/&PowerRingOfBladesDescription=As a bonus action, you can make a ranged spell attack to a creature within 30 feet from you, using one of your Ring of Blades swords.

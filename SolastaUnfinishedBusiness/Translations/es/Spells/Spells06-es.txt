@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Encerrado
 Condition/&ConditionHeroicInfusionDescription=Te dotas de resistencia y destreza marcial impulsadas por la magia.
 Condition/&ConditionHeroicInfusionTitle=Infusión heroica
 Feature/&PowerRingOfBladesDescription=Como acción adicional, puedes realizar un ataque con hechizo a distancia a una criatura a 30 pies de ti, usando una de tus espadas del Anillo de Espadas.

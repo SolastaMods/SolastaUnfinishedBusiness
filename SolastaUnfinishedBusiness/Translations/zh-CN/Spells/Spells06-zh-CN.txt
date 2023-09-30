@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=封装的
 Condition/&ConditionHeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。
 Condition/&ConditionHeroicInfusionTitle=英雄输液
 Feature/&PowerRingOfBladesDescription=作为奖励动作，你可以使用你的一把刀锋环剑对距离你 30 英尺内的生物进行远程法术攻击。

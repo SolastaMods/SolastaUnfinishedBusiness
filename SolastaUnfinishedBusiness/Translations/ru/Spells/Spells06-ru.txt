@@ -1,3 +1,4 @@
+Condition/&ConditionFlashFreezeTitle=Заключенный
 Condition/&ConditionHeroicInfusionDescription=Вы наделяете себя выносливостью и воинской доблестью, подпитываемыми магией.
 Condition/&ConditionHeroicInfusionTitle=Героическая трансформация
 Feature/&PowerRingOfBladesDescription=Бонусным действием вы можете совершить дальнобойную атаку заклинанием по существу в пределах 30 футов от вас, используя одно из лезвий своего Кольца лезвий.
