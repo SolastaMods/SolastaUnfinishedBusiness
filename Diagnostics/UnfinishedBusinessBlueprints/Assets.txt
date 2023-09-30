@@ -543,6 +543,7 @@ ConditionBladeDancerDanceOfDefense	ConditionDefinition	ConditionDefinition	43e4f
 ConditionBladeDancerDanceOfVictory	ConditionDefinition	ConditionDefinition	a8c93a65-5c51-5bc2-91e9-b733f19dfd43
 ConditionBladeWard	ConditionDefinition	ConditionDefinition	8d3d76d9-b5f0-5d86-9b8e-a06f55ce639d
 ConditionBlastBreakthroughRemoveImmunity	ConditionDefinition	ConditionDefinition	2e87e03f-8ed3-548a-93c3-f3a97c6b37b0
+ConditionBlessingOfRime	ConditionDefinition	ConditionDefinition	5240888b-e719-55b4-8c03-7713d3fc297f
 ConditionBlindingSmite	ConditionDefinition	ConditionDefinition	2c93801f-485a-5dde-b448-a94fadf31253
 ConditionBlindingSmiteEnemy	ConditionDefinition	ConditionDefinition	f4dd3787-cbde-5773-a7ae-d599891dd1fd
 ConditionBoomingBlade	ConditionDefinition	ConditionDefinition	b28052a9-3d74-50f4-8363-8b1a2e848289
@@ -10244,6 +10245,7 @@ BarkskinNoConcentration	SpellDefinition	SpellDefinition	c58f111b-71d9-5a88-bd08-
 BeastForestGuardian	SpellDefinition	SpellDefinition	454928a4-19d1-5f1f-868b-fcc0c1d4c2fc
 BindingIce	SpellDefinition	SpellDefinition	3da5bb90-e40c-5a0e-bead-a7441de13d55
 BladeWard	SpellDefinition	SpellDefinition	5d04caa2-64a0-587e-a0d2-6c9ab52a56ca
+BlessingOfRime	SpellDefinition	SpellDefinition	47891998-e0f2-562a-9fd8-0b1d2190acf0
 BlindingSmite	SpellDefinition	SpellDefinition	4840cef2-e39f-58f6-8a1d-0968f87008e7
 BoomingBlade	SpellDefinition	SpellDefinition	8a6f90f1-6d31-5701-8498-2c3527f7d33b
 BoomingStep	SpellDefinition	SpellDefinition	274208ba-a59a-58a6-aecb-ed2d94cc0fb3

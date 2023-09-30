@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -258,6 +259,93 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Blessing of Rime
+
+    internal static SpellDefinition BuildBlessingOfRime()
+    {
+        const string NAME = "BlessingOfRime";
+
+        var conditionBlessingOfRime = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionBlessed)
+            .SetPossessive()
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BlessingOfRime, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionBlessingOfRime),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(0, DieType.D8, 3)
+                            .Build())
+                    .SetParticleEffectParameters(HealingWord)
+                    .Build())
+            .AddToDB();
+
+        conditionBlessingOfRime.AddCustomSubFeatures(new CustomBehaviorBlessingOfRime(spell));
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByMe, IModifySavingThrow
+    {
+        private readonly SpellDefinition _spellDefinition;
+
+        public CustomBehaviorBlessingOfRime(SpellDefinition spellDefinition)
+        {
+            _spellDefinition = spellDefinition;
+        }
+
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
+        {
+            return attributeScore == AttributeDefinitions.Constitution;
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+
+            return attribute;
+        }
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TemporaryHitPoints == 0)
+            {
+                rulesetCharacter.RemoveAllConditionsOfType("ConditionBlessingOfRime");
+            }
+
+            yield break;
+        }
     }
 
     #endregion

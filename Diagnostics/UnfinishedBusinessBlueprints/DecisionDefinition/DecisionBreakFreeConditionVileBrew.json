@@ -57,7 +57,7 @@
       "name": "BreakFree"
     },
     "activityType": "BreakFree",
-    "stringParameter": "",
+    "stringParameter": "1",
     "stringSecParameter": "",
     "boolParameter": false,
     "boolSecParameter": false,
