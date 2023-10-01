@@ -1,4 +1,4 @@
-Condition/&ConditionCorruptingBoltDescription=Существо уязвимо для следующего полученного урона.
+Condition/&ConditionCorruptingBoltDescription=Существо уязвимо к следующему полученному им урону.
 Condition/&ConditionCorruptingBoltTitle=Уязвимость
 Condition/&ConditionCrusadersMantleDescription=Ваши атаки дополнительно наносят 1d4 урона излучением.
 Condition/&ConditionCrusadersMantleTitle=Мантия крестоносца
