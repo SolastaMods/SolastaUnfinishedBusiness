@@ -1570,9 +1570,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
 
-        internal static FeatureDefinitionPower PowerDispelEvilBreakEnchantment { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDispelEvilBreakEnchantment");
-
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
 
@@ -3470,6 +3467,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition SacredFlame_B { get; } = GetDefinition<SpellDefinition>("SacredFlame_B");
         internal static SpellDefinition ScorchingRay { get; } = GetDefinition<SpellDefinition>("ScorchingRay");
         internal static SpellDefinition SeeInvisibility { get; } = GetDefinition<SpellDefinition>("SeeInvisibility");
+        internal static SpellDefinition ShadowArmor { get; } = GetDefinition<SpellDefinition>("ShadowArmor");
         internal static SpellDefinition ShadowDagger { get; } = GetDefinition<SpellDefinition>("ShadowDagger");
         internal static SpellDefinition Shatter { get; } = GetDefinition<SpellDefinition>("Shatter");
         internal static SpellDefinition Shield { get; } = GetDefinition<SpellDefinition>("Shield");

@@ -1,7 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=이동을 막는 덩쿨에 뒤얽혀, 민첩 내성굴림에 불리점을 받고, 매 차례마다 관통 피해를 입습니다. 자신 차례 종료마다, 덩쿨에서 탈출하기 위한 힘 내성굴림을 합니다.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=포획됨
 Condition/&ConditionElementalInfusionDescription=당신은 {0} 피해에 대한 저항력을 갖고 있으며 다음 근접 공격은 소비한 슬롯 레벨당 추가로 1d6 {0} 피해를 입힙니다.
-Condition/&ConditionElementalInfusionTitle={0} 원소 주입
+Condition/&ConditionElementalInfusionTitle={0} 주입
 Condition/&ConditionGiftOfAlacrityDescription=우선권 굴림에 1d8 보너스를 받습니다.
 Condition/&ConditionGiftOfAlacrityTitle=기민함의 혜택
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=이 상태에서 벗어나기 위해서는 힘 능력 판정에 성공해야 합니다.

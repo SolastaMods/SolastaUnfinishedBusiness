@@ -1,7 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Вы опутаны лианами, которые мешают двигаться, дают помеху при спасбросках Ловкости и наносят колющий урон каждый ход. В конце вашего хода совершите спасбросок Силы, чтобы выбраться из пут.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Опутан
 Condition/&ConditionElementalInfusionDescription=У вас есть сопротивление урону {0}, и ваша следующая рукопашная атака наносит дополнительно 1d6 {0} урона за каждый потраченный уровень слота.
-Condition/&ConditionElementalInfusionTitle={0} Настой стихий
+Condition/&ConditionElementalInfusionTitle={0} Настой
 Condition/&ConditionGiftOfAlacrityDescription=Существо получает бонус 1d8 к броскам инициативы.
 Condition/&ConditionGiftOfAlacrityTitle=Дар стремительности
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Чтобы выйти из этого состояния, вы должны пройти проверку Силы.

@@ -12,12 +12,12 @@
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [
     "AttacksAndDamages"
   ],
@@ -133,12 +133,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Cold Damage Elemental Infusion",
+    "title": "Cold Damage Infusion",
     "description": "You have resistance to Cold Damage damage and your next melee attack deals an additional 1d6 Cold Damage damage per slot level spent.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
-      "m_SubObjectName": "ConditionGuided",
+      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
+      "m_SubObjectName": "ConditionDivineFavor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

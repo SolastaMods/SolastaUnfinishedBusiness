@@ -1,7 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Vous êtes empêtré dans des lianes qui vous empêchent de vous déplacer, vous êtes désavantagé lors des jets de sauvegarde de Dextérité et vous subissez des dégâts perforants à chaque tour. À la fin de votre tour, effectuez une sauvegarde de lancer de Force pour échapper aux lianes.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Pris au piège
 Condition/&ConditionElementalInfusionDescription=Vous avez une résistance à {0} dégâts et votre prochaine attaque de mêlée inflige 1d6 {0} dégâts supplémentaires par niveau d'emplacement dépensé.
-Condition/&ConditionElementalInfusionTitle={0} Infusion élémentaire
+Condition/&ConditionElementalInfusionTitle={0} Perfusion
 Condition/&ConditionGiftOfAlacrityDescription=La créature gagne 1d8 bonus aux jets d'initiative.
 Condition/&ConditionGiftOfAlacrityTitle=Bonus de célérité
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Vous devez effectuer un test de capacité de Force pour sortir de cette condition.

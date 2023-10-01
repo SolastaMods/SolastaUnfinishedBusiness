@@ -1,7 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Você está enredado em trepadeiras impedindo o movimento, desvantagem em testes de resistência de Destreza e recebendo dano perfurante a cada turno. No final do seu turno, faça um teste de resistência de arremesso de Força para escapar das vinhas.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Enredado
 Condition/&ConditionElementalInfusionDescription=Você tem resistência a {0} de dano e seu próximo ataque corpo a corpo causa 1d6 {0} de dano adicional por nível de espaço gasto.
-Condition/&ConditionElementalInfusionTitle={0} Infusão Elemental
+Condition/&ConditionElementalInfusionTitle={0} Infusão
 Condition/&ConditionGiftOfAlacrityDescription=A criatura ganha 1d8 de bônus nas jogadas de iniciativa.
 Condition/&ConditionGiftOfAlacrityTitle=Dádiva da Celeridade
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Você deve fazer um teste de habilidade de Força para sair desta condição.

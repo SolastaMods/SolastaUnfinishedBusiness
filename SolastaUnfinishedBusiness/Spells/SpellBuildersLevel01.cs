@@ -705,8 +705,8 @@ internal static partial class SpellBuilders
         {
             var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
-            var title = "ConditionElementalInfusionTitle".Formatted(Category.Condition, damageTitle);
-            var description = "ConditionElementalInfusionDescription".Formatted(Category.Condition, damageTitle);
+            var title = $"Condition{NAME}Title".Formatted(Category.Condition, damageTitle);
+            var description = $"Condition{NAME}Description".Formatted(Category.Condition, damageTitle);
             var shortDamageType = damageType.Substring(6);
 
             var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
@@ -723,9 +723,10 @@ internal static partial class SpellBuilders
 
             _ = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{shortDamageType}")
-                .SetGuiPresentation(title, description, ConditionGuided)
+                .SetGuiPresentation(title, description, ConditionDivineFavor)
                 .SetPossessive()
                 .SetFixedAmount(1)
+                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                 .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
                 .SetFeatures(
                     additionalDamage,
@@ -746,7 +747,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
                     .SetParticleEffectParameters(ConjureElemental)
@@ -770,6 +770,37 @@ internal static partial class SpellBuilders
         public AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(SpellDefinition spellDefinition)
         {
             _spellDefinition = spellDefinition;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode != null)
+            {
+                yield return HandleReaction(defender, actualEffectForms);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
@@ -807,7 +838,7 @@ internal static partial class SpellBuilders
 
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
             {
-                IntParameter = slotLevel, StringParameter = "ElementalInfusion", SpellRepertoire = spellRepertoire
+                IntParameter = slotLevel, StringParameter = _spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -826,12 +857,12 @@ internal static partial class SpellBuilders
             spellRepertoire.SpendSpellSlot(slotUsed);
             defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
             EffectHelpers.StartVisualEffect(defender, defender, Resistance, EffectHelpers.EffectType.Caster);
-            EffectHelpers.StartVisualEffect(defender, defender, RemoveCurse, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
 
             foreach (var condition in resistanceDamageTypes
                          .Select(damageType =>
                              GetDefinition<ConditionDefinition>(
-                                 $"ConditionElementalInfusion{damageType.Substring(6)}")))
+                                 $"Condition{_spellDefinition.Name}{damageType.Substring(6)}")))
             {
                 rulesetDefender.InflictCondition(
                     condition.Name,
@@ -847,37 +878,6 @@ internal static partial class SpellBuilders
                     0,
                     0);
             }
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (attackMode != null)
-            {
-                yield return HandleReaction(defender, actualEffectForms);
-            }
-        }
-
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(defender, actualEffectForms);
         }
     }
 
