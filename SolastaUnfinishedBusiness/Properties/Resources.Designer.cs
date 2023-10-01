@@ -62,16 +62,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] IrresistiblePerformance {
-            get {
-                object obj = ResourceManager.GetObject("IrresistiblePerformance", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] AcidBolt {
             get {
                 object obj = ResourceManager.GetObject("AcidBolt", resourceCulture);
@@ -1102,6 +1092,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ElementalInfusion {
+            get {
+                object obj = ResourceManager.GetObject("ElementalInfusion", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ElementalWeapon {
             get {
                 object obj = ResourceManager.GetObject("ElementalWeapon", resourceCulture);
@@ -1775,6 +1775,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] IronbornDwarf {
             get {
                 object obj = ResourceManager.GetObject("IronbornDwarf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] IrresistiblePerformance {
+            get {
+                object obj = ResourceManager.GetObject("IrresistiblePerformance", resourceCulture);
                 return ((byte[])(obj));
             }
         }
