@@ -433,6 +433,17 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             int attackRoll)
         {
+            // supports REACTION spells on defender
+            foreach (var attackBeforeHitPossibleOnMeOrAlly in defender.RulesetCharacter.usableSpells
+                         .Where(usableSpell =>
+                             usableSpell.ActivationTime == ActivationTime.Reaction)
+                         .SelectMany(x => x.GetAllSubFeaturesOfType<IAttackBeforeHitPossibleOnMeOrAlly>())
+                         .ToList())
+            {
+                yield return attackBeforeHitPossibleOnMeOrAlly.OnAttackBeforeHitPossibleOnMeOrAlly(
+                    __instance, defender, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll);
+            }
+
             // ReSharper disable once InvertIf
             if (__instance.Battle != null)
             {
