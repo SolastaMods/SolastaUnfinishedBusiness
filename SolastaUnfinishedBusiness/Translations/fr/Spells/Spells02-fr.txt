@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=Vous devez effectuer u
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Retenu par le Web
 Condition/&ConditionMirrorImageDescription=Les ennemis peuvent accidentellement cibler ce doublon à votre place. Si le doublon est atteint, il disparaît.
 Condition/&ConditionMirrorImageTitle=Dupliquer en miroir
+Condition/&ConditionNoxiousSprayDescription=La créature est incapable de bouger ou d'effectuer une action principale.
 Condition/&ConditionNoxiousSprayTitle=Nauséeux
 Condition/&ConditionPsychicWhipNoReactionDescription=Vous ne pouvez pas réagir avant la fin de votre prochain tour. De plus, lors de votre prochain tour, vous devrez choisir si vous souhaitez obtenir un coup, une action ou une action bonus.
 Condition/&ConditionPsychicWhipNoReactionTitle=Fouet psychique

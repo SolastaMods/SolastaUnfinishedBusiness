@@ -1,4 +1,4 @@
-Condition/&ConditionCorruptingBoltDescription=次の攻撃で2倍のダメージを受ける。
+Condition/&ConditionCorruptingBoltDescription=クリーチャーは次にダメージを与える個体に対して脆弱になります。
 Condition/&ConditionCorruptingBoltTitle=破損した
 Condition/&ConditionCrusadersMantleDescription=攻撃時にボーナス 1d4 放射ダメージを獲得します。
 Condition/&ConditionCrusadersMantleTitle=十字軍のマント

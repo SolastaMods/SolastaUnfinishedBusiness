@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=Devi effettuare una pr
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Trattenuto dal web
 Condition/&ConditionMirrorImageDescription=I nemici possono prendere di mira accidentalmente questo duplicato al posto tuo. Se viene colpito il duplicato, scompare.
 Condition/&ConditionMirrorImageTitle=Duplicato speculare
+Condition/&ConditionNoxiousSprayDescription=La creatura non è in grado di muoversi o eseguire l'azione principale.
 Condition/&ConditionNoxiousSprayTitle=Nauseato
 Condition/&ConditionPsychicWhipNoReactionDescription=Non puoi effettuare una reazione fino alla fine del tuo prossimo turno. Inoltre, nel tuo turno successivo, dovrai scegliere se ottenere una mossa, un'azione o un'azione bonus.
 Condition/&ConditionPsychicWhipNoReactionTitle=Frusta psichica

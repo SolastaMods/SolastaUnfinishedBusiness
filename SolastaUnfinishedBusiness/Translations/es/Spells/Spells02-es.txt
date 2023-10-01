@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=Debes hacer una prueba
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Restringido por Web
 Condition/&ConditionMirrorImageDescription=Los enemigos pueden apuntar accidentalmente a este duplicado en lugar de a ti. Si se golpea el duplicado, desaparece.
 Condition/&ConditionMirrorImageTitle=Duplicado de espejo
+Condition/&ConditionNoxiousSprayDescription=La criatura no puede moverse ni realizar la acción principal.
 Condition/&ConditionNoxiousSprayTitle=Náuseas
 Condition/&ConditionPsychicWhipNoReactionDescription=No puedes reaccionar hasta el final de tu siguiente turno. Además, en tu próximo turno, deberás elegir si deseas realizar un movimiento, una acción o una acción adicional.
 Condition/&ConditionPsychicWhipNoReactionTitle=Látigo psíquico

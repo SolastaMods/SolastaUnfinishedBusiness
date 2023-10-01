@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=この状態から抜�
 Condition/&ConditionGrappledRestrainedSpellWebTitle=ウェブによる拘束
 Condition/&ConditionMirrorImageDescription=敵は誤ってあなたではなくこの複製をターゲットにする可能性があります。重複がヒットすると消えます。
 Condition/&ConditionMirrorImageTitle=ミラー複製
+Condition/&ConditionNoxiousSprayDescription=クリーチャーは移動したり、主要なアクションを実行したりすることができません。
 Condition/&ConditionNoxiousSprayTitle=吐き気がする
 Condition/&ConditionPsychicWhipNoReactionDescription=次のターンが終了するまで反応することはできません。さらに、次のターンでは、移動、アクション、またはボーナス アクションのいずれを取得するかを選択する必要があります。
 Condition/&ConditionPsychicWhipNoReactionTitle=サイキックウィップ

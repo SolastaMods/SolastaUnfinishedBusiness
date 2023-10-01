@@ -1,4 +1,4 @@
-Condition/&ConditionCorruptingBoltDescription=You suffers 2x damage to the next attack against you.
+Condition/&ConditionCorruptingBoltDescription=The creature is vulnerable to the next damaging instance it receives.
 Condition/&ConditionCorruptingBoltTitle=Corrupted
 Condition/&ConditionCrusadersMantleDescription=Gain a bonus 1d4 radiant damage on your attacks.
 Condition/&ConditionCrusadersMantleTitle=Crusader's Mantle

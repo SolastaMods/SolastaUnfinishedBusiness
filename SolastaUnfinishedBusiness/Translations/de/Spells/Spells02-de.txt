@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=Um diesen Zustand zu �
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Vom Web eingeschränkt
 Condition/&ConditionMirrorImageDescription=Feinde können anstelle von Ihnen versehentlich dieses Duplikat anvisieren. Wenn ein Duplikat gefunden wird, verschwindet es.
 Condition/&ConditionMirrorImageTitle=Duplikat spiegeln
+Condition/&ConditionNoxiousSprayDescription=Die Kreatur ist nicht in der Lage, sich zu bewegen oder Hauptaktionen auszuführen.
 Condition/&ConditionNoxiousSprayTitle=Übelkeit
 Condition/&ConditionPsychicWhipNoReactionDescription=Du kannst bis zum Ende deines nächsten Zuges keine Reaktion ausführen. Darüber hinaus müssen Sie in Ihrem nächsten Zug entscheiden, ob Sie einen Zug, eine Aktion oder eine Bonusaktion erhalten möchten.
 Condition/&ConditionPsychicWhipNoReactionTitle=Psychische Peitsche

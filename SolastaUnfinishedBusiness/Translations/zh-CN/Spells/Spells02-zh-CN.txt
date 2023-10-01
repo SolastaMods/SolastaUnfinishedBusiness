@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=你必须进行一次�
 Condition/&ConditionGrappledRestrainedSpellWebTitle=被蛛网捕获
 Condition/&ConditionMirrorImageDescription=敌人可能会意外地瞄准这个副本而不是你。如果重复被击中，它就会消失。
 Condition/&ConditionMirrorImageTitle=镜像复制
+Condition/&ConditionNoxiousSprayDescription=该生物无法移动或采取主要行动。
 Condition/&ConditionNoxiousSprayTitle=恶心
 Condition/&ConditionPsychicWhipNoReactionDescription=在下一回合结束之前你无法做出反应。此外，在你的下一个回合中，你必须选择是否进行移动、动作或奖励动作。
 Condition/&ConditionPsychicWhipNoReactionTitle=心灵鞭子

@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=Вам необход�
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Опутан паутиной
 Condition/&ConditionMirrorImageDescription=Противники могут случайно выбрать целью эту копию вместо вас. Если атака попадает по копии, она исчезает.
 Condition/&ConditionMirrorImageTitle=Зеркальная копия
+Condition/&ConditionNoxiousSprayDescription=Существо не может двигаться или совершать основные действия.
 Condition/&ConditionNoxiousSprayTitle=Тошнота
 Condition/&ConditionPsychicWhipNoReactionDescription=Вы не можете использовать реакцию до конца своего следующего хода. Кроме того, на своём следующем ходу вы должны выбрать, что будете делать: передвигаться, совершать действие или совершать бонусное действие.
 Condition/&ConditionPsychicWhipNoReactionTitle=Психическая плеть

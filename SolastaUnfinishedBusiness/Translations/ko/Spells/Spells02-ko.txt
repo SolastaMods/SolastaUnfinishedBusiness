@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=이 상태에서 벗�
 Condition/&ConditionGrappledRestrainedSpellWebTitle=거미줄로 인한 포박 상태
 Condition/&ConditionMirrorImageDescription=적들이 시전자 대신 분신을 공격할 가능성이 있습니다. 분신은 적중될 경우 사라집니다.
 Condition/&ConditionMirrorImageTitle=거울 분신
+Condition/&ConditionNoxiousSprayDescription=생물은 움직이거나 주요 행동을 취할 수 없습니다.
 Condition/&ConditionNoxiousSprayTitle=메스꺼움
 Condition/&ConditionPsychicWhipNoReactionDescription=다음 턴이 끝날 때까지 반응 행동을 취할 수 없습니다. 또한, 다음 턴에는 이동, 행동, 추가 행동 중 하나만 선택해야 합니다.
 Condition/&ConditionPsychicWhipNoReactionTitle=정신 채찍

@@ -1,4 +1,4 @@
-Condition/&ConditionCorruptingBoltDescription=下次对你的攻击时，你会受到 2 倍的伤害。
+Condition/&ConditionCorruptingBoltDescription=该生物很容易受到下一次受到的伤害。
 Condition/&ConditionCorruptingBoltTitle=已损坏
 Condition/&ConditionCrusadersMantleDescription=在你的攻击中获得额外的 1d4 光耀伤害。
 Condition/&ConditionCrusadersMantleTitle=十字军衬肩

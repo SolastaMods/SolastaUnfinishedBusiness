@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=You must make a Streng
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Restrained by Web
 Condition/&ConditionMirrorImageDescription=Enemies can accidentally target this duplicate instead of you. If duplicate is hit it disappears.
 Condition/&ConditionMirrorImageTitle=Mirror Duplicate
+Condition/&ConditionNoxiousSprayDescription=The creature is unable to move or take main action.
 Condition/&ConditionNoxiousSprayTitle=Nauseated
 Condition/&ConditionPsychicWhipNoReactionDescription=You can't take a reaction until the end of your next turn. Moreover, on your next turn, you must choose whether to get a move, an action, or a bonus action.
 Condition/&ConditionPsychicWhipNoReactionTitle=Psychic Whip

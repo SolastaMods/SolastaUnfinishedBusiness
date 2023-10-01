@@ -4,6 +4,7 @@ Condition/&ConditionGrappledRestrainedSpellWebDescription=Você deve fazer um te
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Restringido pela Web
 Condition/&ConditionMirrorImageDescription=Inimigos podem mirar acidentalmente nessa duplicata em vez de você. Se a duplicata for atingida, ela desaparece.
 Condition/&ConditionMirrorImageTitle=Espelho Duplicado
+Condition/&ConditionNoxiousSprayDescription=A criatura é incapaz de se mover ou realizar a ação principal.
 Condition/&ConditionNoxiousSprayTitle=Enjoado
 Condition/&ConditionPsychicWhipNoReactionDescription=Você não pode realizar uma reação até o final do seu próximo turno. Além disso, no seu próximo turno, você deve escolher se deseja realizar um movimento, uma ação ou uma ação bônus.
 Condition/&ConditionPsychicWhipNoReactionTitle=Chicote Psíquico

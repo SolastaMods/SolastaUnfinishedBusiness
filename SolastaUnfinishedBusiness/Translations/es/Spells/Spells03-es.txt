@@ -1,4 +1,4 @@
-Condition/&ConditionCorruptingBoltDescription=Sufres el doble de daño en el siguiente ataque contra ti.
+Condition/&ConditionCorruptingBoltDescription=La criatura es vulnerable a la siguiente instancia dañina que reciba.
 Condition/&ConditionCorruptingBoltTitle=Corrupto
 Condition/&ConditionCrusadersMantleDescription=Gana una bonificación de 1d4 de daño radiante en tus ataques.
 Condition/&ConditionCrusadersMantleTitle=Manto de cruzado

@@ -1,4 +1,4 @@
-Condition/&ConditionCorruptingBoltDescription=Subisci danni 2x al prossimo attacco contro di te.
+Condition/&ConditionCorruptingBoltDescription=La creatura è vulnerabile alla successiva istanza di danno che riceve.
 Condition/&ConditionCorruptingBoltTitle=Corrotti
 Condition/&ConditionCrusadersMantleDescription=Ottieni un bonus di 1d4 danni radianti ai tuoi attacchi.
 Condition/&ConditionCrusadersMantleTitle=Mantello del Crociato
