@@ -7,6 +7,7 @@
 - added 6th level Flash Freeze spell
 - fixed Ring of Blades not considering spell attack modifiers from wielded equipment
 - fixed Sanctuary incorrect save DC calculation and missing condition interruptions
+- fixed some features causing soft locks by not properly checking for battle status
 
 1.5.94.19:
 
