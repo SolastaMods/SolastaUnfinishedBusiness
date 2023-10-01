@@ -238,7 +238,11 @@ public static class RulesetActorPatcher
                 formsParams.addDice = effectAdvancement.EffectIncrementMethod switch
                 {
                     EffectIncrementMethod.PerAdditionalSlotLevel => trackingCondition.EffectDescription
-                        .EffectAdvancement.additionalDicePerIncrement * (trackingCondition.EffectLevel - 1),
+                        .EffectAdvancement.additionalDicePerIncrement * (trackingCondition.EffectLevel -
+                                                                         (trackingCondition.GetEffectSource() is
+                                                                             SpellDefinition spellDefinition
+                                                                             ? spellDefinition.SpellLevel
+                                                                             : 0)),
                     EffectIncrementMethod.CasterLevelTable => trackingCondition.EffectDescription.EffectAdvancement
                         .ComputeAdditionalDiceByCasterLevel(
                             __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)),
