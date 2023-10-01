@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -222,9 +221,8 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDispelEvilBreakEnchantment.EffectDescription.EffectParticleParameters.casterParticleReference;
-        powerRingOfBlades.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+        powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference = PowerDomainLawWordOfLaw
+            .EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var conditionRingOfBlades = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -399,7 +397,7 @@ internal static partial class SpellBuilders
 
         var conditionFlashFreeze = ConditionDefinitionBuilder
             .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
-            .SetOrUpdateGuiPresentation(Category.Condition, ConditionHindered_By_Frost)
+            .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionChilled)
             .SetPossessive()
             .SetParentCondition(ConditionRestrainedByWeb)
             .AddFeatures(actionAffinityFlashFreeze)
@@ -422,7 +420,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                 .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                     EffectDifficultyClassComputation.SpellCastingFeature)

@@ -45,7 +45,7 @@
     "targetSide": "All",
     "durationType": "Minute",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -87,7 +87,7 @@
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionVileBrew",

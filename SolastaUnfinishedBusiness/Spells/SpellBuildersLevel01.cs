@@ -653,14 +653,13 @@ internal static partial class SpellBuilders
         var conditionVileBrew = ConditionDefinitionBuilder
             .Create(ConditionOnAcidPilgrim, $"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
             .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 2, DieType.D4))
             .AddToDB();
 
+        conditionVileBrew.possessive = false;
         conditionVileBrew.specialDuration = false;
-        conditionVileBrew.turnOccurence = TurnOccurenceType.StartOfTurn;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -676,14 +675,14 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
-                .SetDurationData(DurationType.Minute, 1)
+                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                 .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                     EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
                         .SetConditionForm(conditionVileBrew, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetParticleEffectParameters(AcidSplash)

@@ -1546,6 +1546,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerBarbarianRageStart { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBarbarianRageStart");
 
+        internal static FeatureDefinitionPower PowerBardTraditionManacalonsPerfection { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardTraditionManacalonsPerfection");
+
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
 
@@ -1596,7 +1599,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDomainLawHolyRetribution { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawHolyRetribution");
-
+        
+        internal static FeatureDefinitionPower PowerDomainLawWordOfLaw { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainLawWordOfLaw");
+        
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
 

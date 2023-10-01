@@ -378,7 +378,7 @@ internal static partial class SpellBuilders
 
         var conditionNoxiousSpray = ConditionDefinitionBuilder
             .Create(ConditionPheromoned, $"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDiseased)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiseased)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(actionAffinityNoxiousSpray)
@@ -398,8 +398,8 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,

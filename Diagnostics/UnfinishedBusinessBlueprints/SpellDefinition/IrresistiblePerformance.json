@@ -42,7 +42,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "All",
+    "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
@@ -154,7 +154,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "113cf0e1f91aeed4e89e3cb2865186b9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -172,13 +172,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3b7614daad256bc4ea01a5585a71b460",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ea3bc16d28aa55b41997289529a791c5",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -300,7 +300,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b15977f376d55ad44b93d01fa254df7b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

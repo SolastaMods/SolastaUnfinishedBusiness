@@ -276,8 +276,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "57125544a666ad64195b2eddc133deb4",
-      "m_SubObjectName": "RayOfFrostConditionHindered",
+      "m_AssetGUID": "d2c53a4043ce045439ddc7df504b4199",
+      "m_SubObjectName": "ConditionChilled",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

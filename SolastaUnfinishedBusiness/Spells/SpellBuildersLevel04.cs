@@ -298,9 +298,12 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetTempHpForm(0, DieType.D8, 3)
                             .Build())
-                    .SetParticleEffectParameters(HealingWord)
+                    .SetParticleEffectParameters(RayOfFrost)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerDomainElementalIceLance
+            .EffectDescription.EffectParticleParameters.effectParticleReference;
 
         conditionBlessingOfRime.AddCustomSubFeatures(new CustomBehaviorBlessingOfRime(spell));
 
@@ -773,7 +776,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 6)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Charisma, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -789,8 +792,12 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionIrresistiblePerformance, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(ConjureFey)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            PowerBardTraditionManacalonsPerfection.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
@@ -825,8 +832,10 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            if (!target.AllConditions.Any(x => x.ConditionDefinition == ConditionDefinitions.ConditionCharmed
-                                               && x.SourceGuid == caster.Guid))
+            if (!target.AllConditions.Any(x =>
+                    (x.ConditionDefinition == ConditionDefinitions.ConditionCharmed
+                     || x.ConditionDefinition.parentCondition == ConditionDefinitions.ConditionCharmed)
+                    && x.SourceGuid == caster.Guid))
             {
                 return;
             }

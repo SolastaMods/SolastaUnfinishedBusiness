@@ -269,7 +269,7 @@ internal static class SpellsContext
         // 4th level
         RegisterSpell(BuildAuraOfPerseverance(), 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
-        RegisterSpell(BuildBlessingOfRime(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListRanger);
+        RegisterSpell(BuildBlessingOfRime(), 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildForestGuardian(), 0, SpellListDruid, SpellListRanger);

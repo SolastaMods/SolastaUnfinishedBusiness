@@ -1098,7 +1098,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .SetFeatures()
             .AddToDB();
 

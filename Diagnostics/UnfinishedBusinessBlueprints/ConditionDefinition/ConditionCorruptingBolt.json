@@ -31,7 +31,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [
-    9000
+    "Damaged"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
