@@ -254,7 +254,7 @@ public static class RulesetActorPatcher
 
             formsParams.formAbilityBonus = rulesetCondition.SourceAbilityBonus;
             service.ApplyEffectForms(
-                rulesetCondition.ConditionDefinition.RecurrentEffectForms, formsParams, null, out var _, out var _);
+                rulesetCondition.ConditionDefinition.RecurrentEffectForms, formsParams, null, out _, out _);
 
             var effectFormsApplied = service.ConditionRecurrentEffectFormsApplied;
 

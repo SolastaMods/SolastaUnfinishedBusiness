@@ -1,6 +1,6 @@
 ﻿1.5.94.20:
 
-- added 1st level Vile Brew, and Void's Grasp spells
+- added 1st level Elemental Infusion, Vile Brew, and Void's Grasp spells
 - added 2nd level Noxious Spray spell
 - added 3rd level Adder's Fangs, Corrupting Bolt, and Vitality Transfer spells
 - added 4th level Blessing of Rime, and Irresistible Performance spell

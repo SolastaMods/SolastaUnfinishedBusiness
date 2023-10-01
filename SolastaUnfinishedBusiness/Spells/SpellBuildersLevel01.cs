@@ -694,6 +694,195 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Elemental Infusion
+
+    internal static SpellDefinition BuildElementalInfusion()
+    {
+        const string NAME = "ElementalInfusion";
+
+        foreach (var (damageType, magicEffect) in DamagesAndEffects
+                     .Where(x => x.Item1 != DamageTypePoison))
+        {
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var title = "ConditionElementalInfusionTitle".Formatted(Category.Condition, damageTitle);
+            var description = "ConditionElementalInfusionDescription".Formatted(Category.Condition, damageTitle);
+            var shortDamageType = damageType.Substring(6);
+
+            var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{NAME}{shortDamageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetNotificationTag($"{NAME}{shortDamageType}")
+                .SetDamageDice(DieType.D6, 1)
+                .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount, 1)
+                .SetSpecificDamageType(damageType)
+                .SetImpactParticleReference(
+                    magicEffect.EffectDescription.EffectParticleParameters.impactParticleReference)
+                .AddToDB();
+
+            _ = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{shortDamageType}")
+                .SetGuiPresentation(title, description, ConditionGuided)
+                .SetPossessive()
+                .SetFixedAmount(1)
+                .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+                .SetFeatures(
+                    additionalDamage,
+                    GetDefinition<FeatureDefinitionDamageAffinity>($"DamageAffinity{shortDamageType}Resistance"))
+                .AddToDB();
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ElementalInfusion, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Reaction)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+                    .SetParticleEffectParameters(ConjureElemental)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(spell));
+
+        return spell;
+    }
+
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyElementalInfusion :
+        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+    {
+        private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
+            .Where(x => x.Item1 != DamageTypePoison)
+            .Select(x => x.Item1);
+
+        private readonly SpellDefinition _spellDefinition;
+
+        public AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(SpellDefinition spellDefinition)
+        {
+            _spellDefinition = spellDefinition;
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationCharacter defender,
+            IEnumerable<EffectForm> actualEffectForms)
+        {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
+
+            var attackDamageTypes = actualEffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType)
+                .Distinct()
+                .ToList();
+
+            var resistanceDamageTypes = AllowedDamageTypes.Intersect(attackDamageTypes).ToList();
+
+            if (!resistanceDamageTypes.Any())
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+            var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
+                _spellDefinition, out var spellRepertoire);
+
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+            {
+                IntParameter = slotLevel, StringParameter = "ElementalInfusion", SpellRepertoire = spellRepertoire
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendSpellSlot(reactionParams);
+
+            yield return battleManager.WaitForReactions(defender, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var slotUsed = reactionParams.IntParameter;
+
+            spellRepertoire.SpendSpellSlot(slotUsed);
+            defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+            EffectHelpers.StartVisualEffect(defender, defender, Resistance, EffectHelpers.EffectType.Caster);
+            EffectHelpers.StartVisualEffect(defender, defender, RemoveCurse, EffectHelpers.EffectType.Effect);
+
+            foreach (var condition in resistanceDamageTypes
+                         .Select(damageType =>
+                             GetDefinition<ConditionDefinition>(
+                                 $"ConditionElementalInfusion{damageType.Substring(6)}")))
+            {
+                rulesetDefender.InflictCondition(
+                    condition.Name,
+                    condition.DurationType,
+                    condition.DurationParameter,
+                    condition.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    condition.Name,
+                    slotUsed,
+                    0,
+                    0);
+            }
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode != null)
+            {
+                yield return HandleReaction(defender, actualEffectForms);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(defender, actualEffectForms);
+        }
+    }
+
+    #endregion
+
     #region Gone With The Wind
 
     internal static SpellDefinition BuildGoneWithTheWind()
