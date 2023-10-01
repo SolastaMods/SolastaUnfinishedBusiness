@@ -1933,7 +1933,7 @@ internal static class Level20SubclassesContext
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battleService == null)
+            if (battleService is not {IsBattleInProgress: true})
             {
                 return false;
             }
@@ -1960,7 +1960,7 @@ internal static class Level20SubclassesContext
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battleService == null)
+            if (battleService is not {IsBattleInProgress: true})
             {
                 return attacks;
             }
