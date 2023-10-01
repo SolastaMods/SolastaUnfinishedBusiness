@@ -12,15 +12,14 @@ internal static class AiContext
 {
     internal const string DoNothing = "1";
     internal const string DoStrengthCheckCasterDC = "2";
-    internal const string DoStrengthAthleticsCheckDC10 = "3";
-    
+
     internal static void Load()
     {
         // order matters as same weight
         BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray", DoNothing);
         BuildDecisionBreakFreeFromCondition("ConditionVileBrew", DoNothing);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", DoNothing);
-        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", DoStrengthAthleticsCheckDC10);
+        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", DoStrengthCheckCasterDC);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", DoStrengthCheckCasterDC);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", DoStrengthCheckCasterDC);
     }
@@ -81,7 +80,7 @@ internal static class AiContext
                 "if restrained and can use main action, try to break free",
                 "BreakFree",
                 scorer,
-                stringParameter: action,
+                action,
                 enumParameter: 1,
                 floatParameter: 3f)
             .AddToDB();
