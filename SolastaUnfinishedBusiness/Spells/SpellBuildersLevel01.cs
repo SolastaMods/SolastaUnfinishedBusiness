@@ -705,33 +705,46 @@ internal static partial class SpellBuilders
         {
             var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
-            var title = $"Condition{NAME}Title".Formatted(Category.Condition, damageTitle);
-            var description = $"Condition{NAME}Description".Formatted(Category.Condition, damageTitle);
             var shortDamageType = damageType.Substring(6);
 
             var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}{shortDamageType}")
                 .SetGuiPresentationNoContent(true)
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                 .SetNotificationTag($"{NAME}{shortDamageType}")
                 .SetDamageDice(DieType.D6, 1)
                 .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount, 1)
                 .SetSpecificDamageType(damageType)
                 .SetImpactParticleReference(
                     magicEffect.EffectDescription.EffectParticleParameters.impactParticleReference)
+                .AddCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeAttack)
                 .AddToDB();
 
-            _ = ConditionDefinitionBuilder
-                .Create($"Condition{NAME}{shortDamageType}")
+            var title = $"Condition{NAME}DamageTitle".Formatted(Category.Condition, damageTitle);
+            var description = $"Condition{NAME}DamageDescription".Formatted(Category.Condition, damageTitle);
+            var conditionElementalInfusionAdditionalDamage = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{shortDamageType}Damage")
                 .SetGuiPresentation(title, description, ConditionDivineFavor)
                 .SetPossessive()
                 .SetFixedAmount(1)
-                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+                .SetFeatures(additionalDamage)
+                .AddToDB();
+
+            conditionElementalInfusionAdditionalDamage.AddCustomSubFeatures(
+                new CustomBehaviorConditionElementalInfusion(conditionElementalInfusionAdditionalDamage));
+
+            title = $"Condition{NAME}ResistanceTitle".Formatted(Category.Condition, damageTitle);
+            description = $"Condition{NAME}ResistanceDescription".Formatted(Category.Condition, damageTitle);
+            var conditionElementalInfusionResistance = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{shortDamageType}Resistance")
+                .SetGuiPresentation(title, description, ConditionDivineFavor)
+                .SetPossessive()
+                .SetFixedAmount(1)
                 .SetFeatures(
-                    additionalDamage,
                     GetDefinition<FeatureDefinitionDamageAffinity>($"DamageAffinity{shortDamageType}Resistance"))
                 .AddToDB();
+
+            conditionElementalInfusionResistance.AddCustomSubFeatures(
+                new CustomBehaviorConditionElementalInfusion(conditionElementalInfusionResistance));
         }
 
         var spell = SpellDefinitionBuilder
@@ -756,6 +769,48 @@ internal static partial class SpellBuilders
         spell.AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(spell));
 
         return spell;
+    }
+
+    private sealed class CustomBehaviorConditionElementalInfusion :
+        IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionElementalInfusion;
+
+        public CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion)
+        {
+            _conditionElementalInfusion = conditionElementalInfusion;
+        }
+
+        public IEnumerator OnMagicalAttackFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action.ActionParams.activeEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit
+                && action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                attacker.RulesetCharacter.RemoveAllConditionsOfType(_conditionElementalInfusion.Name);
+            }
+
+            yield break;
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                attacker.RulesetCharacter.RemoveAllConditionsOfType(_conditionElementalInfusion.Name);
+            }
+
+            yield break;
+        }
     }
 
     private sealed class AttackBeforeHitPossibleOnMeOrAllyElementalInfusion :
@@ -787,7 +842,7 @@ internal static partial class SpellBuilders
         {
             if (attackMode != null)
             {
-                yield return HandleReaction(defender, actualEffectForms);
+                yield return HandleReaction(attacker, defender, actualEffectForms);
             }
         }
 
@@ -800,10 +855,11 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender, actualEffectForms);
+            yield return HandleReaction(attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
@@ -856,19 +912,42 @@ internal static partial class SpellBuilders
 
             spellRepertoire.SpendSpellSlot(slotUsed);
             defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
-            EffectHelpers.StartVisualEffect(defender, defender, Resistance, EffectHelpers.EffectType.Caster);
+            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
             EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
 
             foreach (var condition in resistanceDamageTypes
                          .Select(damageType =>
                              GetDefinition<ConditionDefinition>(
-                                 $"Condition{_spellDefinition.Name}{damageType.Substring(6)}")))
+                                 $"Condition{_spellDefinition.Name}{damageType.Substring(6)}Resistance")))
             {
                 rulesetDefender.InflictCondition(
                     condition.Name,
-                    condition.DurationType,
-                    condition.DurationParameter,
-                    condition.TurnOccurence,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    condition.Name,
+                    slotUsed,
+                    0,
+                    0);
+            }
+
+            var attackerIsBefore = battleManager.Battle.initiativeSortedContenders.IndexOf(attacker) <
+                                   battleManager.Battle.initiativeSortedContenders.IndexOf(defender);
+
+            foreach (var condition in resistanceDamageTypes
+                         .Select(damageType =>
+                             GetDefinition<ConditionDefinition>(
+                                 $"Condition{_spellDefinition.Name}{damageType.Substring(6)}Damage")))
+            {
+                rulesetDefender.InflictCondition(
+                    condition.Name,
+                    DurationType.Round,
+                    attackerIsBefore ? 0 : 1,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagCombat,
                     rulesetDefender.guid,
                     rulesetDefender.CurrentFaction.Name,

@@ -4,23 +4,20 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageElementalInfusionAcid:903172b2-46bc-580f-a683-b16a4c5a6082",
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d"
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
-  "specialInterruptions": [
-    "AttacksAndDamages"
-  ],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -133,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Acid Damage Infusion",
-    "description": "You have resistance to Acid Damage damage and your next melee attack deals an additional 1d6 Acid Damage damage per slot level spent.",
+    "title": "Thunder Damage Resistance",
+    "description": "You have resistance to Thunder Damage damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
@@ -154,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8d3b615f-4e3d-52c3-8b22-fa68a6d63b39",
+  "guid": "310739a3-5123-5d3b-bd80-7db8ef57bfb7",
   "contentPack": 9999,
-  "name": "ConditionElementalInfusionAcid"
+  "name": "ConditionElementalInfusionThunderResistance"
 }

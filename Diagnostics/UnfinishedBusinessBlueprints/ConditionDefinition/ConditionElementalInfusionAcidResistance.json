@@ -4,23 +4,20 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageElementalInfusionFire:97b87eb9-a54f-553c-b758-8201e6e73f51",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17"
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
-  "specialInterruptions": [
-    "AttacksAndDamages"
-  ],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -133,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Damage Infusion",
-    "description": "You have resistance to Fire Damage damage and your next melee attack deals an additional 1d6 Fire Damage damage per slot level spent.",
+    "title": "Acid Damage Resistance",
+    "description": "You have resistance to Acid Damage damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
@@ -154,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8b114dbe-5512-5967-9c92-5dc78b4b66bf",
+  "guid": "706ad0f6-44ee-590b-b909-09c0f9db2677",
   "contentPack": 9999,
-  "name": "ConditionElementalInfusionFire"
+  "name": "ConditionElementalInfusionAcidResistance"
 }

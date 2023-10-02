@@ -1,7 +1,9 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Sei intrappolato in rampicanti che impediscono il movimento, svantaggio ai tiri salvezza di Destrezza e ricevi danni perforanti ogni turno. Alla fine del tuo turno, effettua un tiro salvezza su Forza per sfuggire ai rampicanti.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Intrappolato
-Condition/&ConditionElementalInfusionDescription=Hai resistenza a {0} danni e il tuo prossimo attacco in mischia infligge 1d6 {0} danni aggiuntivi per livello di slot speso.
-Condition/&ConditionElementalInfusionTitle={0} Infusione
+Condition/&ConditionElementalInfusionDamageDescription=Il tuo prossimo attacco in mischia infligge 1d6 {0} danni aggiuntivi per livello di slot speso.
+Condition/&ConditionElementalInfusionDamageTitle={0} Attacco
+Condition/&ConditionElementalInfusionResistanceDescription=Hai resistenza a {0} danni.
+Condition/&ConditionElementalInfusionResistanceTitle={0} Resistenza
 Condition/&ConditionGiftOfAlacrityDescription=La creatura ottiene 1d8 bonus ai tiri di iniziativa.
 Condition/&ConditionGiftOfAlacrityTitle=Vantaggio di Celerità
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=È necessario effettuare una prova di abilità di Forza per uscire da questa condizione.

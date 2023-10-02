@@ -4,23 +4,20 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageElementalInfusionLightning:035f0fa4-0aeb-5b04-8fa4-ba714cf9171b",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08"
+    "Definition:AdditionalDamageElementalInfusionCold:29bf11ec-ed92-5561-89ff-d3ad416608fb"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
-  "specialInterruptions": [
-    "AttacksAndDamages"
-  ],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -133,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Lightning Damage Infusion",
-    "description": "You have resistance to Lightning Damage damage and your next melee attack deals an additional 1d6 Lightning Damage damage per slot level spent.",
+    "title": "Cold Damage Attack",
+    "description": "Your next melee attack deals an additional 1d6 Cold Damage damage per slot level spent.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
@@ -154,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f3105573-0c61-5f3c-9095-fc85581e7fe8",
+  "guid": "29f0a27b-7e6c-5aa5-b783-ecce5c917610",
   "contentPack": 9999,
-  "name": "ConditionElementalInfusionLightning"
+  "name": "ConditionElementalInfusionColdDamage"
 }

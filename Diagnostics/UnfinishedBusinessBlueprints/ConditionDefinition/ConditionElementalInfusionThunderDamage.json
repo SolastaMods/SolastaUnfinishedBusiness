@@ -4,23 +4,20 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageElementalInfusionCold:29bf11ec-ed92-5561-89ff-d3ad416608fb",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
+    "Definition:AdditionalDamageElementalInfusionThunder:3915c0d7-a20e-5478-bf6b-8b6f6b492665"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
-  "specialInterruptions": [
-    "AttacksAndDamages"
-  ],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -133,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Cold Damage Infusion",
-    "description": "You have resistance to Cold Damage damage and your next melee attack deals an additional 1d6 Cold Damage damage per slot level spent.",
+    "title": "Thunder Damage Attack",
+    "description": "Your next melee attack deals an additional 1d6 Thunder Damage damage per slot level spent.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
@@ -154,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "065c0a56-2490-5aaf-ba5e-43b11c7450c6",
+  "guid": "ac356a51-1aa2-5911-a310-eeb588e72086",
   "contentPack": 9999,
-  "name": "ConditionElementalInfusionCold"
+  "name": "ConditionElementalInfusionThunderDamage"
 }
