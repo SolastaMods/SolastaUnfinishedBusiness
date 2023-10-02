@@ -77,7 +77,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (gameLocationBattleService == null)
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }

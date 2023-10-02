@@ -638,7 +638,6 @@ RaceMalakh	Sur	Fenthwick
 RaceMalakh	Sur	Wayrick
 RaceMalakh	Sur	Koemi
 RaceMalakh	Sur	Demi
-RaceMalakh	Male	Mirayarus
 RaceMalakh	Male	Fenmyar
 RaceMalakh	Male	Mirayarus
 RaceMalakh	Male	Yeljor

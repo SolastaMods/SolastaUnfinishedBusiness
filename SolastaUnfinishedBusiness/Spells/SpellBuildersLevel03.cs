@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,6 +15,7 @@ using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 
@@ -215,7 +217,6 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -228,8 +229,77 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
+                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
+            Darkness.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            MindTwist.EffectDescription.EffectParticleParameters.impactParticleReference;
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Adder's Fangs
+
+    internal static SpellDefinition BuildAdderFangs()
+    {
+        const string Name = "AdderFangs";
+
+        var movementAffinityAdderFangs = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .AddToDB();
+
+        var conditionAdderFangs = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionPoisoned, $"Condition{Name}")
+            .SetPossessive()
+            .AddFeatures(movementAffinityAdderFangs)
+            .AddToDB();
+
+        conditionAdderFangs.GuiPresentation.Description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePoison, 4, DieType.D10)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(conditionAdderFangs, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(VenomousSpike)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            InflictWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
@@ -1011,6 +1081,177 @@ internal static partial class SpellBuilders
                     EffectFormBuilder.DamageForm(DamageTypeLightning, MainTargetDiceNumber + additionalDice,
                         DieType.D8));
             }
+        }
+    }
+
+    #endregion
+
+    #region Corrupting Bolt
+
+    internal static SpellDefinition BuildCorruptingBolt()
+    {
+        const string Name = "CorruptingBolt";
+
+        var conditionCorruptingBolt = ConditionDefinitionBuilder
+            .Create(ConditionEyebiteSickened, $"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Damaged)
+            .SetFeatures()
+            .AddToDB();
+
+        foreach (var damageDefinition in DatabaseRepository.GetDatabase<DamageDefinition>())
+        {
+            var damageType = damageDefinition.Name;
+
+            var damageAffinity =
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create($"DamageAffinity{Name}{damageType}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                    .SetDamageType(damageType)
+                    .AddToDB();
+
+            conditionCorruptingBolt.Features.Add(damageAffinity);
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8))
+                    .SetParticleEffectParameters(FingerOfDeath)
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeCorruptingBolt(conditionCorruptingBolt))
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
+            Disintegrate.EffectDescription.EffectParticleParameters.impactParticleReference;
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference;
+
+        return spell;
+    }
+
+    private sealed class MagicEffectFinishedByMeCorruptingBolt : IMagicEffectFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionCorruptingBolt;
+
+        public MagicEffectFinishedByMeCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
+        {
+            _conditionCorruptingBolt = conditionCorruptingBolt;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
+                || (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success))
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                _conditionCorruptingBolt.Name,
+                _conditionCorruptingBolt.DurationType,
+                _conditionCorruptingBolt.DurationParameter,
+                _conditionCorruptingBolt.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    #endregion
+
+    #region Vitality Transfer
+
+    internal static SpellDefinition BuildVitalityTransfer()
+    {
+        const string Name = "VitalityTransfer";
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.VitalityTransfer, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .ExcludeCaster()
+                    .SetParticleEffectParameters(FalseLife)
+                    .Build())
+            .AddCustomSubFeatures(new ModifyDiceRollVitalityTransfer())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            CureWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
+
+        return spell;
+    }
+
+    private sealed class ModifyDiceRollVitalityTransfer : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var caster = action.ActingCharacter;
+            var rulesetCaster = caster.RulesetCharacter;
+            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+            var rolls = new List<int>();
+            var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeNecrotic, DiceNumber = diceNumber, DieType = DieType.D8
+            };
+            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var totalHealing = totalDamage * 2;
+            var currentHitPoints = rulesetCaster.CurrentHitPoints;
+
+            rulesetCaster.SustainDamage(totalDamage, damageForm.DamageType, false, rulesetCaster.Guid,
+                new RollInfo(damageForm.DieType, rolls, 0), out _);
+
+            EffectHelpers.StartVisualEffect(caster, caster, PowerSorcererChildRiftOffering);
+
+            rulesetCaster.DamageSustained?.Invoke(rulesetCaster, totalDamage, damageForm.DamageType, true,
+                currentHitPoints > totalDamage, false);
+
+            rulesetTarget.ReceiveHealing(totalHealing, true, rulesetCaster.Guid);
         }
     }
 

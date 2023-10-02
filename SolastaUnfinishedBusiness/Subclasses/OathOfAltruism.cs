@@ -253,7 +253,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             rulesetDefender.InflictCondition(
                 ConditionShielded.Name,
                 DurationType.Round,
-                1,
+                0,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 unitCharacter.guid,

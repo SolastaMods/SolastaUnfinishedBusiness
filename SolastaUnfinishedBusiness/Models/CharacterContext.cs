@@ -1515,7 +1515,7 @@ internal static class CharacterContext
             .Create($"Condition{Cunning}ReduceSneakDice")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())

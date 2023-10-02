@@ -32,7 +32,7 @@ internal sealed class Interception : AbstractFightingStyle
                         .Create("ConditionInterception")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetSpecialDuration()
+                        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                         .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
                         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
                         .AddFeatures(

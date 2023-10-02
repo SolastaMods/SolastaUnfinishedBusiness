@@ -206,6 +206,68 @@ public static class RulesetActorPatcher
         }
     }
 
+    //PATCH: allow additional dice on recurrent damage form to be correctly calculated from effect advancement
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ExecuteRecurrentForms))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ExecuteRecurrentForms_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetActor __instance, RulesetCondition rulesetCondition)
+        {
+            if (rulesetCondition.ConditionDefinition.RecurrentEffectForms.Count <= 0)
+            {
+                return false;
+            }
+
+            var service = ServiceRepository.GetService<IRulesetImplementationService>();
+            var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+            var entity = RulesetEntity.GetEntity<RulesetCharacter>(rulesetCondition.SourceGuid);
+
+            formsParams.FillSourceAndTarget(entity, __instance);
+
+            var trackingCondition = entity?.FindEffectTrackingCondition(rulesetCondition);
+
+            if (trackingCondition != null)
+            {
+                formsParams.FillFromActiveEffect(trackingCondition);
+
+                //BEGIN PATCH
+                var effectAdvancement = trackingCondition.EffectDescription.EffectAdvancement;
+
+                formsParams.addDice = effectAdvancement.EffectIncrementMethod switch
+                {
+                    EffectIncrementMethod.PerAdditionalSlotLevel => trackingCondition.EffectDescription
+                        .EffectAdvancement.additionalDicePerIncrement * (trackingCondition.EffectLevel -
+                                                                         (trackingCondition.GetEffectSource() is
+                                                                             SpellDefinition spellDefinition
+                                                                             ? spellDefinition.SpellLevel
+                                                                             : 0)),
+                    EffectIncrementMethod.CasterLevelTable => trackingCondition.EffectDescription.EffectAdvancement
+                        .ComputeAdditionalDiceByCasterLevel(
+                            __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)),
+                    _ => formsParams.addDice
+                };
+                //END PATCH
+            }
+
+            if (rulesetCondition.ConditionDefinition.AmountOrigin == ConditionDefinition.OriginOfAmount.AddDice)
+            {
+                formsParams.addDice = rulesetCondition.Amount;
+            }
+
+            formsParams.formAbilityBonus = rulesetCondition.SourceAbilityBonus;
+            service.ApplyEffectForms(
+                rulesetCondition.ConditionDefinition.RecurrentEffectForms, formsParams, null, out _, out _);
+
+            var effectFormsApplied = service.ConditionRecurrentEffectFormsApplied;
+
+            effectFormsApplied?.Invoke(__instance, rulesetCondition);
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

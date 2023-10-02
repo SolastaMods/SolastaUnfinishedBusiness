@@ -119,7 +119,7 @@ internal static partial class SpellBuilders
 
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (gameLocationBattleService == null)
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 return false;
             }

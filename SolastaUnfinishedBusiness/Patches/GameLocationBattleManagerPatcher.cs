@@ -349,17 +349,21 @@ public static class GameLocationBattleManagerPatcher
                              .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>())
                 {
                     yield return attackBeforeHitConfirmedOnEnemy.OnAttackBeforeHitConfirmedOnEnemy(
-                        __instance,
-                        attacker,
-                        defender,
-                        attackModifier,
-                        attackMode,
-                        rangedAttack,
-                        advantageType,
-                        actualEffectForms,
-                        rulesetEffect,
-                        firstTarget, criticalHit);
+                        __instance, attacker, defender, attackModifier, attackMode,
+                        rangedAttack, advantageType, actualEffectForms, rulesetEffect, firstTarget, criticalHit);
                 }
+            }
+
+            // supports REACTION spells on defender
+            foreach (var attackBeforeHitPossibleOnMeOrAlly in defender.RulesetCharacter.usableSpells
+                         .Where(usableSpell =>
+                             usableSpell.ActivationTime == ActivationTime.Reaction)
+                         .SelectMany(x => x.GetAllSubFeaturesOfType<IAttackBeforeHitConfirmedOnMe>())
+                         .ToList())
+            {
+                yield return attackBeforeHitPossibleOnMeOrAlly.OnAttackBeforeHitConfirmedOnMe(
+                    __instance, attacker, defender, attackModifier, attackMode,
+                    rangedAttack, advantageType, actualEffectForms, rulesetEffect, firstTarget, criticalHit);
             }
 
             //PATCH: support for `IAttackBeforeHitConfirmedOnMe`
@@ -369,16 +373,8 @@ public static class GameLocationBattleManagerPatcher
                              .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMe>())
                 {
                     yield return attackBeforeHitConfirmedOnMe.OnAttackBeforeHitConfirmedOnMe(
-                        __instance,
-                        attacker,
-                        defender,
-                        attackModifier,
-                        attackMode,
-                        rangedAttack,
-                        advantageType,
-                        actualEffectForms,
-                        rulesetEffect,
-                        firstTarget, criticalHit);
+                        __instance, attacker, defender, attackModifier, attackMode,
+                        rangedAttack, advantageType, actualEffectForms, rulesetEffect, firstTarget, criticalHit);
                 }
             }
 
@@ -394,17 +390,8 @@ public static class GameLocationBattleManagerPatcher
                                  .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
                     {
                         yield return attackBeforeHitConfirmedOnMeOrAlly.OnAttackBeforeHitConfirmedOnMeOrAlly(
-                            __instance,
-                            attacker,
-                            defender,
-                            ally,
-                            attackModifier,
-                            attackMode,
-                            rangedAttack,
-                            advantageType,
-                            actualEffectForms,
-                            rulesetEffect,
-                            firstTarget, criticalHit);
+                            __instance, attacker, defender, ally, attackModifier, attackMode,
+                            rangedAttack, advantageType, actualEffectForms, rulesetEffect, firstTarget, criticalHit);
                     }
                 }
             }
@@ -433,7 +420,6 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             int attackRoll)
         {
-            // ReSharper disable once InvertIf
             if (__instance.Battle != null)
             {
                 //PATCH: Support for features before hit possible, e.g. spiritual shielding
@@ -945,6 +931,17 @@ public static class GameLocationBattleManagerPatcher
                     yield return modifier?.OnMagicalAttackBeforeHitConfirmedOnEnemy(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
+            }
+
+            // supports REACTION spells on defender
+            foreach (var attackBeforeHitPossibleOnMeOrAlly in defender.RulesetCharacter.usableSpells
+                         .Where(usableSpell =>
+                             usableSpell.ActivationTime == ActivationTime.Reaction)
+                         .SelectMany(x => x.GetAllSubFeaturesOfType<IMagicalAttackBeforeHitConfirmedOnMe>())
+                         .ToList())
+            {
+                yield return attackBeforeHitPossibleOnMeOrAlly.OnMagicalAttackBeforeHitConfirmedOnMe(
+                    attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
             }
 
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMe`

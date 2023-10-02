@@ -464,7 +464,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            if (__instance.battle == null)
+            if (__instance is not { IsBattleInProgress: true })
             {
                 yield break;
             }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -9,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -258,6 +260,96 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Blessing of Rime
+
+    internal static SpellDefinition BuildBlessingOfRime()
+    {
+        const string NAME = "BlessingOfRime";
+
+        var conditionBlessingOfRime = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionBlessed)
+            .SetPossessive()
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BlessingOfRime, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionBlessingOfRime),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(0, DieType.D8, 3)
+                            .Build())
+                    .SetParticleEffectParameters(RayOfFrost)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerDomainElementalIceLance
+            .EffectDescription.EffectParticleParameters.effectParticleReference;
+
+        conditionBlessingOfRime.AddCustomSubFeatures(new CustomBehaviorBlessingOfRime(spell));
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByMe, IModifySavingThrow
+    {
+        private readonly SpellDefinition _spellDefinition;
+
+        public CustomBehaviorBlessingOfRime(SpellDefinition spellDefinition)
+        {
+            _spellDefinition = spellDefinition;
+        }
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter.TemporaryHitPoints == 0)
+            {
+                rulesetCharacter.RemoveAllConditionsOfType("ConditionBlessingOfRime");
+            }
+
+            yield break;
+        }
+
+        public bool IsValid(
+            RulesetActor rulesetActor,
+            RulesetActor rulesetCaster,
+            IEnumerable<EffectForm> effectForms,
+            string attributeScore)
+        {
+            return attributeScore == AttributeDefinitions.Constitution;
+        }
+
+        public string AttributeAndActionModifier(
+            RulesetActor rulesetActor,
+            ActionModifier actionModifier,
+            string attribute)
+        {
+            actionModifier.SavingThrowAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+
+            return attribute;
+        }
     }
 
     #endregion
@@ -624,6 +716,132 @@ internal static partial class SpellBuilders
                 new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
 
             return attribute;
+        }
+    }
+
+    #endregion
+
+    #region Irresistible Performance
+
+    internal static SpellDefinition BuildIrresistiblePerformance()
+    {
+        const string NAME = "IrresistiblePerformance";
+
+        var actionAffinityIrresistiblePerformance = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetForbiddenActions(
+                Id.AttackFree, Id.AttackMain, Id.AttackOff, Id.AttackOpportunity, Id.AttackReadied,
+                Id.CastBonus, Id.CastInvocation, Id.CastMain, Id.CastReaction, Id.CastReadied, Id.CastNoCost)
+            .AddToDB();
+
+        var conditionIrresistiblePerformance = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionCharmed, $"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCharmed)
+            .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionCharmed)
+            .SetFeatures(actionAffinityIrresistiblePerformance)
+            .AddToDB();
+
+        var conditionAffinityIrresistiblePerformanceImmunity = FeatureDefinitionConditionAffinityBuilder
+            .Create($"ConditionAffinity{NAME}Immunity")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetConditionType(conditionIrresistiblePerformance)
+            .AddToDB();
+
+        foreach (var conditionDefinition in DatabaseRepository.GetDatabase<ConditionDefinition>()
+                     .Where(x => x.Features.Any(f =>
+                         f is FeatureDefinitionConditionAffinity
+                         {
+                             ConditionAffinityType: ConditionAffinityType.Immunity
+                         } conditionAffinity
+                         && conditionAffinity.conditionType == ConditionDefinitions.ConditionCharmed.Name)))
+
+        {
+            conditionDefinition.Features.Add(conditionAffinityIrresistiblePerformanceImmunity);
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.IrresistiblePerformance, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 6)
+                    .SetSavingThrowData(false, AttributeDefinitions.Charisma, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}ForceFailOnCharmed")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowIrresistiblePerformance())
+                                .AddToDB()),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionIrresistiblePerformance, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(ConjureFey)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
+            PowerBardTraditionManacalonsPerfection.EffectDescription.EffectParticleParameters.effectParticleReference;
+
+        return spell;
+    }
+
+    private sealed class TryAlterOutcomeSavingThrowIrresistiblePerformance : ITryAlterOutcomeSavingThrow
+    {
+        public void OnSavingTryAlterOutcome(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            if (saveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            if (!target.AllConditions.Any(x =>
+                    (x.ConditionDefinition == ConditionDefinitions.ConditionCharmed
+                     || x.ConditionDefinition.parentCondition == ConditionDefinitions.ConditionCharmed)
+                    && x.SourceGuid == caster.Guid))
+            {
+                return;
+            }
+
+            saveOutcome = RollOutcome.Failure;
+            saveOutcomeDelta = -1;
         }
     }
 

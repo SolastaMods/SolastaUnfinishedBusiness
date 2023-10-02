@@ -10,15 +10,22 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class AiContext
 {
+    internal const string DoNothing = "1";
+    internal const string DoStrengthCheckCasterDC = "2";
+
     internal static void Load()
     {
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound"); // order matters as same weight
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", true);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);
+        // order matters as same weight
+        BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray", DoNothing);
+        BuildDecisionBreakFreeFromCondition("ConditionVileBrew", DoNothing);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", DoNothing);
+        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", DoStrengthCheckCasterDC);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", DoStrengthCheckCasterDC);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", DoStrengthCheckCasterDC);
     }
 
     // boolParameter false won't do any ability check
-    private static void BuildDecisionBreakFreeFromCondition(string conditionName, bool boolParameter = false)
+    private static void BuildDecisionBreakFreeFromCondition(string conditionName, string action)
     {
         //TODO: create proper builders
 
@@ -73,7 +80,7 @@ internal static class AiContext
                 "if restrained and can use main action, try to break free",
                 "BreakFree",
                 scorer,
-                boolParameter: boolParameter,
+                action,
                 enumParameter: 1,
                 floatParameter: 3f)
             .AddToDB();

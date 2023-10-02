@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -58,6 +60,9 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(PoisonSpray)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerVrockSpores
+            .EffectDescription.EffectParticleParameters.effectParticleReference;
 
         spell.EffectDescription.EffectParticleParameters.impactParticleReference = PowerDragonBreath_Poison
             .EffectDescription.EffectParticleParameters.impactParticleReference;
@@ -216,8 +221,11 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference = PowerDomainLawWordOfLaw
+            .EffectDescription.EffectParticleParameters.casterParticleReference;
+
         var conditionRingOfBlades = ConditionDefinitionBuilder
-            .Create(ConditionStrikeOfChaosAttackAdvantage, $"Condition{NAME}")
+            .Create($"Condition{NAME}")
             .SetGuiPresentation($"Power{NAME}", Category.Feature, ConditionGuided)
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
@@ -225,10 +233,14 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
+        conditionRingOfBlades.conditionParticleReference = PowerSorcererChildRiftDeflection.EffectDescription
+            .EffectParticleParameters.conditionParticleReference;
+        conditionRingOfBlades.conditionEndParticleReference = PowerSorcererChildRiftDeflection.EffectDescription
+            .EffectParticleParameters.conditionEndParticleReference;
         conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
 
         powerRingOfBlades.AddCustomSubFeatures(
-            new CustomBehaviorRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
+            new CustomBehaviorPowerRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -251,17 +263,21 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionRingOfBlades))
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerMagebaneSpellCrusher
+            .EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
 
-    private sealed class CustomBehaviorRingOfBlades : IMagicEffectInitiatedByMe, IModifyEffectDescription
+    private sealed class CustomBehaviorPowerRingOfBlades : IMagicEffectInitiatedByMe, IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionRingOfBlades;
         private readonly FeatureDefinitionPower _powerRingOfBlades;
 
-        public CustomBehaviorRingOfBlades(
+        public CustomBehaviorPowerRingOfBlades(
             FeatureDefinitionPower powerRingOfBlades,
             ConditionDefinition conditionRingOfBlades)
         {
@@ -272,17 +288,35 @@ internal static partial class SpellBuilders
         // STEP 1: change attackRollModifier to use spell casting feature
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.ActingCharacter.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    _conditionRingOfBlades.Name,
-                    out var activeCondition)
-                && action.ActionParams.actionModifiers.Count > 0)
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+
+            if (action.ActionParams.actionModifiers.Count == 0)
             {
-                action.ActionParams.actionModifiers[0].attackRollModifier =
-                    activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
+                yield break;
             }
 
-            yield break;
+            if (!rulesetCaster.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionRingOfBlades.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            var spellRepertoireIndex = activeCondition.Amount;
+
+            if (activeCondition.Amount < 0 || rulesetCaster.SpellRepertoires.Count <= spellRepertoireIndex)
+            {
+                yield break;
+            }
+
+            var actionModifier = action.ActionParams.actionModifiers[0];
+
+            rulesetCaster.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
+            rulesetCaster.ComputeSpellAttackBonus(rulesetCaster.SpellRepertoires[spellRepertoireIndex]);
+            actionModifier.AttacktoHitTrends.SetRange(rulesetCaster.magicAttackTrends);
+            actionModifier.AttackRollModifier = rulesetCaster.magicAttackTrends.Sum(x => x.value);
         }
 
         // STEP 2: add additional dice if required
@@ -315,6 +349,133 @@ internal static partial class SpellBuilders
             damageForm.diceNumber = 4 + activeCondition.EffectLevel - 6;
 
             return effectDescription;
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeSpellRingOfBlades : IMagicEffectFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionRingOfBlades;
+
+        public MagicEffectFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
+        {
+            _conditionRingOfBlades = conditionRingOfBlades;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCaster.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionRingOfBlades.Name,
+                    out var activeCondition))
+            {
+                activeCondition.Amount =
+                    rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Flash Freeze
+
+    internal static SpellDefinition BuildFlashFreeze()
+    {
+        const string NAME = "FlashFreeze";
+
+        var conditionFlashFreeze = ConditionDefinitionBuilder
+            .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
+            .SetGuiPresentation(
+                RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
+            .SetPossessive()
+            .SetParentCondition(ConditionRestrainedByWeb)
+            .AddToDB();
+
+        conditionFlashFreeze.specialDuration = false;
+        conditionFlashFreeze.specialInterruptions.Clear();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FLashFreeze, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .SetDamageForm(DamageTypeCold, 12, DieType.D6)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new FilterTargetingMagicEffectFlashFreeze(spell));
+
+        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
+            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionEndParticleReference;
+
+        return spell;
+    }
+
+    private sealed class FilterTargetingMagicEffectFlashFreeze : IFilterTargetingMagicEffect
+    {
+        private readonly SpellDefinition _spellFlashFreeze;
+
+        public FilterTargetingMagicEffectFlashFreeze(SpellDefinition spellFlashFreeze)
+        {
+            _spellFlashFreeze = spellFlashFreeze;
+        }
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+                || rulesetEffectSpell.SpellDefinition != _spellFlashFreeze)
+            {
+                return true;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            var isValid = rulesetTarget.SizeDefinition != CharacterSizeDefinitions.DragonSize
+                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Gargantuan
+                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Huge
+                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeLargeOrSmaller");
+            }
+
+            return isValid;
         }
     }
 

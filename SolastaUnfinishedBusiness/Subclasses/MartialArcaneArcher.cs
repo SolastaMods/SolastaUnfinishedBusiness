@@ -607,7 +607,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (gameLocationBattleService == null)
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
         {
             return;
         }

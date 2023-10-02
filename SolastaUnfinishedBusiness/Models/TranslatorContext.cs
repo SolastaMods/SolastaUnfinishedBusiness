@@ -329,7 +329,7 @@ internal static class TranslatorContext
     private static Dictionary<string, string> GetWordsDictionary()
     {
         var words = new Dictionary<string, string>();
-        var path = Path.Combine(Main.ModFolder, "dictionary.txt");
+        var path = Path.Combine(Main.ModFolder, "thesaurus.txt");
 
         if (!File.Exists(path))
         {

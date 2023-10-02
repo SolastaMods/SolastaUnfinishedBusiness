@@ -134,7 +134,7 @@
         <string>SpellListCleric</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -142,7 +142,7 @@
         <string>SpellListDruid</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -150,7 +150,7 @@
         <string>SpellListInventor</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -158,7 +158,7 @@
         <string>SpellListPaladin</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -166,7 +166,7 @@
         <string>SpellListRanger</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -174,7 +174,7 @@
         <string>SpellListSorcerer</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -182,7 +182,7 @@
         <string>SpellListWarlock</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -190,7 +190,7 @@
         <string>SpellListMonkTraditionLight</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -198,7 +198,7 @@
         <string>SpellListWizard</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
   </DisplaySpellListsToggle>
@@ -838,6 +838,7 @@
     <string>FeatInfernalConstitution</string>
     <string>FeatInfusionsAdept</string>
     <string>FeatInspiringLeader</string>
+    <string>FeatInterception</string>
     <string>FeatGroupIridescentTouched</string>
     <string>FeatLongswordFinesse</string>
     <string>FeatLunger</string>
@@ -873,6 +874,7 @@
     <string>FeatSentinel</string>
     <string>FeatGroupShadowTouched</string>
     <string>FeatShieldExpert</string>
+    <string>FeatShieldTechniques</string>
     <string>FeatGroupSlasher</string>
     <string>FeatSlayTheEnemies</string>
     <string>FeatSpearMastery</string>
@@ -893,8 +895,6 @@
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
     <string>FeatZenArcher</string>
-    <string>FeatInterception</string>
-    <string>FeatShieldTechniques</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -1089,7 +1089,9 @@
           <string>SunlightBlade</string>
           <string>EarthTremor</string>
           <string>MirrorImage</string>
+          <string>BlessingOfRime</string>
           <string>BrainBulwark</string>
+          <string>IrresistiblePerformance</string>
           <string>PsychicLance</string>
           <string>MindBlank</string>
           <string>Foresight</string>
@@ -1112,6 +1114,7 @@
           <string>ProtectThreshold</string>
           <string>ElementalWeapon</string>
           <string>SpiritShroud</string>
+          <string>VitalityTransfer</string>
           <string>AuraOfPerseverance</string>
           <string>AuraOfVitality</string>
           <string>MassHeal</string>
@@ -1130,12 +1133,17 @@
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
           <string>EarthTremor</string>
+          <string>ElementalInfusion</string>
+          <string>NoxiousSpray</string>
           <string>PetalStorm</string>
           <string>ProtectThreshold</string>
+          <string>AdderFangs</string>
           <string>FlameArrows</string>
           <string>WinterBreath</string>
+          <string>BlessingOfRime</string>
           <string>ForestGuardian</string>
           <string>MantleOfThorns</string>
+          <string>FlashFreeze</string>
           <string>ReverseGravity</string>
           <string>Shapechange</string>
         </ArrayOfString>
@@ -1156,6 +1164,7 @@
           <string>CausticZap</string>
           <string>RadiantMotes</string>
           <string>Sanctuary</string>
+          <string>VileBrew</string>
           <string>ColorBurst</string>
           <string>SpellWeb</string>
           <string>FlameArrows</string>
@@ -1181,6 +1190,8 @@
           <string>AuraOfVitality</string>
           <string>StaggeringSmite</string>
           <string>BanishingSmite</string>
+          <string>CircleOfMagicalNegation</string>
+          <string>DivineWrath</string>
         </ArrayOfString>
       </value>
     </item>
@@ -1191,11 +1202,14 @@
       <value>
         <ArrayOfString>
           <string>EnsnaringStrike</string>
+          <string>ElementalInfusion</string>
           <string>StrikeWithTheWind</string>
           <string>SearingSmite</string>
           <string>SpikeBarrage</string>
+          <string>AdderFangs</string>
           <string>FlameArrows</string>
           <string>LightningArrow</string>
+          <string>BlessingOfRime</string>
           <string>ForestGuardian</string>
           <string>SteelWhirlwind</string>
         </ArrayOfString>
@@ -1220,13 +1234,18 @@
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>ElementalInfusion</string>
+          <string>VileBrew</string>
           <string>BindingIce</string>
           <string>ColorBurst</string>
+          <string>NoxiousSpray</string>
           <string>PsychicWhip</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
+          <string>AdderFangs</string>
           <string>BoomingStep</string>
+          <string>CorruptingBolt</string>
           <string>FlameArrows</string>
           <string>WinterBreath</string>
           <string>BrainBulwark</string>
@@ -1234,6 +1253,8 @@
           <string>FarStep</string>
           <string>Incineration</string>
           <string>SonicBoom</string>
+          <string>HeroicInfusion</string>
+          <string>FlashFreeze</string>
           <string>ReverseGravity</string>
           <string>Foresight</string>
           <string>MeteorSwarmSingleTarget</string>
@@ -1257,12 +1278,17 @@
           <string>SwordStorm</string>
           <string>TollTheDead</string>
           <string>SkinOfRetribution</string>
+          <string>VoidGrasp</string>
+          <string>NoxiousSpray</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
+          <string>AdderFangs</string>
+          <string>CorruptingBolt</string>
           <string>SpiritShroud</string>
           <string>BrainBulwark</string>
           <string>PsychicLance</string>
           <string>FarStep</string>
+          <string>FlashFreeze</string>
           <string>PowerWordKill</string>
         </ArrayOfString>
       </value>
@@ -1296,21 +1322,26 @@
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>ElementalInfusion</string>
           <string>FindFamiliar</string>
           <string>GiftOfAlacrity</string>
           <string>MagnifyGravity</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
+          <string>VileBrew</string>
           <string>BindingIce</string>
           <string>ColorBurst</string>
+          <string>NoxiousSpray</string>
           <string>PsychicWhip</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
           <string>BoomingStep</string>
+          <string>CorruptingBolt</string>
           <string>PulseWave</string>
           <string>FlameArrows</string>
           <string>SpiritShroud</string>
+          <string>VitalityTransfer</string>
           <string>WinterBreath</string>
           <string>BrainBulwark</string>
           <string>GravitySinkhole</string>
@@ -1320,6 +1351,8 @@
           <string>SteelWhirlwind</string>
           <string>SonicBoom</string>
           <string>HeroicInfusion</string>
+          <string>PoisonWave</string>
+          <string>RingOfBlades</string>
           <string>ReverseGravity</string>
           <string>MindBlank</string>
           <string>Foresight</string>

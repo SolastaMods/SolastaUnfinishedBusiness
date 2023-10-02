@@ -155,6 +155,12 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="ElementalInfusion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/ElementalInfusion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="LightningArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/LightningArrow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -449,9 +455,63 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="VitalityTransfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/VitalityTransfer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="VoidGrasp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/VoidGrasp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="AdderFangs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/AdderFangs.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="NoxiousSpray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/NoxiousSpray.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="VileBrew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/VileBrew.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="IrresistiblePerformance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/IrresistiblePerformance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="BlessingOfRime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/BlessingOfRime.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="FLashFreeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/FLashFreeze.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="SunlightBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/SunlightBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="CorruptingBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Spells/CorruptingBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>

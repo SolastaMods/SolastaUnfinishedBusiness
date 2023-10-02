@@ -1637,7 +1637,7 @@ internal static class Level20SubclassesContext
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (manager == null || battle == null)
+            if (manager == null || battle is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1657,11 +1657,12 @@ internal static class Level20SubclassesContext
 
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(1);
+
             rulesetCharacter.InflictCondition(
                 ConditionDodging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 attacker.Guid,
                 attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
@@ -1933,7 +1934,7 @@ internal static class Level20SubclassesContext
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battleService == null)
+            if (battleService is not { IsBattleInProgress: true })
             {
                 return false;
             }
@@ -1960,7 +1961,7 @@ internal static class Level20SubclassesContext
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battleService == null)
+            if (battleService is not { IsBattleInProgress: true })
             {
                 return attacks;
             }

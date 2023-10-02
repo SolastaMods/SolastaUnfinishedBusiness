@@ -571,7 +571,7 @@ internal static partial class SpellBuilders
 
         var conditionCircleOfMagicalNegation = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionHeroism)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(savingThrowAffinityCircleOfMagicalNegation)

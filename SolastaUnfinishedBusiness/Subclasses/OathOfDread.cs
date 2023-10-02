@@ -476,10 +476,12 @@ public sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (manager == null || battle == null)
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -497,7 +499,7 @@ public sealed class OathOfDread : AbstractSubclass
             }
 
             // do I need to check this as well?
-            if (!battle.IsWithinBattleRange(me, attacker))
+            if (!gameLocationBattleService.IsWithinBattleRange(me, attacker))
             {
                 yield break;
             }
@@ -511,12 +513,13 @@ public sealed class OathOfDread : AbstractSubclass
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("HarrowingCrusade", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(
+                attacker, gameLocationActionService, previousReactionCount);
         }
     }
 }

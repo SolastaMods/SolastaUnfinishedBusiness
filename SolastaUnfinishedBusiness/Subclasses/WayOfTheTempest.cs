@@ -315,7 +315,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battleService == null)
+            if (battleService is not { IsBattleInProgress: true })
             {
                 return false;
             }
@@ -342,7 +342,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battleService == null)
+            if (battleService is not { IsBattleInProgress: true })
             {
                 return attacks;
             }

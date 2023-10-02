@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
@@ -18,7 +17,8 @@ using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -583,6 +583,399 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Void’s Grasp
+
+    internal static SpellDefinition BuildVoidGrasp()
+    {
+        const string NAME = "VoidGrasp";
+
+        var actionAffinityVoidGrasp = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes(reaction: false)
+            .AddToDB();
+
+        var conditionVoidGrasp = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBaned)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(actionAffinityVoidGrasp)
+            .AddToDB();
+
+        conditionVoidGrasp.GuiPresentation.Description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VoidGrasp, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionVoidGrasp, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(ChillTouch)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Vile Brew
+
+    internal static SpellDefinition BuildVileBrew()
+    {
+        const string NAME = "VileBrew";
+
+        var conditionVileBrew = ConditionDefinitionBuilder
+            .Create(ConditionOnAcidPilgrim, $"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
+            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 2, DieType.D4))
+            .AddToDB();
+
+        conditionVileBrew.possessive = false;
+        conditionVileBrew.specialDuration = false;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VileBrew, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
+                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                        .SetConditionForm(conditionVileBrew, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetParticleEffectParameters(AcidSplash)
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Elemental Infusion
+
+    internal static SpellDefinition BuildElementalInfusion()
+    {
+        const string NAME = "ElementalInfusion";
+
+        foreach (var (damageType, magicEffect) in DamagesAndEffects
+                     .Where(x => x.Item1 != DamageTypePoison))
+        {
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var shortDamageType = damageType.Substring(6);
+
+            var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{NAME}{shortDamageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag($"{NAME}{shortDamageType}")
+                .SetDamageDice(DieType.D6, 1)
+                .SetAdvancement((AdditionalDamageAdvancement)ExtraAdditionalDamageAdvancement.ConditionAmount, 1)
+                .SetSpecificDamageType(damageType)
+                .SetImpactParticleReference(
+                    magicEffect.EffectDescription.EffectParticleParameters.impactParticleReference)
+                .AddCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeAttack)
+                .AddToDB();
+
+            var title = $"Condition{NAME}Title".Formatted(Category.Condition, damageTitle);
+
+            var description = $"Condition{NAME}DamageDescription".Formatted(Category.Condition, damageTitle);
+            var conditionElementalInfusionAdditionalDamage = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{shortDamageType}Damage")
+                .SetGuiPresentation(title, description, ConditionDivineFavor)
+                .SetPossessive()
+                .SetSilent(Silent.WhenAdded)
+                .SetFixedAmount(1)
+                .SetFeatures(additionalDamage)
+                .AddToDB();
+
+            conditionElementalInfusionAdditionalDamage.AddCustomSubFeatures(
+                new CustomBehaviorConditionElementalInfusion(conditionElementalInfusionAdditionalDamage));
+
+            description = $"Condition{NAME}ResistanceDescription".Formatted(Category.Condition, damageTitle);
+            var conditionElementalInfusionResistance = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{shortDamageType}Resistance")
+                .SetGuiPresentation(title, description, ConditionProtectedInsideMagicCircle)
+                .SetPossessive()
+                .SetSilent(Silent.WhenRemoved)
+                .SetFixedAmount(1)
+                .SetFeatures(
+                    additionalDamage,
+                    GetDefinition<FeatureDefinitionDamageAffinity>($"DamageAffinity{shortDamageType}Resistance"))
+                .AddToDB();
+
+            conditionElementalInfusionResistance.AddCustomSubFeatures(
+                new OnConditionAddedOrRemovedElementalInfusionResistance(),
+                new CustomBehaviorConditionElementalInfusion(conditionElementalInfusionResistance));
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ElementalInfusion, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Reaction)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+                    .SetParticleEffectParameters(ConjureElemental)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(spell));
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorConditionElementalInfusion :
+        IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionElementalInfusion;
+
+        public CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion)
+        {
+            _conditionElementalInfusion = conditionElementalInfusion;
+        }
+
+        public IEnumerator OnMagicalAttackFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action.ActionParams.activeEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit
+                && action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                attacker.RulesetCharacter.RemoveAllConditionsOfType(_conditionElementalInfusion.Name);
+            }
+
+            yield break;
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                attacker.RulesetCharacter.RemoveAllConditionsOfType(_conditionElementalInfusion.Name);
+            }
+
+            yield break;
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedElementalInfusionResistance : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // only add the damage condition if in my own turn
+            if (Gui.Battle == null || Gui.Battle.ActiveContenderIgnoringLegendary.RulesetCharacter != target)
+            {
+                return;
+            }
+
+            var name = rulesetCondition.ConditionDefinition.Name.Replace("Resistance", "Damage");
+
+            target.InflictCondition(
+                name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                target.guid,
+                target.CurrentFaction.Name,
+                1,
+                name,
+                rulesetCondition.Amount,
+                0,
+                0);
+        }
+    }
+
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyElementalInfusion :
+        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+    {
+        private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
+            .Where(x => x.Item1 != DamageTypePoison)
+            .Select(x => x.Item1);
+
+        private readonly SpellDefinition _spellDefinition;
+
+        public AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(SpellDefinition spellDefinition)
+        {
+            _spellDefinition = spellDefinition;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode != null)
+            {
+                yield return HandleReaction(attacker, defender, actualEffectForms);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, defender, actualEffectForms);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            IEnumerable<EffectForm> actualEffectForms)
+        {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
+
+            var attackDamageTypes = actualEffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType)
+                .Distinct()
+                .ToList();
+
+            var resistanceDamageTypes = AllowedDamageTypes.Intersect(attackDamageTypes).ToList();
+
+            if (!resistanceDamageTypes.Any())
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+            var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
+                _spellDefinition, out var spellRepertoire);
+
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+            {
+                IntParameter = slotLevel, StringParameter = _spellDefinition.Name, SpellRepertoire = spellRepertoire
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendSpellSlot(reactionParams);
+
+            yield return battleManager.WaitForReactions(defender, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var slotUsed = reactionParams.IntParameter;
+
+            spellRepertoire.SpendSpellSlot(slotUsed);
+            defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
+            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
+
+            foreach (var condition in resistanceDamageTypes
+                         .Select(damageType =>
+                             GetDefinition<ConditionDefinition>(
+                                 $"Condition{_spellDefinition.Name}{damageType.Substring(6)}Resistance")))
+            {
+                rulesetDefender.InflictCondition(
+                    condition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    condition.Name,
+                    slotUsed,
+                    0,
+                    0);
+            }
+        }
+    }
+
+    #endregion
+
     #region Gone With The Wind
 
     internal static SpellDefinition BuildGoneWithTheWind()
@@ -895,7 +1288,7 @@ internal static partial class SpellBuilders
         var conditionSanctuary = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
-            .AddSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.CastSpell)
             .AddToDB();
 
         var conditionSanctuaryReduceDamage = ConditionDefinitionBuilder
@@ -906,37 +1299,14 @@ internal static partial class SpellBuilders
                 FeatureDefinitionReduceDamageBuilder
                     .Create($"ReduceDamage{NAME}")
                     .SetGuiPresentation(NAME, Category.Spell)
-                    .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
+                    .SetAlwaysActiveReducedDamage((_, _) => 999)
                     .AddToDB())
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
-
-        var conditionSanctuaryDamageResistance = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DamageResistance")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityColdResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityForceDamageResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityPoisonResistance,
-                DamageAffinityPsychicResistance,
-                DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddSpecialInterruptions(
+                ConditionInterruption.Attacked, ConditionInterruption.Attacks, ConditionInterruption.CastSpell)
             .AddToDB();
 
         conditionSanctuary.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeSanctuary(
-                conditionSanctuary,
-                conditionSanctuaryReduceDamage,
-                conditionSanctuaryDamageResistance));
+            new AttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuary, conditionSanctuaryReduceDamage));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -956,25 +1326,58 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
                     .SetParticleEffectParameters(ProtectionFromEvilGood)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeSanctuary(conditionSanctuary))
             .AddToDB();
 
         return spell;
     }
 
+    // store the caster Save DC on condition amount
+    private sealed class MagicEffectFinishedByMeSanctuary : IMagicEffectFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionSanctuary;
+
+        public MagicEffectFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
+        {
+            _conditionSanctuary = conditionSanctuary;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionSanctuary.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
+            activeCondition.Amount = rulesetCaster.ComputeSaveDC(actionCastSpell.activeSpell.SpellRepertoire);
+        }
+    }
+
+    // force the attacker to roll a WIS saving throw or lose the attack
     private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionReduceDamage;
-        private readonly ConditionDefinition _conditionResistance;
         private readonly ConditionDefinition _conditionSanctuary;
 
         internal AttackBeforeHitConfirmedOnMeSanctuary(
             ConditionDefinition conditionSanctuary,
-            ConditionDefinition conditionReduceDamage,
-            ConditionDefinition conditionResistance)
+            ConditionDefinition conditionReduceDamage)
         {
             _conditionSanctuary = conditionSanctuary;
             _conditionReduceDamage = conditionReduceDamage;
-            _conditionResistance = conditionResistance;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -990,11 +1393,6 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (!battle.IsBattleInProgress)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -1002,46 +1400,31 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var usableCondition =
-                rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionSanctuary);
-
-            if (usableCondition == null)
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionSanctuary.Name,
+                    out var activeCondition))
             {
                 yield break;
             }
 
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
-
-            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
+            var casterSaveDC = activeCondition.Amount;
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
+            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
-            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
-
-            var casterProfBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetCaster
-                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-            var casterWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCaster
-                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
-
-            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
-                advantageTrends, attackerWisModifier, 8 + casterProfBonus + casterWisModifier, false,
-                out var savingOutcome,
-                out _);
+            attacker.RulesetCharacter.RollSavingThrow(
+                0, AttributeDefinitions.Wisdom, null, modifierTrend, advantageTrends, attackerWisModifier, casterSaveDC,
+                false, out var savingOutcome, out _);
 
             if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
 
-            var condition = criticalHit ? _conditionResistance : _conditionReduceDamage;
-
             rulesetDefender.InflictCondition(
-                condition.Name,
+                _conditionReduceDamage.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -1075,8 +1458,8 @@ internal static partial class SpellBuilders
                 FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
                 FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
                 FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                MovementAffinityNoClimb,
+                MovementAffinityNoSpecialMoves,
                 FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
             .SetMonsterPresentation(
                 MonsterPresentationBuilder

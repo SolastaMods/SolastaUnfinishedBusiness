@@ -104,6 +104,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                                     .Create(CombatInspirationCondition)
                                     .SetGuiPresentation(Category.Condition,
                                         ConditionDefinitions.ConditionHeraldOfBattle)
+                                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
                                     .AddFeatures(
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create($"MovementAffinity{Name}CombatInspirationMovementEnhancement")
@@ -275,10 +276,9 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var battle = battleService?.Battle;
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battle == null)
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -293,10 +293,10 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                     .AddAsActivePowerToSource(),
-                targetCharacters = battle.AllContenders
+                targetCharacters = gameLocationBattleService.Battle.AllContenders
                     .Where(enemy => enemy.IsOppositeSide(attacker.Side)
                                     && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                    && battleService.IsWithinXCells(attacker, enemy, 3))
+                                    && gameLocationBattleService.IsWithinXCells(attacker, enemy, 3))
                     .ToList()
             };
 
