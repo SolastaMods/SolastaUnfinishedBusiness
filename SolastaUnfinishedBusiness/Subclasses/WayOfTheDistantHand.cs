@@ -499,7 +499,9 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
             var strikeDefinition = mainHandItem?.ItemDefinition;
 
+#pragma warning disable IDE0270
             if (strikeDefinition == null)
+#pragma warning restore IDE0270
             {
                 strikeDefinition = hero.UnarmedStrikeDefinition;
             }

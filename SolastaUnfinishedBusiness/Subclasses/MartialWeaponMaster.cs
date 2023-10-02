@@ -413,7 +413,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
