@@ -5,9 +5,11 @@
 - added 3rd level Adder's Fangs, Corrupting Bolt, and Vitality Transfer spells
 - added 4th level Blessing of Rime, and Irresistible Performance spell
 - added 6th level Flash Freeze spell
-- fixed Ring of Blades not considering spell attack modifiers from wielded equipment
+- fixed College of Harlequin combat inspiration power missing bonus to attack rolls
+- fixed Ring of Blades not considering spell attack modifier from wielded equipment
 - fixed Sanctuary incorrect save DC calculation and missing condition interruptions
 - fixed some features causing soft locks by not properly checking for battle status
+- fixed vanilla spells not upcasting recurrent damage dice [i.e.: Phantasmal Killer]
 
 1.5.94.19:
 
