@@ -104,6 +104,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                                     .Create(CombatInspirationCondition)
                                     .SetGuiPresentation(Category.Condition,
                                         ConditionDefinitions.ConditionHeraldOfBattle)
+                                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
                                     .AddFeatures(
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create($"MovementAffinity{Name}CombatInspirationMovementEnhancement")
