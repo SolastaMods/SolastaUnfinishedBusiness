@@ -1,11 +1,10 @@
-Condition/&ConditionFlashFreezeTitle=封装的
 Condition/&ConditionHeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。
 Condition/&ConditionHeroicInfusionTitle=英雄输液
 Feature/&PowerRingOfBladesDescription=作为奖励动作，你可以使用你的一把刀锋环剑对距离你 30 英尺内的生物进行远程法术攻击。
 Feature/&PowerRingOfBladesTitle=刀锋之环
 Feedback/&AdditionalDamageHeroicInfusionFormat=英雄注入！
 Feedback/&AdditionalDamageHeroicInfusionLine={0}英勇地击中了{1}！ (+{2})
-Spell/&FlashFreezeDescription=你试图将一个你能在范围内看到的生物关进坚固的冰牢里。目标必须进行敏捷豁免检定。如果豁免失败，目标会受到 12d6 的寒冷伤害，并被厚厚的冰层包裹。豁免成功后，目标会受到一半伤害并且不会被包围。当以这种方式包裹时，该生物会受到限制并且无法使用反应。该法术只能对体型较大的生物使用。为了逃脱，被束缚的目标可以进行一次力量检定，作为对抗你的法术豁免 DC 的动作。成功后，目标会逃脱并不再被困住。在更高的水平上。当你使用7级或更高等级的法术位施放此法术时，每高于6级法术位，冰冷伤害就会增加2d6。
+Spell/&FlashFreezeDescription=你试图将一个你能在范围内看到的生物关进坚固的冰牢里。目标必须进行敏捷豁免检定。如果豁免失败，目标会受到 12d6 的寒冷伤害，并被困在厚厚的冰层中。成功豁免后，目标将受到一半伤害并且不受限制。该法术只能对体型较大的生物使用。为了逃脱，被束缚的目标可以进行一次力量检定，作为对抗你的法术豁免 DC 的动作。成功后，目标将逃脱并不再受到限制。当你使用7级或更高等级的法术位施放此法术时，6级以上每有一个法术位，冰冷伤害就会增加2d6。
 Spell/&FlashFreezeTitle=闪冻
 Spell/&HeroicInfusionDescription=你在魔法的推动下赋予自己耐力和军事实力。在法术结束之前，你无法施展法术，并且你会获得以下好处：\n• 你获得 50 点临时生命值。如果法术结束时其中任何剩余，它们就会丢失。\n• 您在使用简单武器和军用武器进行的攻击检定中具有优势。\n• 当您使用武器攻击击中目标时，该目标将获得额外的 2d12 力量伤害。\n• 您拥有战士级护甲、武器和豁免能力。\n• 当您在自己的回合中采取攻击动作时，您可以攻击两次，而不是一次。\n法术结束后，你必须立即通过 DC 15 的体质豁免检定，否则会遭受一级疲惫。
 Spell/&HeroicInfusionTitle=英雄输液
