@@ -389,23 +389,16 @@ internal static partial class SpellBuilders
     {
         const string NAME = "FlashFreeze";
 
-        var actionAffinityFlashFreeze = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{NAME}NoReaction")
-            .SetGuiPresentationNoContent(true)
-            .SetAllowedActionTypes(reaction: false)
-            .AddToDB();
-
         var conditionFlashFreeze = ConditionDefinitionBuilder
             .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
-            .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionChilled)
+            .SetGuiPresentation(
+                RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
             .SetPossessive()
             .SetParentCondition(ConditionRestrainedByWeb)
-            .AddFeatures(actionAffinityFlashFreeze)
             .AddToDB();
 
         conditionFlashFreeze.specialDuration = false;
         conditionFlashFreeze.specialInterruptions.Clear();
-        conditionFlashFreeze.GuiPresentation.Description = Gui.NoLocalization;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
