@@ -564,7 +564,10 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionProtectedFromPoison { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedFromPoison");
-
+        
+        internal static ConditionDefinition ConditionProtectedInsideMagicCircle { get; } =
+            GetDefinition<ConditionDefinition>("ConditionProtectedInsideMagicCircle");
+        
         internal static ConditionDefinition ConditionRaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionRaging");
 

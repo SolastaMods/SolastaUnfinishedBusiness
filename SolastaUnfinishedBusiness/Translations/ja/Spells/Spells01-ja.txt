@@ -1,9 +1,8 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=蔓に絡まって移動が妨げられ、器用さのセーヴィングスローが不利になり、毎ターン貫通ダメージを受けることになる。ターンの終わりに、Strength 投げセーブを行って蔓から逃れます。
 Condition/&AdditionalConditionEnsnaringStrikeTitle=罠にかかった
-Condition/&ConditionElementalInfusionDamageDescription=あなたの次の近接攻撃は、消費したスロット レベルごとに追加の 1d6 {0} ダメージを与えます。
-Condition/&ConditionElementalInfusionDamageTitle={0} 攻撃
-Condition/&ConditionElementalInfusionResistanceDescription=あなたは{0}のダメージに対する耐性を持っています。
-Condition/&ConditionElementalInfusionResistanceTitle={0} 抵抗
+Condition/&ConditionElementalInfusionDamageDescription=あなたの次の近接攻撃は、消費したスロット レベルごとに追加の 1d6 {0} を与えます。
+Condition/&ConditionElementalInfusionResistanceDescription=あなたは {0} に対する耐性を持ち、次の近接攻撃で消費したスロット レベルごとに追加の 1d6 {0} を与えます。
+Condition/&ConditionElementalInfusionTitle={0} 点滴
 Condition/&ConditionGiftOfAlacrityDescription=クリーチャーはイニシアチブロールで 1d8 ボーナスを得る。
 Condition/&ConditionGiftOfAlacrityTitle=セレリティ・ブーン
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=この状態から抜け出すには、筋力能力チェックを行う必要があります。

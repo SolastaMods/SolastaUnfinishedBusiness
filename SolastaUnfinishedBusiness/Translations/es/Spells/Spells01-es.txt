@@ -1,9 +1,8 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Estás enredado en enredaderas que impiden el movimiento, tienes desventaja en las tiradas de salvación de Destreza y recibes daño perforante cada turno. Al final de tu turno, haz una tirada de salvación de Fuerza para escapar de las enredaderas.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Atrapado
-Condition/&ConditionElementalInfusionDamageDescription=Tu próximo ataque cuerpo a cuerpo inflige 1d6 {0} de daño adicional por cada nivel de espacio gastado.
-Condition/&ConditionElementalInfusionDamageTitle={0} ataque
-Condition/&ConditionElementalInfusionResistanceDescription=Tienes resistencia a {0} daño.
-Condition/&ConditionElementalInfusionResistanceTitle={0} Resistencia
+Condition/&ConditionElementalInfusionDamageDescription=Tu próximo ataque cuerpo a cuerpo inflige 1d6 {0} adicional por cada nivel de espacio gastado.
+Condition/&ConditionElementalInfusionResistanceDescription=Tienes resistencia a {0} y tu próximo ataque cuerpo a cuerpo inflige 1d6 {0} adicional por cada nivel de espacio gastado.
+Condition/&ConditionElementalInfusionTitle={0} Infusión
 Condition/&ConditionGiftOfAlacrityDescription=La criatura gana un bono de 1d8 a las tiradas de iniciativa.
 Condition/&ConditionGiftOfAlacrityTitle=Bendición de celeridad
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=Debes realizar una prueba de habilidad de Fuerza para salir de esta condición.

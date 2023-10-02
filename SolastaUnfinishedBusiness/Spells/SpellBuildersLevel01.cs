@@ -719,12 +719,14 @@ internal static partial class SpellBuilders
                 .AddCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeAttack)
                 .AddToDB();
 
-            var title = $"Condition{NAME}DamageTitle".Formatted(Category.Condition, damageTitle);
+            var title = $"Condition{NAME}Title".Formatted(Category.Condition, damageTitle);
+
             var description = $"Condition{NAME}DamageDescription".Formatted(Category.Condition, damageTitle);
             var conditionElementalInfusionAdditionalDamage = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{shortDamageType}Damage")
                 .SetGuiPresentation(title, description, ConditionDivineFavor)
                 .SetPossessive()
+                .SetSilent(Silent.WhenAdded)
                 .SetFixedAmount(1)
                 .SetFeatures(additionalDamage)
                 .AddToDB();
@@ -732,18 +734,20 @@ internal static partial class SpellBuilders
             conditionElementalInfusionAdditionalDamage.AddCustomSubFeatures(
                 new CustomBehaviorConditionElementalInfusion(conditionElementalInfusionAdditionalDamage));
 
-            title = $"Condition{NAME}ResistanceTitle".Formatted(Category.Condition, damageTitle);
             description = $"Condition{NAME}ResistanceDescription".Formatted(Category.Condition, damageTitle);
             var conditionElementalInfusionResistance = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{shortDamageType}Resistance")
-                .SetGuiPresentation(title, description, ConditionDivineFavor)
+                .SetGuiPresentation(title, description, ConditionProtectedInsideMagicCircle)
                 .SetPossessive()
+                .SetSilent(Silent.WhenRemoved)
                 .SetFixedAmount(1)
                 .SetFeatures(
+                    additionalDamage,
                     GetDefinition<FeatureDefinitionDamageAffinity>($"DamageAffinity{shortDamageType}Resistance"))
                 .AddToDB();
 
             conditionElementalInfusionResistance.AddCustomSubFeatures(
+                new OnConditionAddedOrRemovedElementalInfusionResistance(),
                 new CustomBehaviorConditionElementalInfusion(conditionElementalInfusionResistance));
         }
 
@@ -810,6 +814,39 @@ internal static partial class SpellBuilders
             }
 
             yield break;
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedElementalInfusionResistance : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // only add the damage condition if in my own turn
+            if (Gui.Battle == null || Gui.Battle.ActiveContenderIgnoringLegendary.RulesetCharacter != target)
+            {
+                return;
+            }
+
+            var name = rulesetCondition.ConditionDefinition.Name.Replace("Resistance", "Damage");
+
+            target.InflictCondition(
+                name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                target.guid,
+                target.CurrentFaction.Name,
+                1,
+                name,
+                rulesetCondition.Amount,
+                0,
+                0);
         }
     }
 
@@ -925,29 +962,6 @@ internal static partial class SpellBuilders
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
-                    rulesetDefender.guid,
-                    rulesetDefender.CurrentFaction.Name,
-                    1,
-                    condition.Name,
-                    slotUsed,
-                    0,
-                    0);
-            }
-
-            var attackerIsBefore = battleManager.Battle.initiativeSortedContenders.IndexOf(attacker) <
-                                   battleManager.Battle.initiativeSortedContenders.IndexOf(defender);
-
-            foreach (var condition in resistanceDamageTypes
-                         .Select(damageType =>
-                             GetDefinition<ConditionDefinition>(
-                                 $"Condition{_spellDefinition.Name}{damageType.Substring(6)}Damage")))
-            {
-                rulesetDefender.InflictCondition(
-                    condition.Name,
-                    DurationType.Round,
-                    attackerIsBefore ? 0 : 1,
-                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagCombat,
                     rulesetDefender.guid,
                     rulesetDefender.CurrentFaction.Name,

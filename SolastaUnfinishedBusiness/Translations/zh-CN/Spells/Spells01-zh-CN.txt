@@ -1,9 +1,8 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=你被藤蔓缠绕而无法移动，在敏捷豁免检定上处于劣势，并且每回合都会受到穿刺伤害。在你的回合结束时，进行一次力量投掷豁免以逃离藤蔓。
 Condition/&AdditionalConditionEnsnaringStrikeTitle=被诱捕
-Condition/&ConditionElementalInfusionDamageDescription=每花费一个槽位等级，你的下一次近战攻击会额外造成 1d6 {0} 点伤害。
-Condition/&ConditionElementalInfusionDamageTitle={0}攻击
-Condition/&ConditionElementalInfusionResistanceDescription=你对{0}伤害有抵抗力。
-Condition/&ConditionElementalInfusionResistanceTitle={0} 阻力
+Condition/&ConditionElementalInfusionDamageDescription=你的下一次近战攻击每花费一个槽位就会额外造成 1d6 {0}。
+Condition/&ConditionElementalInfusionResistanceDescription=你对{0}有抵抗力，并且你的下一次近战攻击每花费一个槽位等级就会额外造成1d6 {0}。
+Condition/&ConditionElementalInfusionTitle={0}输液
 Condition/&ConditionGiftOfAlacrityDescription=该生物在先攻骰上获得 1d8 加值。
 Condition/&ConditionGiftOfAlacrityTitle=灵敏之赐
 Condition/&ConditionGrappledRestrainedEnsnaredDescription=你必须进行力量能力检定才能摆脱这种情况。
