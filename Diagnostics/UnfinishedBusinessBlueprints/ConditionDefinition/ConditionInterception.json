@@ -16,7 +16,7 @@
   "durationParameterDie": "D4",
   "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
     9000
   ],

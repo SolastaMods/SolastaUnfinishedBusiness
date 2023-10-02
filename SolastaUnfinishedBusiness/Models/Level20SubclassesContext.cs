@@ -1657,11 +1657,12 @@ internal static class Level20SubclassesContext
 
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(1);
+
             rulesetCharacter.InflictCondition(
                 ConditionDodging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 attacker.Guid,
                 attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
