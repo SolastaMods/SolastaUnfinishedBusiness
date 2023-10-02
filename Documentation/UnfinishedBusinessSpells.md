@@ -336,7 +336,7 @@ You flourish the weapon used in the casting and then vanish to strike like the w
 
 # 80. - Flash Freeze (V,S) level 6 Evocation
 
-You attempt to encase a creature you can see within range in a prison of solid ice. The target must make a Dexterity saving throw. On a failed save, the target takes 12d6 cold damage and becomes encased in layers of thick ice. On a successful save, the target takes half as much damage and is not encased. While encased in this way, the creature is restrained and cannot use reactions. The spell can only be used on creatures up to large size. To break out, the restrained target can make a Strength check as an action against your spell save DC. On success, the target escapes and is no longer encased. At higher levels. When you cast this spell using a spell slot of 7th level or higher, the cold damage increases by 2d6 for each slot level above 6th.
+You attempt to encase a creature you can see within range in a prison of solid ice. The target must make a Dexterity saving throw. On a failed save, the target takes 12d6 cold damage and becomes restrained in layers of thick ice. On a successful save, the target takes half as much damage and is not restrained. The spell can only be used on creatures up to large size. To break out, the restrained target can make a Strength check as an action against your spell save DC. On success, the target escapes and is no longer restrained. When you cast this spell using a spell slot of 7th level or higher, the cold damage increases by 2d6 for each slot level above 6th.
 
 # 81. - Heroic Infusion (V,S) level 6 Transmutation [Concentration]
 
