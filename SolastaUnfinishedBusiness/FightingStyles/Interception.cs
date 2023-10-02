@@ -52,7 +52,8 @@ internal sealed class Interception : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception :
+        IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -61,32 +62,62 @@ internal sealed class Interception : AbstractFightingStyle
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battleManager,
-            GameLocationCharacter featureOwner,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
+            GameLocationCharacter me,
             ActionModifier attackModifier,
-            int attackRoll)
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (featureOwner == defender)
+            if (attackMode != null)
+            {
+                yield return HandleReaction(attacker, defender, me);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, defender, me);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me)
+        {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (me == defender)
             {
                 yield break;
             }
 
-            if (!battleManager.IsWithin1Cell(featureOwner, defender))
+            if (battleManager == null || !battleManager.IsWithin1Cell(me, defender))
             {
                 yield break;
             }
 
-            if (!featureOwner.CanReact())
+            if (!me.CanReact())
             {
                 yield break;
             }
 
-            var unitCharacter = featureOwner.RulesetCharacter;
+            var unitCharacter = me.RulesetCharacter;
 
             if (ValidatorsWeapon.IsUnarmed(unitCharacter.GetMainWeapon()?.ItemDefinition, null)
                 && ValidatorsWeapon.IsUnarmed(unitCharacter.GetOffhandWeapon()?.ItemDefinition, null))
@@ -102,7 +133,7 @@ internal sealed class Interception : AbstractFightingStyle
             }
 
             var reactionParams =
-                new CharacterActionParams(featureOwner, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "CustomReactionInterceptionDescription"
                         .Formatted(Category.Reaction, defender.Name, attacker.Name)
@@ -112,7 +143,7 @@ internal sealed class Interception : AbstractFightingStyle
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(featureOwner, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(me, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

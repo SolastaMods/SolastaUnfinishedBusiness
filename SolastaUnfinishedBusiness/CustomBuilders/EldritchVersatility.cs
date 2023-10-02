@@ -1070,7 +1070,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class EldritchAegisTwistHit : IAttackBeforeHitConfirmedOnMeOrAlly
     {
         private static readonly ConditionDefinition ConditionEldritchAegisAddAC = ConditionDefinitionBuilder
             .Create("ConditionEldritchAegisAddAC")
@@ -1079,40 +1079,53 @@ internal static class EldritchVersatility
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
             .AddToDB();
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
-            GameLocationCharacter featureOwner, GameLocationCharacter attacker, GameLocationCharacter defender,
-            RulesetAttackMode attackMode, RulesetEffect rulesetEffect, ActionModifier attackModifier, int attackRoll)
+        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var ownerCharacter = featureOwner.RulesetCharacter;
+            if (rulesetEffect != null
+                && rulesetEffect.EffectDescription.RangeType != RangeType.Touch
+                && rulesetEffect.EffectDescription.RangeType != RangeType.MeleeHit)
+            {
+                yield break;
+            }
+
+            var ownerCharacter = me.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
             var alreadyBlocked = defenderCharacter.HasConditionOfType(ConditionEldritchAegisAddAC);
-            var posOwner = featureOwner.locationPosition;
+            var posOwner = me.locationPosition;
             var posDefender = defender.locationPosition;
 
             if (!alreadyBlocked &&
                 (int3.Distance(posOwner, posDefender) > 6f ||
-                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, featureOwner)))
+                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
             {
                 yield break;
             }
 
             // This function also adjust AC to just enough block the attack, so if alreadyBlocked, we should not abort.
-            if ((!featureOwner.CanReact(true) && !alreadyBlocked) ||
-                !featureOwner.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if ((!me.CanReact(true) && !alreadyBlocked) ||
+                !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
 
             // Get attack roll outcome
-            var totalAttack = attackRoll
-                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + attackModifier.AttackRollModifier;
+            var totalAttack = Global.CurrentAction.AttackRoll;
             var wisdomModifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom);
-            // Get AC
             var currentValue = defenderCharacter.RefreshArmorClass(false, true).CurrentValue;
-            defenderCharacter.GetAttribute("ArmorClass").ReleaseCopy();
-            // Compute difference
             var requiredACAddition = totalAttack - currentValue + 1;
+
             // If other actions already blocked it
             if (requiredACAddition <= 0)
             {
@@ -1157,14 +1170,14 @@ internal static class EldritchVersatility
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            var actionParams = new CharacterActionParams(featureOwner, (Id)ExtraActionId.DoNothingReaction)
+            var actionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionEldritchAegis".Formatted(Category.Reaction, defender.Name)
             };
 
             RequestCustomReaction(actionService, "EldritchAegis", actionParams, requiredACAddition);
 
-            yield return battleManager.WaitForReactions(featureOwner, actionService, count);
+            yield return battleManager.WaitForReactions(me, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

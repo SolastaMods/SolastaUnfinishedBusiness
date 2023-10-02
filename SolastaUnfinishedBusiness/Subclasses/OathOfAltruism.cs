@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -178,27 +179,44 @@ public sealed class OathOfAltruism : AbstractSubclass
         }
     }
 
-    private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
+    private class SpiritualShieldingBlockAttack : IAttackBeforeHitConfirmedOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
-            GameLocationCharacter featureOwner, GameLocationCharacter attacker, GameLocationCharacter defender,
-            RulesetAttackMode attackMode, RulesetEffect rulesetEffect, ActionModifier attackModifier, int attackRoll)
+        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var unitCharacter = featureOwner.RulesetCharacter;
+            if (rulesetEffect != null
+                && rulesetEffect.EffectDescription.RangeType != RangeType.Touch
+                && rulesetEffect.EffectDescription.RangeType != RangeType.MeleeHit)
+            {
+                yield break;
+            }
 
-            if (featureOwner == defender)
+            var unitCharacter = me.RulesetCharacter;
+
+            if (me == defender)
             {
                 yield break;
             }
 
             //Is this unit able to react (not paralyzed, prone etc.)?
-            if (!featureOwner.CanReact(true))
+            if (!me.CanReact(true))
             {
                 yield break;
             }
 
             //Can this unit see defender?
-            if (!featureOwner.PerceivedAllies.Contains(defender))
+            if (!me.PerceivedAllies.Contains(defender))
             {
                 yield break;
             }
@@ -219,9 +237,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var totalAttack = attackRoll
-                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + attackModifier.AttackRollModifier;
+            var totalAttack = Global.CurrentAction.AttackRoll;
 
             //Can shielding prevent hit?
             if (!rulesetDefender.CanMagicEffectPreventHit(Shield, totalAttack))
@@ -232,7 +248,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            var actionParams = new CharacterActionParams(featureOwner, (Id)ExtraActionId.DoNothingReaction)
+            var actionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionSpiritualShieldingDescription"
                     .Formatted(Category.Reaction, defender.Name, attacker.Name)
@@ -240,7 +256,7 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             RequestCustomReaction("SpiritualShielding", actionParams);
 
-            yield return battleManager.WaitForReactions(featureOwner, actionService, count);
+            yield return battleManager.WaitForReactions(me, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {
