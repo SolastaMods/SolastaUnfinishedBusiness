@@ -251,29 +251,29 @@ public static class CharacterActionMagicEffectPatcher
             var attacker = __instance.ActingCharacter;
 
             //PATCH: support for `IMagicalAttackFinishedByMe`
-            if (Gui.Battle != null)
+            // no need to check for gui.battle != null
+            foreach (var magicalAttackFinishedByMe in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
             {
-                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
-                {
-                    yield return feature.OnMagicalAttackFinishedByMe(__instance, attacker, target);
-                }
+                yield return magicalAttackFinishedByMe.OnMagicalAttackFinishedByMe(__instance, attacker, target);
             }
 
             //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
-            // ReSharper disable once InvertIf
-            if (Gui.Battle != null)
+            // should also happen outside battles
+            var contenders =
+                battleService.Battle?.AllContenders ??
+                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+
+            foreach (var ally in contenders
+                         .Where(x => x.Side == attacker.Side
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList()) // avoid changing enumerator
             {
-                foreach (var ally in Gui.Battle.AllContenders
-                             .Where(x => x.Side == attacker.Side
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
+                foreach (var magicalAttackFinishedByMeOrAlly in ally.RulesetCharacter
+                             .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())
                 {
-                    foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
-                                 .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())
-                    {
-                        yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
-                            .OnMagicalAttackFinishedByMeOrAlly(__instance, attacker, target, ally);
-                    }
+                    yield return magicalAttackFinishedByMeOrAlly
+                        .OnMagicalAttackFinishedByMeOrAlly(__instance, attacker, target, ally);
                 }
             }
         }

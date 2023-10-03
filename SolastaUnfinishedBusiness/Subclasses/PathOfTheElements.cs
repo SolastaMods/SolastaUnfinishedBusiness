@@ -555,7 +555,8 @@ public sealed class PathOfTheElements : AbstractSubclass
             _magicEffect = magicEffect;
         }
 
-        public IEnumerator OnMagicalAttackFinishedByMe(CharacterActionMagicEffect action,
+        public IEnumerator OnMagicalAttackFinishedByMe(
+            CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {

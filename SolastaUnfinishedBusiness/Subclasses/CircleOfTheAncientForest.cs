@@ -375,7 +375,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
             var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 
             rulesetAttacker.LogCharacterActivatesAbility(ability);
-            RulesetCharacter.Heal(healing, rulesetAttacker, rulesetAttacker, cap, rulesetAttacker.Guid);
+            rulesetAttacker.ReceiveHealing(healing, true, rulesetAttacker.Guid, cap);
         }
     }
 }

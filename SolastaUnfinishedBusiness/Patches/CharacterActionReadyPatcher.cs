@@ -25,6 +25,7 @@ public static class CharacterActionReadyPatcher
             }
 
             __result = Execute(__instance);
+            
             return false;
         }
 
@@ -34,7 +35,6 @@ public static class CharacterActionReadyPatcher
             {
                 yield break;
             }
-
 
             action.ActingCharacter.ReadiedAction = action.readyActionType;
         }
