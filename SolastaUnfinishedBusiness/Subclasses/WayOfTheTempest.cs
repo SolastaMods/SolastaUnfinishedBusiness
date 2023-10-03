@@ -352,7 +352,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 .Where(x => x.IsOppositeSide(caster.Side) && battleService.IsWithin1Cell(caster, x))
                 .ToList();
 
-            if (caster == null || targets.Empty())
+            if (targets.Empty())
             {
                 return attacks;
             }

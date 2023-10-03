@@ -328,7 +328,7 @@ public sealed class MartialTactician : AbstractSubclass
 
             var character = attacker.RulesetCharacter;
 
-            if (character == null)
+            if (character is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
@@ -388,7 +388,7 @@ public sealed class MartialTactician : AbstractSubclass
 
             var character = attacker.RulesetCharacter;
 
-            if (character == null)
+            if (character is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

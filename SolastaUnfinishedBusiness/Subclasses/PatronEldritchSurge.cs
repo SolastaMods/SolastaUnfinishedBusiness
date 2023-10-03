@@ -40,7 +40,7 @@ public class PatronEldritchSurge : AbstractSubclass
         .AddCustomSubFeatures(new OnReducedToZeroHpByMeBlastPursuit())
         .AddToDB();
 
-    // LEVEL 10 Blast Reload;
+    // LEVEL 10 Blast Reload
     public static readonly FeatureDefinitionPower FeatureBlastReload = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}BlastReload")
         .SetGuiPresentation(Category.Feature)
@@ -95,8 +95,8 @@ public class PatronEldritchSurge : AbstractSubclass
 
     public static bool IsEldritchBlast(RulesetEffect rulesetEffect)
     {
-        return rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-               rulesetEffectSpell.SpellDefinition == EldritchBlast;
+        return rulesetEffect is RulesetEffectSpell rulesetEffectSpell
+               && rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
     public sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
@@ -107,7 +107,6 @@ public class PatronEldritchSurge : AbstractSubclass
             EffectDescription effectDescription)
         {
             return definition == EldritchBlast
-                   && character.GetOriginalHero() != null
                    && character.GetSubclassLevel(CharacterClassDefinitions.Warlock, Name) > 0;
         }
 
@@ -118,6 +117,7 @@ public class PatronEldritchSurge : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var rulesetHero = rulesetCharacter.GetOriginalHero();
+
             if (rulesetHero == null)
             {
                 return effectDescription;
@@ -126,8 +126,10 @@ public class PatronEldritchSurge : AbstractSubclass
             var totalLevel = rulesetHero.classesHistory.Count;
             var warlockClassLevel = rulesetHero.GetClassLevel(CharacterClassDefinitions.Warlock);
             var additionalBeamCount = ComputeAdditionalBeamCount(totalLevel, warlockClassLevel);
+
             effectDescription.effectAdvancement.Clear();
             effectDescription.targetParameter = 1 + additionalBeamCount;
+
             return effectDescription;
         }
 
@@ -135,6 +137,7 @@ public class PatronEldritchSurge : AbstractSubclass
         {
             var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
             var increaseLevels = new[] { 3, 8, 13, 18 };
+
             return increaseLevels.Count(level => determinantLevel >= level);
         }
     }
@@ -144,7 +147,8 @@ public class PatronEldritchSurge : AbstractSubclass
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode, RulesetEffect activeEffect)
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -153,14 +157,14 @@ public class PatronEldritchSurge : AbstractSubclass
                 yield break;
             }
 
-            if (!IsEldritchBlast(activeEffect) ||
-                !rulesetAttacker.GetVersatilitySupportCondition(out var supportCondition))
+            if (!IsEldritchBlast(activeEffect)
+                || !rulesetAttacker.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
 
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
-                supportCondition.BeamNumber);
+            supportCondition.TryEarnOrSpendPoints(
+                PointAction.Modify, PointUsage.EarnPoints, supportCondition.BeamNumber);
         }
     }
 
@@ -173,9 +177,9 @@ public class PatronEldritchSurge : AbstractSubclass
             ActionScope scope)
         {
             // only collect cantrips
-            if (scope != ActionScope.Battle ||
-                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition.SpellLevel != 0)
+            if (scope != ActionScope.Battle
+                || actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
+                || rulesetEffectSpell.SpellDefinition.SpellLevel != 0)
             {
                 return;
             }
@@ -187,13 +191,13 @@ public class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(rulesetCharacter,
-                    out var supportCondition))
+            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    rulesetCharacter, out var supportCondition))
             {
                 return;
             }
 
-            supportCondition?.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
+            supportCondition.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter gameLocationCharacter)
@@ -207,13 +211,13 @@ public class PatronEldritchSurge : AbstractSubclass
                 return;
             }
 
-            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(rulesetCharacter,
-                    out var supportCondition))
+            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    rulesetCharacter, out var supportCondition))
             {
                 return;
             }
 
-            supportCondition?.CantripsUsedThisTurn.Clear();
+            supportCondition.CantripsUsedThisTurn.Clear();
         }
 
         public void QualifySpells(
@@ -222,23 +226,19 @@ public class PatronEldritchSurge : AbstractSubclass
             IEnumerable<SpellDefinition> spells)
         {
             // _cantripsUsedThisTurn only has entries for Eldritch Surge of at least level 14
-            if (spellRepertoireLine.actionType != ActionType.Bonus ||
-                !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(rulesetCharacter,
-                    out var supportCondition))
+            if (spellRepertoireLine.actionType != ActionType.Bonus
+                || !BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    rulesetCharacter, out var supportCondition))
             {
                 return;
             }
 
-            if (supportCondition != null)
-            {
-                spellRepertoireLine.relevantSpells.AddRange(
-                    supportCondition.CantripsUsedThisTurn.Intersect(spells));
-            }
+            spellRepertoireLine.relevantSpells.AddRange(supportCondition.CantripsUsedThisTurn.Intersect(spells));
         }
     }
 
-    private class BlastReloadSupportRulesetCondition : RulesetConditionCustom<BlastReloadSupportRulesetCondition>,
-        IBindToRulesetConditionCustom
+    private class BlastReloadSupportRulesetCondition :
+        RulesetConditionCustom<BlastReloadSupportRulesetCondition>, IBindToRulesetConditionCustom
     {
         public readonly List<SpellDefinition> CantripsUsedThisTurn = new();
 
@@ -250,13 +250,12 @@ public class PatronEldritchSurge : AbstractSubclass
                 .Create($"Condition{PatronEldritchSurge.Name}BlastReloadSupport")
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
-                .AddCustomSubFeatures(Marker,
-                    new BlastReloadCustom())
+                .AddCustomSubFeatures(Marker, new BlastReloadCustom())
                 .AddToDB();
         }
 
-        public void ReplaceRulesetCondition(RulesetCondition originalRulesetCondition,
-            out RulesetCondition replacedRulesetCondition)
+        public void ReplaceRulesetCondition(
+            RulesetCondition originalRulesetCondition, out RulesetCondition replacedRulesetCondition)
         {
             replacedRulesetCondition = GetFromPoolAndCopyOriginalRulesetCondition(originalRulesetCondition);
         }

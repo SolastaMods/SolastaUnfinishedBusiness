@@ -264,12 +264,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            rulesetDefender.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect,
-                AuraConditionName,
-                out var activeCondition);
-
-            if (activeCondition == null)
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    AuraConditionName,
+                    out var activeCondition))
             {
                 yield break;
             }

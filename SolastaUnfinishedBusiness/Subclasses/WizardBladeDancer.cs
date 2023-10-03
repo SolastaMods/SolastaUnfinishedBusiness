@@ -215,7 +215,8 @@ public sealed class WizardBladeDancer : AbstractSubclass
     {
         var gameLocationCharacter = GameLocationCharacter.GetFromActor(hero);
 
-        return (gameLocationCharacter == null || gameLocationCharacter.CanAct()) &&
+        return gameLocationCharacter != null &&
+               gameLocationCharacter.CanAct() &&
                !hero.IsWearingMediumArmor() &&
                !hero.IsWearingHeavyArmor() &&
                !hero.IsWearingShield() &&

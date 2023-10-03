@@ -307,9 +307,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
 
         private static bool IsWeaponMaster(RulesetCharacter rulesetCharacter)
         {
-            var hero = rulesetCharacter.GetOriginalHero();
-
-            return hero != null && hero.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name) > 0;
+            return rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name) > 0;
         }
     }
 
@@ -413,7 +411,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }

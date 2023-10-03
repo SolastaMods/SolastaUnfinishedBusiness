@@ -165,7 +165,7 @@ internal static partial class SpellBuilders
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters;
 
-            if (caster == null || targets.Empty())
+            if (targets.Empty())
             {
                 return attacks;
             }

@@ -833,7 +833,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         {
             var character = locationCharacter.RulesetCharacter;
 
-            if (character == null)
+            if (character is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

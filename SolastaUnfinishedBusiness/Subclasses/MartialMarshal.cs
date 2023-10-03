@@ -484,7 +484,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 reactions.Add(reactionParams);
             }
 
-            if (reactions.Empty() || battleManager == null)
+            if (reactions.Empty() || battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }

@@ -239,7 +239,7 @@ public static class CharacterActionPanelPatcher
             }
 
             if (restrainingCondition?.ConditionDefinition.Name is not
-                ("ConditionGrappledRestrainedIceBound" or "ConditionGrappledRestrainedSpellWeb"))
+                ("ConditionVileBrew" or "ConditionGrappledRestrainedIceBound" or "ConditionGrappledRestrainedSpellWeb"))
             {
                 return true;
             }

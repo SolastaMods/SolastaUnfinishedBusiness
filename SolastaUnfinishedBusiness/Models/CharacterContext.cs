@@ -1229,12 +1229,11 @@ internal static class CharacterContext
             bool rangedAttack, RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var hero = character.GetOriginalHero();
             var attackModeWeaponType =
                 (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition;
 
             return (OperationType.Or,
-                hero.HasMonkShieldExpert() ||
+                character.HasMonkShieldExpert() ||
                 character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(
                     x => x._weaponTypeDefinition == attackModeWeaponType));
         }

@@ -1,4 +1,8 @@
-﻿1.5.94.20:
+﻿1.5.94.21:
+
+- fixed crash introduced with support for custom reaction spells [i.e.: Elemental Infusion]
+
+1.5.94.20:
 
 - added 1st level Elemental Infusion, Vile Brew, and Void's Grasp spells
 - added 2nd level Noxious Spray spell
