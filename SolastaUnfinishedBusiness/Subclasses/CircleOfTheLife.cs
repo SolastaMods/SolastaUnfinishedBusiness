@@ -174,9 +174,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
     private static int GetDruidLevel(ulong guid)
     {
         var caster = EffectHelpers.GetCharacterByGuid(guid);
-        var hero = caster.GetOriginalHero();
 
-        return hero?.GetClassLevel(DruidClass) ?? 0;
+        return caster?.GetClassLevel(DruidClass) ?? 0;
     }
 
     private static bool IsAuthorizedSpell(EffectDescription effectDescription, BaseDefinition baseDefinition)
