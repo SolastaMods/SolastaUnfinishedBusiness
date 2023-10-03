@@ -56,6 +56,7 @@ public static class CharacterActionBreakFreePatcher
             switch (restrainingCondition.ConditionDefinition.Name)
             {
                 // BEGIN CHANGE
+                case "ConditionVileBrew":
                 case "ConditionGrappledRestrainedIceBound":
                     __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
                     yield break;

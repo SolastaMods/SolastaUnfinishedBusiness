@@ -16,6 +16,9 @@ internal static class AiContext
     internal static void Load()
     {
         // order matters as same weight
+        // this code needs a refactoring. meanwhile check:
+        // - CharacterActionPanelPatcher SelectBreakFreeMode and add condition there if spell also aims allies
+        // - CharacterActionBreakFreePatcher ExecuteImpl and add condition with expected behavior on allies
         BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray", DoNothing);
         BuildDecisionBreakFreeFromCondition("ConditionVileBrew", DoNothing);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", DoNothing);
