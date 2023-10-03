@@ -1,6 +1,6 @@
 ﻿1.5.94.21:
 
-- fixed game soft lock with AoE spells introduced with Elemental Infusion spell
+- fixed crash introduced with support for custom reaction spells [i.e.: Elemental Infusion]
 
 1.5.94.20:
 
