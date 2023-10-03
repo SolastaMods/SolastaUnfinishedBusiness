@@ -52,8 +52,7 @@ internal sealed class Interception : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception :
-        IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception : IAttackBeforeHitConfirmedOnMeOrAlly
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -76,32 +75,6 @@ internal sealed class Interception : AbstractFightingStyle
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode != null)
-            {
-                yield return HandleReaction(attacker, defender, me);
-            }
-        }
-
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender, me);
-        }
-
-        private IEnumerator HandleReaction(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter me)
-        {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
             if (me == defender)
             {
                 yield break;
