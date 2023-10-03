@@ -1,4 +1,8 @@
-﻿1.5.94.20:
+﻿1.5.94.21:
+
+- fixed game soft lock with AoE spells introduced with Elemental Infusion spell
+
+1.5.94.20:
 
 - added 1st level Elemental Infusion, Vile Brew, and Void's Grasp spells
 - added 2nd level Noxious Spray spell
