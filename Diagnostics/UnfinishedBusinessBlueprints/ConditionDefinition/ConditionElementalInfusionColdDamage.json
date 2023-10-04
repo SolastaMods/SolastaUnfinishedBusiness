@@ -7,7 +7,7 @@
     "Definition:AdditionalDamageElementalInfusionCold:29bf11ec-ed92-5561-89ff-d3ad416608fb"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
+  "silentWhenAdded": true,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
@@ -130,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Cold Damage Attack",
-    "description": "Your next melee attack deals an additional 1d6 Cold Damage damage per slot level spent.",
+    "title": "Cold Damage Infusion",
+    "description": "Your next melee attack deals an additional 1d6 Cold Damage per slot level spent.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
