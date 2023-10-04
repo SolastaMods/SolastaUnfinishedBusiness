@@ -179,21 +179,17 @@ public sealed class OathOfAltruism : AbstractSubclass
         }
     }
 
-    private class SpiritualShieldingBlockAttack : IAttackBeforeHitConfirmedOnMeOrAlly
+    private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
+            GameLocationCharacter me,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            ActionModifier attackModifier,
+            int attackRoll)
         {
             if (rulesetEffect != null
                 && rulesetEffect.EffectDescription.RangeType != RangeType.Touch
@@ -237,7 +233,9 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var totalAttack = Global.CurrentAction.AttackRoll;
+            var totalAttack = attackRoll
+                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                              + attackModifier.AttackRollModifier;
 
             //Can shielding prevent hit?
             if (!rulesetDefender.CanMagicEffectPreventHit(Shield, totalAttack))

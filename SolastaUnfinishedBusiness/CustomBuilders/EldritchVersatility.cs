@@ -1061,7 +1061,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class EldritchAegisTwistHit : IAttackBeforeHitConfirmedOnMeOrAlly
+    private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
         private static readonly ConditionDefinition ConditionEldritchAegisAddAC = ConditionDefinitionBuilder
             .Create("ConditionEldritchAegisAddAC")
@@ -1070,19 +1070,15 @@ internal static class EldritchVersatility
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
             .AddToDB();
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
+            GameLocationCharacter me,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            ActionModifier attackModifier,
+            int attackRoll)
         {
             if (rulesetEffect != null
                 && rulesetEffect.EffectDescription.RangeType != RangeType.Touch
@@ -1112,7 +1108,9 @@ internal static class EldritchVersatility
             }
 
             // Get attack roll outcome
-            var totalAttack = Global.CurrentAction.AttackRoll;
+            var totalAttack = attackRoll
+                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                              + attackModifier.AttackRollModifier;
             var wisdomModifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom);
             var currentValue = defenderCharacter.RefreshArmorClass(false, true).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;

@@ -1188,4 +1188,50 @@ public static class GameLocationBattleManagerPatcher
             }
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleCharacterAttackHitPossible))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleCharacterAttackHitPossible_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            ActionModifier attackModifier,
+            int attackRoll)
+        {
+            if (__instance.Battle != null)
+            {
+                //PATCH: Support for features before hit possible, e.g. spiritual shielding
+                foreach (var extraEvents in __instance.Battle.AllContenders
+                             .Where(u => u.IsOppositeSide(attacker.Side)
+                                         && u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList() // avoid changing enumerator
+                             .SelectMany(featureOwner => featureOwner.RulesetCharacter
+                                 .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
+                                 .Select(x =>
+                                     x.OnAttackBeforeHitPossibleOnMeOrAlly(
+                                         __instance, featureOwner, attacker, defender, attackMode, rulesetEffect,
+                                         attackModifier, attackRoll))))
+                {
+                    while (extraEvents.MoveNext())
+                    {
+                        yield return extraEvents.Current;
+                    }
+                }
+            }
+
+            // Put reaction request for shield and the like after our modded features for better experience 
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+        }
+    }
 }
