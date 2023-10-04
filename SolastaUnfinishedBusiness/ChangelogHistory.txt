@@ -1,4 +1,12 @@
-﻿1.5.94.21:
+﻿1.5.94.22:
+
+- added 3rd level Hunger of The Void spell
+- added 56 new weapon crafting manuals across all weapon types
+- changed RESPEC to drop scrolls instead of spellbooks
+- fixed IsMelee weapon validators incorrectly allowing throwing
+- fixed Merciless crashing battles on enemy reduced to 0 HP
+
+1.5.94.21:
 
 - fixed crash introduced with support for custom reaction spells [i.e.: Elemental Infusion]
 

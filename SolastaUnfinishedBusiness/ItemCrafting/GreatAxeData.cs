@@ -37,7 +37,13 @@ internal static class GreatAxeData
                 new("Lightbringer", ItemDefinitions.Enchanted_Greatsword_Lightbringer,
                     RecipeDefinitions.Recipe_Enchantment_GreatswordLightbringer),
                 new("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
-                    RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher)
+                    RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher),
+                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
+                new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
+                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+                    RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
             }
         };
 }

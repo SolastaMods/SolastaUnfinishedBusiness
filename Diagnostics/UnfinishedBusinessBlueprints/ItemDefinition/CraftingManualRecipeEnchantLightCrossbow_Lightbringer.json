@@ -112,7 +112,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Enchant Lightbringer Light Crossbow",
+    "title": "Enchant Light Lightbringer Crossbow",
     "description": "Item/&LightCrossbow_Lightbringer_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

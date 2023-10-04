@@ -2643,6 +2643,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition LightCrossbowPlus2 { get; } = GetDefinition<ItemDefinition>("LightCrossbow+2");
         internal static ItemDefinition Longbow { get; } = GetDefinition<ItemDefinition>("Longbow");
         internal static ItemDefinition LongbowPlus1 { get; } = GetDefinition<ItemDefinition>("Longbow+1");
+        internal static ItemDefinition LongbowPlus2 { get; } = GetDefinition<ItemDefinition>("Longbow+2");
         internal static ItemDefinition Longsword { get; } = GetDefinition<ItemDefinition>("Longsword");
         internal static ItemDefinition LongswordPlus2 { get; } = GetDefinition<ItemDefinition>("Longsword+2");
         internal static ItemDefinition Mace { get; } = GetDefinition<ItemDefinition>("Mace");
@@ -2738,6 +2739,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ShieldPlus1 { get; } = GetDefinition<ItemDefinition>("Shield+1");
         internal static ItemDefinition ShieldPlus2 { get; } = GetDefinition<ItemDefinition>("Shield+2");
         internal static ItemDefinition Shortbow { get; } = GetDefinition<ItemDefinition>("Shortbow");
+        internal static ItemDefinition ShortbowPlus2 { get; } = GetDefinition<ItemDefinition>("Shortbow+2");
+        
         internal static ItemDefinition Shortsword { get; } = GetDefinition<ItemDefinition>("Shortsword");
 
         internal static ItemDefinition SlippersOfSpiderClimbing { get; } =

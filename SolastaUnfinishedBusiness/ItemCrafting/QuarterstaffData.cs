@@ -44,7 +44,9 @@ internal static class QuarterstaffData
                 new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn),
                 new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
-                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker)
+                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
+                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw)
             }
         };
 }

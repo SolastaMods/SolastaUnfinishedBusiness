@@ -41,6 +41,7 @@ internal static class CraftingContext
         { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
         { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
         { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
+        { "Longbow", Gui.Localize("Equipment/&LongbowTypeTitle") },
         { "Maul", Gui.Localize("Equipment/&MaulTypeTitle") },
         { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") },
         { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedTitle") },
@@ -54,6 +55,7 @@ internal static class CraftingContext
         { "Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle") },
         { "Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title") },
         { "Shield", Gui.Localize("Equipment/&ShieldCategoryTitle") },
+        { "Shortbow", Gui.Localize("Equipment/&ShortbowTypeTitle") },
         { "SorcererArmor", Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title") },
         { "Spear", Gui.Localize("Equipment/&SpearTypeTitle") },
         { "StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle") },
@@ -87,11 +89,13 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HalberdData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandCrossbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongMaceData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(PikeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ScimitarData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ShortbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(SpearData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ThrowingWeaponData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ArmorAndShieldData.Items, true);
