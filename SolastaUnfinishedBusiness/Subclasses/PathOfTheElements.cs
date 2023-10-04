@@ -463,9 +463,11 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
-            var battle = Gui.Battle;
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (battle == null)
+            if (implementationService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 return;
             }
@@ -477,9 +479,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            foreach (var targetLocationCharacter in battle.AllContenders
+            foreach (var targetLocationCharacter in gameLocationBattleService.Battle.AllContenders
                          .Where(x =>
                              x.IsOppositeSide(locationCharacter.Side) &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -511,8 +511,6 @@ public sealed class PathOfTheElements : AbstractSubclass
                         break;
                 }
 
-                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {
                     sourceCharacter = rulesetAttacker,
@@ -530,6 +528,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 };
 
                 EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, _magicEffect);
+
                 implementationService.ApplyEffectForms(
                     new List<EffectForm> { new() { damageForm = damageForm } },
                     applyFormsParams,

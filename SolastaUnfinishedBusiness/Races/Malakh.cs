@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -276,10 +277,11 @@ internal static class RaceMalakhBuilder
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationBattleService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (implementationService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 return;
             }
@@ -300,7 +302,6 @@ internal static class RaceMalakhBuilder
                 < 17 => DieType.D10,
                 _ => DieType.D12
             };
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var damageForm = new DamageForm
             {
@@ -312,10 +313,11 @@ internal static class RaceMalakhBuilder
             };
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(enemy => enemy.IsOppositeSide(locationCharacter.Side)
-                                         && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Where(enemy => gameLocationBattleService.IsWithinXCells(locationCharacter, enemy, 3))
+            foreach (var enemy in gameLocationBattleService.Battle.AllContenders
+                         .Where(x =>
+                             x.IsOppositeSide(locationCharacter.Side)
+                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                             && gameLocationBattleService.IsWithinXCells(locationCharacter, x, 3))
                          .ToList()) // avoid changing enumerator
             {
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
@@ -324,6 +326,8 @@ internal static class RaceMalakhBuilder
                     targetCharacter = enemy.RulesetCharacter,
                     position = enemy.LocationPosition
                 };
+
+                EffectHelpers.StartVisualEffect(locationCharacter, enemy, SpellDefinitions.BrandingSmite);
 
                 implementationService.ApplyEffectForms(
                     new List<EffectForm> { new() { damageForm = damageForm } },
