@@ -670,6 +670,7 @@ ConditionHatredArdentHate	ConditionDefinition	ConditionDefinition	c9abe651-5aed-
 ConditionHeroicInfusion	ConditionDefinition	ConditionDefinition	6429a198-5027-5a66-8e22-494f70ed97b6
 ConditionHeroicInfusionExhausted	ConditionDefinition	ConditionDefinition	1ecc7159-a625-5715-9fa4-2cb09b939b6c
 ConditionHinderedForestGuardian	ConditionDefinition	ConditionDefinition	c07233a3-2954-5516-9819-2191d857a927
+ConditionHungerOfTheVoid	ConditionDefinition	ConditionDefinition	2b6ea2e1-0f8d-53b2-9dcf-e9aac46911b8
 ConditionHunterHordeBreaker	ConditionDefinition	ConditionDefinition	a1a37dbb-4d25-5196-81e9-8a0306e988d5
 ConditionIncineration	ConditionDefinition	ConditionDefinition	ef951211-636d-536d-849c-1eeb1df973d3
 ConditionInnovationAlchemyDamageLightning	ConditionDefinition	ConditionDefinition	335c1058-8477-5fe5-8b96-17e10a4a03e3
@@ -10323,6 +10324,7 @@ GiftOfAlacrity	SpellDefinition	SpellDefinition	cfc1affd-8762-5031-b552-4a48251d7
 GiftOfTheHunter	SpellDefinition	SpellDefinition	27583e9b-9f86-5822-93eb-ad03499c60e3
 GravitySinkhole	SpellDefinition	SpellDefinition	42bea70d-ddc5-5295-8c18-c6b6b9c3abf6
 HeroicInfusion	SpellDefinition	SpellDefinition	cf5c6a2f-ae52-59d6-a88d-31bb5d00c17d
+HungerOfTheVoid	SpellDefinition	SpellDefinition	fa794ede-4149-54ed-914d-f25cd55fb5b4
 IlluminatingSphere	SpellDefinition	SpellDefinition	e7fc59b8-93d9-53aa-86f7-659ac0d16fcf
 Incineration	SpellDefinition	SpellDefinition	9736f77e-4d1b-5fa9-ba08-e0937463546c
 IrresistiblePerformance	SpellDefinition	SpellDefinition	a1da847d-a053-5ba7-92a1-11a5f2260d2a
