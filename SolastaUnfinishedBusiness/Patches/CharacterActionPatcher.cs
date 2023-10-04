@@ -64,13 +64,14 @@ public static class CharacterActionPatcher
 
             switch (__instance)
             {
+#if false
                 case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
                     //PATCH: Hold the state of the SHIFT key on bool 5 to determine which slot to use on MC Warlock
                     var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
                     __instance.actionParams.BoolParameter5 = isShiftPressed;
                     break;
-
+#endif
                 case CharacterActionReady:
                     CustomReactionsContext.ReadReadyActionPreferredCantrip(__instance.actionParams);
                     break;
