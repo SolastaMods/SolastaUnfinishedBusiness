@@ -879,7 +879,7 @@ internal static partial class SpellBuilders
         {
             if (attackMode != null)
             {
-                yield return HandleReaction(attacker, defender, actualEffectForms);
+                yield return HandleReaction(defender, actualEffectForms);
             }
         }
 
@@ -892,11 +892,10 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, defender, actualEffectForms);
+            yield return HandleReaction(defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
-            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {

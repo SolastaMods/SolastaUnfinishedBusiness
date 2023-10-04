@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;

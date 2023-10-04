@@ -28,7 +28,7 @@ internal static class ShortbowData
                 new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
                     RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw),
                 new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
-                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
+                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn)
             }
         };
 }

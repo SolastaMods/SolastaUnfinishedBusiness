@@ -228,7 +228,7 @@ internal static class RaceImpBuilder
             }
 
             var rulesetDefender = defender.RulesetCharacter;
-            
+
             if (rulesetDefender is not { IsDeadOrUnconscious: false })
             {
                 yield break;

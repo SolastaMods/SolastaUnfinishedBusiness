@@ -25,7 +25,7 @@ public static class CharacterActionReadyPatcher
             }
 
             __result = Execute(__instance);
-            
+
             return false;
         }
 
