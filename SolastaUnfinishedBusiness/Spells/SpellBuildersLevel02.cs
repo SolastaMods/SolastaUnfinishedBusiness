@@ -424,6 +424,61 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Cloud of Daggers
+
+    internal static SpellDefinition BuildCloudOfDaggers()
+    {
+        const string Name = "CloudOfDaggers";
+
+        var proxy = EffectProxyDefinitionBuilder
+            .Create($"Proxy{Name}")
+            .SetGuiPresentation(Name, Category.Spell)
+            .AddToDB();
+
+        proxy.prefabReference = EffectProxyDefinitions.ProxyDancingLights.prefabReference;
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CloudOfDaggers, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube)
+                    .SetEffectAdvancement(
+                        EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeSlashing, 4, DieType.D4),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxy)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTopologyForm(TopologyForm.Type.SightImpaired, true)
+                            .Build())
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Shadowblade
 
     [NotNull]
@@ -475,6 +530,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var summonForm = spell.EffectDescription.EffectForms[0].SummonForm;
+
         summonForm.itemDefinition = itemShadowBlade;
 
         var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;

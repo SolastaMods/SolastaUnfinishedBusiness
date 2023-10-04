@@ -1,6 +1,6 @@
 ﻿1.5.94.22:
 
-- added 3rd level Hunger of The Void spell
+- added 2nd level Cloud of Daggers and 3rd level Hunger of The Void spells
 - added 56 new weapon crafting manuals across all weapon types
 - changed RESPEC to drop scrolls instead of spellbooks
 - fixed IsMelee weapon validators incorrectly allowing throwing

@@ -564,10 +564,10 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionProtectedFromPoison { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedFromPoison");
-        
+
         internal static ConditionDefinition ConditionProtectedInsideMagicCircle { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedInsideMagicCircle");
-        
+
         internal static ConditionDefinition ConditionRaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionRaging");
 
@@ -678,6 +678,9 @@ internal static partial class DatabaseHelper
     {
         internal static EffectProxyDefinition ProxyArcaneSword { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
+
+        internal static EffectProxyDefinition ProxyDancingLights { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyDancingLights");
 
         internal static EffectProxyDefinition ProxyGrease { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyGrease");
@@ -1599,10 +1602,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDomainLawHolyRetribution { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawHolyRetribution");
-        
+
         internal static FeatureDefinitionPower PowerDomainLawWordOfLaw { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawWordOfLaw");
-        
+
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
 
@@ -2740,7 +2743,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ShieldPlus2 { get; } = GetDefinition<ItemDefinition>("Shield+2");
         internal static ItemDefinition Shortbow { get; } = GetDefinition<ItemDefinition>("Shortbow");
         internal static ItemDefinition ShortbowPlus2 { get; } = GetDefinition<ItemDefinition>("Shortbow+2");
-        
+
         internal static ItemDefinition Shortsword { get; } = GetDefinition<ItemDefinition>("Shortsword");
 
         internal static ItemDefinition SlippersOfSpiderClimbing { get; } =
