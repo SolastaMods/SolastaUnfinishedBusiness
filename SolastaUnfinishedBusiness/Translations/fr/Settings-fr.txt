@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour refo
 ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection de sorts et sorts mineurs déjà appris d'autres classes</i>
 ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une action de repos
 ModUi/&EnableRogueCunningStrike=Activez la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
+ModUi/&EnableRogueFightingStyle=Activer le choix <color=#D89555>Voleur</color> <b>Style de combat</b> au niveau 2
+ModUi/&EnableRogueSteadyAim=Activez <color=#D89555>Rogue</color> <b>Steady Aim</b> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'ai pas encore bougé]</color></i>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <co
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation de Caractéristiques et la sélection des Dons lors des changement de niveaux concernés <i><color=#F0DAA0>[au lieu d'un choix mutuellement exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir un pourcentage de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Autoriser le fonctionnement des capacités des héros sous <color=#D89555>Forme sauvage</color>
 ModUi/&ExpandAll=Afficher tout
 ModUi/&FactionHelp=<color=#C04040E0>Chargez une sauvegarde de campagne officielle pour modifier les relations entre les factions...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Factions :</color>

@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>盗贼</color><b>狡猾打击</b>和<b>狡猾打击</b><i><color=#F0DAA0>[你放弃1个偷袭骰子可获得额外的命中效果]</color></i>
+ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>Rogue</color><b>战斗风格</b>选择
+ModUi/&EnableRogueSteadyAim=在等级 3 时启用<color=#D89555>盗贼</color><b>稳定瞄准</b><i><color=#F0DAA0>[奖励动作会在当前回合中为你的下一次攻击检​​定带来优势，如果你还没动]</color></i>
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素召唤</col
 ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b>允许英雄的功能在<color=#D89555>荒野形态</color> 形态下使用
 ModUi/&ExpandAll=展开全部
 ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏以修改派系关系...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派系：</color>

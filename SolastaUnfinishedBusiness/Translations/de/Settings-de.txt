@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen gelernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf den Klassenstufen 5 und 14 <i><color=#F0DAA0>[Sie lassen darauf verzichten 1 Hinterhältiger Angriffswürfel für zusätzliche Treffereffekte]</color></i>
+ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
+ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Klassenstufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sind noch nicht umgezogen]</color></i>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <c
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Leistungsauswahl <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>
 ModUi/&Encounters=Begegnungen
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Erlaube Funktionen von Helden, auch in der <color=#D89555>Wildform</color>-Form zu funktionieren
 ModUi/&ExpandAll=Alle erweitern
 ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>

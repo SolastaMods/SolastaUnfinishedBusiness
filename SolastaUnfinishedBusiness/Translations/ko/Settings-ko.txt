@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 눌러 선택�
 ModUi/&EnableRelearnSpells=<i>+ 다른 직업에서 이미 배운 캔트립이나 주문을 선택할 수 있음</i>
 ModUi/&EnableRespec=휴식 후 캐릭터 재설정 가능
 ModUi/&EnableRogueCunningStrike=<color=#D89555>로그</color> 5 레벨과 14 레벨에 <b>교활한 일격</b>과 <b>비열한 습격</b> 활성화<i><color=#F0DAA0>[추가 효과를 위해 은신 주사위를 일부 소모합니다]</color></i>
+ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>도적</color> <b>격투 스타일</b> 선택 활성화
+ModUi/&EnableRogueSteadyAim=클래스 레벨 3에서 <color=#D89555>도적</color> <b>고정 조준</b>을 활성화하세요. <i><color=#F0DAA0>[다음 경우에 보너스 행동은 현재 턴의 다음 공격 굴림에 이점을 줍니다. 아직 움직이지 않았습니다]</color></i>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환 주문</c
 ModUi/&EnablesAsiAndFeat=능력치 증가와 재주 선택을 동시에 받기 <i><color=#F0DAA0>[기존엔 둘 중 하나만 선택 가능]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>랜덤 인카운터 확률 조정</color>
 ModUi/&Encounters=조우(인카운터)
-ModUi/&EnumerateOriginSubFeatures=영웅의 특성이 <color=#D89555>변신</color> 형태일 때도 작동하도록 허용
 ModUi/&ExpandAll=모두 펼치기
 ModUi/&FactionHelp=<color=#C04040E0>세력 우호도를 수정하려면 공식 캠페인을 불러와야 합니다...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>세력:</color>

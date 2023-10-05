@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にす�
 ModUi/&EnableRelearnSpells=<i>+ 他のクラスからすでに学習したキャントリップまたは呪文を選択できます</i>
 ModUi/&EnableRespec=休息後の RESPEC アクションを有効にする
 ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>と<b>邪悪な攻撃</b>をクラスレベル5と14で有効にします<i><color=#F0DAA0>[放棄しました]追加のヒット効果のための急所攻撃ダイス 1 個]</color></i>
+ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>の<b>戦闘スタイル</b>の選択が可能になります
+ModUi/&EnableRogueSteadyAim=クラスレベル3で<color=#D89555>ローグ</color>の<b>ステディエイム</b>を有効にする<i><color=#F0DAA0>[ボーナスアクションにより、現在のターンの次の攻撃ロールでアドバンテージが得られます。まだ移動していません]</color></i>
 ModUi/&EnableSaveByLocation=キャンペーン/場所ごとの保存を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エ�
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と特技の選択の両方を有効にします<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムな遭遇確率を設定する</color>
 ModUi/&Encounters=出会い
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[ベータ]</color></b> <color=#D89555>ワイルドシェイプ</color> フォームでヒーローの機能が動作できるようにする
 ModUi/&ExpandAll=すべて展開
 ModUi/&FactionHelp=<color=#C04040E0>公式キャンペーン ゲームをロードして派閥関係を変更します...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派閥:</color>
