@@ -107,7 +107,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
-    public bool EnumerateOriginSubFeatures { get; set; }
 
     // Progression
     public bool EnablesAsiAndFeat { get; set; }
