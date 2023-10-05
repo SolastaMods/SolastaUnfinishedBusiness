@@ -215,6 +215,8 @@ internal static class CharacterContext
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
         SwitchRogueCunningStrike();
+        SwitchRogueFightingStyle();
+        SwitchRogueSteadyAim();
         SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
