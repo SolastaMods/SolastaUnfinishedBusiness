@@ -872,15 +872,15 @@ internal static class EldritchVersatility
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationCharacter = action.ActingCharacter;
-            var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
+            var featureOwner = gameLocationCharacter.RulesetCharacter;
 
-            rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
+            featureOwner.GetVersatilitySupportCondition(out var supportCondition);
 
             if (!supportCondition.IsOverload)
             {
                 // Check to restore slot
                 var checkModifier = new ActionModifier();
-
+                checkModifier.abilityCheckModifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) - AttributeDefinitions.ComputeAbilityScoreModifier(featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence));
                 gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
                     AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
                     out _, true);
@@ -888,7 +888,7 @@ internal static class EldritchVersatility
                 // If success increase DC, other wise decrease DC
                 var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
 
-                supportCondition.ModifySlotDC(createSuccess, rulesetCharacter);
+                supportCondition.ModifySlotDC(createSuccess, featureOwner);
 
                 // Log to notify outcome and new DC
                 var console = Gui.Game.GameConsole;
@@ -898,7 +898,7 @@ internal static class EldritchVersatility
                     : new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFailure",
                         console.consoleTableDefinition) { Indent = true };
 
-                console.AddCharacterEntry(rulesetCharacter, entry);
+                console.AddCharacterEntry(featureOwner, entry);
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo,
                     supportCondition.CreateSlotDC.ToString());
                 console.AddEntry(entry);
@@ -913,7 +913,7 @@ internal static class EldritchVersatility
 
             supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldConversionSuccess);
 
-            var rulesetHero = rulesetCharacter.GetOriginalHero();
+            var rulesetHero = featureOwner.GetOriginalHero();
 
             if (rulesetHero == null)
             {
