@@ -12,4 +12,6 @@ Feat/&FeatRangedExpertDescription=Votre entraînement d'expert avec les armes à
 Feat/&FeatRangedExpertTitle=Expert à distance
 Feat/&FeatSteadyAimDescription=Augmentez votre Dextérité de 1, jusqu'à un maximum de 20. Par une action bonus, vous vous donnez un avantage lors de votre prochain jet d'attaque du tour en cours. Vous ne pouvez utiliser cette action bonus que si vous ne vous êtes pas déplacé pendant ce tour, et après avoir utilisé l'action bonus, votre vitesse est de 0 jusqu'à la fin du tour en cours.
 Feat/&FeatSteadyAimTitle=Objectif stable
+Feature/&PowerFeatSteadyAimDescription=Par une action bonus, vous vous donnez un avantage lors de votre prochain jet d'attaque du tour en cours. Vous ne pouvez utiliser cette action bonus que si vous n'avez pas bougé pendant ce tour, et après avoir utilisé l'action bonus, votre vitesse est de 0 jusqu'à la fin du tour en cours.
+Feature/&PowerFeatSteadyAimTitle=Objectif constant
 Tooltip/&DeadeyeConcentration=Désactivez Deadeye.

@@ -12,4 +12,6 @@ Feat/&FeatRangedExpertDescription=Tu entrenamiento experto con armas a distancia
 Feat/&FeatRangedExpertTitle=Experto a distancia
 Feat/&FeatSteadyAimDescription=Aumenta tu Destreza en 1, hasta un máximo de 20. Como acción adicional, obtienes ventaja en tu próxima tirada de ataque en el turno actual. Puedes usar esta acción adicional solo si no te has movido durante este turno, y después de usar la acción adicional, tu velocidad es 0 hasta el final del turno actual.
 Feat/&FeatSteadyAimTitle=Buena puntería
+Feature/&PowerFeatSteadyAimDescription=Como acción adicional, te das ventaja en tu próxima tirada de ataque en el turno actual. Puedes usar esta acción adicional solo si no te has movido durante este turno, y después de usar la acción adicional, tu velocidad es 0 hasta el final del turno actual.
+Feature/&PowerFeatSteadyAimTitle=Buena puntería
 Tooltip/&DeadeyeConcentration=Deshabilitar Deadeye.

@@ -251,8 +251,7 @@ internal static class RangedCombatFeats
 
     internal static readonly FeatureDefinitionPower PowerFeatSteadyAim = FeatureDefinitionPowerBuilder
         .Create($"Power{FeatSteadyAim}")
-        .SetGuiPresentation(FeatSteadyAim, Category.Feat,
-            Sprites.GetSprite(FeatSteadyAim, Resources.PowerSteadyAim, 256, 128))
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite(FeatSteadyAim, Resources.PowerSteadyAim, 256, 128))
         .SetUsesFixed(ActivationTime.BonusAction)
         .SetEffectDescription(
             EffectDescriptionBuilder

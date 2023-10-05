@@ -50,15 +50,11 @@ internal static class CharacterContext
             .SetFightingStyles(
                 // "BlindFighting",
                 // "Crippling",
-                "Defense",
                 // "Executioner",
-                "GreatWeapon",
                 // "HandAndAHalf",
                 // "Interception",
                 // "Merciless",
                 // "Pugilist",
-                // "RopeItUp",
-                // "Sentinel",
                 "TwoWeapon")
             .AddToDB();
 
@@ -75,8 +71,6 @@ internal static class CharacterContext
                 // "Lunger",
                 // "MonkShieldExpert",
                 // "Pugilist",
-                // "RopeItUp",
-                // "Sentinel",
                 // "ZenArcher",
                 "TwoWeapon")
             .AddToDB();
@@ -93,10 +87,6 @@ internal static class CharacterContext
                 // "Executioner",
                 // "Lunger",
                 // "Merciless",
-                // "RopeItUp",
-                // "Sentinel",
-                // "ShieldExpert",
-                // "TorchBearer",
                 "TwoWeapon")
             .AddToDB();
 

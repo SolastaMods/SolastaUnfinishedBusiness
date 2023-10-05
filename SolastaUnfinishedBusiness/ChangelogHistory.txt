@@ -7,6 +7,7 @@
 - added fighting style and steady aim choices for Rogues
 - added Roguish Raven Scion subclass but kept original uncut Raven
 - added scrolls dropping instead of spellbooks on RESPEC
+- fixed Barbarian and Monk fighting style not honoring mod choices
 - fixed IsMelee weapon validators incorrectly allowing throwing
 - fixed Merciless crashing battles on enemy reduced to 0 HP
 

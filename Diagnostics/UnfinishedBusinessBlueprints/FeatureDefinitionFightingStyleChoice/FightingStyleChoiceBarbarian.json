@@ -1,8 +1,6 @@
 {
   "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
   "fightingStyles": [
-    "Defense",
-    "GreatWeapon",
     "TwoWeapon"
   ],
   "guiPresentation": {

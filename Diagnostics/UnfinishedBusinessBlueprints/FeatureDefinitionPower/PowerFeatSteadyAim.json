@@ -355,8 +355,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatSteadyAimTitle",
-    "description": "Feat/&FeatSteadyAimDescription",
+    "title": "Feature/&PowerFeatSteadyAimTitle",
+    "description": "Feature/&PowerFeatSteadyAimDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7eddd216-4047-598a-bc72-17cf88e15480",
