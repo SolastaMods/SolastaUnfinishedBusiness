@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
@@ -253,17 +252,11 @@ internal static class GameLocationBattleManagerTweaks
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.CustomModifier)
         {
+            var customModifierProvider = featureDefinition.GetFirstSubFeatureOfType<CustomModifierProvider>();
+
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
-            var customModifierProvider = featureDefinition.GetFirstSubFeatureOfType<CustomModifierProvider>();
-            if (customModifierProvider is not null)
-            {
-                additionalDamageForm.BonusDamage = customModifierProvider(hero);
-            }
-            else
-            {
-                additionalDamageForm.BonusDamage = 0;
-            }
+            additionalDamageForm.BonusDamage = customModifierProvider?.Invoke(hero) ?? 0;
         }
         /*
          * ######################################
@@ -276,7 +269,11 @@ internal static class GameLocationBattleManagerTweaks
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
-            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+
+            // currently only Raven Scion uses this and requires double damage on critical
+            // should review if this ever changes in the future
+            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) *
+                                               (criticalHit ? 2 : 1);
         }
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.FlatWithProgression)

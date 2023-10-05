@@ -1112,9 +1112,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionCombatAffinitys
     {
-        internal static FeatureDefinitionCombatAffinity CombatAffinityWandOfWarMageCover { get; } =
-            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityWandOfWarMageCover");
-
         internal static FeatureDefinitionCombatAffinity CombatAffinityAdamantinePlateArmor { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAdamantinePlateArmor");
 
@@ -1695,6 +1692,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
+
+        internal static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout");
 
         internal static FeatureDefinitionPower PowerMelekTeleport { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport");

@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
@@ -30,10 +29,7 @@ internal class RopeItUp : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional,
-        FightingStyleFighter,
-        FightingStylePaladin,
-        FightingStyleRanger
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
     private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
