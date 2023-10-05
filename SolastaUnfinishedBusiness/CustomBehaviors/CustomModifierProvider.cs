@@ -3,4 +3,4 @@
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 // return AttributeDefinitions.[SomeAbilityScoreName]
-internal delegate string AbilityScoreNameProvider();
+internal delegate int CustomModifierProvider(RulesetCharacter rulesetCharacter);
