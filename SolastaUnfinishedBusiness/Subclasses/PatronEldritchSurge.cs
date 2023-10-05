@@ -16,6 +16,7 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.CustomBuilders.EldritchVersatility;
+using UniverseLib.UI.Widgets.ScrollView;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -33,6 +34,66 @@ public class PatronEldritchSurge : AbstractSubclass
             .AddCustomSubFeatures(new ModifyEffectDescriptionEldritchBlast())
             .AddToDB();
 
+    // LEVEL 01 Versatility Switch
+    public static FeatureDefinitionPower PowerVersatilitySwitch = BuildVersatilitySwitch();
+    private static FeatureDefinitionPower BuildVersatilitySwitch()
+    {
+        var pool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}VersatilitySwitchPool")
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("VersatilitySwitch", Resources.VersatilitySwitch, 128))
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .AddToDB();
+        var powerVersatilitySwitchStr =
+            FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}VersatilitySwitchStr")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, pool)
+            .AddCustomSubFeatures(new VersatilitySwitchCustom(AttributeDefinitions.Strength))
+            .AddToDB();
+        var powerVersatilitySwitchInt =
+            FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}VersatilitySwitchInt")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, pool)
+            .AddCustomSubFeatures(new VersatilitySwitchCustom(AttributeDefinitions.Intelligence))
+            .AddToDB();
+        var powerVersatilitySwitchWis =
+            FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}VersatilitySwitchWis")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, pool)
+            .AddCustomSubFeatures(new VersatilitySwitchCustom(AttributeDefinitions.Wisdom))
+            .AddToDB();
+        var powerVersatilitySwitchNone =
+            FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}VersatilitySwitchNone")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, pool)
+            .AddCustomSubFeatures(new VersatilitySwitchCustom(""))
+            .AddToDB();
+        PowerBundle.RegisterPowerBundle(pool, false, 
+            powerVersatilitySwitchStr, 
+            powerVersatilitySwitchInt, 
+            powerVersatilitySwitchWis, 
+            powerVersatilitySwitchNone);
+        return pool;
+    }
+    private class VersatilitySwitchCustom: IMagicEffectFinishedByMe
+    {
+        private string ReplacedAbilityScore {  get; set; }
+        public VersatilitySwitchCustom(string replacedAbilityScore)
+        {
+            ReplacedAbilityScore = replacedAbilityScore;
+        }
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
+            supportCondition.ReplacedAbilityScore = ReplacedAbilityScore;
+            supportCondition.ModifyAttributeScores(rulesetCharacter.GetOriginalHero(), ReplacedAbilityScore);
+            yield break;
+        }
+    }
     // LEVEL 06 Blast Pursuit
     public static readonly FeatureDefinition FeatureBlastPursuit = FeatureDefinitionBuilder
         .Create($"Feature{Name}BlastPursuit")
@@ -69,7 +130,8 @@ public class PatronEldritchSurge : AbstractSubclass
             .AddFeaturesAtLevel(1,
                 BonusCantripBlastExclusive,
                 Learn2Versatility,
-                PowerEldritchVersatilityPointPool)
+                PowerEldritchVersatilityPointPool,
+                PowerVersatilitySwitch)
             .AddFeaturesAtLevel(6,
                 FeatureBlastPursuit,
                 Learn1Versatility)

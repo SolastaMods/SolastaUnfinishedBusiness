@@ -2,13 +2,13 @@ Action/&EldritchVersatilityDescription=你所掌握的才能
 Action/&EldritchVersatilityTitle=才能
 Condition/&ConditionEldritchAegisAddACDescription=被魔能神盾庇护中
 Condition/&ConditionEldritchAegisAddACTitle=魔能神盾
-Feat/&FeatEldritchVersatilityAdeptDescription=你的魔能点池上限提高熟练加值，你获得<b>魔能多才</b>并立刻学习一种才能。
+Feat/&FeatEldritchVersatilityAdeptDescription=你的魔能点池上限提高熟练加值，你获得<b>魔能多才</b>，<b>多才切换</b>并立刻学习一种才能。
 Feat/&FeatEldritchVersatilityAdeptTitle=魔能多才学徒
 Feature/&BattlefieldConversionDescription=消耗：2*你的契约法术环位，失败则返还一半的点数。\n战斗中，如果你已经消耗了契约法术位，则可以一个附赠动作，进行一次智力（奥秘）检定，DC为8+熟练加值。若成功，你回复一个契约法术位。然后视成功/失败，该能力DC提高/降低契约法术环位的数值（不低于初始DC）。长休后，DC重置。
 Feature/&BattlefieldConversionTitle=战场易变（智力）
 Feature/&BattlefieldShorthandDescription=消耗：无。\n60尺内，当你视线内的队友或敌人施法后，如果该法术能被鉴别，且你的点池容量大于等于2*法术环位。则你再进行一次智力（奥秘）检定，DC为15+2*法术环位，你每有1点魔能点，便可以降低1点DC，至少不低于15+法术环位。如果成功，你将该法术加入邪术师法术书。你施展该法术时，战斗结束时，或长休后，将其从邪术师法术书中移除。
 Feature/&BattlefieldShorthandTitle=战场速记（智力）
-Feature/&BlastBreakthroughDescription=消耗：每射线1点。\n依据你的力量调整值，你施展魔能爆获得以下增益：\n>=1：忽略掩护。\n>=2：忽略受威胁时的劣势。\n>=3：忽略目标伤害抗性。\n>=4：忽略目标伤害免疫。\n>=5：忽略目标法术免疫。
+Feature/&BlastBreakthroughDescription=消耗：每射线1点。\n依据你的力量调整值，你施展魔能爆获得以下增益：\n>=1：攻击掷骰获得力量调整值的加值。\n>=2：忽略受威胁时的劣势。\n>=3：忽略目标伤害抗性。\n>=4：忽略目标伤害免疫。\n>=5：忽略目标法术免疫。
 Feature/&BlastBreakthroughTitle=魔爆突破（力量）
 Feature/&BlastEmpowerDescription=消耗：每射线1点。\n你施展魔能爆额外增加力量调整值的伤害。
 Feature/&BlastEmpowerTitle=魔爆赋能（力量）
@@ -24,7 +24,7 @@ Feature/&InvocationPoolEldritchVersatilityPoolLearnDescription=学习才能。
 Feature/&InvocationPoolEldritchVersatilityPoolLearnTitle=学习才能
 Feature/&PowerEldritchVersatilityBattlefieldConversionDescription=消耗：2*你的契约法术环位或点池上限，取小值，失败则返还一半的点数。\n战斗中，如果你已经消耗了契约法术位，则可以一个附赠动作，进行一次智力（奥秘）检定，DC为8+熟练加值。若成功，你回复一个契约法术位。然后视成功/失败，该能力DC提高/降低契约法术环位的数值（不低于初始DC）。长休后，DC重置。
 Feature/&PowerEldritchVersatilityBattlefieldConversionTitle=战场易变（智力）
-Feature/&PowerEldritchVersatilityPointPoolDescription=你获得一个魔能点池，其上限为你的邪术师等级，每次魔能爆命中敌方，获得1点魔能点，每轮获得点数的上限是你的点池容量。长休后你的点池重置为0，另外，你每拥有一种才能，你对应的属性值+1，不超过20。
+Feature/&PowerEldritchVersatilityPointPoolDescription=你获得一个魔能点池，其上限为你的邪术师等级，每次魔能爆命中敌方，获得1点魔能点。长休后你的点池重置为0。
 Feature/&PowerEldritchVersatilityPointPoolTitle=魔能多才
 Feedback/&AdditionalDamageBlastEmpowerFormat=魔爆赋能！
 Feedback/&AdditionalDamageBlastEmpowerLine={0}向{1}倾泻奥能(+{2})!
@@ -41,7 +41,8 @@ Reaction/&CustomReactionEldritchWard={0}豁免即将失败！
 Reaction/&CustomReactionEldritchWardReactDescription=给予豁免加值
 Reaction/&CustomReactionEldritchWardReactTitle=花费点数
 Reaction/&CustomReactionEldritchWardTitle=魔能守御
-Screen/&BattlefieldShorthandExtraSpellDescription=通过战场速记暂时掌握Screen/&BattlefieldShorthandExtraSpellTitle=速记
+Screen/&BattlefieldShorthandExtraSpellDescription=通过战场速记暂时掌握
+Screen/&BattlefieldShorthandExtraSpellTitle=速记
 Screen/&InvocationPoolEldritchVersatilityPoolHeader=魔能多才
-Tooltip/&EldritchVersatilityPortraitPoolFormat={0}/{2}点，其中预备{1}点。
+Tooltip/&EldritchVersatilityPortraitPoolFormat={0}/{1}点\n多才切换状态：{2}\n优先使用顺序：{3}
 UI/&CustomFeatureSelectionTooltipTypeEldritchVersatilityPool=才能

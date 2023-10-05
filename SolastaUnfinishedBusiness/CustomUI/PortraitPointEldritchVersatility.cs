@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -14,21 +15,20 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {
         var currentPoints = 0;
-        var reservePoints = 0;
         var maxPoints = 0;
 
         if (!character.GetVersatilitySupportCondition(out var supportCondition))
         {
-            return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reservePoints,
-                maxPoints);
+            return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints,
+                maxPoints, "");
         }
 
         currentPoints = supportCondition.CurrentPoints;
-        reservePoints = supportCondition.ReservedPoints;
         maxPoints = supportCondition.MaxPoints;
-
         return "EldritchVersatilityPortraitPoolFormat".Formatted(
-            Category.Tooltip, currentPoints, reservePoints, maxPoints);
+            Category.Tooltip, currentPoints, maxPoints,
+            Gui.Localize($"Attribute/&{supportCondition.ReplacedAbilityScore}TitleLong"),
+            string.Join(", ", supportCondition.StrPowerPriority.Select(s => Gui.Localize(s))));
     }
 
     public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
