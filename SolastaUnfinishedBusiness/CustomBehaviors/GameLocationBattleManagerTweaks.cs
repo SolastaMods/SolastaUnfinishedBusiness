@@ -271,7 +271,15 @@ internal static class GameLocationBattleManagerTweaks
          * ######################################
          * [CE] EDIT START
          * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
+         * and ExtraAdditionalDamageValueDetermination.CharacterLevel
          */
+        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
+                 ExtraAdditionalDamageValueDetermination.CharacterLevel)
+        {
+            additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
+            additionalDamageForm.DiceNumber = 0;
+            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+        }
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.FlatWithProgression)
         {
@@ -280,7 +288,7 @@ internal static class GameLocationBattleManagerTweaks
             if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
             {
                 // Find the character class which triggered this
-                var classDefinition = hero?.FindClassHoldingFeature(featureDefinition);
+                var classDefinition = hero!.FindClassHoldingFeature(featureDefinition);
 
                 if (classDefinition != null)
                 {

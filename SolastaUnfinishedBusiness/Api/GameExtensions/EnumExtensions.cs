@@ -170,7 +170,8 @@ internal enum ExtraAdditionalDamageAdvancement
 internal enum ExtraAdditionalDamageValueDetermination
 {
     FlatWithProgression = 1000,
-    AbilityScoreModifier = 1001
+    AbilityScoreModifier = 1001,
+    CharacterLevel = 1002
 }
 
 #if false
