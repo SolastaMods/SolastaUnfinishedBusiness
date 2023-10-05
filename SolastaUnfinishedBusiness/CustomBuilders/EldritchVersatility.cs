@@ -149,10 +149,10 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new BattlefieldShorthandCopyMagicalAttackCastedSpells())
+            .AddCustomSubFeatures(new BattlefieldShorthandCopySpells())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower, new BattlefieldShorthandRemoveCopiedSpells());
 
         name = "BattlefieldConversion";
         sprite = Sprites.GetSprite(name, Resources.BattlefieldConversion, 128);
@@ -430,7 +430,6 @@ internal static class EldritchVersatility
             ownerHero.Invocations.DoIf(x => x.Active && names.Contains(x.InvocationDefinition.Name), y => y.Toggle());
             ModifyAttributeScores(ownerHero, ReplacedAbilityScore);
             ReplacedAbilityScoreValue = 10 + 2 * proficiencyBonus;
-
             CopiedSpells.Clear();
         }
 
@@ -591,11 +590,7 @@ internal static class EldritchVersatility
             // Do first time init
             public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
             {
-                if (rulesetCondition is not VersatilitySupportRulesetCondition supportCondition)
-                {
-                    return;
-                }
-
+                var supportCondition = rulesetCondition as VersatilitySupportRulesetCondition;
                 supportCondition.InitSupportCondition(target);
             }
 
@@ -610,6 +605,8 @@ internal static class EldritchVersatility
 
                 if (target.CurrentHitPoints > 0)
                 {
+                    var warlockRepertoire = target.GetOriginalHero()!.SpellRepertoires.Find(x => x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+                    warlockRepertoire.ExtraSpellsByTag.Remove("BattlefieldShorthand");
                     target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
                 }
             }
@@ -764,7 +761,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class BattlefieldShorthandCopyMagicalAttackCastedSpells : IMagicalAttackCastedSpell
+    private sealed class BattlefieldShorthandCopySpells : IMagicalAttackCastedSpell
     {
         public IEnumerator OnSpellCast(
             RulesetCharacter featureOwner,
@@ -818,18 +815,13 @@ internal static class EldritchVersatility
             allKnownSpells.AddRange(warlockRepertoire.knownSpells);
             warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", new List<SpellDefinition>());
 
-            // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire
-            if (featureOwner == caster.RulesetCharacter)
+            // If the caster has this feature, check if the spell is copied, if so, return
+            if (featureOwner == caster.RulesetCharacter && supportCondition.CopiedSpells.Contains(selectedSpellDefinition))
             {
-                if (supportCondition.CopiedSpells.Remove(selectedSpellDefinition))
-                {
-                    warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Remove(selectedSpellDefinition);
-                }
-
                 yield break;
             }
-            // Maximum copy-able spell level is half pool size
 
+            // Maximum copy-able spell level is half pool size
             if (allKnownSpells.Contains(selectedSpellDefinition) || spellLevel > supportCondition.MaxPoints / 2)
             {
                 yield break;
@@ -1341,6 +1333,38 @@ internal static class EldritchVersatility
             if (!supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BlastEmpower))
             {
                 invocation.Toggle();
+            }
+        }
+    }
+
+    // Split this part to become a subfeature of invocation definition to make sure that the spells get removed even when the invocation is toggled off.
+    private class BattlefieldShorthandRemoveCopiedSpells: IMagicalAttackCastedSpell
+    {
+        public BattlefieldShorthandRemoveCopiedSpells()
+        {
+        }
+
+        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster, CharacterActionCastSpell castAction, [UsedImplicitly] RulesetEffectSpell selectEffectSpell, [UsedImplicitly] RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
+        {
+            if (!featureOwner.GetVersatilitySupportCondition(out var supportCondition))
+            {
+                yield break;
+            }
+
+            var warlockRepertoire = featureOwner.GetOriginalHero()!
+                .SpellRepertoires.Find(x => x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+
+            if (warlockRepertoire is null)
+            {
+                yield break;
+            }
+
+            // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire
+            if (featureOwner == caster.RulesetCharacter && supportCondition.CopiedSpells.Remove(selectedSpellDefinition))
+            {
+                warlockRepertoire.ExtraSpellsByTag.TryGetValue("BattlefieldShorthand", out var spells);
+                spells?.Remove(selectedSpellDefinition);
+                yield break;
             }
         }
     }
