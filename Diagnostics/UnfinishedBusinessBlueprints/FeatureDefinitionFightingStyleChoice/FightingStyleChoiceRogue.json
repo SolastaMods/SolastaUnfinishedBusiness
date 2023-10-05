@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
   "fightingStyles": [
-    "Defense",
-    "GreatWeapon",
+    "Archery",
+    "Dueling",
     "TwoWeapon"
   ],
   "guiPresentation": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d44fe52d-97d1-5023-b849-6c5be8660f18",
+  "guid": "39181448-ef91-593b-a1af-2820f9d8b036",
   "contentPack": 9999,
-  "name": "FightingStyleChoiceBarbarian"
+  "name": "FightingStyleChoiceRogue"
 }

@@ -49,7 +49,7 @@ internal static class FightingStyleContext
 
         if (!FightingStyles.Contains(style))
         {
-            FightingStylesChoiceList.Add(style, styleBuilder.FightingStyleChoice);
+            FightingStylesChoiceList.TryAdd(style, styleBuilder.FightingStyleChoice);
             FightingStyles.Add(style);
         }
 

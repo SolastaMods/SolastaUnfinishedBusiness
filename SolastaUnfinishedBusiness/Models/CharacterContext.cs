@@ -43,19 +43,22 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
-    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
+    internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
         FeatureDefinitionFightingStyleChoiceBuilder
             .Create("FightingStyleChoiceBarbarian")
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
-                "BlindFighting",
-                "Crippling",
-                "Executioner",
+                // "BlindFighting",
+                // "Crippling",
+                "Defense",
+                // "Executioner",
                 "GreatWeapon",
-                "Merciless",
-                "Pugilist",
-                "RopeItUp",
-                "Sentinel",
+                // "HandAndAHalf",
+                // "Interception",
+                // "Merciless",
+                // "Pugilist",
+                // "RopeItUp",
+                // "Sentinel",
                 "TwoWeapon")
             .AddToDB();
 
@@ -65,27 +68,35 @@ internal static class CharacterContext
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
                 "Archery",
-                "Crippling",
+                // "BlindFighting",
+                // "Crippling",
                 "Dueling",
-                "Executioner",
-                "Lunger",
-                "Sentinel",
+                // "Executioner",
+                // "Lunger",
+                // "MonkShieldExpert",
+                // "Pugilist",
+                // "RopeItUp",
+                // "Sentinel",
+                // "ZenArcher",
                 "TwoWeapon")
             .AddToDB();
 
-    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceRogue =
+    internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceRogue =
         FeatureDefinitionFightingStyleChoiceBuilder
             .Create("FightingStyleChoiceRogue")
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
-                "BlindFighting",
-                "Crippling",
-                "Executioner",
-                "GreatWeapon",
-                "Merciless",
-                "Pugilist",
-                "RopeItUp",
-                "Sentinel",
+                "Archery",
+                // "BlindFighting",
+                // "Crippling",
+                "Dueling",
+                // "Executioner",
+                // "Lunger",
+                // "Merciless",
+                // "RopeItUp",
+                // "Sentinel",
+                // "ShieldExpert",
+                // "TorchBearer",
                 "TwoWeapon")
             .AddToDB();
 
