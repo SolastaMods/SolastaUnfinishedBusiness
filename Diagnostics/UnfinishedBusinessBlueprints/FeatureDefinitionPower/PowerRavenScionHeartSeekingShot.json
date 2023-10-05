@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Round",
-    "durationParameter": 0,
+    "durationType": "Minute",
+    "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "ebad175333b0c2f44b93ab011cde5123",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -139,7 +139,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "676e8c81a8a1c0a42aab0a14e91f1997",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,9 +332,9 @@
     "description": "Feature/&PowerRavenScionHeartSeekingShotDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "aeb4c8521b575224694a91e8ca866290",
+      "m_SubObjectName": "RousingShout",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

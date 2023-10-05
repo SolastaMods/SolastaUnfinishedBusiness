@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPatronEldritchSurgeVersatilitySwitchPool:95b26c1b-4a7e-54f5-bb9d-abe7ff3f12fe",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeaturePatronEldritchSurgeBlastPursuit:e0083abd-e908-5593-b82b-7fd90ca71697",
       "level": 6
     },
