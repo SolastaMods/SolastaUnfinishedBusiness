@@ -1,8 +1,11 @@
 ﻿1.5.94.22:
 
+- RESPEC is required on Roguish Raven
+
 - added 3rd level Hunger of The Void spell
 - added 56 new weapon crafting manuals across all weapon types
 - added fighting style and steady aim choices for Rogues
+- added Roguish Raven Scion subclass but kept original uncut Raven
 - added scrolls dropping instead of spellbooks on RESPEC
 - fixed IsMelee weapon validators incorrectly allowing throwing
 - fixed Merciless crashing battles on enemy reduced to 0 HP

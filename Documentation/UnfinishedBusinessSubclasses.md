@@ -2896,7 +2896,49 @@ You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
 
 
 
-## 7. Slayer
+## 7. Raven Scion
+
+Scions are ranged weapon specialists that are trained to take down enemies quickly and effectively without causing envy from the rest of the world like their close heritage.
+
+
+### Level 3
+
+* Ranged Specialist
+
+You are proficient with all two-handed ranged weapons and Archery fighting style. 
+
+* Sniper's Aim
+
+Once per turn, when you hit a creature with a ranged weapon attack, that creature takes extra damage of the same type equal to your rogue level. This damage is doubled on a critical strike.
+
+
+### Level 9
+
+* Heart-Seeking Shot 
+
+As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest. 
+
+* Killing Spree
+
+You can make extra 2-handed ranged attack the first time you kill an enemy on your turn with 2-handed ranged weapon. In addition, each time you kill an enemy, your sneak attack can be reused on same turn.
+
+
+### Level 13
+
+* Deadly Focus
+
+If you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
+
+
+### Level 17
+
+* Perfect Shot
+
+You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
+
+
+
+## 8. Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
