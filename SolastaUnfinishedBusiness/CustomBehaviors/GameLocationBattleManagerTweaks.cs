@@ -251,16 +251,14 @@ internal static class GameLocationBattleManagerTweaks
          */
         // ReSharper disable once ConvertIfStatementToSwitchStatement
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
-                 ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
+                 ExtraAdditionalDamageValueDetermination.CustomModifier)
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
-            var abilityScoreNameProvider = featureDefinition.GetFirstSubFeatureOfType<AbilityScoreNameProvider>();
-            if (abilityScoreNameProvider is not null)
+            var customModifierProvider = featureDefinition.GetFirstSubFeatureOfType<CustomModifierProvider>();
+            if (customModifierProvider is not null)
             {
-                var attributeValue = attacker.RulesetCharacter.TryGetAttributeValue(abilityScoreNameProvider());
-                additionalDamageForm.BonusDamage =
-                    Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(attributeValue), 0);
+                additionalDamageForm.BonusDamage = customModifierProvider(hero);
             }
             else
             {

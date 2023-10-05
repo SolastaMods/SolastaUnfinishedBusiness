@@ -122,9 +122,13 @@ internal static class EldritchVersatility
         FeatureDefinition featureOrPower = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageInvocationAgonizingBlast, $"Feature{Name}{name}")
             .SetNotificationTag("BlastEmpower")
-            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
+            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.CustomModifier)
             .AddCustomSubFeatures(
-                new AbilityScoreNameProvider(() => AttributeDefinitions.Strength),
+                new CustomModifierProvider((hero) => 
+                {
+                    hero.GetVersatilitySupportCondition(out var supportCondition);
+                    return supportCondition is null ? 0 : GetAbilityScoreModifier(hero, AttributeDefinitions.Strength, supportCondition);
+                }),
                 new BlastEmpowerCustom($"Invocation{Name}{name}"))
             .AddToDB();
 
@@ -831,7 +835,8 @@ internal static class EldritchVersatility
             if (!supportCondition.IsOverload)
             {
                 var checkModifier = new ActionModifier();
-                checkModifier.abilityCheckModifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) - AttributeDefinitions.ComputeAbilityScoreModifier(featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence));
+                checkModifier.AbilityCheckModifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) - AttributeDefinitions.ComputeAbilityScoreModifier(featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence));
+                checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier, FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
                 var glc = GameLocationCharacter.GetFromActor(featureOwner);
 
                 if (glc != null)
@@ -880,7 +885,8 @@ internal static class EldritchVersatility
             {
                 // Check to restore slot
                 var checkModifier = new ActionModifier();
-                checkModifier.abilityCheckModifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) - AttributeDefinitions.ComputeAbilityScoreModifier(featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence));
+                checkModifier.AbilityCheckModifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) - AttributeDefinitions.ComputeAbilityScoreModifier(featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence));
+                checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier, FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
                 gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
                     AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
                     out _, true);
