@@ -359,7 +359,7 @@
     "description": "Feat/&FeatSteadyAimDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "28ced1bd-7dae-58e3-82a9-1341e827c37b",
+      "m_AssetGUID": "7eddd216-4047-598a-bc72-17cf88e15480",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

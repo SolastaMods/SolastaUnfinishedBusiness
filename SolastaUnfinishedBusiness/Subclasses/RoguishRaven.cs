@@ -19,45 +19,51 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class RoguishRaven : AbstractSubclass
 {
+    private const string Name = "Raven";
+
     public RoguishRaven()
     {
-        // proficient with all two handed range weapons
-        // ignore cover and long range disadvantage
+        // Sharpshooter
+
         var featureSetRavenSharpShooter = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetRavenSharpShooter")
+            .Create($"FeatureSet{Name}SharpShooter")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
+                // proficient with all two handed range weapons
                 FeatureDefinitionProficiencyBuilder
-                    .Create("ProficiencyRavenRangeWeapon")
+                    .Create($"Proficiency{Name}RangeWeapon")
                     .SetGuiPresentationNoContent(true)
                     .SetProficiencies(
                         ProficiencyType.Weapon,
                         WeaponTypeDefinitions.HeavyCrossbowType.Name,
                         WeaponTypeDefinitions.LongbowType.Name)
                     .AddToDB(),
+                // ignore cover and long range disadvantage
                 FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityRavenRangeAttack")
-                    .SetGuiPresentation("FeatureSetRavenSharpShooter", Category.Feature)
+                    .Create($"CombatAffinity{Name}RangeAttack")
+                    .SetGuiPresentation($"FeatureSet{Name}SharpShooter", Category.Feature)
                     .SetIgnoreCover()
-                    .AddCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .AddCustomSubFeatures(
+                        new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.IsTwoHandedRanged))
                     .AddToDB())
             .AddToDB();
 
-        // killing spree 
-        // bonus range attack from main and can sneak attack after killing an enemies
-        var additionalActionRavenKillingSpree = FeatureDefinitionBuilder
-            .Create("AdditionalActionRavenKillingSpree") //keeping old name for compatibility
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new OnReducedToZeroHpByMeRefreshSneakAttack(),
-                new KillingSpree(
+        // Killing Spree
+
+        var featureRavenKillingSpree = FeatureDefinitionBuilder
+            .Create($"Feature{Name}KillingSpree")
+            .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
+            .AddCustomSubFeatures(
+                // bonus range attack from main and can sneak attack after killing an enemies
+                new OnReducedToZeroHpByMeKillingSpree(
                     ConditionDefinitionBuilder
-                        .Create("ConditionRavenKillingSpree")
+                        .Create($"Condition{Name}KillingSpree")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetFeatures(
                             FeatureDefinitionAdditionalActionBuilder
-                                .Create("AdditionalActionRavenKillingSpree2")
-                                .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
+                                .Create("AdditionalActionRavenKillingSpree")
+                                .SetGuiPresentation(Category.Feature)
                                 .SetActionType(ActionDefinitions.ActionType.Main)
                                 .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                                 .SetMaxAttacksNumber(1)
@@ -66,38 +72,41 @@ public sealed class RoguishRaven : AbstractSubclass
                         .AddToDB()))
             .AddToDB();
 
-        // pain maker
+        // Pain Maker
+
         // reroll any 1 when roll damage but need to use the new roll
         var dieRollModifierRavenPainMaker = FeatureDefinitionDieRollModifierBuilder
-            .Create("DieRollModifierRavenPainMaker")
+            .Create($"DieRollModifier{Name}PainMaker")
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
                 "Feature/&DieRollModifierRavenPainMakerReroll")
             .AddCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
-        // deadly aim
-        var powerSteadyAim = FeatureDefinitionPowerBuilder
-            .Create("PowerRavenDeadlyAim")
-            .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature, hidden: true)
+        // Deadly Aim
+
+        var powerDeadlyAim = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DeadlyAim")
+            .SetGuiPresentation($"FeatureSet{Name}DeadlyAim", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
-            .Create("FeatureRavenDeadlyAim")
+            .Create($"Feature{Name}DeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerSteadyAim))
+            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerDeadlyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetRavenDeadlyAim")
+            .Create($"FeatureSet{Name}DeadlyAim")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(featureRavenDeadlyAim, powerSteadyAim)
+            .AddFeatureSet(featureRavenDeadlyAim, powerDeadlyAim)
             .AddToDB();
 
-        // perfect Shot
+        // Perfect Shot
+
         var dieRollModifierRavenPerfectShot = FeatureDefinitionDieRollModifierBuilder
-            .Create("DieRollModifierRavenPerfectShot")
+            .Create($"DieRollModifier{Name}PerfectShot")
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
                 "Feature/&DieRollModifierRavenPainMakerReroll")
@@ -105,14 +114,14 @@ public sealed class RoguishRaven : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RoguishRaven")
+            .Create($"Roguish{Name}")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("RoguishRaven", Resources.RoguishRaven, 256))
+                Sprites.GetSprite(Name, Resources.RoguishRaven, 256))
             .AddFeaturesAtLevel(3,
                 featureSetRavenSharpShooter,
                 BuildHeartSeekingShot())
             .AddFeaturesAtLevel(9,
-                additionalActionRavenKillingSpree,
+                featureRavenKillingSpree,
                 dieRollModifierRavenPainMaker)
             .AddFeaturesAtLevel(13,
                 featureSetRavenDeadlyAim)
@@ -133,7 +142,8 @@ public sealed class RoguishRaven : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
-        var concentrationProvider = new StopPowerConcentrationProvider("HeartSeekingShot",
+        var concentrationProvider = new StopPowerConcentrationProvider(
+            "HeartSeekingShot",
             "Tooltip/&HeartSeekingShotConcentration",
             Sprites.GetSprite("DeadeyeConcentrationIcon",
                 Resources.DeadeyeConcentrationIcon, 64, 64));
@@ -178,7 +188,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
-                        new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
+                        new RogueClassHolder())
                     .AddToDB())
             .AddToDB();
 
@@ -247,39 +257,20 @@ public sealed class RoguishRaven : AbstractSubclass
     {
     }
 
-    private sealed class OnReducedToZeroHpByMeRefreshSneakAttack : IOnReducedToZeroHpByMe
+    private sealed class RogueClassHolder : IClassHoldingFeature
     {
-        public IEnumerator HandleReducedToZeroHpByMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode,
-            RulesetEffect activeEffect)
-        {
-            if (attacker.IsOppositeSide(downedCreature.Side))
-            {
-                attacker.UsedSpecialFeatures.Remove(
-                    FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack.Name);
-            }
-
-            yield break;
-        }
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 
-    private sealed class HeartSeekingShotAdditionalDamageOnCritMarker : IClassHoldingFeature
-    {
-        public HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinition @class)
-        {
-            Class = @class;
-        }
+    //
+    // Killing Spree
+    //
 
-        public CharacterClassDefinition Class { get; }
-    }
-
-    private sealed class KillingSpree : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeKillingSpree : IOnReducedToZeroHpByMe
     {
         private readonly ConditionDefinition _condition;
 
-        public KillingSpree(ConditionDefinition condition)
+        public OnReducedToZeroHpByMeKillingSpree(ConditionDefinition condition)
         {
             _condition = condition;
         }
@@ -305,6 +296,9 @@ public sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
+            attacker.UsedSpecialFeatures.Remove(
+                FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack.Name);
+
             attacker.RulesetCharacter.InflictCondition(
                 _condition.Name,
                 DurationType.Round,
@@ -320,6 +314,10 @@ public sealed class RoguishRaven : AbstractSubclass
                 0);
         }
     }
+
+    //
+    // Deadly Aim
+    //
 
     private class TryAlterOutcomePhysicalAttackDeadlyAim : ITryAlterOutcomePhysicalAttack
     {
@@ -340,9 +338,9 @@ public sealed class RoguishRaven : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker.GetRemainingPowerCharges(_power) <= 0 ||
-                !attackMode.ranged)
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
+                || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0
+                || !attackMode.ranged)
             {
                 yield break;
             }
@@ -377,7 +375,8 @@ public sealed class RoguishRaven : AbstractSubclass
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetAttacker.LogCharacterUsedPower(_power,
+            rulesetAttacker.LogCharacterUsedPower(
+                _power,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),

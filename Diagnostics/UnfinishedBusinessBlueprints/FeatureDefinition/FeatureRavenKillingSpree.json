@@ -1,13 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackMain"
-  ],
-  "maxAttacksNumber": 1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "688215c7-ceb6-5e15-8958-6b4192982d4b",
+  "guid": "8c0618f9-8c44-5491-b190-2cbb22965199",
   "contentPack": 9999,
-  "name": "AdditionalActionRavenKillingSpree2"
+  "name": "FeatureRavenKillingSpree"
 }
