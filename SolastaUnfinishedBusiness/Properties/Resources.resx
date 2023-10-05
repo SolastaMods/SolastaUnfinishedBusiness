@@ -203,12 +203,6 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
-  <data name="CloudOfDaggers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>
-      ../Resources/Spells/CloudOfDaggers.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
   <data name="ForestGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ../Resources/Spells/ForestGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
