@@ -269,11 +269,7 @@ internal static class GameLocationBattleManagerTweaks
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
-
-            // currently only Raven Scion uses this and requires double damage on critical
-            // should review if this ever changes in the future
-            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) *
-                                               (criticalHit ? 2 : 1);
+            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
         }
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.FlatWithProgression)
