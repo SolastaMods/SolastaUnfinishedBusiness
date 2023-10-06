@@ -461,16 +461,14 @@ internal static class EldritchVersatility
                 AttributeDefinitions.Strength, AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom
             };
 
+            hero.Attributes.DoIf(x => names.Contains(x.Key),
+            y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
+
             if (abilityScore == string.Empty)
             {
                 hero.Attributes.DoIf(x => names.Contains(x.Key), y => y.Value.ActiveModifiers.TryAdd(
                     RulesetAttributeModifier
                         .BuildAttributeModifier(AttributeModifierOperation.Additive, LearntAmount, Name)));
-            }
-            else
-            {
-                hero.Attributes.DoIf(x => names.Contains(x.Key),
-                    y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
             }
         }
 
