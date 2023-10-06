@@ -22,5 +22,5 @@ Reaction/&CustomReactionRavenDeadlyAimReactDescription=Используйте П
 Reaction/&CustomReactionRavenDeadlyAimReactTitle=Повторить атаку
 Reaction/&CustomReactionRavenDeadlyAimTitle=Прицеливание
 Subclass/&RoguishRavenDescription=Вороны - специалисты по дальнобойному оружию, обученные быстро и эффективно уничтожать врагов.
-Subclass/&RoguishRavenTitle=Ворон
+Subclass/&RoguishRavenTitle=Оригинальный Ворон
 Tooltip/&HeartSeekingShotConcentration=Отменить Выстрел в сердце.
