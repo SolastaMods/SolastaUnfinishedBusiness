@@ -1043,12 +1043,17 @@ internal static class EldritchVersatility
                 yield break;
             }
 
+            if (supportCondition.PointSpentOnAddingAC > 0 && !alreadyBlocked)
+            {
+                yield break;
+            }
+
             // Get attack roll outcome
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                               + attackModifier.AttackRollModifier;
             var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
-            var currentValue = defenderCharacter.RefreshArmorClass(false, true).CurrentValue;
+            var currentValue = defenderCharacter.RefreshArmorClass(true, false).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
 
             // If other actions already blocked it

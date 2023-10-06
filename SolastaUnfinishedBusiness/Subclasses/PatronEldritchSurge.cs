@@ -16,6 +16,7 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.CustomBuilders.EldritchVersatility;
+using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -104,6 +105,7 @@ public class PatronEldritchSurge : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("VersatilitySwitch", Resources.VersatilitySwitch, 128))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .AddCustomSubFeatures(new RechargePoolWhenBattleEnd())
             .AddToDB();
 
         var powerVersatilitySwitchStr =
@@ -169,6 +171,11 @@ public class PatronEldritchSurge : AbstractSubclass
             rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
             supportCondition.ReplacedAbilityScore = ReplacedAbilityScore;
             supportCondition.ModifyAttributeScores(rulesetCharacter.GetOriginalHero(), ReplacedAbilityScore);
+            // Auto recharge out of combat.
+            if (Gui.Battle is null)
+            {
+                rulesetCharacter.GetOriginalHero().UsablePowers.DoIf(x => x.PowerDefinition == PowerVersatilitySwitch, y => y.Recharge());
+            }
 
             yield break;
         }
@@ -359,6 +366,14 @@ public class PatronEldritchSurge : AbstractSubclass
         protected override void ClearCustomStates()
         {
             CantripsUsedThisTurn.Clear();
+        }
+    }
+
+    private class RechargePoolWhenBattleEnd: ICharacterBattleEndedListener
+    {
+        public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
+        {
+            locationCharacter.RulesetCharacter.GetOriginalHero().UsablePowers.DoIf(x => x.PowerDefinition == PowerVersatilitySwitch, y => y.Recharge());
         }
     }
 }
