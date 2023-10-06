@@ -5,6 +5,7 @@
 - added 3rd level Hunger of The Void spell
 - added 56 new weapon crafting manuals across all weapon types
 - added fighting style and steady aim choices for Rogues
+- added remaining pre-gen Brek, Forammat, Liera, and Hector portraits 
 - added Roguish Raven subclass but kept original Raven "Uncut"
 - added scrolls dropping instead of spellbooks on RESPEC
 - fixed Barbarian and Monk fighting style not honoring mod choices
