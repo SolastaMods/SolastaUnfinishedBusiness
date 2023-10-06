@@ -258,4 +258,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também para ataques de alcance</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de conceder vantagem +1 para jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
+ModUi/&UseOfficialStealthBreakRules=Use regras oficiais de quebra de sigilo <i><color=#F0DAA0>[forçar a perda de sigilo em ataques]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

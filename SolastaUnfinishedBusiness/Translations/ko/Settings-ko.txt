@@ -258,4 +258,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격에도 적용<
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 장병기 공격에도 적용</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
+ModUi/&UseOfficialStealthBreakRules=공식 스텔스 해제 규칙을 사용하세요. <i><color=#F0DAA0>[공격 시 스텔스 강제 해제]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

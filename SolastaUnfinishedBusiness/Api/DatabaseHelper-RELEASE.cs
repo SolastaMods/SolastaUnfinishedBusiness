@@ -11,6 +11,14 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition AttackMain { get; } = GetDefinition<ActionDefinition>("AttackMain");
+        internal static ActionDefinition AttackOff { get; } = GetDefinition<ActionDefinition>("AttackOff");
+        internal static ActionDefinition AttackFree { get; } = GetDefinition<ActionDefinition>("AttackFree");
+        internal static ActionDefinition AttackReadied { get; } = GetDefinition<ActionDefinition>("AttackReadied");
+
+        internal static ActionDefinition AttackOpportunity { get; } =
+            GetDefinition<ActionDefinition>("AttackOpportunity");
+
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");

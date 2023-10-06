@@ -258,4 +258,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les at
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par armes avec Allonge</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
+ModUi/&UseOfficialStealthBreakRules=Utilisez les règles officielles de rupture de furtivité <i><color=#F0DAA0>[forcer la perte de furtivité lors des attaques]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

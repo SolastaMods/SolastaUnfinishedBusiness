@@ -74,6 +74,13 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialDistanceCalculation = toggle;
         }
 
+        toggle = Main.Settings.UseOfficialStealthBreakRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialStealthBreakRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialStealthBreakRules = toggle;
+            SrdAndHouseRulesContext.SwitchAttacksBreakStealth();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.DontEndTurnAfterReady;

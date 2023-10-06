@@ -258,5 +258,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche per attacchi a d
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche per attacchi di portata</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
+ModUi/&UseOfficialStealthBreakRules=Utilizza le regole ufficiali per la furtività <i><color=#F0DAA0>[forza la perdita della furtività durante gli attacchi]</color></i>
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 odUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>
