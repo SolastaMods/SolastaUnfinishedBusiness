@@ -227,6 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezepte in detaillierten To
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alles an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
+ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie „Stealth verlieren“, wenn ein Angriff erfolgt
+ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie „Stealth verlieren“, wenn der Angriff fehlschlägt
+ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie beim Gießen von Material die Möglichkeit, die Tarnung zu verlieren
+ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie beim Wirken von Somatik die Tarnung, um die Tarnung zu verlieren
+ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie die Option „Stealth verlieren“, wenn Sie „Ausführlich“ wirken
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit aller nicht-magischen Kleidung <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen
@@ -258,5 +263,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe ak
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
-ModUi/&UseOfficialStealthBreakRules=Benutzen Sie die offiziellen Stealth-Break-Regeln <i><color=#F0DAA0>[erzwingen Sie den Verlust der Tarnung bei Angriffen]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

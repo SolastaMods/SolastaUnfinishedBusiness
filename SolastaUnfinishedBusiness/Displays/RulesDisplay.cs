@@ -74,13 +74,38 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialDistanceCalculation = toggle;
         }
 
-        toggle = Main.Settings.UseOfficialStealthBreakRules;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialStealthBreakRules"), ref toggle, UI.AutoWidth()))
+        UI.Label();
+        
+        toggle = Main.Settings.StealthBreaksWhenAttackHits;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackHits"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.UseOfficialStealthBreakRules = toggle;
-            SrdAndHouseRulesContext.SwitchAttacksBreakStealth();
+            Main.Settings.StealthBreaksWhenAttackHits = toggle;
         }
 
+        toggle = Main.Settings.StealthBreaksWhenAttackMisses;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackMisses"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenAttackMisses = toggle;
+        }
+        
+        toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingMaterial = toggle;
+        }
+        
+        toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
+        }
+        
+        toggle = Main.Settings.StealthBreaksWhenCastingSomatic;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingSomatic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
+        }
+        
         UI.Label();
 
         toggle = Main.Settings.DontEndTurnAfterReady;

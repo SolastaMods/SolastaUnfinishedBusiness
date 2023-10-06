@@ -11,7 +11,6 @@ using TA;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
@@ -103,7 +102,6 @@ internal static class SrdAndHouseRulesContext
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
         SwitchHastedCasing();
-        SwitchAttacksBreakStealth();
         ActionSwitching.Load();
     }
 
@@ -463,32 +461,6 @@ internal static class SrdAndHouseRulesContext
         else
         {
             restrictedActions.RemoveAll(id => id == Id.CastMain);
-        }
-    }
-
-    internal static void SwitchAttacksBreakStealth()
-    {
-        var actions = new List<ActionDefinition>
-        {
-            AttackMain,
-            AttackOff,
-            AttackFree,
-            AttackReadied,
-            AttackOpportunity,
-            CastMain,
-            CastBonus,
-            CastReaction,
-            CastReadied,
-            CastNoCost,
-            CastInvocation,
-            CastRitual
-        };
-
-        foreach (var action in actions)
-        {
-            action.stealthBreakerBehavior = Main.Settings.UseOfficialStealthBreakRules
-                ? StealthBreakerBehavior.Forced
-                : StealthBreakerBehavior.RollIfTargets;
         }
     }
 

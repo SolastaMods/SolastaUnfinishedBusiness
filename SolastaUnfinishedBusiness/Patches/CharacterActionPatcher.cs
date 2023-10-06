@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
@@ -134,6 +137,77 @@ public static class CharacterActionPatcher
 
             // BUGFIX: saving throw not passing correct saving delta on attack actions
             Global.CurrentAttackAction = null;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterAction), nameof(CharacterAction.ApplyStealthBreakerBehavior))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ApplyStealthBreakerBehavior_Patch
+    {
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var computeStealthBreakValueMethod = typeof(GameLocationCharacter).GetMethod("ComputeStealthBreak");
+            var myComputeStealthBreakValueMethod =
+                new Func<GameLocationCharacter, bool, ActionModifier, List<GameLocationCharacter>, CharacterAction,
+                    bool>(
+                    ComputeStealthBreak).Method;
+
+            return instructions
+                .ReplaceCall(computeStealthBreakValueMethod,
+                    1, "CharacterAction.ApplyStealthBreakerBehavior",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, myComputeStealthBreakValueMethod));
+        }
+
+        private static bool ComputeStealthBreak(
+            GameLocationCharacter __instance,
+            bool roll,
+            ActionModifier actionModifier,
+            List<GameLocationCharacter> detectorsWithAdvantage,
+            CharacterAction action)
+        {
+            switch (action)
+            {
+                case CharacterActionAttack actionAttack:
+                {
+                    if ((actionAttack.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
+                         && Main.Settings.StealthBreaksWhenAttackHits)
+                        || ((actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                             && Main.Settings.StealthBreaksWhenAttackMisses)))
+                    {
+                        roll = false;
+                    }
+
+                    break;
+                }
+                case CharacterActionCastSpell actionCastSpell:
+                {
+                    var spell = actionCastSpell.ActiveSpell.SpellDefinition;
+
+                    if (spell.MaterialComponentType != MaterialComponentType.None
+                        && Main.Settings.StealthBreaksWhenCastingMaterial)
+                    {
+                        roll = false;
+                    }
+
+                    if (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic)
+                    {
+                        roll = false;
+                    }
+
+                    if (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose)
+                    {
+                        roll = false;
+                    }
+
+                    break;
+                }
+            }
+
+            return __instance.ComputeStealthBreak(roll, actionModifier, detectorsWithAdvantage);
         }
     }
 }

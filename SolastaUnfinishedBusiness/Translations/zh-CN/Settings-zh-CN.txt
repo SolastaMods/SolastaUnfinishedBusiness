@@ -228,6 +228,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制
 ModUi/&ShowDescriptions=显示说明
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color><color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
+ModUi/&StealthBreaksWhenAttackHits=受到攻击时启用失去隐身功能
+ModUi/&StealthBreaksWhenAttackMisses=当攻击未命中时启用失去隐身功能
+ModUi/&StealthBreaksWhenCastingMaterial=铸造材料时启用失去隐身功能
+ModUi/&StealthBreaksWhenCastingSomatic=施放体细胞时启用失去隐身功能
+ModUi/&StealthBreaksWhenCastingVerbose=启用 verbose 时失去隐身功能
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>棍棒</color>设置为焦点项目
@@ -259,5 +264,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 对远程攻击生效</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 对触及攻击生效</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
-ModUi/&UseOfficialStealthBreakRules=使用官方隐身破坏规则<i><color=#F0DAA0>[在攻击时强制失去隐身]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

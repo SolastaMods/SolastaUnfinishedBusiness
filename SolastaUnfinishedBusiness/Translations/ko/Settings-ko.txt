@@ -227,6 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=자세한 툴팁에 제작법 표시
 ModUi/&ShowDescriptions=설명 표시하기
 ModUi/&SpellLevelFilter=<b><i><color=white>주문 레벨 필터</color> <color=#F0DAA0>[-1 전부 표시]</color></i></b>
 ModUi/&SpellsMenu=주문
+ModUi/&StealthBreaksWhenAttackHits=공격이 적중할 때 스텔스 해제 활성화
+ModUi/&StealthBreaksWhenAttackMisses=공격이 실패하면 스텔스 해제 활성화
+ModUi/&StealthBreaksWhenCastingMaterial=재료를 캐스팅할 때 스텔스 해제 활성화
+ModUi/&StealthBreaksWhenCastingSomatic=체세포 시전 시 스텔스 해제 활성화
+ModUi/&StealthBreaksWhenCastingVerbose=Verbose를 캐스팅할 때 스텔스 손실 활성화
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=고림의 만물상이 마법 효과가 없는 의류만 판매함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=고림의 만물상이 마법 효과가 없는 악기만 판매함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=휴고의 상점에 <color=#D89555>비전 스태프</color>, <color=#D89555>드루이드 목걸이</color>, <color=#D89555>스태프</color>, <color=#D89555>클럽</color>을 주문 매개체 아이템으로 비축
@@ -258,5 +263,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격에도 적용<
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 장병기 공격에도 적용</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
-ModUi/&UseOfficialStealthBreakRules=공식 스텔스 해제 규칙을 사용하세요. <i><color=#F0DAA0>[공격 시 스텔스 강제 해제]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

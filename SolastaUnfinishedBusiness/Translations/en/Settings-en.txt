@@ -227,6 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed too
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
+ModUi/&StealthBreaksWhenAttackHits=Enable lose stealth when attack hits
+ModUi/&StealthBreaksWhenAttackMisses=Enable lose stealth when attack misses
+ModUi/&StealthBreaksWhenCastingMaterial=Enable lose stealth when casting material
+ModUi/&StealthBreaksWhenCastingSomatic=Enable lose stealth when casting somatic
+ModUi/&StealthBreaksWhenCastingVerbose=Enable lose stealth when casting verbose
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
@@ -258,5 +263,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
 ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
-ModUi/&UseOfficialStealthBreakRules=Use official stealth break rules <i><color=#F0DAA0>[force losing stealth on attacks]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

@@ -227,6 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Показывать рецепт с
 ModUi/&ShowDescriptions=Показывать описания
 ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</color> <color=#F0DAA0>[-1 отображает все]</color></i></b>
 ModUi/&SpellsMenu=Заклинания
+ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании атаки
+ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе атаки
+ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материала.
+ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматики.
+ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при подробном произнесении
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Пополнить магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Пополнить магазин Горима всеми немагическими музыкальными инструментами <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Пополнить магазин Хьюго наборами магических фокусировок: <color=#D89555>Магических посохов</color>, <color=#D89555>Друидических подвесок</color>, <color=#D89555>Жезлов</color> и <color=#D89555>Дубинок</color>
@@ -258,5 +263,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти пра
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Также включить для атак досягаемости</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Вместо преимущества давать +1 к броскам атаки</i>
 ModUi/&UseOfficialFoodRationsWeight=Использовать официальный вес <color=#D89555>Рационов</color> (2 фунта)
-ModUi/&UseOfficialStealthBreakRules=Использовать официальные правила прерывания скрытности <i><color=#F0DAA0>[принудительная потеря скрытности при атаке]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Визуальные настройки:</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
