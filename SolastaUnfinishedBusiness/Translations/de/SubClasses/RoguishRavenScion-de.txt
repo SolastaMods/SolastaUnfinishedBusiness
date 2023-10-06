@@ -1,12 +1,12 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Ihr nächster Fernkampfwaffenangriff führt zu einem garantierten kritischen Treffer, wenn er eine Kreatur trifft.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
-Feature/&AdditionalActionRavenScionKillingSpreeDescription=Wenn du einmal während deines Zuges eine Kreatur auf 0 Trefferpunkte reduzierst, erhältst du einen zusätzlichen Angriff als Teil deiner Hauptaktion und setzt die Verwendung deiner Scharfschützenzielfunktion zurück.
-Feature/&AdditionalActionRavenScionKillingSpreeTitle=Amoklauf
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Wenn du einmal pro Spielzug eine Kreatur mit einem Fernkampfwaffenangriff triffst, erleidet diese Kreatur zusätzlichen Schaden derselben Art, der deiner Schurkenstufe entspricht. Dieser Schaden wird bei einem kritischen Treffer verdoppelt.
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Wenn du einmal pro Spielzug eine Kreatur mit einem Fernkampfwaffenangriff triffst, erleidet diese Kreatur zusätzlichen Schaden derselben Art, der deiner Schurkenstufe entspricht.
 Feature/&AdditionalDamageRavenScionSniperAimTitle=Ziel des Scharfschützen
 Feature/&DieRollModifierRavenScionPerfectShotDescription=Beim Würfeln für Schaden würfelst du jede 1 oder 2 neu. Sie müssen den zweiten Wurf behalten.
 Feature/&DieRollModifierRavenScionPerfectShotReroll={0} wirft den {1}-Würfel aufgrund von Perfect Shot erneut von {2} auf {3}.
 Feature/&DieRollModifierRavenScionPerfectShotTitle=Perfekter Schuss
+Feature/&FeatureRavenScionKillingSpreeDescription=Wenn du einmal während deines Zuges eine Kreatur auf 0 Trefferpunkte reduzierst, erhältst du einen zusätzlichen Angriff als Teil deiner Hauptaktion und setzt die Verwendung deiner Scharfschützenzielfunktion zurück.
+Feature/&FeatureRavenScionKillingSpreeTitle=Amoklauf
 Feature/&FeatureSetRavenScionRangedSpecialistDescription=Sie beherrschen alle Zweihand-Fernkampfwaffen und den Kampfstil Bogenschießen.
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Fernkampfspezialist
 Feature/&PowerRavenScionDeadlyFocusDescription=Wenn Sie mit einem Fernkampfwaffen-Angriffswurf verfehlen, können Sie ihn mit Vorteil noch einmal würfeln. Sie können diese Funktion einmal pro kurzer Pause nutzen.
@@ -15,6 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Als kostenlose Aktion könne
 Feature/&PowerRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
 Feedback/&AdditionalDamageSniperAimFormat=Ziel des Scharfschützen
 Feedback/&AdditionalDamageSniperAimLine=Scharfschützenziel verursacht zusätzlichen Schaden von +{2}!
+Feedback/&TriggerRerollLine={0} würfelt {1} = {2}. „Herzsuchender Schuss“ erzwingt einen kritischen Treffer.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Wiederholen Sie den Angriff

@@ -1,12 +1,12 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Tu próximo ataque con arma a distancia resultará en un golpe crítico garantizado si golpea a una criatura.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Disparo en busca del corazón
-Feature/&AdditionalActionRavenScionKillingSpreeDescription=Una vez durante tu turno, cuando reduces una criatura a 0 puntos de vida, obtienes un ataque adicional como parte de tu acción principal y restableces el uso de la función de puntería de tu francotirador.
-Feature/&AdditionalActionRavenScionKillingSpreeTitle=Matanza
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Una vez por turno, cuando golpeas a una criatura con un ataque de arma a distancia, esa criatura sufre daño adicional del mismo tipo igual a tu nivel de pícaro. Este daño se duplica con un golpe crítico.
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Una vez por turno, cuando golpeas a una criatura con un ataque de arma a distancia, esa criatura sufre daño adicional del mismo tipo igual a tu nivel de pícaro.
 Feature/&AdditionalDamageRavenScionSniperAimTitle=Objetivo del francotirador
 Feature/&DieRollModifierRavenScionPerfectShotDescription=Vuelve a tirar cualquier 1 o 2 cuando tiras por daño. Debes quedarte con el segundo rollo.
 Feature/&DieRollModifierRavenScionPerfectShotReroll={0} vuelve a tirar el dado {1} de {2} a {3} gracias a Perfect Shot.
 Feature/&DieRollModifierRavenScionPerfectShotTitle=Tiro perfecto
+Feature/&FeatureRavenScionKillingSpreeDescription=Una vez durante tu turno, cuando reduces una criatura a 0 puntos de vida, obtienes un ataque adicional como parte de tu acción principal y restableces el uso de la función de puntería de tu francotirador.
+Feature/&FeatureRavenScionKillingSpreeTitle=Matanza
 Feature/&FeatureSetRavenScionRangedSpecialistDescription=Eres competente con todas las armas a distancia a dos manos y con el estilo de lucha con arco.
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Especialista a distancia
 Feature/&PowerRavenScionDeadlyFocusDescription=Si fallas con una tirada de ataque con arma a distancia, puedes volver a tirarla con ventaja. Puede utilizar esta función una vez por breve descanso.
@@ -15,6 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Como acción gratuita, puede
 Feature/&PowerRavenScionHeartSeekingShotTitle=Disparo en busca del corazón
 Feedback/&AdditionalDamageSniperAimFormat=Objetivo del francotirador
 Feedback/&AdditionalDamageSniperAimLine=¡El objetivo del francotirador inflige +{2} de daño adicional!
+Feedback/&TriggerRerollLine={0} tira {1} = {2}. El Disparo en busca del corazón forzará un golpe crítico.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Usa tu enfoque mortal para volver a intentar el ataque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Usa tu enfoque mortal para volver a intentar el ataque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Reintentar ataque

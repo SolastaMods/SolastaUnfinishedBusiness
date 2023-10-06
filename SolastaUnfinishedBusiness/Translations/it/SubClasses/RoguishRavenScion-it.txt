@@ -1,12 +1,12 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Il tuo prossimo attacco con arma a distanza avrà come risultato un colpo critico garantito se colpisce una creatura.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro al cuore
-Feature/&AdditionalActionRavenScionKillingSpreeDescription=Una volta durante il tuo turno, quando riduci una creatura a 0 punti ferita, ottieni un attacco extra come parte della tua azione principale e azzeri l'utilizzo della funzione Mira del cecchino.
-Feature/&AdditionalActionRavenScionKillingSpreeTitle=Follia omicida
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Una volta per turno, quando colpisci una creatura con un attacco con un'arma a distanza, quella creatura subisce danni extra dello stesso tipo pari al tuo livello da ladro. Questo danno viene raddoppiato in caso di colpo critico.
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Una volta per turno, quando colpisci una creatura con un attacco con un'arma a distanza, quella creatura subisce danni extra dello stesso tipo pari al tuo livello da ladro.
 Feature/&AdditionalDamageRavenScionSniperAimTitle=Obiettivo del cecchino
 Feature/&DieRollModifierRavenScionPerfectShotDescription=Ritiri qualsiasi 1 o 2 quando tiri per i danni. Devi conservare il secondo tiro.
 Feature/&DieRollModifierRavenScionPerfectShotReroll={0} lancia nuovamente il dado {1} da {2} a {3} grazie a Perfect Shot.
 Feature/&DieRollModifierRavenScionPerfectShotTitle=Colpo perfetto
+Feature/&FeatureRavenScionKillingSpreeDescription=Una volta durante il tuo turno, quando riduci una creatura a 0 punti ferita, ottieni un attacco extra come parte della tua azione principale e azzeri l'utilizzo della funzione Mira del cecchino.
+Feature/&FeatureRavenScionKillingSpreeTitle=Follia omicida
 Feature/&FeatureSetRavenScionRangedSpecialistDescription=Sei abile con tutte le armi a distanza a due mani e con lo stile di combattimento del tiro con l'arco.
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Specialista a distanza
 Feature/&PowerRavenScionDeadlyFocusDescription=Se fallisci un tiro per colpire con un'arma a distanza, puoi lanciarlo di nuovo con vantaggio. Puoi usare questa capacità una volta per ogni riposo breve.
@@ -15,6 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Come azione gratuita, puoi f
 Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro al cuore
 Feedback/&AdditionalDamageSniperAimFormat=Obiettivo del cecchino
 Feedback/&AdditionalDamageSniperAimLine=La Mira del cecchino infligge +{2} danni extra!
+Feedback/&TriggerRerollLine={0} tira {1} = {2}. Il Tiro al Cuore imporrà un colpo critico.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Usa la tua concentrazione letale per ritentare l'attacco.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Usa la tua concentrazione letale per ritentare l'attacco.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Riprova l'attacco

@@ -1,12 +1,12 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=次の遠隔武器攻撃がクリーチャーに命中した場合、クリティカルヒットが保証されます。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=ハートシーキングショット
-Feature/&AdditionalActionRavenScionKillingSpreeDescription=自分のターン中に一度、クリーチャーのヒット ポイントを 0 に減らすと、メイン アクションの一部として追加の攻撃が得られ、スナイパーの照準機能の使用法がリセットされます。
-Feature/&AdditionalActionRavenScionKillingSpreeTitle=キリング・スプリー
-Feature/&AdditionalDamageRavenScionSniperAimDescription=1ターンに1回、あなたが遠距離武器攻撃でクリーチャーを攻撃すると、そのクリーチャーはあなたのローグレベルに等しい同じタイプの追加ダメージを受ける。クリティカル攻撃の場合、このダメージは2倍になります。
+Feature/&AdditionalDamageRavenScionSniperAimDescription=1ターンに1回、あなたが遠距離武器攻撃でクリーチャーを攻撃すると、そのクリーチャーはあなたのローグレベルに等しい同じタイプの追加ダメージを受ける。
 Feature/&AdditionalDamageRavenScionSniperAimTitle=スナイパーの狙い
 Feature/&DieRollModifierRavenScionPerfectShotDescription=ダメージを与えるためにロールするときに、1 または 2 を再ロールします。 2 番目のロールは保管しなければなりません。
 Feature/&DieRollModifierRavenScionPerfectShotReroll=パーフェクト ショットにより、{0} は {1} ダイスを {2} から {3} に振り直します。
 Feature/&DieRollModifierRavenScionPerfectShotTitle=パーフェクトショット
+Feature/&FeatureRavenScionKillingSpreeDescription=自分のターン中に一度、クリーチャーのヒット ポイントを 0 に減らすと、メイン アクションの一部として追加の攻撃が得られ、スナイパーの照準機能の使用法がリセットされます。
+Feature/&FeatureRavenScionKillingSpreeTitle=キリング・スプリー
 Feature/&FeatureSetRavenScionRangedSpecialistDescription=あなたはすべての両手遠距離武器とアーチェリーの戦闘スタイルに熟練しています。
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=遠距離スペシャリスト
 Feature/&PowerRavenScionDeadlyFocusDescription=遠距離武器攻撃ロールで失敗した場合は、有利に再度ロールすることができます。この機能は、短い休憩ごとに 1 回使用できます。
@@ -15,6 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=フリーアクションと�
 Feature/&PowerRavenScionHeartSeekingShotTitle=ハートシーキングショット
 Feedback/&AdditionalDamageSniperAimFormat=スナイパーの狙い
 Feedback/&AdditionalDamageSniperAimLine=スナイパーの狙いは追加の +{2} ダメージを与える！
+Feedback/&TriggerRerollLine={0} は {1} = {2} をロールします。ハートシーキングショットはクリティカルヒットを強制します。
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=致命的な集中力を使って攻撃を再試行してください。
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=致命的な集中力を使って攻撃を再試行してください。
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=リトライアタック

@@ -1,12 +1,12 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=如果你的下一次远程武器攻击击中了生物，则保证会造成致命一击。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=寻心射击
-Feature/&AdditionalActionRavenScionKillingSpreeDescription=在你的回合中，当你将一个生物的生命值减少到 0 时，你将获得一次额外的攻击作为你主要行动的一部分，并重置你的狙击手瞄准功能的使用。
-Feature/&AdditionalActionRavenScionKillingSpreeTitle=杀人狂魔
-Feature/&AdditionalDamageRavenScionSniperAimDescription=每回合一次，当你用远程武器攻击击中一个生物时，该生物会受到等同于你的盗贼等级的相同类型的额外伤害。致命一击时该伤害会加倍。
+Feature/&AdditionalDamageRavenScionSniperAimDescription=每回合一次，当你用远程武器攻击击中一个生物时，该生物会受到等同于你的盗贼等级的相同类型的额外伤害。
 Feature/&AdditionalDamageRavenScionSniperAimTitle=狙击手的目标
 Feature/&DieRollModifierRavenScionPerfectShotDescription=当滚动造成伤害时，你可以重新滚动任何 1 秒或 2 秒。您必须保留第二卷。
 Feature/&DieRollModifierRavenScionPerfectShotReroll=由于完美射击，{0} 将 {1} 骰子从 {2} 重新投掷到 {3}。
 Feature/&DieRollModifierRavenScionPerfectShotTitle=完美拍摄
+Feature/&FeatureRavenScionKillingSpreeDescription=在你的回合中，当你将一个生物的生命值减少到 0 时，你将获得一次额外的攻击作为你主要行动的一部分，并重置你的狙击手瞄准功能的使用。
+Feature/&FeatureRavenScionKillingSpreeTitle=杀人狂魔
 Feature/&FeatureSetRavenScionRangedSpecialistDescription=你精通所有双手远程武器和射箭战斗风格。
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=远程专家
 Feature/&PowerRavenScionDeadlyFocusDescription=如果你错过了远程武器攻击检定，你可以再次进行检定并获得优势。每次短暂休息时您可以使用此功能一次。
@@ -15,6 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=作为一个自由动作，�
 Feature/&PowerRavenScionHeartSeekingShotTitle=寻心射击
 Feedback/&AdditionalDamageSniperAimFormat=狙击手的目标
 Feedback/&AdditionalDamageSniperAimLine=狙击手的瞄准造成额外 +{2} 伤害！
+Feedback/&TriggerRerollLine={0} 卷 {1} = {2}。寻心射击会造成致命一击。
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=使用你的致命焦点重试攻击。
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=使用你的致命焦点重试攻击。
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=重试攻击
