@@ -20,7 +20,13 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("AttackOpportunity");
 
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
+        internal static ActionDefinition CastMain { get; } = GetDefinition<ActionDefinition>("CastMain");
+        internal static ActionDefinition CastBonus { get; } = GetDefinition<ActionDefinition>("CastBonus");
+        internal static ActionDefinition CastReaction { get; } = GetDefinition<ActionDefinition>("CastReaction");
+        internal static ActionDefinition CastReadied { get; } = GetDefinition<ActionDefinition>("CastReadied");
+        internal static ActionDefinition CastNoCost { get; } = GetDefinition<ActionDefinition>("CastNoCost");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
+        internal static ActionDefinition CastRitual { get; } = GetDefinition<ActionDefinition>("CastRitual");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
 

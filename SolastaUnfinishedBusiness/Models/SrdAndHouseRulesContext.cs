@@ -474,7 +474,14 @@ internal static class SrdAndHouseRulesContext
             AttackOff,
             AttackFree,
             AttackReadied,
-            AttackOpportunity
+            AttackOpportunity,
+            CastMain,
+            CastBonus,
+            CastReaction,
+            CastReadied,
+            CastNoCost,
+            CastInvocation,
+            CastRitual
         };
 
         foreach (var action in actions)
