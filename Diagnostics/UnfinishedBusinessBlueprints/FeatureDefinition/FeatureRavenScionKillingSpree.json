@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalActionRavenKillingSpreeTitle",
-    "description": "Feature/&AdditionalActionRavenKillingSpreeDescription",
+    "title": "Feature/&FeatureRavenScionKillingSpreeTitle",
+    "description": "Feature/&FeatureRavenScionKillingSpreeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
