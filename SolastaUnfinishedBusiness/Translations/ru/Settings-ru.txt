@@ -229,9 +229,9 @@ ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</
 ModUi/&SpellsMenu=Заклинания
 ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании атаки
 ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе атаки
-ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материала.
-ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматики.
-ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при подробном произнесении
+ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материального компонента заклинания
+ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического компонента заклинания
+ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при использовании вербального компонента заклинания
 ModUi/&StealthDoesNotBreakWhenUsingItems=Включить «Не терять скрытность при использовании предметов».
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Пополнить магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Пополнить магазин Горима всеми немагическими музыкальными инструментами <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
