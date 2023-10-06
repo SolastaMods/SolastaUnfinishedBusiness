@@ -92,7 +92,10 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerHeartSeekingShot.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+        powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            new AssetReference();
+        powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            new AssetReference();
 
         // Killing Spree
 

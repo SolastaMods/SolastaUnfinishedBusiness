@@ -264,7 +264,8 @@ internal static class RangedCombatFeats
                         .SetConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{FeatSteadyAim}Advantage")
-                                .SetGuiPresentation(Category.Condition)
+                                .SetGuiPresentation(Category.Condition,
+                                    DatabaseHelper.ConditionDefinitions.ConditionGuided)
                                 .SetPossessive()
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetSpecialInterruptions(ConditionInterruption.Attacks,

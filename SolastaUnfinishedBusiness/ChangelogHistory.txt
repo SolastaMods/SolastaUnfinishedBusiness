@@ -8,6 +8,7 @@
 - added remaining pre-gen Brek, Forammat, Liera, and Hector portraits 
 - added Roguish Raven subclass but kept original Raven "Uncut"
 - added scrolls dropping instead of spellbooks on RESPEC
+- added SRD rules setting to always break stealth after attacks
 - fixed Barbarian and Monk fighting style not honoring mod choices
 - fixed IsMelee weapon validators incorrectly allowing throwing
 - fixed Merciless crashing battles on enemy reduced to 0 HP
