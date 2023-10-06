@@ -232,6 +232,7 @@ ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita di azione furtiva quando
 ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di azione furtiva durante il lancio del materiale
 ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita della furtività quando si lancia somatico
 ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita della furtività durante il lancio dettagliato
+ModUi/&StealthDoesNotBreakWhenUsingItems=Abilita non perdere la furtività quando usi gli oggetti
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali

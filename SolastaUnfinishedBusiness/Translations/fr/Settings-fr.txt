@@ -232,6 +232,7 @@ ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsque l'at
 ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de matériel
 ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de somatiques
 ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement verbeux
+ModUi/&StealthDoesNotBreakWhenUsingItems=Activer ne pas perdre la furtivité lors de l'utilisation d'objets
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Approvisionner le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Approvisionner le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Approvisionner le magasin d'Hugo avec des <color=#D89555>Bâton d'Arcane</color>, <color=#D89555>Collier de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Gourdin</color> définis comme des focalisateurs de sort

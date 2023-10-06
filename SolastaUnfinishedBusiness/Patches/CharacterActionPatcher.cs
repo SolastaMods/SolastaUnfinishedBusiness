@@ -207,6 +207,12 @@ public static class CharacterActionPatcher
                 }
             }
 
+            if (action.ActionId is ActionDefinitions.Id.UseItemBonus or ActionDefinitions.Id.UseItemMain
+                && Main.Settings.StealthDoesNotBreakWhenUsingItems)
+            {
+                return false;
+            }
+
             return __instance.ComputeStealthBreak(roll, actionModifier, detectorsWithAdvantage);
         }
     }
