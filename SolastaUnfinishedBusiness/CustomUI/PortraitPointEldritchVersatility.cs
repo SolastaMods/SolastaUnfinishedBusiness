@@ -20,7 +20,7 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
         if (!character.GetVersatilitySupportCondition(out var supportCondition))
         {
             return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints,
-                maxPoints, "");
+                maxPoints, "", "");
         }
 
         currentPoints = supportCondition.CurrentPoints;
