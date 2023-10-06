@@ -607,15 +607,16 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollAttack_Patch
     {
+#if false
         [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
             var currentValueMethod = typeof(RulesetAttribute).GetMethod("get_CurrentValue");
-            var method = new Func<RulesetAttribute, RulesetActor, List<TrendInfo>, int>(MirrorImageLogic.GetAC).Method;
-
-            var tryModifyCrit = new Func<
+            var mirrorImageLogicGetACMethod =
+                new Func<RulesetAttribute, RulesetActor, List<TrendInfo>, int>(MirrorImageLogic.GetAC).Method;
+            var tryModifyCritThresholdMethod = new Func<
                 RulesetAttribute, // attribute, 
                 RulesetCharacter, // me, 
                 RulesetCharacter, // target, 
@@ -628,22 +629,206 @@ public static class RulesetCharacterPatcher
                     1, "RulesetCharacter.RollAttack.AC",
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Ldarg, 4),
-                    new CodeInstruction(OpCodes.Call, method))
+                    new CodeInstruction(OpCodes.Call, mirrorImageLogicGetACMethod))
                 //technically second occurence of this getter, but first one is replaced on previous call
                 .ReplaceCall(currentValueMethod, 1, "RulesetCharacter.RollAttack.CritThreshold",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Ldarg_3),
-                    new CodeInstruction(OpCodes.Call, tryModifyCrit));
+                    new CodeInstruction(OpCodes.Call, tryModifyCritThresholdMethod));
         }
+#endif
 
-        private static int TryModifyCritThreshold(RulesetAttribute attribute, RulesetCharacter me,
-            RulesetCharacter target, BaseDefinition attackMethod)
+        private static int TryModifyCritThreshold(
+            RulesetAttribute attribute, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod)
         {
             var current = attribute.CurrentValue;
+
             me.GetSubFeaturesByType<IModifyAttackCriticalThreshold>().ForEach(m =>
                 current = m.GetCriticalThreshold(current, me, target, attackMethod));
+
             return current;
+        }
+
+        [UsedImplicitly]
+        public static bool Prefix(
+            [NotNull] RulesetCharacter __instance,
+            out int __result,
+            int toHitBonus,
+            RulesetActor target,
+            BaseDefinition attackMethod,
+            List<TrendInfo> toHitTrends,
+            bool ignoreAdvantage,
+            List<TrendInfo> advantageTrends,
+            bool rangeAttack,
+            bool opportunity,
+            int rollModifier,
+            out RollOutcome outcome,
+            out int successDelta,
+            int predefinedRoll,
+            bool testMode,
+            ReactionCounterAttackType reactionCounterAttackType = ReactionCounterAttackType.None)
+        {
+            if (!testMode & opportunity && __instance.AttackOfOpportunity != null)
+            {
+                __instance.AttackOfOpportunity(__instance, target);
+            }
+
+            var firstRoll = predefinedRoll;
+            var secondRoll = predefinedRoll;
+            var advantageType = ComputeAdvantage(advantageTrends);
+
+            if (ignoreAdvantage)
+            {
+                advantageType = AdvantageType.None;
+                advantageTrends = new List<TrendInfo>();
+            }
+
+            var rawRoll = predefinedRoll <= 0
+                ? __instance.RollDie(DieType.D20, RollContext.AttackRoll, false, advantageType,
+                    out firstRoll, out secondRoll)
+                : predefinedRoll;
+
+            successDelta = 0;
+
+            var service = ServiceRepository.GetService<IGameSettingsService>();
+            var disableEnemyCrits = __instance.Side == Side.Enemy && service is { DisableEnemyCrits: true };
+            int attackRoll;
+
+            if (rawRoll == DiceMaxValue[8] && !disableEnemyCrits)
+            {
+                attackRoll = rawRoll;
+                outcome = RollOutcome.CriticalSuccess;
+            }
+            else if (rawRoll == DiceMinValue[8])
+            {
+                attackRoll = rawRoll;
+                outcome = RollOutcome.CriticalFailure;
+            }
+            else
+            {
+                attackRoll = rawRoll + toHitBonus + rollModifier;
+                
+                //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
+                // successDelta = attackRoll - target.GetAttribute("ArmorClass").CurrentValue;
+                successDelta = attackRoll -
+                               MirrorImageLogic.GetAC(target.GetAttribute("ArmorClass"), target, toHitTrends);
+                // END PATCH
+
+                if (successDelta >= 0)
+                {
+                    var currentValue = DiceMaxValue[8];
+
+                    if (__instance.TryGetAttribute("CriticalThreshold", out var rulesetAttribute))
+                    {
+                        //PATCH: support `IModifyAttackCriticalThreshold`
+                        // currentValue = rulesetAttribute.CurrentValue;
+                        currentValue = TryModifyCritThreshold(
+                            rulesetAttribute, __instance, target as RulesetCharacter, attackMethod);
+                        // END PATCH
+                    }
+
+                    outcome = rawRoll < currentValue || disableEnemyCrits
+                        ? RollOutcome.Success
+                        : RollOutcome.CriticalSuccess;
+                }
+                else
+                {
+                    outcome = RollOutcome.Failure;
+                }
+            }
+
+            var isCriticalAutomaticOnMe = false;
+
+            if (target is RulesetCharacter character
+                && outcome == RollOutcome.Success
+                && character.IsCriticalAutomaticOnMe(__instance))
+            {
+                outcome = RollOutcome.CriticalSuccess;
+                isCriticalAutomaticOnMe = true;
+            }
+
+            //PATCH: support `IModifyAttackOutcome`
+            var modifyAttackOutcomes = __instance.GetSubFeaturesByType<IModifyAttackOutcome>();
+
+            foreach (var modifyAttackOutcome in modifyAttackOutcomes)
+            {
+                modifyAttackOutcome.OnAttackOutcome(
+                    __instance,
+                    ref rawRoll,
+                    toHitBonus,
+                    target,
+                    attackMethod,
+                    toHitTrends,
+                    ignoreAdvantage,
+                    advantageTrends,
+                    rangeAttack,
+                    opportunity,
+                    rollModifier,
+                    ref outcome,
+                    ref successDelta,
+                    predefinedRoll,
+                    testMode,
+                    reactionCounterAttackType);
+            }
+            // END PATCH
+
+            if (outcome == RollOutcome.CriticalSuccess
+                && target is RulesetCharacter rulesetCharacter
+                && rulesetCharacter.IsImmuneToCriticalHits())
+            {
+                outcome = RollOutcome.Success;
+            }
+
+            switch (testMode)
+            {
+                case true when __instance.AttackInitiated != null:
+                    __instance.AttackInitiated(
+                        __instance, firstRoll, secondRoll, toHitBonus + rollModifier, advantageType);
+                    break;
+                case false when __instance.AttackRolled != null:
+                {
+                    foreach (var toHitTrend in toHitTrends)
+                    {
+                        if (toHitTrend.dieFlag == TrendInfoDieFlag.None
+                            || toHitTrend.value <= 0
+                            || toHitTrend.dieType <= DieType.D1)
+                        {
+                            continue;
+                        }
+
+                        var additionalAttackDieRolled =
+                            __instance.AdditionalAttackDieRolled;
+
+                        additionalAttackDieRolled?.Invoke(__instance, toHitTrend);
+                    }
+
+                    __instance.AttackRolled(
+                        __instance, target, attackMethod, outcome, attackRoll, rawRoll, toHitBonus + rollModifier,
+                        toHitTrends, advantageTrends, opportunity, reactionCounterAttackType);
+                    __instance.AccountAttack(outcome);
+
+                    if (isCriticalAutomaticOnMe)
+                    {
+                        var automaticCritical = __instance.AttackAutomaticCritical;
+
+                        automaticCritical?.Invoke(target);
+                    }
+
+                    break;
+                }
+            }
+
+            if (!testMode && target.IncomingAttackRolled != null)
+            {
+                target.IncomingAttackRolled(
+                    __instance, target, attackMethod, rangeAttack, outcome, attackRoll,
+                    rawRoll, toHitBonus + rollModifier, toHitTrends, advantageTrends);
+            }
+
+            __result = rawRoll;
+
+            return false;
         }
     }
 
@@ -856,7 +1041,8 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                "RulesetCharacter.RefreshSpellRepertoires", EnumerateFeaturesFromItems<ISpellCastingAffinityProvider>);
+                "RulesetCharacter.RefreshSpellRepertoires",
+                EnumerateFeaturesFromItems<ISpellCastingAffinityProvider>);
         }
 
         [UsedImplicitly]
@@ -1064,7 +1250,8 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: Makes powers that have their max usage extended by pool modifiers show up correctly during rest
             //replace calls to MaxUses getter to custom method that accounts for extended power usage
-            var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
+            var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses",
+                BindingFlags.Public | BindingFlags.Instance);
             var maxUses =
                 new Func<RulesetUsablePower, RulesetCharacter, int>(PowerBundle.GetMaxUsesForPool).Method;
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
@@ -1285,7 +1472,8 @@ public static class RulesetCharacterPatcher
     public static class ComputeSpeedAddition_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, IMovementAffinityProvider provider, ref int __result)
+        public static void Postfix(RulesetCharacter __instance, IMovementAffinityProvider provider,
+            ref int __result)
         {
             if (provider is not FeatureDefinition feature)
             {
@@ -1429,7 +1617,8 @@ public static class RulesetCharacterPatcher
         private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
         {
             var savingThrowBonus =
-                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
+                AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetActor.TryGetAttributeValue(attributeScore)) +
                 rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<TrendInfo>());
 
             foreach (var attribute in rulesetActor
@@ -1525,7 +1714,8 @@ public static class RulesetCharacterPatcher
     }
 
     //PATCH: allow AddProficiencyBonus to be considered on attribute modifiers used on reaction attacks
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanAttackOutcomeFromAlterationMagicalEffectFail))]
+    [HarmonyPatch(typeof(RulesetCharacter),
+        nameof(RulesetCharacter.CanAttackOutcomeFromAlterationMagicalEffectFail))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanAttackOutcomeFromAlterationMagicalEffectFail_Patch
@@ -1595,7 +1785,8 @@ public static class RulesetCharacterPatcher
 
             if (!forceMaxValue)
             {
-                RollDie(sourceCondition.BardicInspirationDie, advantage ? AdvantageType.Advantage : AdvantageType.None,
+                RollDie(sourceCondition.BardicInspirationDie,
+                    advantage ? AdvantageType.Advantage : AdvantageType.None,
                     out firstRoll, out secondRoll);
             }
 
@@ -1674,7 +1865,8 @@ public static class RulesetCharacterPatcher
                              .Where(featureDefinition => featureDefinition.PreserveSlotRoll
                                                          && featureDefinition.PreserveSlotLevelCap >= effectLevel))
                 {
-                    preserveSlotThreshold = Math.Min(preserveSlotThreshold, featureDefinition.PreserveSlotThreshold);
+                    preserveSlotThreshold =
+                        Math.Min(preserveSlotThreshold, featureDefinition.PreserveSlotThreshold);
                     preserveSlotThresholdFeature = (FeatureDefinition)featureDefinition;
                 }
 
