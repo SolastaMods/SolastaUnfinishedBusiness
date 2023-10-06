@@ -20,5 +20,5 @@ Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Use your deadly focus t
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Use your deadly focus to retry the attack.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Retry Attack
 Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Deadly Focus
-Subclass/&RoguishRavenScionDescription=Scions are ranged weapon specialists that are trained to take down enemies quickly and effectively without causing envy from the rest of the world like their close heritage.
-Subclass/&RoguishRavenScionTitle=Raven Scion
+Subclass/&RoguishRavenScionDescription=Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
+Subclass/&RoguishRavenScionTitle=Raven

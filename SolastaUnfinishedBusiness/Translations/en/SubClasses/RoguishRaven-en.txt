@@ -22,5 +22,5 @@ Reaction/&CustomReactionRavenDeadlyAimReactDescription=Use your deadly aim to re
 Reaction/&CustomReactionRavenDeadlyAimReactTitle=Retry Attack
 Reaction/&CustomReactionRavenDeadlyAimTitle=Deadly Aim
 Subclass/&RoguishRavenDescription=Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
-Subclass/&RoguishRavenTitle=Raven
+Subclass/&RoguishRavenTitle=Raven Uncut
 Tooltip/&HeartSeekingShotConcentration=Disable Heart Seeking Shot.

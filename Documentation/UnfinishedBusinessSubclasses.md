@@ -2861,6 +2861,48 @@ Ravens are ranged weapon specialists that are trained to take down enemies quick
 
 ### Level 3
 
+* Ranged Specialist
+
+You are proficient with all two-handed ranged weapons and gain Archery fighting style. 
+
+* Sniper's Aim
+
+Once per turn, when you hit a creature with a ranged weapon attack, that creature takes extra damage of the same type equal to your rogue level.
+
+
+### Level 9
+
+* Heart-Seeking Shot 
+
+As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest. 
+
+* Killing Spree
+
+Once during your turn, when you reduce a creature to 0 hit points, you gain an extra attack as a part of your main action and reset the usage of your Sniper's Aim feature.
+
+
+### Level 13
+
+* Deadly Focus
+
+If you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
+
+
+### Level 17
+
+* Perfect Shot
+
+You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
+
+
+
+## 7. Raven Uncut
+
+Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
+
+
+### Level 3
+
 * Heart Seeking Shot
 
 You aim at a vital spot of an enemy. When you make an attack with a two-handed ranged weapon you suffer a -4 penalty to the attack roll but your critical threat range increases by 2. In addition, your attack deals an extra 1d6 damage. The extra damage increases by 1d6 every 4 Rogue levels.
@@ -2886,48 +2928,6 @@ You reroll any 1s when rolling for damage. You must keep the second roll.
 * Deadly Aim
 
 Starting at 13th level, if you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
-
-
-### Level 17
-
-* Perfect Shot
-
-You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
-
-
-
-## 7. Raven Scion
-
-Scions are ranged weapon specialists that are trained to take down enemies quickly and effectively without causing envy from the rest of the world like their close heritage.
-
-
-### Level 3
-
-* Ranged Specialist
-
-You are proficient with all two-handed ranged weapons and Archery fighting style. 
-
-* Sniper's Aim
-
-Once per turn, when you hit a creature with a ranged weapon attack, that creature takes extra damage of the same type equal to your rogue level. This damage is doubled on a critical strike.
-
-
-### Level 9
-
-* Heart-Seeking Shot 
-
-As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest. 
-
-* Killing Spree
-
-You can make extra 2-handed ranged attack the first time you kill an enemy on your turn with 2-handed ranged weapon. In addition, each time you kill an enemy, your sneak attack can be reused on same turn.
-
-
-### Level 13
-
-* Deadly Focus
-
-If you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
 
 
 ### Level 17
@@ -3197,22 +3197,26 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 ## 1. The Eldritch Surge
 
-You have made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
+You made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 
 
 ### Level 1
 
 * Blast Exclusive
 
-You gain Eldritch Blast as a bonus cantrip. The beam number is instead derived by your determination calculated as [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams if determination >= 3, 3 if >= 8, 4 if >= 13 and 5 if >= 18.
+You gain Eldritch Blast as a bonus cantrip. The number of beams is derived by your determination calculated as: [Warlock levels] - 2 * [Other Classes levels]. You can cast 2 beams when your determination >= 3, 3 when >= 8, 4 when >= 13 and 5 when >= 18.
 
 * Eldritch Versatility
 
-You gain an Eldritch Pool, which has a maximum of your warlock level. You gain 1 Eldritch Point whenever you hit an enemy with Eldritch Blast. You gain no more points than your pool size in a round. After a long rest, the pool is reset. Additionally, for each Versatility you have, you increase the corresponding ability score by 1, up to a maximum of 20.
+You gain an Eldritch Pool, which has a maximum of your warlock level. You gain 1 Eldritch Point whenever you hit an enemy with Eldritch Blast. After a long rest, the pool is reset.
 
 * Learn Versatility (2)
 
 You learn two Versatilities.
+
+* Versatility Switch
+
+Each turn, you can switch between Str/Int/Wis/Versatile. When using Versatilities, treat the chosen ability score as 10 + 2 * [Proficiency Bonus]. If you choose versatile, your Int/Str/Wis gain a bonus equal to the amount of Versatilities you have learnt.
 
 
 ### Level 6
