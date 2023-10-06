@@ -19,16 +19,23 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
 
         if (!character.GetVersatilitySupportCondition(out var supportCondition))
         {
-            return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints,
-                maxPoints, "");
+            return "EldritchVersatilityPortraitPoolFormat".Formatted(
+                Category.Tooltip,
+                currentPoints,
+                maxPoints,
+                Gui.NoLocalization.Localized(),
+                Gui.NoLocalization.Localized());
         }
 
         currentPoints = supportCondition.CurrentPoints;
         maxPoints = supportCondition.MaxPoints;
+
         return "EldritchVersatilityPortraitPoolFormat".Formatted(
-            Category.Tooltip, currentPoints, maxPoints,
+            Category.Tooltip,
+            currentPoints,
+            maxPoints,
             Gui.Localize($"Attribute/&{supportCondition.ReplacedAbilityScore}TitleLong"),
-            string.Join(", ", supportCondition.StrPowerPriority.Select(s => Gui.Localize(s))));
+            string.Join(", ", supportCondition.StrPowerPriority.Select(s => s.Localized())));
     }
 
     public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
@@ -36,6 +43,7 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
     public string GetPoints(RulesetCharacter character)
     {
         var currentPoints = 0;
+
         if (character.GetVersatilitySupportCondition(out var supportCondition))
         {
             currentPoints = supportCondition.CurrentPoints;

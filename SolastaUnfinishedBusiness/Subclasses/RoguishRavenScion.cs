@@ -10,9 +10,10 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -70,49 +71,49 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
         // Heart-Seeking Shot
 
-        var conditionHeartSeekingShot = ConditionDefinitionBuilder
-            .Create($"Condition{Name}HeartSeekingShot")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
-            .SetPossessive()
-            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackHeartSeekingShot())
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
         var powerHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HeartSeekingShot")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerMartialCommanderRousingShout)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHeartSeekingShot))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create($"Condition{Name}HeartSeekingShot")
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
+                            .SetPossessive()
+                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                            .AddCustomSubFeatures(new ModifyAttackOutcomeHeartSeekingShot())
+                            .AddToDB()))
+                    .SetParticleEffectParameters(PowerPactChainImp)
                     .Build())
             .AddToDB();
+
+        powerHeartSeekingShot.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
 
         // Killing Spree
 
         var featureRavenKillingSpree = FeatureDefinitionBuilder
             .Create($"Feature{Name}KillingSpree")
-            .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 // bonus range attack from main and can use sniper's aim again during this turn
-                new OnReducedToZeroHpByMeKillingSpree(
-                    ConditionDefinitionBuilder
-                        .Create($"Condition{Name}KillingSpree")
+                new OnReducedToZeroHpByMeKillingSpree(ConditionDefinitionBuilder
+                    .Create($"Condition{Name}KillingSpree")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                        .Create($"AdditionalAction{Name}KillingSpree")
                         .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetFeatures(
-                            FeatureDefinitionAdditionalActionBuilder
-                                .Create($"AdditionalAction{Name}KillingSpree")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetActionType(ActionDefinitions.ActionType.Main)
-                                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                                .SetMaxAttacksNumber(1)
-                                .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
-                                .AddToDB())
-                        .AddToDB()))
+                        .SetActionType(ActionDefinitions.ActionType.Main)
+                        .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                        .SetMaxAttacksNumber(1)
+                        .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                        .AddToDB())
+                    .AddToDB()))
             .AddToDB();
 
         //
@@ -215,7 +216,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 _condition.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -231,39 +232,38 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class TryAlterOutcomePhysicalAttackHeartSeekingShot : ITryAlterOutcomePhysicalAttack
+    private class ModifyAttackOutcomeHeartSeekingShot : IModifyAttackOutcome
     {
-        public IEnumerator OnAttackTryAlterOutcome(
-            GameLocationBattleManager battle,
-            CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
-            ActionModifier attackModifier)
+        public void OnAttackOutcome(
+            RulesetCharacter __instance,
+            ref int __result,
+            int toHitBonus,
+            RulesetActor target,
+            BaseDefinition attackMethod,
+            List<TrendInfo> toHitTrends,
+            bool ignoreAdvantage,
+            List<TrendInfo> advantageTrends,
+            bool rangeAttack,
+            bool opportunity,
+            int rollModifier,
+            ref RollOutcome outcome,
+            ref int successDelta,
+            int predefinedRoll,
+            bool testMode,
+            ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType)
         {
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                yield break;
+                return;
             }
 
-            var attackMode = action.actionParams.attackMode;
-            var rulesetAttacker = me.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || ValidatorsWeapon.IsTwoHandedRanged(attackMode))
+            if (attackMethod is not ItemDefinition itemDefinition
+                || !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
             {
-                yield break;
+                return;
             }
 
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    $"Condition{Name}HeartSeekingShot",
-                    out var activeCondition))
-            {
-                rulesetAttacker.RemoveCondition(activeCondition);
-            }
-
-            action.AttackRollOutcome = RollOutcome.CriticalSuccess;
-            action.AttackSuccessDelta = 0;
+            outcome = RollOutcome.CriticalSuccess;
         }
     }
 
@@ -304,12 +304,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = "Reaction/&CustomReactionRavenDeadlyAimReactDescription"
-            };
+            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("RavenDeadlyAim", reactionParams);
+            var reactionRequest = new ReactionRequestCustom("RavenScionDeadlyFocus", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
