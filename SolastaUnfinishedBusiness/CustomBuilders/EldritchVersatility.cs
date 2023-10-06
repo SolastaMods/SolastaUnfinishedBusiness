@@ -349,7 +349,7 @@ internal static class EldritchVersatility
                     break;
                 case PointUsage.BlastBreakthrough:
                     modifyCurrent = -BeamNumber;
-                    if (StrPowerPriority[0] != "Feature/&BlastBreakthroughTitle")
+                    if (StrPowerPriority[0] != "BlastBreakthroughTitle")
                     {
                         modifyCurrent -= BeamNumber;
                     }
@@ -357,7 +357,7 @@ internal static class EldritchVersatility
                     break;
                 case PointUsage.BlastEmpower:
                     modifyCurrent = -BeamNumber;
-                    if (StrPowerPriority[0] != "Feature/&BlastEmpowerTitle")
+                    if (StrPowerPriority[0] != "BlastEmpowerTitle")
                     {
                         modifyCurrent -= BeamNumber;
                     }
@@ -773,11 +773,11 @@ internal static class EldritchVersatility
 
             if (invocation.Active)
             {
-                supportCondition.StrPowerPriority.Add("Feature/&BlastBreakthroughTitle");
+                supportCondition.StrPowerPriority.Add("BlastBreakthroughTitle");
             }
             else
             {
-                supportCondition.StrPowerPriority.Remove("Feature/&BlastBreakthroughTitle");
+                supportCondition.StrPowerPriority.Remove("BlastBreakthroughTitle");
             }
         }
     }
@@ -1281,11 +1281,11 @@ internal static class EldritchVersatility
 
             if (invocation.Active)
             {
-                supportCondition.StrPowerPriority.Add("Feature/&BlastEmpowerTitle");
+                supportCondition.StrPowerPriority.Add("BlastEmpowerTitle");
             }
             else
             {
-                supportCondition.StrPowerPriority.Remove("Feature/&BlastEmpowerTitle");
+                supportCondition.StrPowerPriority.Remove("BlastEmpowerTitle");
             }
         }
     }
@@ -1369,7 +1369,7 @@ internal static class EldritchVersatility
                 !invocation.Active && invocation.invocationDefinition.Name == InvocationName);
 
             if (invocation != default(RulesetInvocation) &&
-                supportCondition.StrPowerPriority.Contains("Feature/&BlastEmpowerTitle"))
+                supportCondition.StrPowerPriority.Contains("BlastEmpowerTitle"))
             {
                 invocation.Toggle();
             }

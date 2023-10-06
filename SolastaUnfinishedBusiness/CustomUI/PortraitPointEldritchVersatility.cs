@@ -35,7 +35,7 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
             currentPoints,
             maxPoints,
             Gui.Localize($"Attribute/&{supportCondition.ReplacedAbilityScore}TitleLong"),
-            string.Join(", ", supportCondition.StrPowerPriority.Select(s => s.Localized())));
+            string.Join(", ", supportCondition.StrPowerPriority.Select(s => s.Localized(Category.Feature))));
     }
 
     public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
